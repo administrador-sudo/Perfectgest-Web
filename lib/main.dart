@@ -14,6 +14,7 @@ import 'seo_meta_stub.dart' if (dart.library.html) 'seo_meta_web.dart' as seo_me
 
 /// Loops, parallax e oscilações contínuas — respeita “reduzir movimento” do SO/navegador.
 bool allowRichMotion(BuildContext context) {
+  if (kIsWeb) return false;
   if (MediaQuery.disableAnimationsOf(context)) return false;
   if (SchedulerBinding.instance.platformDispatcher.accessibilityFeatures.reduceMotion) {
     return false;
@@ -49,7 +50,7 @@ class _PerfectProSiteAppState extends State<PerfectProSiteApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'PerfectGest I',
+      title: 'PerfectGest',
       theme: buildPerfectProLightTheme(),
       darkTheme: buildPerfectProDarkTheme(),
       themeMode: _themeMode,
@@ -74,13 +75,20 @@ class _SiteHomePageState extends State<SiteHomePage> {
   final GlobalKey _portfolioKey = GlobalKey();
   final GlobalKey _contactKey = GlobalKey();
   static const double _headerHeight = 76;
+  static const Duration _heavySectionsDelay = Duration(milliseconds: 900);
   int _mobileNavIndex = 0;
+  bool _deferHeavySections = true;
 
   @override
   void initState() {
     super.initState();
     seo_meta.applyHomePageSeoMetaTags();
     _scrollController.addListener(_onScroll);
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      await Future<void>.delayed(_heavySectionsDelay);
+      if (!mounted) return;
+      setState(() => _deferHeavySections = false);
+    });
   }
 
   void _onScroll() {
@@ -174,22 +182,28 @@ class _SiteHomePageState extends State<SiteHomePage> {
               children: [
                 SizedBox(height: isMobileNav ? 12 : _headerHeight + 12),
                 HeroSection(key: _homeKey, scrollListenable: _scrollPixels),
-                SectionCard(
-                  key: _solutionsKey,
-                  title: 'Solucoes (App/Web)',
-                  child: AnimatedSolutionsSectionContent(scrollListenable: _scrollPixels),
-                ),
-                SectionCard(
-                  key: _portfolioKey,
-                  title: 'Portfolio',
-                  child: const PortfolioMotionBlock(),
-                ),
-                SectionCard(
-                  key: _contactKey,
-                  title: 'Contato',
-                  child: const ContactMotionBlock(),
-                ),
-                _HomeComplianceFooter(onToggleTheme: widget.onToggleTheme),
+                if (_deferHeavySections) ...[
+                  const _DeferredSectionSkeleton(title: 'Solucoes (App/Web)', key: ValueKey('sk-solutions')),
+                  const _DeferredSectionSkeleton(title: 'Portfolio', key: ValueKey('sk-portfolio')),
+                  const _DeferredSectionSkeleton(title: 'Contato', key: ValueKey('sk-contact')),
+                ] else ...[
+                  SectionCard(
+                    key: _solutionsKey,
+                    title: 'Solucoes (App/Web)',
+                    child: AnimatedSolutionsSectionContent(scrollListenable: _scrollPixels),
+                  ),
+                  SectionCard(
+                    key: _portfolioKey,
+                    title: 'Portfolio',
+                    child: const PortfolioMotionBlock(),
+                  ),
+                  SectionCard(
+                    key: _contactKey,
+                    title: 'Contato',
+                    child: const ContactMotionBlock(),
+                  ),
+                  _HomeComplianceFooter(onToggleTheme: widget.onToggleTheme),
+                ],
                 SizedBox(height: kIsWeb ? 100 : 24),
               ],
             ),
@@ -291,7 +305,7 @@ class _SobreNosPageState extends State<SobreNosPage> {
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
     return Semantics(
-      label: 'Pagina institucional Sobre nos da PerfectGest I',
+      label: 'Pagina institucional Sobre nos da PerfectGest',
       child: Scaffold(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         appBar: AppBar(
@@ -342,7 +356,7 @@ class _SobreNosPageState extends State<SobreNosPage> {
                         Semantics(
                           header: true,
                           child: Text(
-                            'PerfectGest I',
+                            'PerfectGest',
                             style: GoogleFonts.inter(
                               fontSize: 13,
                               letterSpacing: 0.6,
@@ -510,7 +524,7 @@ class _SobreNosLegalFooter extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      '© $year PerfectGest I. Todos os direitos reservados.',
+                      '© $year PerfectGest. Todos os direitos reservados.',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.inter(
                         fontSize: 13,
@@ -520,7 +534,7 @@ class _SobreNosLegalFooter extends StatelessWidget {
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      'Marca, logotipos, textos e ilustrações deste site são de uso exclusivo da PerfectGest I, salvo indicação em contrário. '
+                      'Marca, logotipos, textos e ilustrações deste site são de uso exclusivo da PerfectGest, salvo indicação em contrário. '
                       'É proibida a reprodução total ou parcial para fins comerciais sem autorização prévia por escrito.',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.inter(
@@ -686,7 +700,7 @@ class _HomeComplianceFooter extends StatelessWidget {
         final maxCard = (w < 720 ? w - padH * 2 : 720.0).clamp(200.0, 720.0);
         final stackLinks = w < 440;
         return Semantics(
-          label: 'Privacidade, dados, cookies e termos PerfectGest I',
+          label: 'Privacidade, dados, cookies e termos PerfectGest',
           child: Padding(
             padding: EdgeInsets.fromLTRB(padH, 20, padH, 8),
             child: Center(
@@ -714,7 +728,7 @@ class _HomeComplianceFooter extends StatelessWidget {
                         ),
                         SizedBox(height: w < 360 ? 6 : 8),
                         Text(
-                          'Leia a política completa da PerfectGest I (privacidade, dados, cookies e termos). '
+                          'Leia a política completa da PerfectGest (privacidade, dados, cookies e termos). '
                           'Para serviços Google (ex.: Analytics), aplicam-se também as políticas oficiais do Google.',
                           style: GoogleFonts.inter(
                             fontSize: w < 360 ? 12 : 12.5,
@@ -947,7 +961,7 @@ Future<void> _openSacEmail() async {
       'view': 'cm',
       'fs': '1',
       'to': kEmailSac,
-      'su': 'Contato PerfectGest I',
+      'su': 'Contato PerfectGest',
     });
     await launchUrl(
       gmailCompose,
@@ -959,7 +973,7 @@ Future<void> _openSacEmail() async {
   final uri = Uri(
     scheme: 'mailto',
     path: kEmailSac,
-    queryParameters: const {'subject': 'Contato PerfectGest I'},
+    queryParameters: const {'subject': 'Contato PerfectGest'},
   );
   await launchUrl(uri, mode: LaunchMode.platformDefault);
 }
@@ -1028,7 +1042,7 @@ class SiteHeader extends StatelessWidget {
                     style: TextButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 6)),
                     onPressed: _openSiteUrl,
                     child: Text(
-                      'PerfectGest I',
+                      'PerfectGest',
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
@@ -1044,7 +1058,7 @@ class SiteHeader extends StatelessWidget {
               TextButton(
                 onPressed: _openSiteUrl,
                 child: Text(
-                  'PerfectGest I',
+                  'PerfectGest',
                   style: TextStyle(
                     color: cs.primary,
                     fontSize: 24,
@@ -1459,8 +1473,7 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
                     spacing: 16,
                     runSpacing: 16,
                     children: [
-                      _floatedDevice(0, const DeviceFrame(title: 'Android 14', width: 190, height: 338, radius: 34, imageAsset: 'IMAGENS_APP/Screenshot/PerfectGest (1).png', fallbackImageAsset: 'IMAGENS_APP/Screenshot_20260423-120800.jpg', imageLeft: 27, imageTop: 20, imageWidth: 136, imageHeight: 297)),
-                      _floatedDevice(1, const DeviceFrame(title: 'iPhone 15 Pro', width: 190, height: 338, radius: 38, imageAsset: 'IMAGENS_APP/Screenshot/PerfectGest (2).png', fallbackImageAsset: 'IMAGENS_APP/Screenshot_20260423-120808.jpg', imageLeft: 25, imageTop: 20, imageWidth: 140, imageHeight: 297)),
+                      _floatedDevice(0, const DeviceFrame(title: 'Android 14', width: 190, height: 338, radius: 34, imageAsset: 'IMAGENS_APP/Screenshot/PerfectGest (2).png', fallbackImageAsset: 'IMAGENS_APP/Screenshot_20260423-120800.jpg', imageLeft: 27, imageTop: 20, imageWidth: 136, imageHeight: 297)),
                     ],
                   ),
                 );
@@ -1718,7 +1731,7 @@ class _ContactMotionBlockState extends State<ContactMotionBlock> with TickerProv
               ),
               onPressed: () => _openWhatsApp(
                     prefilledBody:
-                        'Olá! Gostaria de falar com a PerfectGest I sobre um projeto.\n\n',
+                        'Olá! Gostaria de falar com a PerfectGest sobre um projeto.\n\n',
                   ),
               icon: const Icon(Icons.send_rounded),
               label: const Text('Enviar mensagem (WhatsApp)'),
@@ -1913,6 +1926,47 @@ class SectionCard extends StatelessWidget {
               child,
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class _DeferredSectionSkeleton extends StatelessWidget {
+  const _DeferredSectionSkeleton({required this.title, super.key});
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(24, 10, 24, 12),
+      child: Container(
+        width: double.infinity,
+        padding: const EdgeInsets.all(22),
+        decoration: BoxDecoration(
+          color: cs.surfaceContainerHighest,
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(color: cs.outline.withValues(alpha: 0.45)),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              title,
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: cs.onSurface.withValues(alpha: 0.72)),
+            ),
+            const SizedBox(height: 12),
+            Container(
+              width: double.infinity,
+              height: 64,
+              decoration: BoxDecoration(
+                color: cs.surface.withValues(alpha: 0.9),
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+          ],
         ),
       ),
     );

@@ -7,7 +7,7 @@ import 'app_theme.dart';
 import 'seo_meta_stub.dart' if (dart.library.html) 'seo_meta_web.dart' as seo_meta;
 import 'web_cookie_consent_stub.dart' if (dart.library.html) 'web_cookie_consent_web.dart' as cookie_consent;
 
-/// Política própria PerfectGest I: privacidade, dados, cookies e termos (alinhado a boas práticas Google para sites e medição).
+/// Política própria PerfectGest: privacidade, dados, cookies e termos (alinhado a boas práticas Google para sites e medição).
 class PoliticaPrivacidadePage extends StatefulWidget {
   const PoliticaPrivacidadePage({super.key, this.onToggleTheme});
 
@@ -36,7 +36,7 @@ class _PoliticaPrivacidadePageState extends State<PoliticaPrivacidadePage> {
     final w = MediaQuery.sizeOf(context).width;
     final padH = w < 400 ? 16.0 : 24.0;
     return Semantics(
-      label: 'Politica de privacidade, dados, cookies e termos PerfectGest I',
+      label: 'Politica de privacidade, dados, cookies e termos PerfectGest',
       child: Scaffold(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         appBar: AppBar(
@@ -78,7 +78,7 @@ class _PoliticaPrivacidadePageState extends State<PoliticaPrivacidadePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'PerfectGest I',
+                        'PerfectGest',
                         style: GoogleFonts.inter(fontSize: 13, fontWeight: FontWeight.w700, color: cs.primary, letterSpacing: 0.4),
                       ),
                       const SizedBox(height: 6),
@@ -100,7 +100,7 @@ class _PoliticaPrivacidadePageState extends State<PoliticaPrivacidadePage> {
                       _PoliticaSection(
                         title: '1. Quem somos',
                         body:
-                            'O presente site é operado pela PerfectGest I (“nós”, “nossa”). Somos uma software house focada em desenvolvimento de software (mobile, web e desktop), '
+                            'O presente site é operado pela PerfectGest (“nós”, “nossa”). Somos uma software house focada em desenvolvimento de software (mobile, web e desktop), '
                             'consultoria técnica e conteúdo institucional. O domínio de referência do projeto é perfectpro-webpageoficial.onrender.com.',
                       ),
                       _PoliticaSection(
@@ -143,7 +143,7 @@ class _PoliticaPrivacidadePageState extends State<PoliticaPrivacidadePage> {
                       _PoliticaSection(
                         title: '7. Termos de uso do site',
                         body:
-                            'O conteúdo deste site (textos, identidade visual e materiais) destina-se a informação sobre a PerfectGest I. A reprodução não autorizada para fins comerciais pode ser proibida. '
+                            'O conteúdo deste site (textos, identidade visual e materiais) destina-se a informação sobre a PerfectGest. A reprodução não autorizada para fins comerciais pode ser proibida. '
                             'Os links externos são fornecidos por conveniência; não controlamos sites de terceiros. O uso do site é por sua conta e risco, na medida permitida pela lei.',
                       ),
                       const SizedBox(height: 20),
@@ -195,7 +195,7 @@ class _PoliticaPrivacidadePageState extends State<PoliticaPrivacidadePage> {
                       ),
                       const SizedBox(height: 24),
                       Text(
-                        '© ${DateTime.now().year} PerfectGest I. Todos os direitos reservados.',
+                        '© ${DateTime.now().year} PerfectGest. Todos os direitos reservados.',
                         textAlign: TextAlign.center,
                         style: GoogleFonts.inter(fontSize: 12, color: cs.onSurface.withValues(alpha: 0.65)),
                       ),

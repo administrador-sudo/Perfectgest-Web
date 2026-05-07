@@ -565,3 +565,218 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 ### Proximos passos recomendados
 - Rodar novamente o publish com mensagem curta sem caracteres especiais.
 - Validar deploy no Render apos push.
+
+## [2026-05-07 12:51] Pacote de otimizacao Core Web Vitals (LCP/SI)
+
+### Contexto
+- Pedido: aplicar pacote de otimizacao focado em LCP e Speed Index no `Web_app`.
+- Escopo: `lib/main.dart` e `web/index.html`.
+
+### Arquivos alterados
+- lib/main.dart
+- web/index.html
+- docs/Atualiza.md
+
+### O que foi feito
+- Reduzido custo de runtime inicial na Web:
+  - `allowRichMotion()` agora retorna `false` em ambiente web para evitar loops/efeitos pesados no primeiro paint.
+- Implementado adiamento de secoes pesadas abaixo da dobra:
+  - carregamento postergado de `Solucoes`, `Portfolio` e `Contato` por ~900ms apos first frame;
+  - adicionado skeleton leve temporario para manter estabilidade visual.
+- Adicionado loading shell HTML no `index.html`:
+  - renderiza conteudo imediato antes do Flutter inicializar (melhora percepcao e favorece LCP/SI);
+  - remocao automatica ao `flutter-first-frame`/deteccao do `flt-glass-pane`.
+
+### Risco de regressao
+- Medio: mudanca de comportamento visual (menos animacoes no web e carregamento progressivo de secoes).
+- Pontos sensiveis: validar UX da transicao skeleton -> conteudo real.
+
+### Validacao executada
+- [x] Revisao manual dos pontos alterados
+- [x] Lint sem erros nos ficheiros alterados
+- [ ] Build web local completo
+- [ ] Reavaliacao PSI/Lighthouse apos deploy
+
+### Resultado
+- Comportamento esperado apos a mudanca: menor custo de render inicial, melhora de Speed Index e maior consistencia de LCP no PSI/Lighthouse.
+- Pendencias: publicar e comparar metricas antes/depois (Desktop e Mobile).
+
+### Proximos passos recomendados
+- Publicar novo build no Render.
+- Rodar PageSpeed Insights 3x (desktop/mobile) e comparar mediana de LCP/SI.
+
+## [2026-05-07 12:54] Sincronizacao offline/online no mesmo artefato (build/web)
+
+### Contexto
+- Pedido: garantir que servidor local atualize igual ao online, lendo as mudancas na mesma pasta com `F5`.
+- Escopo: pipeline de build/publicacao e servidor local de preview.
+
+### Arquivos alterados
+- scripts/publish-web.cjs
+- scripts/serve-build-web.cjs
+- package.json
+- docs/Atualiza.md
+
+### O que foi feito
+- Padronizado build de deploy com `--pwa-strategy=none` para reduzir cache agressivo de service worker.
+- Criado servidor local dedicado ao artefato final `build/web`:
+  - script `scripts/serve-build-web.cjs` (Express);
+  - headers `no-store/no-cache` para refletir mudancas no `F5`.
+- Adicionados scripts npm para fluxo espelhado ao online:
+  - `build:web:sync`
+  - `serve:web:sync`
+  - `local:web:sync` (build + serve na mesma pasta `build/web`).
+
+### Risco de regressao
+- Baixo: alteracao em automacao/servidor local.
+- Pontos sensiveis: confirmar que ambiente de deploy nao depende de service worker anterior.
+
+### Validacao executada
+- [x] Revisao manual dos scripts alterados
+- [ ] Execucao local de `npm run local:web:sync`
+- [ ] Validacao de refresh com `F5` no servidor local
+- [ ] Novo deploy e validacao no Render
+
+### Resultado
+- Comportamento esperado apos a mudanca: offline e online passam a refletir o mesmo artefato (`build/web`) e o `F5` local recarrega as mudancas sem ficar preso em cache antigo.
+- Pendencias: rodar o novo comando local e validar no browser.
+
+### Proximos passos recomendados
+- Executar `npm run local:web:sync`.
+- Depois publicar e validar online em aba anonima.
+
+## [2026-05-07 12:54] Correcao de compatibilidade do servidor local (Express 5)
+
+### Contexto
+- Pedido: manter sincronia offline/online com refresh simples.
+- Escopo: servidor local `scripts/serve-build-web.cjs`.
+
+### Arquivos alterados
+- scripts/serve-build-web.cjs
+- docs/Atualiza.md
+
+### O que foi feito
+- Corrigido fallback de rota SPA:
+  - de `app.get('*', ...)` para `app.use(...)`
+- Ajuste necessario por mudanca de parsing de rotas no Express 5.
+
+### Risco de regressao
+- Baixo: ajuste pontual de roteamento fallback.
+- Pontos sensiveis: confirmar abertura direta de subrotas (SPA).
+
+### Validacao executada
+- [x] Reproducao do erro local no servidor
+- [x] Correcao no script
+- [ ] Subida final do servidor
+- [ ] Teste manual com `F5`
+
+### Resultado
+- Comportamento esperado apos a mudanca: servidor local sobe corretamente e serve `build/web` com fallback SPA.
+- Pendencias: iniciar servidor e validar no browser.
+
+### Proximos passos recomendados
+- Rodar `npm run serve:web:sync` apos build.
+- Validar `F5` e navegacao de rotas.
+
+## [2026-05-07 13:24] Remocao do mockup iPhone 15 Pro em Solucoes (App/Web)
+
+### Contexto
+- Pedido: retirar a tela com nome "iPhone 15 Pro" no bloco `Solucoes (App/Web)`.
+- Escopo: composicao visual dos mockups em `lib/main.dart`.
+
+### Arquivos alterados
+- lib/main.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- Removido o segundo `DeviceFrame` com titulo `iPhone 15 Pro`.
+- Mantido apenas o mockup `Android 14` no bloco de dispositivos.
+
+### Risco de regressao
+- Baixo: alteracao de layout sem impacto funcional.
+- Pontos sensiveis: revisar espacamento visual com apenas um card.
+
+### Validacao executada
+- [x] Revisao manual do trecho alterado
+- [ ] Analise estatica/lint
+- [ ] Build local
+- [ ] Teste manual do fluxo impactado
+
+### Resultado
+- Comportamento esperado apos a mudanca: bloco `Solucoes (App/Web)` exibe somente um mockup, sem card `iPhone 15 Pro`.
+- Pendencias: validacao visual no navegador.
+
+### Proximos passos recomendados
+- Atualizar no browser com `F5`.
+- Ajustar alinhamento do card, se desejar centralizar visualmente.
+
+## [2026-05-07 13:26] Troca da imagem do mockup restante para PerfectGest (2)
+
+### Contexto
+- Pedido: trocar a imagem da tela restante no bloco `Solucoes (App/Web)` para `PerfectGest (2)`.
+- Escopo: `DeviceFrame` unico em `lib/main.dart`.
+
+### Arquivos alterados
+- lib/main.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- Alterado `imageAsset` do mockup restante de:
+  - `IMAGENS_APP/Screenshot/PerfectGest (1).png`
+  para:
+  - `IMAGENS_APP/Screenshot/PerfectGest (2).png`
+
+### Risco de regressao
+- Baixo: alteracao apenas de referencia de asset.
+- Pontos sensiveis: verificar enquadramento/crop da nova imagem.
+
+### Validacao executada
+- [x] Revisao manual do caminho alterado
+- [ ] Analise estatica/lint
+- [ ] Build local
+- [ ] Teste manual do fluxo impactado
+
+### Resultado
+- Comportamento esperado apos a mudanca: bloco `Solucoes (App/Web)` exibe a imagem `PerfectGest (2)` no unico mockup.
+- Pendencias: validacao visual no navegador.
+
+### Proximos passos recomendados
+- Recarregar com `F5` em `http://localhost:8100`.
+
+## [2026-05-07 13:31] Padronizacao global de nome para PerfectGest
+
+### Contexto
+- Pedido: alterar a palavra/nome `PerfectGest I` para `PerfectGest` em todos os textos do site.
+- Escopo: UI, textos institucionais e metadados SEO/PWA.
+
+### Arquivos alterados
+- lib/main.dart
+- lib/politica_page.dart
+- lib/tecnologias_page.dart
+- lib/seo_meta_web.dart
+- web/index.html
+- web/manifest.json
+- docs/Atualiza.md
+
+### O que foi feito
+- Substituido `PerfectGest I` por `PerfectGest` em textos exibidos na interface.
+- Atualizados titulos/descricoes SEO e Open Graph com o novo nome.
+- Atualizados `title` HTML e nome/short_name do manifesto web.
+
+### Risco de regressao
+- Baixo: mudanca textual e de metadados, sem alteracao de logica.
+- Pontos sensiveis: cache de navegador e manifesto podem exigir refresh forte.
+
+### Validacao executada
+- [x] Revisao manual dos arquivos alterados
+- [x] Busca global em `lib/` e `web/` sem ocorrencias remanescentes de `PerfectGest I`
+- [ ] Build local
+- [ ] Teste manual no navegador
+
+### Resultado
+- Comportamento esperado apos a mudanca: nome `PerfectGest` padronizado em todo o site.
+- Pendencias: validar no browser com `Ctrl + F5` (incluindo titulo da aba e textos institucionais).
+
+### Proximos passos recomendados
+- Rebuild local (`npm run build:web:sync`) e atualizar no `localhost`.
+- Publicar no remoto para refletir online.
