@@ -134,16 +134,6 @@ class _SiteHomePageState extends State<SiteHomePage> {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final cs = Theme.of(context).colorScheme;
     return Scaffold(
-      floatingActionButton: isMobileNav
-          ? FloatingActionButton.small(
-              tooltip: isDark ? 'Tema claro' : 'Tema escuro',
-              onPressed: widget.onToggleTheme,
-              child: Icon(
-                isDark ? Icons.light_mode_rounded : Icons.dark_mode_rounded,
-                color: cs.primary,
-              ),
-            )
-          : null,
       bottomNavigationBar: isMobileNav
           ? NavigationBar(
               selectedIndex: _mobileNavIndex,
@@ -219,6 +209,23 @@ class _SiteHomePageState extends State<SiteHomePage> {
                       MaterialPageRoute<void>(builder: (_) => SobreNosPage(onToggleTheme: widget.onToggleTheme)),
                     ),
                 onContact: () => _scrollTo(_contactKey),
+              ),
+            ),
+          if (isMobileNav)
+            Positioned(
+              top: 12,
+              right: 12,
+              child: Material(
+                color: cs.surface.withValues(alpha: 0.92),
+                shape: const CircleBorder(),
+                child: IconButton(
+                  tooltip: isDark ? 'Tema claro' : 'Tema escuro',
+                  onPressed: widget.onToggleTheme,
+                  icon: Icon(
+                    isDark ? Icons.light_mode_rounded : Icons.dark_mode_rounded,
+                    color: cs.primary,
+                  ),
+                ),
               ),
             ),
           if (kIsWeb)
@@ -1026,7 +1033,7 @@ class SiteHeader extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
                         color: cs.primary,
-                        fontSize: 17,
+                        fontSize: 20,
                         fontWeight: FontWeight.w800,
                       ),
                     ),
@@ -1040,7 +1047,7 @@ class SiteHeader extends StatelessWidget {
                   'PerfectGest I',
                   style: TextStyle(
                     color: cs.primary,
-                    fontSize: 20,
+                    fontSize: 24,
                     fontWeight: FontWeight.w800,
                   ),
                 ),
@@ -1194,6 +1201,10 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
               child: AnimatedBuilder(
                 animation: _ambient,
                 builder: (context, _) {
+                  final screenWidth = MediaQuery.sizeOf(context).width;
+                  final isCompactHero = screenWidth < 760;
+                  final heroTitleSize = isCompactHero ? 28.0 : 36.0;
+                  final heroSubtitleSize = isCompactHero ? 15.0 : 18.0;
                   final pulse = motion ? (0.45 + 0.55 * (0.5 + 0.5 * math.sin(_ambient.value * math.pi * 2))) : 0.55;
                   final beat = motion ? (0.5 + 0.5 * math.sin(_ambient.value * math.pi * 6)) : 0.5;
                   final borderColor = Color.lerp(cs.outline, cs.primary, pulse * 0.55)!;
@@ -1248,50 +1259,15 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
                         Semantics(
                           header: true,
                           child: Text(
-                            'PerfectGest I',
+                            'PerfectGest',
                             style: GoogleFonts.inter(
-                              fontSize: 13,
+                              fontSize: heroSubtitleSize,
                               letterSpacing: 0.5,
-                              fontWeight: FontWeight.w700,
+                              fontWeight: FontWeight.w800,
                               color: cs.primary,
                             ),
                           ),
                         ),
-                        const SizedBox(height: 10),
-                        staticDecor
-                            ? ShaderMask(
-                                blendMode: BlendMode.srcIn,
-                                shaderCallback: (bounds) {
-                                  final angle = motion ? _ambient.value * math.pi * 1.25 : 0.0;
-                                  return LinearGradient(
-                                    colors: [
-                                      cs.onSurface.withValues(alpha: 0.55),
-                                      cs.primary,
-                                      cs.onSurface.withValues(alpha: 0.85),
-                                    ],
-                                    stops: const [0.15, 0.5, 0.85],
-                                    transform: GradientRotation(angle),
-                                  ).createShader(bounds);
-                                },
-                                child: const Text(
-                                  'Tiramos sua ideia do papel com engenharia de software de ponta. Fabricamos ferramentas digitais de alta performance para facilitar o seu dia a dia.\nChega de sistemas lentos. Desenvolvemos apps e soluções web focados em performance, escalabilidade e eficiência máxima para o seu negócio.',
-                                  style: TextStyle(
-                                    fontSize: 19,
-                                    fontWeight: FontWeight.w800,
-                                    height: 1.12,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              )
-                            : Text(
-                                'Tiramos sua ideia do papel com engenharia de software de ponta. Fabricamos ferramentas digitais de alta performance para facilitar o seu dia a dia.\nChega de sistemas lentos. Desenvolvemos apps e soluções web focados em performance, escalabilidade e eficiência máxima para o seu negócio.',
-                                style: TextStyle(
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.w800,
-                                  height: 1.12,
-                                  color: cs.onSurface,
-                                ),
-                              ),
                         const SizedBox(height: 10),
                         Semantics(
                           header: true,
@@ -1311,21 +1287,64 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
                                       transform: GradientRotation(angle),
                                     ).createShader(bounds);
                                   },
-                                  child: const Text(
+                                  child: Text(
                                     'Inovacao em Flutter, Java e SDKs',
-                                    style: TextStyle(fontSize: 30.4, fontWeight: FontWeight.w800, height: 1.12, color: Colors.white),
+                                    style: TextStyle(
+                                      fontSize: heroSubtitleSize,
+                                      fontWeight: FontWeight.w800,
+                                      height: 1.15,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 )
                               : Text(
                                   'Inovacao em Flutter, Java e SDKs',
-                                  style: TextStyle(fontSize: 30.4, fontWeight: FontWeight.w800, height: 1.12, color: cs.onSurface),
+                                  style: TextStyle(
+                                    fontSize: heroSubtitleSize,
+                                    fontWeight: FontWeight.w800,
+                                    height: 1.15,
+                                    color: cs.onSurface,
+                                  ),
                                 ),
                         ),
+                        const SizedBox(height: 10),
+                        staticDecor
+                            ? ShaderMask(
+                                blendMode: BlendMode.srcIn,
+                                shaderCallback: (bounds) {
+                                  final angle = motion ? _ambient.value * math.pi * 1.25 : 0.0;
+                                  return LinearGradient(
+                                    colors: [
+                                      cs.onSurface.withValues(alpha: 0.55),
+                                      cs.primary,
+                                      cs.onSurface.withValues(alpha: 0.85),
+                                    ],
+                                    stops: const [0.15, 0.5, 0.85],
+                                    transform: GradientRotation(angle),
+                                  ).createShader(bounds);
+                                },
+                                child: Text(
+                                  'Criamos apps Flutter, sistemas web e integrações Java/SDK com foco em performance, segurança e escalabilidade para o seu negócio.',
+                                  style: GoogleFonts.inter(
+                                    fontSize: heroSubtitleSize,
+                                    height: 1.45,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              )
+                            : Text(
+                                'Criamos apps Flutter, sistemas web e integrações Java/SDK com foco em performance, segurança e escalabilidade para o seu negócio.',
+                                style: GoogleFonts.inter(
+                                  fontSize: heroSubtitleSize,
+                                  height: 1.45,
+                                  color: cs.onSurface,
+                                ),
+                              ),
                         const SizedBox(height: 12),
                         Text(
-                          'Software house: aplicativos mobile, sites rapidos (Core Web Vitals), desktop Windows e integracao de SDKs — codigo limpo, seguranca e SEO.',
+                          'Software house especializada em aplicativo mobile, plataforma web rápida (Core Web Vitals) e SEO técnico para crescer no Google.',
                           style: GoogleFonts.inter(
-                            fontSize: 13.5,
+                            fontSize: heroSubtitleSize,
                             height: 1.45,
                             color: cs.onSurface.withValues(alpha: 0.72),
                           ),
@@ -1346,22 +1365,22 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
                                     transform: GradientRotation(angle),
                                   ).createShader(bounds);
                                 },
-                                child: const Text(
-                                  'Desenvolvendo o futuro mobile e web com codigo limpo',
+                                child: Text(
+                                  'Soluções digitais com arquitetura robusta, código limpo e resultados mensuráveis.',
                                   style: TextStyle(
-                                    fontSize: 30.4,
+                                    fontSize: heroSubtitleSize,
                                     fontWeight: FontWeight.w800,
-                                    height: 1.12,
+                                    height: 1.15,
                                     color: Colors.white,
                                   ),
                                 ),
                               )
                             : Text(
-                                'Desenvolvendo o futuro mobile e web com codigo limpo',
+                                'Soluções digitais com arquitetura robusta, código limpo e resultados mensuráveis.',
                                 style: TextStyle(
-                                  fontSize: 30.4,
+                                  fontSize: heroSubtitleSize,
                                   fontWeight: FontWeight.w800,
-                                  height: 1.12,
+                                  height: 1.15,
                                   color: cs.onSurface.withValues(alpha: 0.78),
                                 ),
                               ),
@@ -1440,8 +1459,8 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
                     spacing: 16,
                     runSpacing: 16,
                     children: [
-                      _floatedDevice(0, const DeviceFrame(title: 'Android 14', width: 190, height: 338, radius: 34, imageAsset: 'IMAGENS_APP/Screenshot/image_4a146e77.png', fallbackImageAsset: 'IMAGENS_APP/Screenshot_20260423-120800.jpg', imageLeft: 27, imageTop: 20, imageWidth: 136, imageHeight: 297)),
-                      _floatedDevice(1, const DeviceFrame(title: 'iPhone 15 Pro', width: 190, height: 338, radius: 38, imageAsset: 'IMAGENS_APP/Screenshot/image_592a925d.png', fallbackImageAsset: 'IMAGENS_APP/Screenshot_20260423-120808.jpg', imageLeft: 25, imageTop: 20, imageWidth: 140, imageHeight: 297)),
+                      _floatedDevice(0, const DeviceFrame(title: 'Android 14', width: 190, height: 338, radius: 34, imageAsset: 'IMAGENS_APP/Screenshot/PerfectGest (1).png', fallbackImageAsset: 'IMAGENS_APP/Screenshot_20260423-120800.jpg', imageLeft: 27, imageTop: 20, imageWidth: 136, imageHeight: 297)),
+                      _floatedDevice(1, const DeviceFrame(title: 'iPhone 15 Pro', width: 190, height: 338, radius: 38, imageAsset: 'IMAGENS_APP/Screenshot/PerfectGest (2).png', fallbackImageAsset: 'IMAGENS_APP/Screenshot_20260423-120808.jpg', imageLeft: 25, imageTop: 20, imageWidth: 140, imageHeight: 297)),
                     ],
                   ),
                 );

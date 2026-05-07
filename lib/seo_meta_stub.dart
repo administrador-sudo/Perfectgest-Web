@@ -6,6 +6,8 @@ void applyHomePageSeoMetaTags() {}
 
 void applyAboutPageSeoMetaTags() {}
 
+void applyTecnologiasSeoMetaTags() {}
+
 void applyPoliticaSeoMetaTags() {}
 
 void restoreGlobalSeoMetaTags() {}

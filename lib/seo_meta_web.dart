@@ -3,28 +3,37 @@ import 'package:web/web.dart' as web;
 const String _kMetaDescriptionHome =
     'Software house especialista em Flutter, Java e SDKs para apps mobile, web e desktop com alta performance.';
 const String _kMetaKeywordsHome = 'Flutter, Java, SDK, PWA, SEO, Google Search Console, mobile, web, desktop';
-const String _kOgTitleHome = 'Codificando o Amanha, Hoje | PerfectPro';
+const String _kOgTitleHome = 'Codificando o Amanha, Hoje | PerfectGest I';
 const String _kOgDescriptionHome =
     'Inovacao em Flutter, Java e SDKs com foco em codigo limpo, escala e performance.';
-const String _kDocumentTitleHome = 'Codificando o Amanha, Hoje | PerfectPro';
+const String _kDocumentTitleHome = 'Codificando o Amanha, Hoje | PerfectGest I';
 
 const String _kMetaDescriptionAbout =
-    'Sobre a PerfectPro: software house em Flutter, Java e SDKs. Apps nativos, web rapida, desktop Windows, Clean Architecture, seguranca e escalabilidade.';
+    'Sobre a PerfectGest I: software house em Flutter, Java e SDKs. Apps nativos, web rapida, desktop Windows, Clean Architecture, seguranca e escalabilidade.';
 const String _kMetaKeywordsAbout =
-    'PerfectPro, sobre nos, software house, Flutter, Java, desenvolvimento mobile, web, desktop, PWA, Clean Architecture';
-const String _kOgTitleAbout = 'Sobre nos | PerfectPro';
+    'PerfectGest I, sobre nos, software house, Flutter, Java, desenvolvimento mobile, web, desktop, PWA, Clean Architecture';
+const String _kOgTitleAbout = 'Sobre nos | PerfectGest I';
 const String _kOgDescriptionAbout =
-    'Missao, solucoes em app e web, desktop Windows e diferenciais da PerfectPro.';
-const String _kDocumentTitleAbout = 'Sobre nos | PerfectPro';
+    'Missao, solucoes em app e web, desktop Windows e diferenciais da PerfectGest I.';
+const String _kDocumentTitleAbout = 'Sobre nos | PerfectGest I';
 
 const String _kMetaDescriptionPolitica =
-    'Politica de privacidade, dados pessoais, cookies e termos de uso do site PerfectPro — software house Flutter e Java.';
+    'Politica de privacidade, dados pessoais, cookies e termos de uso do site PerfectGest I — software house Flutter e Java.';
 const String _kMetaKeywordsPolitica =
-    'PerfectPro, politica de privacidade, cookies, termos de uso, RGPD, dados pessoais, Google Analytics';
-const String _kOgTitlePolitica = 'Privacidade, dados e cookies | PerfectPro';
+    'PerfectGest I, politica de privacidade, cookies, termos de uso, RGPD, dados pessoais, Google Analytics';
+const String _kOgTitlePolitica = 'Privacidade, dados e cookies | PerfectGest I';
 const String _kOgDescriptionPolitica =
-    'Como tratamos dados, cookies de medição, direitos do titular e termos de uso do site institucional PerfectPro.';
-const String _kDocumentTitlePolitica = 'Privacidade e termos | PerfectPro';
+    'Como tratamos dados, cookies de medição, direitos do titular e termos de uso do site institucional PerfectGest I.';
+const String _kDocumentTitlePolitica = 'Privacidade e termos | PerfectGest I';
+
+const String _kMetaDescriptionTecnologias =
+    'Parceiros tecnológicos e stack Flutter da PerfectGest I: Clean Architecture, segurança, escala, integrações e operação contínua.';
+const String _kMetaKeywordsTecnologias =
+    'PerfectGest I, tecnologias, Flutter, Dart, Java, Gradle, SDK, integrações, arquitetura limpa, segurança, escala';
+const String _kOgTitleTecnologias = 'Parceiros tecnológicos | PerfectGest I';
+const String _kOgDescriptionTecnologias =
+    'Visão técnica do stack PerfectGest I para mobile, web e desktop com foco em performance e previsibilidade.';
+const String _kDocumentTitleTecnologias = 'Parceiros tecnológicos | PerfectGest I';
 
 void _applyHomeSeoMetaTags() {
   _upsertMeta('description', _kMetaDescriptionHome);
@@ -53,6 +62,18 @@ void applyAboutPageSeoMetaTags() {
   _upsertMetaProperty('og:type', 'article');
   _upsertMetaProperty('og:locale', 'pt_BR');
   _setDocumentTitle(_kDocumentTitleAbout);
+}
+
+/// Atualiza titulo e metas da pagina de tecnologias/parceiros.
+void applyTecnologiasSeoMetaTags() {
+  _upsertMeta('description', _kMetaDescriptionTecnologias);
+  _upsertMeta('keywords', _kMetaKeywordsTecnologias);
+  _upsertMeta('robots', 'index, follow');
+  _upsertMetaProperty('og:title', _kOgTitleTecnologias);
+  _upsertMetaProperty('og:description', _kOgDescriptionTecnologias);
+  _upsertMetaProperty('og:type', 'article');
+  _upsertMetaProperty('og:locale', 'pt_BR');
+  _setDocumentTitle(_kDocumentTitleTecnologias);
 }
 
 /// Meta da pagina de politica (privacidade, dados, cookies, termos).

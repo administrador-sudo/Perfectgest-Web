@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 const String kWhatsAppDigits = '5551989045442';
-const String kEmailSac = 'perfectpro.sac@gmail.com';
+const String kEmailSac = 'sac.perfectgest@gmail.com';
 
 ThemeData buildPerfectProDarkTheme() {
   const seed = Color(0xFF00E5FF);

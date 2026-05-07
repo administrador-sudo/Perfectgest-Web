@@ -63,7 +63,7 @@ class _TecnologiasPageState extends State<TecnologiasPage> {
     final w = MediaQuery.sizeOf(context).width;
     final padH = w < 400 ? 16.0 : 24.0;
     return Semantics(
-      label: 'Tecnologias Flutter e stack principal da PerfectPro',
+      label: 'Tecnologias Flutter e stack principal da PerfectGest I',
       child: Scaffold(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         appBar: AppBar(
@@ -97,7 +97,7 @@ class _TecnologiasPageState extends State<TecnologiasPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Stack Flutter e tecnologias da PerfectPro',
+                    'Stack Flutter e tecnologias da PerfectGest I',
                     style: GoogleFonts.inter(fontSize: w < 400 ? 22 : 26, fontWeight: FontWeight.w800, color: cs.onSurface, height: 1.2),
                   ),
                   const SizedBox(height: 10),

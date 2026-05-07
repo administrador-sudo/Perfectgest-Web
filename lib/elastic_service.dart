@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 class ElasticService {
@@ -7,7 +8,7 @@ class ElasticService {
 
   static Future<void> enviarTeste() async {
     try {
-      print('⏳ Acordando o servidor Render... aguarde.');
+      debugPrint('Acordando o servidor Render... aguarde.');
       
       final response = await http.post(
         Uri.parse(_url),
@@ -20,14 +21,14 @@ class ElasticService {
       );
 
       if (response.statusCode == 200) {
-        print('✅ SUCESSO: O dado chegou no Elastic!');
-        print('ID do registro: ${jsonDecode(response.body)['id']}');
+        debugPrint('Sucesso: o dado chegou no Elastic.');
+        debugPrint('ID do registro: ${jsonDecode(response.body)['id']}');
       } else {
-        print('❌ ERRO DO SERVIDOR: ${response.statusCode}');
+        debugPrint('Erro do servidor: ${response.statusCode}');
       }
     } catch (e) {
-      print('🚨 ERRO DE CONEXÃO: Verifique se você tem internet ou se o link está certo.');
-      print('Detalhe do erro: $e');
+      debugPrint('Erro de conexao: verifique internet e endpoint.');
+      debugPrint('Detalhe do erro: $e');
     }
   }
 }

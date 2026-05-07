@@ -4,3 +4,11 @@ node_modules/
 .pub/
 ios/Flutter/
 .env
+
+# Flutter/Dart generated artifacts
+build/
+.flutter-plugins-dependencies
+
+# Local logs/temp
+*.log
+*.tmp
