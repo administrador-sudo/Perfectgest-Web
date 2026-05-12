@@ -1,7 +1,7 @@
 Política de Privacidade — PerfectGest I
 Última atualização: Maio de 2026
-A PerfectGest, sob responsabilidade de Marcos Leandro dos Santos, estabelece esta Política de Privacidade em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei 13.709/18) e as políticas para desenvolvedores da Google Play Store.
-Controlador de Dados e Contato O responsável pelo tratamento de dados é Marcos Leandro dos Santos. Para o exercício de direitos de acesso, retificação ou exclusão, entre em contato via e-mail: sac.perfectgest@gmail.com
+A PerfectGest, sob responsabilidade de Marcos L. Santos, estabelece esta Política de Privacidade em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei 13.709/18) e as políticas para desenvolvedores da Google Play Store.
+Controlador de Dados e Contato O responsável pelo tratamento de dados é Marcos L. Santos. Para o exercício de direitos de acesso, retificação ou exclusão, entre em contato via e-mail: sac.perfectgest@gmail.com
 Armazenamento Local e Natureza dos Dados O aplicativo opera em modelo local-first. Os dados de gestão comercial (registros de clientes, orçamentos, fluxos de caixa e projetos) são armazenados exclusivamente no dispositivo do usuário. Não coletamos, acessamos ou transferimos esses dados sensíveis para servidores. A saída desses dados ocorre apenas por ação deliberada do usuário, como a geração de backups ou exportação de PDFs.
 Coleta de Dados e Serviços de Terceiros Para garantir a integridade técnica e licenciamento, o aplicativo utiliza serviços da Google LLC (Firebase), que coletam apenas dados estritamente necessários:
 Google Analytics para Firebase: Coleta eventos de uso (ex: abertura de telas, erros críticos e atualizações) para análise de estabilidade. Não há coleta de dados nominais ou valores financeiros.

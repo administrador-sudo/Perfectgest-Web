@@ -4,6 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'app_theme.dart';
+import 'l10n/app_localizations.dart';
+import 'l10n/site_policy_privacy_texts.dart';
 import 'seo_meta_stub.dart' if (dart.library.html) 'seo_meta_web.dart' as seo_meta;
 import 'tecnologias_page.dart';
 import 'web_cookie_consent_stub.dart' if (dart.library.html) 'web_cookie_consent_web.dart' as cookie_consent;
@@ -36,8 +38,11 @@ class _PoliticaPrivacidadePageState extends State<PoliticaPrivacidadePage> {
     final cs = Theme.of(context).colorScheme;
     final w = MediaQuery.sizeOf(context).width;
     final padH = w < 400 ? 16.0 : 24.0;
+    final l10n = AppLocalizations.of(context);
+    final st = SitePolicyPrivacyTexts.of(context);
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return Semantics(
-      label: 'Politica de privacidade, dados, cookies e termos PerfectGest',
+      label: st.semanticsLabel,
       child: Scaffold(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         appBar: AppBar(
@@ -45,20 +50,20 @@ class _PoliticaPrivacidadePageState extends State<PoliticaPrivacidadePage> {
           surfaceTintColor: Colors.transparent,
           leading: IconButton(
             icon: Icon(Icons.arrow_back, color: cs.primary),
-            tooltip: 'Voltar',
+            tooltip: l10n.navBack,
             onPressed: () => Navigator.of(context).pop(),
           ),
           title: Text(
-            'Privacidade e termos',
+            st.appBarTitle,
             style: GoogleFonts.inter(fontWeight: FontWeight.w700, color: cs.onSurface),
           ),
           actions: [
             if (widget.onToggleTheme != null)
               IconButton(
-                tooltip: Theme.of(context).brightness == Brightness.dark ? 'Tema claro' : 'Tema escuro',
+                tooltip: isDark ? l10n.themeLight : l10n.themeDark,
                 onPressed: widget.onToggleTheme,
                 icon: Icon(
-                  Theme.of(context).brightness == Brightness.dark ? Icons.light_mode_rounded : Icons.dark_mode_rounded,
+                  isDark ? Icons.light_mode_rounded : Icons.dark_mode_rounded,
                   color: cs.primary,
                 ),
               ),
@@ -79,12 +84,12 @@ class _PoliticaPrivacidadePageState extends State<PoliticaPrivacidadePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'PerfectGest',
+                        st.brandLabel,
                         style: GoogleFonts.inter(fontSize: 13, fontWeight: FontWeight.w700, color: cs.primary, letterSpacing: 0.4),
                       ),
                       const SizedBox(height: 6),
                       Text(
-                        'Política de privacidade, dados pessoais, cookies e termos de uso',
+                        st.docHeadline,
                         style: GoogleFonts.inter(
                           fontSize: w < 400 ? 18 : 22,
                           fontWeight: FontWeight.w800,
@@ -94,40 +99,30 @@ class _PoliticaPrivacidadePageState extends State<PoliticaPrivacidadePage> {
                       ),
                       const SizedBox(height: 10),
                       Text(
-                        'Última atualização: documento institucional. Em caso de dúvida sobre tratamento de dados, contacte: $kEmailSac.',
+                        st.introContactLine(kEmailSac),
                         style: GoogleFonts.inter(fontSize: 13, height: 1.45, color: cs.onSurface.withValues(alpha: 0.72)),
                       ),
                       const SizedBox(height: 22),
                       _PoliticaSection(
-                        title: '1. Quem somos',
-                        body:
-                            'O presente site é operado pela PerfectGest (“nós”, “nossa”). Somos uma software house focada em desenvolvimento de software (mobile, web e desktop), '
-                            'consultoria técnica e conteúdo institucional. O domínio de referência do projeto é perfectpro-webpageoficial.onrender.com.',
+                        title: st.section1Title,
+                        body: st.section1Body,
                       ),
                       _PoliticaSection(
-                        title: '2. Que dados podemos recolher',
-                        body:
-                            '• Dados técnicos de navegação: endereço IP (muitas vezes truncado ou agregado pelo fornecedor de analytics), tipo de navegador, idioma, páginas visitadas e horários aproximados.\n'
-                            '• Dados que nos enviar voluntariamente: por exemplo, se nos contactar por WhatsApp ou e-mail, o conteúdo da mensagem e os metadados necessários à comunicação.\n'
-                            'Não vendemos listas de contactos nem dados pessoais a terceiros para fins comerciais independentes.',
+                        title: st.section2Title,
+                        body: st.section2Body,
                       ),
                       _PoliticaSection(
-                        title: '3. Cookies e tecnologias similares',
-                        body:
-                            'Utilizamos cookies e armazenamento local estritamente necessários ao funcionamento do site e, quando ativado, cookies de medição de audiência (Google Analytics / gtag) '
-                            'para compreender de forma agregada como o site é utilizado. Pode gerir ou apagar cookies nas definições do seu navegador. '
-                            'Se recusar cookies de medição, limitamos o envio de sinais de analytics conforme a configuração do seu browser e as nossas definições de consentimento.',
+                        title: st.section3Title,
+                        body: st.section3Body,
                       ),
                       _PoliticaSection(
-                        title: '4. Google Analytics e serviços Google',
-                        body:
-                            'Quando o Google Analytics está configurado neste site, o tratamento de dados associado segue as políticas do Google. '
-                            'Recomendamos a leitura das páginas oficiais do Google sobre privacidade, cookies e parceiros tecnológicos.',
+                        title: st.section4Title,
+                        body: st.section4Body,
                         links: [
-                          const _PoliticaLink('Privacidade Google', url: 'https://policies.google.com/privacy'),
-                          const _PoliticaLink('Cookies Google', url: 'https://policies.google.com/technologies/cookies'),
+                          _PoliticaLink(l10n.footerLinkGooglePrivacy, url: 'https://policies.google.com/privacy'),
+                          _PoliticaLink(l10n.footerLinkGoogleCookies, url: 'https://policies.google.com/technologies/cookies'),
                           _PoliticaLink(
-                            'Parceiros tecnológicos',
+                            l10n.portBtnPartners,
                             onTap: () {
                               Navigator.of(context).push<void>(
                                 MaterialPageRoute<void>(builder: (_) => const TecnologiasPage()),
@@ -137,22 +132,16 @@ class _PoliticaPrivacidadePageState extends State<PoliticaPrivacidadePage> {
                         ],
                       ),
                       _PoliticaSection(
-                        title: '5. Base legal e retenção',
-                        body:
-                            'O tratamento de dados técnicos e de medição pode basear-se no interesse legítimo em melhorar o site e na execução de medidas pré-contratuais ou contratuais quando nos contacta. '
-                            'Conservamos mensagens de contacto apenas pelo tempo necessário a responder e a cumprir obrigações legais aplicáveis.',
+                        title: st.section5Title,
+                        body: st.section5Body,
                       ),
                       _PoliticaSection(
-                        title: '6. Os seus direitos',
-                        body:
-                            'Dependendo da lei aplicável (por exemplo RGPD na UE), poderá solicitar acesso, retificação, apagamento, limitação, portabilidade ou oposição ao tratamento dos seus dados pessoais. '
-                            'Para exercer direitos ou questões de privacidade, escreva para $kEmailSac.',
+                        title: st.section6Title,
+                        body: st.section6Body(kEmailSac),
                       ),
                       _PoliticaSection(
-                        title: '7. Termos de uso do site',
-                        body:
-                            'O conteúdo deste site (textos, identidade visual e materiais) destina-se a informação sobre a PerfectGest. A reprodução não autorizada para fins comerciais pode ser proibida. '
-                            'Os links externos são fornecidos por conveniência; não controlamos sites de terceiros. O uso do site é por sua conta e risco, na medida permitida pela lei.',
+                        title: st.section7Title,
+                        body: st.section7Body,
                       ),
                       const SizedBox(height: 20),
                       DecoratedBox(
@@ -167,13 +156,12 @@ class _PoliticaPrivacidadePageState extends State<PoliticaPrivacidadePage> {
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
                               Text(
-                                'Cookies de medição (Google)',
+                                st.cookieMeasurementTitle,
                                 style: GoogleFonts.inter(fontSize: 14, fontWeight: FontWeight.w700, color: cs.onSurface),
                               ),
                               const SizedBox(height: 8),
                               Text(
-                                'Se aceitar, gravamos a sua escolha no navegador e, na próxima carga da página, o script de medição poderá operar conforme as regras do Google (Consent Mode). '
-                                'Pode revogar apagando os dados do site nas definições do browser.',
+                                st.cookieMeasurementBody,
                                 style: GoogleFonts.inter(fontSize: 12.5, height: 1.45, color: cs.onSurface.withValues(alpha: 0.8)),
                               ),
                               const SizedBox(height: 12),
@@ -184,15 +172,15 @@ class _PoliticaPrivacidadePageState extends State<PoliticaPrivacidadePage> {
                                     cookie_consent.grantAnalyticsMeasurementConsent();
                                     if (!context.mounted) return;
                                     ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
-                                        content: Text('Preferência gravada. Recarregue a página uma vez para aplicar a medição.'),
+                                      SnackBar(
+                                        content: Text(st.snackPreferenceSavedOnce),
                                         behavior: SnackBarBehavior.floating,
                                       ),
                                     );
                                   },
                                   icon: const Icon(Icons.check_circle_outline, size: 20),
                                   label: Text(
-                                    w < 360 ? 'Aceitar medição' : 'Aceitar cookies de medição',
+                                    w < 360 ? st.acceptMeasurementShort : st.acceptMeasurementLong,
                                     textAlign: TextAlign.center,
                                   ),
                                 ),
@@ -203,7 +191,7 @@ class _PoliticaPrivacidadePageState extends State<PoliticaPrivacidadePage> {
                       ),
                       const SizedBox(height: 24),
                       Text(
-                        '© ${DateTime.now().year} PerfectGest. Todos os direitos reservados.',
+                        l10n.aboutFooterCopyright(DateTime.now().year),
                         textAlign: TextAlign.center,
                         style: GoogleFonts.inter(fontSize: 12, color: cs.onSurface.withValues(alpha: 0.65)),
                       ),
@@ -220,7 +208,7 @@ class _PoliticaPrivacidadePageState extends State<PoliticaPrivacidadePage> {
 }
 
 class _PoliticaLink {
-  const _PoliticaLink(this.label, {this.url, this.onTap})
+  _PoliticaLink(this.label, {this.url, this.onTap})
       : assert(url != null || onTap != null, 'Informe url ou ação interna.');
   final String label;
   final String? url;

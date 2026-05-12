@@ -36,6 +36,7 @@ const String _kOgDescriptionTecnologias =
 const String _kDocumentTitleTecnologias = 'Parceiros tecnológicos | PerfectGest';
 
 void _applyHomeSeoMetaTags() {
+  _syncCanonicalFromLocation();
   _upsertMeta('description', _kMetaDescriptionHome);
   _upsertMeta('keywords', _kMetaKeywordsHome);
   _upsertMeta('robots', 'index, follow');
@@ -54,6 +55,7 @@ void applyHomePageSeoMetaTags() => _applyHomeSeoMetaTags();
 
 /// Atualiza titulo e meta da rota institucional "Sobre nos" (melhor sinal para crawlers na SPA web).
 void applyAboutPageSeoMetaTags() {
+  _syncCanonicalFromLocation();
   _upsertMeta('description', _kMetaDescriptionAbout);
   _upsertMeta('keywords', _kMetaKeywordsAbout);
   _upsertMeta('robots', 'index, follow');
@@ -66,6 +68,7 @@ void applyAboutPageSeoMetaTags() {
 
 /// Atualiza titulo e metas da pagina de tecnologias/parceiros.
 void applyTecnologiasSeoMetaTags() {
+  _syncCanonicalFromLocation();
   _upsertMeta('description', _kMetaDescriptionTecnologias);
   _upsertMeta('keywords', _kMetaKeywordsTecnologias);
   _upsertMeta('robots', 'index, follow');
@@ -78,6 +81,7 @@ void applyTecnologiasSeoMetaTags() {
 
 /// Meta da pagina de politica (privacidade, dados, cookies, termos).
 void applyPoliticaSeoMetaTags() {
+  _syncCanonicalFromLocation();
   _upsertMeta('description', _kMetaDescriptionPolitica);
   _upsertMeta('keywords', _kMetaKeywordsPolitica);
   _upsertMeta('robots', 'index, follow');
@@ -90,6 +94,16 @@ void applyPoliticaSeoMetaTags() {
 
 /// Restaura titulo e descricoes padrao da home ao sair de rotas institucionais.
 void restoreGlobalSeoMetaTags() => _applyHomeSeoMetaTags();
+
+/// Sincroniza o atributo `lang` do `<html>` para o idioma ativo (a11y/SEO).
+///
+/// Aceita codigo ISO curto (`pt`, `en`, `es`) ou BCP-47 (`pt-BR`, `en-US`).
+void applyDocumentLanguage(String bcp47Tag) {
+  if (bcp47Tag.isEmpty) return;
+  final el = web.document.documentElement;
+  if (el == null) return;
+  el.setAttribute('lang', bcp47Tag);
+}
 
 void _setDocumentTitle(String title) {
   web.document.title = title;
@@ -111,3 +125,24 @@ void _upsertMetaProperty(String property, String content) {
   if (tag.parentNode == null) head.append(tag);
   tag.content = content;
 }
+
+void _syncCanonicalFromLocation() {
+  final loc = web.window.location;
+  final origin = loc.origin;
+  var path = loc.pathname;
+  if (path.isEmpty) path = '/';
+  if (path.length > 1 && path.endsWith('/')) {
+    path = path.substring(0, path.length - 1);
+  }
+  final href = path == '/' ? '$origin/' : '$origin$path';
+  final head = web.document.head;
+  if (head == null) return;
+  final link = (head.querySelector('link[rel="canonical"]') as web.HTMLLinkElement?) ??
+      (web.HTMLLinkElement()..rel = 'canonical');
+  if (link.parentNode == null) head.append(link);
+  link.href = href;
+  _upsertMetaProperty('og:url', href);
+}
+
+/// Expõe sincronização do canonical (e `og:url`) para rotas sem bloco meta dedicado.
+void syncCanonicalToCurrentUrl() => _syncCanonicalFromLocation();

@@ -1035,3 +1035,129 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 ### Proximos passos recomendados
 - Executar `npm run build:web:sync`.
 - Testar a navegação a partir da página de política.
+
+## [2026-05-08 10:55] Fase 1 i18n: infraestrutura, autodeteccao e botao de idioma
+
+### Contexto
+- Pedido: implementar i18n via flutter_localizations + ficheiros .arb com suporte EN/ES e autodeteccao do idioma do browser, sem alterar textos visiveis ainda (Fase 1 do plano acordado).
+- Escopo: pubspec, MaterialApp, controlador de idioma, persistencia em localStorage, selector no cabecalho, sincronia do `<html lang>`.
+
+### Arquivos alterados
+- pubspec.yaml (sem alteracao final; reverti `generate: true` para nao depender do codegen nesta fase)
+- l10n.yaml (novo, comentado/desativado; documenta como reativar codegen na Fase 2)
+- lib/l10n/app_pt.arb (novo)
+- lib/l10n/app_en.arb (novo)
+- lib/l10n/app_es.arb (novo)
+- lib/l10n/app_localizations.dart (novo, escrito a mao para Fase 1)
+- lib/locale_storage_stub.dart (novo)
+- lib/locale_storage_web.dart (novo)
+- lib/locale_controller.dart (novo)
+- lib/seo_meta_stub.dart (added `applyDocumentLanguage`)
+- lib/seo_meta_web.dart (added `applyDocumentLanguage`)
+- lib/main.dart (`MaterialApp` com `localizationsDelegates`, `supportedLocales`, `locale`, `localeResolutionCallback`; selector `_LanguageMenuButton` no `SiteHeader`)
+- docs/Atualiza.md
+
+### O que foi feito
+- Criada classe `AppLocalizations` (manual) com 5 chaves base para Fase 1 (`languageMenuTooltip`, `languageNamePortuguese`, `languageNameEnglish`, `languageNameSpanish`, `languageFollowSystem`).
+- `MaterialApp` ligado ao i18n com 3 locais suportados: `pt`, `en`, `es`. `localeResolutionCallback` faz autodeteccao via `languageCode` do browser/sistema; fallback `pt`.
+- Criado `LocaleController` (`ValueNotifier<Locale?>`); `null` => seguir sistema; escolha manual persistida em `localStorage` (chave `pp_locale`) na Web.
+- Adicionado bot\u00e3o `_LanguageMenuButton` (icone `Icons.translate_rounded`) no `SiteHeader` (compact e desktop), com itens "Automatico (sistema)", PT, EN, ES; opcao ativa marcada com check.
+- Sincronia do atributo `<html lang>` no DOM: atualiza tanto na resolucao automatica como em escolha manual.
+- Textos visiveis do site permanecem em PT (Fase 1). A selecao de idioma ja afeta os textos do framework Material/Cupertino e a chave do AppLocalizations usada no proprio menu.
+
+### Risco de regressao
+- Baixo/Medio: alteracao no `MaterialApp` (passa a ter delegates/supportedLocales/locale). Sem alteracao de UI fora do header.
+- Pontos sensiveis: confirmar que rotas legais e Navigator.push continuam a funcionar; confirmar que persistencia em `localStorage` nao interfere com banner de cookies.
+
+### Validacao executada
+- [x] Lint sem erros nos ficheiros alterados (ReadLints)
+- [x] `flutter pub get`
+- [x] `flutter analyze` (0 lints novos; 2 avisos pre-existentes: import `flutter_web_plugins` e `heroTitleSize` nao usado)
+- [x] `flutter build web --release --pwa-strategy=none` (sucesso apos remover `l10n.yaml`)
+- [ ] Teste manual no navegador com `Accept-Language` em `en` e `es`
+
+### Correcao tardia (mesma entrega)
+- Removido `l10n.yaml` (ficheiro de comentarios). Causava erro no build:
+  - `Expected ...l10n.yaml to contain a map, instead was null`
+  - O target `gen_localizations` e ativado pela mera presenca do YAML, nao precisa de `generate: true` no `pubspec.yaml`.
+- Para reativar codegen na Fase 2, recriar `l10n.yaml` com chaves validas (`arb-dir`, `template-arb-file`, etc.) e adicionar `generate: true`.
+
+### Resultado
+- Comportamento esperado apos a mudanca:
+  - Browser em PT => UI continua em PT (mesmo comportamento de hoje).
+  - Browser em EN/ES => Material widgets em EN/ES; site continua em PT (textos hard-coded ate Fase 2 migrar para `AppLocalizations`).
+  - Botao de idioma no cabecalho permite forcar PT/EN/ES ou voltar a "Automatico".
+  - Atributo `<html lang>` reflete idioma ativo (a11y/SEO).
+- Pendencias:
+  - Rodar `flutter pub get` e `flutter analyze` para confirmar que nada quebrou.
+  - Fase 2: migrar strings de `lib/main.dart` para chaves `.arb` (PT/EN/ES) usando `AppLocalizations.of(context)`.
+  - Fase 4: localizar `seo_meta_*.dart` (titulos/descricoes/og:locale) por idioma e adicionar `<link rel="alternate" hreflang>` em `web/index.html`.
+
+### Proximos passos recomendados
+- Confirmar Fase 1 visualmente (botao no header e troca de idioma), depois iniciar Fase 2 (migracao incremental por seccao).
+- Avaliar migrar para codegen oficial (`l10n.yaml` + `generate: true`) quando ultrapassarmos ~30 chaves traduzidas.
+
+## [2026-05-08] Fase 3 parcial — paginas legais e tecnologias (i18n)
+
+### Contexto
+- Pedido: continuar entrega apos validacao; avancar i18n em conteudo extenso.
+- Escopo: dependencia `flutter_web_plugins`; chave `navBack`; politica do site completa PT/EN/ES; pagina Tecnologias completa; titulos Play Store + data; correcao lint `depend_on_referenced_packages`.
+
+### Arquivos alterados
+- pubspec.yaml (`flutter_web_plugins` do SDK)
+- lib/l10n/app_localizations.dart, lib/l10n/app_pt.arb, app_en.arb, app_es.arb (`navBack`)
+- lib/l10n/site_policy_privacy_texts.dart (novo)
+- lib/l10n/site_tecnologias_texts.dart (novo)
+- lib/l10n/play_store_app_legal_texts.dart (novo)
+- lib/politica_page.dart
+- lib/tecnologias_page.dart
+- lib/legal_subpages.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- Declarada dependencia direta `flutter_web_plugins` para eliminar aviso `depend_on_referenced_packages` em `main.dart`.
+- Textos longos da politica do site movidos para `SitePolicyPrivacyTexts` (PT/EN/ES); `PoliticaPrivacidadePage` usa `AppLocalizations` para chrome (voltar, tema, links Google, copyright) e textos legais por locale.
+- `TecnologiasPage`: hero, 15 cards tecnicos e rotulo "Conceito aplicado" via `SiteTecnologiasTexts`; AppBar e tooltips via `AppLocalizations`.
+- `legal_subpages`: titulos das duas politicas PerfectGest I e linha "Ultima atualizacao" via `PlayStoreAppLegalTexts` (corpos das seccoes permanecem em PT).
+
+### Risco de regressao
+- Baixo/Medio: alteracao de textos legais em EN/ES (revisao humana recomendada).
+- Pontos sensiveis: scroll inicial por `initialTopic` na pagina Tecnologias (chaves nos primeiros 4 cards mantidas).
+
+### Validacao executada
+- [x] `flutter pub get`
+- [x] `dart analyze` nos ficheiros alterados (0 issues)
+- [ ] `flutter build web --release` (nao executado nesta sessao por tempo)
+
+### Pendencias
+- Fase 4: SEO dinamico e hreflang.
+
+## [2026-05-08] Fase 3 final — corpos das politicas Play Store i18n
+
+### Contexto
+- Pedido: continuar Fase 3.
+- Escopo: migrar os textos das seccoes das duas politicas PerfectGest I (Play Store) para PT/EN/ES.
+
+### Arquivos alterados
+- lib/l10n/play_store_app_legal_texts.dart (estendido com `LegalSectionText` + listas PT/EN/ES)
+- lib/legal_subpages.dart (renderiza secoes a partir das listas localizadas)
+- docs/Atualiza.md
+
+### O que foi feito
+- Adicionada classe simples `LegalSectionText` (heading + body) e listas const por idioma para:
+  - `privacyPolicySections` (7 secoes)
+  - `dataDeletionPolicySections` (4 secoes)
+- `legal_subpages.dart` agora itera as listas via `for (final s in lt.privacyPolicySections)` / `dataDeletionPolicySections`, removendo todo conteudo PT hard-coded.
+- Titulos e linha "Ultima atualizacao" ja eram localizados desde a entrega anterior; agora todo o conteudo destas paginas e i18n.
+
+### Risco de regressao
+- Baixo: estrutura visual mantida, apenas fonte das strings mudou.
+- Pontos sensiveis: textos juridicos EN/ES sao traducoes funcionais; revisao humana recomendada antes de publicacao oficial em outros mercados.
+
+### Validacao executada
+- [x] `dart analyze lib/legal_subpages.dart lib/l10n/play_store_app_legal_texts.dart` (No issues found!)
+- [ ] Build web release / teste no browser pelos 3 idiomas (a fazer pelo utilizador).
+
+### Resultado
+- Fase 3 (paginas com texto extenso) concluida: `politica_page.dart`, `tecnologias_page.dart` e `legal_subpages.dart` totalmente i18n PT/EN/ES.
+- Proximo: Fase 4 (SEO localizado + `link rel="alternate" hreflang"`).

@@ -7,12 +7,16 @@ import 'web_cookie_consent_stub.dart' if (dart.library.html) 'web_cookie_consent
 import 'dart:math' as math;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'app_theme.dart';
+import 'l10n/app_localizations.dart';
+import 'locale_controller.dart';
 import 'seo_meta_stub.dart' if (dart.library.html) 'seo_meta_web.dart' as seo_meta;
+import 'web_site_root_stub.dart' if (dart.library.html) 'web_site_root_web.dart' as web_site_root;
 
 /// Loops, parallax e oscilações contínuas — respeita “reduzir movimento” do SO/navegador.
 bool allowRichMotion(BuildContext context) {
@@ -32,6 +36,14 @@ void main() {
   if (kIsWeb) {
     setUrlStrategy(PathUrlStrategy());
   }
+  // Reage a escolha manual de idioma (autodeteccao real e feita no
+  // localeResolutionCallback do MaterialApp e propagada via Localizations.localeOf).
+  appLocaleController.addListener(() {
+    final manual = appLocaleController.value;
+    if (manual != null) {
+      seo_meta.applyDocumentLanguage(manual.toLanguageTag());
+    }
+  });
   runApp(const PerfectProSiteApp());
 }
 
@@ -53,17 +65,35 @@ class _PerfectProSiteAppState extends State<PerfectProSiteApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'PerfectGest',
-      theme: buildPerfectProLightTheme(),
-      darkTheme: buildPerfectProDarkTheme(),
-      themeMode: _themeMode,
-      initialRoute: kIsWeb && Uri.base.path.isNotEmpty ? Uri.base.path : '/',
-      home: SiteHomePage(onToggleTheme: _toggleTheme),
-      routes: {
-        '/politica-privacidade-perfectgest-i': (_) => const PoliticaPrivacidadePerfectGestIPage(),
-        '/politica-exclusao-dados-perfectgest-i': (_) => const PoliticaExclusaoDadosPerfectGestIPage(),
+    return ValueListenableBuilder<Locale?>(
+      valueListenable: appLocaleController,
+      builder: (context, manualLocale, _) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'PerfectGest',
+          theme: buildPerfectProLightTheme(),
+          darkTheme: buildPerfectProDarkTheme(),
+          themeMode: _themeMode,
+          locale: manualLocale,
+          supportedLocales: kSupportedLocales,
+          localizationsDelegates: const <LocalizationsDelegate<Object>>[
+            AppLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          localeResolutionCallback: (deviceLocale, supportedLocales) {
+            final resolved = resolveSupportedLocale(deviceLocale, supportedLocales);
+            seo_meta.applyDocumentLanguage(resolved.toLanguageTag());
+            return resolved;
+          },
+          initialRoute: kIsWeb && Uri.base.path.isNotEmpty ? Uri.base.path : '/',
+          home: SiteHomePage(onToggleTheme: _toggleTheme),
+          routes: {
+            '/politica-privacidade-perfectgest-i': (_) => const PoliticaPrivacidadePerfectGestIPage(),
+            '/politica-exclusao-dados-perfectgest-i': (_) => const PoliticaExclusaoDadosPerfectGestIPage(),
+          },
+        );
       },
     );
   }
@@ -154,33 +184,38 @@ class _SiteHomePageState extends State<SiteHomePage> {
     final isMobileNav = MediaQuery.sizeOf(context).width < 980;
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final cs = Theme.of(context).colorScheme;
+    final l10n = AppLocalizations.of(context);
     return Scaffold(
       bottomNavigationBar: isMobileNav
           ? NavigationBar(
               selectedIndex: _mobileNavIndex,
               height: 68,
               onDestinationSelected: _onMobileNavTap,
-              destinations: const [
-                NavigationDestination(icon: Icon(Icons.home_outlined), selectedIcon: Icon(Icons.home), label: 'Home'),
+              destinations: [
                 NavigationDestination(
-                  icon: Icon(Icons.widgets_outlined),
-                  selectedIcon: Icon(Icons.widgets_rounded),
-                  label: 'Solucoes',
+                  icon: const Icon(Icons.home_outlined),
+                  selectedIcon: const Icon(Icons.home),
+                  label: l10n.navHome,
                 ),
                 NavigationDestination(
-                  icon: Icon(Icons.work_outline_rounded),
-                  selectedIcon: Icon(Icons.work_rounded),
-                  label: 'Portfolio',
+                  icon: const Icon(Icons.widgets_outlined),
+                  selectedIcon: const Icon(Icons.widgets_rounded),
+                  label: l10n.navSolutionsShort,
                 ),
                 NavigationDestination(
-                  icon: Icon(Icons.info_outline_rounded),
-                  selectedIcon: Icon(Icons.info_rounded),
-                  label: 'Sobre',
+                  icon: const Icon(Icons.work_outline_rounded),
+                  selectedIcon: const Icon(Icons.work_rounded),
+                  label: l10n.navPortfolio,
                 ),
                 NavigationDestination(
-                  icon: Icon(Icons.mail_outline_rounded),
-                  selectedIcon: Icon(Icons.mail_rounded),
-                  label: 'Contato',
+                  icon: const Icon(Icons.info_outline_rounded),
+                  selectedIcon: const Icon(Icons.info_rounded),
+                  label: l10n.navAboutShort,
+                ),
+                NavigationDestination(
+                  icon: const Icon(Icons.mail_outline_rounded),
+                  selectedIcon: const Icon(Icons.mail_rounded),
+                  label: l10n.navContact,
                 ),
               ],
             )
@@ -198,38 +233,38 @@ class _SiteHomePageState extends State<SiteHomePage> {
                 if (_deferHeavySections) ...[
                   _DeferredSectionSkeleton(
                     key: _solutionsKey,
-                    title: 'Solucoes (App/Web)',
+                    title: l10n.navSolutions,
                     estimatedHeight: 500,
                   ),
                   _DeferredSectionSkeleton(
                     key: _portfolioKey,
-                    title: 'Portfolio',
+                    title: l10n.navPortfolio,
                     estimatedHeight: 340,
                   ),
                   _DeferredSectionSkeleton(
                     key: _contactKey,
-                    title: 'Contato',
+                    title: l10n.navContact,
                     estimatedHeight: 320,
                   ),
-                  const _DeferredSectionSkeleton(
-                    key: ValueKey('sk-footer'),
-                    title: 'Privacidade, dados e cookies',
+                  _DeferredSectionSkeleton(
+                    key: const ValueKey('sk-footer'),
+                    title: l10n.footerComplianceTitle,
                     estimatedHeight: 250,
                   ),
                 ] else ...[
                   SectionCard(
                     key: _solutionsKey,
-                    title: 'Solucoes (App/Web)',
+                    title: l10n.navSolutions,
                     child: AnimatedSolutionsSectionContent(scrollListenable: _scrollPixels),
                   ),
                   SectionCard(
                     key: _portfolioKey,
-                    title: 'Portfolio',
+                    title: l10n.navPortfolio,
                     child: const PortfolioMotionBlock(),
                   ),
                   SectionCard(
                     key: _contactKey,
-                    title: 'Contato',
+                    title: l10n.navContact,
                     child: const ContactMotionBlock(),
                   ),
                   _HomeComplianceFooter(onToggleTheme: widget.onToggleTheme),
@@ -263,7 +298,7 @@ class _SiteHomePageState extends State<SiteHomePage> {
                 color: cs.surface.withValues(alpha: 0.92),
                 shape: const CircleBorder(),
                 child: IconButton(
-                  tooltip: isDark ? 'Tema claro' : 'Tema escuro',
+                  tooltip: isDark ? l10n.themeLight : l10n.themeDark,
                   onPressed: widget.onToggleTheme,
                   icon: Icon(
                     isDark ? Icons.light_mode_rounded : Icons.dark_mode_rounded,
@@ -291,29 +326,6 @@ class SobreNosPage extends StatefulWidget {
 
   final VoidCallback? onToggleTheme;
 
-  static const String _empresaTitulo = 'Codificando o Amanhã, Hoje.';
-  static const String _empresaCorpo =
-      'Somos uma software house especializada em arquiteturas de alta performance. Unimos o poder do Dart/Flutter à robustez do Java para criar ecossistemas digitais que não apenas funcionam, mas escalam. Nossa missão é transformar lógica complexa em experiências de usuário simplificadas, garantindo que sua infraestrutura técnica seja o alicerce do seu crescimento, e não um gargalo.';
-
-  static const String _appsTitulo = 'Apps Nativos com Performance de Próxima Geração';
-  static const String _appsCorpo =
-      'Desenvolvemos aplicações móveis utilizando as ferramentas mais avançadas do mercado. Com Flutter, entregamos uma base de código única para iOS e Android sem sacrificar a performance nativa. Dominamos a integração de SDKs proprietários e APIs complexas, garantindo que seu aplicativo tenha acesso total ao hardware e ofereça uma fluidez impecável para o usuário final.';
-
-  static const String _webTitulo = 'Web Apps Rápidos, Responsivos e Indexáveis';
-  static const String _webCorpo =
-      'Sua presença na web precisa ser instantânea. Criamos plataformas web modernas com foco total em Core Web Vitals. Nossas soluções web são projetadas para carregamento ultra-rápido e total conformidade com os algoritmos de busca do Google. De painéis administrativos complexos a interfaces de consumo, entregamos código limpo, otimizado para conversão e 100% responsivo.';
-
-  static const String _desktopTitulo = 'Software Desktop: Potência Máxima no Windows';
-  static const String _desktopCorpo =
-      'Levamos a experiência do usuário para o desktop com aplicações Windows robustas. Utilizamos o potencial do ecossistema Dart e integração Java para criar softwares que aproveitam ao máximo o poder de processamento local. Ideal para ferramentas de produtividade, sistemas de gestão offline ou softwares que exigem alta capacidade de resposta e integração profunda com o sistema operacional.';
-
-  static const String _porQueTitulo = 'Por que nós?';
-  static const String _porQueCorpo =
-      '• Código Limpo: Arquitetura limpa (Clean Architecture) para fácil manutenção.\n'
-      '• Segurança: Implementação de protocolos de segurança de nível bancário.\n'
-      '• Escalabilidade: Sistemas prontos para suportar de 100 a 1 milhão de usuários.\n'
-      '• Suporte Full-Stack: Do design da UI à engenharia de back-end.';
-
   @override
   State<SobreNosPage> createState() => _SobreNosPageState();
 }
@@ -334,8 +346,9 @@ class _SobreNosPageState extends State<SobreNosPage> {
   @override
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
+    final l10n = AppLocalizations.of(context);
     return Semantics(
-      label: 'Pagina institucional Sobre nos da PerfectGest',
+      label: l10n.aboutPageSemantics,
       child: Scaffold(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         appBar: AppBar(
@@ -343,13 +356,13 @@ class _SobreNosPageState extends State<SobreNosPage> {
           surfaceTintColor: Colors.transparent,
           leading: IconButton(
             icon: Icon(Icons.arrow_back, color: cs.primary),
-            tooltip: 'Voltar ao início',
+            tooltip: l10n.aboutBackTooltip,
             onPressed: () => Navigator.of(context).pop(),
           ),
-          title: Text('Sobre nós', style: GoogleFonts.inter(fontWeight: FontWeight.w700, color: cs.onSurface)),
+          title: Text(l10n.navAbout, style: GoogleFonts.inter(fontWeight: FontWeight.w700, color: cs.onSurface)),
           actions: [
             IconButton(
-              tooltip: 'WhatsApp',
+              tooltip: l10n.tooltipWhatsApp,
               onPressed: () {
                 _openWhatsApp();
                 ElasticService.enviarTeste();
@@ -357,13 +370,13 @@ class _SobreNosPageState extends State<SobreNosPage> {
               icon: Icon(Icons.chat_rounded, color: cs.primary, size: 22),
             ),
             IconButton(
-              tooltip: 'E-mail SAC',
+              tooltip: l10n.tooltipSacEmail,
               onPressed: _openSacEmail,
               icon: Icon(Icons.mail_outline_rounded, color: cs.primary),
             ),
             if (widget.onToggleTheme != null)
               IconButton(
-                tooltip: Theme.of(context).brightness == Brightness.dark ? 'Tema claro' : 'Tema escuro',
+                tooltip: Theme.of(context).brightness == Brightness.dark ? l10n.themeLight : l10n.themeDark,
                 onPressed: widget.onToggleTheme,
                 icon: Icon(
                   Theme.of(context).brightness == Brightness.dark ? Icons.light_mode_rounded : Icons.dark_mode_rounded,
@@ -399,7 +412,7 @@ class _SobreNosPageState extends State<SobreNosPage> {
                         Semantics(
                           header: true,
                           child: Text(
-                            'Sobre nós',
+                            l10n.navAbout,
                             style: GoogleFonts.inter(
                               fontSize: 28,
                               fontWeight: FontWeight.w800,
@@ -410,7 +423,7 @@ class _SobreNosPageState extends State<SobreNosPage> {
                         ),
                         const SizedBox(height: 10),
                         Text(
-                          'Software house · Flutter · Java · Mobile, Web e Desktop',
+                          l10n.aboutHeroSubtitle,
                           style: GoogleFonts.inter(
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
@@ -420,7 +433,7 @@ class _SobreNosPageState extends State<SobreNosPage> {
                         ),
                         const SizedBox(height: 8),
                         Text(
-                          'Transformação digital e robustez do código. Conteúdo pensado para clareza institucional e boa leitura em qualquer dispositivo.',
+                          l10n.aboutHeroIntro,
                           style: GoogleFonts.inter(
                             fontSize: 15,
                             color: cs.onSurface.withValues(alpha: 0.78),
@@ -432,32 +445,32 @@ class _SobreNosPageState extends State<SobreNosPage> {
                         const SizedBox(height: 22),
                         _SobreNosSection(
                           icon: Icons.flag_rounded,
-                          title: SobreNosPage._empresaTitulo,
-                          body: SobreNosPage._empresaCorpo,
+                          title: l10n.aboutCompanyTitle,
+                          body: l10n.aboutCompanyBody,
                         ),
                         const SizedBox(height: 18),
                         _SobreNosSection(
                           icon: Icons.smartphone_rounded,
-                          title: SobreNosPage._appsTitulo,
-                          body: SobreNosPage._appsCorpo,
+                          title: l10n.aboutAppsTitle,
+                          body: l10n.aboutAppsBody,
                         ),
                         const SizedBox(height: 18),
                         _SobreNosSection(
                           icon: Icons.language_rounded,
-                          title: SobreNosPage._webTitulo,
-                          body: SobreNosPage._webCorpo,
+                          title: l10n.aboutWebTitle,
+                          body: l10n.aboutWebBody,
                         ),
                         const SizedBox(height: 18),
                         _SobreNosSection(
                           icon: Icons.laptop_windows_rounded,
-                          title: SobreNosPage._desktopTitulo,
-                          body: SobreNosPage._desktopCorpo,
+                          title: l10n.aboutDesktopTitle,
+                          body: l10n.aboutDesktopBody,
                         ),
                         const SizedBox(height: 18),
                         _SobreNosSection(
                           icon: Icons.verified_rounded,
-                          title: SobreNosPage._porQueTitulo,
-                          body: SobreNosPage._porQueCorpo,
+                          title: l10n.aboutWhyTitle,
+                          body: l10n.aboutWhyBody,
                         ),
                       ],
                     ),
@@ -539,8 +552,9 @@ class _SobreNosLegalFooter extends StatelessWidget {
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
     final year = DateTime.now().year;
+    final l10n = AppLocalizations.of(context);
     return Semantics(
-      label: 'Rodape legal e direitos autorais',
+      label: l10n.aboutFooterSemantics,
       child: ColoredBox(
         color: cs.surfaceContainerHighest.withValues(alpha: 0.92),
         child: SafeArea(
@@ -554,7 +568,7 @@ class _SobreNosLegalFooter extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      '© $year PerfectGest. Todos os direitos reservados.',
+                      l10n.aboutFooterCopyright(year),
                       textAlign: TextAlign.center,
                       style: GoogleFonts.inter(
                         fontSize: 13,
@@ -564,8 +578,7 @@ class _SobreNosLegalFooter extends StatelessWidget {
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      'Marca, logotipos, textos e ilustrações deste site são de uso exclusivo da PerfectGest, salvo indicação em contrário. '
-                      'É proibida a reprodução total ou parcial para fins comerciais sem autorização prévia por escrito.',
+                      l10n.aboutFooterDisclaimer,
                       textAlign: TextAlign.center,
                       style: GoogleFonts.inter(
                         fontSize: 12,
@@ -605,9 +618,10 @@ class SolucoesNuvemPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Soluções em Nuvem'),
+        title: Text(l10n.cloudPageTitle),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_rounded),
           onPressed: () => Navigator.of(context).pop(),
@@ -617,39 +631,15 @@ class SolucoesNuvemPage extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(20, 20, 20, 28),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            _CloudHeader(),
-            SizedBox(height: 14),
-            _CloudItem(
-              title: 'Desenvolvimento e Deploy Gerenciado',
-              body:
-                  'Eu projeto e coloco seu serviço web no ar via Cloud Run, cuidando de toda a infraestrutura técnica para sua empresa focar no negócio.',
-            ),
-            _CloudItem(
-              title: 'Escalabilidade de Infraestrutura',
-              body:
-                  'Implemento clusters de computação de alta performance no Compute Engine, dimensionando o poder de processamento conforme a sua demanda cresce.',
-            ),
-            _CloudItem(
-              title: 'Gestão Estratégica de Dados',
-              body:
-                  'Configuro e gerencio o armazenamento de grandes volumes de informações no Cloud Storage, garantindo segurança e acesso rápido aos seus ativos digitais.',
-            ),
-            _CloudItem(
-              title: 'Arquitetura de Big Data',
-              body:
-                  'Intermedio a análise de dados complexos com BigQuery, entregando dashboards e insights prontos para apoiar suas decisões comerciais.',
-            ),
-            _CloudItem(
-              title: 'Bancos de Dados Prontos para Uso',
-              body:
-                  'Cuido da configuração e manutenção de instâncias MySQL no Cloud SQL, assegurando que seus dados estejam sempre disponíveis e protegidos.',
-            ),
-            _CloudItem(
-              title: 'Integração e Autenticação com Firebase',
-              body:
-                  'Desenvolvo aplicações modernas utilizando o ecossistema Firebase para entregas rápidas, notificações push e autenticação segura de usuários.',
-            ),
+          children: [
+            _CloudHeader(title: l10n.cloudHeaderTitle),
+            const SizedBox(height: 14),
+            _CloudItem(title: l10n.cloudManagedTitle, body: l10n.cloudManagedBody),
+            _CloudItem(title: l10n.cloudScaleTitle, body: l10n.cloudScaleBody),
+            _CloudItem(title: l10n.cloudDataTitle, body: l10n.cloudDataBody),
+            _CloudItem(title: l10n.cloudBigDataTitle, body: l10n.cloudBigDataBody),
+            _CloudItem(title: l10n.cloudSqlTitle, body: l10n.cloudSqlBody),
+            _CloudItem(title: l10n.cloudFirebaseTitle, body: l10n.cloudFirebaseBody),
           ],
         ),
       ),
@@ -658,7 +648,9 @@ class SolucoesNuvemPage extends StatelessWidget {
 }
 
 class _CloudHeader extends StatelessWidget {
-  const _CloudHeader();
+  const _CloudHeader({required this.title});
+
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -671,9 +663,9 @@ class _CloudHeader extends StatelessWidget {
         borderRadius: BorderRadius.circular(14),
         border: Border.all(color: cs.outline),
       ),
-      child: const Text(
-        'Soluções em Nuvem com Implementação Especializada',
-        style: TextStyle(fontSize: 22, fontWeight: FontWeight.w800, height: 1.15),
+      child: Text(
+        title,
+        style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w800, height: 1.15),
       ),
     );
   }
@@ -722,6 +714,7 @@ class _HomeComplianceFooter extends StatelessWidget {
     final cs = Theme.of(context).colorScheme;
     return LayoutBuilder(
       builder: (context, constraints) {
+        final l10n = AppLocalizations.of(context);
         final w = constraints.hasBoundedWidth && constraints.maxWidth.isFinite
             ? constraints.maxWidth
             : MediaQuery.sizeOf(context).width;
@@ -730,7 +723,7 @@ class _HomeComplianceFooter extends StatelessWidget {
         final maxCard = (w < 720 ? w - padH * 2 : 720.0).clamp(200.0, 720.0);
         final stackLinks = w < 440;
         return Semantics(
-          label: 'Privacidade, dados, cookies e termos PerfectGest',
+          label: l10n.footerSemantics,
           child: Padding(
             padding: EdgeInsets.fromLTRB(padH, 20, padH, 8),
             child: Center(
@@ -748,7 +741,7 @@ class _HomeComplianceFooter extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         Text(
-                          'Privacidade, dados e cookies',
+                          l10n.footerComplianceTitle,
                           style: GoogleFonts.inter(
                             fontSize: w < 360 ? 13 : 14,
                             fontWeight: FontWeight.w700,
@@ -758,8 +751,7 @@ class _HomeComplianceFooter extends StatelessWidget {
                         ),
                         SizedBox(height: w < 360 ? 6 : 8),
                         Text(
-                          'Leia a política completa da PerfectGest (privacidade, dados, cookies e termos). '
-                          'Para serviços Google (ex.: Analytics), aplicam-se também as políticas oficiais do Google.',
+                          l10n.footerComplianceBody,
                           style: GoogleFonts.inter(
                             fontSize: w < 360 ? 12 : 12.5,
                             height: 1.5,
@@ -780,7 +772,7 @@ class _HomeComplianceFooter extends StatelessWidget {
                             },
                             icon: const Icon(Icons.policy_outlined, size: 20),
                             label: Text(
-                              w < 340 ? 'Política completa' : 'Ver política completa',
+                              w < 340 ? l10n.footerBtnPolicyShort : l10n.footerBtnPolicyFull,
                               style: GoogleFonts.inter(fontWeight: FontWeight.w600, fontSize: w < 360 ? 13 : 14),
                               textAlign: TextAlign.center,
                             ),
@@ -792,19 +784,19 @@ class _HomeComplianceFooter extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
                               _policyLinkButton(
-                                'Privacidade Google',
+                                l10n.footerLinkGooglePrivacy,
                                 'https://policies.google.com/privacy',
                                 fontSize: w < 360 ? 12 : 12.5,
                               ),
                               const SizedBox(height: 4),
                               _policyLinkButton(
-                                'Cookies Google',
+                                l10n.footerLinkGoogleCookies,
                                 'https://policies.google.com/technologies/cookies',
                                 fontSize: w < 360 ? 12 : 12.5,
                               ),
                               const SizedBox(height: 4),
                               _policyLinkButton(
-                                'Termos Google',
+                                l10n.footerLinkGoogleTerms,
                                 'https://policies.google.com/terms',
                                 fontSize: w < 360 ? 12 : 12.5,
                               ),
@@ -822,7 +814,7 @@ class _HomeComplianceFooter extends StatelessWidget {
                                   mode: LaunchMode.externalApplication,
                                   webOnlyWindowName: kIsWeb ? '_blank' : null,
                                 ),
-                                child: Text('Privacidade Google', style: GoogleFonts.inter(fontSize: 12.5)),
+                                child: Text(l10n.footerLinkGooglePrivacy, style: GoogleFonts.inter(fontSize: 12.5)),
                               ),
                               TextButton(
                                 onPressed: () => launchUrl(
@@ -830,7 +822,7 @@ class _HomeComplianceFooter extends StatelessWidget {
                                   mode: LaunchMode.externalApplication,
                                   webOnlyWindowName: kIsWeb ? '_blank' : null,
                                 ),
-                                child: Text('Cookies Google', style: GoogleFonts.inter(fontSize: 12.5)),
+                                child: Text(l10n.footerLinkGoogleCookies, style: GoogleFonts.inter(fontSize: 12.5)),
                               ),
                               TextButton(
                                 onPressed: () => launchUrl(
@@ -838,7 +830,7 @@ class _HomeComplianceFooter extends StatelessWidget {
                                   mode: LaunchMode.externalApplication,
                                   webOnlyWindowName: kIsWeb ? '_blank' : null,
                                 ),
-                                child: Text('Termos Google', style: GoogleFonts.inter(fontSize: 12.5)),
+                                child: Text(l10n.footerLinkGoogleTerms, style: GoogleFonts.inter(fontSize: 12.5)),
                               ),
                             ],
                           ),
@@ -874,11 +866,12 @@ class _WebCookieConsentBannerState extends State<_WebCookieConsentBanner> {
     _visible = kIsWeb && !cookie_consent.isCookieChoiceStored();
   }
 
-  void _snackReload() {
+  void _snackReload(BuildContext context) {
     if (!mounted) return;
+    final l10n = AppLocalizations.of(context);
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Preferência gravada. Recarregue a página (F5 ou ícone atualizar) para aplicar a medição.'),
+      SnackBar(
+        content: Text(l10n.cookieSnackReload),
         behavior: SnackBarBehavior.floating,
       ),
     );
@@ -890,6 +883,7 @@ class _WebCookieConsentBannerState extends State<_WebCookieConsentBanner> {
     final cs = Theme.of(context).colorScheme;
     final w = MediaQuery.sizeOf(context).width;
     final narrow = w < 520;
+    final l10n = AppLocalizations.of(context);
     return Material(
       elevation: 12,
       color: cs.surface.withValues(alpha: 0.97),
@@ -907,11 +901,11 @@ class _WebCookieConsentBannerState extends State<_WebCookieConsentBanner> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Text(
-                        'Cookies de medição (Google). Pode aceitar, recusar ou ler a política.',
+                        l10n.cookieBannerNarrow,
                         style: GoogleFonts.inter(fontSize: 12.5, height: 1.35, color: cs.onSurface.withValues(alpha: 0.88)),
                       ),
                       const SizedBox(height: 10),
-                      _cookieActions(context, cs, narrow: true),
+                      _cookieActions(context, cs, l10n, narrow: true),
                     ],
                   )
                 : Row(
@@ -919,12 +913,12 @@ class _WebCookieConsentBannerState extends State<_WebCookieConsentBanner> {
                     children: [
                       Expanded(
                         child: Text(
-                          'Utilizamos cookies de medição (Google Analytics) conforme a nossa política e o Consent Mode.',
+                          l10n.cookieBannerWide,
                           style: GoogleFonts.inter(fontSize: 13, height: 1.35, color: cs.onSurface.withValues(alpha: 0.88)),
                         ),
                       ),
                       const SizedBox(width: 12),
-                      _cookieActions(context, cs, narrow: false),
+                      _cookieActions(context, cs, l10n, narrow: false),
                     ],
                   ),
           ),
@@ -933,7 +927,7 @@ class _WebCookieConsentBannerState extends State<_WebCookieConsentBanner> {
     );
   }
 
-  Widget _cookieActions(BuildContext context, ColorScheme cs, {required bool narrow}) {
+  Widget _cookieActions(BuildContext context, ColorScheme cs, AppLocalizations l10n, {required bool narrow}) {
     Widget row = Wrap(
       spacing: 6,
       runSpacing: 6,
@@ -948,23 +942,23 @@ class _WebCookieConsentBannerState extends State<_WebCookieConsentBanner> {
               ),
             );
           },
-          child: Text('Política', style: GoogleFonts.inter(fontSize: 13, fontWeight: FontWeight.w600)),
+          child: Text(l10n.cookieBtnPolicy, style: GoogleFonts.inter(fontSize: 13, fontWeight: FontWeight.w600)),
         ),
         TextButton(
           onPressed: () {
             cookie_consent.denyAnalyticsMeasurementConsent();
             setState(() => _visible = false);
-            _snackReload();
+            _snackReload(context);
           },
-          child: Text('Recusar', style: GoogleFonts.inter(fontSize: 13)),
+          child: Text(l10n.cookieBtnDeny, style: GoogleFonts.inter(fontSize: 13)),
         ),
         FilledButton(
           onPressed: () {
             cookie_consent.grantAnalyticsMeasurementConsent();
             setState(() => _visible = false);
-            _snackReload();
+            _snackReload(context);
           },
-          child: Text('Aceitar', style: GoogleFonts.inter(fontSize: 13, fontWeight: FontWeight.w600)),
+          child: Text(l10n.cookieBtnAccept, style: GoogleFonts.inter(fontSize: 13, fontWeight: FontWeight.w600)),
         ),
       ],
     );
@@ -1009,12 +1003,12 @@ Future<void> _openSacEmail() async {
 }
 
 Future<void> _openSiteUrl() async {
+  if (kIsWeb) {
+    web_site_root.navigateToSameOriginRoot();
+    return;
+  }
   final uri = Uri.parse('https://perfectpro-webpageoficial.onrender.com/');
-  await launchUrl(
-    uri,
-    mode: LaunchMode.platformDefault,
-    webOnlyWindowName: kIsWeb ? '_self' : null,
-  );
+  await launchUrl(uri, mode: LaunchMode.platformDefault);
 }
 
 class SiteHeader extends StatelessWidget {
@@ -1042,6 +1036,7 @@ class SiteHeader extends StatelessWidget {
     final cs = Theme.of(context).colorScheme;
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final isCompact = MediaQuery.sizeOf(context).width < 980;
+    final l10n = AppLocalizations.of(context);
     return Semantics(
       label: 'Cabecalho fixo com navegacao principal',
       child: Container(
@@ -1099,64 +1094,83 @@ class SiteHeader extends StatelessWidget {
             if (!isCompact) const SizedBox(width: 4),
             if (!isCompact)
               IconButton(
-                tooltip: 'WhatsApp',
+                tooltip: l10n.tooltipWhatsApp,
                 onPressed: _openWhatsApp,
                 icon: Icon(Icons.chat_rounded, color: cs.primary, size: 22),
               ),
             if (!isCompact)
               IconButton(
-                tooltip: 'E-mail SAC',
+                tooltip: l10n.tooltipSacEmail,
                 onPressed: _openSacEmail,
                 icon: Icon(Icons.mail_outline_rounded, color: cs.primary, size: 22),
               ),
             if (!isCompact)
               IconButton(
-                tooltip: isDark ? 'Tema claro' : 'Tema escuro',
+                tooltip: isDark ? l10n.themeLight : l10n.themeDark,
                 onPressed: onToggleTheme,
                 icon: Icon(isDark ? Icons.light_mode_rounded : Icons.dark_mode_rounded, color: cs.primary, size: 22),
               ),
+            if (!isCompact) const _LanguageMenuButton(),
             if (!isCompact) const Spacer(),
             if (isCompact)
-              IconButton(
-                tooltip: isDark ? 'Tema claro' : 'Tema escuro',
-                onPressed: onToggleTheme,
-                icon: Icon(isDark ? Icons.light_mode_rounded : Icons.dark_mode_rounded, color: cs.primary, size: 22),
-              ),
-            if (isCompact)
-              PopupMenuButton<String>(
-                tooltip: 'Abrir menu',
-                icon: Icon(Icons.menu_rounded, color: cs.primary, size: 24),
-                onSelected: (value) {
-                  switch (value) {
-                    case 'home':
-                      onHome();
-                    case 'solutions':
-                      onSolutions();
-                    case 'portfolio':
-                      onPortfolio();
-                    case 'about':
-                      onAbout();
-                    case 'contact':
-                      onContact();
-                    case 'whatsapp':
-                      _openWhatsApp();
-                    case 'email':
-                      _openSacEmail();
-                    case 'theme':
-                      onToggleTheme();
-                  }
-                },
-                itemBuilder: (context) => const [
-                  PopupMenuItem(value: 'home', child: Text('Home')),
-                  PopupMenuItem(value: 'solutions', child: Text('Solucoes (App/Web)')),
-                  PopupMenuItem(value: 'portfolio', child: Text('Portfolio')),
-                  PopupMenuItem(value: 'about', child: Text('Sobre nós')),
-                  PopupMenuItem(value: 'contact', child: Text('Contato')),
-                  PopupMenuDivider(),
-                  PopupMenuItem(value: 'theme', child: Text('Alternar tema')),
-                  PopupMenuItem(value: 'whatsapp', child: Text('WhatsApp')),
-                  PopupMenuItem(value: 'email', child: Text('E-mail SAC')),
-                ],
+              Flexible(
+                fit: FlexFit.loose,
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IconButton(
+                          tooltip: l10n.tooltipWhatsApp,
+                          onPressed: _openWhatsApp,
+                          icon: Icon(Icons.chat_rounded, color: cs.primary, size: 22),
+                        ),
+                        IconButton(
+                          tooltip: l10n.tooltipSacEmail,
+                          onPressed: _openSacEmail,
+                          icon: Icon(Icons.mail_outline_rounded, color: cs.primary, size: 22),
+                        ),
+                        IconButton(
+                          tooltip: isDark ? l10n.themeLight : l10n.themeDark,
+                          onPressed: onToggleTheme,
+                          icon: Icon(
+                            isDark ? Icons.light_mode_rounded : Icons.dark_mode_rounded,
+                            color: cs.primary,
+                            size: 22,
+                          ),
+                        ),
+                        const _LanguageMenuButton(),
+                        PopupMenuButton<String>(
+                          tooltip: l10n.menuOpen,
+                          icon: Icon(Icons.menu_rounded, color: cs.primary, size: 22),
+                          onSelected: (value) {
+                            switch (value) {
+                              case 'home':
+                                onHome();
+                              case 'solutions':
+                                onSolutions();
+                              case 'portfolio':
+                                onPortfolio();
+                              case 'about':
+                                onAbout();
+                              case 'contact':
+                                onContact();
+                            }
+                          },
+                          itemBuilder: (context) => <PopupMenuEntry<String>>[
+                            PopupMenuItem(value: 'home', child: Text(l10n.navHome)),
+                            PopupMenuItem(value: 'solutions', child: Text(l10n.navSolutions)),
+                            PopupMenuItem(value: 'portfolio', child: Text(l10n.navPortfolio)),
+                            PopupMenuItem(value: 'about', child: Text(l10n.navAbout)),
+                            PopupMenuItem(value: 'contact', child: Text(l10n.navContact)),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               )
             else
               Flexible(
@@ -1164,11 +1178,11 @@ class SiteHeader extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      _HeaderBtn(label: 'Home', onTap: onHome),
-                      _HeaderBtn(label: 'Solucoes (App/Web)', onTap: onSolutions),
-                      _HeaderBtn(label: 'Portfolio', onTap: onPortfolio),
-                      _HeaderBtn(label: 'Sobre nós', onTap: onAbout),
-                      _HeaderBtn(label: 'Contato', onTap: onContact),
+                      _HeaderBtn(label: l10n.navHome, onTap: onHome),
+                      _HeaderBtn(label: l10n.navSolutions, onTap: onSolutions),
+                      _HeaderBtn(label: l10n.navPortfolio, onTap: onPortfolio),
+                      _HeaderBtn(label: l10n.navAbout, onTap: onAbout),
+                      _HeaderBtn(label: l10n.navContact, onTap: onContact),
                     ],
                   ),
                 ),
@@ -1193,6 +1207,56 @@ class _HeaderBtn extends StatelessWidget {
         onPressed: onTap,
         child: Text(label, style: TextStyle(color: Theme.of(context).colorScheme.onSurface, fontSize: 13)),
       ),
+    );
+  }
+}
+
+/// Selector de idioma (PT/EN/ES) ligado a [appLocaleController].
+///
+/// `value: ''` representa "seguir sistema" (autodeteccao). Demais valores sao
+/// codigos ISO 639-1 (`pt`, `en`, `es`).
+class _LanguageMenuButton extends StatelessWidget {
+  const _LanguageMenuButton();
+
+  @override
+  Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
+    final l10n = AppLocalizations.of(context);
+    return ValueListenableBuilder<Locale?>(
+      valueListenable: appLocaleController,
+      builder: (context, manualLocale, _) {
+        final activeCode = manualLocale?.languageCode;
+        return PopupMenuButton<String>(
+          tooltip: l10n.languageMenuTooltip,
+          icon: Icon(Icons.translate_rounded, color: cs.primary, size: 22),
+          onSelected: (value) {
+            appLocaleController.setLocale(value.isEmpty ? null : Locale(value));
+          },
+          itemBuilder: (context) => <PopupMenuEntry<String>>[
+            CheckedPopupMenuItem<String>(
+              value: '',
+              checked: activeCode == null,
+              child: Text(l10n.languageFollowSystem),
+            ),
+            const PopupMenuDivider(),
+            CheckedPopupMenuItem<String>(
+              value: 'pt',
+              checked: activeCode == 'pt',
+              child: Text(l10n.languageNamePortuguese),
+            ),
+            CheckedPopupMenuItem<String>(
+              value: 'en',
+              checked: activeCode == 'en',
+              child: Text(l10n.languageNameEnglish),
+            ),
+            CheckedPopupMenuItem<String>(
+              value: 'es',
+              checked: activeCode == 'es',
+              child: Text(l10n.languageNameSpanish),
+            ),
+          ],
+        );
+      },
     );
   }
 }
@@ -1233,8 +1297,9 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
     final staticDecor = allowStaticHeroDecor(context);
     final accentMotion = staticDecor;
     final cs = Theme.of(context).colorScheme;
+    final l10n = AppLocalizations.of(context);
     return Semantics(
-      label: 'Secao principal de apresentacao',
+      label: l10n.heroSemanticsLabel,
       child: ValueListenableBuilder<double>(
         valueListenable: widget.scrollListenable,
         builder: (context, scroll, _) {
@@ -1248,7 +1313,6 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
                 builder: (context, _) {
                   final screenWidth = MediaQuery.sizeOf(context).width;
                   final isCompactHero = screenWidth < 760;
-                  final heroTitleSize = isCompactHero ? 28.0 : 36.0;
                   final heroSubtitleSize = isCompactHero ? 15.0 : 18.0;
                   final pulse = accentMotion ? (0.45 + 0.55 * (0.5 + 0.5 * math.sin(_ambient.value * math.pi * 2))) : 0.55;
                   final beat = accentMotion ? (0.5 + 0.5 * math.sin(_ambient.value * math.pi * 6)) : 0.5;
@@ -1309,20 +1373,35 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
                       children: [
                         Semantics(
                           header: true,
-                          child: Text(
-                            'PerfectGest',
-                            style: GoogleFonts.inter(
-                              fontSize: heroSubtitleSize,
-                              letterSpacing: 0.5,
-                              fontWeight: FontWeight.w800,
-                              color: cs.primary,
+                          link: true,
+                          label: l10n.heroBrandLinkSemantics,
+                          child: MouseRegion(
+                            cursor: SystemMouseCursors.click,
+                            child: Material(
+                              type: MaterialType.transparency,
+                              child: InkWell(
+                                onTap: () => _openSiteUrl(),
+                                borderRadius: BorderRadius.circular(6),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 2),
+                                  child: Text(
+                                    'PerfectGest',
+                                    style: GoogleFonts.inter(
+                                      fontSize: heroSubtitleSize,
+                                      letterSpacing: 0.5,
+                                      fontWeight: FontWeight.w800,
+                                      color: cs.primary,
+                                    ),
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
                         ),
                         const SizedBox(height: 10),
                         Semantics(
                           header: true,
-                          label: 'Inovacao em Flutter, Java e SDKs',
+                          label: l10n.heroHeadline1,
                           child: staticDecor
                               ? ShaderMask(
                                   blendMode: BlendMode.srcIn,
@@ -1339,7 +1418,7 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
                                     ).createShader(bounds);
                                   },
                                   child: Text(
-                                    'Inovacao em Flutter, Java e SDKs',
+                                    l10n.heroHeadline1,
                                     style: TextStyle(
                                       fontSize: heroSubtitleSize,
                                       fontWeight: FontWeight.w800,
@@ -1349,7 +1428,7 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
                                   ),
                                 )
                               : Text(
-                                  'Inovacao em Flutter, Java e SDKs',
+                                  l10n.heroHeadline1,
                                   style: TextStyle(
                                     fontSize: heroSubtitleSize,
                                     fontWeight: FontWeight.w800,
@@ -1375,7 +1454,7 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
                                   ).createShader(bounds);
                                 },
                                 child: Text(
-                                  'Criamos apps Flutter, sistemas web e integrações Java/SDK com foco em performance, segurança e escalabilidade para o seu negócio.',
+                                  l10n.heroHeadline2,
                                   style: GoogleFonts.inter(
                                     fontSize: heroSubtitleSize,
                                     height: 1.45,
@@ -1384,7 +1463,7 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
                                 ),
                               )
                             : Text(
-                                'Criamos apps Flutter, sistemas web e integrações Java/SDK com foco em performance, segurança e escalabilidade para o seu negócio.',
+                                l10n.heroHeadline2,
                                 style: GoogleFonts.inter(
                                   fontSize: heroSubtitleSize,
                                   height: 1.45,
@@ -1393,7 +1472,7 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
                               ),
                         const SizedBox(height: 12),
                         Text(
-                          'Software house especializada em aplicativo mobile, plataforma web rápida (Core Web Vitals) e SEO técnico para crescer no Google.',
+                          l10n.heroSubline,
                           style: GoogleFonts.inter(
                             fontSize: heroSubtitleSize,
                             height: 1.45,
@@ -1417,7 +1496,7 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
                                   ).createShader(bounds);
                                 },
                                 child: Text(
-                                  'Soluções digitais com arquitetura robusta, código limpo e resultados mensuráveis.',
+                                  l10n.heroCloser,
                                   style: TextStyle(
                                     fontSize: heroSubtitleSize,
                                     fontWeight: FontWeight.w800,
@@ -1427,7 +1506,7 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
                                 ),
                               )
                             : Text(
-                                'Soluções digitais com arquitetura robusta, código limpo e resultados mensuráveis.',
+                                l10n.heroCloser,
                                 style: TextStyle(
                                   fontSize: heroSubtitleSize,
                                   fontWeight: FontWeight.w800,
@@ -1494,6 +1573,7 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -1505,7 +1585,7 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
               animation: Listenable.merge([_floatCtrl, widget.scrollListenable]),
               builder: (context, _) {
                 return Semantics(
-                  label: 'Vitrine de projetos em mockups de dispositivos',
+                  label: l10n.solShowcaseSemantics,
                   child: Wrap(
                     spacing: 16,
                     runSpacing: 16,
@@ -1523,9 +1603,9 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
           opacity: _fadeIn(0.12, 0.55),
           child: SlideTransition(
             position: _slideIn(0.12, 0.55),
-            child: const SectionText(
-              title: 'Apps Nativos com Performance de Proxima Geracao',
-              body: 'Com Flutter, entregamos uma base unica para iOS e Android sem sacrificar performance nativa, com integracao de SDKs e APIs complexas.',
+            child: SectionText(
+              title: l10n.solAppsTitle,
+              body: l10n.solAppsBody,
             ),
           ),
         ),
@@ -1534,9 +1614,9 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
           opacity: _fadeIn(0.28, 0.85),
           child: SlideTransition(
             position: _slideIn(0.28, 0.85),
-            child: const SectionText(
-              title: 'Web Apps Rapidos, Responsivos e Indexaveis',
-              body: 'Solucoes com foco em Core Web Vitals e Google Search Console, orientadas para carregamento rapido e conversao.',
+            child: SectionText(
+              title: l10n.solWebTitle,
+              body: l10n.solWebBody,
             ),
           ),
         ),
@@ -1592,6 +1672,7 @@ class _PortfolioMotionBlockState extends State<PortfolioMotionBlock> with Single
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -1601,9 +1682,9 @@ class _PortfolioMotionBlockState extends State<PortfolioMotionBlock> with Single
             position: Tween<Offset>(begin: const Offset(0, 0.06), end: Offset.zero).animate(
               CurvedAnimation(parent: _c, curve: const Interval(0.0, 0.4, curve: Curves.easeOutCubic)),
             ),
-            child: const SectionText(
-              title: 'Diferenciais',
-              body: '- Codigo Limpo\n- Seguranca\n- Escalabilidade\n- Suporte Full-Stack',
+            child: SectionText(
+              title: l10n.portDifferentialsTitle,
+              body: l10n.portDifferentialsBody,
             ),
           ),
         ),
@@ -1615,10 +1696,10 @@ class _PortfolioMotionBlockState extends State<PortfolioMotionBlock> with Single
               spacing: 10,
               runSpacing: 10,
               children: [
-                _demoChip(context, Icons.architecture, 'Clean Arch', 0, TecnologiasPage.topicCleanArch),
-                _demoChip(context, Icons.security, 'Seguranca', 1, TecnologiasPage.topicSeguranca),
-                _demoChip(context, Icons.trending_up, 'Escala', 2, TecnologiasPage.topicEscala),
-                _demoChip(context, Icons.hub, 'Full-Stack', 3, TecnologiasPage.topicFullStack),
+                _demoChip(context, Icons.architecture, l10n.portChipCleanArch, 0, TecnologiasPage.topicCleanArch),
+                _demoChip(context, Icons.security, l10n.portChipSecurity, 1, TecnologiasPage.topicSeguranca),
+                _demoChip(context, Icons.trending_up, l10n.portChipScale, 2, TecnologiasPage.topicEscala),
+                _demoChip(context, Icons.hub, l10n.portChipFullStack, 3, TecnologiasPage.topicFullStack),
               ],
             );
           },
@@ -1630,7 +1711,7 @@ class _PortfolioMotionBlockState extends State<PortfolioMotionBlock> with Single
           children: [
             ActionChip(
               avatar: Icon(Icons.memory_rounded, size: 18, color: Theme.of(context).colorScheme.primary),
-              label: const Text('Parceiros tecnológicos'),
+              label: Text(l10n.portBtnPartners),
               onPressed: () => Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (_) => const TecnologiasPage(),
@@ -1641,7 +1722,7 @@ class _PortfolioMotionBlockState extends State<PortfolioMotionBlock> with Single
             ),
             ActionChip(
               avatar: Icon(Icons.cloud_done_rounded, size: 18, color: Theme.of(context).colorScheme.primary),
-              label: const Text('Soluções em nuvem'),
+              label: Text(l10n.portBtnCloud),
               onPressed: () => Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (_) => const SolucoesNuvemPage(),
@@ -1714,11 +1795,12 @@ class _ContactMotionBlockState extends State<ContactMotionBlock> with TickerProv
   Widget build(BuildContext context) {
     final motion = allowRichMotion(context);
     final cs = Theme.of(context).colorScheme;
+    final l10n = AppLocalizations.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Semantics(
-          label: 'Contacto WhatsApp e e-mail',
+          label: l10n.contactSemantics,
           child: Wrap(
             spacing: 10,
             runSpacing: 10,
@@ -1747,9 +1829,9 @@ class _ContactMotionBlockState extends State<ContactMotionBlock> with TickerProv
             position: Tween<Offset>(begin: const Offset(0, 0.06), end: Offset.zero).animate(
               CurvedAnimation(parent: _enter, curve: const Interval(0.0, 0.55, curve: Curves.easeOutCubic)),
             ),
-            child: const SectionText(
-              title: 'Vamos construir seu proximo produto',
-              body: 'Foco em eficiencia, estabilidade e entrega continua para mobile, web e desktop.',
+            child: SectionText(
+              title: l10n.contactCtaTitle,
+              body: l10n.contactCtaBody,
             ),
           ),
         ),
@@ -1767,11 +1849,10 @@ class _ContactMotionBlockState extends State<ContactMotionBlock> with TickerProv
                 padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 14),
               ),
               onPressed: () => _openWhatsApp(
-                    prefilledBody:
-                        'Olá! Gostaria de falar com a PerfectGest sobre um projeto.\n\n',
+                    prefilledBody: l10n.contactWhatsappPrefilled,
                   ),
               icon: const Icon(Icons.send_rounded),
-              label: const Text('Enviar mensagem (WhatsApp)'),
+              label: Text(l10n.contactBtnSend),
             ),
           ),
         ),
