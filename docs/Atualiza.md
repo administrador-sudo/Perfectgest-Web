@@ -1215,3 +1215,24 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 ### Validacao executada
 - [x] `flutter analyze` (0 issues)
 - [ ] Deploy Render
+
+## [2026-05-27] Rodape legal compacto e largura alinhada
+
+### Contexto
+- Pedido: manter so o necessario (sem politicas do app); alinhar largura ao corpo; Sobre com rodape fixo compacto.
+
+### Arquivos alterados
+- lib/company_legal.dart, lib/company_legal_strip.dart, lib/site_layout.dart, lib/main.dart
+- lib/l10n/app_pt.arb, app_en.arb, app_es.arb, app_localizations.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- Removidos links FAQ/privacidade do app e URLs Google Sites do rodape.
+- LTDA: nome, morada, CNPJ · D-U-N-S · e-mail (linha compacta).
+- Home: bloco com mesma margem/largura que `SectionCard` (padding 24, largura total).
+- Sobre: rodape fixo alinhado a 720px do corpo, tipografia menor, menos padding.
+- Separador visual entre dados da empresa e bloco «Privacidade de dados e cookies» (home).
+
+### Validacao executada
+- [x] `flutter analyze` (0 issues)
+- [ ] Deploy Render

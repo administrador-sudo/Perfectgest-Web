@@ -18,6 +18,7 @@ import 'locale_controller.dart';
 import 'seo_meta_stub.dart' if (dart.library.html) 'seo_meta_web.dart' as seo_meta;
 import 'web_site_root_stub.dart' if (dart.library.html) 'web_site_root_web.dart' as web_site_root;
 import 'company_legal_strip.dart';
+import 'site_layout.dart';
 
 /// Loops, parallax e oscilações contínuas — respeita “reduzir movimento” do SO/navegador.
 bool allowRichMotion(BuildContext context) {
@@ -390,10 +391,15 @@ class _SobreNosPageState extends State<SobreNosPage> {
           children: [
             Expanded(
               child: SingleChildScrollView(
-                padding: const EdgeInsets.fromLTRB(24, 16, 24, 28),
+                padding: const EdgeInsets.fromLTRB(
+                  kSiteHorizontalPadding,
+                  16,
+                  kSiteHorizontalPadding,
+                  28,
+                ),
                 child: Center(
                   child: ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 720),
+                    constraints: const BoxConstraints(maxWidth: kSiteContentMaxWidth),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -556,37 +562,44 @@ class _SobreNosLegalFooter extends StatelessWidget {
     final l10n = AppLocalizations.of(context);
     return Semantics(
       label: l10n.aboutFooterSemantics,
-      child: ColoredBox(
-        color: cs.surfaceContainerHighest.withValues(alpha: 0.92),
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: cs.surfaceContainerHighest.withValues(alpha: 0.92),
+          border: Border(top: BorderSide(color: cs.outline.withValues(alpha: 0.35))),
+        ),
         child: SafeArea(
           top: false,
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(24, 18, 24, 20),
+            padding: const EdgeInsets.fromLTRB(
+              kSiteHorizontalPadding,
+              8,
+              kSiteHorizontalPadding,
+              10,
+            ),
             child: Center(
               child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 720),
+                constraints: const BoxConstraints(maxWidth: kSiteContentMaxWidth),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    const CompanyLegalStrip(),
-                    const SizedBox(height: 14),
+                    const CompanyLegalStrip(dense: true),
+                    const SizedBox(height: 6),
                     Text(
                       l10n.aboutFooterCopyright(year),
-                      textAlign: TextAlign.center,
                       style: GoogleFonts.inter(
-                        fontSize: 13,
+                        fontSize: 11,
                         fontWeight: FontWeight.w600,
-                        color: cs.onSurface.withValues(alpha: 0.88),
+                        height: 1.3,
+                        color: cs.onSurface.withValues(alpha: 0.82),
                       ),
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: 2),
                     Text(
                       l10n.aboutFooterDisclaimer,
-                      textAlign: TextAlign.center,
                       style: GoogleFonts.inter(
-                        fontSize: 12,
-                        height: 1.45,
-                        color: cs.onSurface.withValues(alpha: 0.65),
+                        fontSize: 10,
+                        height: 1.35,
+                        color: cs.onSurface.withValues(alpha: 0.58),
                       ),
                     ),
                   ],
@@ -721,31 +734,30 @@ class _HomeComplianceFooter extends StatelessWidget {
         final w = constraints.hasBoundedWidth && constraints.maxWidth.isFinite
             ? constraints.maxWidth
             : MediaQuery.sizeOf(context).width;
-        final padH = w < 400 ? 12.0 : 24.0;
+        final padH = w < 400 ? 12.0 : kSiteHorizontalPadding;
         final innerPad = w < 400 ? 14.0 : 18.0;
-        final maxCard = (w < 720 ? w - padH * 2 : 720.0).clamp(200.0, 720.0);
         final stackLinks = w < 440;
         return Semantics(
           label: l10n.footerSemantics,
           child: Padding(
-            padding: EdgeInsets.fromLTRB(padH, 20, padH, 8),
-            child: Center(
-              child: ConstrainedBox(
-                constraints: BoxConstraints(maxWidth: maxCard.clamp(0, 720)),
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: cs.surfaceContainerHighest.withValues(alpha: 0.45),
-                    borderRadius: BorderRadius.circular(14),
-                    border: Border.all(color: cs.outline.withValues(alpha: 0.4)),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.fromLTRB(innerPad, 16, innerPad, 16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        const CompanyLegalStrip(),
-                        SizedBox(height: w < 360 ? 12 : 16),
-                        Text(
+            padding: EdgeInsets.fromLTRB(padH, 10, padH, 12),
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                color: cs.surfaceContainerHighest,
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(color: cs.outline.withValues(alpha: 0.65)),
+              ),
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(innerPad, 14, innerPad, 14),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    const CompanyLegalStrip(dense: true),
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: w < 360 ? 8 : 10),
+                      child: Divider(height: 1, color: cs.outline.withValues(alpha: 0.35)),
+                    ),
+                    Text(
                           l10n.footerComplianceTitle,
                           style: GoogleFonts.inter(
                             fontSize: w < 360 ? 13 : 14,
@@ -839,9 +851,7 @@ class _HomeComplianceFooter extends StatelessWidget {
                               ),
                             ],
                           ),
-                      ],
-                    ),
-                  ),
+                  ],
                 ),
               ),
             ),

@@ -12,3 +12,5 @@ build/
 # Local logs/temp
 *.log
 *.tmp
+
+imagens/image_*.png

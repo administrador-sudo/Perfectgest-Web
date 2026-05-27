@@ -88,10 +88,6 @@ abstract class AppLocalizations {
   String get footerCompanyLegalSemantics;
   String get footerCompanyCnpjLabel;
   String get footerCompanyDunsLabel;
-  String get footerCompanyContactLabel;
-  String get footerCompanyEmailBtn;
-  String get footerLinkAppFaq;
-  String get footerLinkAppPrivacy;
   String get cookieBannerNarrow;
   String get cookieBannerWide;
   String get cookieBtnPolicy;
@@ -285,14 +281,6 @@ class _AppLocalizationsPt extends AppLocalizations {
   String get footerCompanyCnpjLabel => 'CNPJ:';
   @override
   String get footerCompanyDunsLabel => 'D-U-N-S:';
-  @override
-  String get footerCompanyContactLabel => 'Contacto:';
-  @override
-  String get footerCompanyEmailBtn => 'E-mail';
-  @override
-  String get footerLinkAppFaq => 'FAQ PerfectGest I';
-  @override
-  String get footerLinkAppPrivacy => 'Politica de privacidade';
   @override
   String get cookieBannerNarrow =>
       'Cookies de medição (Google). Pode aceitar, recusar ou ler a política.';
@@ -517,14 +505,6 @@ class _AppLocalizationsEn extends AppLocalizations {
   @override
   String get footerCompanyDunsLabel => 'D-U-N-S:';
   @override
-  String get footerCompanyContactLabel => 'Contact:';
-  @override
-  String get footerCompanyEmailBtn => 'Email';
-  @override
-  String get footerLinkAppFaq => 'PerfectGest I FAQ';
-  @override
-  String get footerLinkAppPrivacy => 'Privacy policy';
-  @override
   String get cookieBannerNarrow =>
       'Measurement cookies (Google). You can accept, decline, or read the policy.';
   @override
@@ -747,14 +727,6 @@ class _AppLocalizationsEs extends AppLocalizations {
   String get footerCompanyCnpjLabel => 'CNPJ:';
   @override
   String get footerCompanyDunsLabel => 'D-U-N-S:';
-  @override
-  String get footerCompanyContactLabel => 'Contacto:';
-  @override
-  String get footerCompanyEmailBtn => 'Correo';
-  @override
-  String get footerLinkAppFaq => 'FAQ PerfectGest I';
-  @override
-  String get footerLinkAppPrivacy => 'Politica de privacidad';
   @override
   String get cookieBannerNarrow =>
       'Cookies de medición (Google). Puede aceptar, rechazar o leer la política.';

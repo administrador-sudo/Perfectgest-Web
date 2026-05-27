@@ -148,10 +148,6 @@
   "footerCompanyLegalSemantics": "Identificacao legal da empresa desenvolvedora",
   "footerCompanyCnpjLabel": "CNPJ:",
   "footerCompanyDunsLabel": "D-U-N-S:",
-  "footerCompanyContactLabel": "Contacto:",
-  "footerCompanyEmailBtn": "E-mail",
-  "footerLinkAppFaq": "FAQ PerfectGest I",
-  "footerLinkAppPrivacy": "Politica de privacidade",
 
   "cookieBannerNarrow": "Cookies de medição (Google). Pode aceitar, recusar ou ler a política.",
   "@cookieBannerNarrow": { "description": "Texto do banner de cookies em ecra estreito" },
