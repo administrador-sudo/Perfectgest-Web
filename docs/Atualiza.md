@@ -1258,3 +1258,22 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 ### Validacao executada
 - [x] `flutter analyze lib/main.dart` (0 issues)
 - [ ] Validacao visual / deploy
+
+## [2026-05-27] Solucoes — ampliar captura ao clique
+
+### Contexto
+- Pedido: ao clicar no mockup da vitrine, expandir imagem para ver detalhes.
+
+### Arquivos alterados
+- lib/solution_screenshot_preview.dart (novo)
+- lib/main.dart (`DeviceFrame.previewCaption`, dialogo com `InteractiveViewer`)
+- lib/l10n/app_pt.arb, app_en.arb, app_es.arb, app_localizations.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- Toque/clique no mockup abre dialogo com captura em tamanho grande e zoom.
+- Icone de ampliar no canto; tooltip e textos PT/EN/ES.
+
+### Validacao executada
+- [x] `flutter analyze` (0 issues)
+- [ ] Deploy / teste no browser

@@ -19,6 +19,7 @@ import 'seo_meta_stub.dart' if (dart.library.html) 'seo_meta_web.dart' as seo_me
 import 'web_site_root_stub.dart' if (dart.library.html) 'web_site_root_web.dart' as web_site_root;
 import 'company_legal_strip.dart';
 import 'site_layout.dart';
+import 'solution_screenshot_preview.dart';
 
 /// Loops, parallax e oscilações contínuas — respeita “reduzir movimento” do SO/navegador.
 bool allowRichMotion(BuildContext context) {
@@ -1607,7 +1608,7 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
                     children: [
                       _floatedDevice(
                         0,
-                        const DeviceFrame(
+                        DeviceFrame(
                           title: 'Android 14',
                           width: 190,
                           height: 338,
@@ -1618,11 +1619,12 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
                           imageTop: 20,
                           imageWidth: 136,
                           imageHeight: 297,
+                          previewCaption: l10n.solPreviewPhoneInicio,
                         ),
                       ),
                       _floatedDevice(
                         1,
-                        const DeviceFrame(
+                        DeviceFrame(
                           title: 'Android 14',
                           width: 190,
                           height: 338,
@@ -1633,11 +1635,12 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
                           imageTop: 20,
                           imageWidth: 136,
                           imageHeight: 297,
+                          previewCaption: l10n.solPreviewPhoneOrcamentos,
                         ),
                       ),
                       _floatedDevice(
                         2,
-                        const DeviceFrame(
+                        DeviceFrame(
                           title: 'Android tablet',
                           width: 228,
                           height: 308,
@@ -1648,11 +1651,12 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
                           imageTop: 16,
                           imageWidth: 168,
                           imageHeight: 276,
+                          previewCaption: l10n.solPreviewTabletInicio,
                         ),
                       ),
                       _floatedDevice(
                         3,
-                        const DeviceFrame(
+                        DeviceFrame(
                           title: 'Android tablet',
                           width: 228,
                           height: 308,
@@ -1663,6 +1667,7 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
                           imageTop: 16,
                           imageWidth: 168,
                           imageHeight: 276,
+                          previewCaption: l10n.solPreviewTabletOrcamentos,
                         ),
                       ),
                     ],
@@ -1975,6 +1980,7 @@ class DeviceFrame extends StatelessWidget {
     required this.imageWidth,
     required this.imageHeight,
     this.withDesktopBar = false,
+    this.previewCaption,
   });
 
   final String title;
@@ -1989,6 +1995,9 @@ class DeviceFrame extends StatelessWidget {
   final double imageHeight;
   final bool withDesktopBar;
 
+  /// Se definido, o mockup abre a captura em tamanho grande ao toque/clique.
+  final String? previewCaption;
+
   @override
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
@@ -2001,7 +2010,7 @@ class DeviceFrame extends StatelessWidget {
             : MediaQuery.sizeOf(context).width;
         final safeW = math.max(maxW, 1.0);
         final scale = math.min(1.0, safeW / width);
-        return SizedBox(
+        Widget frame = SizedBox(
           width: width * scale,
           height: height * scale,
           child: FittedBox(
@@ -2069,10 +2078,45 @@ class DeviceFrame extends StatelessWidget {
                           ),
                         ),
                         Positioned(left: 10, bottom: 8, child: Text(title, style: codeStyle)),
+                        if (previewCaption != null)
+                          Positioned(
+                            right: 8,
+                            top: 8,
+                            child: Icon(
+                              Icons.zoom_out_map_rounded,
+                              size: 16,
+                              color: cs.primary.withValues(alpha: 0.85),
+                            ),
+                          ),
                       ],
                     ),
                   );
                 },
+              ),
+            ),
+          ),
+        );
+
+        if (previewCaption == null) return frame;
+
+        final l10n = AppLocalizations.of(context);
+        final caption = previewCaption!;
+        return Tooltip(
+          message: l10n.solShowcaseTapToExpand,
+          child: Semantics(
+            button: true,
+            label: '$caption. ${l10n.solShowcaseTapToExpand}',
+            child: Material(
+              color: Colors.transparent,
+              child: InkWell(
+                borderRadius: BorderRadius.circular(radius * scale),
+                onTap: () => showSolutionScreenshotPreview(
+                  context,
+                  imageAsset: imageAsset,
+                  fallbackImageAsset: fallbackImageAsset,
+                  title: caption,
+                ),
+                child: frame,
               ),
             ),
           ),

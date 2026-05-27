@@ -96,6 +96,13 @@ abstract class AppLocalizations {
   String get cookieSnackReload;
 
   String get solShowcaseSemantics;
+  String get solShowcaseTapToExpand;
+  String get solPreviewPhoneInicio;
+  String get solPreviewPhoneOrcamentos;
+  String get solPreviewTabletInicio;
+  String get solPreviewTabletOrcamentos;
+  String get solPreviewClose;
+  String get solPreviewZoomHint;
   String get tooltipWhatsApp;
   String get navBack;
   String get navBackHome;
@@ -299,6 +306,21 @@ class _AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get solShowcaseSemantics => 'Vitrine de projetos em mockups de dispositivos';
+  @override
+  String get solShowcaseTapToExpand => 'Clique para ampliar a captura de tela';
+  @override
+  String get solPreviewPhoneInicio => 'PerfectGest — Inicio (celular)';
+  @override
+  String get solPreviewPhoneOrcamentos => 'PerfectGest — Orcamentos (celular)';
+  @override
+  String get solPreviewTabletInicio => 'PerfectGest — Inicio (tablet)';
+  @override
+  String get solPreviewTabletOrcamentos => 'PerfectGest — Orcamentos (tablet)';
+  @override
+  String get solPreviewClose => 'Fechar';
+  @override
+  String get solPreviewZoomHint =>
+      'Use a roda do rato ou gestos para ampliar. Toque fora para fechar.';
   @override
   String get tooltipWhatsApp => 'WhatsApp';
   @override
@@ -523,6 +545,21 @@ class _AppLocalizationsEn extends AppLocalizations {
   @override
   String get solShowcaseSemantics => 'Project showcase in device mockups';
   @override
+  String get solShowcaseTapToExpand => 'Click to enlarge the screenshot';
+  @override
+  String get solPreviewPhoneInicio => 'PerfectGest — Home (phone)';
+  @override
+  String get solPreviewPhoneOrcamentos => 'PerfectGest — Quotes (phone)';
+  @override
+  String get solPreviewTabletInicio => 'PerfectGest — Home (tablet)';
+  @override
+  String get solPreviewTabletOrcamentos => 'PerfectGest — Quotes (tablet)';
+  @override
+  String get solPreviewClose => 'Close';
+  @override
+  String get solPreviewZoomHint =>
+      'Use the scroll wheel or gestures to zoom. Tap outside to close.';
+  @override
   String get tooltipWhatsApp => 'WhatsApp';
   @override
   String get navBack => 'Back';
@@ -745,6 +782,21 @@ class _AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get solShowcaseSemantics => 'Vitrina de proyectos en maquetas de dispositivos';
+  @override
+  String get solShowcaseTapToExpand => 'Pulse para ampliar la captura de pantalla';
+  @override
+  String get solPreviewPhoneInicio => 'PerfectGest — Inicio (movil)';
+  @override
+  String get solPreviewPhoneOrcamentos => 'PerfectGest — Presupuestos (movil)';
+  @override
+  String get solPreviewTabletInicio => 'PerfectGest — Inicio (tablet)';
+  @override
+  String get solPreviewTabletOrcamentos => 'PerfectGest — Presupuestos (tablet)';
+  @override
+  String get solPreviewClose => 'Cerrar';
+  @override
+  String get solPreviewZoomHint =>
+      'Use la rueda del raton o gestos para ampliar. Toque fuera para cerrar.';
   @override
   String get tooltipWhatsApp => 'WhatsApp';
   @override

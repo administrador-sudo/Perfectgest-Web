@@ -74,6 +74,13 @@
   "@solWebBody": { "description": "Corpo do card Web em Solucoes" },
   "solShowcaseSemantics": "Vitrine de projetos em mockups de dispositivos",
   "@solShowcaseSemantics": { "description": "Rotulo a11y da vitrine de mockups em Solucoes" },
+  "solShowcaseTapToExpand": "Clique para ampliar a captura de tela",
+  "solPreviewPhoneInicio": "PerfectGest — Inicio (celular)",
+  "solPreviewPhoneOrcamentos": "PerfectGest — Orcamentos (celular)",
+  "solPreviewTabletInicio": "PerfectGest — Inicio (tablet)",
+  "solPreviewTabletOrcamentos": "PerfectGest — Orcamentos (tablet)",
+  "solPreviewClose": "Fechar",
+  "solPreviewZoomHint": "Use a roda do rato ou gestos para ampliar. Toque fora para fechar.",
 
   "tooltipWhatsApp": "WhatsApp",
   "navBack": "Voltar",
