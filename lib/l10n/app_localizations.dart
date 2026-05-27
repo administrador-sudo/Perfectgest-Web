@@ -51,6 +51,7 @@ abstract class AppLocalizations {
 
   // ---- Hero (Fase 2b) ----
   String get heroSemanticsLabel;
+  String get siteBrandLogoSemantics;
   String get heroBrandLinkSemantics;
   String get heroHeadline1;
   String get heroHeadline2;
@@ -211,6 +212,8 @@ class _AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get heroSemanticsLabel => 'Secao principal de apresentacao';
+  @override
+  String get siteBrandLogoSemantics => 'Logotipo PerfectGest';
   @override
   String get heroBrandLinkSemantics => 'PerfectGest, ir para a raiz do site';
   @override
@@ -450,6 +453,8 @@ class _AppLocalizationsEn extends AppLocalizations {
   @override
   String get heroSemanticsLabel => 'Main introduction section';
   @override
+  String get siteBrandLogoSemantics => 'PerfectGest logo';
+  @override
   String get heroBrandLinkSemantics => 'PerfectGest, go to site home';
   @override
   String get heroHeadline1 => 'Innovation in Flutter, Java and SDKs';
@@ -687,6 +692,8 @@ class _AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get heroSemanticsLabel => 'Sección principal de presentación';
+  @override
+  String get siteBrandLogoSemantics => 'Logotipo PerfectGest';
   @override
   String get heroBrandLinkSemantics => 'PerfectGest, ir a la raíz del sitio';
   @override

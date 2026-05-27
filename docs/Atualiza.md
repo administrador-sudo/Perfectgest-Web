@@ -1277,3 +1277,22 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 ### Validacao executada
 - [x] `flutter analyze` (0 issues)
 - [ ] Deploy / teste no browser
+
+## [2026-05-27] Novo logotipo PerfectGest (tema claro / escuro)
+
+### Contexto
+- Pedido: substituir logo do site por icones fornecidos (claro e escuro).
+
+### Arquivos alterados
+- imagens/logo_perfectgest_light.png, logo_perfectgest_dark.png
+- lib/site_brand_logo.dart, lib/main.dart (cabecalho)
+- lib/l10n/*, pubspec.yaml, scripts/publish-web.cjs
+- docs/Atualiza.md
+
+### O que foi feito
+- `SiteBrandLogo` escolhe asset conforme `Theme.of(context).brightness`.
+- Cabecalho usa logo 40x40; fallback cruzado se asset falhar.
+
+### Validacao executada
+- [x] `flutter analyze` (0 issues)
+- [ ] Deploy / alternar tema no browser

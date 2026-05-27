@@ -50,6 +50,7 @@
 
   "heroSemanticsLabel": "Secao principal de apresentacao",
   "@heroSemanticsLabel": { "description": "Rotulo de acessibilidade da seccao Hero (a11y)" },
+  "siteBrandLogoSemantics": "Logotipo PerfectGest",
   "heroBrandLinkSemantics": "PerfectGest, ir para a raiz do site",
   "@heroBrandLinkSemantics": { "description": "Rotulo a11y do titulo PerfectGest clicavel no Hero (vai para a raiz do host)" },
   "heroHeadline1": "Inovacao em Flutter, Java e SDKs",

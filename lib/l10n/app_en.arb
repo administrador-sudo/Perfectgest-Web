@@ -21,6 +21,7 @@
   "tooltipSacEmail": "Support email",
 
   "heroSemanticsLabel": "Main introduction section",
+  "siteBrandLogoSemantics": "PerfectGest logo",
   "heroBrandLinkSemantics": "PerfectGest, go to site home",
   "heroHeadline1": "Innovation in Flutter, Java and SDKs",
   "heroHeadline2": "We build Flutter apps, web platforms, and Java/SDK integrations focused on performance, security, and scalability for your business.",

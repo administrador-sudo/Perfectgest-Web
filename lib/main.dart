@@ -20,6 +20,7 @@ import 'web_site_root_stub.dart' if (dart.library.html) 'web_site_root_web.dart'
 import 'company_legal_strip.dart';
 import 'site_layout.dart';
 import 'solution_screenshot_preview.dart';
+import 'site_brand_logo.dart';
 
 /// Loops, parallax e oscilações contínuas — respeita “reduzir movimento” do SO/navegador.
 bool allowRichMotion(BuildContext context) {
@@ -1064,16 +1065,7 @@ class SiteHeader extends StatelessWidget {
         ),
         child: Row(
           children: [
-            SizedBox(
-              height: 34,
-              width: 34,
-              child: Image.asset(
-                'IMAGENS_APP/PerfectPro_Logo_Transparente.png',
-                fit: BoxFit.contain,
-                errorBuilder: (BuildContext context, Object error, StackTrace? stackTrace) =>
-                    Icon(Icons.circle_outlined, color: cs.primary, size: 24),
-              ),
-            ),
+            const SiteBrandLogo(height: 40, width: 40),
             const SizedBox(width: 6),
             if (isCompact)
               Expanded(
