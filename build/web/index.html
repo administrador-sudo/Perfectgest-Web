@@ -35,7 +35,19 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:image" content="icons/Icon-512.png">
-  <link rel="canonical" href="https://perfectpro-webpageoficial.onrender.com/">
+  <!-- Canonical alinhada ao host e path atuais (evita GSC "alternativa com canonical" em previews/staging). -->
+  <script>
+    (function () {
+      if (!document.head || !window.location || !window.location.origin) return;
+      var path = window.location.pathname || '/';
+      if (path.length > 1 && path.endsWith('/')) path = path.slice(0, -1);
+      var href = window.location.origin + (path === '/' ? '/' : path);
+      var link = document.createElement('link');
+      link.rel = 'canonical';
+      link.href = href;
+      document.head.appendChild(link);
+    })();
+  </script>
 
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">

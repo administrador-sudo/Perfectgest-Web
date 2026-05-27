@@ -93,6 +93,14 @@
   "footerLinkGoogleCookies": "Google Cookies",
   "footerLinkGoogleTerms": "Google Terms",
 
+  "footerCompanyLegalSemantics": "Legal identification of the developer company",
+  "footerCompanyCnpjLabel": "CNPJ:",
+  "footerCompanyDunsLabel": "D-U-N-S:",
+  "footerCompanyContactLabel": "Contact:",
+  "footerCompanyEmailBtn": "Email",
+  "footerLinkAppFaq": "PerfectGest I FAQ",
+  "footerLinkAppPrivacy": "Privacy policy",
+
   "cookieBannerNarrow": "Measurement cookies (Google). You can accept, decline, or read the policy.",
   "cookieBannerWide": "We use measurement cookies (Google Analytics) in accordance with our policy and Consent Mode.",
   "cookieBtnPolicy": "Policy",

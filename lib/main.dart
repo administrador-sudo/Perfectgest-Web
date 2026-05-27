@@ -17,6 +17,7 @@ import 'l10n/app_localizations.dart';
 import 'locale_controller.dart';
 import 'seo_meta_stub.dart' if (dart.library.html) 'seo_meta_web.dart' as seo_meta;
 import 'web_site_root_stub.dart' if (dart.library.html) 'web_site_root_web.dart' as web_site_root;
+import 'company_legal_strip.dart';
 
 /// Loops, parallax e oscilações contínuas — respeita “reduzir movimento” do SO/navegador.
 bool allowRichMotion(BuildContext context) {
@@ -567,6 +568,8 @@ class _SobreNosLegalFooter extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    const CompanyLegalStrip(),
+                    const SizedBox(height: 14),
                     Text(
                       l10n.aboutFooterCopyright(year),
                       textAlign: TextAlign.center,
@@ -740,6 +743,8 @@ class _HomeComplianceFooter extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
+                        const CompanyLegalStrip(),
+                        SizedBox(height: w < 360 ? 12 : 16),
                         Text(
                           l10n.footerComplianceTitle,
                           style: GoogleFonts.inter(

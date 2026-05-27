@@ -1161,3 +1161,57 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 ### Resultado
 - Fase 3 (paginas com texto extenso) concluida: `politica_page.dart`, `tecnologias_page.dart` e `legal_subpages.dart` totalmente i18n PT/EN/ES.
 - Proximo: Fase 4 (SEO localizado + `link rel="alternate" hreflang"`).
+
+## [2026-05-26] Rodape legal LTDA (Play Console / verificacao PJ)
+
+### Contexto
+- Pedido: expor identificacao da organizacao no site (home e Sobre) para alinhar com cadastro Google Play PJ.
+- Escopo: widget reutilizavel + i18n PT/EN/ES; CNPJ oculto ate valor autorizado pelo operador.
+
+### Arquivos alterados
+- lib/company_legal.dart
+- lib/company_legal_strip.dart
+- lib/main.dart
+- lib/l10n/app_pt.arb, app_en.arb, app_es.arb
+- lib/l10n/app_localizations.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- Constantes publicas: razao social LTDA, morada Caxias do Sul, e-mail `administrador@perfectgestdev.com`, URLs FAQ e privacidade (Google Sites).
+- `CompanyLegalStrip` no rodape da home (`_HomeComplianceFooter`) e em Sobre (`_SobreNosLegalFooter`).
+- Chaves i18n: `footerCompanyLegalSemantics`, `footerCompanyCnpjLabel`, `footerCompanyContactLabel`, `footerCompanyEmailBtn`, `footerLinkAppFaq`, `footerLinkAppPrivacy`.
+
+### Risco de regressao
+- Baixo: adicao visual no rodape; links externos e mailto.
+- Pontos sensiveis: CNPJ vazio (linha nao renderizada); deploy Render necessario para Play ver o site atualizado.
+
+### Validacao executada
+- [x] `flutter analyze` nos ficheiros alterados (0 issues)
+- [ ] Build web release / deploy Render
+- [ ] Teste manual home + Sobre nos 3 idiomas
+
+### Pendencias
+- Operador informar CNPJ para preencher `kCompanyCnpj` em `lib/company_legal.dart`.
+- Deploy `npm run build:web:sync` (ou pipeline habitual) apos aprovacao.
+
+## [2026-05-26] CNPJ e D-U-N-S no rodape legal
+
+### Contexto
+- Pedido: dados da organizacao (imagens Play / cadastro).
+- Escopo: preencher identificadores fiscais no rodape.
+
+### Arquivos alterados
+- lib/company_legal.dart
+- lib/company_legal_strip.dart
+- lib/l10n/app_pt.arb, app_en.arb, app_es.arb
+- lib/l10n/app_localizations.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- CNPJ: `66.889.409/0001-19`
+- D-U-N-S: `582645270`
+- Label i18n `footerCompanyDunsLabel` (PT/EN/ES).
+
+### Validacao executada
+- [x] `flutter analyze` (0 issues)
+- [ ] Deploy Render
