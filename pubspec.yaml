@@ -72,6 +72,9 @@ flutter:
     - IMAGENS_APP/
     - "IMAGENS_APP/Screenshot/PerfectGest (1).png"
     - "IMAGENS_APP/Screenshot/PerfectGest (2).png"
+    - IMAGENS_APP/Screenshot/phone_03_inicio.png
+    - IMAGENS_APP/Screenshot/tablet_01_inicio.jpg
+    - IMAGENS_APP/Screenshot/tablet_02_orcamentos.jpg
 
   # To add assets to your application, add an assets section, like this:
   # assets:

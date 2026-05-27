@@ -1236,3 +1236,25 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 ### Validacao executada
 - [x] `flutter analyze` (0 issues)
 - [ ] Deploy Render
+
+## [2026-05-27] Solucoes (App/Web) — vitrine marketing 2 phones + 2 tablets
+
+### Contexto
+- Pedido: alinhar secao Solucoes ao programa de marketing; +3 telas (1 celular, 2 tablet) no padrao `DeviceFrame`.
+
+### Arquivos alterados
+- lib/main.dart
+- pubspec.yaml
+- IMAGENS_APP/Screenshot/phone_03_inicio.png
+- IMAGENS_APP/Screenshot/tablet_01_inicio.jpg
+- IMAGENS_APP/Screenshot/tablet_02_orcamentos.jpg
+- docs/Atualiza.md
+
+### O que foi feito
+- Vitrine com 4 mockups: inicio (phone), orcamentos (phone), inicio (tablet), orcamentos (tablet).
+- Capturas da mesma base das artes Play Store (`LOGO/Telas` e `LOGO/Telas_tablet`).
+- Moldura tablet `Android tablet` (228x308) distinta do celular `Android 14`.
+
+### Validacao executada
+- [x] `flutter analyze lib/main.dart` (0 issues)
+- [ ] Validacao visual / deploy
