@@ -323,7 +323,7 @@ class _AppLocalizationsPt extends AppLocalizations {
   String get solPreviewClose => 'Fechar';
   @override
   String get solPreviewZoomHint =>
-      'Use a roda do rato ou gestos para ampliar. Toque fora para fechar.';
+      'Use a roda do mouse ou gestos para ampliar. Toque fora para fechar.';
   @override
   String get tooltipWhatsApp => 'WhatsApp';
   @override
@@ -563,7 +563,7 @@ class _AppLocalizationsEn extends AppLocalizations {
   String get solPreviewClose => 'Close';
   @override
   String get solPreviewZoomHint =>
-      'Use the scroll wheel or gestures to zoom. Tap outside to close.';
+      'Use the mouse wheel or gestures to zoom. Tap outside to close.';
   @override
   String get tooltipWhatsApp => 'WhatsApp';
   @override
@@ -803,7 +803,7 @@ class _AppLocalizationsEs extends AppLocalizations {
   String get solPreviewClose => 'Cerrar';
   @override
   String get solPreviewZoomHint =>
-      'Use la rueda del raton o gestos para ampliar. Toque fuera para cerrar.';
+      'Use la rueda del ratón o gestos para ampliar. Toque fuera para cerrar.';
   @override
   String get tooltipWhatsApp => 'WhatsApp';
   @override
