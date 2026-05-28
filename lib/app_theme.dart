@@ -1,30 +1,51 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'metallic_style.dart';
+
 const String kWhatsAppDigits = '5551989045442';
 const String kEmailSac = 'sac.perfectgest@gmail.com';
 
+/// Tema **escuro metálico** (carvão, ouro, prata, cobre).
 ThemeData buildPerfectProDarkTheme() {
-  const seed = Color(0xFF00E5FF);
   final base = ThemeData(
     useMaterial3: true,
     brightness: Brightness.dark,
-    colorScheme: ColorScheme.fromSeed(
-      seedColor: seed,
-      brightness: Brightness.dark,
-      surface: const Color(0xFF1B1B1B),
-      surfaceContainerHighest: const Color(0xFF252525),
-      outline: const Color(0x4400E5FF),
+    colorScheme: const ColorScheme.dark(
+      primary: MetallicPalette.goldWarm,
+      onPrimary: MetallicPalette.charcoalDeep,
+      secondary: MetallicPalette.copper,
+      onSecondary: MetallicPalette.silverLight,
+      surface: MetallicPalette.panel,
+      onSurface: MetallicPalette.silverLight,
+      surfaceContainerHighest: MetallicPalette.panelHighlight,
+      outline: Color(0x66FFD54F),
+      outlineVariant: Color(0x44B0B0B0),
     ),
-    scaffoldBackgroundColor: const Color(0xFF121212),
+    scaffoldBackgroundColor: Colors.transparent,
   );
 
   return base.copyWith(
-    textTheme: GoogleFonts.interTextTheme(base.textTheme),
-    appBarTheme: const AppBarTheme(surfaceTintColor: Colors.transparent),
+    textTheme: GoogleFonts.interTextTheme(base.textTheme).apply(
+      bodyColor: MetallicPalette.silverLight,
+      displayColor: MetallicPalette.silverLight,
+    ),
+    appBarTheme: AppBarTheme(
+      backgroundColor: MetallicPalette.charcoalDeep.withValues(alpha: 0.92),
+      foregroundColor: MetallicPalette.silverLight,
+      surfaceTintColor: Colors.transparent,
+    ),
+    navigationBarTheme: NavigationBarThemeData(
+      backgroundColor: MetallicPalette.charcoalDeep.withValues(alpha: 0.96),
+      indicatorColor: MetallicPalette.gold.withValues(alpha: 0.22),
+      labelTextStyle: WidgetStatePropertyAll(
+        GoogleFonts.inter(fontSize: 11, color: MetallicPalette.silverMid),
+      ),
+    ),
   );
 }
 
+/// Tema **claro tradicional** (fundo claro, primária teal/ciano).
 ThemeData buildPerfectProLightTheme() {
   const seed = Color(0xFF00B4C8);
   final base = ThemeData(
@@ -49,5 +70,6 @@ ThemeData buildPerfectProLightTheme() {
   return base.copyWith(
     textTheme: GoogleFonts.interTextTheme(base.textTheme),
     appBarTheme: const AppBarTheme(surfaceTintColor: Colors.transparent),
+    navigationBarTheme: const NavigationBarThemeData(),
   );
 }

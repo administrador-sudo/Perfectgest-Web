@@ -22,6 +22,9 @@ import 'company_legal_strip.dart';
 import 'site_layout.dart';
 import 'solution_screenshot_preview.dart';
 import 'metallic_preview_page.dart';
+import 'metallic_site_shell.dart';
+import 'metallic_style.dart';
+import 'site_language_menu.dart';
 
 /// Loops, parallax e oscilações contínuas — respeita “reduzir movimento” do SO/navegador.
 bool allowRichMotion(BuildContext context) {
@@ -78,7 +81,7 @@ class PerfectProSiteApp extends StatefulWidget {
 }
 
 class _PerfectProSiteAppState extends State<PerfectProSiteApp> {
-  ThemeMode _themeMode = ThemeMode.light;
+  ThemeMode _themeMode = ThemeMode.dark;
 
   void _toggleTheme() {
     setState(() {
@@ -235,6 +238,7 @@ class _SiteHomePageState extends State<SiteHomePage> {
     final cs = Theme.of(context).colorScheme;
     final l10n = AppLocalizations.of(context);
     return Scaffold(
+      backgroundColor: isDark ? Colors.transparent : null,
       bottomNavigationBar: isMobileNav
           ? NavigationBar(
               selectedIndex: _mobileNavIndex,
@@ -272,6 +276,7 @@ class _SiteHomePageState extends State<SiteHomePage> {
       body: Stack(
         clipBehavior: Clip.none,
         children: [
+          if (isDark) const MetallicVividBackground(),
           SingleChildScrollView(
             controller: _scrollController,
             child: Column(
@@ -399,9 +404,9 @@ class _SobreNosPageState extends State<SobreNosPage> {
     return Semantics(
       label: l10n.aboutPageSemantics,
       child: Scaffold(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        backgroundColor: siteScaffoldBackground(context),
         appBar: AppBar(
-          backgroundColor: cs.surface.withValues(alpha: 0.96),
+          backgroundColor: siteAppBarBackground(context),
           surfaceTintColor: Colors.transparent,
           leading: IconButton(
             icon: Icon(Icons.arrow_back, color: cs.primary),
@@ -434,10 +439,11 @@ class _SobreNosPageState extends State<SobreNosPage> {
               ),
           ],
         ),
-        body: Column(
-          children: [
-            Expanded(
-              child: SingleChildScrollView(
+        body: SiteBackgroundShell(
+          child: Column(
+            children: [
+              Expanded(
+                child: SingleChildScrollView(
                 padding: const EdgeInsets.fromLTRB(
                   kSiteHorizontalPadding,
                   16,
@@ -532,8 +538,9 @@ class _SobreNosPageState extends State<SobreNosPage> {
                 ),
               ),
             ),
-            const _SobreNosLegalFooter(),
-          ],
+              const _SobreNosLegalFooter(),
+            ],
+          ),
         ),
       ),
     );
@@ -549,50 +556,26 @@ class _SobreNosSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cs = Theme.of(context).colorScheme;
     return Semantics(
       container: true,
       label: title,
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          color: cs.surfaceContainerHighest.withValues(alpha: 0.55),
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: cs.outline.withValues(alpha: 0.45)),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(18, 18, 18, 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Icon(icon, color: cs.primary, size: 24),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: Text(
-                      title,
-                      style: GoogleFonts.inter(
-                        fontSize: 17,
-                        fontWeight: FontWeight.w700,
-                        height: 1.25,
-                        color: cs.primary,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 12),
-              Text(
-                body,
-                style: GoogleFonts.inter(
-                  fontSize: 15,
-                  height: 1.55,
-                  color: cs.onSurface.withValues(alpha: 0.86),
-                ),
-              ),
-            ],
-          ),
+      child: SiteSectionPanel(
+        radius: 16,
+        padding: const EdgeInsets.fromLTRB(18, 18, 18, 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Icon(icon, color: Theme.of(context).colorScheme.primary, size: 24),
+                const SizedBox(width: 12),
+                Expanded(child: siteSectionTitle(context, title, fontSize: 17)),
+              ],
+            ),
+            const SizedBox(height: 12),
+            Text(body, style: siteBodyTextStyle(context, height: 1.55)),
+          ],
         ),
       ),
     );
@@ -683,6 +666,7 @@ class SolucoesNuvemPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     return Scaffold(
+      backgroundColor: siteScaffoldBackground(context),
       appBar: AppBar(
         title: Text(l10n.cloudPageTitle),
         leading: IconButton(
@@ -690,20 +674,22 @@ class SolucoesNuvemPage extends StatelessWidget {
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.fromLTRB(20, 20, 20, 28),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _CloudHeader(title: l10n.cloudHeaderTitle),
+      body: SiteBackgroundShell(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.fromLTRB(20, 20, 20, 28),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _CloudHeader(title: l10n.cloudHeaderTitle),
             const SizedBox(height: 14),
             _CloudItem(title: l10n.cloudManagedTitle, body: l10n.cloudManagedBody),
             _CloudItem(title: l10n.cloudScaleTitle, body: l10n.cloudScaleBody),
             _CloudItem(title: l10n.cloudDataTitle, body: l10n.cloudDataBody),
             _CloudItem(title: l10n.cloudBigDataTitle, body: l10n.cloudBigDataBody),
             _CloudItem(title: l10n.cloudSqlTitle, body: l10n.cloudSqlBody),
-            _CloudItem(title: l10n.cloudFirebaseTitle, body: l10n.cloudFirebaseBody),
-          ],
+              _CloudItem(title: l10n.cloudFirebaseTitle, body: l10n.cloudFirebaseBody),
+            ],
+          ),
         ),
       ),
     );
@@ -774,7 +760,6 @@ class _HomeComplianceFooter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cs = Theme.of(context).colorScheme;
     return LayoutBuilder(
       builder: (context, constraints) {
         final l10n = AppLocalizations.of(context);
@@ -788,41 +773,31 @@ class _HomeComplianceFooter extends StatelessWidget {
           label: l10n.footerSemantics,
           child: Padding(
             padding: EdgeInsets.fromLTRB(padH, 10, padH, 12),
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                color: cs.surfaceContainerHighest,
-                borderRadius: BorderRadius.circular(16),
-                border: Border.all(color: cs.outline.withValues(alpha: 0.65)),
-              ),
-              child: Padding(
-                padding: EdgeInsets.fromLTRB(innerPad, 14, innerPad, 14),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    const CompanyLegalStrip(dense: true),
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: w < 360 ? 8 : 10),
-                      child: Divider(height: 1, color: cs.outline.withValues(alpha: 0.35)),
+            child: SiteSectionPanel(
+              radius: 16,
+              padding: EdgeInsets.fromLTRB(innerPad, 14, innerPad, 14),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const CompanyLegalStrip(dense: true),
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: w < 360 ? 8 : 10),
+                    child: Divider(
+                      height: 1,
+                      color: Theme.of(context).colorScheme.outline.withValues(alpha: 0.35),
                     ),
-                    Text(
-                          l10n.footerComplianceTitle,
-                          style: GoogleFonts.inter(
-                            fontSize: w < 360 ? 13 : 14,
-                            fontWeight: FontWeight.w700,
-                            color: cs.primary,
-                          ),
-                          textAlign: w < 480 ? TextAlign.center : TextAlign.start,
-                        ),
-                        SizedBox(height: w < 360 ? 6 : 8),
-                        Text(
-                          l10n.footerComplianceBody,
-                          style: GoogleFonts.inter(
-                            fontSize: w < 360 ? 12 : 12.5,
-                            height: 1.5,
-                            color: cs.onSurface.withValues(alpha: 0.78),
-                          ),
-                          textAlign: w < 480 ? TextAlign.center : TextAlign.start,
-                        ),
+                  ),
+                  siteSectionTitle(
+                    context,
+                    l10n.footerComplianceTitle,
+                    fontSize: w < 360 ? 15 : 16,
+                  ),
+                  SizedBox(height: w < 360 ? 6 : 8),
+                  Text(
+                    l10n.footerComplianceBody,
+                    style: siteBodyTextStyle(context, fontSize: w < 360 ? 12 : 12.5, height: 1.5),
+                    textAlign: w < 480 ? TextAlign.center : TextAlign.start,
+                  ),
                         SizedBox(height: w < 360 ? 10 : 12),
                         SizedBox(
                           width: stackLinks ? double.infinity : null,
@@ -902,7 +877,6 @@ class _HomeComplianceFooter extends StatelessWidget {
                 ),
               ),
             ),
-          ),
         );
       },
     );
@@ -1105,41 +1079,11 @@ class SiteHeader extends StatelessWidget {
         height: height,
         padding: const EdgeInsets.symmetric(horizontal: 12),
         decoration: BoxDecoration(
-          color: Theme.of(context).scaffoldBackgroundColor.withValues(alpha: 0.94),
-          border: Border(bottom: BorderSide(color: cs.primary.withValues(alpha: isDark ? 0.22 : 0.35))),
+          color: siteHeaderBackground(context),
+          border: Border(bottom: BorderSide(color: siteHeaderBorderColor(context))),
         ),
         child: Row(
           children: [
-            Semantics(
-              link: true,
-              label: l10n.heroBrandLinkSemantics,
-              child: Material(
-                type: MaterialType.transparency,
-                child: InkWell(
-                  onTap: _openSiteUrl,
-                  borderRadius: BorderRadius.circular(10),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 6),
-                    child: ConstrainedBox(
-                      constraints: BoxConstraints(
-                        // Mantém o layout do header compacto, sem estourar.
-                        maxWidth: isCompact ? 210 : 320,
-                        maxHeight: isCompact ? 32 : 36,
-                      ),
-                      child: Image.asset(
-                        'imagens/brand_plate_perfectgestdev.png',
-                        fit: BoxFit.contain,
-                        alignment: Alignment.centerLeft,
-                        filterQuality: FilterQuality.high,
-                        errorBuilder: (context, error, stackTrace) =>
-                            Icon(Icons.shield_rounded, color: cs.primary, size: isCompact ? 26 : 28),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            if (!isCompact) const SizedBox(width: 4),
             if (!isCompact)
               IconButton(
                 tooltip: l10n.tooltipWhatsApp,
@@ -1158,7 +1102,7 @@ class SiteHeader extends StatelessWidget {
                 onPressed: onToggleTheme,
                 icon: Icon(isDark ? Icons.light_mode_rounded : Icons.dark_mode_rounded, color: cs.primary, size: 22),
               ),
-            if (!isCompact) const _LanguageMenuButton(),
+            if (!isCompact) const SiteLanguageMenuButton(),
             if (!isCompact) const Spacer(),
             if (isCompact)
               Flexible(
@@ -1189,7 +1133,7 @@ class SiteHeader extends StatelessWidget {
                             size: 22,
                           ),
                         ),
-                        const _LanguageMenuButton(),
+                        const SiteLanguageMenuButton(),
                         PopupMenuButton<String>(
                           tooltip: l10n.menuOpen,
                           icon: Icon(Icons.menu_rounded, color: cs.primary, size: 22),
@@ -1253,58 +1197,15 @@ class _HeaderBtn extends StatelessWidget {
       padding: const EdgeInsets.only(left: 6),
       child: TextButton(
         onPressed: onTap,
-        child: Text(label, style: TextStyle(color: Theme.of(context).colorScheme.onSurface, fontSize: 13)),
+        child: Text(
+          label,
+          style: GoogleFonts.inter(
+            fontSize: 13,
+            fontWeight: FontWeight.w600,
+            color: siteHeaderNavLabelColor(context),
+          ),
+        ),
       ),
-    );
-  }
-}
-
-/// Selector de idioma (PT/EN/ES) ligado a [appLocaleController].
-///
-/// `value: ''` representa "seguir sistema" (autodeteccao). Demais valores sao
-/// codigos ISO 639-1 (`pt`, `en`, `es`).
-class _LanguageMenuButton extends StatelessWidget {
-  const _LanguageMenuButton();
-
-  @override
-  Widget build(BuildContext context) {
-    final cs = Theme.of(context).colorScheme;
-    final l10n = AppLocalizations.of(context);
-    return ValueListenableBuilder<Locale?>(
-      valueListenable: appLocaleController,
-      builder: (context, manualLocale, _) {
-        final activeCode = manualLocale?.languageCode;
-        return PopupMenuButton<String>(
-          tooltip: l10n.languageMenuTooltip,
-          icon: Icon(Icons.translate_rounded, color: cs.primary, size: 22),
-          onSelected: (value) {
-            appLocaleController.setLocale(value.isEmpty ? null : Locale(value));
-          },
-          itemBuilder: (context) => <PopupMenuEntry<String>>[
-            CheckedPopupMenuItem<String>(
-              value: '',
-              checked: activeCode == null,
-              child: Text(l10n.languageFollowSystem),
-            ),
-            const PopupMenuDivider(),
-            CheckedPopupMenuItem<String>(
-              value: 'pt',
-              checked: activeCode == 'pt',
-              child: Text(l10n.languageNamePortuguese),
-            ),
-            CheckedPopupMenuItem<String>(
-              value: 'en',
-              checked: activeCode == 'en',
-              child: Text(l10n.languageNameEnglish),
-            ),
-            CheckedPopupMenuItem<String>(
-              value: 'es',
-              checked: activeCode == 'es',
-              child: Text(l10n.languageNameSpanish),
-            ),
-          ],
-        );
-      },
     );
   }
 }
@@ -1431,15 +1332,10 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
                                 onTap: () => _openSiteUrl(),
                                 borderRadius: BorderRadius.circular(6),
                                 child: Padding(
-                                  padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 2),
-                                  child: Text(
-                                    'PerfectGest',
-                                    style: GoogleFonts.inter(
-                                      fontSize: heroSubtitleSize,
-                                      letterSpacing: 0.5,
-                                      fontWeight: FontWeight.w800,
-                                      color: cs.primary,
-                                    ),
+                                  padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 2),
+                                  child: siteHeroBrandTitle(
+                                    context,
+                                    compact: isCompactHero,
                                   ),
                                 ),
                               ),
@@ -1953,17 +1849,13 @@ class _ContactMotionBlockState extends State<ContactMotionBlock> with TickerProv
             scale: motion
                 ? Tween<double>(begin: 1.0, end: 1.045).animate(CurvedAnimation(parent: _pulse, curve: Curves.easeInOut))
                 : const AlwaysStoppedAnimation<double>(1.0),
-            child: FilledButton.icon(
-              style: FilledButton.styleFrom(
-                backgroundColor: cs.primary,
-                foregroundColor: cs.onPrimary,
-                padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 14),
-              ),
+            child: sitePrimaryActionButton(
+              context: context,
+              label: l10n.contactBtnSend,
+              icon: Icons.send_rounded,
               onPressed: () => _openWhatsApp(
-                    prefilledBody: l10n.contactWhatsappPrefilled,
-                  ),
-              icon: const Icon(Icons.send_rounded),
-              label: Text(l10n.contactBtnSend),
+                prefilledBody: l10n.contactWhatsappPrefilled,
+              ),
             ),
           ),
         ),
@@ -2169,26 +2061,15 @@ class SectionCard extends StatelessWidget {
       label: 'Secao $title',
       child: Padding(
         padding: const EdgeInsets.fromLTRB(24, 10, 24, 12),
-        child: Container(
-          width: double.infinity,
+        child: SiteSectionPanel(
+          radius: 18,
           padding: const EdgeInsets.all(22),
-          decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.surfaceContainerHighest,
-            borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: Theme.of(context).colorScheme.outline.withValues(alpha: 0.65)),
-          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Semantics(
                 header: true,
-                child: Text(
-                  title,
-                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                        fontWeight: FontWeight.w800,
-                        color: Theme.of(context).colorScheme.onSurface,
-                      ),
-                ),
+                child: siteSectionTitle(context, title),
               ),
               const SizedBox(height: 14),
               child,
@@ -2208,31 +2089,25 @@ class _DeferredSectionSkeleton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cs = Theme.of(context).colorScheme;
     return Padding(
       padding: const EdgeInsets.fromLTRB(24, 10, 24, 12),
-      child: Container(
-        width: double.infinity,
+      child: SiteSectionPanel(
+        radius: 18,
         padding: const EdgeInsets.all(22),
-        decoration: BoxDecoration(
-          color: cs.surfaceContainerHighest,
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: cs.outline.withValues(alpha: 0.45)),
-        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              title,
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: cs.onSurface.withValues(alpha: 0.72)),
-            ),
+            siteSectionTitle(context, title, fontSize: 20),
             const SizedBox(height: 12),
             Container(
               width: double.infinity,
               height: estimatedHeight,
               decoration: BoxDecoration(
-                color: cs.surface.withValues(alpha: 0.9),
+                color: Theme.of(context).colorScheme.surface.withValues(alpha: 0.9),
                 borderRadius: BorderRadius.circular(10),
+                border: Border.all(
+                  color: Theme.of(context).colorScheme.outline.withValues(alpha: 0.45),
+                ),
               ),
             ),
           ],
@@ -2249,15 +2124,14 @@ class SectionText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cs = Theme.of(context).colorScheme;
     return Semantics(
       label: title,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(title, style: TextStyle(fontSize: 19, fontWeight: FontWeight.w700, color: cs.primary)),
+          siteSectionTitle(context, title, fontSize: 19),
           const SizedBox(height: 8),
-          Text(body, style: TextStyle(fontSize: 15, color: cs.onSurface.withValues(alpha: 0.78), height: 1.45)),
+          Text(body, style: siteBodyTextStyle(context)),
         ],
       ),
     );

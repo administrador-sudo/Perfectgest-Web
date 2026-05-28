@@ -1,10 +1,11 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'l10n/play_store_app_legal_texts.dart';
+import 'metallic_site_shell.dart';
 import 'seo_meta_stub.dart' if (dart.library.html) 'seo_meta_web.dart' as seo_meta;
+import 'site_language_menu.dart';
 
 class PoliticaPrivacidadePerfectGestIPage extends StatelessWidget {
   const PoliticaPrivacidadePerfectGestIPage({super.key});
@@ -18,49 +19,45 @@ class PoliticaPrivacidadePerfectGestIPage extends StatelessWidget {
     final lt = PlayStoreAppLegalTexts.of(context);
     final pageTitle = lt.privacyPolicyPerfectGestITitle;
     final scaffold = Scaffold(
-      body: SingleChildScrollView(
-        padding: EdgeInsets.fromLTRB(padH, 16, padH, 28),
-        child: Center(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 720),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  pageTitle,
-                  style: GoogleFonts.inter(
-                    fontSize: w < 400 ? 18 : 22,
-                    fontWeight: FontWeight.w800,
-                    height: 1.2,
-                    color: cs.onSurface,
+      backgroundColor: siteScaffoldBackground(context),
+      appBar: sitePolicyAppBar(context, title: pageTitle),
+      body: SiteBackgroundShell(
+        child: SingleChildScrollView(
+          padding: EdgeInsets.fromLTRB(padH, 16, padH, 28),
+          child: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 720),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  siteSectionTitle(context, pageTitle, fontSize: w < 400 ? 18 : 22),
+                  const SizedBox(height: 12),
+                  Text(
+                    lt.lastUpdatedMay2026,
+                    style: siteBodyTextStyle(context, fontSize: 13),
                   ),
-                ),
-                const SizedBox(height: 12),
-                Text(
-                  lt.lastUpdatedMay2026,
-                  style: GoogleFonts.inter(fontSize: 13, fontWeight: FontWeight.w600, color: cs.onSurface.withValues(alpha: 0.72)),
-                ),
-                const SizedBox(height: 16),
-                for (final s in lt.privacyPolicySections)
-                  _LegalSection(heading: s.heading, body: s.body),
-                const SizedBox(height: 32),
-                Divider(color: cs.outline.withValues(alpha: 0.6)),
-                const SizedBox(height: 12),
-                Center(
-                  child: TextButton(
-                    onPressed: selfUri == null
-                        ? null
-                        : () {
-                            launchUrl(
-                              selfUri,
-                              mode: LaunchMode.platformDefault,
-                              webOnlyWindowName: kIsWeb ? '_self' : null,
-                            );
-                          },
-                    child: Text(pageTitle, textAlign: TextAlign.center),
+                  const SizedBox(height: 16),
+                  for (final s in lt.privacyPolicySections)
+                    _LegalSection(heading: s.heading, body: s.body),
+                  const SizedBox(height: 32),
+                  Divider(color: cs.outline.withValues(alpha: 0.6)),
+                  const SizedBox(height: 12),
+                  Center(
+                    child: TextButton(
+                      onPressed: selfUri == null
+                          ? null
+                          : () {
+                              launchUrl(
+                                selfUri,
+                                mode: LaunchMode.platformDefault,
+                                webOnlyWindowName: kIsWeb ? '_self' : null,
+                              );
+                            },
+                      child: Text(pageTitle, textAlign: TextAlign.center),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
@@ -83,49 +80,45 @@ class PoliticaExclusaoDadosPerfectGestIPage extends StatelessWidget {
     final lt = PlayStoreAppLegalTexts.of(context);
     final pageTitle = lt.dataDeletionPolicyPerfectGestITitle;
     final scaffold = Scaffold(
-      body: SingleChildScrollView(
-        padding: EdgeInsets.fromLTRB(padH, 16, padH, 28),
-        child: Center(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 720),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  pageTitle,
-                  style: GoogleFonts.inter(
-                    fontSize: w < 400 ? 18 : 22,
-                    fontWeight: FontWeight.w800,
-                    height: 1.2,
-                    color: cs.onSurface,
+      backgroundColor: siteScaffoldBackground(context),
+      appBar: sitePolicyAppBar(context, title: pageTitle),
+      body: SiteBackgroundShell(
+        child: SingleChildScrollView(
+          padding: EdgeInsets.fromLTRB(padH, 16, padH, 28),
+          child: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 720),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  siteSectionTitle(context, pageTitle, fontSize: w < 400 ? 18 : 22),
+                  const SizedBox(height: 12),
+                  Text(
+                    lt.lastUpdatedMay2026,
+                    style: siteBodyTextStyle(context, fontSize: 13),
                   ),
-                ),
-                const SizedBox(height: 12),
-                Text(
-                  lt.lastUpdatedMay2026,
-                  style: GoogleFonts.inter(fontSize: 13, fontWeight: FontWeight.w600, color: cs.onSurface.withValues(alpha: 0.72)),
-                ),
-                const SizedBox(height: 16),
-                for (final s in lt.dataDeletionPolicySections)
-                  _LegalSection(heading: s.heading, body: s.body),
-                const SizedBox(height: 32),
-                Divider(color: cs.outline.withValues(alpha: 0.6)),
-                const SizedBox(height: 12),
-                Center(
-                  child: TextButton(
-                    onPressed: selfUri == null
-                        ? null
-                        : () {
-                            launchUrl(
-                              selfUri,
-                              mode: LaunchMode.platformDefault,
-                              webOnlyWindowName: kIsWeb ? '_self' : null,
-                            );
-                          },
-                    child: Text(pageTitle, textAlign: TextAlign.center),
+                  const SizedBox(height: 16),
+                  for (final s in lt.dataDeletionPolicySections)
+                    _LegalSection(heading: s.heading, body: s.body),
+                  const SizedBox(height: 32),
+                  Divider(color: cs.outline.withValues(alpha: 0.6)),
+                  const SizedBox(height: 12),
+                  Center(
+                    child: TextButton(
+                      onPressed: selfUri == null
+                          ? null
+                          : () {
+                              launchUrl(
+                                selfUri,
+                                mode: LaunchMode.platformDefault,
+                                webOnlyWindowName: kIsWeb ? '_self' : null,
+                              );
+                            },
+                      child: Text(pageTitle, textAlign: TextAlign.center),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
@@ -173,34 +166,20 @@ class _LegalSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cs = Theme.of(context).colorScheme;
     return Padding(
       padding: const EdgeInsets.only(bottom: 14),
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          color: cs.surfaceContainerHighest.withValues(alpha: 0.45),
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: cs.outline.withValues(alpha: 0.35)),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                heading,
-                style: GoogleFonts.inter(fontSize: 14.5, fontWeight: FontWeight.w700, color: cs.primary),
-              ),
-              const SizedBox(height: 6),
-              Text(
-                body,
-                style: GoogleFonts.inter(fontSize: 13.5, height: 1.5, color: cs.onSurface.withValues(alpha: 0.88)),
-              ),
-            ],
-          ),
+      child: SiteSectionPanel(
+        radius: 14,
+        padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            siteSectionTitle(context, heading, fontSize: 15),
+            const SizedBox(height: 6),
+            Text(body, style: siteBodyTextStyle(context, fontSize: 13.5, height: 1.5)),
+          ],
         ),
       ),
     );
   }
 }
-

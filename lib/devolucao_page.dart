@@ -4,11 +4,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'app_theme.dart';
+import 'metallic_site_shell.dart';
+import 'site_language_menu.dart';
 import 'l10n/app_localizations.dart';
 import 'l10n/site_returns_policy_texts.dart';
 import 'seo_meta_stub.dart' if (dart.library.html) 'seo_meta_web.dart' as seo_meta;
-import 'web_site_root_stub.dart' if (dart.library.html) 'web_site_root_web.dart' as web_site_root;
-
 /// Política de devolução/reembolso (site vitrine) — alinhada ao Merchant Center.
 class PoliticaDevolucaoPage extends StatefulWidget {
   const PoliticaDevolucaoPage({super.key, this.onToggleTheme});
@@ -40,50 +40,23 @@ class _PoliticaDevolucaoPageState extends State<PoliticaDevolucaoPage> {
     final padH = w < 400 ? 16.0 : 24.0;
     final l10n = AppLocalizations.of(context);
     final st = SiteReturnsPolicyTexts.of(context);
-    final isDark = Theme.of(context).brightness == Brightness.dark;
     return Semantics(
       label: st.semanticsLabel,
       child: Scaffold(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        appBar: AppBar(
-          backgroundColor: cs.surface.withValues(alpha: 0.96),
-          surfaceTintColor: Colors.transparent,
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: cs.primary),
-            tooltip: l10n.navBack,
-            onPressed: () {
-              if (Navigator.of(context).canPop()) {
-                Navigator.of(context).pop();
-              } else if (kIsWeb) {
-                web_site_root.navigateToSameOriginRoot();
-              } else {
-                Navigator.of(context).pushReplacementNamed('/');
-              }
-            },
-          ),
-          title: Text(
-            st.appBarTitle,
-            style: GoogleFonts.inter(fontWeight: FontWeight.w700, color: cs.onSurface),
-          ),
-          actions: [
-            if (widget.onToggleTheme != null)
-              IconButton(
-                tooltip: isDark ? l10n.themeLight : l10n.themeDark,
-                onPressed: widget.onToggleTheme,
-                icon: Icon(
-                  isDark ? Icons.light_mode_rounded : Icons.dark_mode_rounded,
-                  color: cs.primary,
-                ),
-              ),
-          ],
+        backgroundColor: siteScaffoldBackground(context),
+        appBar: sitePolicyAppBar(
+          context,
+          title: st.appBarTitle,
+          onToggleTheme: widget.onToggleTheme,
         ),
-        body: LayoutBuilder(
-          builder: (context, constraints) {
-            final bodyW = constraints.hasBoundedWidth && constraints.maxWidth.isFinite
-                ? constraints.maxWidth
-                : MediaQuery.sizeOf(context).width;
-            final maxW = (bodyW < 720 ? bodyW : 720.0).clamp(200.0, 720.0);
-            return SingleChildScrollView(
+        body: SiteBackgroundShell(
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              final bodyW = constraints.hasBoundedWidth && constraints.maxWidth.isFinite
+                  ? constraints.maxWidth
+                  : MediaQuery.sizeOf(context).width;
+              final maxW = (bodyW < 720 ? bodyW : 720.0).clamp(200.0, 720.0);
+              return SingleChildScrollView(
               padding: EdgeInsets.fromLTRB(padH, 16, padH, 28),
               child: Center(
                 child: ConstrainedBox(
@@ -151,7 +124,8 @@ class _PoliticaDevolucaoPageState extends State<PoliticaDevolucaoPage> {
                 ),
               ),
             );
-          },
+            },
+          ),
         ),
       ),
     );

@@ -4,99 +4,125 @@ import 'package:google_fonts/google_fonts.dart';
 import 'metallic_style.dart';
 import 'web_site_root_stub.dart' if (dart.library.html) 'web_site_root_web.dart' as web_site_root;
 
-/// Página de **amostra** — não altera o site principal. Rota: `/amostra-metal`.
+/// Amostra v3 — vividez e brilho do logo 3D. Rota: `/amostra-metal`.
 class MetallicPreviewPage extends StatelessWidget {
   const MetallicPreviewPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: MetallicPalette.charcoalDeep,
       body: Stack(
         fit: StackFit.expand,
         children: [
-          DecoratedBox(decoration: metallicScaffoldDecoration()),
-          const MetallicBrushedOverlay(),
+          const MetallicVividBackground(),
           SafeArea(
             child: Center(
               child: SingleChildScrollView(
-                padding: const EdgeInsets.all(24),
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
                 child: ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 520),
-                  child: Container(
-                    padding: const EdgeInsets.all(28),
-                    decoration: metallicPanelDecoration(),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Row(
+                  constraints: const BoxConstraints(maxWidth: 560),
+                  child: Column(
+                    children: [
+                      Center(child: metallicReferenceLogo(width: 240)),
+                      const SizedBox(height: 8),
+                      Text(
+                        'Referência (render 3D)',
+                        style: GoogleFonts.inter(
+                          fontSize: 11,
+                          color: MetallicPalette.silverMid,
+                        ),
+                      ),
+                      const SizedBox(height: 28),
+                      MetallicPolishedPanel(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-                            Expanded(
-                              child: metallicChromeText('PerfectGest', fontSize: 26, lift: 3),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      metallicChromeText('PerfectGest', fontSize: 30, lift: 4),
+                                      Row(
+                                        crossAxisAlignment: CrossAxisAlignment.end,
+                                        children: [
+                                          metallicCopperText('DEV', fontSize: 22, lift: 3.5),
+                                          const SizedBox(width: 10),
+                                          metallicRainbowPlayIcon(size: 24),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                IconButton(
+                                  tooltip: 'Voltar ao site',
+                                  onPressed: () => web_site_root.navigateToSameOriginRoot(),
+                                  icon: Icon(
+                                    Icons.close_rounded,
+                                    color: MetallicPalette.silverPeak.withValues(alpha: 0.95),
+                                  ),
+                                ),
+                              ],
                             ),
-                            IconButton(
-                              tooltip: 'Voltar ao site',
-                              onPressed: () => web_site_root.navigateToSameOriginRoot(),
-                              icon: const Icon(Icons.close_rounded, color: MetallicPalette.silverMid),
+                            const SizedBox(height: 6),
+                            Text(
+                              'Amostra v3 — UI com o mesmo brilho',
+                              style: GoogleFonts.inter(
+                                fontSize: 12,
+                                letterSpacing: 0.5,
+                                color: MetallicPalette.silverLight,
+                                shadows: metallicRaisedTextShadows(lift: 1),
+                              ),
+                            ),
+                            const SizedBox(height: 18),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                metallicChromeText('PLAY', fontSize: 20, lift: 3),
+                                const SizedBox(width: 8),
+                                metallicRainbowPlayIcon(size: 20),
+                                const SizedBox(width: 12),
+                                Expanded(
+                                  child: metallicChromeText(
+                                    'Codificando o Amanhã',
+                                    fontSize: 20,
+                                    lift: 3,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 12),
+                            Text(
+                              'Cromado com bandas de luz, cobre polido, ouro ambiente e verniz — '
+                              'mais perto da vividez do badge acima.',
+                              style: GoogleFonts.inter(
+                                fontSize: 14,
+                                height: 1.55,
+                                fontWeight: FontWeight.w500,
+                                color: MetallicPalette.silverLight.withValues(alpha: 0.95),
+                                shadows: metallicRaisedTextShadows(lift: 1.2),
+                              ),
+                            ),
+                            const SizedBox(height: 22),
+                            metallicPolishedButton(
+                              label: 'Botão cromado envernizado',
+                              onPressed: () {},
+                            ),
+                            const SizedBox(height: 14),
+                            Text(
+                              'Teste local (8080). Aprovar antes de aplicar ao site completo.',
+                              style: GoogleFonts.inter(
+                                fontSize: 11,
+                                fontStyle: FontStyle.italic,
+                                color: MetallicPalette.silverMid,
+                              ),
                             ),
                           ],
                         ),
-                        const SizedBox(height: 6),
-                        metallicCopperText('DEV', fontSize: 18, lift: 2.5),
-                        const SizedBox(height: 4),
-                        Text(
-                          'Amostra visual — tema metálico',
-                          style: GoogleFonts.inter(
-                            fontSize: 12,
-                            letterSpacing: 0.4,
-                            color: MetallicPalette.silverMid,
-                            shadows: metallicRaisedTextShadows(lift: 0.8),
-                          ),
-                        ),
-                        const SizedBox(height: 20),
-                        metallicChromeText('Codificando o Amanhã', fontSize: 22, lift: 2.8),
-                        const SizedBox(height: 8),
-                        Transform.translate(
-                          offset: const Offset(0, -0.5),
-                          child: Text(
-                            'Fundo carvão, painéis com borda prata, brilho dourado e acentos cobre — '
-                            'inspirado no logo Play Dev / PerfectGestDev.',
-                            style: GoogleFonts.inter(
-                              fontSize: 14,
-                              height: 1.5,
-                              color: MetallicPalette.silverLight.withValues(alpha: 0.88),
-                              shadows: metallicRaisedTextShadows(lift: 1),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 20),
-                        _SwatchRow(label: 'Prata / chrome', colors: const [
-                          MetallicPalette.silverLight,
-                          MetallicPalette.silverMid,
-                          MetallicPalette.silverDark,
-                        ]),
-                        const SizedBox(height: 10),
-                        _SwatchRow(label: 'Cobre + ouro', colors: const [
-                          MetallicPalette.copper,
-                          MetallicPalette.gold,
-                          MetallicPalette.goldDim,
-                        ]),
-                        const SizedBox(height: 24),
-                        metallicSampleButton(
-                          label: 'Botão estilo metal polido',
-                          onPressed: () {},
-                        ),
-                        const SizedBox(height: 16),
-                        Text(
-                          'Isto é só uma pré-visualização. Se aprovar, aplicamos o mesmo '
-                          'linguagem ao hero, cartões e rodapé do site completo.',
-                          style: GoogleFonts.inter(
-                            fontSize: 12,
-                            fontStyle: FontStyle.italic,
-                            color: MetallicPalette.silverDark,
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -104,38 +130,6 @@ class MetallicPreviewPage extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-}
-
-class _SwatchRow extends StatelessWidget {
-  const _SwatchRow({required this.label, required this.colors});
-
-  final String label;
-  final List<Color> colors;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: Text(
-            label,
-            style: GoogleFonts.inter(fontSize: 12, color: MetallicPalette.silverMid),
-          ),
-        ),
-        for (final c in colors)
-          Container(
-            width: 36,
-            height: 22,
-            margin: const EdgeInsets.only(left: 6),
-            decoration: BoxDecoration(
-              color: c,
-              borderRadius: BorderRadius.circular(4),
-              border: Border.all(color: MetallicPalette.silverDark.withValues(alpha: 0.5)),
-            ),
-          ),
-      ],
     );
   }
 }

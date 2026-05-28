@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'l10n/app_localizations.dart';
 
-/// Abre captura em tamanho grande (zoom com [InteractiveViewer]).
+/// Abre captura em tamanho grande — imagem preenche o pop-up; zoom com [InteractiveViewer].
 Future<void> showSolutionScreenshotPreview(
   BuildContext context, {
   required String imageAsset,
@@ -26,10 +26,11 @@ Future<void> showSolutionScreenshotPreview(
         insetPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
         backgroundColor: cs.surface,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        child: ConstrainedBox(
-          constraints: BoxConstraints(maxWidth: maxW, maxHeight: maxH),
+        child: SizedBox(
+          width: maxW,
+          height: maxH,
           child: Column(
-            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Padding(
                 padding: const EdgeInsets.fromLTRB(8, 4, 4, 0),
@@ -63,20 +64,30 @@ Future<void> showSolutionScreenshotPreview(
                   ),
                 ),
               ),
-              Flexible(
+              Expanded(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(12, 0, 12, 12),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(12),
                     child: ColoredBox(
                       color: cs.surfaceContainerHighest,
-                      child: InteractiveViewer(
-                        minScale: 0.6,
-                        maxScale: 4,
-                        child: _PreviewImage(
-                          imageAsset: imageAsset,
-                          fallbackImageAsset: fallbackImageAsset,
-                        ),
+                      child: LayoutBuilder(
+                        builder: (context, constraints) {
+                          final viewW = constraints.maxWidth;
+                          final viewH = constraints.maxHeight;
+                          return InteractiveViewer(
+                            minScale: 0.85,
+                            maxScale: 5,
+                            clipBehavior: Clip.hardEdge,
+                            boundaryMargin: const EdgeInsets.all(48),
+                            child: _PreviewImage(
+                              imageAsset: imageAsset,
+                              fallbackImageAsset: fallbackImageAsset,
+                              width: viewW,
+                              height: viewH,
+                            ),
+                          );
+                        },
                       ),
                     ),
                   ),
@@ -91,36 +102,53 @@ Future<void> showSolutionScreenshotPreview(
 }
 
 class _PreviewImage extends StatelessWidget {
-  const _PreviewImage({required this.imageAsset, this.fallbackImageAsset});
+  const _PreviewImage({
+    required this.imageAsset,
+    this.fallbackImageAsset,
+    required this.width,
+    required this.height,
+  });
 
   final String imageAsset;
   final String? fallbackImageAsset;
+  final double width;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(
-      imageAsset,
-      fit: BoxFit.contain,
-      alignment: Alignment.center,
-      errorBuilder: (context, error, stackTrace) {
-        if (fallbackImageAsset != null) {
-          return Image.asset(
-            fallbackImageAsset!,
-            fit: BoxFit.contain,
-            alignment: Alignment.center,
-            errorBuilder: (context, error, stackTrace) => const SizedBox(
-              width: 280,
-              height: 420,
-              child: Center(child: Icon(Icons.broken_image_outlined, size: 48)),
-            ),
-          );
-        }
-        return const SizedBox(
-          width: 280,
-          height: 420,
-          child: Center(child: Icon(Icons.broken_image_outlined, size: 48)),
-        );
-      },
+    return SizedBox(
+      width: width,
+      height: height,
+      child: Image.asset(
+        imageAsset,
+        width: width,
+        height: height,
+        fit: BoxFit.contain,
+        alignment: Alignment.center,
+        filterQuality: FilterQuality.high,
+        errorBuilder: (context, error, stackTrace) {
+          if (fallbackImageAsset != null) {
+            return Image.asset(
+              fallbackImageAsset!,
+              width: width,
+              height: height,
+              fit: BoxFit.contain,
+              alignment: Alignment.center,
+              filterQuality: FilterQuality.high,
+              errorBuilder: (context, error, stackTrace) => _brokenPlaceholder(width, height),
+            );
+          }
+          return _brokenPlaceholder(width, height);
+        },
+      ),
+    );
+  }
+
+  Widget _brokenPlaceholder(double w, double h) {
+    return SizedBox(
+      width: w,
+      height: h,
+      child: const Center(child: Icon(Icons.broken_image_outlined, size: 48)),
     );
   }
 }

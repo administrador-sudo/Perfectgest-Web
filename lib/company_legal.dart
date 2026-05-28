@@ -2,8 +2,8 @@
 const String kCompanyLegalName =
     'PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA';
 
-const String kCompanyAddressLine =
-    'Rua Pietro Fiorelli, 61 — Rio Branco, Caxias do Sul/RS — CEP 95098-720 — Brasil';
+/// Localização pública no rodapé (sem logradouro — cidade, UF e país).
+const String kCompanyAddressLine = 'Caxias do Sul — RS — Brasil';
 
 const String kCompanyCnpj = '66.889.409/0001-19';
 

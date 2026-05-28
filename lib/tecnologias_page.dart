@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'l10n/app_localizations.dart';
+import 'metallic_site_shell.dart';
 import 'l10n/site_tecnologias_texts.dart';
 import 'seo_meta_stub.dart' if (dart.library.html) 'seo_meta_web.dart' as seo_meta;
 
@@ -71,9 +72,9 @@ class _TecnologiasPageState extends State<TecnologiasPage> {
     return Semantics(
       label: tt.semanticsLabel,
       child: Scaffold(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        backgroundColor: siteScaffoldBackground(context),
         appBar: AppBar(
-          backgroundColor: cs.surface.withValues(alpha: 0.96),
+          backgroundColor: siteAppBarBackground(context),
           surfaceTintColor: Colors.transparent,
           leading: IconButton(
             icon: Icon(Icons.arrow_back, color: cs.primary),
@@ -93,10 +94,11 @@ class _TecnologiasPageState extends State<TecnologiasPage> {
               ),
           ],
         ),
-        body: SingleChildScrollView(
-          controller: _scrollCtrl,
-          padding: EdgeInsets.fromLTRB(padH, 16, padH, 28),
-          child: Center(
+        body: SiteBackgroundShell(
+          child: SingleChildScrollView(
+            controller: _scrollCtrl,
+            padding: EdgeInsets.fromLTRB(padH, 16, padH, 28),
+            child: Center(
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 760),
               child: Column(
@@ -136,6 +138,7 @@ class _TecnologiasPageState extends State<TecnologiasPage> {
               ),
             ),
           ),
+        ),
         ),
       ),
     );
