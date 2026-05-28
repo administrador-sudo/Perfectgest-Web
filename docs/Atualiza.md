@@ -1330,3 +1330,23 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 
 ### Validacao executada
 - [x] `flutter analyze` (0 issues)
+
+## [2026-05-28] Politica de devolucao (Merchant Center)
+
+### Contexto
+- Pedido: criar pagina publica de politica de devolucao/reembolso para verificacao do Merchant Center.
+- Observacao: o site e vitrine; vendas ocorrem fora do site (ex.: Google Play).
+
+### Arquivos alterados
+- lib/devolucao_page.dart
+- lib/l10n/site_returns_policy_texts.dart
+- lib/main.dart
+- web/index.html
+- docs/Atualiza.md
+
+### O que foi feito
+- Nova rota `/politica-devolucao` com texto PT/EN/ES e contacto de suporte.
+- `web/index.html` inclui a rota na lista de paths legais que abrem sem loading shell.
+
+### Validacao executada
+- [x] `flutter analyze` (0 issues)

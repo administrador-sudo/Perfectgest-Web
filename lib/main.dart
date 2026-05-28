@@ -1,5 +1,6 @@
 ﻿import 'elastic_service.dart';
 import 'politica_page.dart';
+import 'devolucao_page.dart';
 import 'tecnologias_page.dart';
 import 'legal_subpages.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
@@ -95,6 +96,7 @@ class _PerfectProSiteAppState extends State<PerfectProSiteApp> {
           routes: {
             '/politica-privacidade-perfectgest-i': (_) => const PoliticaPrivacidadePerfectGestIPage(),
             '/politica-exclusao-dados-perfectgest-i': (_) => const PoliticaExclusaoDadosPerfectGestIPage(),
+            '/politica-devolucao': (_) => const PoliticaDevolucaoPage(),
           },
         );
       },
