@@ -35,6 +35,16 @@ bool allowRichMotion(BuildContext context) {
 /// Superfícies decorativas estáticas (ex.: gradiente fixo no título) quando animações não foram desligadas pelo ancestral.
 bool allowStaticHeroDecor(BuildContext context) => !MediaQuery.disableAnimationsOf(context);
 
+String _resolveWebInitialRoute() {
+  if (!kIsWeb) return '/';
+  var path = Uri.base.path;
+  if (path.isEmpty) return '/';
+  if (path.length > 1 && path.endsWith('/')) {
+    path = path.substring(0, path.length - 1);
+  }
+  return path;
+}
+
 void main() {
   seo_meta.applySeoMetaTags();
   if (kIsWeb) {
@@ -91,12 +101,32 @@ class _PerfectProSiteAppState extends State<PerfectProSiteApp> {
             seo_meta.applyDocumentLanguage(resolved.toLanguageTag());
             return resolved;
           },
-          initialRoute: kIsWeb && Uri.base.path.isNotEmpty ? Uri.base.path : '/',
-          home: SiteHomePage(onToggleTheme: _toggleTheme),
-          routes: {
-            '/politica-privacidade-perfectgest-i': (_) => const PoliticaPrivacidadePerfectGestIPage(),
-            '/politica-exclusao-dados-perfectgest-i': (_) => const PoliticaExclusaoDadosPerfectGestIPage(),
-            '/politica-devolucao': (_) => const PoliticaDevolucaoPage(),
+          initialRoute: _resolveWebInitialRoute(),
+          onGenerateRoute: (RouteSettings settings) {
+            final routeName = settings.name ?? '/';
+            switch (routeName) {
+              case '/politica-privacidade-perfectgest-i':
+                return MaterialPageRoute<void>(
+                  settings: settings,
+                  builder: (_) => const PoliticaPrivacidadePerfectGestIPage(),
+                );
+              case '/politica-exclusao-dados-perfectgest-i':
+                return MaterialPageRoute<void>(
+                  settings: settings,
+                  builder: (_) => const PoliticaExclusaoDadosPerfectGestIPage(),
+                );
+              case '/politica-devolucao':
+                return MaterialPageRoute<void>(
+                  settings: settings,
+                  builder: (_) => const PoliticaDevolucaoPage(),
+                );
+              case '/':
+              default:
+                return MaterialPageRoute<void>(
+                  settings: settings,
+                  builder: (_) => SiteHomePage(onToggleTheme: _toggleTheme),
+                );
+            }
           },
         );
       },
