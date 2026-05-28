@@ -35,14 +35,22 @@ bool allowRichMotion(BuildContext context) {
 /// Superfícies decorativas estáticas (ex.: gradiente fixo no título) quando animações não foram desligadas pelo ancestral.
 bool allowStaticHeroDecor(BuildContext context) => !MediaQuery.disableAnimationsOf(context);
 
+/// Normaliza o path do browser (ex.: `/politica-devolucao.html` → `/politica-devolucao`).
+String normalizeWebRoute(String path) {
+  if (path.isEmpty) return '/';
+  var normalized = path;
+  if (normalized.length > 1 && normalized.endsWith('/')) {
+    normalized = normalized.substring(0, normalized.length - 1);
+  }
+  if (normalized.endsWith('.html')) {
+    normalized = normalized.substring(0, normalized.length - 5);
+  }
+  return normalized;
+}
+
 String _resolveWebInitialRoute() {
   if (!kIsWeb) return '/';
-  var path = Uri.base.path;
-  if (path.isEmpty) return '/';
-  if (path.length > 1 && path.endsWith('/')) {
-    path = path.substring(0, path.length - 1);
-  }
-  return path;
+  return normalizeWebRoute(Uri.base.path);
 }
 
 void main() {
@@ -103,7 +111,7 @@ class _PerfectProSiteAppState extends State<PerfectProSiteApp> {
           },
           initialRoute: _resolveWebInitialRoute(),
           onGenerateRoute: (RouteSettings settings) {
-            final routeName = settings.name ?? '/';
+            final routeName = normalizeWebRoute(settings.name ?? '/');
             switch (routeName) {
               case '/politica-privacidade-perfectgest-i':
                 return MaterialPageRoute<void>(
