@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 
 function run(command, args) {
@@ -50,11 +51,13 @@ if (!commitMessage) {
 }
 
 run('flutter', ['build', 'web', '--release', '--pwa-strategy=none']);
+run('node', [path.join(__dirname, 'spa-legal-paths.cjs')]);
 run('git', [
   'add',
   '-A',
   'lib',
   'web',
+  'imagens',
   'IMAGENS_APP/Screenshot',
   'pubspec.yaml',
   'pubspec.lock',
