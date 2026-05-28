@@ -20,7 +20,6 @@ import 'web_site_root_stub.dart' if (dart.library.html) 'web_site_root_web.dart'
 import 'company_legal_strip.dart';
 import 'site_layout.dart';
 import 'solution_screenshot_preview.dart';
-import 'site_brand_logo.dart';
 
 /// Loops, parallax e oscilações contínuas — respeita “reduzir movimento” do SO/navegador.
 bool allowRichMotion(BuildContext context) {
@@ -1065,40 +1064,33 @@ class SiteHeader extends StatelessWidget {
         ),
         child: Row(
           children: [
-            const SiteBrandLogo(height: 40, width: 40),
-            const SizedBox(width: 6),
-            if (isCompact)
-              Expanded(
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: TextButton(
-                    style: TextButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 6)),
-                    onPressed: _openSiteUrl,
-                    child: Text(
-                      'PerfectGest',
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        color: cs.primary,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w800,
+            Semantics(
+              link: true,
+              label: l10n.heroBrandLinkSemantics,
+              child: Material(
+                type: MaterialType.transparency,
+                child: InkWell(
+                  onTap: _openSiteUrl,
+                  borderRadius: BorderRadius.circular(10),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 6),
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(
+                        maxWidth: isCompact ? 220 : 280,
+                        maxHeight: isCompact ? 34 : 38,
+                      ),
+                      child: Image.asset(
+                        'imagens/brand_plate_perfectgestdev.png',
+                        fit: BoxFit.contain,
+                        alignment: Alignment.centerLeft,
+                        errorBuilder: (context, error, stackTrace) =>
+                            Icon(Icons.shield_rounded, color: cs.primary, size: isCompact ? 26 : 28),
                       ),
                     ),
                   ),
                 ),
-              )
-            else
-              TextButton(
-                onPressed: _openSiteUrl,
-                child: Text(
-                  'PerfectGest',
-                  style: TextStyle(
-                    color: cs.primary,
-                    fontSize: 24,
-                    fontWeight: FontWeight.w800,
-                  ),
-                ),
               ),
+            ),
             if (!isCompact) const SizedBox(width: 4),
             if (!isCompact)
               IconButton(

@@ -1296,3 +1296,22 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 ### Validacao executada
 - [x] `flutter analyze` (0 issues)
 - [ ] Deploy / alternar tema no browser
+
+## [2026-05-27] Cabecalho — imagem PerfectGestDev no lugar do logo + nome
+
+### Contexto
+- Pedido: remover logo do site e texto `PerfectGest`, usando uma unica imagem clicavel com o mesmo link do nome.
+
+### Arquivos alterados
+- lib/main.dart
+- imagens/brand_plate_perfectgestdev.png
+- scripts/publish-web.cjs
+- docs/Atualiza.md
+
+### O que foi feito
+- Cabeçalho agora usa apenas `imagens/brand_plate_perfectgestdev.png` como marca.
+- Mantido o comportamento do clique (abre a URL do site) e semantica do link.
+
+### Validacao executada
+- [x] `flutter analyze lib/main.dart` (0 issues)
+- [ ] Deploy / validacao visual no browser
