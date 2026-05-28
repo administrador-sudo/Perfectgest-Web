@@ -1364,6 +1364,15 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - `docs/RENDER_SPA_REWRITE.md`: regra obrigatoria no dashboard Render (`/*` → `/index.html`, Rewrite).
 - `lib/devolucao_page.dart`: botao voltar com fallback para raiz quando nao ha historico (acesso direto por URL).
 
+## [2026-05-28] Download ao abrir /politica-devolucao
+
+### Causa
+- Deploy anterior criou ficheiro **sem extensao** `politica-devolucao` no `build/web`; Render serviu com MIME errado → browser descarrega.
+
+### Correcao
+- `scripts/spa-legal-paths.cjs` passa a **remover** esses ficheiros apos o build (nao os cria).
+- Manter rewrite Render `/*` -> `/index.html` (Rewrite) e novo `publish-web`.
+
 ### Arquivos alterados
 - docs/RENDER_SPA_REWRITE.md
 - lib/devolucao_page.dart
