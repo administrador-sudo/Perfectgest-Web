@@ -21,6 +21,7 @@ import 'web_site_root_stub.dart' if (dart.library.html) 'web_site_root_web.dart'
 import 'company_legal_strip.dart';
 import 'site_layout.dart';
 import 'solution_screenshot_preview.dart';
+import 'metallic_preview_page.dart';
 
 /// Loops, parallax e oscilações contínuas — respeita “reduzir movimento” do SO/navegador.
 bool allowRichMotion(BuildContext context) {
@@ -127,6 +128,11 @@ class _PerfectProSiteAppState extends State<PerfectProSiteApp> {
                 return MaterialPageRoute<void>(
                   settings: settings,
                   builder: (_) => const PoliticaDevolucaoPage(),
+                );
+              case '/amostra-metal':
+                return MaterialPageRoute<void>(
+                  settings: settings,
+                  builder: (_) => const MetallicPreviewPage(),
                 );
               case '/':
               default:
