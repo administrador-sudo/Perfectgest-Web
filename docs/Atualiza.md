@@ -1350,3 +1350,21 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 
 ### Validacao executada
 - [x] `flutter analyze` (0 issues)
+
+## [2026-05-28] 404 em rotas SPA no Render
+
+### Contexto
+- Operador: deploy OK no Render mas `/politica-devolucao` inacessivel (404).
+
+### Diagnostico
+- `curl -I .../politica-devolucao` → HTTP 404 do Render (nao e bug da rota Flutter).
+- Home `/` funciona; faltam regras de rewrite no static site.
+
+### Mitigacao
+- `docs/RENDER_SPA_REWRITE.md`: regra obrigatoria no dashboard Render (`/*` → `/index.html`, Rewrite).
+- `lib/devolucao_page.dart`: botao voltar com fallback para raiz quando nao ha historico (acesso direto por URL).
+
+### Arquivos alterados
+- docs/RENDER_SPA_REWRITE.md
+- lib/devolucao_page.dart
+- docs/Atualiza.md

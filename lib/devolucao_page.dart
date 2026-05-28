@@ -7,6 +7,7 @@ import 'app_theme.dart';
 import 'l10n/app_localizations.dart';
 import 'l10n/site_returns_policy_texts.dart';
 import 'seo_meta_stub.dart' if (dart.library.html) 'seo_meta_web.dart' as seo_meta;
+import 'web_site_root_stub.dart' if (dart.library.html) 'web_site_root_web.dart' as web_site_root;
 
 /// Política de devolução/reembolso (site vitrine) — alinhada ao Merchant Center.
 class PoliticaDevolucaoPage extends StatefulWidget {
@@ -50,7 +51,15 @@ class _PoliticaDevolucaoPageState extends State<PoliticaDevolucaoPage> {
           leading: IconButton(
             icon: Icon(Icons.arrow_back, color: cs.primary),
             tooltip: l10n.navBack,
-            onPressed: () => Navigator.of(context).pop(),
+            onPressed: () {
+              if (Navigator.of(context).canPop()) {
+                Navigator.of(context).pop();
+              } else if (kIsWeb) {
+                web_site_root.navigateToSameOriginRoot();
+              } else {
+                Navigator.of(context).pushReplacementNamed('/');
+              }
+            },
           ),
           title: Text(
             st.appBarTitle,
