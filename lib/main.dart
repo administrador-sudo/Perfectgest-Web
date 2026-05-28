@@ -1076,13 +1076,15 @@ class SiteHeader extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 6),
                     child: ConstrainedBox(
                       constraints: BoxConstraints(
-                        maxWidth: isCompact ? 220 : 280,
-                        maxHeight: isCompact ? 34 : 38,
+                        // Mantém o layout do header compacto, sem estourar.
+                        maxWidth: isCompact ? 210 : 320,
+                        maxHeight: isCompact ? 32 : 36,
                       ),
                       child: Image.asset(
                         'imagens/brand_plate_perfectgestdev.png',
                         fit: BoxFit.contain,
                         alignment: Alignment.centerLeft,
+                        filterQuality: FilterQuality.high,
                         errorBuilder: (context, error, stackTrace) =>
                             Icon(Icons.shield_rounded, color: cs.primary, size: isCompact ? 26 : 28),
                       ),

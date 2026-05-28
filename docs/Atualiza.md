@@ -1315,3 +1315,18 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 ### Validacao executada
 - [x] `flutter analyze lib/main.dart` (0 issues)
 - [ ] Deploy / validacao visual no browser
+
+## [2026-05-28] Google Site Verification (meta tag)
+
+### Contexto
+- Pedido: inserir tag HTML de verificação Google no `<head>` antes do `<body>`.
+
+### Arquivos alterados
+- web/index.html
+- docs/Atualiza.md
+
+### O que foi feito
+- Adicionada `<meta name="google-site-verification" ...>` no `web/index.html`.
+
+### Validacao executada
+- [x] `flutter analyze` (0 issues)
