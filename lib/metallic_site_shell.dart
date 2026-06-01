@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'company_legal.dart';
 import 'metallic_style.dart';
 
 /// Tema metálico activo apenas no modo escuro.
@@ -119,18 +120,18 @@ TextStyle siteBodyTextStyle(
   );
 }
 
-/// Título «PerfectGest» no hero: cromado 3D (escuro) ou destaque teal (claro).
+/// Título da marca no hero: cromado 3D (escuro) ou destaque teal (claro).
 Widget siteHeroBrandTitle(
   BuildContext context, {
   required bool compact,
 }) {
   final fontSize = compact ? 34.0 : 44.0;
   if (useMetallicPresentation(context)) {
-    return metallicChromeText('PerfectGest', fontSize: fontSize, lift: 4.2);
+    return metallicChromeText(kCompanyFantasyName, fontSize: fontSize, lift: 4.2);
   }
   final cs = Theme.of(context).colorScheme;
   return Text(
-    'PerfectGest',
+    kCompanyFantasyName,
     style: GoogleFonts.inter(
       fontSize: fontSize,
       letterSpacing: 0.5,

@@ -1444,3 +1444,23 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - lib/devolucao_page.dart
 - docs/Atualiza.md
 
+## [2026-05-29] Coerencia de marcas — Perfect Gest Dev / LTDA / PerfectGest I
+
+### Pedido
+- Site = nome fantasia **Perfect Gest Dev**; razao social **PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA**; **PerfectGest I** = produto (app Play Store).
+
+### O que foi feito
+- Constantes centralizadas em `company_legal.dart` (`kCompanyFantasyName`, `kProductPerfectGestIName`).
+- Site, SEO, footer, hero, politicas do site e contacto passam a **Perfect Gest Dev**.
+- Politicas Play Store e mockups de app mantem **PerfectGest I** como produto; controlador = fantasia + LTDA.
+- Dominio unificado para `perfectgest-web-desenvolvedor-apps.onrender.com`.
+
+### Arquivos alterados
+- lib/company_legal.dart, lib/main.dart, lib/metallic_site_shell.dart, lib/metallic_preview_page.dart, lib/politica_page.dart
+- lib/l10n/site_policy_privacy_texts.dart, site_returns_policy_texts.dart, play_store_app_legal_texts.dart, site_tecnologias_texts.dart
+- lib/l10n/app_pt.arb, app_en.arb, app_es.arb, app_localizations.dart, lib/seo_meta_web.dart
+- web/index.html, web/sitemap.xml, web/robots.txt, docs/Atualiza.md
+
+### Validacao
+- [x] `flutter analyze` (0 issues)
+

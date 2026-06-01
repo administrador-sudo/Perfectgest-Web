@@ -211,9 +211,9 @@ class _AppLocalizationsPt extends AppLocalizations {
   @override
   String get heroSemanticsLabel => 'Secao principal de apresentacao';
   @override
-  String get siteBrandLogoSemantics => 'Logotipo PerfectGest';
+  String get siteBrandLogoSemantics => 'Logotipo Perfect Gest Dev';
   @override
-  String get heroBrandLinkSemantics => 'PerfectGest, ir para a raiz do site';
+  String get heroBrandLinkSemantics => 'Perfect Gest Dev, ir para a raiz do site';
   @override
   String get heroHeadline1 => 'Inovacao em Flutter, Java e SDKs';
   @override
@@ -266,12 +266,12 @@ class _AppLocalizationsPt extends AppLocalizations {
   String get contactBtnSend => 'Enviar mensagem (WhatsApp)';
   @override
   String get contactWhatsappPrefilled =>
-      'Olá! Gostaria de falar com a PerfectGest sobre um projeto.\n\n';
+      'Olá! Gostaria de falar com a Perfect Gest Dev sobre um projeto.\n\n';
   @override
-  String get footerSemantics => 'Privacidade, dados, cookies e termos PerfectGest';
+  String get footerSemantics => 'Privacidade, dados, cookies e termos Perfect Gest Dev';
   @override
   String get footerComplianceBody =>
-      'Leia a política completa da PerfectGest (privacidade, dados, cookies e termos). Para serviços Google (ex.: Analytics), aplicam-se também as políticas oficiais do Google.';
+      'Leia a política completa da Perfect Gest Dev (privacidade, dados, cookies e termos). Para serviços Google (ex.: Analytics), aplicam-se também as políticas oficiais do Google.';
   @override
   String get footerBtnPolicyShort => 'Política completa';
   @override
@@ -306,13 +306,13 @@ class _AppLocalizationsPt extends AppLocalizations {
   @override
   String get solShowcaseTapToExpand => 'Clique para ampliar a captura de tela';
   @override
-  String get solPreviewPhoneInicio => 'PerfectGest — Inicio (celular)';
+  String get solPreviewPhoneInicio => 'PerfectGest I — Inicio (celular)';
   @override
-  String get solPreviewPhoneOrcamentos => 'PerfectGest — Orcamentos (celular)';
+  String get solPreviewPhoneOrcamentos => 'PerfectGest I — Orcamentos (celular)';
   @override
-  String get solPreviewTabletInicio => 'PerfectGest — Inicio (tablet)';
+  String get solPreviewTabletInicio => 'PerfectGest I — Inicio (tablet)';
   @override
-  String get solPreviewTabletOrcamentos => 'PerfectGest — Orcamentos (tablet)';
+  String get solPreviewTabletOrcamentos => 'PerfectGest I — Orcamentos (tablet)';
   @override
   String get solPreviewClose => 'Fechar';
   @override
@@ -361,7 +361,7 @@ class _AppLocalizationsPt extends AppLocalizations {
       'Desenvolvo aplicacoes modernas utilizando o ecossistema Firebase para entregas rapidas, notificacoes push e autenticacao segura de usuarios.';
 
   @override
-  String get aboutPageSemantics => 'Pagina institucional Sobre nos da PerfectGest';
+  String get aboutPageSemantics => 'Pagina institucional Sobre nos da Perfect Gest Dev';
   @override
   String get aboutBackTooltip => 'Voltar ao inicio';
   @override
@@ -398,9 +398,9 @@ class _AppLocalizationsPt extends AppLocalizations {
   String get aboutFooterSemantics => 'Rodape legal e direitos autorais';
   @override
   String get aboutFooterDisclaimer =>
-      'Marca, logotipos, textos e ilustracoes deste site sao de uso exclusivo da PerfectGest, salvo indicacao em contrario. E proibida a reproducao total ou parcial para fins comerciais sem autorizacao previa por escrito.';
+      'Marca, logotipos, textos e ilustracoes deste site sao de uso exclusivo da Perfect Gest Dev, salvo indicacao em contrario. E proibida a reproducao total ou parcial para fins comerciais sem autorizacao previa por escrito.';
   @override
-  String aboutFooterCopyright(int year) => '© $year PerfectGest. Todos os direitos reservados.';
+  String aboutFooterCopyright(int year) => '© $year Perfect Gest Dev. Todos os direitos reservados.';
 }
 
 class _AppLocalizationsEn extends AppLocalizations {
@@ -447,9 +447,9 @@ class _AppLocalizationsEn extends AppLocalizations {
   @override
   String get heroSemanticsLabel => 'Main introduction section';
   @override
-  String get siteBrandLogoSemantics => 'PerfectGest logo';
+  String get siteBrandLogoSemantics => 'Perfect Gest Dev logo';
   @override
-  String get heroBrandLinkSemantics => 'PerfectGest, go to site home';
+  String get heroBrandLinkSemantics => 'Perfect Gest Dev, go to site home';
   @override
   String get heroHeadline1 => 'Innovation in Flutter, Java and SDKs';
   @override
@@ -502,12 +502,12 @@ class _AppLocalizationsEn extends AppLocalizations {
   String get contactBtnSend => 'Send message (WhatsApp)';
   @override
   String get contactWhatsappPrefilled =>
-      "Hi! I'd like to talk to PerfectGest about a project.\n\n";
+      "Hi! I'd like to talk to Perfect Gest Dev about a project.\n\n";
   @override
-  String get footerSemantics => 'PerfectGest privacy, data, cookies and terms';
+  String get footerSemantics => 'Perfect Gest Dev privacy, data, cookies and terms';
   @override
   String get footerComplianceBody =>
-      "Read PerfectGest's full policy (privacy, data, cookies, and terms). For Google services (e.g., Analytics), Google's official policies also apply.";
+      "Read Perfect Gest Dev's full policy (privacy, data, cookies, and terms). For Google services (e.g., Analytics), Google's official policies also apply.";
   @override
   String get footerBtnPolicyShort => 'Full policy';
   @override
@@ -542,13 +542,13 @@ class _AppLocalizationsEn extends AppLocalizations {
   @override
   String get solShowcaseTapToExpand => 'Click to enlarge the screenshot';
   @override
-  String get solPreviewPhoneInicio => 'PerfectGest — Home (phone)';
+  String get solPreviewPhoneInicio => 'PerfectGest I — Home (phone)';
   @override
-  String get solPreviewPhoneOrcamentos => 'PerfectGest — Quotes (phone)';
+  String get solPreviewPhoneOrcamentos => 'PerfectGest I — Quotes (phone)';
   @override
-  String get solPreviewTabletInicio => 'PerfectGest — Home (tablet)';
+  String get solPreviewTabletInicio => 'PerfectGest I — Home (tablet)';
   @override
-  String get solPreviewTabletOrcamentos => 'PerfectGest — Quotes (tablet)';
+  String get solPreviewTabletOrcamentos => 'PerfectGest I — Quotes (tablet)';
   @override
   String get solPreviewClose => 'Close';
   @override
@@ -597,7 +597,7 @@ class _AppLocalizationsEn extends AppLocalizations {
       'I build modern applications using the Firebase ecosystem for fast delivery, push notifications, and secure user authentication.';
 
   @override
-  String get aboutPageSemantics => 'PerfectGest institutional About page';
+  String get aboutPageSemantics => 'Perfect Gest Dev institutional About page';
   @override
   String get aboutBackTooltip => 'Back to home';
   @override
@@ -634,9 +634,9 @@ class _AppLocalizationsEn extends AppLocalizations {
   String get aboutFooterSemantics => 'Legal footer and copyright';
   @override
   String get aboutFooterDisclaimer =>
-      'Brand, logos, text, and illustrations on this site are for exclusive use by PerfectGest unless stated otherwise. Total or partial reproduction for commercial purposes is prohibited without prior written authorization.';
+      'Brand, logos, text, and illustrations on this site are for exclusive use by Perfect Gest Dev unless stated otherwise. Total or partial reproduction for commercial purposes is prohibited without prior written authorization.';
   @override
-  String aboutFooterCopyright(int year) => '© $year PerfectGest. All rights reserved.';
+  String aboutFooterCopyright(int year) => '© $year Perfect Gest Dev. All rights reserved.';
 }
 
 class _AppLocalizationsEs extends AppLocalizations {
@@ -683,9 +683,9 @@ class _AppLocalizationsEs extends AppLocalizations {
   @override
   String get heroSemanticsLabel => 'Sección principal de presentación';
   @override
-  String get siteBrandLogoSemantics => 'Logotipo PerfectGest';
+  String get siteBrandLogoSemantics => 'Logotipo Perfect Gest Dev';
   @override
-  String get heroBrandLinkSemantics => 'PerfectGest, ir a la raíz del sitio';
+  String get heroBrandLinkSemantics => 'Perfect Gest Dev, ir a la raíz del sitio';
   @override
   String get heroHeadline1 => 'Innovación en Flutter, Java y SDKs';
   @override
@@ -738,12 +738,12 @@ class _AppLocalizationsEs extends AppLocalizations {
   String get contactBtnSend => 'Enviar mensaje (WhatsApp)';
   @override
   String get contactWhatsappPrefilled =>
-      '¡Hola! Me gustaría hablar con PerfectGest sobre un proyecto.\n\n';
+      '¡Hola! Me gustaría hablar con Perfect Gest Dev sobre un proyecto.\n\n';
   @override
-  String get footerSemantics => 'Privacidad, datos, cookies y términos PerfectGest';
+  String get footerSemantics => 'Privacidad, datos, cookies y términos Perfect Gest Dev';
   @override
   String get footerComplianceBody =>
-      'Lee la política completa de PerfectGest (privacidad, datos, cookies y términos). Para servicios de Google (p.ej., Analytics), también aplican las políticas oficiales de Google.';
+      'Lee la política completa de Perfect Gest Dev (privacidad, datos, cookies y términos). Para servicios de Google (p.ej., Analytics), también aplican las políticas oficiales de Google.';
   @override
   String get footerBtnPolicyShort => 'Política completa';
   @override
@@ -778,13 +778,13 @@ class _AppLocalizationsEs extends AppLocalizations {
   @override
   String get solShowcaseTapToExpand => 'Pulse para ampliar la captura de pantalla';
   @override
-  String get solPreviewPhoneInicio => 'PerfectGest — Inicio (movil)';
+  String get solPreviewPhoneInicio => 'PerfectGest I — Inicio (movil)';
   @override
-  String get solPreviewPhoneOrcamentos => 'PerfectGest — Presupuestos (movil)';
+  String get solPreviewPhoneOrcamentos => 'PerfectGest I — Presupuestos (movil)';
   @override
-  String get solPreviewTabletInicio => 'PerfectGest — Inicio (tablet)';
+  String get solPreviewTabletInicio => 'PerfectGest I — Inicio (tablet)';
   @override
-  String get solPreviewTabletOrcamentos => 'PerfectGest — Presupuestos (tablet)';
+  String get solPreviewTabletOrcamentos => 'PerfectGest I — Presupuestos (tablet)';
   @override
   String get solPreviewClose => 'Cerrar';
   @override
@@ -833,7 +833,7 @@ class _AppLocalizationsEs extends AppLocalizations {
       'Desarrollo aplicaciones modernas con el ecosistema Firebase para entregas rápidas, notificaciones push y autenticación segura de usuarios.';
 
   @override
-  String get aboutPageSemantics => 'Página institucional Sobre nosotros de PerfectGest';
+  String get aboutPageSemantics => 'Página institucional Sobre nosotros de Perfect Gest Dev';
   @override
   String get aboutBackTooltip => 'Volver al inicio';
   @override
@@ -870,7 +870,7 @@ class _AppLocalizationsEs extends AppLocalizations {
   String get aboutFooterSemantics => 'Pie legal y derechos de autor';
   @override
   String get aboutFooterDisclaimer =>
-      'Marca, logotipos, textos e ilustraciones de este sitio son de uso exclusivo de PerfectGest salvo indicación en contrario. Queda prohibida la reproducción total o parcial con fines comerciales sin autorización previa por escrito.';
+      'Marca, logotipos, textos e ilustraciones de este sitio son de uso exclusivo de Perfect Gest Dev salvo indicación en contrario. Queda prohibida la reproducción total o parcial con fines comerciales sin autorización previa por escrito.';
   @override
-  String aboutFooterCopyright(int year) => '© $year PerfectGest. Todos los derechos reservados.';
+  String aboutFooterCopyright(int year) => '© $year Perfect Gest Dev. Todos los derechos reservados.';
 }

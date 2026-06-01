@@ -3,37 +3,37 @@ import 'package:web/web.dart' as web;
 const String _kMetaDescriptionHome =
     'Software house especialista em Flutter, Java e SDKs para apps mobile, web e desktop com alta performance.';
 const String _kMetaKeywordsHome = 'Flutter, Java, SDK, PWA, SEO, Google Search Console, mobile, web, desktop';
-const String _kOgTitleHome = 'Codificando o Amanha, Hoje | PerfectGest';
+const String _kOgTitleHome = 'Codificando o Amanha, Hoje | Perfect Gest Dev';
 const String _kOgDescriptionHome =
     'Inovacao em Flutter, Java e SDKs com foco em codigo limpo, escala e performance.';
-const String _kDocumentTitleHome = 'Codificando o Amanha, Hoje | PerfectGest';
+const String _kDocumentTitleHome = 'Codificando o Amanha, Hoje | Perfect Gest Dev';
 
 const String _kMetaDescriptionAbout =
-    'Sobre a PerfectGest: software house em Flutter, Java e SDKs. Apps nativos, web rapida, desktop Windows, Clean Architecture, seguranca e escalabilidade.';
+    'Sobre a Perfect Gest Dev: software house em Flutter, Java e SDKs. Apps nativos, web rapida, desktop Windows, Clean Architecture, seguranca e escalabilidade.';
 const String _kMetaKeywordsAbout =
-    'PerfectGest, sobre nos, software house, Flutter, Java, desenvolvimento mobile, web, desktop, PWA, Clean Architecture';
-const String _kOgTitleAbout = 'Sobre nos | PerfectGest';
+    'Perfect Gest Dev, sobre nos, software house, Flutter, Java, desenvolvimento mobile, web, desktop, PWA, Clean Architecture';
+const String _kOgTitleAbout = 'Sobre nos | Perfect Gest Dev';
 const String _kOgDescriptionAbout =
-    'Missao, solucoes em app e web, desktop Windows e diferenciais da PerfectGest.';
-const String _kDocumentTitleAbout = 'Sobre nos | PerfectGest';
+    'Missao, solucoes em app e web, desktop Windows e diferenciais da Perfect Gest Dev.';
+const String _kDocumentTitleAbout = 'Sobre nos | Perfect Gest Dev';
 
 const String _kMetaDescriptionPolitica =
-    'Politica de privacidade, dados pessoais, cookies e termos de uso do site PerfectGest — software house Flutter e Java.';
+    'Politica de privacidade, dados pessoais, cookies e termos de uso do site Perfect Gest Dev — software house Flutter e Java.';
 const String _kMetaKeywordsPolitica =
-    'PerfectGest, politica de privacidade, cookies, termos de uso, RGPD, dados pessoais, Google Analytics';
-const String _kOgTitlePolitica = 'Privacidade, dados e cookies | PerfectGest';
+    'Perfect Gest Dev, politica de privacidade, cookies, termos de uso, RGPD, dados pessoais, Google Analytics';
+const String _kOgTitlePolitica = 'Privacidade, dados e cookies | Perfect Gest Dev';
 const String _kOgDescriptionPolitica =
-    'Como tratamos dados, cookies de medição, direitos do titular e termos de uso do site institucional PerfectGest.';
-const String _kDocumentTitlePolitica = 'Privacidade e termos | PerfectGest';
+    'Como tratamos dados, cookies de medição, direitos do titular e termos de uso do site institucional Perfect Gest Dev.';
+const String _kDocumentTitlePolitica = 'Privacidade e termos | Perfect Gest Dev';
 
 const String _kMetaDescriptionTecnologias =
-    'Parceiros tecnológicos e stack Flutter da PerfectGest: Clean Architecture, segurança, escala, integrações e operação contínua.';
+    'Parceiros tecnológicos e stack Flutter da Perfect Gest Dev: Clean Architecture, segurança, escala, integrações e operação contínua.';
 const String _kMetaKeywordsTecnologias =
-    'PerfectGest, tecnologias, Flutter, Dart, Java, Gradle, SDK, integrações, arquitetura limpa, segurança, escala';
-const String _kOgTitleTecnologias = 'Parceiros tecnológicos | PerfectGest';
+    'Perfect Gest Dev, tecnologias, Flutter, Dart, Java, Gradle, SDK, integrações, arquitetura limpa, segurança, escala';
+const String _kOgTitleTecnologias = 'Parceiros tecnológicos | Perfect Gest Dev';
 const String _kOgDescriptionTecnologias =
-    'Visão técnica do stack PerfectGest para mobile, web e desktop com foco em performance e previsibilidade.';
-const String _kDocumentTitleTecnologias = 'Parceiros tecnológicos | PerfectGest';
+    'Visão técnica do stack Perfect Gest Dev para mobile, web e desktop com foco em performance e previsibilidade.';
+const String _kDocumentTitleTecnologias = 'Parceiros tecnológicos | Perfect Gest Dev';
 
 void _applyHomeSeoMetaTags() {
   _syncCanonicalFromLocation();

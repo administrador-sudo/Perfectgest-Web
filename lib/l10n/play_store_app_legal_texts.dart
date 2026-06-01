@@ -1,5 +1,7 @@
 import 'package:flutter/widgets.dart';
 
+import '../company_legal.dart';
+
 class LegalSectionText {
   const LegalSectionText({required this.heading, required this.body});
   final String heading;
@@ -39,7 +41,7 @@ const List<LegalSectionText> _kPrivacyPt = <LegalSectionText>[
   LegalSectionText(
     heading: '1. Identificação do Controlador',
     body:
-        'A PerfectGest, sob responsabilidade de Marcos Leandro dos Santos, estabelece esta Política de Privacidade '
+        'A $kCompanyFantasyName ($kCompanyLegalName), desenvolvedora do aplicativo $kProductPerfectGestIName, estabelece esta Política de Privacidade '
         'em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei 13.709/18) e com as políticas para desenvolvedores da Google Play Store. '
         'Para exercício de direitos de acesso, retificação ou exclusão, contacte: sac.perfectgest@gmail.com.',
   ),
@@ -62,7 +64,7 @@ const List<LegalSectionText> _kPrivacyPt = <LegalSectionText>[
     heading: '4. Segurança e transparência',
     body:
         'Todos os dados em trânsito (telemetria e metadados técnicos) utilizam HTTPS/TLS. '
-        'A PerfectGest declara não vender ou partilhar dados técnicos/de uso para publicidade. '
+        'A $kCompanyFantasyName declara não vender ou partilhar dados técnicos/de uso para publicidade. '
         'Identificadores de dispositivo são utilizados exclusivamente para validação de período gratuito e segurança do software.',
   ),
   LegalSectionText(
@@ -124,7 +126,7 @@ const List<LegalSectionText> _kPrivacyEn = <LegalSectionText>[
   LegalSectionText(
     heading: '1. Controller identification',
     body:
-        'PerfectGest, under the responsibility of Marcos Leandro dos Santos, establishes this Privacy Policy '
+        'Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA), developer of the $kProductPerfectGestIName app, establishes this Privacy Policy '
         'in compliance with the Brazilian General Data Protection Law (LGPD - Law 13,709/18) and Google Play Store developer policies. '
         'To exercise access, rectification or erasure rights, contact: sac.perfectgest@gmail.com.',
   ),
@@ -147,7 +149,7 @@ const List<LegalSectionText> _kPrivacyEn = <LegalSectionText>[
     heading: '4. Security and transparency',
     body:
         'All data in transit (telemetry and technical metadata) uses HTTPS/TLS. '
-        'PerfectGest states that it does not sell or share technical/usage data for advertising. '
+        'Perfect Gest Dev states that it does not sell or share technical/usage data for advertising. '
         'Device identifiers are used exclusively for free trial validation and software security.',
   ),
   LegalSectionText(
@@ -209,7 +211,7 @@ const List<LegalSectionText> _kPrivacyEs = <LegalSectionText>[
   LegalSectionText(
     heading: '1. Identificacion del responsable',
     body:
-        'PerfectGest, bajo la responsabilidad de Marcos Leandro dos Santos, establece esta Politica de Privacidad '
+        'Perfect Gest Dev ($kCompanyLegalName), desarrolladora de la aplicacion $kProductPerfectGestIName, establece esta Politica de Privacidad '
         'conforme a la Ley General de Proteccion de Datos de Brasil (LGPD - Ley 13.709/18) y a las politicas para desarrolladores de Google Play Store. '
         'Para ejercer derechos de acceso, rectificacion o supresion, contacte: sac.perfectgest@gmail.com.',
   ),
@@ -232,7 +234,7 @@ const List<LegalSectionText> _kPrivacyEs = <LegalSectionText>[
     heading: '4. Seguridad y transparencia',
     body:
         'Todos los datos en transito (telemetria y metadatos tecnicos) utilizan HTTPS/TLS. '
-        'PerfectGest declara que no vende ni comparte datos tecnicos o de uso con fines publicitarios. '
+        'Perfect Gest Dev declara que no vende ni comparte datos tecnicos o de uso con fines publicitarios. '
         'Los identificadores de dispositivo se usan exclusivamente para validacion del periodo gratuito y seguridad del software.',
   ),
   LegalSectionText(

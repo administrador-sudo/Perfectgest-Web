@@ -1,5 +1,7 @@
 import 'package:flutter/widgets.dart';
 
+import '../company_legal.dart';
+
 /// Textos longos da pagina de politica de devolucao/reembolso (PT/EN/ES).
 ///
 /// Objetivo: passar pela verificacao do Merchant Center e informar que o site
@@ -42,27 +44,28 @@ class _SiteReturnsPolicyTextsPt extends SiteReturnsPolicyTexts {
   const _SiteReturnsPolicyTextsPt() : super();
 
   @override
-  String get semanticsLabel => 'Politica de devolucao e reembolso PerfectGest';
+  String get semanticsLabel => 'Politica de devolucao e reembolso $kCompanyFantasyName';
 
   @override
   String get appBarTitle => 'Devolucao e reembolso';
 
   @override
-  String get brandLabel => 'PerfectGest';
+  String get brandLabel => kCompanyFantasyName;
 
   @override
   String get docHeadline => 'Política de devolução e reembolso (site vitrine)';
 
   @override
   String introContactLine(String email) =>
-      'Última atualização: documento institucional. Para solicitar reembolso, cancelamento ou esclarecimentos, contacte: $email.';
+      'Última atualização: documento institucional. Para solicitar reembolso, cancelamento ou esclarecimentos sobre o produto $kProductPerfectGestIName, contacte: $email.';
 
   @override
   String get section1Title => '1. Escopo (site vitrine)';
 
   @override
   String get section1Body =>
-      'Este site é uma vitrine institucional da PerfectGest. As vendas e pagamentos do produto ocorrem fora deste site (por exemplo, na Google Play ou em canal comercial). '
+      'Este site é uma vitrine institucional de $kCompanyFantasyName ($kCompanyLegalName). '
+      'As vendas e pagamentos do produto $kProductPerfectGestIName ocorrem fora deste site (por exemplo, na Google Play ou em canal comercial). '
       'Ainda assim, mantemos esta política pública para transparência e para verificação em plataformas Google.';
 
   @override
@@ -103,27 +106,28 @@ class _SiteReturnsPolicyTextsEn extends SiteReturnsPolicyTexts {
   const _SiteReturnsPolicyTextsEn() : super();
 
   @override
-  String get semanticsLabel => 'PerfectGest returns and refunds policy';
+  String get semanticsLabel => '$kCompanyFantasyName returns and refunds policy';
 
   @override
   String get appBarTitle => 'Returns & refunds';
 
   @override
-  String get brandLabel => 'PerfectGest';
+  String get brandLabel => kCompanyFantasyName;
 
   @override
   String get docHeadline => 'Returns & refunds policy (showcase website)';
 
   @override
   String introContactLine(String email) =>
-      'Last updated: institutional document. To request a refund, cancellation, or clarification, contact: $email.';
+      'Last updated: institutional document. To request a refund, cancellation, or clarification about $kProductPerfectGestIName, contact: $email.';
 
   @override
   String get section1Title => '1. Scope (showcase website)';
 
   @override
   String get section1Body =>
-      'This website is an institutional showcase for PerfectGest. Sales and payments happen outside this website (for example, on Google Play or via a commercial channel). '
+      'This website is an institutional showcase for $kCompanyFantasyName ($kCompanyLegalName). '
+      'Sales and payments for $kProductPerfectGestIName happen outside this website (for example, on Google Play or via a commercial channel). '
       'We keep this public policy for transparency and for Google platform verification.';
 
   @override
@@ -164,27 +168,28 @@ class _SiteReturnsPolicyTextsEs extends SiteReturnsPolicyTexts {
   const _SiteReturnsPolicyTextsEs() : super();
 
   @override
-  String get semanticsLabel => 'Política de devoluciones y reembolsos PerfectGest';
+  String get semanticsLabel => 'Política de devoluciones y reembolsos $kCompanyFantasyName';
 
   @override
   String get appBarTitle => 'Devoluciones y reembolsos';
 
   @override
-  String get brandLabel => 'PerfectGest';
+  String get brandLabel => kCompanyFantasyName;
 
   @override
   String get docHeadline => 'Política de devoluciones y reembolsos (sitio vitrina)';
 
   @override
   String introContactLine(String email) =>
-      'Última actualización: documento institucional. Para solicitar reembolso, cancelación o aclaraciones, contacte: $email.';
+      'Última actualización: documento institucional. Para solicitar reembolso, cancelación o aclaraciones sobre $kProductPerfectGestIName, contacte: $email.';
 
   @override
   String get section1Title => '1. Alcance (sitio vitrina)';
 
   @override
   String get section1Body =>
-      'Este sitio es una vitrina institucional de PerfectGest. Las ventas y pagos ocurren fuera de este sitio (por ejemplo, en Google Play o por canal comercial). '
+      'Este sitio es una vitrina institucional de $kCompanyFantasyName ($kCompanyLegalName). '
+      'Las ventas y pagos del producto $kProductPerfectGestIName ocurren fuera de este sitio (por ejemplo, en Google Play o por canal comercial). '
       'Mantenemos esta política pública para transparencia y para verificación en plataformas de Google.';
 
   @override

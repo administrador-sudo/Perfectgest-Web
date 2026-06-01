@@ -14,6 +14,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'app_theme.dart';
+import 'company_legal.dart';
 import 'l10n/app_localizations.dart';
 import 'locale_controller.dart';
 import 'seo_meta_stub.dart' if (dart.library.html) 'seo_meta_web.dart' as seo_meta;
@@ -96,7 +97,7 @@ class _PerfectProSiteAppState extends State<PerfectProSiteApp> {
       builder: (context, manualLocale, _) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'PerfectGest',
+          title: kCompanyFantasyName,
           theme: buildPerfectProLightTheme(),
           darkTheme: buildPerfectProDarkTheme(),
           themeMode: _themeMode,
@@ -459,7 +460,7 @@ class _SobreNosPageState extends State<SobreNosPage> {
                         Semantics(
                           header: true,
                           child: Text(
-                            'PerfectGest',
+                            kCompanyFantasyName,
                             style: GoogleFonts.inter(
                               fontSize: 13,
                               letterSpacing: 0.6,
@@ -1021,7 +1022,7 @@ Future<void> _openSacEmail() async {
       'view': 'cm',
       'fs': '1',
       'to': kEmailSac,
-      'su': 'Contato PerfectGest',
+      'su': 'Contato Perfect Gest Dev',
     });
     await launchUrl(
       gmailCompose,
@@ -1033,7 +1034,7 @@ Future<void> _openSacEmail() async {
   final uri = Uri(
     scheme: 'mailto',
     path: kEmailSac,
-    queryParameters: const {'subject': 'Contato PerfectGest'},
+    queryParameters: const {'subject': 'Contato Perfect Gest Dev'},
   );
   await launchUrl(uri, mode: LaunchMode.platformDefault);
 }
@@ -1043,7 +1044,7 @@ Future<void> _openSiteUrl() async {
     web_site_root.navigateToSameOriginRoot();
     return;
   }
-  final uri = Uri.parse('https://perfectpro-webpageoficial.onrender.com/');
+  final uri = Uri.parse('https://perfectgest-web-desenvolvedor-apps.onrender.com/');
   await launchUrl(uri, mode: LaunchMode.platformDefault);
 }
 

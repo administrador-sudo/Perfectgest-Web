@@ -12,7 +12,7 @@ import 'seo_meta_stub.dart' if (dart.library.html) 'seo_meta_web.dart' as seo_me
 import 'tecnologias_page.dart';
 import 'web_cookie_consent_stub.dart' if (dart.library.html) 'web_cookie_consent_web.dart' as cookie_consent;
 
-/// Política própria PerfectGest: privacidade, dados, cookies e termos (alinhado a boas práticas Google para sites e medição).
+/// Política própria Perfect Gest Dev: privacidade, dados, cookies e termos (alinhado a boas práticas Google para sites e medição).
 class PoliticaPrivacidadePage extends StatefulWidget {
   const PoliticaPrivacidadePage({super.key, this.onToggleTheme});
 

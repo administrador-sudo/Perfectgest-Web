@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'company_legal.dart';
 import 'metallic_style.dart';
 import 'web_site_root_stub.dart' if (dart.library.html) 'web_site_root_web.dart' as web_site_root;
 
@@ -44,7 +45,7 @@ class MetallicPreviewPage extends StatelessWidget {
                                   child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      metallicChromeText('PerfectGest', fontSize: 30, lift: 4),
+                                      metallicChromeText(kCompanyFantasyName, fontSize: 30, lift: 4),
                                       Row(
                                         crossAxisAlignment: CrossAxisAlignment.end,
                                         children: [

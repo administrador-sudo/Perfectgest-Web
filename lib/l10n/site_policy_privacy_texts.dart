@@ -1,5 +1,7 @@
 import 'package:flutter/widgets.dart';
 
+import '../company_legal.dart';
+
 /// Textos longos da pagina [PoliticaPrivacidadePage] (PT/EN/ES).
 ///
 /// Mantidos em Dart para nao inflar `app_localizations.dart`; alinham-se ao
@@ -49,13 +51,13 @@ class _SitePolicyPrivacyTextsPt extends SitePolicyPrivacyTexts {
   const _SitePolicyPrivacyTextsPt() : super();
 
   @override
-  String get semanticsLabel => 'Politica de privacidade, dados, cookies e termos PerfectGest';
+  String get semanticsLabel => 'Politica de privacidade, dados, cookies e termos $kCompanyFantasyName';
 
   @override
   String get appBarTitle => 'Privacidade e termos';
 
   @override
-  String get brandLabel => 'PerfectGest';
+  String get brandLabel => kCompanyFantasyName;
 
   @override
   String get docHeadline => 'Política de privacidade, dados pessoais, cookies e termos de uso';
@@ -69,8 +71,10 @@ class _SitePolicyPrivacyTextsPt extends SitePolicyPrivacyTexts {
 
   @override
   String get section1Body =>
-      'O presente site é operado pela PerfectGest (“nós”, “nossa”). Somos uma software house focada em desenvolvimento de software (mobile, web e desktop), '
-      'consultoria técnica e conteúdo institucional. O domínio de referência do projeto é perfectpro-webpageoficial.onrender.com.';
+      'O presente site é operado por $kCompanyFantasyName, nome fantasia de $kCompanyLegalName (“nós”, “nossa”). '
+      'Somos uma software house focada em desenvolvimento de software (mobile, web e desktop), consultoria técnica e conteúdo institucional. '
+      'Entre os nossos produtos destaca-se o aplicativo $kProductPerfectGestIName (Google Play). '
+      'O domínio de referência do projeto é perfectgest-web-desenvolvedor-apps.onrender.com.';
 
   @override
   String get section2Title => '2. Que dados podemos recolher';
@@ -119,7 +123,8 @@ class _SitePolicyPrivacyTextsPt extends SitePolicyPrivacyTexts {
 
   @override
   String get section7Body =>
-      'O conteúdo deste site (textos, identidade visual e materiais) destina-se a informação sobre a PerfectGest. A reprodução não autorizada para fins comerciais pode ser proibida. '
+      'O conteúdo deste site (textos, identidade visual e materiais) destina-se a informação sobre $kCompanyFantasyName e os seus produtos. '
+      'A reprodução não autorizada para fins comerciais pode ser proibida. '
       'Os links externos são fornecidos por conveniência; não controlamos sites de terceiros. O uso do site é por sua conta e risco, na medida permitida pela lei.';
 
   @override
@@ -145,13 +150,13 @@ class _SitePolicyPrivacyTextsEn extends SitePolicyPrivacyTexts {
   const _SitePolicyPrivacyTextsEn() : super();
 
   @override
-  String get semanticsLabel => 'PerfectGest privacy policy, data, cookies and terms';
+  String get semanticsLabel => 'Perfect Gest Dev privacy policy, data, cookies and terms';
 
   @override
   String get appBarTitle => 'Privacy and terms';
 
   @override
-  String get brandLabel => 'PerfectGest';
+  String get brandLabel => kCompanyFantasyName;
 
   @override
   String get docHeadline => 'Privacy policy, personal data, cookies and terms of use';
@@ -165,8 +170,10 @@ class _SitePolicyPrivacyTextsEn extends SitePolicyPrivacyTexts {
 
   @override
   String get section1Body =>
-      'This website is operated by PerfectGest (“we”, “our”). We are a software house focused on software development (mobile, web and desktop), '
-      'technical consulting and institutional content. The reference project domain is perfectpro-webpageoficial.onrender.com.';
+      'This website is operated by $kCompanyFantasyName, the trade name of $kCompanyLegalName (“we”, “our”). '
+      'We are a software house focused on software development (mobile, web and desktop), technical consulting and institutional content. '
+      'Among our products, the $kProductPerfectGestIName mobile app (Google Play) is a highlight. '
+      'The reference project domain is perfectgest-web-desenvolvedor-apps.onrender.com.';
 
   @override
   String get section2Title => '2. Data we may collect';
@@ -215,7 +222,7 @@ class _SitePolicyPrivacyTextsEn extends SitePolicyPrivacyTexts {
 
   @override
   String get section7Body =>
-      'The content of this site (text, visual identity and materials) is for information about PerfectGest. Unauthorized reproduction for commercial purposes may be prohibited. '
+      'The content of this site (text, visual identity and materials) is for information about $kCompanyFantasyName and its products. Unauthorized reproduction for commercial purposes may be prohibited. '
       'External links are provided for convenience; we do not control third-party sites. You use the site at your own risk, to the extent permitted by law.';
 
   @override
@@ -241,13 +248,13 @@ class _SitePolicyPrivacyTextsEs extends SitePolicyPrivacyTexts {
   const _SitePolicyPrivacyTextsEs() : super();
 
   @override
-  String get semanticsLabel => 'Politica de privacidad, datos, cookies y terminos PerfectGest';
+  String get semanticsLabel => 'Politica de privacidad, datos, cookies y terminos $kCompanyFantasyName';
 
   @override
   String get appBarTitle => 'Privacidad y terminos';
 
   @override
-  String get brandLabel => 'PerfectGest';
+  String get brandLabel => kCompanyFantasyName;
 
   @override
   String get docHeadline => 'Politica de privacidad, datos personales, cookies y terminos de uso';
@@ -261,8 +268,10 @@ class _SitePolicyPrivacyTextsEs extends SitePolicyPrivacyTexts {
 
   @override
   String get section1Body =>
-      'Este sitio web es operado por PerfectGest (“nosotros”, “nuestra”). Somos una software house enfocada en desarrollo de software (movil, web y escritorio), '
-      'consultoria tecnica y contenido institucional. El dominio de referencia del proyecto es perfectpro-webpageoficial.onrender.com.';
+      'Este sitio web es operado por $kCompanyFantasyName, nombre comercial de $kCompanyLegalName (“nosotros”, “nuestra”). '
+      'Somos una software house enfocada en desarrollo de software (movil, web y escritorio), consultoria tecnica y contenido institucional. '
+      'Entre nuestros productos destaca la aplicacion $kProductPerfectGestIName (Google Play). '
+      'El dominio de referencia del proyecto es perfectgest-web-desenvolvedor-apps.onrender.com.';
 
   @override
   String get section2Title => '2. Datos que podemos recopilar';
@@ -311,7 +320,7 @@ class _SitePolicyPrivacyTextsEs extends SitePolicyPrivacyTexts {
 
   @override
   String get section7Body =>
-      'El contenido de este sitio (textos, identidad visual y materiales) tiene fines informativos sobre PerfectGest. La reproduccion no autorizada con fines comerciales puede estar prohibida. '
+      'El contenido de este sitio (textos, identidad visual y materiales) tiene fines informativos sobre $kCompanyFantasyName y sus productos. La reproduccion no autorizada con fines comerciales puede estar prohibida. '
       'Los enlaces externos se ofrecen por conveniencia; no controlamos sitios de terceros. El uso del sitio es bajo su propio riesgo, en la medida permitida por la ley.';
 
   @override

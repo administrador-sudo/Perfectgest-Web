@@ -143,10 +143,10 @@ class _SiteTecnologiasTextsPt extends SiteTecnologiasTexts {
   const _SiteTecnologiasTextsPt() : super();
 
   @override
-  String get semanticsLabel => 'Tecnologias Flutter e stack principal da PerfectGest';
+  String get semanticsLabel => 'Tecnologias Flutter e stack principal da Perfect Gest Dev';
 
   @override
-  String get heroTitle => 'Stack Flutter e tecnologias da PerfectGest';
+  String get heroTitle => 'Stack Flutter e tecnologias da Perfect Gest Dev';
 
   @override
   String get heroIntro1 =>
@@ -386,10 +386,10 @@ class _SiteTecnologiasTextsEn extends SiteTecnologiasTexts {
   const _SiteTecnologiasTextsEn() : super();
 
   @override
-  String get semanticsLabel => 'Flutter technologies and PerfectGest core stack';
+  String get semanticsLabel => 'Flutter technologies and Perfect Gest Dev core stack';
 
   @override
-  String get heroTitle => 'Flutter stack and PerfectGest technologies';
+  String get heroTitle => 'Flutter stack and Perfect Gest Dev technologies';
 
   @override
   String get heroIntro1 =>
@@ -413,10 +413,10 @@ class _SiteTecnologiasTextsEs extends SiteTecnologiasTexts {
   const _SiteTecnologiasTextsEs() : super();
 
   @override
-  String get semanticsLabel => 'Tecnologias Flutter y stack principal de PerfectGest';
+  String get semanticsLabel => 'Tecnologias Flutter y stack principal de Perfect Gest Dev';
 
   @override
-  String get heroTitle => 'Stack Flutter y tecnologias de PerfectGest';
+  String get heroTitle => 'Stack Flutter y tecnologias de Perfect Gest Dev';
 
   @override
   String get heroIntro1 =>
