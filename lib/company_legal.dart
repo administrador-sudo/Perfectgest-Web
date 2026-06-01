@@ -2,11 +2,11 @@
 const String kCompanyLegalName =
     'PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA';
 
-/// Localização pública no rodapé (sem logradouro — cidade, UF e país).
-const String kCompanyAddressLine = 'Caxias do Sul — RS — Brasil';
-
+/// CNPJ (páginas legais — não exibido no rodapé da home).
 const String kCompanyCnpj = '66.889.409/0001-19';
 
-const String kCompanyDuns = '582645270';
+/// Telefone comercial (páginas legais).
+const String kCompanyContactPhone = '+55 51 989045442';
 
-const String kCompanyContactEmail = 'administrador@perfectgestdev.com';
+/// Localização pública no rodapé (sem logradouro — cidade, UF e país).
+const String kCompanyAddressLine = 'Caxias do Sul — RS — Brasil';

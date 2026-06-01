@@ -1377,3 +1377,52 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - docs/RENDER_SPA_REWRITE.md
 - lib/devolucao_page.dart
 - docs/Atualiza.md
+
+## [2026-05-31] Rodapé — remover CNPJ, D-U-N-S e e-mail
+
+### Pedido
+- Retirar do rodapé a linha `CNPJ · D-U-N-S · administrador@perfectgestdev.com`.
+
+### O que ficou no rodapé
+- Razão social LTDA + localização (Caxias do Sul — RS — Brasil).
+
+### Arquivos alterados
+- lib/company_legal_strip.dart
+- lib/company_legal.dart
+- lib/l10n/app_pt.arb, app_en.arb, app_es.arb
+- lib/l10n/app_localizations.dart
+- docs/Atualiza.md
+
+### Validação
+- [x] `flutter analyze` (0 issues)
+- [ ] Build web + deploy Render para refletir no site publicado
+
+## [2026-05-29] Política de devolução — identificação da empresa abaixo do copyright
+
+### Pedido
+- Colocar razão social, CNPJ, telefone e localização **abaixo** da linha de direitos reservados em `/politica-devolucao`.
+
+### O que foi feito
+- Novo widget `CompanyLegalPolicyFooter` com dados de `company_legal.dart`.
+- Rótulos PT/EN/ES em `site_returns_policy_texts.dart` (`Contato com Empresa:` / `Company contact:` / `Contacto con la empresa:`).
+- Rodapé da home (`CompanyLegalStrip`) inalterado — sem CNPJ.
+
+### Arquivos alterados
+- lib/company_legal.dart
+- lib/company_legal_policy_footer.dart
+- lib/devolucao_page.dart
+- lib/l10n/site_returns_policy_texts.dart
+- docs/Atualiza.md
+
+### Validação
+- [x] `flutter analyze` (0 issues)
+- [ ] Build web + deploy Render
+
+## [2026-05-29] Telefone — código internacional +55
+
+### Pedido
+- Acrescentar `+55` na frente do telefone no rodapé da política de devolução.
+
+### Arquivos alterados
+- lib/company_legal.dart (`kCompanyContactPhone` → `+55 51 989045442`)
+

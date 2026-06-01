@@ -33,6 +33,9 @@ abstract class SiteReturnsPolicyTexts {
   String get section3Body;
   String get section4Title;
   String get section4Body;
+
+  String get footerCnpjLabel;
+  String get footerContactLabel;
 }
 
 class _SiteReturnsPolicyTextsPt extends SiteReturnsPolicyTexts {
@@ -88,6 +91,12 @@ class _SiteReturnsPolicyTextsPt extends SiteReturnsPolicyTexts {
       '2) Descreva o motivo (arrependimento, cobrança indevida, defeito técnico, etc.).\n'
       '3) Envie para o nosso e-mail de suporte.\n'
       'Responderemos com orientações e, quando aplicável, com o procedimento de reembolso/cancelamento adequado ao canal de compra.';
+
+  @override
+  String get footerCnpjLabel => 'CNPJ:';
+
+  @override
+  String get footerContactLabel => 'Contato com Empresa:';
 }
 
 class _SiteReturnsPolicyTextsEn extends SiteReturnsPolicyTexts {
@@ -143,6 +152,12 @@ class _SiteReturnsPolicyTextsEn extends SiteReturnsPolicyTexts {
       '2) Describe the reason (withdrawal, incorrect charge, technical defect, etc.).\n'
       '3) Send it to our support email.\n'
       'We will reply with guidance and, when applicable, the correct procedure for the purchase channel.';
+
+  @override
+  String get footerCnpjLabel => 'CNPJ:';
+
+  @override
+  String get footerContactLabel => 'Company contact:';
 }
 
 class _SiteReturnsPolicyTextsEs extends SiteReturnsPolicyTexts {
@@ -198,5 +213,11 @@ class _SiteReturnsPolicyTextsEs extends SiteReturnsPolicyTexts {
       '2) Describa el motivo (desistimiento, cobro indebido, defecto técnico, etc.).\n'
       '3) Envíelo a nuestro correo de soporte.\n'
       'Responderemos con orientaciones y, cuando aplique, con el procedimiento correcto según el canal de compra.';
+
+  @override
+  String get footerCnpjLabel => 'CNPJ:';
+
+  @override
+  String get footerContactLabel => 'Contacto con la empresa:';
 }
 

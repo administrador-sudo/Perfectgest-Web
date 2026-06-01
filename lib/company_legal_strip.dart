@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import 'company_legal.dart';
 import 'l10n/app_localizations.dart';
 
-/// Identificação da LTDA (Play Console) — sem links de políticas do app.
+/// Identificação da LTDA no rodapé — razão social e localização.
 class CompanyLegalStrip extends StatelessWidget {
   const CompanyLegalStrip({super.key, this.dense = false});
 
@@ -24,29 +23,6 @@ class CompanyLegalStrip extends StatelessWidget {
       height: 1.35,
       color: cs.onSurface.withValues(alpha: 0.78),
     );
-    final linkStyle = bodyStyle.copyWith(
-      color: cs.primary,
-      decoration: TextDecoration.underline,
-      decorationColor: cs.primary.withValues(alpha: 0.55),
-    );
-
-    final metaParts = <Widget>[
-      if (kCompanyCnpj.isNotEmpty)
-        Text('${l10n.footerCompanyCnpjLabel} $kCompanyCnpj', style: bodyStyle),
-      if (kCompanyDuns.isNotEmpty)
-        Text('${l10n.footerCompanyDunsLabel} $kCompanyDuns', style: bodyStyle),
-      Semantics(
-        link: true,
-        label: kCompanyContactEmail,
-        child: InkWell(
-          onTap: () => launchUrl(
-            Uri.parse('mailto:$kCompanyContactEmail'),
-            mode: LaunchMode.externalApplication,
-          ),
-          child: Text(kCompanyContactEmail, style: linkStyle),
-        ),
-      ),
-    ];
 
     return Semantics(
       label: l10n.footerCompanyLegalSemantics,
@@ -69,27 +45,6 @@ class CompanyLegalStrip extends StatelessWidget {
             maxLines: dense ? 2 : 3,
             overflow: TextOverflow.ellipsis,
           ),
-          if (metaParts.isNotEmpty) ...[
-            SizedBox(height: gap),
-            Wrap(
-              spacing: dense ? 6 : 10,
-              runSpacing: dense ? 2 : 4,
-              crossAxisAlignment: WrapCrossAlignment.center,
-              children: [
-                for (var i = 0; i < metaParts.length; i++) ...[
-                  if (i > 0)
-                    Text(
-                      '·',
-                      style: bodyStyle.copyWith(
-                        color: cs.onSurface.withValues(alpha: 0.45),
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  metaParts[i],
-                ],
-              ],
-            ),
-          ],
         ],
       ),
     );

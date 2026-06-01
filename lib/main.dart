@@ -1,4 +1,4 @@
-﻿import 'elastic_service.dart';
+import 'elastic_service.dart';
 import 'politica_page.dart';
 import 'devolucao_page.dart';
 import 'tecnologias_page.dart';

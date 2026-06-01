@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'app_theme.dart';
+import 'company_legal_policy_footer.dart';
 import 'metallic_site_shell.dart';
 import 'site_language_menu.dart';
 import 'l10n/app_localizations.dart';
@@ -118,6 +119,8 @@ class _PoliticaDevolucaoPageState extends State<PoliticaDevolucaoPage> {
                           color: cs.onSurface.withValues(alpha: 0.7),
                         ),
                       ),
+                      const SizedBox(height: 28),
+                      const CompanyLegalPolicyFooter(),
                       if (kIsWeb) const SizedBox(height: 60),
                     ],
                   ),
