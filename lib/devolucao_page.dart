@@ -68,8 +68,8 @@ class _PoliticaDevolucaoPageState extends State<PoliticaDevolucaoPage> {
                       Text(
                         st.brandLabel,
                         style: GoogleFonts.inter(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w700,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w800,
                           color: cs.primary,
                           letterSpacing: 0.4,
                         ),
@@ -111,6 +111,8 @@ class _PoliticaDevolucaoPageState extends State<PoliticaDevolucaoPage> {
                         ],
                       ),
                       const SizedBox(height: 14),
+                      const CompanyLegalPolicyFooter(),
+                      const SizedBox(height: 28),
                       Text(
                         l10n.aboutFooterCopyright(DateTime.now().year),
                         style: GoogleFonts.inter(
@@ -119,8 +121,6 @@ class _PoliticaDevolucaoPageState extends State<PoliticaDevolucaoPage> {
                           color: cs.onSurface.withValues(alpha: 0.7),
                         ),
                       ),
-                      const SizedBox(height: 28),
-                      const CompanyLegalPolicyFooter(),
                       if (kIsWeb) const SizedBox(height: 60),
                     ],
                   ),

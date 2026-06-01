@@ -1426,3 +1426,21 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 ### Arquivos alterados
 - lib/company_legal.dart (`kCompanyContactPhone` → `+55 51 989045442`)
 
+## [2026-05-29] Política de devolução — ordem do rodapé
+
+### Pedido
+- Dados da empresa primeiro; frase de direitos reservados **abaixo**.
+
+### Arquivos alterados
+- lib/devolucao_page.dart
+- docs/Atualiza.md
+
+## [2026-05-29] Política de devolução — tamanho do nome PerfectGest
+
+### Pedido
+- «PerfectGest» no topo com o mesmo tamanho dos títulos das secções (15px / w800).
+
+### Arquivos alterados
+- lib/devolucao_page.dart
+- docs/Atualiza.md
+
