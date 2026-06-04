@@ -1,8 +1,3 @@
-import 'elastic_service.dart';
-import 'politica_page.dart';
-import 'devolucao_page.dart';
-import 'tecnologias_page.dart';
-import 'legal_subpages.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'web_cookie_consent_stub.dart' if (dart.library.html) 'web_cookie_consent_web.dart' as cookie_consent;
 import 'dart:math' as math;
@@ -22,8 +17,8 @@ import 'web_site_root_stub.dart' if (dart.library.html) 'web_site_root_web.dart'
 import 'company_legal_strip.dart';
 import 'site_layout.dart';
 import 'solution_screenshot_preview.dart';
-import 'metallic_preview_page.dart';
 import 'metallic_site_shell.dart';
+import 'site_deferred_pages.dart';
 import 'metallic_style.dart';
 import 'site_fonts.dart';
 import 'site_language_menu.dart';
@@ -123,22 +118,22 @@ class _PerfectProSiteAppState extends State<PerfectProSiteApp> {
               case '/politica-privacidade-perfectgest-i':
                 return MaterialPageRoute<void>(
                   settings: settings,
-                  builder: (_) => const PoliticaPrivacidadePerfectGestIPage(),
+                  builder: (_) => buildPoliticaPrivacidadePerfectGestIPage(),
                 );
               case '/politica-exclusao-dados-perfectgest-i':
                 return MaterialPageRoute<void>(
                   settings: settings,
-                  builder: (_) => const PoliticaExclusaoDadosPerfectGestIPage(),
+                  builder: (_) => buildPoliticaExclusaoDadosPerfectGestIPage(),
                 );
               case '/politica-devolucao':
                 return MaterialPageRoute<void>(
                   settings: settings,
-                  builder: (_) => const PoliticaDevolucaoPage(),
+                  builder: (_) => buildPoliticaDevolucaoPage(),
                 );
               case '/amostra-metal':
                 return MaterialPageRoute<void>(
                   settings: settings,
-                  builder: (_) => const MetallicPreviewPage(),
+                  builder: (_) => buildMetallicPreviewPage(),
                 );
               case '/':
               default:
@@ -171,25 +166,46 @@ class _SiteHomePageState extends State<SiteHomePage> {
   final GlobalKey _contactKey = GlobalKey();
   static const double _headerHeight = 76;
   int _mobileNavIndex = 0;
-  bool _deferHeavySections = true;
+  static const int _heavySectionCount = 4;
+  int _heavyRevealStage = 0;
 
   @override
   void initState() {
     super.initState();
     seo_meta.applyHomePageSeoMetaTags();
     _scrollController.addListener(_onScroll);
+    if (!kIsWeb) {
+      _heavyRevealStage = _heavySectionCount;
+    } else {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        Future<void>.delayed(const Duration(milliseconds: 900), _startStaggeredReveal);
+      });
+    }
   }
 
-  void _enableHeavySections() {
-    if (!_deferHeavySections || !mounted) return;
-    setState(() => _deferHeavySections = false);
+  void _startStaggeredReveal() {
+    if (!mounted || _heavyRevealStage >= _heavySectionCount) return;
+    _revealNextHeavySection();
+  }
+
+  void _revealNextHeavySection() {
+    if (!mounted || _heavyRevealStage >= _heavySectionCount) return;
+    setState(() => _heavyRevealStage++);
+    if (_heavyRevealStage < _heavySectionCount) {
+      Future<void>.delayed(const Duration(milliseconds: 350), _revealNextHeavySection);
+    }
+  }
+
+  void _enableAllHeavySections() {
+    if (_heavyRevealStage >= _heavySectionCount || !mounted) return;
+    setState(() => _heavyRevealStage = _heavySectionCount);
   }
 
   void _onScroll() {
     if (!_scrollController.hasClients) return;
     _scrollPixels.value = _scrollController.offset;
     if (_scrollController.offset > 48) {
-      _enableHeavySections();
+      _enableAllHeavySections();
     }
   }
 
@@ -202,7 +218,7 @@ class _SiteHomePageState extends State<SiteHomePage> {
   }
 
   void _scrollTo(GlobalKey key) {
-    _enableHeavySections();
+    _enableAllHeavySections();
     final ctx = key.currentContext;
     if (ctx == null) return;
     final box = ctx.findRenderObject() as RenderBox?;
@@ -232,6 +248,23 @@ class _SiteHomePageState extends State<SiteHomePage> {
         _scrollTo(_contactKey);
     }
     setState(() => _mobileNavIndex = index);
+  }
+
+  Widget _buildHeavySection({
+    required int stageIndex,
+    required Key sectionKey,
+    required String title,
+    required double skeletonHeight,
+    required Widget child,
+  }) {
+    if (_heavyRevealStage > stageIndex) {
+      return child;
+    }
+    return _DeferredSectionSkeleton(
+      key: sectionKey,
+      title: title,
+      estimatedHeight: skeletonHeight,
+    );
   }
 
   @override
@@ -287,45 +320,46 @@ class _SiteHomePageState extends State<SiteHomePage> {
               children: [
                 SizedBox(height: isMobileNav ? 12 : _headerHeight + 12),
                 HeroSection(key: _homeKey, scrollListenable: _scrollPixels),
-                if (_deferHeavySections) ...[
-                  _DeferredSectionSkeleton(
-                    key: _solutionsKey,
-                    title: l10n.navSolutions,
-                    estimatedHeight: 620,
-                  ),
-                  _DeferredSectionSkeleton(
-                    key: _portfolioKey,
-                    title: l10n.navPortfolio,
-                    estimatedHeight: 340,
-                  ),
-                  _DeferredSectionSkeleton(
-                    key: _contactKey,
-                    title: l10n.navContact,
-                    estimatedHeight: 320,
-                  ),
-                  _DeferredSectionSkeleton(
-                    key: const ValueKey('sk-footer'),
-                    title: l10n.footerComplianceTitle,
-                    estimatedHeight: 250,
-                  ),
-                ] else ...[
-                  SectionCard(
+                _buildHeavySection(
+                  stageIndex: 0,
+                  sectionKey: _solutionsKey,
+                  title: l10n.navSolutions,
+                  skeletonHeight: 620,
+                  child: SectionCard(
                     key: _solutionsKey,
                     title: l10n.navSolutions,
                     child: AnimatedSolutionsSectionContent(scrollListenable: _scrollPixels),
                   ),
-                  SectionCard(
+                ),
+                _buildHeavySection(
+                  stageIndex: 1,
+                  sectionKey: _portfolioKey,
+                  title: l10n.navPortfolio,
+                  skeletonHeight: 340,
+                  child: SectionCard(
                     key: _portfolioKey,
                     title: l10n.navPortfolio,
                     child: const PortfolioMotionBlock(),
                   ),
-                  SectionCard(
+                ),
+                _buildHeavySection(
+                  stageIndex: 2,
+                  sectionKey: _contactKey,
+                  title: l10n.navContact,
+                  skeletonHeight: 320,
+                  child: SectionCard(
                     key: _contactKey,
                     title: l10n.navContact,
                     child: const ContactMotionBlock(),
                   ),
-                  _HomeComplianceFooter(onToggleTheme: widget.onToggleTheme),
-                ],
+                ),
+                _buildHeavySection(
+                  stageIndex: 3,
+                  sectionKey: const ValueKey('footer'),
+                  title: l10n.footerComplianceTitle,
+                  skeletonHeight: 250,
+                  child: _HomeComplianceFooter(onToggleTheme: widget.onToggleTheme),
+                ),
                 SizedBox(height: kIsWeb ? 100 : 24),
               ],
             ),
@@ -422,7 +456,7 @@ class _SobreNosPageState extends State<SobreNosPage> {
               tooltip: l10n.tooltipWhatsApp,
               onPressed: () {
                 _openWhatsApp();
-                ElasticService.enviarTeste();
+                pingElasticWakeTest();
               },
               icon: Icon(Icons.chat_rounded, color: cs.primary, size: 22),
             ),
@@ -805,13 +839,10 @@ class _HomeComplianceFooter extends StatelessWidget {
                         SizedBox(
                           width: stackLinks ? double.infinity : null,
                           child: FilledButton.tonalIcon(
-                            onPressed: () {
-                              Navigator.of(context).push<void>(
-                                MaterialPageRoute<void>(
-                                  builder: (_) => PoliticaPrivacidadePage(onToggleTheme: onToggleTheme),
-                                ),
-                              );
-                            },
+                            onPressed: () => openPoliticaPrivacidadePage(
+                              context,
+                              onToggleTheme: onToggleTheme,
+                            ),
                             icon: const Icon(Icons.policy_outlined, size: 20),
                             label: Text(
                               w < 340 ? l10n.footerBtnPolicyShort : l10n.footerBtnPolicyFull,
@@ -974,13 +1005,10 @@ class _WebCookieConsentBannerState extends State<_WebCookieConsentBanner> {
       crossAxisAlignment: WrapCrossAlignment.center,
       children: [
         TextButton(
-          onPressed: () {
-            Navigator.of(context).push<void>(
-              MaterialPageRoute<void>(
-                builder: (_) => PoliticaPrivacidadePage(onToggleTheme: widget.onToggleTheme),
-              ),
-            );
-          },
+          onPressed: () => openPoliticaPrivacidadePage(
+            context,
+            onToggleTheme: widget.onToggleTheme,
+          ),
           child: Text(l10n.cookieBtnPolicy, style: GoogleFonts.inter(fontSize: 13, fontWeight: FontWeight.w600)),
         ),
         TextButton(
@@ -1702,10 +1730,10 @@ class _PortfolioMotionBlockState extends State<PortfolioMotionBlock> with Single
               spacing: 10,
               runSpacing: 10,
               children: [
-                _demoChip(context, Icons.architecture, l10n.portChipCleanArch, 0, TecnologiasPage.topicCleanArch),
-                _demoChip(context, Icons.security, l10n.portChipSecurity, 1, TecnologiasPage.topicSeguranca),
-                _demoChip(context, Icons.trending_up, l10n.portChipScale, 2, TecnologiasPage.topicEscala),
-                _demoChip(context, Icons.hub, l10n.portChipFullStack, 3, TecnologiasPage.topicFullStack),
+                _demoChip(context, Icons.architecture, l10n.portChipCleanArch, 0, kTecnologiaTopicCleanArch),
+                _demoChip(context, Icons.security, l10n.portChipSecurity, 1, kTecnologiaTopicSeguranca),
+                _demoChip(context, Icons.trending_up, l10n.portChipScale, 2, kTecnologiaTopicEscala),
+                _demoChip(context, Icons.hub, l10n.portChipFullStack, 3, kTecnologiaTopicFullStack),
               ],
             );
           },
@@ -1718,11 +1746,7 @@ class _PortfolioMotionBlockState extends State<PortfolioMotionBlock> with Single
             ActionChip(
               avatar: Icon(Icons.memory_rounded, size: 18, color: Theme.of(context).colorScheme.primary),
               label: Text(l10n.portBtnPartners),
-              onPressed: () => Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (_) => const TecnologiasPage(),
-                ),
-              ),
+              onPressed: () => openTecnologiasPage(context),
               side: BorderSide(color: Theme.of(context).colorScheme.outline),
               backgroundColor: Theme.of(context).colorScheme.surface,
             ),
@@ -1755,11 +1779,7 @@ class _PortfolioMotionBlockState extends State<PortfolioMotionBlock> with Single
         child: ActionChip(
           avatar: Icon(icon, size: 18, color: cs.primary),
           label: Text(label, style: const TextStyle(fontSize: 12)),
-          onPressed: () => Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (_) => TecnologiasPage(initialTopic: topicId),
-            ),
-          ),
+          onPressed: () => openTecnologiasPage(context, initialTopic: topicId),
           side: BorderSide(color: cs.outline),
           backgroundColor: cs.surface,
         ),

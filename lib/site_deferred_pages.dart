@@ -1,0 +1,124 @@
+import 'package:flutter/material.dart';
+
+import 'devolucao_page.dart' deferred as devolucao;
+import 'elastic_service.dart' deferred as elastic;
+import 'legal_subpages.dart' deferred as legal;
+import 'metallic_preview_page.dart' deferred as metallic;
+import 'politica_page.dart' deferred as politica;
+import 'tecnologias_page.dart' deferred as tecnologias;
+
+/// IDs de tópicos (espelham [tecnologias.TecnologiasPage] no chunk diferido).
+const kTecnologiaTopicCleanArch = 'clean-arch';
+const kTecnologiaTopicSeguranca = 'seguranca';
+const kTecnologiaTopicEscala = 'escala';
+const kTecnologiaTopicFullStack = 'full-stack';
+
+typedef DeferredPageBuilder = Widget Function();
+
+/// Carrega um chunk diferido antes de montar a página.
+class DeferredRouteLoader extends StatefulWidget {
+  const DeferredRouteLoader({
+    super.key,
+    required this.loadLibrary,
+    required this.builder,
+  });
+
+  final Future<void> Function() loadLibrary;
+  final DeferredPageBuilder builder;
+
+  @override
+  State<DeferredRouteLoader> createState() => _DeferredRouteLoaderState();
+}
+
+class _DeferredRouteLoaderState extends State<DeferredRouteLoader> {
+  late final Future<void> _loadFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadFuture = widget.loadLibrary();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<void>(
+      future: _loadFuture,
+      builder: (context, snap) {
+        if (snap.connectionState != ConnectionState.done) {
+          return Scaffold(
+            body: Center(
+              child: CircularProgressIndicator(color: Theme.of(context).colorScheme.primary),
+            ),
+          );
+        }
+        if (snap.hasError) {
+          return const Scaffold(body: Center(child: Text('Erro ao carregar a página.')));
+        }
+        return widget.builder();
+      },
+    );
+  }
+}
+
+Widget buildPoliticaPrivacidadePerfectGestIPage() {
+  return DeferredRouteLoader(
+    loadLibrary: legal.loadLibrary,
+    builder: () => legal.PoliticaPrivacidadePerfectGestIPage(),
+  );
+}
+
+Widget buildPoliticaExclusaoDadosPerfectGestIPage() {
+  return DeferredRouteLoader(
+    loadLibrary: legal.loadLibrary,
+    builder: () => legal.PoliticaExclusaoDadosPerfectGestIPage(),
+  );
+}
+
+Widget buildPoliticaDevolucaoPage() {
+  return DeferredRouteLoader(
+    loadLibrary: devolucao.loadLibrary,
+    builder: () => devolucao.PoliticaDevolucaoPage(),
+  );
+}
+
+Widget buildMetallicPreviewPage() {
+  return DeferredRouteLoader(
+    loadLibrary: metallic.loadLibrary,
+    builder: () => metallic.MetallicPreviewPage(),
+  );
+}
+
+Future<void> openPoliticaPrivacidadePage(
+  BuildContext context, {
+  VoidCallback? onToggleTheme,
+}) async {
+  await politica.loadLibrary();
+  if (!context.mounted) return;
+  await Navigator.of(context).push<void>(
+    MaterialPageRoute<void>(
+      builder: (_) => politica.PoliticaPrivacidadePage(onToggleTheme: onToggleTheme),
+    ),
+  );
+}
+
+Future<void> openTecnologiasPage(
+  BuildContext context, {
+  VoidCallback? onToggleTheme,
+  String? initialTopic,
+}) async {
+  await tecnologias.loadLibrary();
+  if (!context.mounted) return;
+  await Navigator.of(context).push<void>(
+    MaterialPageRoute<void>(
+      builder: (_) => tecnologias.TecnologiasPage(
+        onToggleTheme: onToggleTheme,
+        initialTopic: initialTopic,
+      ),
+    ),
+  );
+}
+
+Future<void> pingElasticWakeTest() async {
+  await elastic.loadLibrary();
+  await elastic.ElasticService.enviarTeste();
+}
