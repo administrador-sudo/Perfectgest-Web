@@ -1,4 +1,9 @@
+import 'dart:js_interop';
+
 import 'package:web/web.dart' as web;
+
+@JS('ppLoadAnalyticsIfConsented')
+external void _ppLoadAnalyticsIfConsented();
 
 /// Indica se o utilizador já tomou uma decisão explícita (aceitar ou recusar).
 bool isCookieChoiceStored() {
@@ -10,9 +15,14 @@ bool isCookieChoiceStored() {
   }
 }
 
-/// Grava aceitação de cookies de medição (lido pelo script em `web/index.html` antes do gtag).
+/// Grava aceitação de cookies de medição e carrega GA4 se a página já estiver pronta.
 void grantAnalyticsMeasurementConsent() {
   web.window.localStorage.setItem('pp_cookie_consent', 'granted');
+  try {
+    _ppLoadAnalyticsIfConsented();
+  } catch (_) {
+    // pp_analytics.js ausente (ex.: testes unitários).
+  }
 }
 
 /// Grava recusa explícita (medição permanece desativada até nova decisão).

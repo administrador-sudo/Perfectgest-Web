@@ -25,6 +25,7 @@ import 'solution_screenshot_preview.dart';
 import 'metallic_preview_page.dart';
 import 'metallic_site_shell.dart';
 import 'metallic_style.dart';
+import 'site_fonts.dart';
 import 'site_language_menu.dart';
 
 /// Loops, parallax e oscilações contínuas — respeita “reduzir movimento” do SO/navegador.
@@ -59,6 +60,7 @@ String _resolveWebInitialRoute() {
 }
 
 void main() {
+  configureSiteFonts();
   seo_meta.applySeoMetaTags();
   if (kIsWeb) {
     setUrlStrategy(PathUrlStrategy());
@@ -993,7 +995,6 @@ class _WebCookieConsentBannerState extends State<_WebCookieConsentBanner> {
           onPressed: () {
             cookie_consent.grantAnalyticsMeasurementConsent();
             setState(() => _visible = false);
-            _snackReload(context);
           },
           child: Text(l10n.cookieBtnAccept, style: GoogleFonts.inter(fontSize: 13, fontWeight: FontWeight.w600)),
         ),
@@ -1559,7 +1560,7 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
                           height: 338,
                           radius: 34,
                           imageAsset: 'IMAGENS_APP/Screenshot/PerfectGest (2).png',
-                          fallbackImageAsset: 'IMAGENS_APP/Screenshot_20260423-120800.jpg',
+                          fallbackImageAsset: 'IMAGENS_APP/Screenshot/PerfectGest (1).png',
                           imageLeft: 27,
                           imageTop: 20,
                           imageWidth: 136,
@@ -1575,7 +1576,7 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
                           height: 308,
                           radius: 26,
                           imageAsset: 'IMAGENS_APP/Screenshot/tablet_01_inicio.jpg',
-                          fallbackImageAsset: 'IMAGENS_APP/tela_Tablet/Screenshot_20260423-120855.jpg',
+                          fallbackImageAsset: 'IMAGENS_APP/Screenshot/tablet_01_inicio.jpg',
                           imageLeft: 30,
                           imageTop: 16,
                           imageWidth: 168,
@@ -1591,7 +1592,7 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
                           height: 308,
                           radius: 26,
                           imageAsset: 'IMAGENS_APP/Screenshot/tablet_02_orcamentos.jpg',
-                          fallbackImageAsset: 'IMAGENS_APP/tela_Tablet/Screenshot_20260423-120907.jpg',
+                          fallbackImageAsset: 'IMAGENS_APP/Screenshot/tablet_02_orcamentos.jpg',
                           imageLeft: 30,
                           imageTop: 16,
                           imageWidth: 168,
