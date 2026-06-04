@@ -30,8 +30,10 @@
 
   "footerComplianceTitle": "Privacidad, datos y cookies",
 
-  "solAppsTitle": "Apps Nativas con Rendimiento de Próxima Generación",
-  "solAppsBody": "Con Flutter entregamos una base única para iOS y Android sin sacrificar rendimiento nativo, integrando SDKs propietarios y APIs complejas.",
+  "solAppsTitle": "Conozca PerfectGest I — la app de gestión para ME, MEI y autónomos",
+  "solAppsBody": "Registre clientes, cree presupuestos profesionales en PDF, controle su caja y reciba recordatorios fiscales con alarma.\n\nTodo en su móvil, funciona sin conexión.",
+  "solAppsPlayStoreLabel": "Descárgala en Google Play",
+  "solAppsHashtags": "#MEI #gestión #emprendedor #autónomo #microempresa #controlFinanciero #presupuesto #caja #PerfectGest",
   "solWebTitle": "Web Apps Rápidas, Responsivas e Indexables",
   "solWebBody": "Soluciones enfocadas en Core Web Vitals y Google Search Console, orientadas a carga rápida y conversión.",
   "solShowcaseSemantics": "Vitrina de proyectos en maquetas de dispositivos",

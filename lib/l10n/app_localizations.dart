@@ -61,6 +61,8 @@ abstract class AppLocalizations {
   // ---- Secoes Solucoes / Portfolio / Contato (Fase 2c) ----
   String get solAppsTitle;
   String get solAppsBody;
+  String get solAppsPlayStoreLabel;
+  String get solAppsHashtags;
   String get solWebTitle;
   String get solWebBody;
   String get portDifferentialsTitle;
@@ -230,10 +232,16 @@ class _AppLocalizationsPt extends AppLocalizations {
   String get footerComplianceTitle => 'Privacidade, dados e cookies';
 
   @override
-  String get solAppsTitle => 'Apps Nativos com Performance de Proxima Geracao';
+  String get solAppsTitle =>
+      'Conheça o PerfectGest I — o app de gestão para ME, MEI e Autônomo!';
   @override
   String get solAppsBody =>
-      'Com Flutter, entregamos uma base unica para iOS e Android sem sacrificar performance nativa, com integracao de SDKs e APIs complexas.';
+      'Cadastre clientes, crie orçamentos profissionais em PDF, controle seu caixa e receba lembretes fiscais com alarme.\n\nTudo no seu celular, funciona offline.';
+  @override
+  String get solAppsPlayStoreLabel => 'Baixe na Play Store';
+  @override
+  String get solAppsHashtags =>
+      '#MEI #gestão #empreendedor #autônomo #microempresa #controleFinanceiro #orçamento #caixa #PerfectGest';
   @override
   String get solWebTitle => 'Web Apps Rapidos, Responsivos e Indexaveis';
   @override
@@ -466,10 +474,16 @@ class _AppLocalizationsEn extends AppLocalizations {
   String get footerComplianceTitle => 'Privacy, data and cookies';
 
   @override
-  String get solAppsTitle => 'Native Apps with Next-Generation Performance';
+  String get solAppsTitle =>
+      'Meet PerfectGest I — the management app for LLCs, MEI, and solo professionals!';
   @override
   String get solAppsBody =>
-      'With Flutter, we deliver a single codebase for iOS and Android without sacrificing native performance, integrating proprietary SDKs and complex APIs.';
+      'Register clients, create professional PDF quotes, manage cash flow, and get tax reminders with alerts.\n\nEverything on your phone, works offline.';
+  @override
+  String get solAppsPlayStoreLabel => 'Get it on Google Play';
+  @override
+  String get solAppsHashtags =>
+      '#MEI #management #entrepreneur #freelancer #smallBusiness #cashFlow #quotes #PerfectGest';
   @override
   String get solWebTitle => 'Fast, Responsive and Indexable Web Apps';
   @override
@@ -702,10 +716,16 @@ class _AppLocalizationsEs extends AppLocalizations {
   String get footerComplianceTitle => 'Privacidad, datos y cookies';
 
   @override
-  String get solAppsTitle => 'Apps Nativas con Rendimiento de Próxima Generación';
+  String get solAppsTitle =>
+      'Conozca PerfectGest I — la app de gestión para ME, MEI y autónomos';
   @override
   String get solAppsBody =>
-      'Con Flutter entregamos una base única para iOS y Android sin sacrificar rendimiento nativo, integrando SDKs propietarios y APIs complejas.';
+      'Registre clientes, cree presupuestos profesionales en PDF, controle su caja y reciba recordatorios fiscales con alarma.\n\nTodo en su móvil, funciona sin conexión.';
+  @override
+  String get solAppsPlayStoreLabel => 'Descárgala en Google Play';
+  @override
+  String get solAppsHashtags =>
+      '#MEI #gestión #emprendedor #autónomo #microempresa #controlFinanciero #presupuesto #caja #PerfectGest';
   @override
   String get solWebTitle => 'Web Apps Rápidas, Responsivas e Indexables';
   @override

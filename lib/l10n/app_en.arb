@@ -30,8 +30,10 @@
 
   "footerComplianceTitle": "Privacy, data and cookies",
 
-  "solAppsTitle": "Native Apps with Next-Generation Performance",
-  "solAppsBody": "With Flutter, we deliver a single codebase for iOS and Android without sacrificing native performance, integrating proprietary SDKs and complex APIs.",
+  "solAppsTitle": "Meet PerfectGest I — the management app for LLCs, MEI, and solo professionals!",
+  "solAppsBody": "Register clients, create professional PDF quotes, manage cash flow, and get tax reminders with alerts.\n\nEverything on your phone, works offline.",
+  "solAppsPlayStoreLabel": "Get it on Google Play",
+  "solAppsHashtags": "#MEI #management #entrepreneur #freelancer #smallBusiness #cashFlow #quotes #PerfectGest",
   "solWebTitle": "Fast, Responsive and Indexable Web Apps",
   "solWebBody": "Solutions focused on Core Web Vitals and Google Search Console, optimized for fast loading and conversion.",
   "solShowcaseSemantics": "Project showcase in device mockups",

@@ -1611,10 +1611,7 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
           opacity: _fadeIn(0.12, 0.55),
           child: SlideTransition(
             position: _slideIn(0.12, 0.55),
-            child: SectionText(
-              title: l10n.solAppsTitle,
-              body: l10n.solAppsBody,
-            ),
+            child: SolutionsAppPromoBlock(l10n: l10n),
           ),
         ),
         const SizedBox(height: 12),
@@ -2113,6 +2110,46 @@ class _DeferredSectionSkeleton extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class SolutionsAppPromoBlock extends StatelessWidget {
+  const SolutionsAppPromoBlock({super.key, required this.l10n});
+
+  final AppLocalizations l10n;
+
+  @override
+  Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
+    return Semantics(
+      label: l10n.solAppsTitle,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          siteSectionTitle(context, l10n.solAppsTitle, fontSize: 19),
+          const SizedBox(height: 8),
+          Text(l10n.solAppsBody, style: siteBodyTextStyle(context)),
+          const SizedBox(height: 16),
+          FilledButton.icon(
+            onPressed: () => launchUrl(
+              Uri.parse(kPerfectGestIPlayStoreUrl),
+              mode: LaunchMode.externalApplication,
+              webOnlyWindowName: kIsWeb ? '_blank' : null,
+            ),
+            icon: const Icon(Icons.shop_rounded, size: 20),
+            label: Text(l10n.solAppsPlayStoreLabel),
+          ),
+          const SizedBox(height: 12),
+          Text(
+            l10n.solAppsHashtags,
+            style: siteBodyTextStyle(context).copyWith(
+              fontSize: 13,
+              color: cs.onSurfaceVariant,
+            ),
+          ),
+        ],
       ),
     );
   }
