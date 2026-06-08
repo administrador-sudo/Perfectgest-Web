@@ -86,7 +86,7 @@ class _SitePolicyPrivacyTextsPt extends SitePolicyPrivacyTexts {
       '• Dados técnicos de navegação: endereço IP (muitas vezes truncado ou agregado pelo fornecedor de analytics), tipo de navegador, idioma, páginas visitadas e horários aproximados.\n'
       '• Dados que nos enviar voluntariamente: por exemplo, se nos contactar por WhatsApp ou e-mail, o conteúdo da mensagem e os metadados necessários à comunicação.\n'
       '• Dados do formulário de pré-cadastro (nome, e-mail, comentário opcional e idioma): recolhidos apenas com consentimento explícito, transmitidos por HTTPS para base de dados gerida por nós (alojamento Render). '
-      'Utilizamos estes dados para contacto comercial, novidades sobre produtos e resposta a pedidos. Não vendemos estes contactos a terceiros.\n'
+      'Utilizamos estes dados para contacto comercial, convites ao programa de pré-lançamento (acesso a builds em desenvolvimento e recolha de feedback), novidades sobre produtos e resposta a pedidos. Não vendemos estes contactos a terceiros.\n'
       'Não vendemos listas de contactos nem dados pessoais a terceiros para fins comerciais independentes.';
 
   @override
@@ -190,7 +190,7 @@ class _SitePolicyPrivacyTextsEn extends SitePolicyPrivacyTexts {
       '• Technical browsing data: IP address (often truncated or aggregated by the analytics provider), browser type, language, pages visited and approximate times.\n'
       '• Data you send voluntarily: for example, if you contact us via WhatsApp or email, the message content and metadata needed for communication.\n'
       '• Pre-registration form data (name, email, optional comment and language): collected only with your explicit consent, sent over HTTPS to a database managed by us (Render hosting). '
-      'We use this data for commercial contact, product updates and responding to requests. We do not sell these contacts to third parties.\n'
+      'We use this data for commercial contact, pre-launch program invitations (access to in-development builds and feedback collection), product updates and responding to requests. We do not sell these contacts to third parties.\n'
       'We do not sell contact lists or personal data to third parties for independent commercial purposes.';
 
   @override
@@ -293,7 +293,7 @@ class _SitePolicyPrivacyTextsEs extends SitePolicyPrivacyTexts {
       '• Datos tecnicos de navegacion: direccion IP (a menudo truncada o agregada por el proveedor de analytics), tipo de navegador, idioma, paginas visitadas y horarios aproximados.\n'
       '• Datos que nos envie voluntariamente: por ejemplo, si nos contacta por WhatsApp o correo, el contenido del mensaje y los metadatos necesarios para la comunicacion.\n'
       '• Datos del formulario de pre-registro (nombre, correo, comentario opcional e idioma): recopilados solo con su consentimiento explicito, transmitidos por HTTPS a una base de datos gestionada por nosotros (alojamiento Render). '
-      'Utilizamos estos datos para contacto comercial, novedades sobre productos y respuesta a solicitudes. No vendemos estos contactos a terceros.\n'
+      'Utilizamos estos datos para contacto comercial, invitaciones al programa de prelanzamiento (acceso a builds en desarrollo y recogida de retroalimentacion), novedades sobre productos y respuesta a solicitudes. No vendemos estos contactos a terceros.\n'
       'No vendemos listas de contactos ni datos personales a terceros para fines comerciales independientes.';
 
   @override

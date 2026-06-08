@@ -146,6 +146,14 @@ class _PreCadastroPageState extends State<PreCadastroPage> {
           siteSectionTitle(context, st.headline, fontSize: wHeadline(context)),
           const SizedBox(height: 8),
           Text(st.intro, style: siteBodyTextStyle(context)),
+          const SizedBox(height: 12),
+          Text(
+            st.purposeNote,
+            style: siteBodyTextStyle(context, fontSize: 13.5).copyWith(
+              color: cs.onSurface.withValues(alpha: 0.82),
+              height: 1.5,
+            ),
+          ),
           const SizedBox(height: 20),
           SiteSectionPanel(
             child: Column(

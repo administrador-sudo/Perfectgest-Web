@@ -23,6 +23,7 @@ abstract class SitePreCadastroTexts {
   String get appBarTitle;
   String get headline;
   String get intro;
+  String get purposeNote;
   String get fieldNameLabel;
   String get fieldNameHint;
   String get fieldEmailLabel;
@@ -55,7 +56,13 @@ class _SitePreCadastroTextsPt extends SitePreCadastroTexts {
 
   @override
   String get intro =>
-      'Informe nome e e-mail. Entraremos em contacto sobre $kProductPerfectGestIName e soluções $kCompanyFantasyName.';
+      'Informe nome e e-mail para receber novidades sobre $kProductPerfectGestIName e soluções $kCompanyFantasyName.';
+
+  @override
+  String get purposeNote =>
+      'Parte deste pré-cadastro destina-se a convites para o nosso programa de pré-lançamento: '
+      'acesso integral às versões em desenvolvimento dos aplicativos, com oportunidade de testar funcionalidades em antecipação '
+      'e contribuir com feedback que orienta a evolução do produto antes do lançamento público.';
 
   @override
   String get fieldNameLabel => 'Nome';
@@ -83,7 +90,7 @@ class _SitePreCadastroTextsPt extends SitePreCadastroTexts {
 
   @override
   String get consentSuffix =>
-      ' e autorizo o contacto comercial sobre os serviços indicados.';
+      ' e autorizo o contacto sobre novidades, convites de pré-lançamento e serviços indicados.';
 
   @override
   String get submitLabel => 'Enviar pre-cadastro';
@@ -107,7 +114,12 @@ class _SitePreCadastroTextsPt extends SitePreCadastroTexts {
         'consent_required' => 'Aceite a política de privacidade para continuar.',
         'name_invalid' => 'Informe um nome válido (mínimo 2 caracteres).',
         'email_invalid' => 'Informe um e-mail válido.',
-        'network_error' => 'Sem ligação à API. Verifique a internet e tente de novo.',
+        'network_error' =>
+          'Não foi possível contactar o servidor de registos. Verifique a internet ou tente de novo em instantes.',
+        'api_waking' =>
+          'O servidor está a iniciar (pode demorar até 1 minuto no plano gratuito). Aguarde e envie novamente.',
+        'api_not_deployed' =>
+          'Serviço de registos ainda não está activo. Contacte sac.perfectgest@gmail.com ou tente mais tarde.',
         'api_unavailable' => 'Serviço temporariamente indisponível. Tente mais tarde.',
         'api_unconfigured' => 'API de leads ainda não configurada no ambiente.',
         _ => errorGeneric,
@@ -131,7 +143,12 @@ class _SitePreCadastroTextsEn extends SitePreCadastroTexts {
 
   @override
   String get intro =>
-      'Enter your name and email. We will contact you about $kProductPerfectGestIName and $kCompanyFantasyName solutions.';
+      'Enter your name and email to receive updates about $kProductPerfectGestIName and $kCompanyFantasyName solutions.';
+
+  @override
+  String get purposeNote =>
+      'Pre-registration also enables us to invite selected participants to our pre-launch program: '
+      'full access to in-development app builds, early feature testing, and feedback that helps shape the product before public release.';
 
   @override
   String get fieldNameLabel => 'Name';
@@ -159,7 +176,7 @@ class _SitePreCadastroTextsEn extends SitePreCadastroTexts {
 
   @override
   String get consentSuffix =>
-      ' and authorize commercial contact about the services mentioned.';
+      ' and authorize contact about updates, pre-launch invitations, and the services mentioned.';
 
   @override
   String get submitLabel => 'Submit pre-registration';
@@ -183,7 +200,12 @@ class _SitePreCadastroTextsEn extends SitePreCadastroTexts {
         'consent_required' => 'Please accept the privacy policy to continue.',
         'name_invalid' => 'Enter a valid name (at least 2 characters).',
         'email_invalid' => 'Enter a valid email address.',
-        'network_error' => 'Could not reach the API. Check your connection.',
+        'network_error' =>
+          'Could not reach the registration server. Check your connection or try again shortly.',
+        'api_waking' =>
+          'The server is starting (free tier may take up to 1 minute). Wait and submit again.',
+        'api_not_deployed' =>
+          'Registration service is not active yet. Email sac.perfectgest@gmail.com or try later.',
         'api_unavailable' => 'Service temporarily unavailable. Try again later.',
         'api_unconfigured' => 'Lead API is not configured in this environment.',
         _ => errorGeneric,
@@ -207,7 +229,13 @@ class _SitePreCadastroTextsEs extends SitePreCadastroTexts {
 
   @override
   String get intro =>
-      'Indique nombre y correo. Le contactaremos sobre $kProductPerfectGestIName y soluciones $kCompanyFantasyName.';
+      'Indique nombre y correo para recibir novedades sobre $kProductPerfectGestIName y soluciones $kCompanyFantasyName.';
+
+  @override
+  String get purposeNote =>
+      'Parte de este pre-registro sirve para invitar a participantes seleccionados al programa de prelanzamiento: '
+      'acceso completo a las versiones en desarrollo de las aplicaciones, prueba anticipada de funcionalidades '
+      'y retroalimentación que orienta la evolución del producto antes del lanzamiento público.';
 
   @override
   String get fieldNameLabel => 'Nombre';
@@ -235,7 +263,7 @@ class _SitePreCadastroTextsEs extends SitePreCadastroTexts {
 
   @override
   String get consentSuffix =>
-      ' y autorizo el contacto comercial sobre los servicios indicados.';
+      ' y autorizo el contacto sobre novedades, invitaciones de prelanzamiento y los servicios indicados.';
 
   @override
   String get submitLabel => 'Enviar pre-registro';
@@ -261,7 +289,11 @@ class _SitePreCadastroTextsEs extends SitePreCadastroTexts {
         'name_invalid' => 'Indique un nombre válido (mínimo 2 caracteres).',
         'email_invalid' => 'Indique un correo electrónico válido.',
         'network_error' =>
-          'Sin conexión con la API. Verifique internet e intente de nuevo.',
+          'No se pudo contactar el servidor de registros. Verifique internet o intente de nuevo.',
+        'api_waking' =>
+          'El servidor está iniciando (el plan gratuito puede tardar 1 minuto). Espere e intente de nuevo.',
+        'api_not_deployed' =>
+          'El servicio de registro aún no está activo. Escriba a sac.perfectgest@gmail.com.',
         'api_unavailable' =>
           'Servicio temporalmente no disponible. Intente más tarde.',
         'api_unconfigured' => 'La API de leads aún no está configurada.',

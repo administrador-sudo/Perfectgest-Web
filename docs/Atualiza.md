@@ -1575,3 +1575,50 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 ### Validacao
 - [x] `flutter analyze` (politicas + rotas)
 
+## [2026-06-08] Pre-cadastro — Opção B (PostgreSQL Render)
+
+### Pedido
+- Receber cadastros apenas em base de dados persistente (sem e-mail automatico).
+
+### O que foi feito
+- `render.yaml`: Postgres `perfectgest-leads-db` + Web Service `perfectgest-leads-api` com `DATABASE_URL` ligado.
+- API exige Postgres em producao (Render); ficheiro local so em dev.
+- `scripts/export-leads.cjs` + `npm run export:leads` → CSV em `exports/`.
+- Guia operador: `docs/RENDER_LEADS_POSTGRES.md` (PSQL, DBeaver, SQL de consulta e LGPD delete).
+
+### Como consultar cadastros
+```sql
+SELECT id, nome, email, comentario, locale, created_at
+FROM site_leads ORDER BY created_at DESC;
+```
+
+### Pendente (operador)
+- Render → **New → Blueprint** (ou criar Postgres + Web Service manualmente).
+- Validar `/health` com `"storage":"postgres"`.
+- Testar envio em `/pre-cadastro`.
+
+### Arquivos alterados
+- render.yaml, scripts/leads-api-server.js, scripts/export-leads.cjs, exports/.gitignore
+- package.json, lib/lead_api_config.dart, docs/RENDER_LEADS_POSTGRES.md, docs/Atualiza.md
+
+### Validacao
+- [x] API local com file fallback (dev)
+- [ ] Postgres Render + formulario em producao (operador)
+
+## [2026-06-08] Header compacto em mobile / janela estreita (Opcao 1)
+
+### Pedido
+- Menu superior visivel abaixo de 980px (telefone, PWA, PC com janela estreita).
+
+### O que foi feito
+- `SiteHeader` sempre visivel; modo compacto (<980px) com Home a esquerda, icones + menu hamburger a direita (inclui Pre-cadastro).
+- Barra inferior mantida para atalhos de seccao.
+- Removido botao flutuante de tema (ja no header).
+- Espacamento superior uniforme (`headerHeight + 12`).
+
+### Arquivos alterados
+- lib/main.dart, docs/Atualiza.md
+
+### Validacao
+- [x] `flutter analyze lib/main.dart`
+

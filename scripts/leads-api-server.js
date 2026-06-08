@@ -1,44 +1,70 @@
 /**
- * API de leads do site (pre-cadastro) — PostgreSQL no Render.
+ * API de leads do site (pre-cadastro) — Render Web Service + PostgreSQL (Opção B).
  *
- * Env:
- *   DATABASE_URL          — connection string Postgres (Render)
- *   ALLOWED_ORIGINS       — origens CORS separadas por virgula (ex.: https://perfectgest-web-desenvolvedor-apps.onrender.com)
- *   PORT                  — default 10000
+ * Produção (Render): DATABASE_URL obrigatório — dados em `site_leads`.
+ * Desenvolvimento local: sem DATABASE_URL grava JSONL em ./data (apenas testes).
  *
- * PowerShell local:
- *   $env:DATABASE_URL="postgres://..."
- *   $env:ALLOWED_ORIGINS="http://localhost:8080"
- *   npm run server:leads
- *
- * POST /api/leads  { nome, email, comentario?, consent, locale?, website? }
+ * Consulta / export: docs/RENDER_LEADS_POSTGRES.md
  */
+const fs = require('node:fs');
+const path = require('node:path');
 const express = require('express');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
-const { Pool } = require('pg');
 
-const app = express();
-app.use(express.json({ limit: '32kb' }));
+const isProduction = process.env.RENDER === 'true' || process.env.NODE_ENV === 'production';
+const allowFileFallback = !isProduction && process.env.ALLOW_FILE_LEADS !== '0';
 
-const databaseUrl = process.env.DATABASE_URL;
-const allowedOrigins = (process.env.ALLOWED_ORIGINS || '')
+let pgPool = null;
+try {
+  // pg opcional — servidor arranca mesmo sem módulo em ambientes mínimos.
+  const { Pool } = require('pg');
+  const databaseUrl = process.env.DATABASE_URL;
+  if (databaseUrl) {
+    pgPool = new Pool({
+      connectionString: databaseUrl,
+      ssl: databaseUrl.includes('localhost') ? false : { rejectUnauthorized: false },
+    });
+  }
+} catch (err) {
+  console.warn('[leads-api] pg indisponível:', err.message);
+}
+
+const DEFAULT_ORIGINS = [
+  'https://perfectgest-web-desenvolvedor-apps.onrender.com',
+  'http://localhost:8080',
+  'http://127.0.0.1:8080',
+];
+
+const allowedOrigins = (process.env.ALLOWED_ORIGINS || DEFAULT_ORIGINS.join(','))
   .split(',')
   .map((s) => s.trim())
   .filter(Boolean);
 
-const pool = databaseUrl
-  ? new Pool({
-      connectionString: databaseUrl,
-      ssl: databaseUrl.includes('localhost') ? false : { rejectUnauthorized: false },
-    })
-  : null;
+const dataDir = process.env.LEADS_DATA_DIR || path.join(__dirname, '..', 'data');
+const leadsFile = path.join(dataDir, 'site_leads.jsonl');
+
+const app = express();
+app.use(express.json({ limit: '32kb' }));
+
+app.use(
+  cors({
+    origin(origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+        return;
+      }
+      console.warn('[leads-api] CORS blocked:', origin);
+      callback(null, false);
+    },
+  }),
+);
 
 let schemaReady = false;
 
-async function ensureSchema() {
-  if (!pool || schemaReady) return;
-  await pool.query(`
+async function ensurePgSchema() {
+  if (!pgPool || schemaReady) return;
+  await pgPool.query(`
     CREATE TABLE IF NOT EXISTS site_leads (
       id BIGSERIAL PRIMARY KEY,
       nome TEXT NOT NULL,
@@ -53,20 +79,32 @@ async function ensureSchema() {
   schemaReady = true;
 }
 
-function corsOptionsDelegate(req, callback) {
-  if (allowedOrigins.length === 0) {
-    callback(null, { origin: false });
-    return;
-  }
-  const origin = req.header('Origin');
-  if (!origin || allowedOrigins.includes(origin)) {
-    callback(null, { origin: true });
-    return;
-  }
-  callback(null, { origin: false });
+function appendLeadFile(record) {
+  fs.mkdirSync(dataDir, { recursive: true });
+  fs.appendFileSync(leadsFile, `${JSON.stringify(record)}\n`, 'utf8');
 }
 
-app.use(cors(corsOptionsDelegate));
+async function persistLead({ nome, email, comentario, locale }) {
+  if (pgPool) {
+    await ensurePgSchema();
+    await pgPool.query(
+      `INSERT INTO site_leads (nome, email, comentario, locale) VALUES ($1, $2, $3, $4)`,
+      [nome, email, comentario, locale],
+    );
+    return 'postgres';
+  }
+  if (!allowFileFallback) {
+    throw new Error('DATABASE_URL required in production');
+  }
+  appendLeadFile({
+    nome,
+    email,
+    comentario,
+    locale,
+    created_at: new Date().toISOString(),
+  });
+  return 'file';
+}
 
 const leadsLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
@@ -85,25 +123,42 @@ function looksLikeEmail(value) {
   return trimmed.includes('.', at + 1);
 }
 
+app.get('/', (_req, res) => {
+  res.json({
+    ok: true,
+    service: 'perfectgest-leads-api',
+    storage: pgPool ? 'postgres' : 'file',
+  });
+});
+
 app.get('/health', async (_req, res) => {
-  if (!pool) {
-    res.status(503).json({ ok: false, dbConfigured: false });
-    return;
-  }
   try {
-    await ensureSchema();
-    await pool.query('SELECT 1');
-    res.json({ ok: true, dbConfigured: true });
+    if (pgPool) {
+      await ensurePgSchema();
+      await pgPool.query('SELECT 1');
+      res.json({ ok: true, storage: 'postgres' });
+      return;
+    }
+    if (isProduction) {
+      res.status(503).json({
+        ok: false,
+        error: 'database_required',
+        hint: 'Ligue DATABASE_URL (Postgres Render). Ver docs/RENDER_LEADS_POSTGRES.md',
+      });
+      return;
+    }
+    fs.mkdirSync(dataDir, { recursive: true });
+    res.json({ ok: true, storage: 'file', file: leadsFile, mode: 'development' });
   } catch (err) {
     console.error('[leads-api] health', err);
-    res.status(503).json({ ok: false, dbConfigured: true, error: 'db_unavailable' });
+    res.status(503).json({ ok: false, error: 'storage_unavailable' });
   }
 });
 
 app.post('/api/leads', leadsLimiter, async (req, res) => {
   try {
-    if (!pool) {
-      res.status(503).json({ error: 'db_unconfigured' });
+    if (!pgPool && isProduction) {
+      res.status(503).json({ error: 'database_required' });
       return;
     }
 
@@ -133,25 +188,24 @@ app.post('/api/leads', leadsLimiter, async (req, res) => {
       return;
     }
 
-    await ensureSchema();
-    await pool.query(
-      `INSERT INTO site_leads (nome, email, comentario, locale) VALUES ($1, $2, $3, $4)`,
-      [nome, email, comentario, locale],
-    );
-
-    res.status(201).json({ ok: true });
+    const storage = await persistLead({ nome, email, comentario, locale });
+    res.status(201).json({ ok: true, storage });
   } catch (err) {
     console.error('[leads-api] POST /api/leads', err);
     res.status(500).json({ error: 'server_error' });
   }
 });
 
-const port = process.env.PORT || 10000;
+const port = Number(process.env.PORT) || 10000;
 
 app.listen(port, '0.0.0.0', () => {
   console.log(`[leads-api] listening on ${port}`);
-  console.log(`[leads-api] CORS origins: ${allowedOrigins.length ? allowedOrigins.join(', ') : '(none — configure ALLOWED_ORIGINS)'}`);
-  if (!databaseUrl) {
-    console.warn('[leads-api] DATABASE_URL ausente — POST /api/leads retorna 503.');
+  console.log(`[leads-api] CORS: ${allowedOrigins.join(', ')}`);
+  if (pgPool) {
+    console.log('[leads-api] storage: postgres (site_leads)');
+  } else if (allowFileFallback) {
+    console.log(`[leads-api] storage: file dev only (${leadsFile})`);
+  } else {
+    console.warn('[leads-api] DATABASE_URL ausente — produção rejeita POST /api/leads.');
   }
 });

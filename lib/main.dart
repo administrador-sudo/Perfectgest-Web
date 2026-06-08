@@ -282,7 +282,6 @@ class _SiteHomePageState extends State<SiteHomePage> {
   Widget build(BuildContext context) {
     final isMobileNav = MediaQuery.sizeOf(context).width < 980;
     final isDark = Theme.of(context).brightness == Brightness.dark;
-    final cs = Theme.of(context).colorScheme;
     final l10n = AppLocalizations.of(context);
     return Scaffold(
       backgroundColor: isDark ? Colors.transparent : null,
@@ -333,7 +332,7 @@ class _SiteHomePageState extends State<SiteHomePage> {
               child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: isMobileNav ? 12 : _headerHeight + 12),
+                SizedBox(height: _headerHeight + 12),
                 HeroSection(key: _homeKey, scrollListenable: _scrollPixels),
                 _buildHeavySection(
                   stageIndex: 0,
@@ -380,44 +379,26 @@ class _SiteHomePageState extends State<SiteHomePage> {
             ),
             ),
           ),
-          if (!isMobileNav)
-            Positioned(
-              top: 0,
-              left: 0,
-              right: 0,
-              child: SiteHeader(
-                height: _headerHeight,
-                onToggleTheme: widget.onToggleTheme,
-                onHome: () => _scrollTo(_homeKey),
-                onSolutions: () => _scrollTo(_solutionsKey),
-                onPortfolio: () => _scrollTo(_portfolioKey),
-                onAbout: () => Navigator.of(context).push<void>(
-                      MaterialPageRoute<void>(builder: (_) => SobreNosPage(onToggleTheme: widget.onToggleTheme)),
-                    ),
-                onPreCadastro: () => openPreCadastroPage(
-                      context,
-                      onToggleTheme: widget.onToggleTheme,
-                    ),
-                onContact: () => _scrollTo(_contactKey),
-              ),
-            ),
-          if (isMobileNav)
-            Positioned(
-              top: 12,
-              right: 12,
-              child: Material(
-                color: cs.surface.withValues(alpha: 0.92),
-                shape: const CircleBorder(),
-                child: IconButton(
-                  tooltip: isDark ? l10n.themeLight : l10n.themeDark,
-                  onPressed: widget.onToggleTheme,
-                  icon: Icon(
-                    isDark ? Icons.light_mode_rounded : Icons.dark_mode_rounded,
-                    color: cs.primary,
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: SiteHeader(
+              height: _headerHeight,
+              onToggleTheme: widget.onToggleTheme,
+              onHome: () => _scrollTo(_homeKey),
+              onSolutions: () => _scrollTo(_solutionsKey),
+              onPortfolio: () => _scrollTo(_portfolioKey),
+              onAbout: () => Navigator.of(context).push<void>(
+                    MaterialPageRoute<void>(builder: (_) => SobreNosPage(onToggleTheme: widget.onToggleTheme)),
                   ),
-                ),
-              ),
+              onPreCadastro: () => openPreCadastroPage(
+                    context,
+                    onToggleTheme: widget.onToggleTheme,
+                  ),
+              onContact: () => _scrollTo(_contactKey),
             ),
+          ),
           if (kIsWeb)
             Positioned(
               left: 0,
@@ -1137,6 +1118,28 @@ class SiteHeader extends StatelessWidget {
         ),
         child: Row(
           children: [
+            if (isCompact)
+              Expanded(
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: TextButton(
+                    onPressed: onHome,
+                    style: TextButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(horizontal: 4),
+                      minimumSize: Size.zero,
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    ),
+                    child: Text(
+                      l10n.navHome,
+                      style: GoogleFonts.inter(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w800,
+                        color: siteHeaderNavLabelColor(context),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             if (!isCompact)
               IconButton(
                 tooltip: l10n.tooltipWhatsApp,

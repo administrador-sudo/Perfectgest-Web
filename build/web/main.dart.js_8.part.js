@@ -1,16 +1,16 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
 $__dart_deferred_initializers__.current=function(a,b,c,$){var A,C,E,F,G,B={
-aXT(d){switch(d.an(y.h).r.f.gcJ()){case"en":return D.KJ
-case"es":return D.KK
-case"pt":default:return D.KL}},
-amR:function amR(){},
+aXU(d){switch(d.an(y.h).r.f.gcJ()){case"en":return D.KK
+case"es":return D.KL
+case"pt":default:return D.KM}},
+amS:function amS(){},
 ayS:function ayS(){},
 ayQ:function ayQ(){},
 ayR:function ayR(){},
-aWL(d){return new B.no(d,null)},
-no:function no(d,e){this.c=d
+aWM(d){return new B.np(d,null)},
+np:function np(d,e){this.c=d
 this.a=e},
-a0t:function a0t(){this.c=this.a=null},
+a0v:function a0v(){this.c=this.a=null},
 aw4:function aw4(d){this.a=d},
 aw5:function aw5(d,e,f,g,h){var _=this
 _.a=d
@@ -22,10 +22,10 @@ aw2:function aw2(d){this.a=d},
 aw1:function aw1(){},
 aw3:function aw3(d,e){this.a=d
 this.b=e},
-oc:function oc(d,e,f){this.a=d
+od:function od(d,e,f){this.a=d
 this.b=e
 this.c=f},
-kJ:function kJ(d,e,f,g){var _=this
+kK:function kK(d,e,f,g){var _=this
 _.c=d
 _.d=e
 _.e=f
@@ -42,7 +42,7 @@ G=c[10]
 B=a.updateHolder(c[5],B)
 D=c[18]
 H=c[12]
-B.amR.prototype={}
+B.amS.prototype={}
 B.ayS.prototype={
 ghm(){return"Politica de privacidade, dados, cookies e termos Perfect Gest Dev"},
 gjS(){return"Privacidade e termos"},
@@ -52,7 +52,7 @@ pa(d){return"\xdaltima atualiza\xe7\xe3o: documento institucional. Em caso de d\
 gnF(){return"1. Quem somos"},
 gnE(){return"O presente site \xe9 operado por Perfect Gest Dev, nome fantasia de PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA (\u201cn\xf3s\u201d, \u201cnossa\u201d). Somos uma software house focada em desenvolvimento de software (mobile, web e desktop), consultoria t\xe9cnica e conte\xfado institucional. Entre os nossos produtos destaca-se o aplicativo PerfectGest I (Google Play e, quando dispon\xedvel, Microsoft Store). O dom\xednio de refer\xeancia do projeto \xe9 perfectgest-web-desenvolvedor-apps.onrender.com.\nPol\xedticas espec\xedficas da app PerfectGest I: privacidade em https://perfectgest-web-desenvolvedor-apps.onrender.com/politica-privacidade-perfectgest-i e exclus\xe3o de dados em https://perfectgest-web-desenvolvedor-apps.onrender.com/politica-exclusao-dados-perfectgest-i."},
 gnH(){return"2. Que dados podemos recolher"},
-gnG(){return"\u2022 Dados t\xe9cnicos de navega\xe7\xe3o: endere\xe7o IP (muitas vezes truncado ou agregado pelo fornecedor de analytics), tipo de navegador, idioma, p\xe1ginas visitadas e hor\xe1rios aproximados.\n\u2022 Dados que nos enviar voluntariamente: por exemplo, se nos contactar por WhatsApp ou e-mail, o conte\xfado da mensagem e os metadados necess\xe1rios \xe0 comunica\xe7\xe3o.\n\u2022 Dados do formul\xe1rio de pr\xe9-cadastro (nome, e-mail, coment\xe1rio opcional e idioma): recolhidos apenas com consentimento expl\xedcito, transmitidos por HTTPS para base de dados gerida por n\xf3s (alojamento Render). Utilizamos estes dados para contacto comercial, novidades sobre produtos e resposta a pedidos. N\xe3o vendemos estes contactos a terceiros.\nN\xe3o vendemos listas de contactos nem dados pessoais a terceiros para fins comerciais independentes."},
+gnG(){return"\u2022 Dados t\xe9cnicos de navega\xe7\xe3o: endere\xe7o IP (muitas vezes truncado ou agregado pelo fornecedor de analytics), tipo de navegador, idioma, p\xe1ginas visitadas e hor\xe1rios aproximados.\n\u2022 Dados que nos enviar voluntariamente: por exemplo, se nos contactar por WhatsApp ou e-mail, o conte\xfado da mensagem e os metadados necess\xe1rios \xe0 comunica\xe7\xe3o.\n\u2022 Dados do formul\xe1rio de pr\xe9-cadastro (nome, e-mail, coment\xe1rio opcional e idioma): recolhidos apenas com consentimento expl\xedcito, transmitidos por HTTPS para base de dados gerida por n\xf3s (alojamento Render). Utilizamos estes dados para contacto comercial, convites ao programa de pr\xe9-lan\xe7amento (acesso a builds em desenvolvimento e recolha de feedback), novidades sobre produtos e resposta a pedidos. N\xe3o vendemos estes contactos a terceiros.\nN\xe3o vendemos listas de contactos nem dados pessoais a terceiros para fins comerciais independentes."},
 gnJ(){return"3. Cookies e tecnologias similares"},
 gnI(){return"Utilizamos cookies e armazenamento local estritamente necess\xe1rios ao funcionamento do site e, quando ativado, cookies de medi\xe7\xe3o de audi\xeancia (Google Analytics / gtag) para compreender de forma agregada como o site \xe9 utilizado. Pode gerir ou apagar cookies nas defini\xe7\xf5es do seu navegador. Se recusar cookies de medi\xe7\xe3o, limitamos o envio de sinais de analytics conforme a configura\xe7\xe3o do seu browser e as nossas defini\xe7\xf5es de consentimento."},
 gnL(){return"4. Google Analytics e servi\xe7os Google"},
@@ -77,7 +77,7 @@ pa(d){return"Last updated: institutional document. If you have questions about d
 gnF(){return"1. Who we are"},
 gnE(){return"This website is operated by Perfect Gest Dev, the trade name of PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA (\u201cwe\u201d, \u201cour\u201d). We are a software house focused on software development (mobile, web and desktop), technical consulting and institutional content. Among our products, the PerfectGest I mobile app (Google Play and, when available, Microsoft Store) is a highlight. The reference project domain is perfectgest-web-desenvolvedor-apps.onrender.com.\nApp-specific policies for PerfectGest I: privacy at https://perfectgest-web-desenvolvedor-apps.onrender.com/politica-privacidade-perfectgest-i and data deletion at https://perfectgest-web-desenvolvedor-apps.onrender.com/politica-exclusao-dados-perfectgest-i."},
 gnH(){return"2. Data we may collect"},
-gnG(){return"\u2022 Technical browsing data: IP address (often truncated or aggregated by the analytics provider), browser type, language, pages visited and approximate times.\n\u2022 Data you send voluntarily: for example, if you contact us via WhatsApp or email, the message content and metadata needed for communication.\n\u2022 Pre-registration form data (name, email, optional comment and language): collected only with your explicit consent, sent over HTTPS to a database managed by us (Render hosting). We use this data for commercial contact, product updates and responding to requests. We do not sell these contacts to third parties.\nWe do not sell contact lists or personal data to third parties for independent commercial purposes."},
+gnG(){return"\u2022 Technical browsing data: IP address (often truncated or aggregated by the analytics provider), browser type, language, pages visited and approximate times.\n\u2022 Data you send voluntarily: for example, if you contact us via WhatsApp or email, the message content and metadata needed for communication.\n\u2022 Pre-registration form data (name, email, optional comment and language): collected only with your explicit consent, sent over HTTPS to a database managed by us (Render hosting). We use this data for commercial contact, pre-launch program invitations (access to in-development builds and feedback collection), product updates and responding to requests. We do not sell these contacts to third parties.\nWe do not sell contact lists or personal data to third parties for independent commercial purposes."},
 gnJ(){return"3. Cookies and similar technologies"},
 gnI(){return"We use cookies and local storage strictly necessary for the site to work and, when enabled, audience measurement cookies (Google Analytics / gtag) to understand in aggregate how the site is used. You can manage or delete cookies in your browser settings. If you decline measurement cookies, we limit analytics signals according to your browser configuration and our consent settings."},
 gnL(){return"4. Google Analytics and Google services"},
@@ -102,7 +102,7 @@ pa(d){return"Ultima actualizacion: documento institucional. Si tiene dudas sobre
 gnF(){return"1. Quienes somos"},
 gnE(){return"Este sitio web es operado por Perfect Gest Dev, nombre comercial de PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA (\u201cnosotros\u201d, \u201cnuestra\u201d). Somos una software house enfocada en desarrollo de software (movil, web y escritorio), consultoria tecnica y contenido institucional. Entre nuestros productos destaca la aplicacion PerfectGest I (Google Play y, cuando este disponible, Microsoft Store). El dominio de referencia del proyecto es perfectgest-web-desenvolvedor-apps.onrender.com.\nPoliticas especificas de la app PerfectGest I: privacidad en https://perfectgest-web-desenvolvedor-apps.onrender.com/politica-privacidade-perfectgest-i y eliminacion de datos en https://perfectgest-web-desenvolvedor-apps.onrender.com/politica-exclusao-dados-perfectgest-i."},
 gnH(){return"2. Datos que podemos recopilar"},
-gnG(){return"\u2022 Datos tecnicos de navegacion: direccion IP (a menudo truncada o agregada por el proveedor de analytics), tipo de navegador, idioma, paginas visitadas y horarios aproximados.\n\u2022 Datos que nos envie voluntariamente: por ejemplo, si nos contacta por WhatsApp o correo, el contenido del mensaje y los metadatos necesarios para la comunicacion.\n\u2022 Datos del formulario de pre-registro (nombre, correo, comentario opcional e idioma): recopilados solo con su consentimiento explicito, transmitidos por HTTPS a una base de datos gestionada por nosotros (alojamiento Render). Utilizamos estos datos para contacto comercial, novedades sobre productos y respuesta a solicitudes. No vendemos estos contactos a terceros.\nNo vendemos listas de contactos ni datos personales a terceros para fines comerciales independientes."},
+gnG(){return"\u2022 Datos tecnicos de navegacion: direccion IP (a menudo truncada o agregada por el proveedor de analytics), tipo de navegador, idioma, paginas visitadas y horarios aproximados.\n\u2022 Datos que nos envie voluntariamente: por ejemplo, si nos contacta por WhatsApp o correo, el contenido del mensaje y los metadatos necesarios para la comunicacion.\n\u2022 Datos del formulario de pre-registro (nombre, correo, comentario opcional e idioma): recopilados solo con su consentimiento explicito, transmitidos por HTTPS a una base de datos gestionada por nosotros (alojamiento Render). Utilizamos estos datos para contacto comercial, invitaciones al programa de prelanzamiento (acceso a builds en desarrollo y recogida de retroalimentacion), novedades sobre productos y respuesta a solicitudes. No vendemos estos contactos a terceros.\nNo vendemos listas de contactos ni datos personales a terceros para fines comerciales independientes."},
 gnJ(){return"3. Cookies y tecnologias similares"},
 gnI(){return"Utilizamos cookies y almacenamiento local estrictamente necesarios para el funcionamiento del sitio y, cuando esta activado, cookies de medicion de audiencia (Google Analytics / gtag) para entender de forma agregada como se usa el sitio. Puede gestionar o borrar cookies en la configuracion del navegador. Si rechaza cookies de medicion, limitamos el envio de senales de analytics segun la configuracion del navegador y nuestras opciones de consentimiento."},
 gnL(){return"4. Google Analytics y servicios de Google"},
@@ -118,23 +118,23 @@ gJA(){return"Si acepta, guardamos su eleccion en el navegador y, en la proxima c
 gDG(){return"Preferencia guardada. Recargue la pagina una vez para aplicar la medicion."},
 gIn(){return"Aceptar medicion"},
 gIm(){return"Aceptar cookies de medicion"}}
-B.no.prototype={
-ag(){return new B.a0t()}}
-B.a0t.prototype={
+B.np.prototype={
+ag(){return new B.a0v()}}
+B.a0v.prototype={
 aw(){this.aU()
 G.aO7()},
 l(){A.xf()
 this.aJ()},
-I(d){var x,w,v,u,t=null,s=A.E(d),r=A.ba(d,C.aG,y.x).w.a.a,q=r<400?16:24,p=A.cw(d,C.aD,y.F)
+I(d){var x,w,v,u,t=null,s=A.F(d),r=A.ba(d,C.aG,y.x).w.a.a,q=r<400?16:24,p=A.cw(d,C.aD,y.F)
 p.toString
-x=B.aXT(d)
+x=B.aXU(d)
 w=x.ghm()
-v=A.E(d).ax.a===C.F?C.p:t
+v=A.F(d).ax.a===C.F?C.p:t
 u=x.gjS()
-return A.aX(t,t,A.kq(F.a5f(d,new B.aw4(d),this.a.c,u),v,new A.jd(A.At(new B.aw5(q,x,s.ax,r,p)),t),t),!1,t,t,t,!1,t,t,t,t,t,t,t,w,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,C.r,t)}}
-B.oc.prototype={}
-B.kJ.prototype={
-I(d){var x,w,v,u,t,s,r,q,p,o,n,m,l=this,k=null,j=A.E(d).ax,i=A.ba(d,C.aG,y.x).w.a.a,h=i<400?12:16,g=l.c,f=j.RG
+return A.aX(t,t,A.kr(F.a5h(d,new B.aw4(d),this.a.c,u),v,new A.jf(A.Au(new B.aw5(q,x,s.ax,r,p)),t),t),!1,t,t,t,!1,t,t,t,t,t,t,t,w,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,C.r,t)}}
+B.od.prototype={}
+B.kK.prototype={
+I(d){var x,w,v,u,t,s,r,q,p,o,n,m,l=this,k=null,j=A.F(d).ax,i=A.ba(d,C.aG,y.x).w.a.a,h=i<400?12:16,g=l.c,f=j.RG
 f=(f==null?j.k2:f).aj(0.5)
 x=A.dj(14)
 w=j.ry
@@ -142,22 +142,22 @@ if(w==null){w=j.n
 if(w==null)w=j.k3}w=A.l4(w.aj(0.4),1)
 v=i<360
 u=v?15:16
-u=A.a7(g,k,k,k,A.b4().$3$color$fontSize$fontWeight(j.b,u,C.aM),k,k)
+u=A.a5(g,k,k,k,A.b1().$3$color$fontSize$fontWeight(j.b,u,C.aM),k,k)
 t=v?13:14
 s=y.u
-t=A.b([u,C.ck,A.a7(l.d,k,k,k,A.b4().$3$color$fontSize$height(j.k3.aj(0.88),t,1.55),k,k)],s)
+t=A.b([u,C.ck,A.a5(l.d,k,k,k,A.b1().$3$color$fontSize$height(j.k3.aj(0.88),t,1.55),k,k)],s)
 u=l.e
 if(u.length!==0){r=A.b([C.ck],s)
 if(i<440){q=A.b([],s)
 for(p=0;p<u.length;++p){o=A.b([],s)
 if(p>0)o.push(C.kq)
-n=A.anP(C.Q,k,k,k,k,k,k,k,k,k,k,k,C.pZ,k,k,k,k,C.n_,k,k)
+n=A.U0(C.Q,k,k,k,k,k,k,k,k,k,k,k,C.pZ,k,k,k,k,C.jO,k,k)
 m=u[p]
-o.push(A.hR(A.a7(m.a,k,k,k,A.b4().$1$fontSize(v?12.5:13),C.c2,k),new B.aw7(l,p),n))
-C.b.a_(q,o)}r.push(A.c2(q,C.bb,C.A,C.D))}else{v=A.a5(u).i("ac<1,r7>")
+o.push(A.hc(A.a5(m.a,k,k,k,A.b1().$1$fontSize(v?12.5:13),C.c1,k),new B.aw7(l,p),n))
+C.b.a_(q,o)}r.push(A.c2(q,C.bb,C.A,C.D))}else{v=A.a6(u).i("ac<1,r7>")
 v=A.a9(new A.ac(u,new B.aw8(),v),v.i("aw.E"))
-r.push(A.m7(C.bs,v,C.cC,6,8))}C.b.a_(t,r)}return new A.bu(D.NM,A.aX(k,k,A.eo(new A.bu(new A.ag(h,16,h,18),A.c2(t,C.a1,C.A,C.D),k),new A.bU(f,k,w,x,k,k,C.Y),C.az),!0,k,k,k,!1,k,k,k,k,k,k,k,g,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,C.r,k),k)}}
-var z=a.updateTypes(["r7(oc)"])
+r.push(A.m7(C.bt,v,C.cC,6,8))}C.b.a_(t,r)}return new A.bu(D.NN,A.aX(k,k,A.eo(new A.bu(new A.ag(h,16,h,18),A.c2(t,C.a1,C.A,C.D),k),new A.bU(f,k,w,x,k,k,C.Y),C.az),!0,k,k,k,!1,k,k,k,k,k,k,k,g,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,C.r,k),k)}}
+var z=a.updateTypes(["r7(od)"])
 B.aw4.prototype={
 $0(){return A.d8(this.a,!1).dC()},
 $S:0}
@@ -169,14 +169,14 @@ w=b1.a
 v=b1.b
 u=b1.c
 t=u.b
-s=A.a7(v.gom(),b2,b2,b2,A.b4().$4$color$fontSize$fontWeight$letterSpacing(t,13,C.aM,0.4),b2,b2)
+s=A.a5(v.gom(),b2,b2,b2,A.b1().$4$color$fontSize$fontWeight$letterSpacing(t,13,C.aM,0.4),b2,b2)
 r=v.goH()
 q=b1.d
 p=q<400
 o=p?18:22
 n=u.k3
-o=A.a7(r,b2,b2,b2,A.b4().$4$color$fontSize$fontWeight$height(n,o,C.aS,1.2),b2,b2)
-r=A.a7(v.pa(b3),b2,b2,b2,A.b4().$3$color$fontSize$height(n.aj(0.72),13,1.45),b2,b2)
+o=A.a5(r,b2,b2,b2,A.b1().$4$color$fontSize$fontWeight$height(n,o,C.aN,1.2),b2,b2)
+r=A.a5(v.pa(b3),b2,b2,b2,A.b1().$3$color$fontSize$height(n.aj(0.72),13,1.45),b2,b2)
 m=v.gnF()
 l=v.gnE()
 k=v.gnH()
@@ -186,7 +186,7 @@ h=v.gnI()
 g=v.gnL()
 f=v.gnK()
 e=b1.e
-d=A.b([new B.oc(e.gvz(),"https://policies.google.com/privacy",b2),new B.oc(e.gvy(),"https://policies.google.com/technologies/cookies",b2),new B.oc(e.gwj(),b2,new B.aw2(b5))],y.A)
+d=A.b([new B.od(e.gvA(),"https://policies.google.com/privacy",b2),new B.od(e.gvz(),"https://policies.google.com/technologies/cookies",b2),new B.od(e.gwj(),b2,new B.aw2(b5))],y.A)
 a0=v.gDm()
 a1=v.gDl()
 a2=v.gDo()
@@ -201,57 +201,57 @@ if(a7==null){u=u.n
 if(u==null)u=n}else u=a7
 u=A.l4(u.aj(0.45),1)
 p=p?14:16
-a7=A.a7(v.gJB(),b2,b2,b2,A.b4().$3$color$fontSize$fontWeight(n,14,C.aM),b2,b2)
-a8=A.a7(v.gJA(),b2,b2,b2,A.b4().$3$color$fontSize$height(n.aj(0.8),12.5,1.45),b2,b2)
+a7=A.a5(v.gJB(),b2,b2,b2,A.b1().$3$color$fontSize$fontWeight(n,14,C.aM),b2,b2)
+a8=A.a5(v.gJA(),b2,b2,b2,A.b1().$3$color$fontSize$height(n.aj(0.8),12.5,1.45),b2,b2)
 a9=q<480?1/0:b2
 b0=y.u
-return A.it(A.dP(new A.dk(new A.aa(0,x,0,1/0),A.c2(A.b([s,C.dv,o,C.ck,r,C.hv,new B.kJ(m,l,D.eS,b2),new B.kJ(k,j,D.eS,b2),new B.kJ(i,h,D.eS,b2),new B.kJ(g,f,d,b2),new B.kJ(a0,a1,D.eS,b2),new B.kJ(a2,a3,D.eS,b2),new B.kJ(a4,a5,D.eS,b2),E.nR,A.eo(new A.bu(new A.ag(p,p,p,p),A.c2(A.b([a7,C.cz,a8,C.bE,A.cE(A.aau(D.Pn,A.a7(q<360?v.gIn():v.gIm(),b2,b2,b2,b2,C.c2,b2),new B.aw3(b5,v),b2),b2,a9)],b0),C.bb,C.A,C.D),b2),new A.bU(t,b2,u,a6,b2,b2,C.Y),C.az),E.Hq,A.a7(e.uG(A.qy(new A.eE(Date.now(),0,!1))),b2,b2,b2,A.b4().$2$color$fontSize(n.aj(0.65),12),C.c2,b2)],b0),C.a1,C.A,C.D),b2),b2,b2),b2,new A.ag(w,16,w,28),C.ae)},
+return A.iv(A.dP(new A.dk(new A.aa(0,x,0,1/0),A.c2(A.b([s,C.dw,o,C.ck,r,C.hu,new B.kK(m,l,D.eS,b2),new B.kK(k,j,D.eS,b2),new B.kK(i,h,D.eS,b2),new B.kK(g,f,d,b2),new B.kK(a0,a1,D.eS,b2),new B.kK(a2,a3,D.eS,b2),new B.kK(a4,a5,D.eS,b2),E.nR,A.eo(new A.bu(new A.ag(p,p,p,p),A.c2(A.b([a7,C.cz,a8,C.bs,A.cD(A.aav(D.Po,A.a5(q<360?v.gIn():v.gIm(),b2,b2,b2,b2,C.c1,b2),new B.aw3(b5,v),b2),b2,a9)],b0),C.bb,C.A,C.D),b2),new A.bU(t,b2,u,a6,b2,b2,C.Y),C.az),E.Hr,A.a5(e.uH(A.qy(new A.eE(Date.now(),0,!1))),b2,b2,b2,A.b1().$2$color$fontSize(n.aj(0.65),12),C.c1,b2)],b0),C.a1,C.A,C.D),b2),b2,b2),b2,new A.ag(w,16,w,28),C.ae)},
 $S:193}
 B.aw2.prototype={
-$0(){A.d8(this.a,!1).iR(A.hD(new B.aw1(),null,y.q))},
+$0(){A.d8(this.a,!1).iR(A.hE(new B.aw1(),null,y.q))},
 $S:0}
 B.aw1.prototype={
-$1(d){return D.aac},
+$1(d){return D.aae},
 $S:186}
 B.aw3.prototype={
 $0(){var x,w=null
 A.aOB()
 x=this.a
 if(x.e==null)return
-x.an(y.v).f.Ov(A.aFf(w,w,w,w,C.kr,C.a0,w,A.a7(this.b.gDG(),w,w,w,w,w,w),w,C.lM,w,w,w,w,w,w,w,w,w,w))},
+x.an(y.v).f.Ow(A.aFf(w,w,w,w,C.kr,C.a0,w,A.a5(this.b.gDG(),w,w,w,w,w,w),w,C.lN,w,w,w,w,w,w,w,w,w,w))},
 $S:0}
 B.aw7.prototype={
 $0(){var x=this.a.e[this.b],w=x.c,v=x.b
 if(w!=null){w.$0()
 return}if(v==null)return
-A.hZ(A.dp(v,0,null),C.cr,"_blank")},
+A.hY(A.dp(v,0,null),C.cr,"_blank")},
 $S:0}
 B.aw8.prototype={
 $1(d){var x=null
-return A.hR(A.a7(d.a,x,x,x,A.b4().$1$fontSize(13),x,x),new B.aw6(d),x)},
+return A.hc(A.a5(d.a,x,x,x,A.b1().$1$fontSize(13),x,x),new B.aw6(d),x)},
 $S:z+0}
 B.aw6.prototype={
 $0(){var x=this.a,w=x.c,v=x.b
 if(w!=null){w.$0()
 return}if(v==null)return
-A.hZ(A.dp(v,0,null),C.cr,"_blank")},
+A.hY(A.dp(v,0,null),C.cr,"_blank")},
 $S:0};(function inheritance(){var x=a.inheritMany,w=a.inherit
-x(A.I,[B.amR,B.oc])
-x(B.amR,[B.ayS,B.ayQ,B.ayR])
-w(B.no,A.T)
-w(B.a0t,A.X)
-x(A.iP,[B.aw4,B.aw2,B.aw3,B.aw7,B.aw6])
+x(A.I,[B.amS,B.od])
+x(B.amS,[B.ayS,B.ayQ,B.ayR])
+w(B.np,A.T)
+w(B.a0v,A.X)
+x(A.iQ,[B.aw4,B.aw2,B.aw3,B.aw7,B.aw6])
 w(B.aw5,A.oX)
-x(A.fT,[B.aw1,B.aw8])
-w(B.kJ,A.ae)})()
-A.x7(b.typeUniverse,JSON.parse('{"no":{"T":[],"e":[]},"a0t":{"X":["no"]},"kJ":{"ae":[],"e":[]}}'))
-var y={F:A.a1("fy"),u:A.a1("q<e>"),A:A.a1("q<oc>"),x:A.a1("fp"),h:A.a1("kI"),v:A.a1("wV"),q:A.a1("~")};(function constants(){var x=a.makeConstList
-D.KJ=new B.ayQ()
-D.KK=new B.ayR()
-D.KL=new B.ayS()
-D.NM=new A.ag(0,0,0,18)
-D.ON=new A.bG(57690,"MaterialIcons",!1)
-D.Pn=new A.dS(D.ON,20,null,null,null)
+x(A.fS,[B.aw1,B.aw8])
+w(B.kK,A.ae)})()
+A.x7(b.typeUniverse,JSON.parse('{"np":{"T":[],"e":[]},"a0v":{"X":["np"]},"kK":{"ae":[],"e":[]}}'))
+var y={F:A.a1("fy"),u:A.a1("q<e>"),A:A.a1("q<od>"),x:A.a1("fp"),h:A.a1("kJ"),v:A.a1("wV"),q:A.a1("~")};(function constants(){var x=a.makeConstList
+D.KK=new B.ayQ()
+D.KL=new B.ayR()
+D.KM=new B.ayS()
+D.NN=new A.ag(0,0,0,18)
+D.OO=new A.bG(57690,"MaterialIcons",!1)
+D.Po=new A.dS(D.OO,20,null,null,null)
 D.eS=x([],y.A)
-D.aac=new H.lX(null,null,null)})()};
-(a=>{a["RCgs3DLMlmj0JNOEjbCl60ppdjo="]=a.current})($__dart_deferred_initializers__);
+D.aae=new H.lX(null,null,null)})()};
+(a=>{a["h7zGwQL7xHOWUJdH0qlsREBP+U0="]=a.current})($__dart_deferred_initializers__);

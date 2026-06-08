@@ -43,7 +43,10 @@ class LeadCaptureService {
       final response = await http
           .post(
             Uri.parse(kLeadsApiUrl),
-            headers: const {'Content-Type': 'application/json'},
+            headers: const {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json',
+            },
             body: jsonEncode({
               'nome': trimmedName,
               'email': trimmedEmail,
@@ -53,7 +56,7 @@ class LeadCaptureService {
               'website': websiteHoneypot,
             }),
           )
-          .timeout(const Duration(seconds: 25));
+          .timeout(const Duration(seconds: 90));
 
       if (response.statusCode >= 200 && response.statusCode < 300) {
         return const LeadCaptureResult(ok: true);
@@ -61,9 +64,19 @@ class LeadCaptureService {
       if (response.statusCode == 503) {
         return const LeadCaptureResult(ok: false, errorMessage: 'api_unavailable');
       }
+      if (response.statusCode == 404) {
+        return const LeadCaptureResult(ok: false, errorMessage: 'api_not_deployed');
+      }
       debugPrint('[LeadCapture] HTTP ${response.statusCode}: ${response.body}');
       return const LeadCaptureResult(ok: false, errorMessage: 'server_error');
-    } catch (e, st) {
+    } on http.ClientException catch (e, st) {
+      debugPrint('[LeadCapture] ClientException: $e\n$st');
+      return const LeadCaptureResult(ok: false, errorMessage: 'network_error');
+    } on Exception catch (e, st) {
+      final msg = e.toString();
+      if (msg.contains('TimeoutException') || msg.contains('timed out')) {
+        return const LeadCaptureResult(ok: false, errorMessage: 'api_waking');
+      }
       debugPrint('[LeadCapture] $e\n$st');
       return const LeadCaptureResult(ok: false, errorMessage: 'network_error');
     }

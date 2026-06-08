@@ -57,12 +57,21 @@ run('git', [
   '-A',
   'lib',
   'web',
+  'assets',
   'imagens',
   'IMAGENS_APP/Screenshot',
   'pubspec.yaml',
   'pubspec.lock',
+  'package.json',
+  'package-lock.json',
+  'render.yaml',
+  'scripts',
+  'exports',
   '.gitignore',
   'docs/Atualiza.md',
+  'docs/Checklist_critico.md',
+  'docs/RENDER_LEADS_POSTGRES.md',
+  'docs/RENDER_CACHE_HEADERS.md',
 ]);
 run('git', ['add', '-A', '-f', 'build/web']);
 

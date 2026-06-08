@@ -1,0 +1,3 @@
+# PostgreSQL — exportações locais (não commitar)
+exports/
+*.csv
