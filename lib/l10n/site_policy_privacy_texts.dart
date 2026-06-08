@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 import '../company_legal.dart';
+import '../site_public_urls.dart';
 
 /// Textos longos da pagina [PoliticaPrivacidadePage] (PT/EN/ES).
 ///
@@ -73,8 +74,9 @@ class _SitePolicyPrivacyTextsPt extends SitePolicyPrivacyTexts {
   String get section1Body =>
       'O presente site é operado por $kCompanyFantasyName, nome fantasia de $kCompanyLegalName (“nós”, “nossa”). '
       'Somos uma software house focada em desenvolvimento de software (mobile, web e desktop), consultoria técnica e conteúdo institucional. '
-      'Entre os nossos produtos destaca-se o aplicativo $kProductPerfectGestIName (Google Play). '
-      'O domínio de referência do projeto é perfectgest-web-desenvolvedor-apps.onrender.com.';
+      'Entre os nossos produtos destaca-se o aplicativo $kProductPerfectGestIName (Google Play e, quando disponível, Microsoft Store). '
+      'O domínio de referência do projeto é perfectgest-web-desenvolvedor-apps.onrender.com.\n'
+      'Políticas específicas da app $kProductPerfectGestIName: privacidade em $kAppPrivacyPolicyPublicUrl e exclusão de dados em $kAppDataDeletionPolicyPublicUrl.';
 
   @override
   String get section2Title => '2. Que dados podemos recolher';
@@ -83,6 +85,8 @@ class _SitePolicyPrivacyTextsPt extends SitePolicyPrivacyTexts {
   String get section2Body =>
       '• Dados técnicos de navegação: endereço IP (muitas vezes truncado ou agregado pelo fornecedor de analytics), tipo de navegador, idioma, páginas visitadas e horários aproximados.\n'
       '• Dados que nos enviar voluntariamente: por exemplo, se nos contactar por WhatsApp ou e-mail, o conteúdo da mensagem e os metadados necessários à comunicação.\n'
+      '• Dados do formulário de pré-cadastro (nome, e-mail, comentário opcional e idioma): recolhidos apenas com consentimento explícito, transmitidos por HTTPS para base de dados gerida por nós (alojamento Render). '
+      'Utilizamos estes dados para contacto comercial, novidades sobre produtos e resposta a pedidos. Não vendemos estes contactos a terceiros.\n'
       'Não vendemos listas de contactos nem dados pessoais a terceiros para fins comerciais independentes.';
 
   @override
@@ -108,15 +112,17 @@ class _SitePolicyPrivacyTextsPt extends SitePolicyPrivacyTexts {
   @override
   String get section5Body =>
       'O tratamento de dados técnicos e de medição pode basear-se no interesse legítimo em melhorar o site e na execução de medidas pré-contratuais ou contratuais quando nos contacta. '
-      'Conservamos mensagens de contacto apenas pelo tempo necessário a responder e a cumprir obrigações legais aplicáveis.';
+      'O pré-cadastro baseia-se no seu consentimento, que pode revogar a qualquer momento (ver secção 6). '
+      'Conservamos mensagens de contacto e registos de pré-cadastro apenas pelo tempo necessário à finalidade indicada ou até pedido de eliminação, respeitando obrigações legais aplicáveis.';
 
   @override
   String get section6Title => '6. Os seus direitos';
 
   @override
   String section6Body(String email) =>
-      'Dependendo da lei aplicável (por exemplo RGPD na UE), poderá solicitar acesso, retificação, apagamento, limitação, portabilidade ou oposição ao tratamento dos seus dados pessoais. '
-      'Para exercer direitos ou questões de privacidade, escreva para $email.';
+      'No Brasil, aplica-se a Lei Geral de Proteção de Dados (LGPD, Lei 13.709/2018). Na União Europeia, aplica-se o RGPD. '
+      'Dependendo da lei aplicável, poderá solicitar acesso, retificação, apagamento, limitação, portabilidade ou oposição ao tratamento dos seus dados pessoais, '
+      'incluindo dados de pré-cadastro. Para exercer direitos ou questões de privacidade, escreva para $email.';
 
   @override
   String get section7Title => '7. Termos de uso do site';
@@ -172,8 +178,9 @@ class _SitePolicyPrivacyTextsEn extends SitePolicyPrivacyTexts {
   String get section1Body =>
       'This website is operated by $kCompanyFantasyName, the trade name of $kCompanyLegalName (“we”, “our”). '
       'We are a software house focused on software development (mobile, web and desktop), technical consulting and institutional content. '
-      'Among our products, the $kProductPerfectGestIName mobile app (Google Play) is a highlight. '
-      'The reference project domain is perfectgest-web-desenvolvedor-apps.onrender.com.';
+      'Among our products, the $kProductPerfectGestIName mobile app (Google Play and, when available, Microsoft Store) is a highlight. '
+      'The reference project domain is perfectgest-web-desenvolvedor-apps.onrender.com.\n'
+      'App-specific policies for $kProductPerfectGestIName: privacy at $kAppPrivacyPolicyPublicUrl and data deletion at $kAppDataDeletionPolicyPublicUrl.';
 
   @override
   String get section2Title => '2. Data we may collect';
@@ -182,6 +189,8 @@ class _SitePolicyPrivacyTextsEn extends SitePolicyPrivacyTexts {
   String get section2Body =>
       '• Technical browsing data: IP address (often truncated or aggregated by the analytics provider), browser type, language, pages visited and approximate times.\n'
       '• Data you send voluntarily: for example, if you contact us via WhatsApp or email, the message content and metadata needed for communication.\n'
+      '• Pre-registration form data (name, email, optional comment and language): collected only with your explicit consent, sent over HTTPS to a database managed by us (Render hosting). '
+      'We use this data for commercial contact, product updates and responding to requests. We do not sell these contacts to third parties.\n'
       'We do not sell contact lists or personal data to third parties for independent commercial purposes.';
 
   @override
@@ -207,15 +216,17 @@ class _SitePolicyPrivacyTextsEn extends SitePolicyPrivacyTexts {
   @override
   String get section5Body =>
       'Processing of technical and measurement data may rely on legitimate interest in improving the site and on pre-contractual or contractual measures when you contact us. '
-      'We keep contact messages only as long as needed to respond and to meet applicable legal obligations.';
+      'Pre-registration relies on your consent, which you may withdraw at any time (see section 6). '
+      'We keep contact messages and pre-registration records only as long as needed for the stated purpose or until a deletion request, subject to applicable legal obligations.';
 
   @override
   String get section6Title => '6. Your rights';
 
   @override
   String section6Body(String email) =>
-      'Depending on applicable law (for example GDPR in the EU), you may request access, rectification, erasure, restriction, portability or objection to processing of your personal data. '
-      'To exercise rights or ask privacy questions, write to $email.';
+      'In Brazil, the General Data Protection Law (LGPD, Law 13,709/2018) applies. In the European Union, the GDPR applies. '
+      'Depending on applicable law, you may request access, rectification, erasure, restriction, portability or objection to processing of your personal data, '
+      'including pre-registration data. To exercise rights or ask privacy questions, write to $email.';
 
   @override
   String get section7Title => '7. Website terms of use';
@@ -270,8 +281,9 @@ class _SitePolicyPrivacyTextsEs extends SitePolicyPrivacyTexts {
   String get section1Body =>
       'Este sitio web es operado por $kCompanyFantasyName, nombre comercial de $kCompanyLegalName (“nosotros”, “nuestra”). '
       'Somos una software house enfocada en desarrollo de software (movil, web y escritorio), consultoria tecnica y contenido institucional. '
-      'Entre nuestros productos destaca la aplicacion $kProductPerfectGestIName (Google Play). '
-      'El dominio de referencia del proyecto es perfectgest-web-desenvolvedor-apps.onrender.com.';
+      'Entre nuestros productos destaca la aplicacion $kProductPerfectGestIName (Google Play y, cuando este disponible, Microsoft Store). '
+      'El dominio de referencia del proyecto es perfectgest-web-desenvolvedor-apps.onrender.com.\n'
+      'Politicas especificas de la app $kProductPerfectGestIName: privacidad en $kAppPrivacyPolicyPublicUrl y eliminacion de datos en $kAppDataDeletionPolicyPublicUrl.';
 
   @override
   String get section2Title => '2. Datos que podemos recopilar';
@@ -280,6 +292,8 @@ class _SitePolicyPrivacyTextsEs extends SitePolicyPrivacyTexts {
   String get section2Body =>
       '• Datos tecnicos de navegacion: direccion IP (a menudo truncada o agregada por el proveedor de analytics), tipo de navegador, idioma, paginas visitadas y horarios aproximados.\n'
       '• Datos que nos envie voluntariamente: por ejemplo, si nos contacta por WhatsApp o correo, el contenido del mensaje y los metadatos necesarios para la comunicacion.\n'
+      '• Datos del formulario de pre-registro (nombre, correo, comentario opcional e idioma): recopilados solo con su consentimiento explicito, transmitidos por HTTPS a una base de datos gestionada por nosotros (alojamiento Render). '
+      'Utilizamos estos datos para contacto comercial, novedades sobre productos y respuesta a solicitudes. No vendemos estos contactos a terceros.\n'
       'No vendemos listas de contactos ni datos personales a terceros para fines comerciales independientes.';
 
   @override
@@ -305,15 +319,17 @@ class _SitePolicyPrivacyTextsEs extends SitePolicyPrivacyTexts {
   @override
   String get section5Body =>
       'El tratamiento de datos tecnicos y de medicion puede basarse en el interes legitimo de mejorar el sitio y en medidas precontractuales o contractuales cuando nos contacta. '
-      'Conservamos los mensajes de contacto solo el tiempo necesario para responder y cumplir obligaciones legales aplicables.';
+      'El pre-registro se basa en su consentimiento, que puede revocar en cualquier momento (ver seccion 6). '
+      'Conservamos los mensajes de contacto y registros de pre-registro solo el tiempo necesario para la finalidad indicada o hasta una solicitud de eliminacion, respetando obligaciones legales aplicables.';
 
   @override
   String get section6Title => '6. Sus derechos';
 
   @override
   String section6Body(String email) =>
-      'Segun la ley aplicable (por ejemplo el RGPD en la UE), puede solicitar acceso, rectificacion, supresion, limitacion, portabilidad u oposicion al tratamiento de sus datos personales. '
-      'Para ejercer derechos o consultas de privacidad, escriba a $email.';
+      'En Brasil, se aplica la Ley General de Proteccion de Datos (LGPD, Ley 13.709/2018). En la Union Europea, se aplica el RGPD. '
+      'Segun la ley aplicable, puede solicitar acceso, rectificacion, supresion, limitacion, portabilidad u oposicion al tratamiento de sus datos personales, '
+      'incluidos datos de pre-registro. Para ejercer derechos o consultas de privacidad, escriba a $email.';
 
   @override
   String get section7Title => '7. Terminos de uso del sitio';

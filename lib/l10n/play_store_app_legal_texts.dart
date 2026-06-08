@@ -42,7 +42,7 @@ const List<LegalSectionText> _kPrivacyPt = <LegalSectionText>[
     heading: '1. Identificação do Controlador',
     body:
         'A $kCompanyFantasyName ($kCompanyLegalName), desenvolvedora do aplicativo $kProductPerfectGestIName, estabelece esta Política de Privacidade '
-        'em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei 13.709/18) e com as políticas para desenvolvedores da Google Play Store. '
+        'em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei 13.709/18) e com as políticas para desenvolvedores da Google Play Store e da Microsoft Store. '
         'Para exercício de direitos de acesso, retificação ou exclusão, contacte: sac.perfectgest@gmail.com.',
   ),
   LegalSectionText(
@@ -57,8 +57,8 @@ const List<LegalSectionText> _kPrivacyPt = <LegalSectionText>[
     body:
         'Para integridade técnica e licenciamento, podem ser utilizados serviços Google/Firebase com recolha estritamente necessária: '
         'Google Analytics para Firebase (eventos de uso e erros críticos), Firebase Remote Config (parâmetros de segurança), '
-        'Cloud Firestore (metadados técnicos e controlo de período de avaliação com identificador pseudónimo) '
-        'e Google Play Billing (processamento financeiro pela infraestrutura Google).',
+        'Cloud Firestore (metadados técnicos e controlo de período de avaliação com identificador pseudónimo), '
+        'Google Play Billing ou Microsoft Store (processamento financeiro pela infraestrutura respetiva da loja).',
   ),
   LegalSectionText(
     heading: '4. Segurança e transparência',
@@ -111,10 +111,11 @@ const List<LegalSectionText> _kDataDeletionPt = <LegalSectionText>[
         'Prazo de processamento: até 15 dias úteis.',
   ),
   LegalSectionText(
-    heading: '4. Assinaturas e Google Play',
+    heading: '4. Assinaturas e lojas (Google Play e Microsoft Store)',
     body:
         'Excluir dados do app ou desinstalar não cancela assinaturas ativas. '
-        'Pagamentos, cancelamentos e histórico de compras devem ser geridos diretamente na Conta Google > Pagamentos e Assinaturas.',
+        'Pagamentos, cancelamentos e histórico de compras devem ser geridos na Conta Google (Google Play) '
+        'ou na conta Microsoft (Microsoft Store), conforme o canal de aquisição.',
   ),
 ];
 
@@ -127,7 +128,7 @@ const List<LegalSectionText> _kPrivacyEn = <LegalSectionText>[
     heading: '1. Controller identification',
     body:
         'Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA), developer of the $kProductPerfectGestIName app, establishes this Privacy Policy '
-        'in compliance with the Brazilian General Data Protection Law (LGPD - Law 13,709/18) and Google Play Store developer policies. '
+        'in compliance with the Brazilian General Data Protection Law (LGPD - Law 13,709/18) and Google Play Store and Microsoft Store developer policies. '
         'To exercise access, rectification or erasure rights, contact: sac.perfectgest@gmail.com.',
   ),
   LegalSectionText(
@@ -143,7 +144,7 @@ const List<LegalSectionText> _kPrivacyEn = <LegalSectionText>[
         'For technical integrity and licensing, Google/Firebase services may be used with strictly necessary collection: '
         'Google Analytics for Firebase (usage events and critical errors), Firebase Remote Config (security parameters), '
         'Cloud Firestore (technical metadata and trial period control with a pseudonymous identifier) '
-        'and Google Play Billing (financial processing by Google infrastructure).',
+        'and Google Play Billing or Microsoft Store (financial processing by the respective store infrastructure).',
   ),
   LegalSectionText(
     heading: '4. Security and transparency',
@@ -196,10 +197,11 @@ const List<LegalSectionText> _kDataDeletionEn = <LegalSectionText>[
         'Processing time: up to 15 business days.',
   ),
   LegalSectionText(
-    heading: '4. Subscriptions and Google Play',
+    heading: '4. Subscriptions and stores (Google Play and Microsoft Store)',
     body:
         'Deleting app data or uninstalling does not cancel active subscriptions. '
-        'Payments, cancellations and purchase history must be managed directly in Google Account > Payments and Subscriptions.',
+        'Payments, cancellations and purchase history must be managed in your Google Account (Google Play) '
+        'or Microsoft account (Microsoft Store), depending on where you purchased.',
   ),
 ];
 
@@ -212,7 +214,7 @@ const List<LegalSectionText> _kPrivacyEs = <LegalSectionText>[
     heading: '1. Identificacion del responsable',
     body:
         'Perfect Gest Dev ($kCompanyLegalName), desarrolladora de la aplicacion $kProductPerfectGestIName, establece esta Politica de Privacidad '
-        'conforme a la Ley General de Proteccion de Datos de Brasil (LGPD - Ley 13.709/18) y a las politicas para desarrolladores de Google Play Store. '
+        'conforme a la Ley General de Proteccion de Datos de Brasil (LGPD - Ley 13.709/18) y a las politicas para desarrolladores de Google Play Store y Microsoft Store. '
         'Para ejercer derechos de acceso, rectificacion o supresion, contacte: sac.perfectgest@gmail.com.',
   ),
   LegalSectionText(
@@ -228,7 +230,7 @@ const List<LegalSectionText> _kPrivacyEs = <LegalSectionText>[
         'Para integridad tecnica y licenciamiento se pueden utilizar servicios Google/Firebase con recoleccion estrictamente necesaria: '
         'Google Analytics para Firebase (eventos de uso y errores criticos), Firebase Remote Config (parametros de seguridad), '
         'Cloud Firestore (metadatos tecnicos y control del periodo de evaluacion con identificador seudonimo) '
-        'y Google Play Billing (procesamiento financiero por la infraestructura de Google).',
+        'y Google Play Billing o Microsoft Store (procesamiento financiero por la infraestructura de la tienda correspondiente).',
   ),
   LegalSectionText(
     heading: '4. Seguridad y transparencia',
@@ -281,10 +283,11 @@ const List<LegalSectionText> _kDataDeletionEs = <LegalSectionText>[
         'Plazo de procesamiento: hasta 15 dias habiles.',
   ),
   LegalSectionText(
-    heading: '4. Suscripciones y Google Play',
+    heading: '4. Suscripciones y tiendas (Google Play y Microsoft Store)',
     body:
         'Eliminar datos de la app o desinstalarla no cancela suscripciones activas. '
-        'Pagos, cancelaciones e historial de compras deben gestionarse directamente en Cuenta Google > Pagos y Suscripciones.',
+        'Pagos, cancelaciones e historial de compras deben gestionarse en la Cuenta Google (Google Play) '
+        'o en la cuenta Microsoft (Microsoft Store), segun el canal de compra.',
   ),
 ];
 

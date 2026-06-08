@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'devolucao_page.dart' deferred as devolucao;
@@ -82,6 +83,13 @@ Widget buildPoliticaDevolucaoPage() {
   );
 }
 
+Widget buildPoliticaPrivacidadeSitePage({VoidCallback? onToggleTheme}) {
+  return DeferredRouteLoader(
+    loadLibrary: politica.loadLibrary,
+    builder: () => politica.PoliticaPrivacidadePage(onToggleTheme: onToggleTheme),
+  );
+}
+
 Widget buildPreCadastroPage({VoidCallback? onToggleTheme}) {
   return DeferredRouteLoader(
     loadLibrary: pre_cadastro.loadLibrary,
@@ -113,6 +121,12 @@ Future<void> openPoliticaPrivacidadePage(
   BuildContext context, {
   VoidCallback? onToggleTheme,
 }) async {
+  if (kIsWeb) {
+    await Navigator.of(context).pushNamed<void>(
+      '/politica-privacidade-site',
+    );
+    return;
+  }
   await politica.loadLibrary();
   if (!context.mounted) return;
   await Navigator.of(context).push<void>(

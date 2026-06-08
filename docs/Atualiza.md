@@ -1537,3 +1537,41 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 ### Validacao
 - [x] `flutter analyze` (ficheiros do pre-cadastro)
 
+## [2026-06-08] Conformidade Play Console + Microsoft Store
+
+### Pedido
+- Verificar alinhamento das politicas legais com Google Play Console e Microsoft Store.
+
+### Auditoria (antes das correcoes)
+- Politica do site sem URL publica dedicada.
+- Pre-cadastro com consentimento apontando para politica da **app**, nao do site.
+- Site sem mencao a dados de pre-cadastro nem LGPD explicita.
+- App sem referencia a Microsoft Store.
+- Sitemap incompleto; Checklist_critico desatualizado.
+
+### Correcoes aplicadas
+- Nova rota publica `/politica-privacidade-site` (PT/EN/ES, SEO, sitemap, spa-legal-paths).
+- Textos do site: pre-cadastro, LGPD, links para politicas da app.
+- Textos da app: Google Play **e** Microsoft Store (privacidade, billing, assinaturas).
+- Consentimento do pre-cadastro → `/politica-privacidade-site`.
+- `docs/Checklist_critico.md` — tabela URLs Play + Microsoft Partner Center.
+
+### URLs para colar nas lojas
+- App privacidade: `https://perfectgest-web-desenvolvedor-apps.onrender.com/politica-privacidade-perfectgest-i`
+- App exclusao: `https://perfectgest-web-desenvolvedor-apps.onrender.com/politica-exclusao-dados-perfectgest-i`
+- Site privacidade: `https://perfectgest-web-desenvolvedor-apps.onrender.com/politica-privacidade-site`
+
+### Pendente (operador)
+- Render rewrite `/politica-privacidade-site` → `.html`
+- Play Console Data safety espelhar Firebase + pre-cadastro se aplicavel
+- Partner Center: privacy URL + declaracao de recolha conforme capabilities MSIX
+
+### Arquivos alterados
+- lib/site_public_urls.dart, lib/site_deferred_pages.dart, lib/main.dart, lib/pre_cadastro_page.dart
+- lib/l10n/site_policy_privacy_texts.dart, lib/l10n/play_store_app_legal_texts.dart
+- web/sitemap.xml, web/index.html, scripts/spa-legal-paths.cjs
+- docs/RENDER_SPA_REWRITE.md, docs/Checklist_critico.md, docs/Atualiza.md
+
+### Validacao
+- [x] `flutter analyze` (politicas + rotas)
+

@@ -216,7 +216,7 @@ class _PreCadastroPageState extends State<PreCadastroPage> {
                             Text(st.consentPrefix, style: siteBodyTextStyle(context, fontSize: 13)),
                             InkWell(
                               onTap: () => Navigator.of(context)
-                                  .pushNamed('/politica-privacidade-perfectgest-i'),
+                                  .pushNamed('/politica-privacidade-site'),
                               child: Text(
                                 st.consentLinkLabel,
                                 style: siteBodyTextStyle(context, fontSize: 13).copyWith(

@@ -131,6 +131,11 @@ class _PerfectProSiteAppState extends State<PerfectProSiteApp> {
                   settings: settings,
                   builder: (_) => buildPoliticaDevolucaoPage(),
                 );
+              case '/politica-privacidade-site':
+                return MaterialPageRoute<void>(
+                  settings: settings,
+                  builder: (_) => buildPoliticaPrivacidadeSitePage(onToggleTheme: _toggleTheme),
+                );
               case '/pre-cadastro':
                 return MaterialPageRoute<void>(
                   settings: settings,
