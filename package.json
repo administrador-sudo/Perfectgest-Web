@@ -2,6 +2,7 @@
   "scripts": {
     "test:elastic": "node scripts/test-elastic-deps.cjs",
     "server:elastic": "node scripts/elastic-ingest-server.js",
+    "server:leads": "node scripts/leads-api-server.js",
     "build:web:sync": "flutter build web --release --pwa-strategy=none",
     "serve:web:sync": "node scripts/serve-build-web.cjs",
     "local:web:sync": "npm run build:web:sync && npm run serve:web:sync",
@@ -9,6 +10,9 @@
   },
   "dependencies": {
     "@elastic/elasticsearch": "^9.3.4",
-    "express": "^5.2.1"
+    "cors": "^2.8.5",
+    "express": "^5.2.1",
+    "express-rate-limit": "^7.5.0",
+    "pg": "^8.16.0"
   }
 }

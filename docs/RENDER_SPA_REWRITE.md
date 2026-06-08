@@ -15,13 +15,14 @@ Isto publica `politica-devolucao.html` (e as outras) e **remove** ficheiros sem 
 
 **Apague** a regra global `/*` → `/index.html` se existir (pode dar pagina branca ou vazia).
 
-**Adicione tres regras Rewrite** (uma por linha, por esta ordem):
+**Adicione quatro regras Rewrite** (uma por linha, por esta ordem):
 
 | Source | Destination | Action |
 |--------|-------------|--------|
 | `/politica-devolucao` | `/politica-devolucao.html` | **Rewrite** |
 | `/politica-privacidade-perfectgest-i` | `/politica-privacidade-perfectgest-i.html` | **Rewrite** |
 | `/politica-exclusao-dados-perfectgest-i` | `/politica-exclusao-dados-perfectgest-i.html` | **Rewrite** |
+| `/pre-cadastro` | `/pre-cadastro.html` | **Rewrite** |
 
 O URL no browser continua `/politica-devolucao`; o conteudo vem do `.html` com tipo correto.
 
@@ -50,6 +51,8 @@ Tambem deve abrir.
 
 ## Home `/` e resto do site
 
-A home nao precisa de regra extra. So as tres rotas legais acima.
+A home nao precisa de regra extra. So as quatro rotas acima (legais + pre-cadastro).
 
 Documentacao Render: https://render.com/docs/redirects-rewrites
+
+**Cache / compressao (PageSpeed):** ver [`docs/RENDER_CACHE_HEADERS.md`](RENDER_CACHE_HEADERS.md).

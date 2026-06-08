@@ -35,6 +35,15 @@ const String _kOgDescriptionTecnologias =
     'Visão técnica do stack Perfect Gest Dev para mobile, web e desktop com foco em performance e previsibilidade.';
 const String _kDocumentTitleTecnologias = 'Parceiros tecnológicos | Perfect Gest Dev';
 
+const String _kMetaDescriptionPreCadastro =
+    'Pre-cadastro Perfect Gest Dev: deixe nome, e-mail e comentario para receber novidades sobre apps Flutter, web e integracoes Java.';
+const String _kMetaKeywordsPreCadastro =
+    'Perfect Gest Dev, pre-cadastro, newsletter, Flutter, software house, contato, leads';
+const String _kOgTitlePreCadastro = 'Pre-cadastro | Perfect Gest Dev';
+const String _kOgDescriptionPreCadastro =
+    'Formulario rapido para acompanhar lancamentos e solucoes da Perfect Gest Dev.';
+const String _kDocumentTitlePreCadastro = 'Pre-cadastro | Perfect Gest Dev';
+
 void _applyHomeSeoMetaTags() {
   _syncCanonicalFromLocation();
   _upsertMeta('description', _kMetaDescriptionHome);
@@ -90,6 +99,19 @@ void applyPoliticaSeoMetaTags() {
   _upsertMetaProperty('og:type', 'article');
   _upsertMetaProperty('og:locale', 'pt_BR');
   _setDocumentTitle(_kDocumentTitlePolitica);
+}
+
+/// Meta da pagina de pre-cadastro de leads.
+void applyPreCadastroSeoMetaTags() {
+  _syncCanonicalFromLocation();
+  _upsertMeta('description', _kMetaDescriptionPreCadastro);
+  _upsertMeta('keywords', _kMetaKeywordsPreCadastro);
+  _upsertMeta('robots', 'index, follow');
+  _upsertMetaProperty('og:title', _kOgTitlePreCadastro);
+  _upsertMetaProperty('og:description', _kOgDescriptionPreCadastro);
+  _upsertMetaProperty('og:type', 'website');
+  _upsertMetaProperty('og:locale', 'pt_BR');
+  _setDocumentTitle(_kDocumentTitlePreCadastro);
 }
 
 /// Restaura titulo e descricoes padrao da home ao sair de rotas institucionais.

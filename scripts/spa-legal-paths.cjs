@@ -23,6 +23,7 @@ const legalSegments = [
   'politica-devolucao',
   'politica-privacidade-perfectgest-i',
   'politica-exclusao-dados-perfectgest-i',
+  'pre-cadastro',
 ];
 
 for (const segment of legalSegments) {

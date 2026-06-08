@@ -12,10 +12,11 @@ Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs,
 
 ## Estado atual consolidado
 
-- Projeto: `webs/Web_app`
-- Stack principal: Flutter Web + assets web + docs operacionais
-- Objetivo de manutencao: evoluir sem regressao funcional
-- Situacao deste momento: inicializacao do sistema de acompanhamento criada
+- Projeto: `webs/Web_perfectgest/`
+- Pacote: `perfectpro_web`
+- Stack principal: Flutter Web + assets web + docs operacionais + scripts npm
+- Escopo IA: somente esta pasta (até segunda ordem do operador)
+- Objetivo de manutencao: evoluir sem regressao funcional (SEO, legal, Render)
 
 ## KPIs de qualidade (atualizacao continua)
 
@@ -1463,4 +1464,76 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 
 ### Validacao
 - [x] `flutter analyze` (0 issues)
+
+## [2026-06-08] Escopo IA — somente Web_perfectgest
+
+### Pedido (operador Marcos)
+- Até segunda ordem: **todas** as alterações de código/docs **somente** em `webs/Web_perfectgest/`.
+- **Não** misturar com `apps/PerfectGest-I/`, `Clinica/`, `ClinicaGestAndroid/`, etc.
+
+### Contexto lido
+- `docs/Prompt_IA.md` — conduta (respostas curtas, PT+EN+ES, secção «Resumo»).
+- `.cursorrules` — ler ficheiro antes de alterar; UI estática só com ordem; planeamento em `docs/Atualiza.md`.
+- Pacote Flutter: `perfectpro_web` · deploy Render · docs legais espelham app PerfectGest I.
+
+### Nota para IAs
+- Entrada canónica: `docs/Prompt_IA.md` + «Estado actual consolidado» neste ficheiro.
+
+### Arquivos alterados
+- docs/Atualiza.md
+
+### Validacao
+- [x] Leitura Prompt_IA + .cursorrules
+- [ ] N/A (sem build nesta entrega)
+
+## [2026-06-08] Caminhos canónicos — Web_app → Web_perfectgest
+
+### Pedido
+- Corrigir apontamentos legados `webs/Web_app/` e `apps/novo_app/` nos docs de entrada IA.
+
+### O que foi feito
+- `docs/Prompt_IA.md` reescrito para site Flutter Web (`perfectpro_web`), escopo `Web_perfectgest`, app relacionado `PerfectGest-I`.
+- «Estado actual consolidado» em `docs/Atualiza.md` actualizado.
+- `docs/FICHA_TECNICA_SITE.md` — raiz e referências corrigidas.
+
+### Arquivos alterados
+- docs/Prompt_IA.md
+- docs/Atualiza.md
+- docs/FICHA_TECNICA_SITE.md
+- docs/Checklist_critico.md
+
+### Validacao
+- [x] Grep sem `Web_app` nos três ficheiros de entrada (histórico antigo em Atualiza mantido)
+
+## [2026-06-08] Pre-cadastro de leads — pagina publica + API
+
+### Pedido
+- Formulario simples (nome, e-mail, comentario opcional) com consentimento LGPD.
+- URL publica para redes sociais e campanhas.
+- Backend Node + PostgreSQL no Render (credenciais so no servidor).
+
+### URL publica
+- `https://perfectgest-web-desenvolvedor-apps.onrender.com/pre-cadastro`
+
+### O que foi feito
+- Rota Flutter `/pre-cadastro` com pagina deferred, SEO dedicado e item no header (desktop + menu compact).
+- Chip «Pre-cadastro» na seccao Contato (mobile).
+- `LeadCaptureService` POST para API configuravel via `--dart-define=LEADS_API_URL=...`.
+- `scripts/leads-api-server.js` (Express + pg + CORS + rate limit + honeypot).
+- `spa-legal-paths.cjs` gera `pre-cadastro.html`; sitemap e docs Render actualizados.
+
+### Deploy pendente (operador)
+- Render Static Site: regra Rewrite `/pre-cadastro` → `/pre-cadastro.html`.
+- Render Web Service `perfectgest-leads-api`: `npm run server:leads`, env `DATABASE_URL` + `ALLOWED_ORIGINS`.
+- Build web com URL da API quando o servico estiver no ar.
+
+### Arquivos alterados
+- lib/pre_cadastro_page.dart, lib/lead_capture_service.dart, lib/lead_api_config.dart, lib/site_public_urls.dart
+- lib/site_deferred_pages.dart, lib/main.dart, lib/seo_meta_web.dart, lib/seo_meta_stub.dart
+- lib/l10n/site_pre_cadastro_texts.dart, app_pt.arb, app_en.arb, app_es.arb, app_localizations.dart
+- scripts/leads-api-server.js, scripts/spa-legal-paths.cjs, package.json, package-lock.json
+- web/sitemap.xml, docs/RENDER_SPA_REWRITE.md, docs/Atualiza.md
+
+### Validacao
+- [x] `flutter analyze` (ficheiros do pre-cadastro)
 

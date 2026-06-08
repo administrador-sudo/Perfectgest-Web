@@ -51,6 +51,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^6.0.0
+  image: ^4.5.4
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -79,6 +80,11 @@ flutter:
     - "IMAGENS_APP/Screenshot/PerfectGest (2).png"
     - IMAGENS_APP/Screenshot/tablet_01_inicio.jpg
     - IMAGENS_APP/Screenshot/tablet_02_orcamentos.jpg
+    - IMAGENS_APP/Screenshot/phone_03_inicio.webp
+    - "IMAGENS_APP/Screenshot/PerfectGest (1).webp"
+    - "IMAGENS_APP/Screenshot/PerfectGest (2).webp"
+    - IMAGENS_APP/Screenshot/tablet_01_inicio.webp
+    - IMAGENS_APP/Screenshot/tablet_02_orcamentos.webp
 
   fonts:
     - family: Inter

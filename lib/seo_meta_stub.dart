@@ -10,6 +10,8 @@ void applyTecnologiasSeoMetaTags() {}
 
 void applyPoliticaSeoMetaTags() {}
 
+void applyPreCadastroSeoMetaTags() {}
+
 void restoreGlobalSeoMetaTags() {}
 
 void syncCanonicalToCurrentUrl() {}

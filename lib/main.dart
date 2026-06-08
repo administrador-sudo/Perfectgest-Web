@@ -9,6 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'app_theme.dart';
+import 'asset_screenshot.dart';
 import 'company_legal.dart';
 import 'l10n/app_localizations.dart';
 import 'locale_controller.dart';
@@ -129,6 +130,11 @@ class _PerfectProSiteAppState extends State<PerfectProSiteApp> {
                 return MaterialPageRoute<void>(
                   settings: settings,
                   builder: (_) => buildPoliticaDevolucaoPage(),
+                );
+              case '/pre-cadastro':
+                return MaterialPageRoute<void>(
+                  settings: settings,
+                  builder: (_) => buildPreCadastroPage(onToggleTheme: _toggleTheme),
                 );
               case '/amostra-metal':
                 return MaterialPageRoute<void>(
@@ -315,7 +321,11 @@ class _SiteHomePageState extends State<SiteHomePage> {
           if (isDark) const MetallicVividBackground(),
           SingleChildScrollView(
             controller: _scrollController,
-            child: Column(
+            child: Semantics(
+              container: true,
+              explicitChildNodes: true,
+              label: l10n.siteMainLandmarkSemantics,
+              child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: isMobileNav ? 12 : _headerHeight + 12),
@@ -363,6 +373,7 @@ class _SiteHomePageState extends State<SiteHomePage> {
                 SizedBox(height: kIsWeb ? 100 : 24),
               ],
             ),
+            ),
           ),
           if (!isMobileNav)
             Positioned(
@@ -377,6 +388,10 @@ class _SiteHomePageState extends State<SiteHomePage> {
                 onPortfolio: () => _scrollTo(_portfolioKey),
                 onAbout: () => Navigator.of(context).push<void>(
                       MaterialPageRoute<void>(builder: (_) => SobreNosPage(onToggleTheme: widget.onToggleTheme)),
+                    ),
+                onPreCadastro: () => openPreCadastroPage(
+                      context,
+                      onToggleTheme: widget.onToggleTheme,
                     ),
                 onContact: () => _scrollTo(_contactKey),
               ),
@@ -1086,6 +1101,7 @@ class SiteHeader extends StatelessWidget {
     required this.onSolutions,
     required this.onPortfolio,
     required this.onAbout,
+    required this.onPreCadastro,
     required this.onContact,
   });
 
@@ -1095,6 +1111,7 @@ class SiteHeader extends StatelessWidget {
   final VoidCallback onSolutions;
   final VoidCallback onPortfolio;
   final VoidCallback onAbout;
+  final VoidCallback onPreCadastro;
   final VoidCallback onContact;
 
   @override
@@ -1104,7 +1121,8 @@ class SiteHeader extends StatelessWidget {
     final isCompact = MediaQuery.sizeOf(context).width < 980;
     final l10n = AppLocalizations.of(context);
     return Semantics(
-      label: 'Cabecalho fixo com navegacao principal',
+      header: true,
+      label: l10n.siteHeaderLandmarkSemantics,
       child: Container(
         height: height,
         padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -1177,6 +1195,8 @@ class SiteHeader extends StatelessWidget {
                                 onPortfolio();
                               case 'about':
                                 onAbout();
+                              case 'precadastro':
+                                onPreCadastro();
                               case 'contact':
                                 onContact();
                             }
@@ -1186,6 +1206,7 @@ class SiteHeader extends StatelessWidget {
                             PopupMenuItem(value: 'solutions', child: Text(l10n.navSolutions)),
                             PopupMenuItem(value: 'portfolio', child: Text(l10n.navPortfolio)),
                             PopupMenuItem(value: 'about', child: Text(l10n.navAbout)),
+                            PopupMenuItem(value: 'precadastro', child: Text(l10n.navPreCadastro)),
                             PopupMenuItem(value: 'contact', child: Text(l10n.navContact)),
                           ],
                         ),
@@ -1204,6 +1225,7 @@ class SiteHeader extends StatelessWidget {
                       _HeaderBtn(label: l10n.navSolutions, onTap: onSolutions),
                       _HeaderBtn(label: l10n.navPortfolio, onTap: onPortfolio),
                       _HeaderBtn(label: l10n.navAbout, onTap: onAbout),
+                      _HeaderBtn(label: l10n.navPreCadastro, onTap: onPreCadastro),
                       _HeaderBtn(label: l10n.navContact, onTap: onContact),
                     ],
                   ),
@@ -1511,12 +1533,17 @@ class AnimatedSolutionsSectionContent extends StatefulWidget {
 }
 
 class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSectionContent> with TickerProviderStateMixin {
+  static const int _mockupCount = 4;
   late final AnimationController _floatCtrl = AnimationController(vsync: this, duration: const Duration(seconds: 5));
   late final AnimationController _enterCtrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 1200));
+  int _loadedMockupCount = kIsWeb ? 0 : _mockupCount;
 
   @override
   void initState() {
     super.initState();
+    if (kIsWeb) {
+      WidgetsBinding.instance.addPostFrameCallback((_) => _scheduleNextMockupImage(0));
+    }
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
       if (allowRichMotion(context)) {
@@ -1525,6 +1552,17 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
         _floatCtrl.value = 0;
       }
       _enterCtrl.forward(from: 0);
+    });
+  }
+
+  void _scheduleNextMockupImage(int index) {
+    if (!mounted || index >= _mockupCount) return;
+    Future<void>.delayed(Duration(milliseconds: index * 280), () {
+      if (!mounted) return;
+      setState(() => _loadedMockupCount = index + 1);
+      if (index + 1 < _mockupCount) {
+        _scheduleNextMockupImage(index + 1);
+      }
     });
   }
 
@@ -1578,6 +1616,7 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
                           imageWidth: 136,
                           imageHeight: 297,
                           previewCaption: l10n.solPreviewPhoneInicio,
+                          loadImage: _loadedMockupCount > 0,
                         ),
                       ),
                       _floatedDevice(
@@ -1594,6 +1633,7 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
                           imageWidth: 136,
                           imageHeight: 297,
                           previewCaption: l10n.solPreviewPhoneOrcamentos,
+                          loadImage: _loadedMockupCount > 1,
                         ),
                       ),
                       _floatedDevice(
@@ -1610,6 +1650,7 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
                           imageWidth: 168,
                           imageHeight: 276,
                           previewCaption: l10n.solPreviewTabletInicio,
+                          loadImage: _loadedMockupCount > 2,
                         ),
                       ),
                       _floatedDevice(
@@ -1626,6 +1667,7 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
                           imageWidth: 168,
                           imageHeight: 276,
                           previewCaption: l10n.solPreviewTabletOrcamentos,
+                          loadImage: _loadedMockupCount > 3,
                         ),
                       ),
                     ],
@@ -1839,6 +1881,13 @@ class _ContactMotionBlockState extends State<ContactMotionBlock> with TickerProv
                 backgroundColor: cs.surface,
               ),
               ActionChip(
+                avatar: Icon(Icons.how_to_reg_outlined, size: 18, color: cs.primary),
+                label: Text(l10n.navPreCadastro, style: const TextStyle(fontSize: 12.5)),
+                onPressed: () => openPreCadastroPage(context),
+                side: BorderSide(color: cs.outline),
+                backgroundColor: cs.surface,
+              ),
+              ActionChip(
                 avatar: Icon(Icons.alternate_email_rounded, size: 18, color: cs.primary),
                 label: Text(kEmailSac, style: const TextStyle(fontSize: 12.5)),
                 onPressed: _openSacEmail,
@@ -1924,6 +1973,7 @@ class DeviceFrame extends StatelessWidget {
     required this.imageHeight,
     this.withDesktopBar = false,
     this.previewCaption,
+    this.loadImage = true,
   });
 
   final String title;
@@ -1940,6 +1990,7 @@ class DeviceFrame extends StatelessWidget {
 
   /// Se definido, o mockup abre a captura em tamanho grande ao toque/clique.
   final String? previewCaption;
+  final bool loadImage;
 
   @override
   Widget build(BuildContext context) {
@@ -1996,27 +2047,17 @@ class DeviceFrame extends StatelessWidget {
                             borderRadius: BorderRadius.circular(12),
                             child: ColoredBox(
                               color: isDark ? const Color(0xFF0C0C0C) : const Color(0xFFE4E7EA),
-                              child: Image.asset(
-                                imageAsset,
-                                fit: BoxFit.cover,
-                                alignment: Alignment.topCenter,
-                                cacheWidth: decodeW,
-                                cacheHeight: decodeH,
-                                errorBuilder: (context, error, stackTrace) {
-                                  if (fallbackImageAsset != null) {
-                                    return Image.asset(
-                                      fallbackImageAsset!,
+                              child: loadImage
+                                  ? buildScreenshotAssetImage(
+                                      assetPath: imageAsset,
+                                      fallbackAssetPath: fallbackImageAsset,
                                       fit: BoxFit.cover,
                                       alignment: Alignment.topCenter,
                                       cacheWidth: decodeW,
                                       cacheHeight: decodeH,
-                                      errorBuilder: (context, error, stackTrace) =>
-                                          ColoredBox(color: cs.surfaceContainerHigh),
-                                    );
-                                  }
-                                  return ColoredBox(color: cs.surfaceContainerHigh);
-                                },
-                              ),
+                                      brokenPlaceholder: ColoredBox(color: cs.surfaceContainerHigh),
+                                    )
+                                  : ColoredBox(color: cs.surfaceContainerHigh),
                             ),
                           ),
                         ),

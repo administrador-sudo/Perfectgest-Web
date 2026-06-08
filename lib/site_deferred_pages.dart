@@ -5,6 +5,7 @@ import 'elastic_service.dart' deferred as elastic;
 import 'legal_subpages.dart' deferred as legal;
 import 'metallic_preview_page.dart' deferred as metallic;
 import 'politica_page.dart' deferred as politica;
+import 'pre_cadastro_page.dart' deferred as pre_cadastro;
 import 'tecnologias_page.dart' deferred as tecnologias;
 
 /// IDs de tópicos (espelham [tecnologias.TecnologiasPage] no chunk diferido).
@@ -78,6 +79,26 @@ Widget buildPoliticaDevolucaoPage() {
   return DeferredRouteLoader(
     loadLibrary: devolucao.loadLibrary,
     builder: () => devolucao.PoliticaDevolucaoPage(),
+  );
+}
+
+Widget buildPreCadastroPage({VoidCallback? onToggleTheme}) {
+  return DeferredRouteLoader(
+    loadLibrary: pre_cadastro.loadLibrary,
+    builder: () => pre_cadastro.PreCadastroPage(onToggleTheme: onToggleTheme),
+  );
+}
+
+Future<void> openPreCadastroPage(
+  BuildContext context, {
+  VoidCallback? onToggleTheme,
+}) async {
+  await pre_cadastro.loadLibrary();
+  if (!context.mounted) return;
+  await Navigator.of(context).push<void>(
+    MaterialPageRoute<void>(
+      builder: (_) => pre_cadastro.PreCadastroPage(onToggleTheme: onToggleTheme),
+    ),
   );
 }
 

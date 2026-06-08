@@ -62,44 +62,91 @@
   <link rel="manifest" href="manifest.json">
   <!-- Descobre o bootstrap mais cedo (não bloqueia parsing; ajuda o browser a planear a rede) -->
   <link rel="preload" href="flutter_bootstrap.js" as="script">
+  <link rel="preload" href="icons/Icon-192.png" as="image" type="image/png">
   <style>
-    #pp-loading-shell {
+    #pp-static-landing {
       position: fixed;
       inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #0f1418;
-      color: #e8f7fa;
       z-index: 9999;
+      overflow-y: auto;
+      background: linear-gradient(165deg, #0f1418 0%, #111820 45%, #0c1014 100%);
+      color: #e8f7fa;
       font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       transition: opacity 220ms ease;
     }
-    #pp-loading-shell.hidden {
+    #pp-static-landing.hidden {
       opacity: 0;
       pointer-events: none;
     }
-    #pp-loading-shell .card {
-      text-align: center;
-      padding: 20px 24px;
-      border: 1px solid rgba(0, 180, 200, 0.35);
+    #pp-static-landing .wrap {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 28px 24px 40px;
+    }
+    #pp-static-landing .brand-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+    #pp-static-landing .brand-row img {
+      width: 56px;
+      height: 56px;
       border-radius: 12px;
-      background: rgba(17, 24, 29, 0.88);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
-      max-width: 420px;
-      width: calc(100% - 40px);
+      flex-shrink: 0;
     }
-    #pp-loading-shell .brand {
-      margin: 0 0 8px;
-      font-size: 20px;
-      font-weight: 700;
-      color: #00b4c8;
-    }
-    #pp-loading-shell .sub {
+    #pp-static-landing .brand {
       margin: 0;
-      font-size: 14px;
-      line-height: 1.45;
+      font-size: 22px;
+      font-weight: 800;
+      color: #00b4c8;
+      letter-spacing: 0.02em;
+    }
+    #pp-static-landing h1 {
+      margin: 0 0 12px;
+      font-size: clamp(1.35rem, 2.8vw, 1.75rem);
+      font-weight: 800;
+      line-height: 1.2;
+      color: #f0fbfd;
+    }
+    #pp-static-landing .lead {
+      margin: 0 0 14px;
+      font-size: clamp(0.95rem, 2vw, 1.05rem);
+      line-height: 1.55;
+      color: rgba(232, 247, 250, 0.88);
+      max-width: 720px;
+    }
+    #pp-static-landing .sub {
+      margin: 0 0 20px;
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: rgba(232, 247, 250, 0.72);
+      max-width: 680px;
+    }
+    #pp-static-landing .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border: 1px solid rgba(0, 180, 200, 0.35);
+      border-radius: 10px;
+      background: rgba(17, 24, 29, 0.88);
+      font-size: 0.88rem;
       color: rgba(232, 247, 250, 0.84);
+    }
+    #pp-static-landing .spinner {
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(0, 180, 200, 0.25);
+      border-top-color: #00b4c8;
+      border-radius: 50%;
+      animation: pp-spin 0.85s linear infinite;
+    }
+    @keyframes pp-spin {
+      to { transform: rotate(360deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #pp-static-landing .spinner { animation: none; border-top-color: #00b4c8; }
     }
   </style>
   <script>
@@ -128,23 +175,34 @@
     For more details:
     * https://docs.flutter.dev/platform-integration/web/initialization
   -->
-  <div id="pp-loading-shell" aria-live="polite">
-    <div class="card">
-      <p class="brand">Perfect Gest Dev</p>
-      <p class="sub">Carregando experiência Web de alta performance...</p>
-    </div>
+  <div id="pp-static-landing" aria-busy="true">
+    <main class="wrap" role="main">
+      <header class="brand-row" role="banner">
+        <img src="icons/Icon-192.png" width="56" height="56" alt="Perfect Gest Dev" decoding="async">
+        <p class="brand">Perfect Gest Dev</p>
+      </header>
+      <h1>Inovacao em Flutter, Java e SDKs</h1>
+      <p class="lead">Criamos apps Flutter, sistemas web e integracoes Java/SDK com foco em performance, seguranca e escalabilidade para o seu negocio.</p>
+      <p class="sub">Software house especializada em aplicativo mobile, plataforma web rapida (Core Web Vitals) e SEO tecnico para crescer no Google.</p>
+      <p class="status" role="status" aria-live="polite">
+        <span class="spinner" aria-hidden="true"></span>
+        <span>Carregando experiencia Web de alta performance...</span>
+      </p>
+    </main>
   </div>
   <script>
     (function () {
-      const shell = document.getElementById('pp-loading-shell');
-      if (!shell) return;
+      const landing = document.getElementById('pp-static-landing');
+      if (!landing) return;
       if (window.__ppSkipLoadingShell) {
-        shell.remove();
+        landing.remove();
         return;
       }
       const hide = () => {
-        shell.classList.add('hidden');
-        setTimeout(() => shell.remove(), 260);
+        landing.setAttribute('aria-hidden', 'true');
+        landing.setAttribute('aria-busy', 'false');
+        landing.classList.add('hidden');
+        setTimeout(() => landing.remove(), 260);
       };
       window.addEventListener('flutter-first-frame', hide, { once: true });
       const observer = new MutationObserver(() => {

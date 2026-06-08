@@ -41,6 +41,7 @@ abstract class AppLocalizations {
   String get navPortfolio;
   String get navAboutShort;
   String get navAbout;
+  String get navPreCadastro;
   String get navContact;
   String get menuToggleTheme;
   String get menuOpen;
@@ -53,6 +54,8 @@ abstract class AppLocalizations {
   String get heroSemanticsLabel;
   String get siteBrandLogoSemantics;
   String get heroBrandLinkSemantics;
+  String get siteHeaderLandmarkSemantics;
+  String get siteMainLandmarkSemantics;
   String get heroHeadline1;
   String get heroHeadline2;
   String get heroSubline;
@@ -97,6 +100,7 @@ abstract class AppLocalizations {
   String get cookieSnackReload;
 
   String get solShowcaseSemantics;
+  String get solPreviewDialogSemantics;
   String get solShowcaseTapToExpand;
   String get solPreviewPhoneInicio;
   String get solPreviewPhoneOrcamentos;
@@ -196,6 +200,8 @@ class _AppLocalizationsPt extends AppLocalizations {
   @override
   String get navAbout => 'Sobre nós';
   @override
+  String get navPreCadastro => 'Pré-cadastro';
+  @override
   String get navContact => 'Contato';
   @override
   String get menuToggleTheme => 'Alternar tema';
@@ -216,6 +222,10 @@ class _AppLocalizationsPt extends AppLocalizations {
   String get siteBrandLogoSemantics => 'Logotipo Perfect Gest Dev';
   @override
   String get heroBrandLinkSemantics => 'Perfect Gest Dev, ir para a raiz do site';
+  @override
+  String get siteHeaderLandmarkSemantics => 'Cabecalho com navegacao principal';
+  @override
+  String get siteMainLandmarkSemantics => 'Conteudo principal do site';
   @override
   String get heroHeadline1 => 'Inovacao em Flutter, Java e SDKs';
   @override
@@ -311,6 +321,8 @@ class _AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get solShowcaseSemantics => 'Vitrine de projetos em mockups de dispositivos';
+  @override
+  String get solPreviewDialogSemantics => 'Pre-visualizacao ampliada da captura de ecrã';
   @override
   String get solShowcaseTapToExpand => 'Clique para ampliar a captura de tela';
   @override
@@ -438,6 +450,8 @@ class _AppLocalizationsEn extends AppLocalizations {
   @override
   String get navAbout => 'About us';
   @override
+  String get navPreCadastro => 'Pre-registration';
+  @override
   String get navContact => 'Contact';
   @override
   String get menuToggleTheme => 'Toggle theme';
@@ -458,6 +472,10 @@ class _AppLocalizationsEn extends AppLocalizations {
   String get siteBrandLogoSemantics => 'Perfect Gest Dev logo';
   @override
   String get heroBrandLinkSemantics => 'Perfect Gest Dev, go to site home';
+  @override
+  String get siteHeaderLandmarkSemantics => 'Header with main navigation';
+  @override
+  String get siteMainLandmarkSemantics => 'Main site content';
   @override
   String get heroHeadline1 => 'Innovation in Flutter, Java and SDKs';
   @override
@@ -553,6 +571,8 @@ class _AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get solShowcaseSemantics => 'Project showcase in device mockups';
+  @override
+  String get solPreviewDialogSemantics => 'Enlarged screenshot preview dialog';
   @override
   String get solShowcaseTapToExpand => 'Click to enlarge the screenshot';
   @override
@@ -680,6 +700,8 @@ class _AppLocalizationsEs extends AppLocalizations {
   @override
   String get navAbout => 'Sobre nosotros';
   @override
+  String get navPreCadastro => 'Pre-registro';
+  @override
   String get navContact => 'Contacto';
   @override
   String get menuToggleTheme => 'Cambiar tema';
@@ -700,6 +722,10 @@ class _AppLocalizationsEs extends AppLocalizations {
   String get siteBrandLogoSemantics => 'Logotipo Perfect Gest Dev';
   @override
   String get heroBrandLinkSemantics => 'Perfect Gest Dev, ir a la raíz del sitio';
+  @override
+  String get siteHeaderLandmarkSemantics => 'Encabezado con navegacion principal';
+  @override
+  String get siteMainLandmarkSemantics => 'Contenido principal del sitio';
   @override
   String get heroHeadline1 => 'Innovación en Flutter, Java y SDKs';
   @override
@@ -795,6 +821,8 @@ class _AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get solShowcaseSemantics => 'Vitrina de proyectos en maquetas de dispositivos';
+  @override
+  String get solPreviewDialogSemantics => 'Dialogo de vista previa ampliada de la captura';
   @override
   String get solShowcaseTapToExpand => 'Pulse para ampliar la captura de pantalla';
   @override
