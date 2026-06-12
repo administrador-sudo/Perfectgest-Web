@@ -20,26 +20,34 @@ Isto publica `politica-devolucao.html` (e as outras) e **remove** ficheiros sem 
 | Source | Destination | Action |
 |--------|-------------|--------|
 | `/politica-devolucao` | `/politica-devolucao.html` | **Rewrite** |
-| `/politica-privacidade-perfectgest-i` | `/politica-privacidade-perfectgest-i.html` | **Rewrite** |
-| `/politica-exclusao-dados-perfectgest-i` | `/politica-exclusao-dados-perfectgest-i.html` | **Rewrite** |
+| `/politica-privacidade-perfectgest-i` | `/politica-privacidade-perfectgest-i.html` | **Rewrite** (HTML redirect → Google Sites) |
+| `/politica-exclusao-dados-perfectgest-i` | `/politica-exclusao-dados-perfectgest-i.html` | **Rewrite** (HTML redirect → Google Sites) |
 | `/politica-privacidade-site` | `/politica-privacidade-site.html` | **Rewrite** |
 | `/pre-cadastro` | `/pre-cadastro.html` | **Rewrite** |
+
+As duas rotas `…-perfectgest-i` servem **redirect estático** para o portal Google Sites (políticas da app). O site institucional mantém só `/politica-privacidade-site`.
 
 O URL no browser continua `/politica-devolucao`; o conteudo vem do `.html` com tipo correto.
 
 ### 3) Testar
 
-Janela anonima:
+Janela anónima (domínio canónico):
+
+`https://perfectgestdev.com/politica-devolucao`
+
+Espelho Render (durante transição):
 
 `https://perfectgest-web-desenvolvedor-apps.onrender.com/politica-devolucao`
 
-Deve abrir a pagina (nao download, nao branco).
+Deve abrir a página (não download, não branco).
 
-Teste direto do HTML:
+Redirect legado da app:
 
-`.../politica-devolucao.html`
+`https://perfectgestdev.com/politica-privacidade-perfectgest-i` → Google Sites
 
-Tambem deve abrir.
+Teste directo do HTML:
+
+`https://perfectgestdev.com/politica-devolucao.html`
 
 ---
 

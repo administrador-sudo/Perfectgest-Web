@@ -6,9 +6,9 @@
 
 ## Conformidade Play Console e Microsoft Store (2026-06-08)
 
-**Site institucional:** `https://perfectgestdev.com` — vitrine da empresa (política **do site**).
+**Site institucional:** `https://perfectgestdev.com` — vitrine neutra da empresa (sem citar lojas de distribuição).
 
-**App PerfectGest I (legal canónico):** Google Sites — ver `apps/PerfectGest-I/docs/google_sites/LINKS_EXTERNOS.md`
+**App PerfectGest I (legal canónico para consolas):** portal externo — ver `apps/PerfectGest-I/docs/google_sites/LINKS_EXTERNOS.md`. Os nomes das plataformas de distribuição aparecem **só** nesse portal e na documentação interna (`docs/Checklist_critico.md`), não no site público.
 
 | Campo / requisito | Google Play Console | Microsoft Partner Center | URL canónica |
 |-------------------|---------------------|--------------------------|--------------|
@@ -27,7 +27,7 @@ Rotas legadas no domínio do site (`/politica-privacidade-perfectgest-i`, etc.) 
 - [x] LGPD + direitos do titular (app e site)
 - [x] Consentimento explícito no pré-cadastro → política do **site**
 - [x] Cookies/GA só após consentimento (`pp_cookie_consent`)
-- [x] App: local-first + Firebase mínimo descrito; lojas Google Play **e** Microsoft Store referidas
+- [x] App: local-first + Firebase mínimo descrito (portal de suporte); site institucional neutro face a lojas
 - [ ] Play Console: Data safety alinhada ao texto (Firebase, identificador dispositivo, e-mail se pré-cadastro)
 - [ ] Partner Center: marcar recolha de dados se o pacote MSIX declarar capabilities sensíveis
 - [ ] Render: rewrites para `/politica-privacidade-site` e restantes rotas (ver `docs/RENDER_SPA_REWRITE.md`)

@@ -1,7 +1,11 @@
-# Checklist Google Play Store — PerfectPro One
+# Checklist Google Play Store — PerfectGest I
 
-**App ID:** `com.perfectpro.one`  
-**Nome na loja:** PerfectPro One  
+**App ID:** `br.com.perfectpro.one`  
+**Nome na loja:** PerfectGest I  
+**Código-fonte:** `apps/PerfectGest-I/` (este ficheiro está em `webs/Web_perfectgest/docs/` por conveniência de conformidade conjunta site + app).
+
+**URLs legais canónicas (Google Sites):** ver [`Checklist_critico.md`](Checklist_critico.md) e `apps/PerfectGest-I/docs/google_sites/LINKS_EXTERNOS.md`.
+
 **Objetivo:** lista única para publicação e conformidade na Play Console.
 
 Marque `[x]` quando cada item estiver concluído e validado.
@@ -16,8 +20,8 @@ Marque `[x]` quando cada item estiver concluído e validado.
 - [ ] **App criado** na Console com o mesmo **nome** e **idioma predefinido** pretendidos para a ficha.
   - *Como cumprir:* **Todos os apps** → **Criar app** → preencher nome, tipo (app ou jogo), gratuito/pago.
 
-- [ ] **ID da aplicação** na Console = `com.perfectpro.one` (não alterável após a primeira publicação).
-  - *Como cumprir:* Confirmar no primeiro upload do AAB que o `applicationId` do projeto coincide (já definido em `android/app/build.gradle.kts`).
+- [ ] **ID da aplicação** na Console = `br.com.perfectpro.one` (não alterável após a primeira publicação).
+  - *Como cumprir:* Confirmar no primeiro upload do AAB que o `applicationId` do projeto coincide (`apps/PerfectGest-I/android/app/build.gradle.kts`).
 
 ---
 
@@ -30,7 +34,7 @@ Marque `[x]` quando cada item estiver concluído e validado.
   - *Como cumprir:* Copiar de `android/key.properties.example`; preencher `storePassword`, `keyPassword`, `keyAlias`, `storeFile`; garantir que `android/.gitignore` ignora `key.properties` e `*.jks` / `*.keystore`.
 
 - [ ] **AAB de release** gerado e testado antes de cada envio relevante.
-  - *Como cumprir:* Na raiz do app (`pubspec.yaml`):
+  - *Como cumprir:* Na raiz do app (`apps/PerfectGest-I/`, `pubspec.yaml`):
     ```text
     flutter pub get
     flutter test
@@ -75,10 +79,10 @@ Marque `[x]` quando cada item estiver concluído e validado.
 ## 5) Política de privacidade, dados e conta
 
 - [ ] **URL pública da política de privacidade** na ficha da loja e **igual** à referência no código.
-  - *Como cumprir:* **Política da app** → **Política de privacidade** → colar URL. No projeto: `lib/config/legal_urls.dart` (`kPrivacyPolicyUrl`). Texto de referência: `docs/politica_privacidade.md`.
+  - *Como cumprir:* **Política da app** → **Política de privacidade** → colar URL Google Sites. No projeto: `apps/PerfectGest-I/lib/config/legal_urls.dart`. Texto de referência: `docs/Politica_Privacidade_PerfectGest_I.md` (canónico no Google Sites).
 
 - [ ] **URL de informação sobre eliminação de dados / conta** (quando a Play exigir para o tipo de app).
-  - *Como cumprir:* Inserir na Console onde solicitado. No código: `kAccountDeletionInfoUrl` em `legal_urls.dart`. Documento: `docs/Eliminacao_de_Dados.md`.
+  - *Como cumprir:* Inserir na Console onde solicitado. No código: `legal_urls.dart`. Documento: `docs/Politica_Exclusao_Dados_PerfectGest_I.md` (canónico no Google Sites).
 
 - [ ] **Formulário Data safety** preenchido de forma **consistente** com o que a app faz (armazenamento local, permissões, partilha, encriptação).
   - *Como cumprir:* **Política da app** → **Segurança dos dados** → declarar tipos de dados recolhidos, finalidade, se são partilhados, retenção. Revisar permissões em `AndroidManifest.xml` e fluxos (câmara, ficheiros, faturação, etc.).
@@ -138,16 +142,19 @@ Marque `[x]` quando cada item estiver concluído e validado.
 
 | Tema | Caminho |
 |------|---------|
-| URLs legais no app | `lib/config/legal_urls.dart` |
-| Política (texto) | `docs/politica_privacidade.md` |
-| Eliminação de dados (texto) | `docs/Eliminacao_de_Dados.md` |
-| Checklist técnico amplo | `docs/Atualizacoes_Adequacao_console.md` |
-| Build release | `build/app/outputs/bundle/release/app-release.aab` |
+| URLs legais no app | `apps/PerfectGest-I/lib/config/legal_urls.dart` |
+| URLs no site (Soluções) | `webs/Web_perfectgest/lib/app_legal_urls.dart` |
+| Política (texto ref.) | `webs/Web_perfectgest/docs/Politica_Privacidade_PerfectGest_I.md` |
+| Eliminação (texto ref.) | `webs/Web_perfectgest/docs/Politica_Exclusao_Dados_PerfectGest_I.md` |
+| Checklist site + lojas | `webs/Web_perfectgest/docs/Checklist_critico.md` |
+| Build release | `apps/PerfectGest-I/build/app/outputs/bundle/release/app-release.aab` |
 
-**URLs atualmente no código** (devem coincidir com o que está na Console):
+**URLs canónicas (Google Sites — devem coincidir com a Console):**
 
-- Privacidade: `https://sites.google.com/view/politica-privacidade-perfect/home`
-- Exclusão de dados: `https://sites.google.com/view/excluso-de-dados-perfectpro/home`
+- Privacidade PT: `https://sites.google.com/view/perfectgest-i-faq-suporte/politica-em-pt`
+- Exclusão PT: `https://sites.google.com/view/perfectgest-exclusao-dados/exclus%C3%A3o-de-dados`
+- FAQ: `https://sites.google.com/view/perfectgest-i-faq-suporte/faq`
+- Site institucional: `https://perfectgestdev.com`
 
 ---
 

@@ -1696,3 +1696,40 @@ FROM site_leads ORDER BY created_at DESC;
 ### Validacao
 - [x] Revisão manual de links e consistência com `lib/site_public_urls.dart` / `lib/app_legal_urls.dart`
 
+## [2026-06-12] Site neutro — sem citar lojas de distribuição
+
+### Contexto
+- Pedido: site perfectgestdev = vitrine; compromisso com utilizadores; não tomar partido de Microsoft/Play Store no site; conformidade mantida no portal externo.
+
+### Arquivos alterados
+- lib/company_legal.dart, lib/app_legal_urls.dart, lib/app_theme.dart, lib/main.dart
+- lib/l10n/app_localizations.dart, app_pt/en/es.arb, site_returns_policy_texts.dart
+- docs/PROJETO_SITE.md, docs/Checklist_critico.md, docs/Atualiza.md
+
+### O que foi feito
+- Botão Soluções: «Obter o aplicativo» (ícone download); URL de distribuição só no código.
+- Política de devoluções e rodapé: linguagem neutra («canal de aquisição», portal de suporte do produto).
+- Documentação interna distingue site neutro vs portal legal para consolas.
+
+### Validacao
+- [x] `flutter analyze` + deploy
+
+## [2026-06-12] Rodape vitrine — sem politicas da app + deploy alinhado
+
+### Contexto
+- Pedido: politicas da app so na secao Solucoes; rodape = site only; documentacao + publish.
+
+### Arquivos alterados
+- lib/main.dart, lib/l10n/app_localizations.dart, app_pt/en/es.arb
+- docs/* (README, PROJETO_SITE, FICHA_TECNICA, Checklist, Atualiza, etc.)
+- scripts/publish-web.cjs (stage docs/ + README no commit de deploy)
+
+### O que foi feito
+- Removidos do rodape: FAQ app, privacidade app, exclusao app.
+- Rodape: politica do site + cookies Google; texto aponta Solucoes para PerfectGest I.
+- Deploy vitrine neutra + redirects legados + reorganizacao Solucoes.
+
+### Validacao
+- [x] `flutter analyze`
+- [x] `npm run publish-web` → Render main
+

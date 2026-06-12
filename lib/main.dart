@@ -782,7 +782,7 @@ class _CloudItem extends StatelessWidget {
   }
 }
 
-/// Rodapé da home: política do site + referências Google + links externos da app (Google Sites).
+/// Rodapé da home: política **do site** + referências oficiais de analytics (Google).
 class _HomeComplianceFooter extends StatelessWidget {
   const _HomeComplianceFooter({required this.onToggleTheme});
 
@@ -793,9 +793,6 @@ class _HomeComplianceFooter extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         final l10n = AppLocalizations.of(context);
-        final locale = Localizations.localeOf(context);
-        final appPrivacyUrl = appPrivacyPolicyUrlFor(locale);
-        final appDeletionUrl = appAccountDeletionUrlFor(locale);
         final w = constraints.hasBoundedWidth && constraints.maxWidth.isFinite
             ? constraints.maxWidth
             : MediaQuery.sizeOf(context).width;
@@ -869,24 +866,6 @@ class _HomeComplianceFooter extends StatelessWidget {
                                 'https://policies.google.com/terms',
                                 fontSize: w < 360 ? 12 : 12.5,
                               ),
-                              const SizedBox(height: 8),
-                              _policyLinkButton(
-                                l10n.footerLinkAppSupport,
-                                kAppSupportFaqUrl,
-                                fontSize: w < 360 ? 12 : 12.5,
-                              ),
-                              const SizedBox(height: 4),
-                              _policyLinkButton(
-                                l10n.footerLinkAppPrivacy,
-                                appPrivacyUrl,
-                                fontSize: w < 360 ? 12 : 12.5,
-                              ),
-                              const SizedBox(height: 4),
-                              _policyLinkButton(
-                                l10n.footerLinkAppDeletion,
-                                appDeletionUrl,
-                                fontSize: w < 360 ? 12 : 12.5,
-                              ),
                             ],
                           )
                         else
@@ -918,30 +897,6 @@ class _HomeComplianceFooter extends StatelessWidget {
                                   webOnlyWindowName: kIsWeb ? '_blank' : null,
                                 ),
                                 child: Text(l10n.footerLinkGoogleTerms, style: GoogleFonts.inter(fontSize: 12.5)),
-                              ),
-                              TextButton(
-                                onPressed: () => launchUrl(
-                                  Uri.parse(kAppSupportFaqUrl),
-                                  mode: LaunchMode.externalApplication,
-                                  webOnlyWindowName: kIsWeb ? '_blank' : null,
-                                ),
-                                child: Text(l10n.footerLinkAppSupport, style: GoogleFonts.inter(fontSize: 12.5)),
-                              ),
-                              TextButton(
-                                onPressed: () => launchUrl(
-                                  Uri.parse(appPrivacyUrl),
-                                  mode: LaunchMode.externalApplication,
-                                  webOnlyWindowName: kIsWeb ? '_blank' : null,
-                                ),
-                                child: Text(l10n.footerLinkAppPrivacy, style: GoogleFonts.inter(fontSize: 12.5)),
-                              ),
-                              TextButton(
-                                onPressed: () => launchUrl(
-                                  Uri.parse(appDeletionUrl),
-                                  mode: LaunchMode.externalApplication,
-                                  webOnlyWindowName: kIsWeb ? '_blank' : null,
-                                ),
-                                child: Text(l10n.footerLinkAppDeletion, style: GoogleFonts.inter(fontSize: 12.5)),
                               ),
                             ],
                           ),
@@ -2239,18 +2194,18 @@ class SolutionsAppActionsBlock extends StatelessWidget {
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
     return Semantics(
-      label: l10n.solAppsPlayStoreLabel,
+      label: l10n.solAppsGetAppLabel,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           FilledButton.icon(
             onPressed: () => launchUrl(
-              Uri.parse(kPerfectGestIPlayStoreUrl),
+              Uri.parse(kPerfectGestIProductUrl),
               mode: LaunchMode.externalApplication,
               webOnlyWindowName: kIsWeb ? '_blank' : null,
             ),
-            icon: const Icon(Icons.shop_rounded, size: 20),
-            label: Text(l10n.solAppsPlayStoreLabel),
+            icon: const Icon(Icons.download_rounded, size: 20),
+            label: Text(l10n.solAppsGetAppLabel),
           ),
           const SizedBox(height: 10),
           OutlinedButton.icon(

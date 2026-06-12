@@ -6,7 +6,7 @@ import 'metallic_style.dart';
 
 const String kWhatsAppDigits = '5551989045442';
 
-/// Alias histórico — contacto único alinhado a lojas e Partner Center.
+/// Alias histórico — contacto único alinhado a suporte e verificação empresarial.
 const String kEmailSac = kCompanyContactEmail;
 
 /// Tema **escuro metálico** (carvão, ouro, prata, cobre).

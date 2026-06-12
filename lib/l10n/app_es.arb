@@ -35,7 +35,7 @@
 
   "solAppsTitle": "Conozca PerfectGest I — la app de gestión para ME, MEI y autónomos",
   "solAppsBody": "Registre clientes, cree presupuestos profesionales en PDF, controle su caja y reciba recordatorios fiscales con alarma.\n\nTodo en su móvil, funciona sin conexión.",
-  "solAppsPlayStoreLabel": "Descárgala en Google Play",
+  "solAppsGetAppLabel": "Obtener la aplicación",
   "solAppsHashtags": "#MEI #gestión #emprendedor #autónomo #microempresa #controlFinanciero #presupuesto #caja #PerfectGest",
   "solWebTitle": "Web Apps Rápidas, Responsivas e Indexables",
   "solWebBody": "Soluciones enfocadas en Core Web Vitals y Google Search Console, orientadas a carga rápida y conversión.",
@@ -100,7 +100,7 @@
   "contactWhatsappPrefilled": "¡Hola! Me gustaría hablar con Perfect Gest Dev sobre un proyecto.\n\n",
 
   "footerSemantics": "Privacidad, datos, cookies y términos Perfect Gest Dev",
-  "footerComplianceBody": "Lee la política completa de Perfect Gest Dev (privacidad, datos, cookies y términos). Para servicios de Google (p.ej., Analytics), también aplican las políticas oficiales de Google.",
+  "footerComplianceBody": "Política de este sitio: cookies, pre-registro y analytics. Documentación de PerfectGest I — sección Soluciones.",
   "footerBtnPolicyShort": "Política completa",
   "footerBtnPolicyFull": "Ver política completa",
   "footerLinkGooglePrivacy": "Privacidad Google",

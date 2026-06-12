@@ -35,7 +35,7 @@
 
   "solAppsTitle": "Meet PerfectGest I — the management app for LLCs, MEI, and solo professionals!",
   "solAppsBody": "Register clients, create professional PDF quotes, manage cash flow, and get tax reminders with alerts.\n\nEverything on your phone, works offline.",
-  "solAppsPlayStoreLabel": "Get it on Google Play",
+  "solAppsGetAppLabel": "Get the app",
   "solAppsHashtags": "#MEI #management #entrepreneur #freelancer #smallBusiness #cashFlow #quotes #PerfectGest",
   "solWebTitle": "Fast, Responsive and Indexable Web Apps",
   "solWebBody": "Solutions focused on Core Web Vitals and Google Search Console, optimized for fast loading and conversion.",
@@ -100,7 +100,7 @@
   "contactWhatsappPrefilled": "Hi! I'd like to talk to Perfect Gest Dev about a project.\n\n",
 
   "footerSemantics": "Perfect Gest Dev privacy, data, cookies and terms",
-  "footerComplianceBody": "Read Perfect Gest Dev's full policy (privacy, data, cookies, and terms). For Google services (e.g., Analytics), Google's official policies also apply.",
+  "footerComplianceBody": "Policy for this website: cookies, pre-registration and analytics. PerfectGest I documentation — Solutions section.",
   "footerBtnPolicyShort": "Full policy",
   "footerBtnPolicyFull": "View full policy",
   "footerLinkGooglePrivacy": "Google Privacy",

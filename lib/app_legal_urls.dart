@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-/// URLs canónicas da app PerfectGest I (Google Sites — Play / Microsoft Store).
+/// URLs canónicas da app PerfectGest I (portal externo de suporte — conformidade nas consolas de distribuição).
 /// Espelham `apps/PerfectGest-I/lib/config/legal_urls.dart`.
 
 const String kAppPrivacyPolicyUrlPt =

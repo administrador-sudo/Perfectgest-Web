@@ -1,3 +1,5 @@
+> **Nota (2026-06):** O texto canónico publicado para lojas está no **Google Sites**, não neste ficheiro. URL PT: `https://sites.google.com/view/perfectgest-exclusao-dados/exclus%C3%A3o-de-dados`
+
 Política de Exclusão de dados de Privacidade
 Última atualização: Maio de 2026
 A PerfectGest preza pelo controle total do usuário sobre suas informações. Como o aplicativo opera com armazenamento local, o processo de exclusão é simples e transparente.
@@ -12,7 +14,7 @@ Arquivos que você exportou voluntariamente (PDFs, backups manuais ou relatório
 3. Eliminação de dados técnicos (Firebase/Nuvem)
 O app utiliza dados técnicos mínimos (ID pseudônimo do dispositivo e marco temporal) via Firebase/Firestore para gestão do período de teste (trial). Não coletamos dados nominais ou financeiros em nuvem.
 Para solicitar a exclusão definitiva desses registros técnicos (metadados de telemetria e licença):
-Solicite via e-mail: sac.perfectgest@gmail.com
+Solicite via e-mail: suporte@perfectgestdev.com
 Assunto: Exclusão de Dados – [ID do Dispositivo]
 Prazo: Processaremos a exclusão em até 15 dias úteis, conforme as diretrizes da LGPD.
 4. Assinaturas e Google Play

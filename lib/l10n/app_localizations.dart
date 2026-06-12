@@ -64,7 +64,7 @@ abstract class AppLocalizations {
   // ---- Secoes Solucoes / Portfolio / Contato (Fase 2c) ----
   String get solAppsTitle;
   String get solAppsBody;
-  String get solAppsPlayStoreLabel;
+  String get solAppsGetAppLabel;
   String get solAppsSupportPortalLabel;
   String get solAppsHashtags;
   String get solWebTitle;
@@ -92,9 +92,6 @@ abstract class AppLocalizations {
   String get footerLinkGooglePrivacy;
   String get footerLinkGoogleCookies;
   String get footerLinkGoogleTerms;
-  String get footerLinkAppSupport;
-  String get footerLinkAppPrivacy;
-  String get footerLinkAppDeletion;
   String get footerCompanyLegalSemantics;
   String get cookieBannerNarrow;
   String get cookieBannerWide;
@@ -252,7 +249,7 @@ class _AppLocalizationsPt extends AppLocalizations {
   String get solAppsBody =>
       'Cadastre clientes, crie orçamentos profissionais em PDF, controle seu caixa e receba lembretes fiscais com alarme.\n\nTudo no seu celular, funciona offline.';
   @override
-  String get solAppsPlayStoreLabel => 'Baixe na Play Store';
+  String get solAppsGetAppLabel => 'Obter o aplicativo';
   @override
   String get solAppsSupportPortalLabel => 'FAQ e políticas do app';
   @override
@@ -295,7 +292,7 @@ class _AppLocalizationsPt extends AppLocalizations {
   String get footerSemantics => 'Privacidade, dados, cookies e termos Perfect Gest Dev';
   @override
   String get footerComplianceBody =>
-      'Política deste site (cookies, pré-cadastro e analytics). Documentos legais do aplicativo PerfectGest I estão no portal de suporte (Google Sites).';
+      'Política deste site: cookies, pré-cadastro e analytics. Documentação do PerfectGest I — secção Soluções.';
   @override
   String get footerBtnPolicyShort => 'Política completa';
   @override
@@ -306,12 +303,6 @@ class _AppLocalizationsPt extends AppLocalizations {
   String get footerLinkGoogleCookies => 'Cookies Google';
   @override
   String get footerLinkGoogleTerms => 'Termos Google';
-  @override
-  String get footerLinkAppSupport => 'FAQ PerfectGest I';
-  @override
-  String get footerLinkAppPrivacy => 'Privacidade da app';
-  @override
-  String get footerLinkAppDeletion => 'Exclusão de dados (app)';
   @override
   String get footerCompanyLegalSemantics =>
       'Identificacao legal da empresa desenvolvedora';
@@ -510,7 +501,7 @@ class _AppLocalizationsEn extends AppLocalizations {
   String get solAppsBody =>
       'Register clients, create professional PDF quotes, manage cash flow, and get tax reminders with alerts.\n\nEverything on your phone, works offline.';
   @override
-  String get solAppsPlayStoreLabel => 'Get it on Google Play';
+  String get solAppsGetAppLabel => 'Get the app';
   @override
   String get solAppsSupportPortalLabel => 'App FAQ and policies';
   @override
@@ -553,7 +544,7 @@ class _AppLocalizationsEn extends AppLocalizations {
   String get footerSemantics => 'Perfect Gest Dev privacy, data, cookies and terms';
   @override
   String get footerComplianceBody =>
-      'Policy for this website (cookies, pre-registration and analytics). PerfectGest I app legal documents are on the support portal (Google Sites).';
+      'Policy for this website: cookies, pre-registration and analytics. PerfectGest I documentation — Solutions section.';
   @override
   String get footerBtnPolicyShort => 'Site policy';
   @override
@@ -564,12 +555,6 @@ class _AppLocalizationsEn extends AppLocalizations {
   String get footerLinkGoogleCookies => 'Google Cookies';
   @override
   String get footerLinkGoogleTerms => 'Google Terms';
-  @override
-  String get footerLinkAppSupport => 'PerfectGest I FAQ';
-  @override
-  String get footerLinkAppPrivacy => 'App privacy';
-  @override
-  String get footerLinkAppDeletion => 'App data deletion';
   @override
   String get footerCompanyLegalSemantics =>
       'Legal identification of the developer company';
@@ -768,7 +753,7 @@ class _AppLocalizationsEs extends AppLocalizations {
   String get solAppsBody =>
       'Registre clientes, cree presupuestos profesionales en PDF, controle su caja y reciba recordatorios fiscales con alarma.\n\nTodo en su móvil, funciona sin conexión.';
   @override
-  String get solAppsPlayStoreLabel => 'Descárgala en Google Play';
+  String get solAppsGetAppLabel => 'Obtener la aplicación';
   @override
   String get solAppsSupportPortalLabel => 'FAQ y políticas de la app';
   @override
@@ -811,7 +796,7 @@ class _AppLocalizationsEs extends AppLocalizations {
   String get footerSemantics => 'Privacidad, datos, cookies y términos Perfect Gest Dev';
   @override
   String get footerComplianceBody =>
-      'Política de este sitio (cookies, pre-registro y analytics). Los documentos legales de la app PerfectGest I están en el portal de soporte (Google Sites).';
+      'Política de este sitio: cookies, pre-registro y analytics. Documentación de PerfectGest I — sección Soluciones.';
   @override
   String get footerBtnPolicyShort => 'Política del sitio';
   @override
@@ -822,12 +807,6 @@ class _AppLocalizationsEs extends AppLocalizations {
   String get footerLinkGoogleCookies => 'Cookies Google';
   @override
   String get footerLinkGoogleTerms => 'Términos Google';
-  @override
-  String get footerLinkAppSupport => 'FAQ PerfectGest I';
-  @override
-  String get footerLinkAppPrivacy => 'Privacidad de la app';
-  @override
-  String get footerLinkAppDeletion => 'Eliminación de datos (app)';
   @override
   String get footerCompanyLegalSemantics =>
       'Identificacion legal de la empresa desarrolladora';

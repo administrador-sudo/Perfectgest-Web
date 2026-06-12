@@ -5,7 +5,8 @@ const { spawnSync } = require('node:child_process');
 function run(command, args) {
   const result = spawnSync(command, args, {
     stdio: 'inherit',
-    shell: process.platform === 'win32',
+    // shell:false evita que mensagens de commit com espacos se partam no Windows
+    shell: false,
   });
 
   if (result.status !== 0) {
@@ -16,7 +17,7 @@ function run(command, args) {
 function output(command, args) {
   const result = spawnSync(command, args, {
     encoding: 'utf8',
-    shell: process.platform === 'win32',
+    shell: false,
   });
   if (result.status !== 0) {
     process.exit(result.status ?? 1);
@@ -68,10 +69,8 @@ run('git', [
   'scripts',
   'exports',
   '.gitignore',
-  'docs/Atualiza.md',
-  'docs/Checklist_critico.md',
-  'docs/RENDER_LEADS_POSTGRES.md',
-  'docs/RENDER_CACHE_HEADERS.md',
+  'README.md',
+  'docs',
 ]);
 run('git', ['add', '-A', '-f', 'build/web']);
 

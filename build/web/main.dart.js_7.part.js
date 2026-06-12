@@ -1,192 +1,257 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
-$__dart_deferred_initializers__.current=function(a,b,c,$){var C,D,B={
-aXO(d){switch(d.am(x.h).r.f.gcE()){case"en":return A.KQ
-case"es":return A.KR
-case"pt":default:return A.KS}},
-bH:function bH(d,e,f){this.a=d
+$__dart_deferred_initializers__.current=function(a,b,c,$){var A,C,F,G,B={
+aXJ(d){switch(d.an(y.h).r.f.gcN()){case"en":return D.KH
+case"es":return D.KI
+case"pt":default:return D.KJ}},
+amK:function amK(){},
+ayL:function ayL(){},
+ayJ:function ayJ(){},
+ayK:function ayK(){},
+aWC(d){return new B.nn(d,null)},
+nn:function nn(d,e){this.c=d
+this.a=e},
+a0r:function a0r(){this.c=this.a=null},
+avY:function avY(d){this.a=d},
+avZ:function avZ(d,e,f,g,h){var _=this
+_.a=d
+_.b=e
+_.c=f
+_.d=g
+_.e=h},
+avW:function avW(d){this.a=d},
+avV:function avV(){},
+avX:function avX(d,e){this.a=d
+this.b=e},
+oc:function oc(d,e,f){this.a=d
 this.b=e
 this.c=f},
-amO:function amO(){},
-ayY:function ayY(){},
-ayW:function ayW(){},
-ayX:function ayX(){},
-lR:function lR(d,e,f){this.c=d
-this.d=e
-this.a=f},
-a2H:function a2H(d,e,f,g,h){var _=this
-_.d=d
-_.e=e
-_.f=f
-_.r=g
-_.w=h
-_.c=_.a=null},
-azo:function azo(d){this.a=d},
-azn:function azn(d){this.a=d},
-azm:function azm(){},
-a2G:function a2G(d,e,f,g,h){var _=this
+kD:function kD(d,e,f,g){var _=this
 _.c=d
 _.d=e
 _.e=f
-_.f=g
-_.a=h}},A
-C=c[0]
-D=c[2]
-B=a.updateHolder(c[11],B)
-A=c[19]
-B.bH.prototype={}
-B.amO.prototype={}
-B.ayY.prototype={
-ghm(){return"Tecnologias Flutter e stack principal da Perfect Gest Dev"},
-gLz(){return"Stack Flutter e tecnologias da Perfect Gest Dev"},
-gLv(){return"Nossa estrat\xe9gia t\xe9cnica conecta arquitetura, dados, experi\xeancia de utiliza\xe7\xe3o e opera\xe7\xe3o cont\xednua. Cada componente abaixo foi pensado para funcionar em conjunto, reduzindo riscos e acelerando entregas com qualidade previs\xedvel."},
-gLw(){return"Fluxo integrado: base t\xe9cnica s\xf3lida -> dados confi\xe1veis -> experi\xeancia consistente -> opera\xe7\xe3o mensur\xe1vel. Assim, cada decis\xe3o refor\xe7a a pr\xf3xima etapa e mant\xe9m coer\xeancia entre discurso comercial e execu\xe7\xe3o de produto."},
-gMH(){return"Diferenciais do Portf\xf3lio"},
-gJp(){return"Conceito aplicado:"},
-gpR(){return A.ZN}}
-B.ayW.prototype={
-ghm(){return"Flutter technologies and Perfect Gest Dev core stack"},
-gLz(){return"Flutter stack and Perfect Gest Dev technologies"},
-gLv(){return"Our technical strategy connects architecture, data, user experience and continuous operations. Each component below is designed to work together, reducing risk and accelerating predictable-quality delivery."},
-gLw(){return"Integrated flow: solid technical foundation -> reliable data -> consistent experience -> measurable operations. Each decision reinforces the next and keeps commercial narrative aligned with product execution."},
-gMH(){return"Portfolio differentiators"},
-gJp(){return"Applied concept:"},
-gpR(){return A.a_g}}
-B.ayX.prototype={
-ghm(){return"Tecnologias Flutter y stack principal de Perfect Gest Dev"},
-gLz(){return"Stack Flutter y tecnologias de Perfect Gest Dev"},
-gLv(){return"Nuestra estrategia tecnica conecta arquitectura, datos, experiencia de uso y operacion continua. Cada componente debajo esta pensado para funcionar junto, reducir riesgos y acelerar entregas con calidad previsible."},
-gLw(){return"Flujo integrado: base tecnica solida -> datos fiables -> experiencia consistente -> operacion medible. Asi, cada decision refuerza la siguiente y mantiene coherencia entre discurso comercial y ejecucion de producto."},
-gMH(){return"Diferenciales del portafolio"},
-gJp(){return"Concepto aplicado:"},
-gpR(){return A.a_d}}
-B.lR.prototype={
-ag(){var w=null,v=x.z
-return new B.a2H(C.Cx(),new C.b8(w,v),new C.b8(w,v),new C.b8(w,v),new C.b8(w,v))}}
-B.a2H.prototype={
+_.a=g},
+aw0:function aw0(d,e){this.a=d
+this.b=e},
+aw1:function aw1(){},
+aw_:function aw_(d){this.a=d}},D,H,E
+A=c[0]
+C=c[2]
+F=c[9]
+G=c[12]
+B=a.updateHolder(c[4],B)
+D=c[16]
+H=c[11]
+E=c[17]
+B.amK.prototype={}
+B.ayL.prototype={
+ghm(){return"Politica de privacidade, dados, cookies e termos Perfect Gest Dev"},
+gjT(){return"Privacidade e termos"},
+gon(){return"Perfect Gest Dev"},
+goI(){return"Pol\xedtica de privacidade, dados pessoais, cookies e termos de uso"},
+pb(d){return"\xdaltima atualiza\xe7\xe3o: documento institucional. Em caso de d\xfavida sobre tratamento de dados, contacte: "+d+"."},
+gnG(){return"1. Quem somos"},
+gnF(){return"Este documento aplica-se ao site institucional https://perfectgestdev.com, operado por Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA). Somos uma software house de desenvolvimento mobile, web e desktop. Abrange cookies, medi\xe7\xe3o de audi\xeancia, formul\xe1rio de pr\xe9-cadastro e contacto neste site \u2014 n\xe3o o aplicativo m\xf3vel. Documentos legais do produto PerfectGest I (privacidade, exclus\xe3o de dados, FAQ e termos) est\xe3o no portal de suporte: https://sites.google.com/view/perfectgest-i-faq-suporte/faq ."},
+gnI(){return"2. Que dados podemos recolher"},
+gnH(){return"\u2022 Dados t\xe9cnicos de navega\xe7\xe3o: endere\xe7o IP (muitas vezes truncado ou agregado pelo fornecedor de analytics), tipo de navegador, idioma, p\xe1ginas visitadas e hor\xe1rios aproximados.\n\u2022 Dados que nos enviar voluntariamente: por exemplo, se nos contactar por WhatsApp ou e-mail, o conte\xfado da mensagem e os metadados necess\xe1rios \xe0 comunica\xe7\xe3o.\n\u2022 Dados do formul\xe1rio de pr\xe9-cadastro (nome, e-mail, coment\xe1rio opcional e idioma): recolhidos apenas com consentimento expl\xedcito, transmitidos por HTTPS para base de dados gerida por n\xf3s (alojamento Render). Utilizamos estes dados para contacto comercial, convites ao programa de pr\xe9-lan\xe7amento (acesso a builds em desenvolvimento e recolha de feedback), novidades sobre produtos e resposta a pedidos. N\xe3o vendemos estes contactos a terceiros.\nN\xe3o vendemos listas de contactos nem dados pessoais a terceiros para fins comerciais independentes."},
+gnK(){return"3. Cookies e tecnologias similares"},
+gnJ(){return"Utilizamos cookies e armazenamento local estritamente necess\xe1rios ao funcionamento do site e, quando ativado, cookies de medi\xe7\xe3o de audi\xeancia (Google Analytics / gtag) para compreender de forma agregada como o site \xe9 utilizado. Pode gerir ou apagar cookies nas defini\xe7\xf5es do seu navegador. Se recusar cookies de medi\xe7\xe3o, limitamos o envio de sinais de analytics conforme a configura\xe7\xe3o do seu browser e as nossas defini\xe7\xf5es de consentimento."},
+gnM(){return"4. Google Analytics e servi\xe7os Google"},
+gnL(){return"Quando o Google Analytics est\xe1 configurado neste site, o tratamento de dados associado segue as pol\xedticas do Google. Recomendamos a leitura das p\xe1ginas oficiais do Google sobre privacidade, cookies e parceiros tecnol\xf3gicos."},
+gDp(){return"5. Base legal e reten\xe7\xe3o"},
+gDo(){return"O tratamento de dados t\xe9cnicos e de medi\xe7\xe3o pode basear-se no interesse leg\xedtimo em melhorar o site e na execu\xe7\xe3o de medidas pr\xe9-contratuais ou contratuais quando nos contacta. O pr\xe9-cadastro baseia-se no seu consentimento, que pode revogar a qualquer momento (ver sec\xe7\xe3o 6). Conservamos mensagens de contacto e registos de pr\xe9-cadastro apenas pelo tempo necess\xe1rio \xe0 finalidade indicada ou at\xe9 pedido de elimina\xe7\xe3o, respeitando obriga\xe7\xf5es legais aplic\xe1veis."},
+gDr(){return"6. Os seus direitos"},
+Dq(d){return"No Brasil, aplica-se a Lei Geral de Prote\xe7\xe3o de Dados (LGPD, Lei 13.709/2018). Na Uni\xe3o Europeia, aplica-se o RGPD. Dependendo da lei aplic\xe1vel, poder\xe1 solicitar acesso, retifica\xe7\xe3o, apagamento, limita\xe7\xe3o, portabilidade ou oposi\xe7\xe3o ao tratamento dos seus dados pessoais, incluindo dados de pr\xe9-cadastro. Para exercer direitos ou quest\xf5es de privacidade, escreva para "+d+"."},
+gDt(){return"7. Termos de uso do site"},
+gDs(){return"O conte\xfado deste site (textos, identidade visual e materiais) destina-se a informa\xe7\xe3o sobre Perfect Gest Dev e os seus produtos. A reprodu\xe7\xe3o n\xe3o autorizada para fins comerciais pode ser proibida. Os links externos s\xe3o fornecidos por conveni\xeancia; n\xe3o controlamos sites de terceiros. O uso do site \xe9 por sua conta e risco, na medida permitida pela lei."},
+gJE(){return"Cookies de medi\xe7\xe3o (Google)"},
+gJD(){return"Se aceitar, gravamos a sua escolha no navegador e, na pr\xf3xima carga da p\xe1gina, o script de medi\xe7\xe3o poder\xe1 operar conforme as regras do Google (Consent Mode). Pode revogar apagando os dados do site nas defini\xe7\xf5es do browser."},
+gDJ(){return"Prefer\xeancia gravada. Recarregue a p\xe1gina uma vez para aplicar a medi\xe7\xe3o."},
+gIq(){return"Aceitar medi\xe7\xe3o"},
+gIp(){return"Aceitar cookies de medi\xe7\xe3o"}}
+B.ayJ.prototype={
+ghm(){return"Perfect Gest Dev privacy policy, data, cookies and terms"},
+gjT(){return"Privacy and terms"},
+gon(){return"Perfect Gest Dev"},
+goI(){return"Privacy policy, personal data, cookies and terms of use"},
+pb(d){return"Last updated: institutional document. If you have questions about data processing, contact: "+d+"."},
+gnG(){return"1. Who we are"},
+gnF(){return"This document applies to the institutional website https://perfectgestdev.com, operated by Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA). We are a software house for mobile, web and desktop development. It covers cookies, audience measurement, the pre-registration form and contact on this site \u2014 not the mobile app. Legal documents for the PerfectGest I product (privacy, data deletion, FAQ and terms) are on the support portal: https://sites.google.com/view/perfectgest-i-faq-suporte/faq ."},
+gnI(){return"2. Data we may collect"},
+gnH(){return"\u2022 Technical browsing data: IP address (often truncated or aggregated by the analytics provider), browser type, language, pages visited and approximate times.\n\u2022 Data you send voluntarily: for example, if you contact us via WhatsApp or email, the message content and metadata needed for communication.\n\u2022 Pre-registration form data (name, email, optional comment and language): collected only with your explicit consent, sent over HTTPS to a database managed by us (Render hosting). We use this data for commercial contact, pre-launch program invitations (access to in-development builds and feedback collection), product updates and responding to requests. We do not sell these contacts to third parties.\nWe do not sell contact lists or personal data to third parties for independent commercial purposes."},
+gnK(){return"3. Cookies and similar technologies"},
+gnJ(){return"We use cookies and local storage strictly necessary for the site to work and, when enabled, audience measurement cookies (Google Analytics / gtag) to understand in aggregate how the site is used. You can manage or delete cookies in your browser settings. If you decline measurement cookies, we limit analytics signals according to your browser configuration and our consent settings."},
+gnM(){return"4. Google Analytics and Google services"},
+gnL(){return"When Google Analytics is configured on this site, associated data processing follows Google policies. We recommend reading Google\u2019s official pages on privacy, cookies and technology partners."},
+gDp(){return"5. Legal basis and retention"},
+gDo(){return"Processing of technical and measurement data may rely on legitimate interest in improving the site and on pre-contractual or contractual measures when you contact us. Pre-registration relies on your consent, which you may withdraw at any time (see section 6). We keep contact messages and pre-registration records only as long as needed for the stated purpose or until a deletion request, subject to applicable legal obligations."},
+gDr(){return"6. Your rights"},
+Dq(d){return"In Brazil, the General Data Protection Law (LGPD, Law 13,709/2018) applies. In the European Union, the GDPR applies. Depending on applicable law, you may request access, rectification, erasure, restriction, portability or objection to processing of your personal data, including pre-registration data. To exercise rights or ask privacy questions, write to "+d+"."},
+gDt(){return"7. Website terms of use"},
+gDs(){return"The content of this site (text, visual identity and materials) is for information about Perfect Gest Dev and its products. Unauthorized reproduction for commercial purposes may be prohibited. External links are provided for convenience; we do not control third-party sites. You use the site at your own risk, to the extent permitted by law."},
+gJE(){return"Measurement cookies (Google)"},
+gJD(){return"If you accept, we store your choice in the browser and, on the next page load, the measurement script may run according to Google rules (Consent Mode). You can revoke by clearing site data in your browser settings."},
+gDJ(){return"Preference saved. Reload the page once to apply measurement."},
+gIq(){return"Accept measurement"},
+gIp(){return"Accept measurement cookies"}}
+B.ayK.prototype={
+ghm(){return"Politica de privacidad, datos, cookies y terminos Perfect Gest Dev"},
+gjT(){return"Privacidad y terminos"},
+gon(){return"Perfect Gest Dev"},
+goI(){return"Politica de privacidad, datos personales, cookies y terminos de uso"},
+pb(d){return"Ultima actualizacion: documento institucional. Si tiene dudas sobre el tratamiento de datos, contacte: "+d+"."},
+gnG(){return"1. Quienes somos"},
+gnF(){return"Este documento se aplica al sitio institucional https://perfectgestdev.com, operado por Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA). Somos una software house de desarrollo movil, web y escritorio. Cubre cookies, medicion de audiencia, formulario de pre-registro y contacto en este sitio \u2014 no la aplicacion movil. Los documentos legales del producto PerfectGest I (privacidad, eliminacion de datos, FAQ y terminos) estan en el portal de soporte: https://sites.google.com/view/perfectgest-i-faq-suporte/faq ."},
+gnI(){return"2. Datos que podemos recopilar"},
+gnH(){return"\u2022 Datos tecnicos de navegacion: direccion IP (a menudo truncada o agregada por el proveedor de analytics), tipo de navegador, idioma, paginas visitadas y horarios aproximados.\n\u2022 Datos que nos envie voluntariamente: por ejemplo, si nos contacta por WhatsApp o correo, el contenido del mensaje y los metadatos necesarios para la comunicacion.\n\u2022 Datos del formulario de pre-registro (nombre, correo, comentario opcional e idioma): recopilados solo con su consentimiento explicito, transmitidos por HTTPS a una base de datos gestionada por nosotros (alojamiento Render). Utilizamos estos datos para contacto comercial, invitaciones al programa de prelanzamiento (acceso a builds en desarrollo y recogida de retroalimentacion), novedades sobre productos y respuesta a solicitudes. No vendemos estos contactos a terceros.\nNo vendemos listas de contactos ni datos personales a terceros para fines comerciales independientes."},
+gnK(){return"3. Cookies y tecnologias similares"},
+gnJ(){return"Utilizamos cookies y almacenamiento local estrictamente necesarios para el funcionamiento del sitio y, cuando esta activado, cookies de medicion de audiencia (Google Analytics / gtag) para entender de forma agregada como se usa el sitio. Puede gestionar o borrar cookies en la configuracion del navegador. Si rechaza cookies de medicion, limitamos el envio de senales de analytics segun la configuracion del navegador y nuestras opciones de consentimiento."},
+gnM(){return"4. Google Analytics y servicios de Google"},
+gnL(){return"Cuando Google Analytics esta configurado en este sitio, el tratamiento de datos asociado sigue las politicas de Google. Recomendamos leer las paginas oficiales de Google sobre privacidad, cookies y socios tecnologicos."},
+gDp(){return"5. Base legal y conservacion"},
+gDo(){return"El tratamiento de datos tecnicos y de medicion puede basarse en el interes legitimo de mejorar el sitio y en medidas precontractuales o contractuales cuando nos contacta. El pre-registro se basa en su consentimiento, que puede revocar en cualquier momento (ver seccion 6). Conservamos los mensajes de contacto y registros de pre-registro solo el tiempo necesario para la finalidad indicada o hasta una solicitud de eliminacion, respetando obligaciones legales aplicables."},
+gDr(){return"6. Sus derechos"},
+Dq(d){return"En Brasil, se aplica la Ley General de Proteccion de Datos (LGPD, Ley 13.709/2018). En la Union Europea, se aplica el RGPD. Segun la ley aplicable, puede solicitar acceso, rectificacion, supresion, limitacion, portabilidad u oposicion al tratamiento de sus datos personales, incluidos datos de pre-registro. Para ejercer derechos o consultas de privacidad, escriba a "+d+"."},
+gDt(){return"7. Terminos de uso del sitio"},
+gDs(){return"El contenido de este sitio (textos, identidad visual y materiales) tiene fines informativos sobre Perfect Gest Dev y sus productos. La reproduccion no autorizada con fines comerciales puede estar prohibida. Los enlaces externos se ofrecen por conveniencia; no controlamos sitios de terceros. El uso del sitio es bajo su propio riesgo, en la medida permitida por la ley."},
+gJE(){return"Cookies de medicion (Google)"},
+gJD(){return"Si acepta, guardamos su eleccion en el navegador y, en la proxima carga de la pagina, el script de medicion puede operar segun las reglas de Google (Consent Mode). Puede revocar borrando los datos del sitio en la configuracion del navegador."},
+gDJ(){return"Preferencia guardada. Recargue la pagina una vez para aplicar la medicion."},
+gIq(){return"Aceptar medicion"},
+gIp(){return"Aceptar cookies de medicion"}}
+B.nn.prototype={
+ag(){return new B.a0r()}}
+B.a0r.prototype={
 az(){this.aV()
-C.a4X()
-C.hn("description","Parceiros tecnol\xf3gicos e stack Flutter da Perfect Gest Dev: Clean Architecture, seguran\xe7a, escala, integra\xe7\xf5es e opera\xe7\xe3o cont\xednua.")
-C.hn("keywords","Perfect Gest Dev, tecnologias, Flutter, Dart, Java, Gradle, SDK, integra\xe7\xf5es, arquitetura limpa, seguran\xe7a, escala")
-C.hn("robots","index, follow")
-C.ed("og:title",y.c)
-C.ed("og:description","Vis\xe3o t\xe9cnica do stack Perfect Gest Dev para mobile, web e desktop com foco em performance e previsibilidade.")
-C.ed("og:type","article")
-C.ed("og:locale","pt_BR")
-b.G.document.title=y.c
-$.Z.k4$.push(new B.azo(this))},
-l(){this.d.l()
-C.x7()
+F.aNZ()},
+l(){A.x7()
 this.aL()},
-ajD(){var w=this,v=C.az(["clean-arch",w.e,"seguranca",w.f,"escala",w.r,"full-stack",w.w],x.w,x.d).h(0,w.a.d),u=v==null?null:$.Z.ah$.x.h(0,v)
-if(u==null)return
-C.aF4(u,0.24,D.GK,D.cp,D.pR)},
-K(d){var w,v,u,t,s,r,q,p,o,n,m,l=this,k=null,j=C.D(d).ax,i=C.bc(d,D.aQ,x.x).w.a.a<400,h=i?16:24,g=C.cw(d,D.aE,x.F)
-g.toString
-w=B.aXO(d)
-C.D(d)
-v=[l.e,l.f,l.r,l.w]
-u=w.ghm()
-t=C.D(d).ax.a===D.I?D.p:k
-s=C.aGF(d)
-r=C.eD(!1,k,k,k,C.cG(D.iK,j.b,k,k),k,k,new B.azn(d),k,k,k,g.gBV())
-q=j.k3
-p=C.a7(g.gwl(),k,k,k,C.aY().$2$color$fontWeight(q,D.aM),k,k)
-o=x.u
-n=C.b([],o)
-l.a.toString
-s=C.a5U(n,s,r,D.p,p)
-r=w.gLz()
-r=C.b([C.a7(r,k,k,k,C.aY().$4$color$fontSize$fontWeight$height(q,i?22:26,D.aN,1.2),k,k),D.c1,C.a7(w.gLv(),k,k,k,C.aY().$3$color$fontSize$height(q.al(0.82),14,1.5),k,k),D.cz,C.a7(w.gLw(),k,k,k,C.aY().$3$color$fontSize$height(q.al(0.8),13.6,1.5),k,k),D.cW,C.a7(w.gMH(),k,k,k,C.aY().$3$color$fontSize$fontWeight(q,18,D.aN),k,k),D.c1],o)
-for(m=0;w.gpR(),m<15;++m){i=C.b([],o)
-if(m===4)i.push(D.cz)
-q=m<4?v[m]:k
-p=w.gJp()
-i.push(new B.a2G(w.gpR()[m].a,w.gpR()[m].b,w.gpR()[m].c,p,q))
-D.b.a_(r,i)}return C.aX(k,k,C.nD(s,t,new C.lM(C.ko(C.eU(new C.dx(A.Jj,C.cc(r,D.a7,D.C,D.E),k),k,k),l.d,new C.af(h,16,h,28),D.af),k),k),!1,k,k,k,!1,k,k,k,k,k,k,k,u,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,D.r,k)}}
-B.a2G.prototype={
-K(d){var w,v,u,t,s,r=this,q=null,p=C.D(d).ax,o=p.RG
-o=(o==null?p.k2:o).al(0.55)
-w=C.di(14)
-v=p.ry
-if(v==null){v=p.n
-if(v==null)v=p.k3}v=C.kX(v.al(0.35),1)
-u=p.b
-t=x.u
-s=C.b([C.a7(r.c,q,q,q,C.aY().$3$color$fontSize$fontWeight(u,15.5,D.aM),q,q),D.ed,D.kr,C.a7(r.f,q,q,q,C.aY().$4$color$fontSize$fontWeight$height(u.al(0.9),12.8,D.aM,1.4),q,q),C.a7(r.d,q,q,q,C.aY().$3$color$fontSize$height(p.k3.al(0.84),12.8,1.45),q,q)],t)
-D.b.a_(s,C.b([D.cz,C.a7(r.e,q,q,q,C.aY().$4$color$fontSize$fontWeight$height(u.al(0.92),12.8,D.bq,1.45),q,q)],t))
-return new C.by(A.NH,C.em(new C.by(A.NQ,C.cc(s,D.a7,D.C,D.E),q),new C.bU(o,q,v,w,q,q,D.Y),D.aA),q)}}
-var z=a.updateTypes([])
-B.azo.prototype={
-$1(d){return this.a.ajD()},
-$S:5}
-B.azn.prototype={
-$0(){return C.d8(this.a,!1).auF(new B.azm())},
+K(d){var x,w,v,u,t=null,s=A.D(d),r=A.bc(d,C.aQ,y.x).w.a.a,q=r<400?16:24,p=A.cw(d,C.aE,y.F)
+p.toString
+x=B.aXJ(d)
+w=x.ghm()
+v=A.D(d).ax.a===C.I?C.p:t
+u=x.gjT()
+return A.aX(t,t,A.nD(G.aGD(d,new B.avY(d),this.a.c,u),v,new A.lM(A.Ao(new B.avZ(q,x,s.ax,r,p)),t),t),!1,t,t,t,!1,t,t,t,t,t,t,t,w,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,C.r,t)}}
+B.oc.prototype={}
+B.kD.prototype={
+K(d){var x,w,v,u,t,s,r,q,p,o,n,m,l=this,k=null,j=A.D(d).ax,i=A.bc(d,C.aQ,y.x).w.a.a,h=i<400?12:16,g=l.c,f=j.RG
+f=(f==null?j.k2:f).al(0.5)
+x=A.di(14)
+w=j.ry
+if(w==null){w=j.n
+if(w==null)w=j.k3}w=A.kX(w.al(0.4),1)
+v=i<360
+u=v?15:16
+u=A.a9(g,k,k,k,A.b1().$3$color$fontSize$fontWeight(j.b,u,C.aM),k,k)
+t=v?13:14
+s=y.u
+t=A.b([u,C.c0,A.a9(l.d,k,k,k,A.b1().$3$color$fontSize$height(j.k3.al(0.88),t,1.55),k,k)],s)
+u=l.e
+if(u.length!==0){r=A.b([C.c0],s)
+if(i<440){q=A.b([],s)
+for(p=0;p<u.length;++p){o=A.b([],s)
+if(p>0)o.push(C.kr)
+n=A.TV(C.P,k,k,k,k,k,k,k,k,k,k,k,C.q0,k,k,k,k,C.jO,k,k)
+m=u[p]
+o.push(A.it(A.a9(m.a,k,k,k,A.b1().$1$fontSize(v?12.5:13),C.cA,k),new B.aw0(l,p),n))
+C.b.a_(q,o)}r.push(A.cc(q,C.bb,C.C,C.E))}else{v=A.a5(u).i("ac<1,r3>")
+v=A.a8(new A.ac(u,new B.aw1(),v),v.i("aw.E"))
+r.push(A.m1(C.bt,v,C.cC,6,8))}C.b.a_(t,r)}return new A.by(D.NI,A.aX(k,k,A.em(new A.by(new A.af(h,16,h,18),A.cc(t,C.a7,C.C,C.E),k),new A.bU(f,k,w,x,k,k,C.Y),C.aA),!0,k,k,k,!1,k,k,k,k,k,k,k,g,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,C.r,k),k)}}
+var z=a.updateTypes(["r3(oc)"])
+B.avY.prototype={
+$0(){return A.d7(this.a,!1).dC()},
 $S:0}
-B.azm.prototype={
-$1(d){return d.grn()},
-$S:551};(function inheritance(){var w=a.inheritMany,v=a.inherit
-w(C.I,[B.bH,B.amO])
-w(B.amO,[B.ayY,B.ayW,B.ayX])
-v(B.lR,C.T)
-v(B.a2H,C.X)
-w(C.hr,[B.azo,B.azm])
-v(B.azn,C.jI)
-v(B.a2G,C.ag)})()
-C.HQ(b.typeUniverse,JSON.parse('{"lR":{"T":[],"e":[]},"a2H":{"X":["lR"]},"a2G":{"ag":[],"e":[]}}'))
-var y={c:"Parceiros tecnol\xf3gicos | Perfect Gest Dev"}
-var x={F:C.a2("fx"),d:C.a2("i7<X<T>>"),c:C.a2("r<bH>"),u:C.a2("r<e>"),z:C.a2("b8<X<T>>"),x:C.a2("fB"),w:C.a2("o"),h:C.a2("md")};(function constants(){var w=a.makeConstList
-A.Jj=new C.aa(0,760,0,1/0)
-A.KQ=new B.ayW()
-A.KR=new B.ayX()
-A.KS=new B.ayY()
-A.NH=new C.af(0,0,0,12)
-A.NQ=new C.af(14,14,14,15)
-A.a9h=new B.bH("Clean Arch","Aplicamos arquitetura limpa com separa\xe7\xe3o clara de responsabilidades, camadas desacopladas e componentes reutiliz\xe1veis. Isso acelera evolu\xe7\xe3o de produto, melhora testes e reduz custo de manuten\xe7\xe3o.","Exemplo pr\xe1tico: ao alterar uma regra de or\xe7amento, ajustamos somente a camada de dom\xednio sem quebrar interface ou integra\xe7\xf5es externas.")
-A.a9v=new B.bH("Seguran\xe7a","Adotamos boas pr\xe1ticas de seguran\xe7a em autentica\xe7\xe3o, gest\xe3o de sess\xe3o, pol\xedticas de conte\xfado web e prote\xe7\xe3o de dados. O objetivo \xe9 reduzir risco operacional e elevar confian\xe7a em produ\xe7\xe3o.","Exemplo pr\xe1tico: protegemos rotas sens\xedveis com valida\xe7\xe3o de sess\xe3o e aplicamos CSP no web para bloquear scripts n\xe3o autorizados.")
-A.a8Q=new B.bH("Escala","Projetamos solu\xe7\xf5es para crescer com o neg\xf3cio, com foco em performance, observabilidade e integra\xe7\xe3o de servi\xe7os. A arquitetura \xe9 preparada para aumento de utilizadores e novos m\xf3dulos.","Exemplo pr\xe1tico: em campanhas sazonais, ampliamos servi\xe7os de API e cache sem refazer o app, mantendo estabilidade durante pico de acesso.")
-A.a94=new B.bH("Full-Stack","Atuamos do front-end ao back-end, conectando Flutter, APIs, servi\xe7os de dados, integra\xe7\xf5es corporativas e automa\xe7\xe3o de build. Isso garante entregas consistentes em todo o ciclo do produto.","Exemplo pr\xe1tico: publicamos uma funcionalidade completa de venda, desde a tela mobile at\xe9 API, banco de dados e monitoramento.")
-A.a99=new B.bH("Flutter + Dart (base multiplataforma)","Usamos Flutter como framework principal e Dart como linguagem para entregar uma base \xfanica de c\xf3digo com alta produtividade, consist\xeancia de interface e excelente performance em Android, iOS, Web e Desktop.","Exemplo pr\xe1tico: um mesmo m\xf3dulo de cadastro \xe9 compartilhado entre mobile e web, reduzindo retrabalho e tempo de lan\xe7amento.")
-A.a9b=new B.bH("Banco de dados offline (Dart/Flutter)","Para persist\xeancia local e uso sem internet, utilizamos SQLite (sqflite/drift), Isar e Hive. Essa camada local mant\xe9m performance, resposta r\xe1pida da interface e continuidade das opera\xe7\xf5es mesmo em cen\xe1rios com conectividade limitada.","Exemplo pr\xe1tico: t\xe9cnico em campo registra atendimento sem internet e o app mant\xe9m os dados locais at\xe9 a conex\xe3o voltar.")
-A.a98=new B.bH("Banco de dados online (Dart/Flutter)","Para sincroniza\xe7\xe3o e dados em nuvem, trabalhamos com Cloud Firestore, Firebase Realtime Database e Supabase/PostgreSQL. Isso permite backup, atualiza\xe7\xe3o em tempo real e acesso multiutilizador com confiabilidade em produ\xe7\xe3o.","Exemplo pr\xe1tico: altera\xe7\xf5es no estoque feitas no painel web aparecem quase em tempo real no app da equipe comercial.")
-A.a9x=new B.bH("Java (integra\xe7\xf5es e backend enterprise)","Utilizamos Java em integra\xe7\xf5es corporativas e servi\xe7os de apoio para ambientes que exigem robustez, seguran\xe7a e compatibilidade com ecossistemas enterprise, conectando aplica\xe7\xf5es Flutter a APIs e sistemas legados.","Exemplo pr\xe1tico: integra\xe7\xe3o com ERP legado para sincronizar pedidos e faturamento sem alterar o sistema principal do cliente.")
-A.a8Z=new B.bH("Gradle (build e automa\xe7\xe3o Android)","No Android, usamos Gradle para gerenciamento de depend\xeancias, variantes de build e automa\xe7\xe3o de pipeline. Isso melhora a previsibilidade de releases, organiza\xe7\xe3o de ambientes e qualidade cont\xednua de entrega.","Exemplo pr\xe1tico: geramos builds separados para homologa\xe7\xe3o e produ\xe7\xe3o com vari\xe1veis de ambiente e assinaturas distintas.")
-A.a9k=new B.bH("SDKs de terceiros e integra\xe7\xf5es nativas","Integramos SDKs nativos e bibliotecas especializadas para recursos de neg\xf3cio como autentica\xe7\xe3o, pagamentos, analytics, notifica\xe7\xf5es e servi\xe7os propriet\xe1rios, mantendo estabilidade e desempenho em produ\xe7\xe3o.","Exemplo pr\xe1tico: adicionamos gateway de pagamento e autentica\xe7\xe3o biom\xe9trica mantendo UX fluida em Android e iOS.")
-A.a9r=new B.bH("Material 3 e UI responsiva","Adotamos Material 3, LayoutBuilder e breakpoints responsivos para criar interfaces adapt\xe1veis a celulares, tablets e desktop. Isso melhora experi\xeancia do utilizador, reten\xe7\xe3o e m\xe9tricas de usabilidade.","Exemplo pr\xe1tico: a mesma jornada de compra se reorganiza automaticamente para tablet e desktop sem duplicar tela.")
-A.a9w=new B.bH("Integra\xe7\xf5es web e SEO t\xe9cnico","Implementamos metatags din\xe2micas, Open Graph, canonical, robots.txt e sitemap.xml para melhorar rastreamento e indexa\xe7\xe3o no Google. Tamb\xe9m aplicamos boas pr\xe1ticas de seguran\xe7a com Content Security Policy e pol\xedticas de permiss\xf5es.","Exemplo pr\xe1tico: p\xe1gina de servi\xe7o ganha preview otimizado no WhatsApp e melhor posicionamento org\xe2nico no Google.")
-A.a8S=new B.bH("Analytics e consentimento (GA4)","Medi\xe7\xe3o com Google Analytics 4 integrada ao fluxo de consentimento de cookies. Isso permite an\xe1lise de comportamento com respeito \xe0 privacidade e conformidade com pol\xedticas modernas de medi\xe7\xe3o.","Exemplo pr\xe1tico: funil de convers\xe3o registra apenas eventos consentidos e orienta ajustes de UX com base em dados reais.")
-A.a8Y=new B.bH("Arquitetura limpa e manuten\xe7\xe3o","Priorizamos c\xf3digo organizado, componentes reutiliz\xe1veis e separa\xe7\xe3o de responsabilidades para facilitar evolu\xe7\xe3o cont\xednua do produto, redu\xe7\xe3o de bugs e menor custo de manuten\xe7\xe3o.","Exemplo pr\xe1tico: nova funcionalidade de assinatura \xe9 inclu\xedda reaproveitando componentes e reduzindo esfor\xe7o de QA.")
-A.a9s=new B.bH("Integra\xe7\xf5es HTTP e servi\xe7os externos","Integramos APIs externas e servi\xe7os de dados para fluxos reais de neg\xf3cio, incluindo endpoints de back-end e servi\xe7os de observabilidade, garantindo confiabilidade operacional e evolu\xe7\xe3o orientada a m\xe9tricas.","Exemplo pr\xe1tico: monitoramos lat\xeancia e erro das APIs em produ\xe7\xe3o para agir r\xe1pido antes de impactar clientes.")
-A.ZN=w([A.a9h,A.a9v,A.a8Q,A.a94,A.a99,A.a9b,A.a98,A.a9x,A.a8Z,A.a9k,A.a9r,A.a9w,A.a8S,A.a8Y,A.a9s],x.c)
-A.a92=new B.bH("Clean Arch","Aplicamos arquitectura limpia con separacion clara de responsabilidades, capas desacopladas y componentes reutilizables. Esto acelera la evolucion del producto, mejora pruebas y reduce coste de mantenimiento.","Ejemplo practico: al cambiar una regla de presupuesto, ajustamos solo la capa de dominio sin romper la interfaz ni integraciones externas.")
-A.a8W=new B.bH("Seguridad","Adoptamos buenas practicas de seguridad en autenticacion, gestion de sesion, politicas de contenido web y proteccion de datos. El objetivo es reducir riesgo operativo y aumentar la confianza en produccion.","Ejemplo practico: protegemos rutas sensibles con validacion de sesion y aplicamos CSP en web para bloquear scripts no autorizados.")
-A.a8U=new B.bH("Escala","Disenamos soluciones para crecer con el negocio, con foco en rendimiento, observabilidad e integracion de servicios. La arquitectura esta preparada para mas usuarios y nuevos modulos.","Ejemplo practico: en campanas estacionales ampliamos API y cache sin rehacer la app, manteniendo estabilidad en picos de trafico.")
-A.a9j=new B.bH("Full-Stack","Actuamos de front-end a back-end, conectando Flutter, APIs, servicios de datos, integraciones corporativas y automatizacion de build. Garantizamos entregas coherentes en todo el ciclo del producto.","Ejemplo practico: publicamos una funcionalidad completa de venta, desde la pantalla movil hasta API, base de datos y monitorizacion.")
-A.a90=new B.bH("Flutter + Dart (base multiplataforma)","Usamos Flutter como framework principal y Dart como lenguaje para entregar una base unica de codigo con alta productividad, consistencia de interfaz y excelente rendimiento en Android, iOS, Web y Desktop.","Ejemplo practico: un mismo modulo de registro se comparte entre movil y web, reduciendo retrabajo y tiempo de lanzamiento.")
-A.a9o=new B.bH("Base de datos offline (Dart/Flutter)","Para persistencia local y uso sin internet usamos SQLite (sqflite/drift), Isar y Hive. Esta capa local mantiene rendimiento, respuesta rapida de la interfaz y continuidad con conectividad limitada.","Ejemplo practico: un tecnico en campo registra atencion sin internet y la app conserva los datos locales hasta que vuelva la conexion.")
-A.a9t=new B.bH("Base de datos online (Dart/Flutter)","Para sincronizacion y datos en la nube trabajamos con Cloud Firestore, Firebase Realtime Database y Supabase/PostgreSQL. Permite backup, actualizacion casi en tiempo real y acceso multiusuario fiable en produccion.","Ejemplo practico: cambios de stock hechos en el panel web aparecen casi en tiempo real en la app del equipo comercial.")
-A.a9p=new B.bH("Java (integraciones y backend enterprise)","Utilizamos Java en integraciones corporativas y servicios de apoyo para entornos que exigen robustez, seguridad y compatibilidad con ecosistemas enterprise, conectando apps Flutter a APIs y sistemas legacy.","Ejemplo practico: integracion con ERP legacy para sincronizar pedidos y facturacion sin alterar el sistema principal del cliente.")
-A.a9u=new B.bH("Gradle (build y automatizacion Android)","En Android usamos Gradle para dependencias, variantes de build y automatizacion de pipeline. Mejora la previsibilidad de releases, la organizacion de entornos y la calidad continua de entrega.","Ejemplo practico: generamos builds separados para homologacion y produccion con variables de entorno y firmas distintas.")
-A.a9i=new B.bH("SDKs de terceros e integraciones nativas","Integramos SDKs nativos y bibliotecas especializadas para negocio: autenticacion, pagos, analytics, notificaciones y servicios propietarios, manteniendo estabilidad y rendimiento en produccion.","Ejemplo practico: a\xf1adimos pasarela de pago y autenticacion biometrica manteniendo UX fluida en Android e iOS.")
-A.a9e=new B.bH("Material 3 y UI responsiva","Adoptamos Material 3, LayoutBuilder y breakpoints responsivos para interfaces adaptables a moviles, tablets y escritorio. Mejora la experiencia de usuario, retencion y metricas de usabilidad.","Ejemplo practico: la misma jornada de compra se reorganiza automaticamente en tablet y escritorio sin duplicar pantallas.")
-A.a8X=new B.bH("Integraciones web y SEO tecnico","Implementamos metatags dinamicas, Open Graph, canonical, robots.txt y sitemap.xml para mejorar rastreo e indexacion en Google. Tambien aplicamos buenas practicas con Content Security Policy y politicas de permisos.","Ejemplo practico: la pagina de servicio gana preview optimizado en WhatsApp y mejor posicionamiento organico en Google.")
-A.a8V=new B.bH("Analytics y consentimiento (GA4)","Medicion con Google Analytics 4 integrada al flujo de consentimiento de cookies. Permite analisis de comportamiento respetando la privacidad y politicas modernas de medicion.","Ejemplo practico: el embudo de conversion registra solo eventos consentidos y orienta mejoras de UX con datos reales.")
-A.a96=new B.bH("Arquitectura limpia y mantenimiento","Priorizamos codigo organizado, componentes reutilizables y separacion de responsabilidades para evolucion continua del producto, menos errores y menor coste de mantenimiento.","Ejemplo practico: una nueva funcionalidad de suscripcion se anade reutilizando componentes y reduciendo esfuerzo de QA.")
-A.a9l=new B.bH("Integraciones HTTP y servicios externos","Integramos APIs externas y servicios de datos para flujos reales de negocio, incluyendo endpoints de back-end y observabilidad, garantizando fiabilidad operativa y evolucion guiada por metricas.","Ejemplo practico: monitorizamos latencia y error de APIs en produccion para actuar antes de impactar a clientes.")
-A.a_d=w([A.a92,A.a8W,A.a8U,A.a9j,A.a90,A.a9o,A.a9t,A.a9p,A.a9u,A.a9i,A.a9e,A.a8X,A.a8V,A.a96,A.a9l],x.c)
-A.a95=new B.bH("Clean Arch","We apply clean architecture with clear separation of concerns, decoupled layers and reusable components. This speeds product evolution, improves testing and lowers maintenance cost.","Practical example: when a quoting rule changes, we adjust only the domain layer without breaking the UI or external integrations.")
-A.a8R=new B.bH("Security","We adopt security best practices for authentication, session management, web content policies and data protection. The goal is to reduce operational risk and increase production trust.","Practical example: we protect sensitive routes with session validation and apply CSP on the web to block unauthorized scripts.")
-A.a9c=new B.bH("Scale","We design solutions to grow with the business, focusing on performance, observability and service integration. Architecture is ready for more users and new modules.","Practical example: in seasonal campaigns we scale API and cache services without rebuilding the app, keeping stability at peak traffic.")
-A.a9a=new B.bH("Full-Stack","We work from front-end to back-end, connecting Flutter, APIs, data services, enterprise integrations and build automation. This keeps delivery consistent across the product lifecycle.","Practical example: we ship a full sales feature from the mobile screen to API, database and monitoring.")
-A.a8T=new B.bH("Flutter + Dart (cross-platform foundation)","We use Flutter as the main framework and Dart as the language to deliver a single codebase with high productivity, consistent UI and strong performance on Android, iOS, Web and Desktop.","Practical example: one registration module is shared between mobile and web, reducing rework and release time.")
-A.a93=new B.bH("Offline databases (Dart/Flutter)","For local persistence and offline use we rely on SQLite (sqflite/drift), Isar and Hive. This local layer keeps performance, fast UI response and continuity even with limited connectivity.","Practical example: a field technician logs service offline and the app keeps data local until connectivity returns.")
-A.a9f=new B.bH("Online databases (Dart/Flutter)","For sync and cloud data we work with Cloud Firestore, Firebase Realtime Database and Supabase/PostgreSQL. This enables backup, near real-time updates and multi-user access in production.","Practical example: stock changes made in the web panel appear almost in real time in the sales team app.")
-A.a97=new B.bH("Java (enterprise integrations and backend)","We use Java for corporate integrations and supporting services where robustness, security and enterprise ecosystem compatibility matter, connecting Flutter apps to APIs and legacy systems.","Practical example: integration with a legacy ERP to sync orders and billing without changing the client\u2019s core system.")
-A.a9_=new B.bH("Gradle (Android build and automation)","On Android we use Gradle for dependency management, build variants and pipeline automation. This improves release predictability, environment organization and continuous delivery quality.","Practical example: separate staging and production builds with environment variables and distinct signing configs.")
-A.a9m=new B.bH("Third-party SDKs and native integrations","We integrate native SDKs and specialized libraries for business features such as authentication, payments, analytics, notifications and proprietary services, keeping stability and performance in production.","Practical example: we add a payment gateway and biometric authentication while keeping fluid UX on Android and iOS.")
-A.a9n=new B.bH("Material 3 and responsive UI","We adopt Material 3, LayoutBuilder and responsive breakpoints for interfaces that adapt to phones, tablets and desktop. This improves UX, retention and usability metrics.","Practical example: the same purchase journey rearranges automatically for tablet and desktop without duplicating screens.")
-A.a9d=new B.bH("Web integrations and technical SEO","We implement dynamic meta tags, Open Graph, canonical, robots.txt and sitemap.xml to improve crawling and indexing on Google. We also apply security practices such as Content Security Policy and permission policies.","Practical example: a service page gets an optimized WhatsApp preview and better organic positioning on Google.")
-A.a9q=new B.bH("Analytics and consent (GA4)","Measurement with Google Analytics 4 integrated into the cookie consent flow. This enables behavioral analysis with respect for privacy and alignment with modern measurement policies.","Practical example: the conversion funnel records only consented events and guides UX improvements with real data.")
-A.a9g=new B.bH("Clean architecture and maintenance","We prioritize organized code, reusable components and separation of concerns to support continuous product evolution, fewer bugs and lower maintenance cost.","Practical example: a new subscription feature is added by reusing components and reducing QA effort.")
-A.a91=new B.bH("HTTP integrations and external services","We integrate external APIs and data services for real business flows, including back-end endpoints and observability services, ensuring operational reliability and metric-driven evolution.","Practical example: we monitor API latency and errors in production to act before customers are impacted.")
-A.a_g=w([A.a95,A.a8R,A.a9c,A.a9a,A.a8T,A.a93,A.a9f,A.a97,A.a9_,A.a9m,A.a9n,A.a9d,A.a9q,A.a9g,A.a91],x.c)})()};
-(a=>{a["kzNfWP2BlFmuh2WXrUgWM8SHtCk="]=a.current})($__dart_deferred_initializers__);
+B.avZ.prototype={
+$2(b5,b6){var x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,b0,b1=this,b2=null,b3="suporte@perfectgestdev.com",b4=b6.b
+b4=b4<1/0&&isFinite(b4)?b4:A.bc(b5,C.aQ,y.x).w.a.a
+x=C.d.dr(b4<720?b4:720,200,720)
+w=b1.a
+v=b1.b
+u=b1.c
+t=u.b
+s=A.a9(v.gon(),b2,b2,b2,A.b1().$4$color$fontSize$fontWeight$letterSpacing(t,13,C.aM,0.4),b2,b2)
+r=v.goI()
+q=b1.d
+p=q<400
+o=p?18:22
+n=u.k3
+o=A.a9(r,b2,b2,b2,A.b1().$4$color$fontSize$fontWeight$height(n,o,C.aN,1.2),b2,b2)
+r=A.a9(v.pb(b3),b2,b2,b2,A.b1().$3$color$fontSize$height(n.al(0.72),13,1.45),b2,b2)
+m=v.gnG()
+l=v.gnF()
+k=v.gnI()
+j=v.gnH()
+i=v.gnK()
+h=v.gnJ()
+g=v.gnM()
+f=v.gnL()
+e=b1.e
+d=A.b([new B.oc(e.gvC(),"https://policies.google.com/privacy",b2),new B.oc(e.gvB(),"https://policies.google.com/technologies/cookies",b2),new B.oc(e.gwl(),b2,new B.avW(b5))],y.A)
+a0=v.gDp()
+a1=v.gDo()
+a2=v.gDr()
+a3=v.Dq(b3)
+a4=v.gDt()
+a5=v.gDs()
+a6=u.d
+t=(a6==null?t:a6).al(0.35)
+a6=A.di(14)
+a7=u.ry
+if(a7==null){u=u.n
+if(u==null)u=n}else u=a7
+u=A.kX(u.al(0.45),1)
+p=p?14:16
+a7=A.a9(v.gJE(),b2,b2,b2,A.b1().$3$color$fontSize$fontWeight(n,14,C.aM),b2,b2)
+a8=A.a9(v.gJD(),b2,b2,b2,A.b1().$3$color$fontSize$height(n.al(0.8),12.5,1.45),b2,b2)
+a9=q<480?1/0:b2
+b0=y.u
+return A.ko(A.eU(new A.dx(new A.aa(0,x,0,1/0),A.cc(A.b([s,C.ed,o,C.c0,r,C.hu,new B.kD(m,l,D.eT,b2),new B.kD(k,j,D.eT,b2),new B.kD(i,h,D.eT,b2),new B.kD(g,f,d,b2),new B.kD(a0,a1,D.eT,b2),new B.kD(a2,a3,D.eT,b2),new B.kD(a4,a5,D.eT,b2),E.nR,A.em(new A.by(new A.af(p,p,p,p),A.cc(A.b([a7,C.cW,a8,C.ck,A.cC(A.aaq(D.Pi,A.a9(q<360?v.gIq():v.gIp(),b2,b2,b2,b2,C.cA,b2),new B.avX(b5,v),b2),b2,a9)],b0),C.bb,C.C,C.E),b2),new A.bU(t,b2,u,a6,b2,b2,C.Y),C.aA),E.Hs,A.a9(e.uI(A.qt(new A.eC(Date.now(),0,!1))),b2,b2,b2,A.b1().$2$color$fontSize(n.al(0.65),12),C.cA,b2)],b0),C.a7,C.C,C.E),b2),b2,b2),b2,new A.af(w,16,w,28),C.af)},
+$S:121}
+B.avW.prototype={
+$0(){A.d7(this.a,!1).iS(A.iZ(new B.avV(),null,y.q))},
+$S:0}
+B.avV.prototype={
+$1(d){return D.a9y},
+$S:198}
+B.avX.prototype={
+$0(){var x,w=null
+A.aOs()
+x=this.a
+if(x.e==null)return
+x.an(y.v).f.Ot(A.aF5(w,w,w,w,C.ks,C.a0,w,A.a9(this.b.gDJ(),w,w,w,w,w,w),w,C.lQ,w,w,w,w,w,w,w,w,w,w))},
+$S:0}
+B.aw0.prototype={
+$0(){var x=this.a.e[this.b],w=x.c,v=x.b
+if(w!=null){w.$0()
+return}if(v==null)return
+A.iH(A.dc(v,0,null),C.cc,"_blank")},
+$S:0}
+B.aw1.prototype={
+$1(d){var x=null
+return A.it(A.a9(d.a,x,x,x,A.b1().$1$fontSize(13),x,x),new B.aw_(d),x)},
+$S:z+0}
+B.aw_.prototype={
+$0(){var x=this.a,w=x.c,v=x.b
+if(w!=null){w.$0()
+return}if(v==null)return
+A.iH(A.dc(v,0,null),C.cc,"_blank")},
+$S:0};(function inheritance(){var x=a.inheritMany,w=a.inherit
+x(A.I,[B.amK,B.oc])
+x(B.amK,[B.ayL,B.ayJ,B.ayK])
+w(B.nn,A.T)
+w(B.a0r,A.X)
+x(A.jI,[B.avY,B.avW,B.avX,B.aw0,B.aw_])
+w(B.avZ,A.oV)
+x(A.hp,[B.avV,B.aw1])
+w(B.kD,A.ag)})()
+A.HQ(b.typeUniverse,JSON.parse('{"nn":{"T":[],"e":[]},"a0r":{"X":["nn"]},"kD":{"ag":[],"e":[]}}'))
+var y={F:A.a2("fx"),u:A.a2("r<e>"),A:A.a2("r<oc>"),x:A.a2("fB"),h:A.a2("md"),v:A.a2("wP"),q:A.a2("~")};(function constants(){var x=a.makeConstList
+D.KH=new B.ayJ()
+D.KI=new B.ayK()
+D.KJ=new B.ayL()
+D.NI=new A.af(0,0,0,18)
+D.OI=new A.bG(57690,"MaterialIcons",!1)
+D.Pi=new A.dH(D.OI,20,null,null,null)
+D.eT=x([],y.A)
+D.a9y=new H.lR(null,null,null)})()};
+(a=>{a["tjIvEIfyCUkfdDAKumMeQX2v1MM="]=a.current})($__dart_deferred_initializers__);
