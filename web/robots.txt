@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://perfectgest-web-desenvolvedor-apps.onrender.com/sitemap.xml
+Sitemap: https://perfectgestdev.com/sitemap.xml

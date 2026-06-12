@@ -1,5 +1,8 @@
-/// URL público canónico do site (Render).
-const String kSitePublicOrigin =
+/// URL público canónico do site (domínio principal).
+const String kSitePublicOrigin = 'https://perfectgestdev.com';
+
+/// Espelho Render (redirect); mantido para CORS/API durante transição.
+const String kSiteRenderOrigin =
     'https://perfectgest-web-desenvolvedor-apps.onrender.com';
 
 /// Rota Flutter / path público do pré-cadastro de leads.

@@ -75,7 +75,7 @@ class _SitePolicyPrivacyTextsPt extends SitePolicyPrivacyTexts {
       'O presente site é operado por $kCompanyFantasyName, nome fantasia de $kCompanyLegalName (“nós”, “nossa”). '
       'Somos uma software house focada em desenvolvimento de software (mobile, web e desktop), consultoria técnica e conteúdo institucional. '
       'Entre os nossos produtos destaca-se o aplicativo $kProductPerfectGestIName (Google Play e, quando disponível, Microsoft Store). '
-      'O domínio de referência do projeto é perfectgest-web-desenvolvedor-apps.onrender.com.\n'
+      'Domínio oficial: ${Uri.parse(kSitePublicOrigin).host}.\n'
       'Políticas específicas da app $kProductPerfectGestIName: privacidade em $kAppPrivacyPolicyPublicUrl e exclusão de dados em $kAppDataDeletionPolicyPublicUrl.';
 
   @override
@@ -179,7 +179,7 @@ class _SitePolicyPrivacyTextsEn extends SitePolicyPrivacyTexts {
       'This website is operated by $kCompanyFantasyName, the trade name of $kCompanyLegalName (“we”, “our”). '
       'We are a software house focused on software development (mobile, web and desktop), technical consulting and institutional content. '
       'Among our products, the $kProductPerfectGestIName mobile app (Google Play and, when available, Microsoft Store) is a highlight. '
-      'The reference project domain is perfectgest-web-desenvolvedor-apps.onrender.com.\n'
+      'Official domain: ${Uri.parse(kSitePublicOrigin).host}.\n'
       'App-specific policies for $kProductPerfectGestIName: privacy at $kAppPrivacyPolicyPublicUrl and data deletion at $kAppDataDeletionPolicyPublicUrl.';
 
   @override
@@ -282,7 +282,7 @@ class _SitePolicyPrivacyTextsEs extends SitePolicyPrivacyTexts {
       'Este sitio web es operado por $kCompanyFantasyName, nombre comercial de $kCompanyLegalName (“nosotros”, “nuestra”). '
       'Somos una software house enfocada en desarrollo de software (movil, web y escritorio), consultoria tecnica y contenido institucional. '
       'Entre nuestros productos destaca la aplicacion $kProductPerfectGestIName (Google Play y, cuando este disponible, Microsoft Store). '
-      'El dominio de referencia del proyecto es perfectgest-web-desenvolvedor-apps.onrender.com.\n'
+      'Dominio oficial: ${Uri.parse(kSitePublicOrigin).host}.\n'
       'Politicas especificas de la app $kProductPerfectGestIName: privacidad en $kAppPrivacyPolicyPublicUrl y eliminacion de datos en $kAppDataDeletionPolicyPublicUrl.';
 
   @override

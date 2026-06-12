@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://perfectgest-web-desenvolvedor-apps.onrender.com/</loc>
+    <loc>https://perfectgestdev.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://perfectgest-web-desenvolvedor-apps.onrender.com/politica-privacidade-site</loc>
+    <loc>https://perfectgestdev.com/politica-privacidade-site</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://perfectgest-web-desenvolvedor-apps.onrender.com/politica-privacidade-perfectgest-i</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://perfectgest-web-desenvolvedor-apps.onrender.com/politica-exclusao-dados-perfectgest-i</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://perfectgest-web-desenvolvedor-apps.onrender.com/politica-devolucao</loc>
+    <loc>https://perfectgestdev.com/politica-privacidade-perfectgest-i</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://perfectgest-web-desenvolvedor-apps.onrender.com/pre-cadastro</loc>
+    <loc>https://perfectgestdev.com/politica-exclusao-dados-perfectgest-i</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://perfectgestdev.com/politica-devolucao</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://perfectgestdev.com/pre-cadastro</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>

@@ -18,5 +18,8 @@ const String kCompanyCnpj = '66.889.409/0001-19';
 /// Telefone comercial (páginas legais).
 const String kCompanyContactPhone = '+55 51 989045442';
 
+/// E-mail de contacto público (lojas, políticas, suporte, Partner Center).
+const String kCompanyContactEmail = 'suporte@perfectgestdev.com';
+
 /// Localização pública no rodapé (sem logradouro — cidade, UF e país).
 const String kCompanyAddressLine = 'Caxias do Sul — RS — Brasil';

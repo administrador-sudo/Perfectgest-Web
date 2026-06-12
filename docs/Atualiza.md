@@ -1605,6 +1605,19 @@ FROM site_leads ORDER BY created_at DESC;
 - [x] API local com file fallback (dev)
 - [ ] Postgres Render + formulario em producao (operador)
 
+## [2026-06-08] Pre-cadastro — CSP bloqueava API (fix)
+
+### Problema
+- `/health` OK mas formulário falhava: CSP `connect-src` não incluía `perfectgest-leads-api.onrender.com`.
+
+### Correcção
+- `web/index.html`: `connect-src` + URL da API de leads.
+- `publish-web` commit `6120371`.
+
+### Validacao
+- [x] POST API 201 com Postgres
+- [x] CORS preflight OK
+
 ## [2026-06-08] Header compacto em mobile / janela estreita (Opcao 1)
 
 ### Pedido
@@ -1621,4 +1634,27 @@ FROM site_leads ORDER BY created_at DESC;
 
 ### Validacao
 - [x] `flutter analyze lib/main.dart`
+
+## [2026-06-12] Dominio canónico perfectgestdev.com + alinhamento Microsoft Store
+
+### Contexto
+- Pedido: corrigir desalinhamentos (domínio onrender, e-mail Gmail vs corporativo) para conformidade Partner Center / Microsoft Store.
+
+### Arquivos alterados
+- lib/site_public_urls.dart, lib/company_legal.dart, lib/app_theme.dart, lib/main.dart
+- lib/l10n/site_policy_privacy_texts.dart, lib/l10n/play_store_app_legal_texts.dart, lib/l10n/site_pre_cadastro_texts.dart
+- web/sitemap.xml, web/robots.txt
+- scripts/leads-api-server.js, render.yaml
+- docs/Checklist_critico.md, docs/Politica_Privacidade_PerfectGest_I.md, docs/Politica_Exclusao_Dados_PerfectGest_I.md
+
+### O que foi feito
+- `kSitePublicOrigin` → `https://perfectgestdev.com`; contacto único `suporte@perfectgestdev.com` (PT/EN/ES).
+- Políticas app: CNPJ, crash reporting, e-mail corporativo; sitemap/robots actualizados.
+- API leads: CORS default inclui `perfectgestdev.com` (+ onrender espelho).
+
+### Pendencias (operador)
+- Deploy `npm run publish-web` + Render `ALLOWED_ORIGINS` no serviço `perfectgest-leads-api` se ainda não actualizado no dashboard.
+
+### Validacao
+- [x] `dart analyze` ficheiros alterados
 

@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'company_legal.dart';
 import 'metallic_style.dart';
 
 const String kWhatsAppDigits = '5551989045442';
-const String kEmailSac = 'sac.perfectgest@gmail.com';
+
+/// Alias histórico — contacto único alinhado a lojas e Partner Center.
+const String kEmailSac = kCompanyContactEmail;
 
 /// Tema **escuro metálico** (carvão, ouro, prata, cobre).
 ThemeData buildPerfectProDarkTheme() {

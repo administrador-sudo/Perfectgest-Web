@@ -46,17 +46,17 @@ B.amS.prototype={}
 B.ayS.prototype={
 ghm(){return"Politica de privacidade, dados, cookies e termos Perfect Gest Dev"},
 gjS(){return"Privacidade e termos"},
-gom(){return"Perfect Gest Dev"},
-goH(){return"Pol\xedtica de privacidade, dados pessoais, cookies e termos de uso"},
+gon(){return"Perfect Gest Dev"},
+goI(){return"Pol\xedtica de privacidade, dados pessoais, cookies e termos de uso"},
 pa(d){return"\xdaltima atualiza\xe7\xe3o: documento institucional. Em caso de d\xfavida sobre tratamento de dados, contacte: "+d+"."},
-gnF(){return"1. Quem somos"},
-gnE(){return"O presente site \xe9 operado por Perfect Gest Dev, nome fantasia de PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA (\u201cn\xf3s\u201d, \u201cnossa\u201d). Somos uma software house focada em desenvolvimento de software (mobile, web e desktop), consultoria t\xe9cnica e conte\xfado institucional. Entre os nossos produtos destaca-se o aplicativo PerfectGest I (Google Play e, quando dispon\xedvel, Microsoft Store). O dom\xednio de refer\xeancia do projeto \xe9 perfectgest-web-desenvolvedor-apps.onrender.com.\nPol\xedticas espec\xedficas da app PerfectGest I: privacidade em https://perfectgest-web-desenvolvedor-apps.onrender.com/politica-privacidade-perfectgest-i e exclus\xe3o de dados em https://perfectgest-web-desenvolvedor-apps.onrender.com/politica-exclusao-dados-perfectgest-i."},
-gnH(){return"2. Que dados podemos recolher"},
-gnG(){return"\u2022 Dados t\xe9cnicos de navega\xe7\xe3o: endere\xe7o IP (muitas vezes truncado ou agregado pelo fornecedor de analytics), tipo de navegador, idioma, p\xe1ginas visitadas e hor\xe1rios aproximados.\n\u2022 Dados que nos enviar voluntariamente: por exemplo, se nos contactar por WhatsApp ou e-mail, o conte\xfado da mensagem e os metadados necess\xe1rios \xe0 comunica\xe7\xe3o.\n\u2022 Dados do formul\xe1rio de pr\xe9-cadastro (nome, e-mail, coment\xe1rio opcional e idioma): recolhidos apenas com consentimento expl\xedcito, transmitidos por HTTPS para base de dados gerida por n\xf3s (alojamento Render). Utilizamos estes dados para contacto comercial, convites ao programa de pr\xe9-lan\xe7amento (acesso a builds em desenvolvimento e recolha de feedback), novidades sobre produtos e resposta a pedidos. N\xe3o vendemos estes contactos a terceiros.\nN\xe3o vendemos listas de contactos nem dados pessoais a terceiros para fins comerciais independentes."},
-gnJ(){return"3. Cookies e tecnologias similares"},
-gnI(){return"Utilizamos cookies e armazenamento local estritamente necess\xe1rios ao funcionamento do site e, quando ativado, cookies de medi\xe7\xe3o de audi\xeancia (Google Analytics / gtag) para compreender de forma agregada como o site \xe9 utilizado. Pode gerir ou apagar cookies nas defini\xe7\xf5es do seu navegador. Se recusar cookies de medi\xe7\xe3o, limitamos o envio de sinais de analytics conforme a configura\xe7\xe3o do seu browser e as nossas defini\xe7\xf5es de consentimento."},
-gnL(){return"4. Google Analytics e servi\xe7os Google"},
-gnK(){return"Quando o Google Analytics est\xe1 configurado neste site, o tratamento de dados associado segue as pol\xedticas do Google. Recomendamos a leitura das p\xe1ginas oficiais do Google sobre privacidade, cookies e parceiros tecnol\xf3gicos."},
+gnG(){return"1. Quem somos"},
+gnF(){return"O presente site \xe9 operado por Perfect Gest Dev, nome fantasia de PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA (\u201cn\xf3s\u201d, \u201cnossa\u201d). Somos uma software house focada em desenvolvimento de software (mobile, web e desktop), consultoria t\xe9cnica e conte\xfado institucional. Entre os nossos produtos destaca-se o aplicativo PerfectGest I (Google Play e, quando dispon\xedvel, Microsoft Store). Dom\xednio oficial: "+A.cY("https://perfectgestdev.com",0,null).gkU()+".\nPol\xedticas espec\xedficas da app PerfectGest I: privacidade em https://perfectgestdev.com/politica-privacidade-perfectgest-i e exclus\xe3o de dados em https://perfectgestdev.com/politica-exclusao-dados-perfectgest-i."},
+gnI(){return"2. Que dados podemos recolher"},
+gnH(){return"\u2022 Dados t\xe9cnicos de navega\xe7\xe3o: endere\xe7o IP (muitas vezes truncado ou agregado pelo fornecedor de analytics), tipo de navegador, idioma, p\xe1ginas visitadas e hor\xe1rios aproximados.\n\u2022 Dados que nos enviar voluntariamente: por exemplo, se nos contactar por WhatsApp ou e-mail, o conte\xfado da mensagem e os metadados necess\xe1rios \xe0 comunica\xe7\xe3o.\n\u2022 Dados do formul\xe1rio de pr\xe9-cadastro (nome, e-mail, coment\xe1rio opcional e idioma): recolhidos apenas com consentimento expl\xedcito, transmitidos por HTTPS para base de dados gerida por n\xf3s (alojamento Render). Utilizamos estes dados para contacto comercial, convites ao programa de pr\xe9-lan\xe7amento (acesso a builds em desenvolvimento e recolha de feedback), novidades sobre produtos e resposta a pedidos. N\xe3o vendemos estes contactos a terceiros.\nN\xe3o vendemos listas de contactos nem dados pessoais a terceiros para fins comerciais independentes."},
+gnK(){return"3. Cookies e tecnologias similares"},
+gnJ(){return"Utilizamos cookies e armazenamento local estritamente necess\xe1rios ao funcionamento do site e, quando ativado, cookies de medi\xe7\xe3o de audi\xeancia (Google Analytics / gtag) para compreender de forma agregada como o site \xe9 utilizado. Pode gerir ou apagar cookies nas defini\xe7\xf5es do seu navegador. Se recusar cookies de medi\xe7\xe3o, limitamos o envio de sinais de analytics conforme a configura\xe7\xe3o do seu browser e as nossas defini\xe7\xf5es de consentimento."},
+gnM(){return"4. Google Analytics e servi\xe7os Google"},
+gnL(){return"Quando o Google Analytics est\xe1 configurado neste site, o tratamento de dados associado segue as pol\xedticas do Google. Recomendamos a leitura das p\xe1ginas oficiais do Google sobre privacidade, cookies e parceiros tecnol\xf3gicos."},
 gDm(){return"5. Base legal e reten\xe7\xe3o"},
 gDl(){return"O tratamento de dados t\xe9cnicos e de medi\xe7\xe3o pode basear-se no interesse leg\xedtimo em melhorar o site e na execu\xe7\xe3o de medidas pr\xe9-contratuais ou contratuais quando nos contacta. O pr\xe9-cadastro baseia-se no seu consentimento, que pode revogar a qualquer momento (ver sec\xe7\xe3o 6). Conservamos mensagens de contacto e registos de pr\xe9-cadastro apenas pelo tempo necess\xe1rio \xe0 finalidade indicada ou at\xe9 pedido de elimina\xe7\xe3o, respeitando obriga\xe7\xf5es legais aplic\xe1veis."},
 gDo(){return"6. Os seus direitos"},
@@ -71,17 +71,17 @@ gIm(){return"Aceitar cookies de medi\xe7\xe3o"}}
 B.ayQ.prototype={
 ghm(){return"Perfect Gest Dev privacy policy, data, cookies and terms"},
 gjS(){return"Privacy and terms"},
-gom(){return"Perfect Gest Dev"},
-goH(){return"Privacy policy, personal data, cookies and terms of use"},
+gon(){return"Perfect Gest Dev"},
+goI(){return"Privacy policy, personal data, cookies and terms of use"},
 pa(d){return"Last updated: institutional document. If you have questions about data processing, contact: "+d+"."},
-gnF(){return"1. Who we are"},
-gnE(){return"This website is operated by Perfect Gest Dev, the trade name of PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA (\u201cwe\u201d, \u201cour\u201d). We are a software house focused on software development (mobile, web and desktop), technical consulting and institutional content. Among our products, the PerfectGest I mobile app (Google Play and, when available, Microsoft Store) is a highlight. The reference project domain is perfectgest-web-desenvolvedor-apps.onrender.com.\nApp-specific policies for PerfectGest I: privacy at https://perfectgest-web-desenvolvedor-apps.onrender.com/politica-privacidade-perfectgest-i and data deletion at https://perfectgest-web-desenvolvedor-apps.onrender.com/politica-exclusao-dados-perfectgest-i."},
-gnH(){return"2. Data we may collect"},
-gnG(){return"\u2022 Technical browsing data: IP address (often truncated or aggregated by the analytics provider), browser type, language, pages visited and approximate times.\n\u2022 Data you send voluntarily: for example, if you contact us via WhatsApp or email, the message content and metadata needed for communication.\n\u2022 Pre-registration form data (name, email, optional comment and language): collected only with your explicit consent, sent over HTTPS to a database managed by us (Render hosting). We use this data for commercial contact, pre-launch program invitations (access to in-development builds and feedback collection), product updates and responding to requests. We do not sell these contacts to third parties.\nWe do not sell contact lists or personal data to third parties for independent commercial purposes."},
-gnJ(){return"3. Cookies and similar technologies"},
-gnI(){return"We use cookies and local storage strictly necessary for the site to work and, when enabled, audience measurement cookies (Google Analytics / gtag) to understand in aggregate how the site is used. You can manage or delete cookies in your browser settings. If you decline measurement cookies, we limit analytics signals according to your browser configuration and our consent settings."},
-gnL(){return"4. Google Analytics and Google services"},
-gnK(){return"When Google Analytics is configured on this site, associated data processing follows Google policies. We recommend reading Google\u2019s official pages on privacy, cookies and technology partners."},
+gnG(){return"1. Who we are"},
+gnF(){return"This website is operated by Perfect Gest Dev, the trade name of PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA (\u201cwe\u201d, \u201cour\u201d). We are a software house focused on software development (mobile, web and desktop), technical consulting and institutional content. Among our products, the PerfectGest I mobile app (Google Play and, when available, Microsoft Store) is a highlight. Official domain: "+A.cY("https://perfectgestdev.com",0,null).gkU()+".\nApp-specific policies for PerfectGest I: privacy at https://perfectgestdev.com/politica-privacidade-perfectgest-i and data deletion at https://perfectgestdev.com/politica-exclusao-dados-perfectgest-i."},
+gnI(){return"2. Data we may collect"},
+gnH(){return"\u2022 Technical browsing data: IP address (often truncated or aggregated by the analytics provider), browser type, language, pages visited and approximate times.\n\u2022 Data you send voluntarily: for example, if you contact us via WhatsApp or email, the message content and metadata needed for communication.\n\u2022 Pre-registration form data (name, email, optional comment and language): collected only with your explicit consent, sent over HTTPS to a database managed by us (Render hosting). We use this data for commercial contact, pre-launch program invitations (access to in-development builds and feedback collection), product updates and responding to requests. We do not sell these contacts to third parties.\nWe do not sell contact lists or personal data to third parties for independent commercial purposes."},
+gnK(){return"3. Cookies and similar technologies"},
+gnJ(){return"We use cookies and local storage strictly necessary for the site to work and, when enabled, audience measurement cookies (Google Analytics / gtag) to understand in aggregate how the site is used. You can manage or delete cookies in your browser settings. If you decline measurement cookies, we limit analytics signals according to your browser configuration and our consent settings."},
+gnM(){return"4. Google Analytics and Google services"},
+gnL(){return"When Google Analytics is configured on this site, associated data processing follows Google policies. We recommend reading Google\u2019s official pages on privacy, cookies and technology partners."},
 gDm(){return"5. Legal basis and retention"},
 gDl(){return"Processing of technical and measurement data may rely on legitimate interest in improving the site and on pre-contractual or contractual measures when you contact us. Pre-registration relies on your consent, which you may withdraw at any time (see section 6). We keep contact messages and pre-registration records only as long as needed for the stated purpose or until a deletion request, subject to applicable legal obligations."},
 gDo(){return"6. Your rights"},
@@ -96,17 +96,17 @@ gIm(){return"Accept measurement cookies"}}
 B.ayR.prototype={
 ghm(){return"Politica de privacidad, datos, cookies y terminos Perfect Gest Dev"},
 gjS(){return"Privacidad y terminos"},
-gom(){return"Perfect Gest Dev"},
-goH(){return"Politica de privacidad, datos personales, cookies y terminos de uso"},
+gon(){return"Perfect Gest Dev"},
+goI(){return"Politica de privacidad, datos personales, cookies y terminos de uso"},
 pa(d){return"Ultima actualizacion: documento institucional. Si tiene dudas sobre el tratamiento de datos, contacte: "+d+"."},
-gnF(){return"1. Quienes somos"},
-gnE(){return"Este sitio web es operado por Perfect Gest Dev, nombre comercial de PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA (\u201cnosotros\u201d, \u201cnuestra\u201d). Somos una software house enfocada en desarrollo de software (movil, web y escritorio), consultoria tecnica y contenido institucional. Entre nuestros productos destaca la aplicacion PerfectGest I (Google Play y, cuando este disponible, Microsoft Store). El dominio de referencia del proyecto es perfectgest-web-desenvolvedor-apps.onrender.com.\nPoliticas especificas de la app PerfectGest I: privacidad en https://perfectgest-web-desenvolvedor-apps.onrender.com/politica-privacidade-perfectgest-i y eliminacion de datos en https://perfectgest-web-desenvolvedor-apps.onrender.com/politica-exclusao-dados-perfectgest-i."},
-gnH(){return"2. Datos que podemos recopilar"},
-gnG(){return"\u2022 Datos tecnicos de navegacion: direccion IP (a menudo truncada o agregada por el proveedor de analytics), tipo de navegador, idioma, paginas visitadas y horarios aproximados.\n\u2022 Datos que nos envie voluntariamente: por ejemplo, si nos contacta por WhatsApp o correo, el contenido del mensaje y los metadatos necesarios para la comunicacion.\n\u2022 Datos del formulario de pre-registro (nombre, correo, comentario opcional e idioma): recopilados solo con su consentimiento explicito, transmitidos por HTTPS a una base de datos gestionada por nosotros (alojamiento Render). Utilizamos estos datos para contacto comercial, invitaciones al programa de prelanzamiento (acceso a builds en desarrollo y recogida de retroalimentacion), novedades sobre productos y respuesta a solicitudes. No vendemos estos contactos a terceros.\nNo vendemos listas de contactos ni datos personales a terceros para fines comerciales independientes."},
-gnJ(){return"3. Cookies y tecnologias similares"},
-gnI(){return"Utilizamos cookies y almacenamiento local estrictamente necesarios para el funcionamiento del sitio y, cuando esta activado, cookies de medicion de audiencia (Google Analytics / gtag) para entender de forma agregada como se usa el sitio. Puede gestionar o borrar cookies en la configuracion del navegador. Si rechaza cookies de medicion, limitamos el envio de senales de analytics segun la configuracion del navegador y nuestras opciones de consentimiento."},
-gnL(){return"4. Google Analytics y servicios de Google"},
-gnK(){return"Cuando Google Analytics esta configurado en este sitio, el tratamiento de datos asociado sigue las politicas de Google. Recomendamos leer las paginas oficiales de Google sobre privacidad, cookies y socios tecnologicos."},
+gnG(){return"1. Quienes somos"},
+gnF(){return"Este sitio web es operado por Perfect Gest Dev, nombre comercial de PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA (\u201cnosotros\u201d, \u201cnuestra\u201d). Somos una software house enfocada en desarrollo de software (movil, web y escritorio), consultoria tecnica y contenido institucional. Entre nuestros productos destaca la aplicacion PerfectGest I (Google Play y, cuando este disponible, Microsoft Store). Dominio oficial: "+A.cY("https://perfectgestdev.com",0,null).gkU()+".\nPoliticas especificas de la app PerfectGest I: privacidad en https://perfectgestdev.com/politica-privacidade-perfectgest-i y eliminacion de datos en https://perfectgestdev.com/politica-exclusao-dados-perfectgest-i."},
+gnI(){return"2. Datos que podemos recopilar"},
+gnH(){return"\u2022 Datos tecnicos de navegacion: direccion IP (a menudo truncada o agregada por el proveedor de analytics), tipo de navegador, idioma, paginas visitadas y horarios aproximados.\n\u2022 Datos que nos envie voluntariamente: por ejemplo, si nos contacta por WhatsApp o correo, el contenido del mensaje y los metadatos necesarios para la comunicacion.\n\u2022 Datos del formulario de pre-registro (nombre, correo, comentario opcional e idioma): recopilados solo con su consentimiento explicito, transmitidos por HTTPS a una base de datos gestionada por nosotros (alojamiento Render). Utilizamos estos datos para contacto comercial, invitaciones al programa de prelanzamiento (acceso a builds en desarrollo y recogida de retroalimentacion), novedades sobre productos y respuesta a solicitudes. No vendemos estos contactos a terceros.\nNo vendemos listas de contactos ni datos personales a terceros para fines comerciales independientes."},
+gnK(){return"3. Cookies y tecnologias similares"},
+gnJ(){return"Utilizamos cookies y almacenamiento local estrictamente necesarios para el funcionamiento del sitio y, cuando esta activado, cookies de medicion de audiencia (Google Analytics / gtag) para entender de forma agregada como se usa el sitio. Puede gestionar o borrar cookies en la configuracion del navegador. Si rechaza cookies de medicion, limitamos el envio de senales de analytics segun la configuracion del navegador y nuestras opciones de consentimiento."},
+gnM(){return"4. Google Analytics y servicios de Google"},
+gnL(){return"Cuando Google Analytics esta configurado en este sitio, el tratamiento de datos asociado sigue las politicas de Google. Recomendamos leer las paginas oficiales de Google sobre privacidad, cookies y socios tecnologicos."},
 gDm(){return"5. Base legal y conservacion"},
 gDl(){return"El tratamiento de datos tecnicos y de medicion puede basarse en el interes legitimo de mejorar el sitio y en medidas precontractuales o contractuales cuando nos contacta. El pre-registro se basa en su consentimiento, que puede revocar en cualquier momento (ver seccion 6). Conservamos los mensajes de contacto y registros de pre-registro solo el tiempo necesario para la finalidad indicada o hasta una solicitud de eliminacion, respetando obligaciones legales aplicables."},
 gDo(){return"6. Sus derechos"},
@@ -136,7 +136,7 @@ B.od.prototype={}
 B.kK.prototype={
 I(d){var x,w,v,u,t,s,r,q,p,o,n,m,l=this,k=null,j=A.F(d).ax,i=A.ba(d,C.aG,y.x).w.a.a,h=i<400?12:16,g=l.c,f=j.RG
 f=(f==null?j.k2:f).aj(0.5)
-x=A.dj(14)
+x=A.dk(14)
 w=j.ry
 if(w==null){w=j.n
 if(w==null)w=j.k3}w=A.l4(w.aj(0.4),1)
@@ -159,32 +159,32 @@ v=A.a9(new A.ac(u,new B.aw8(),v),v.i("aw.E"))
 r.push(A.m7(C.bt,v,C.cC,6,8))}C.b.a_(t,r)}return new A.bu(D.NN,A.aX(k,k,A.eo(new A.bu(new A.ag(h,16,h,18),A.c2(t,C.a1,C.A,C.D),k),new A.bU(f,k,w,x,k,k,C.Y),C.az),!0,k,k,k,!1,k,k,k,k,k,k,k,g,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,C.r,k),k)}}
 var z=a.updateTypes(["r7(od)"])
 B.aw4.prototype={
-$0(){return A.d8(this.a,!1).dC()},
+$0(){return A.d9(this.a,!1).dC()},
 $S:0}
 B.aw5.prototype={
-$2(b5,b6){var x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,b0,b1=this,b2=null,b3="sac.perfectgest@gmail.com",b4=b6.b
+$2(b5,b6){var x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,b0,b1=this,b2=null,b3="suporte@perfectgestdev.com",b4=b6.b
 b4=b4<1/0&&isFinite(b4)?b4:A.ba(b5,C.aG,y.x).w.a.a
 x=C.d.dq(b4<720?b4:720,200,720)
 w=b1.a
 v=b1.b
 u=b1.c
 t=u.b
-s=A.a5(v.gom(),b2,b2,b2,A.b1().$4$color$fontSize$fontWeight$letterSpacing(t,13,C.aM,0.4),b2,b2)
-r=v.goH()
+s=A.a5(v.gon(),b2,b2,b2,A.b1().$4$color$fontSize$fontWeight$letterSpacing(t,13,C.aM,0.4),b2,b2)
+r=v.goI()
 q=b1.d
 p=q<400
 o=p?18:22
 n=u.k3
 o=A.a5(r,b2,b2,b2,A.b1().$4$color$fontSize$fontWeight$height(n,o,C.aN,1.2),b2,b2)
 r=A.a5(v.pa(b3),b2,b2,b2,A.b1().$3$color$fontSize$height(n.aj(0.72),13,1.45),b2,b2)
-m=v.gnF()
-l=v.gnE()
-k=v.gnH()
-j=v.gnG()
-i=v.gnJ()
-h=v.gnI()
-g=v.gnL()
-f=v.gnK()
+m=v.gnG()
+l=v.gnF()
+k=v.gnI()
+j=v.gnH()
+i=v.gnK()
+h=v.gnJ()
+g=v.gnM()
+f=v.gnL()
 e=b1.e
 d=A.b([new B.od(e.gvA(),"https://policies.google.com/privacy",b2),new B.od(e.gvz(),"https://policies.google.com/technologies/cookies",b2),new B.od(e.gwj(),b2,new B.aw2(b5))],y.A)
 a0=v.gDm()
@@ -195,7 +195,7 @@ a4=v.gDq()
 a5=v.gDp()
 a6=u.d
 t=(a6==null?t:a6).aj(0.35)
-a6=A.dj(14)
+a6=A.dk(14)
 a7=u.ry
 if(a7==null){u=u.n
 if(u==null)u=n}else u=a7
@@ -205,10 +205,10 @@ a7=A.a5(v.gJB(),b2,b2,b2,A.b1().$3$color$fontSize$fontWeight(n,14,C.aM),b2,b2)
 a8=A.a5(v.gJA(),b2,b2,b2,A.b1().$3$color$fontSize$height(n.aj(0.8),12.5,1.45),b2,b2)
 a9=q<480?1/0:b2
 b0=y.u
-return A.iv(A.dP(new A.dk(new A.aa(0,x,0,1/0),A.c2(A.b([s,C.dw,o,C.ck,r,C.hu,new B.kK(m,l,D.eS,b2),new B.kK(k,j,D.eS,b2),new B.kK(i,h,D.eS,b2),new B.kK(g,f,d,b2),new B.kK(a0,a1,D.eS,b2),new B.kK(a2,a3,D.eS,b2),new B.kK(a4,a5,D.eS,b2),E.nR,A.eo(new A.bu(new A.ag(p,p,p,p),A.c2(A.b([a7,C.cz,a8,C.bs,A.cD(A.aav(D.Po,A.a5(q<360?v.gIn():v.gIm(),b2,b2,b2,b2,C.c1,b2),new B.aw3(b5,v),b2),b2,a9)],b0),C.bb,C.A,C.D),b2),new A.bU(t,b2,u,a6,b2,b2,C.Y),C.az),E.Hr,A.a5(e.uH(A.qy(new A.eE(Date.now(),0,!1))),b2,b2,b2,A.b1().$2$color$fontSize(n.aj(0.65),12),C.c1,b2)],b0),C.a1,C.A,C.D),b2),b2,b2),b2,new A.ag(w,16,w,28),C.ae)},
+return A.iv(A.dP(new A.dl(new A.aa(0,x,0,1/0),A.c2(A.b([s,C.dw,o,C.ck,r,C.hu,new B.kK(m,l,D.eS,b2),new B.kK(k,j,D.eS,b2),new B.kK(i,h,D.eS,b2),new B.kK(g,f,d,b2),new B.kK(a0,a1,D.eS,b2),new B.kK(a2,a3,D.eS,b2),new B.kK(a4,a5,D.eS,b2),E.nR,A.eo(new A.bu(new A.ag(p,p,p,p),A.c2(A.b([a7,C.cz,a8,C.bs,A.cD(A.aav(D.Po,A.a5(q<360?v.gIn():v.gIm(),b2,b2,b2,b2,C.c1,b2),new B.aw3(b5,v),b2),b2,a9)],b0),C.bb,C.A,C.D),b2),new A.bU(t,b2,u,a6,b2,b2,C.Y),C.az),E.Hr,A.a5(e.uH(A.qy(new A.eE(Date.now(),0,!1))),b2,b2,b2,A.b1().$2$color$fontSize(n.aj(0.65),12),C.c1,b2)],b0),C.a1,C.A,C.D),b2),b2,b2),b2,new A.ag(w,16,w,28),C.ae)},
 $S:193}
 B.aw2.prototype={
-$0(){A.d8(this.a,!1).iR(A.hE(new B.aw1(),null,y.q))},
+$0(){A.d9(this.a,!1).iR(A.hE(new B.aw1(),null,y.q))},
 $S:0}
 B.aw1.prototype={
 $1(d){return D.aae},
@@ -224,7 +224,7 @@ B.aw7.prototype={
 $0(){var x=this.a.e[this.b],w=x.c,v=x.b
 if(w!=null){w.$0()
 return}if(v==null)return
-A.hY(A.dp(v,0,null),C.cr,"_blank")},
+A.hY(A.cY(v,0,null),C.cr,"_blank")},
 $S:0}
 B.aw8.prototype={
 $1(d){var x=null
@@ -234,7 +234,7 @@ B.aw6.prototype={
 $0(){var x=this.a,w=x.c,v=x.b
 if(w!=null){w.$0()
 return}if(v==null)return
-A.hY(A.dp(v,0,null),C.cr,"_blank")},
+A.hY(A.cY(v,0,null),C.cr,"_blank")},
 $S:0};(function inheritance(){var x=a.inheritMany,w=a.inherit
 x(A.I,[B.amS,B.od])
 x(B.amS,[B.ayS,B.ayQ,B.ayR])
@@ -254,4 +254,4 @@ D.OO=new A.bG(57690,"MaterialIcons",!1)
 D.Po=new A.dS(D.OO,20,null,null,null)
 D.eS=x([],y.A)
 D.aae=new H.lX(null,null,null)})()};
-(a=>{a["h7zGwQL7xHOWUJdH0qlsREBP+U0="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["ao/l6uXK2F7BAR/JV8OYnet8g94="]=a.current})($__dart_deferred_initializers__);

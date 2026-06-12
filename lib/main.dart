@@ -23,6 +23,7 @@ import 'site_deferred_pages.dart';
 import 'metallic_style.dart';
 import 'site_fonts.dart';
 import 'site_language_menu.dart';
+import 'site_public_urls.dart';
 
 /// Loops, parallax e oscilações contínuas — respeita “reduzir movimento” do SO/navegador.
 bool allowRichMotion(BuildContext context) {
@@ -1074,7 +1075,7 @@ Future<void> _openSiteUrl() async {
     web_site_root.navigateToSameOriginRoot();
     return;
   }
-  final uri = Uri.parse('https://perfectgest-web-desenvolvedor-apps.onrender.com/');
+  final uri = Uri.parse('$kSitePublicOrigin/');
   await launchUrl(uri, mode: LaunchMode.platformDefault);
 }
 

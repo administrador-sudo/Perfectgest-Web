@@ -4,7 +4,7 @@ a9M(){var x=0,w=A.Q(y.f),v=1,u=[],t,s,r,q,p,o,n
 var $async$a9M=A.M(function(d,e){if(d===1){u.push(e)
 x=v}for(;;)switch(x){case 0:v=3
 A.jC().$1("Acordando o servidor Render... aguarde.")
-r=A.dp("https://onrender.com",0,null)
+r=A.cY("https://onrender.com",0,null)
 q=y.g
 p=A.az(["Content-Type","application/json"],q,q)
 x=6
@@ -35,4 +35,4 @@ C=c[11]
 D=a.updateHolder(c[9],D)
 var z=a.updateTypes([])
 var y={g:A.a1("o"),f:A.a1("~")}};
-(a=>{a["QvtC875OEmOzUD08Fj69eBZee34="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["gDK8BcoqlAuPkE2uOK/3JdtZq8Y="]=a.current})($__dart_deferred_initializers__);

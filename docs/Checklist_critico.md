@@ -6,15 +6,15 @@
 
 ## Conformidade Play Console e Microsoft Store (2026-06-08)
 
-**Origem canónica:** `https://perfectgest-web-desenvolvedor-apps.onrender.com`
+**Origem canónica:** `https://perfectgestdev.com`
 
 | Campo / requisito | Google Play Console | Microsoft Partner Center | URL no site |
 |-------------------|---------------------|--------------------------|-------------|
-| Política de privacidade da **app** | Obrigatório (Data safety + ficha) | Obrigatório se recolhe dados pessoais | `https://perfectgest-web-desenvolvedor-apps.onrender.com/politica-privacidade-perfectgest-i` |
-| Exclusão de dados da **app** | URL dedicada (conta local = “Não”) | Mecanismo de eliminação / contacto | `https://perfectgest-web-desenvolvedor-apps.onrender.com/politica-exclusao-dados-perfectgest-i` |
-| Política do **site** (cookies, pré-cadastro, analytics) | Opcional na ficha do app; útil para campanhas web | Suporte / site institucional | `https://perfectgest-web-desenvolvedor-apps.onrender.com/politica-privacidade-site` |
-| Devoluções (vitrine) | Referência CDC / canal de compra | Política de reembolso se vender no site | `https://perfectgest-web-desenvolvedor-apps.onrender.com/politica-devolucao` |
-| Pré-cadastro (leads) | Declarar na Data safety se recolher contactos via web ligada ao app | Declarar recolha se formulário estiver activo | `https://perfectgest-web-desenvolvedor-apps.onrender.com/pre-cadastro` |
+| Política de privacidade da **app** | Obrigatório (Data safety + ficha) | Obrigatório se recolhe dados pessoais | `https://perfectgestdev.com/politica-privacidade-perfectgest-i` |
+| Exclusão de dados da **app** | URL dedicada (conta local = “Não”) | Mecanismo de eliminação / contacto | `https://perfectgestdev.com/politica-exclusao-dados-perfectgest-i` |
+| Política do **site** (cookies, pré-cadastro, analytics) | Opcional na ficha do app; útil para campanhas web | Suporte / site institucional | `https://perfectgestdev.com/politica-privacidade-site` |
+| Devoluções (vitrine) | Referência CDC / canal de compra | Política de reembolso se vender no site | `https://perfectgestdev.com/politica-devolucao` |
+| Pré-cadastro (leads) | Declarar na Data safety se recolher contactos via web ligada ao app | Declarar recolha se formulário estiver activo | `https://perfectgestdev.com/pre-cadastro` |
 
 ### Checklist rápido
 

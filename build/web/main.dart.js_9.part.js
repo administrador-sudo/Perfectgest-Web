@@ -42,7 +42,7 @@ gLs(){return"Nossa estrat\xe9gia t\xe9cnica conecta arquitetura, dados, experi\x
 gLt(){return"Fluxo integrado: base t\xe9cnica s\xf3lida -> dados confi\xe1veis -> experi\xeancia consistente -> opera\xe7\xe3o mensur\xe1vel. Assim, cada decis\xe3o refor\xe7a a pr\xf3xima etapa e mant\xe9m coer\xeancia entre discurso comercial e execu\xe7\xe3o de produto."},
 gME(){return"Diferenciais do Portf\xf3lio"},
 gJj(){return"Conceito aplicado:"},
-gpQ(){return A.a_r}}
+gpQ(){return A.a_t}}
 B.ayZ.prototype={
 ghm(){return"Flutter technologies and Perfect Gest Dev core stack"},
 gLw(){return"Flutter stack and Perfect Gest Dev technologies"},
@@ -50,7 +50,7 @@ gLs(){return"Our technical strategy connects architecture, data, user experience
 gLt(){return"Integrated flow: solid technical foundation -> reliable data -> consistent experience -> measurable operations. Each decision reinforces the next and keeps commercial narrative aligned with product execution."},
 gME(){return"Portfolio differentiators"},
 gJj(){return"Applied concept:"},
-gpQ(){return A.a_W}}
+gpQ(){return A.a_X}}
 B.az_.prototype={
 ghm(){return"Tecnologias Flutter y stack principal de Perfect Gest Dev"},
 gLw(){return"Stack Flutter y tecnologias de Perfect Gest Dev"},
@@ -58,7 +58,7 @@ gLs(){return"Nuestra estrategia tecnica conecta arquitectura, datos, experiencia
 gLt(){return"Flujo integrado: base tecnica solida -> datos fiables -> experiencia consistente -> operacion medible. Asi, cada decision refuerza la siguiente y mantiene coherencia entre discurso comercial y ejecucion de producto."},
 gME(){return"Diferenciales del portafolio"},
 gJj(){return"Concepto aplicado:"},
-gpQ(){return A.a_T}}
+gpQ(){return A.a_U}}
 B.lX.prototype={
 ag(){var w=null,v=x.z
 return new B.a2K(C.CD(),new C.b8(w,v),new C.b8(w,v),new C.b8(w,v),new C.b8(w,v))}}
@@ -102,11 +102,11 @@ if(m===4)i.push(D.cz)
 q=m<4?v[m]:k
 p=w.gJj()
 i.push(new B.a2J(w.gpQ()[m].a,w.gpQ()[m].b,w.gpQ()[m].c,p,q))
-D.b.a_(r,i)}return C.aX(k,k,C.kr(s,t,new C.jf(C.iv(C.dP(new C.dk(A.Jj,C.c2(r,D.a1,D.A,D.D),k),k,k),l.d,new C.ag(h,16,h,28),D.ae),k),k),!1,k,k,k,!1,k,k,k,k,k,k,k,u,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,D.r,k)}}
+D.b.a_(r,i)}return C.aX(k,k,C.kr(s,t,new C.jf(C.iv(C.dP(new C.dl(A.Jj,C.c2(r,D.a1,D.A,D.D),k),k,k),l.d,new C.ag(h,16,h,28),D.ae),k),k),!1,k,k,k,!1,k,k,k,k,k,k,k,u,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,D.r,k)}}
 B.a2J.prototype={
 I(d){var w,v,u,t,s,r=this,q=null,p=C.F(d).ax,o=p.RG
 o=(o==null?p.k2:o).aj(0.55)
-w=C.dj(14)
+w=C.dk(14)
 v=p.ry
 if(v==null){v=p.n
 if(v==null)v=p.k3}v=C.l4(v.aj(0.35),1)
@@ -120,7 +120,7 @@ B.azr.prototype={
 $1(d){return this.a.ajD()},
 $S:5}
 B.azq.prototype={
-$0(){return C.d8(this.a,!1).auF(new B.azp())},
+$0(){return C.d9(this.a,!1).auF(new B.azp())},
 $S:0}
 B.azp.prototype={
 $1(d){return d.grm()},
@@ -156,7 +156,7 @@ A.aac=new B.bH("Integra\xe7\xf5es web e SEO t\xe9cnico","Implementamos metatags 
 A.a9y=new B.bH("Analytics e consentimento (GA4)","Medi\xe7\xe3o com Google Analytics 4 integrada ao fluxo de consentimento de cookies. Isso permite an\xe1lise de comportamento com respeito \xe0 privacidade e conformidade com pol\xedticas modernas de medi\xe7\xe3o.","Exemplo pr\xe1tico: funil de convers\xe3o registra apenas eventos consentidos e orienta ajustes de UX com base em dados reais.")
 A.a9E=new B.bH("Arquitetura limpa e manuten\xe7\xe3o","Priorizamos c\xf3digo organizado, componentes reutiliz\xe1veis e separa\xe7\xe3o de responsabilidades para facilitar evolu\xe7\xe3o cont\xednua do produto, redu\xe7\xe3o de bugs e menor custo de manuten\xe7\xe3o.","Exemplo pr\xe1tico: nova funcionalidade de assinatura \xe9 inclu\xedda reaproveitando componentes e reduzindo esfor\xe7o de QA.")
 A.aa8=new B.bH("Integra\xe7\xf5es HTTP e servi\xe7os externos","Integramos APIs externas e servi\xe7os de dados para fluxos reais de neg\xf3cio, incluindo endpoints de back-end e servi\xe7os de observabilidade, garantindo confiabilidade operacional e evolu\xe7\xe3o orientada a m\xe9tricas.","Exemplo pr\xe1tico: monitoramos lat\xeancia e erro das APIs em produ\xe7\xe3o para agir r\xe1pido antes de impactar clientes.")
-A.a_r=w([A.a9Y,A.aab,A.a9w,A.a9L,A.a9Q,A.a9S,A.a9P,A.aad,A.a9F,A.aa0,A.aa7,A.aac,A.a9y,A.a9E,A.aa8],x.c)
+A.a_t=w([A.a9Y,A.aab,A.a9w,A.a9L,A.a9Q,A.a9S,A.a9P,A.aad,A.a9F,A.aa0,A.aa7,A.aac,A.a9y,A.a9E,A.aa8],x.c)
 A.a9J=new B.bH("Clean Arch","Aplicamos arquitectura limpia con separacion clara de responsabilidades, capas desacopladas y componentes reutilizables. Esto acelera la evolucion del producto, mejora pruebas y reduce coste de mantenimiento.","Ejemplo practico: al cambiar una regla de presupuesto, ajustamos solo la capa de dominio sin romper la interfaz ni integraciones externas.")
 A.a9C=new B.bH("Seguridad","Adoptamos buenas practicas de seguridad en autenticacion, gestion de sesion, politicas de contenido web y proteccion de datos. El objetivo es reducir riesgo operativo y aumentar la confianza en produccion.","Ejemplo practico: protegemos rutas sensibles con validacion de sesion y aplicamos CSP en web para bloquear scripts no autorizados.")
 A.a9A=new B.bH("Escala","Disenamos soluciones para crecer con el negocio, con foco en rendimiento, observabilidad e integracion de servicios. La arquitectura esta preparada para mas usuarios y nuevos modulos.","Ejemplo practico: en campanas estacionales ampliamos API y cache sin rehacer la app, manteniendo estabilidad en picos de trafico.")
@@ -172,7 +172,7 @@ A.a9D=new B.bH("Integraciones web y SEO tecnico","Implementamos metatags dinamic
 A.a9B=new B.bH("Analytics y consentimiento (GA4)","Medicion con Google Analytics 4 integrada al flujo de consentimiento de cookies. Permite analisis de comportamiento respetando la privacidad y politicas modernas de medicion.","Ejemplo practico: el embudo de conversion registra solo eventos consentidos y orienta mejoras de UX con datos reales.")
 A.a9N=new B.bH("Arquitectura limpia y mantenimiento","Priorizamos codigo organizado, componentes reutilizables y separacion de responsabilidades para evolucion continua del producto, menos errores y menor coste de mantenimiento.","Ejemplo practico: una nueva funcionalidad de suscripcion se anade reutilizando componentes y reduciendo esfuerzo de QA.")
 A.aa1=new B.bH("Integraciones HTTP y servicios externos","Integramos APIs externas y servicios de datos para flujos reales de negocio, incluyendo endpoints de back-end y observabilidad, garantizando fiabilidad operativa y evolucion guiada por metricas.","Ejemplo practico: monitorizamos latencia y error de APIs en produccion para actuar antes de impactar a clientes.")
-A.a_T=w([A.a9J,A.a9C,A.a9A,A.aa_,A.a9H,A.aa4,A.aa9,A.aa5,A.aaa,A.a9Z,A.a9V,A.a9D,A.a9B,A.a9N,A.aa1],x.c)
+A.a_U=w([A.a9J,A.a9C,A.a9A,A.aa_,A.a9H,A.aa4,A.aa9,A.aa5,A.aaa,A.a9Z,A.a9V,A.a9D,A.a9B,A.a9N,A.aa1],x.c)
 A.a9M=new B.bH("Clean Arch","We apply clean architecture with clear separation of concerns, decoupled layers and reusable components. This speeds product evolution, improves testing and lowers maintenance cost.","Practical example: when a quoting rule changes, we adjust only the domain layer without breaking the UI or external integrations.")
 A.a9x=new B.bH("Security","We adopt security best practices for authentication, session management, web content policies and data protection. The goal is to reduce operational risk and increase production trust.","Practical example: we protect sensitive routes with session validation and apply CSP on the web to block unauthorized scripts.")
 A.a9T=new B.bH("Scale","We design solutions to grow with the business, focusing on performance, observability and service integration. Architecture is ready for more users and new modules.","Practical example: in seasonal campaigns we scale API and cache services without rebuilding the app, keeping stability at peak traffic.")
@@ -188,5 +188,5 @@ A.a9U=new B.bH("Web integrations and technical SEO","We implement dynamic meta t
 A.aa6=new B.bH("Analytics and consent (GA4)","Measurement with Google Analytics 4 integrated into the cookie consent flow. This enables behavioral analysis with respect for privacy and alignment with modern measurement policies.","Practical example: the conversion funnel records only consented events and guides UX improvements with real data.")
 A.a9X=new B.bH("Clean architecture and maintenance","We prioritize organized code, reusable components and separation of concerns to support continuous product evolution, fewer bugs and lower maintenance cost.","Practical example: a new subscription feature is added by reusing components and reducing QA effort.")
 A.a9I=new B.bH("HTTP integrations and external services","We integrate external APIs and data services for real business flows, including back-end endpoints and observability services, ensuring operational reliability and metric-driven evolution.","Practical example: we monitor API latency and errors in production to act before customers are impacted.")
-A.a_W=w([A.a9M,A.a9x,A.a9T,A.a9R,A.a9z,A.a9K,A.a9W,A.a9O,A.a9G,A.aa2,A.aa3,A.a9U,A.aa6,A.a9X,A.a9I],x.c)})()};
-(a=>{a["9+SKoaPBA/0RJ3P8FHvlVSGv23c="]=a.current})($__dart_deferred_initializers__);
+A.a_X=w([A.a9M,A.a9x,A.a9T,A.a9R,A.a9z,A.a9K,A.a9W,A.a9O,A.a9G,A.aa2,A.aa3,A.a9U,A.aa6,A.a9X,A.a9I],x.c)})()};
+(a=>{a["MtpoaI8zVTMDfzZL2L+terqGX9o="]=a.current})($__dart_deferred_initializers__);

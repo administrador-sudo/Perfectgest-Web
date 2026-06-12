@@ -41,9 +41,9 @@ const List<LegalSectionText> _kPrivacyPt = <LegalSectionText>[
   LegalSectionText(
     heading: '1. Identificação do Controlador',
     body:
-        'A $kCompanyFantasyName ($kCompanyLegalName), desenvolvedora do aplicativo $kProductPerfectGestIName, estabelece esta Política de Privacidade '
+        'A $kCompanyFantasyName ($kCompanyLegalName, CNPJ $kCompanyCnpj), desenvolvedora do aplicativo $kProductPerfectGestIName, estabelece esta Política de Privacidade '
         'em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei 13.709/18) e com as políticas para desenvolvedores da Google Play Store e da Microsoft Store. '
-        'Para exercício de direitos de acesso, retificação ou exclusão, contacte: sac.perfectgest@gmail.com.',
+        'Para exercício de direitos de acesso, retificação ou exclusão, contacte: $kCompanyContactEmail.',
   ),
   LegalSectionText(
     heading: '2. Armazenamento local e natureza dos dados',
@@ -56,7 +56,7 @@ const List<LegalSectionText> _kPrivacyPt = <LegalSectionText>[
     heading: '3. Serviços de terceiros e recolha mínima',
     body:
         'Para integridade técnica e licenciamento, podem ser utilizados serviços Google/Firebase com recolha estritamente necessária: '
-        'Google Analytics para Firebase (eventos de uso e erros críticos), Firebase Remote Config (parâmetros de segurança), '
+        'Google Analytics para Firebase (eventos de uso, erros críticos e relatórios de falhas/crash reporting), Firebase Remote Config (parâmetros de segurança), '
         'Cloud Firestore (metadados técnicos e controlo de período de avaliação com identificador pseudónimo), '
         'Google Play Billing ou Microsoft Store (processamento financeiro pela infraestrutura respetiva da loja).',
   ),
@@ -106,7 +106,7 @@ const List<LegalSectionText> _kDataDeletionPt = <LegalSectionText>[
     body:
         'O app utiliza dados técnicos mínimos (ID pseudónimo e marco temporal) em Firebase/Firestore para gestão de trial. '
         'Não são recolhidos dados nominais ou financeiros em nuvem. '
-        'Solicitações de exclusão definitiva podem ser enviadas para sac.perfectgest@gmail.com '
+        'Solicitações de exclusão definitiva podem ser enviadas para $kCompanyContactEmail '
         'com o assunto "Exclusão de Dados – [ID do Dispositivo]". '
         'Prazo de processamento: até 15 dias úteis.',
   ),
@@ -127,9 +127,9 @@ const List<LegalSectionText> _kPrivacyEn = <LegalSectionText>[
   LegalSectionText(
     heading: '1. Controller identification',
     body:
-        'Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA), developer of the $kProductPerfectGestIName app, establishes this Privacy Policy '
+        'Perfect Gest Dev ($kCompanyLegalName, CNPJ $kCompanyCnpj), developer of the $kProductPerfectGestIName app, establishes this Privacy Policy '
         'in compliance with the Brazilian General Data Protection Law (LGPD - Law 13,709/18) and Google Play Store and Microsoft Store developer policies. '
-        'To exercise access, rectification or erasure rights, contact: sac.perfectgest@gmail.com.',
+        'To exercise access, rectification or erasure rights, contact: $kCompanyContactEmail.',
   ),
   LegalSectionText(
     heading: '2. Local storage and nature of data',
@@ -142,7 +142,7 @@ const List<LegalSectionText> _kPrivacyEn = <LegalSectionText>[
     heading: '3. Third-party services and minimal collection',
     body:
         'For technical integrity and licensing, Google/Firebase services may be used with strictly necessary collection: '
-        'Google Analytics for Firebase (usage events and critical errors), Firebase Remote Config (security parameters), '
+        'Google Analytics for Firebase (usage events, critical errors and crash reporting), Firebase Remote Config (security parameters), '
         'Cloud Firestore (technical metadata and trial period control with a pseudonymous identifier) '
         'and Google Play Billing or Microsoft Store (financial processing by the respective store infrastructure).',
   ),
@@ -192,7 +192,7 @@ const List<LegalSectionText> _kDataDeletionEn = <LegalSectionText>[
     body:
         'The app uses minimal technical data (pseudonymous ID and timestamp) on Firebase/Firestore for trial management. '
         'No personal or financial data is collected in the cloud. '
-        'Definitive deletion requests can be sent to sac.perfectgest@gmail.com '
+        'Definitive deletion requests can be sent to $kCompanyContactEmail '
         'with the subject "Data Deletion – [Device ID]". '
         'Processing time: up to 15 business days.',
   ),
@@ -213,9 +213,9 @@ const List<LegalSectionText> _kPrivacyEs = <LegalSectionText>[
   LegalSectionText(
     heading: '1. Identificacion del responsable',
     body:
-        'Perfect Gest Dev ($kCompanyLegalName), desarrolladora de la aplicacion $kProductPerfectGestIName, establece esta Politica de Privacidad '
+        'Perfect Gest Dev ($kCompanyLegalName, CNPJ $kCompanyCnpj), desarrolladora de la aplicacion $kProductPerfectGestIName, establece esta Politica de Privacidad '
         'conforme a la Ley General de Proteccion de Datos de Brasil (LGPD - Ley 13.709/18) y a las politicas para desarrolladores de Google Play Store y Microsoft Store. '
-        'Para ejercer derechos de acceso, rectificacion o supresion, contacte: sac.perfectgest@gmail.com.',
+        'Para ejercer derechos de acceso, rectificacion o supresion, contacte: $kCompanyContactEmail.',
   ),
   LegalSectionText(
     heading: '2. Almacenamiento local y naturaleza de los datos',
@@ -228,7 +228,7 @@ const List<LegalSectionText> _kPrivacyEs = <LegalSectionText>[
     heading: '3. Servicios de terceros y recoleccion minima',
     body:
         'Para integridad tecnica y licenciamiento se pueden utilizar servicios Google/Firebase con recoleccion estrictamente necesaria: '
-        'Google Analytics para Firebase (eventos de uso y errores criticos), Firebase Remote Config (parametros de seguridad), '
+        'Google Analytics para Firebase (eventos de uso, errores criticos e informes de fallos/crash reporting), Firebase Remote Config (parametros de seguridad), '
         'Cloud Firestore (metadatos tecnicos y control del periodo de evaluacion con identificador seudonimo) '
         'y Google Play Billing o Microsoft Store (procesamiento financiero por la infraestructura de la tienda correspondiente).',
   ),
@@ -278,7 +278,7 @@ const List<LegalSectionText> _kDataDeletionEs = <LegalSectionText>[
     body:
         'La app utiliza datos tecnicos minimos (ID seudonimo y marca temporal) en Firebase/Firestore para gestion de trial. '
         'No se recopilan datos nominales ni financieros en la nube. '
-        'Las solicitudes de eliminacion definitiva pueden enviarse a sac.perfectgest@gmail.com '
+        'Las solicitudes de eliminacion definitiva pueden enviarse a $kCompanyContactEmail '
         'con el asunto "Eliminacion de Datos – [ID del Dispositivo]". '
         'Plazo de procesamiento: hasta 15 dias habiles.',
   ),

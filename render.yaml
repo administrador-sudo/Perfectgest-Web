@@ -20,6 +20,6 @@ services:
           name: perfectgest-leads-db
           property: connectionString
       - key: ALLOWED_ORIGINS
-        value: https://perfectgest-web-desenvolvedor-apps.onrender.com
+        value: https://perfectgestdev.com,https://perfectgest-web-desenvolvedor-apps.onrender.com
       - key: NODE_VERSION
         value: "20"

@@ -107,7 +107,7 @@ class _SitePreCadastroTextsPt extends SitePreCadastroTexts {
 
   @override
   String get errorGeneric =>
-      'Não foi possível enviar agora. Tente novamente ou escreva para sac.perfectgest@gmail.com.';
+      'Não foi possível enviar agora. Tente novamente ou escreva para $kCompanyContactEmail.';
 
   @override
   String errorForCode(String code) => switch (code) {
@@ -119,7 +119,7 @@ class _SitePreCadastroTextsPt extends SitePreCadastroTexts {
         'api_waking' =>
           'O servidor está a iniciar (pode demorar até 1 minuto no plano gratuito). Aguarde e envie novamente.',
         'api_not_deployed' =>
-          'Serviço de registos ainda não está activo. Contacte sac.perfectgest@gmail.com ou tente mais tarde.',
+          'Serviço de registos ainda não está activo. Contacte $kCompanyContactEmail ou tente mais tarde.',
         'api_unavailable' => 'Serviço temporariamente indisponível. Tente mais tarde.',
         'api_unconfigured' => 'API de leads ainda não configurada no ambiente.',
         _ => errorGeneric,
@@ -193,7 +193,7 @@ class _SitePreCadastroTextsEn extends SitePreCadastroTexts {
 
   @override
   String get errorGeneric =>
-      'Could not submit right now. Try again or email sac.perfectgest@gmail.com.';
+      'Could not submit right now. Try again or email $kCompanyContactEmail.';
 
   @override
   String errorForCode(String code) => switch (code) {
@@ -205,7 +205,7 @@ class _SitePreCadastroTextsEn extends SitePreCadastroTexts {
         'api_waking' =>
           'The server is starting (free tier may take up to 1 minute). Wait and submit again.',
         'api_not_deployed' =>
-          'Registration service is not active yet. Email sac.perfectgest@gmail.com or try later.',
+          'Registration service is not active yet. Email $kCompanyContactEmail or try later.',
         'api_unavailable' => 'Service temporarily unavailable. Try again later.',
         'api_unconfigured' => 'Lead API is not configured in this environment.',
         _ => errorGeneric,
@@ -280,7 +280,7 @@ class _SitePreCadastroTextsEs extends SitePreCadastroTexts {
 
   @override
   String get errorGeneric =>
-      'No se pudo enviar ahora. Intente de nuevo o escriba a sac.perfectgest@gmail.com.';
+      'No se pudo enviar ahora. Intente de nuevo o escriba a $kCompanyContactEmail.';
 
   @override
   String errorForCode(String code) => switch (code) {
@@ -293,7 +293,7 @@ class _SitePreCadastroTextsEs extends SitePreCadastroTexts {
         'api_waking' =>
           'El servidor está iniciando (el plan gratuito puede tardar 1 minuto). Espere e intente de nuevo.',
         'api_not_deployed' =>
-          'El servicio de registro aún no está activo. Escriba a sac.perfectgest@gmail.com.',
+          'El servicio de registro aún no está activo. Escriba a $kCompanyContactEmail.',
         'api_unavailable' =>
           'Servicio temporalmente no disponible. Intente más tarde.',
         'api_unconfigured' => 'La API de leads aún no está configurada.',
