@@ -1,77 +1,77 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
-$__dart_deferred_initializers__.current=function(a,b,c,$){var A,C,B={KL:function KL(d){this.a=d},
-aWB(){return new B.nm(null)},
-nm:function nm(d){this.a=d},
-a0q:function a0q(){this.c=this.a=null},
-avU:function avU(d,e,f,g,h){var _=this
+$__dart_deferred_initializers__.current=function(a,b,c,$){var A,C,B={KK:function KK(d){this.a=d},
+aWs(){return new B.nk(null)},
+nk:function nk(d){this.a=d},
+a0n:function a0n(){this.c=this.a=null},
+avR:function avR(d,e,f,g,h){var _=this
 _.a=d
 _.b=e
 _.c=f
 _.d=g
 _.e=h},
-avT:function avT(){},
-rz:function rz(d,e,f,g){var _=this
+avQ:function avQ(){},
+rw:function rw(d,e,f,g){var _=this
 _.c=d
 _.d=e
 _.e=f
 _.a=g},
-Gf:function Gf(d,e,f){this.c=d
+Ge:function Ge(d,e,f){this.c=d
 this.d=e
 this.a=f},
-aL7(d){switch(d.an(y.k).r.f.gcN()){case"en":return D.KN
-case"es":return D.KO
-case"pt":default:return D.KP}},
-amM:function amM(){},
-ayR:function ayR(){},
-ayP:function ayP(){},
-ayQ:function ayQ(){}},D,E,F,G
+aKZ(d){switch(d.am(y.k).r.f.gcN()){case"en":return D.KK
+case"es":return D.KL
+case"pt":default:return D.KM}},
+amJ:function amJ(){},
+ayK:function ayK(){},
+ayI:function ayI(){},
+ayJ:function ayJ(){}},D,E,F,G
 A=c[0]
 C=c[2]
 B=a.updateHolder(c[3],B)
-D=c[13]
+D=c[12]
 E=c[9]
-F=c[12]
-G=c[14]
-B.KL.prototype={
-K(d){var x,w=null,v=A.D(d),u=B.aL7(d)
+F=c[11]
+G=c[13]
+B.KK.prototype={
+K(d){var x,w=null,v=A.G(d),u=B.aKZ(d)
 v=v.ax.k3
-x=A.b1().$3$color$fontSize$height(v.al(0.72),11.5,1.4)
-return A.cc(A.b([A.a9("PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA",w,w,w,A.b1().$4$color$fontSize$fontWeight$height(v.al(0.85),12,C.aM,1.3),w,w),C.kr,A.a9(u.gKW()+" 66.889.409/0001-19",w,w,w,x,w,w),C.kq,A.a9(u.gKZ()+" +55 51 989045442",w,w,w,x,w,w),C.kq,A.a9("Caxias do Sul \u2014 RS \u2014 Brasil",w,w,w,x,w,w)],y.e),C.a7,C.C,C.E)}}
-B.nm.prototype={
-ag(){return new B.a0q()}}
-B.a0q.prototype={
+x=A.b9().$3$color$fontSize$height(v.al(0.72),11.5,1.4)
+return A.cj(A.b([A.aa("PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA",w,w,w,A.b9().$4$color$fontSize$fontWeight$height(v.al(0.85),12,C.aM,1.3),w,w),C.nO,A.aa(u.gKW()+" 66.889.409/0001-19",w,w,w,x,w,w),C.kq,A.aa(u.gKZ()+" +55 51 989045442",w,w,w,x,w,w),C.kq,A.aa("Caxias do Sul \u2014 RS \u2014 Brasil",w,w,w,x,w,w)],y.e),C.a7,C.C,C.E)}}
+B.nk.prototype={
+ag(){return new B.a0n()}}
+B.a0n.prototype={
 az(){this.aV()
-E.aNZ()},
-l(){A.x7()
+E.aNP()},
+l(){A.x4()
 this.aL()},
-K(d){var x,w,v,u,t=null,s=A.D(d),r=A.bc(d,C.aQ,y.h).w.a.a,q=r<400?16:24,p=A.cw(d,C.aE,y.p)
+K(d){var x,w,v,u,t=null,s=A.G(d),r=A.bc(d,C.aQ,y.h).w.a.a,q=r<400?16:24,p=A.cw(d,C.aE,y.p)
 p.toString
-x=B.aL7(d)
-w=x.ghm()
-v=A.D(d).ax.a===C.I?C.p:t
+x=B.aKZ(d)
+w=x.ghl()
+v=A.G(d).ax.a===C.H?C.p:t
 u=x.gjT()
 this.a.toString
-return A.aX(t,t,A.nD(F.aGD(d,t,t,u),v,new A.lM(A.Ao(new B.avU(q,x,s.ax,r,p)),t),t),!1,t,t,t,!1,t,t,t,t,t,t,t,w,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,C.r,t)}}
-B.rz.prototype={
-K(d){var x,w,v,u,t,s=null,r=A.D(d).ax,q=A.bc(d,C.aQ,y.h).w,p=r.RG
+return A.aX(t,t,A.nB(F.aGu(d,t,t,u),v,new A.lL(A.An(new B.avR(q,x,s.ax,r,p)),t),t),!1,t,t,t,!1,t,t,t,t,t,t,t,w,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,C.r,t)}}
+B.rw.prototype={
+K(d){var x,w,v,u,t,s=null,r=A.G(d).ax,q=A.bc(d,C.aQ,y.h).w,p=r.RG
 p=(p==null?r.k2:p).al(0.55)
-x=A.di(16)
+x=A.dh(16)
 w=r.ry
 if(w==null){w=r.n
-if(w==null)w=r.k3}w=A.kX(w.al(0.45),1)
+if(w==null)w=r.k3}w=A.kW(w.al(0.45),1)
 q=q.a.a<400?14:16
 v=r.k3
 u=y.e
-v=A.b([A.a9(this.c,s,s,s,A.b1().$3$color$fontSize$fontWeight(v,15,C.aN),s,s),C.cW,A.a9(this.d,s,s,s,A.b1().$3$color$fontSize$height(v.al(0.8),13.5,1.55),s,s)],u)
+v=A.b([A.aa(this.c,s,s,s,A.b9().$3$color$fontSize$fontWeight(v,15,C.aN),s,s),C.cU,A.aa(this.d,s,s,s,A.b9().$3$color$fontSize$height(v.al(0.8),13.5,1.55),s,s)],u)
 t=this.e
-if(t!=null)C.b.a_(v,A.b([C.c0,A.m1(C.bt,t,C.cC,6,10)],u))
-return new A.by(C.pW,A.em(new A.by(new A.af(q,q,q,q),A.cc(v,C.a7,C.C,C.E),s),new A.bU(p,s,w,x,s,s,C.Y),C.aA),s)}}
-B.Gf.prototype={
+if(t!=null)C.b.a1(v,A.b([C.ci,A.m_(C.bs,t,C.cA,6,10)],u))
+return new A.bx(C.pV,A.em(new A.bx(new A.af(q,q,q,q),A.cj(v,C.a7,C.C,C.E),s),new A.bU(p,s,w,x,s,s,C.Y),C.aA),s)}}
+B.Ge.prototype={
 K(d){var x=null
-return A.it(A.a9(this.c,x,x,x,A.b1().$1$fontWeight(C.bq),x,x),this.d,x)}}
-B.amM.prototype={}
-B.ayR.prototype={
-ghm(){return"Politica de devolucao e reembolso Perfect Gest Dev"},
+return A.kt(A.aa(this.c,x,x,x,A.b9().$1$fontWeight(C.bA),x,x),this.d,x)}}
+B.amJ.prototype={}
+B.ayK.prototype={
+ghl(){return"Politica de devolucao e reembolso Perfect Gest Dev"},
 gjT(){return"Devolucao e reembolso"},
 gon(){return"Perfect Gest Dev"},
 goI(){return"Pol\xedtica de devolu\xe7\xe3o e reembolso (site vitrine)"},
@@ -86,8 +86,8 @@ gnM(){return"4. Como solicitar (passo a passo)"},
 gnL(){return"1) Informe onde adquiriu o produto, data e comprovante.\n2) Descreva o motivo (arrependimento, cobran\xe7a indevida, defeito t\xe9cnico, etc.).\n3) Envie para o nosso e-mail de suporte.\nResponderemos com orienta\xe7\xf5es claras e, quando aplic\xe1vel, com o procedimento adequado ao seu caso."},
 gKW(){return"CNPJ:"},
 gKZ(){return"Contato com Empresa:"}}
-B.ayP.prototype={
-ghm(){return"Perfect Gest Dev returns and refunds policy"},
+B.ayI.prototype={
+ghl(){return"Perfect Gest Dev returns and refunds policy"},
 gjT(){return"Returns & refunds"},
 gon(){return"Perfect Gest Dev"},
 goI(){return"Returns & refunds policy (showcase website)"},
@@ -102,8 +102,8 @@ gnM(){return"4. How to request (step by step)"},
 gnL(){return"1) State where you purchased the product, date, and proof.\n2) Describe the reason (withdrawal, incorrect charge, technical defect, etc.).\n3) Send it to our support email.\nWe will reply with clear guidance and, when applicable, the right procedure for your case."},
 gKW(){return"CNPJ:"},
 gKZ(){return"Company contact:"}}
-B.ayQ.prototype={
-ghm(){return"Pol\xedtica de devoluciones y reembolsos Perfect Gest Dev"},
+B.ayJ.prototype={
+ghl(){return"Pol\xedtica de devoluciones y reembolsos Perfect Gest Dev"},
 gjT(){return"Devoluciones y reembolsos"},
 gon(){return"Perfect Gest Dev"},
 goI(){return"Pol\xedtica de devoluciones y reembolsos (sitio vitrina)"},
@@ -119,35 +119,35 @@ gnL(){return"1) Indique d\xf3nde adquiri\xf3 el producto, fecha y comprobante.\n
 gKW(){return"CNPJ:"},
 gKZ(){return"Contacto con la empresa:"}}
 var z=a.updateTypes([])
-B.avU.prototype={
+B.avR.prototype={
 $2(d,e){var x,w,v,u,t,s,r,q=this,p=null,o="suporte@perfectgestdev.com",n=e.b
 n=n<1/0&&isFinite(n)?n:A.bc(d,C.aQ,y.h).w.a.a
 x=C.d.dr(n<720?n:720,200,720)
 w=q.a
 v=q.b
 u=q.c
-t=A.a9(v.gon(),p,p,p,A.b1().$4$color$fontSize$fontWeight$letterSpacing(u.b,15,C.aN,0.4),p,p)
+t=A.aa(v.gon(),p,p,p,A.b9().$4$color$fontSize$fontWeight$letterSpacing(u.b,15,C.aN,0.4),p,p)
 s=v.goI()
 r=q.d<400?18:22
 u=u.k3
-u=A.b([t,C.ed,A.a9(s,p,p,p,A.b1().$4$color$fontSize$fontWeight$height(u,r,C.aN,1.2),p,p),C.c0,A.a9(v.pb(o),p,p,p,A.b1().$3$color$fontSize$height(u.al(0.72),13,1.45),p,p),C.hu,new B.rz(v.gnG(),v.gnF(),p,p),new B.rz(v.gnI(),v.gnH(),p,p),new B.rz(v.gnK(),v.gnJ(),p,p),new B.rz(v.gnM(),v.gnL(),A.b([new B.Gf(o,new B.avT(),p)],y.n),p),C.ec,D.Mz,G.Ht,A.a9(q.e.uI(A.qt(new A.eC(Date.now(),0,!1))),p,p,p,A.b1().$3$color$fontSize$fontWeight(u.al(0.7),12,C.bq),p,p)],y.e)
-u.push(D.a8f)
-return A.ko(A.eU(new A.dx(new A.aa(0,x,0,1/0),A.cc(u,C.a7,C.C,C.E),p),p,p),p,new A.af(w,16,w,28),C.af)},
-$S:121}
-B.avT.prototype={
-$0(){return A.iH(A.dc("mailto:suporte@perfectgestdev.com",0,null),C.cc,null)},
+u=A.b([t,C.ea,A.aa(s,p,p,p,A.b9().$4$color$fontSize$fontWeight$height(u,r,C.aN,1.2),p,p),C.ci,A.aa(v.pb(o),p,p,p,A.b9().$3$color$fontSize$height(u.al(0.72),13,1.45),p,p),C.ht,new B.rw(v.gnG(),v.gnF(),p,p),new B.rw(v.gnI(),v.gnH(),p,p),new B.rw(v.gnK(),v.gnJ(),p,p),new B.rw(v.gnM(),v.gnL(),A.b([new B.Ge(o,new B.avQ(),p)],y.n),p),C.e9,D.Mw,G.Hr,A.aa(q.e.uI(A.qr(new A.eC(Date.now(),0,!1))),p,p,p,A.b9().$3$color$fontSize$fontWeight(u.al(0.7),12,C.bA),p,p)],y.e)
+u.push(D.a8b)
+return A.km(A.eU(new A.dw(new A.a9(0,x,0,1/0),A.cj(u,C.a7,C.C,C.E),p),p,p),p,new A.af(w,16,w,28),C.af)},
+$S:112}
+B.avQ.prototype={
+$0(){return A.xi(A.eb("mailto:suporte@perfectgestdev.com",0,null),C.fS,null)},
 $S:0};(function inheritance(){var x=a.inheritMany,w=a.inherit
-x(A.ag,[B.KL,B.rz,B.Gf])
-w(B.nm,A.T)
-w(B.a0q,A.X)
-w(B.avU,A.oV)
-w(B.avT,A.jI)
-w(B.amM,A.I)
-x(B.amM,[B.ayR,B.ayP,B.ayQ])})()
-A.HQ(b.typeUniverse,JSON.parse('{"KL":{"ag":[],"e":[]},"Gf":{"ag":[],"e":[]},"nm":{"T":[],"e":[]},"a0q":{"X":["nm"]},"rz":{"ag":[],"e":[]}}'))
-var y={p:A.a2("fx"),e:A.a2("r<e>"),n:A.a2("r<Gf>"),h:A.a2("fB"),k:A.a2("md")};(function constants(){D.KN=new B.ayP()
-D.KO=new B.ayQ()
-D.KP=new B.ayR()
-D.Mz=new B.KL(null)
-D.a8f=new A.dm(null,60,null,null)})()};
-(a=>{a["ANPdAU23J+3U15lwsqM8PX34qhw="]=a.current})($__dart_deferred_initializers__);
+x(A.ag,[B.KK,B.rw,B.Ge])
+w(B.nk,A.T)
+w(B.a0n,A.X)
+w(B.avR,A.oT)
+w(B.avQ,A.jF)
+w(B.amJ,A.I)
+x(B.amJ,[B.ayK,B.ayI,B.ayJ])})()
+A.HP(b.typeUniverse,JSON.parse('{"KK":{"ag":[],"e":[]},"Ge":{"ag":[],"e":[]},"nk":{"T":[],"e":[]},"a0n":{"X":["nk"]},"rw":{"ag":[],"e":[]}}'))
+var y={p:A.a3("fx"),e:A.a3("r<e>"),n:A.a3("r<Ge>"),h:A.a3("fB"),k:A.a3("mb")};(function constants(){D.KK=new B.ayI()
+D.KL=new B.ayJ()
+D.KM=new B.ayK()
+D.Mw=new B.KK(null)
+D.a8b=new A.dl(null,60,null,null)})()};
+(a=>{a["SzjIkDSbdDshkZ1xhUKdikw2PrE="]=a.current})($__dart_deferred_initializers__);

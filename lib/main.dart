@@ -673,18 +673,14 @@ class _SobreNosLegalFooter extends StatelessWidget {
   }
 }
 
-Widget _policyLinkButton(String label, String url, {required double fontSize}) {
+Widget _footerActionLink(String label, VoidCallback onPressed, {required double fontSize}) {
   return TextButton(
     style: TextButton.styleFrom(
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
       alignment: Alignment.center,
       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
     ),
-    onPressed: () => launchUrl(
-      Uri.parse(url),
-      mode: LaunchMode.externalApplication,
-      webOnlyWindowName: kIsWeb ? '_blank' : null,
-    ),
+    onPressed: onPressed,
     child: Text(label, style: GoogleFonts.inter(fontSize: fontSize), textAlign: TextAlign.center),
   );
 }
@@ -782,7 +778,7 @@ class _CloudItem extends StatelessWidget {
   }
 }
 
-/// Rodapé da home: política **do site** + referências oficiais de analytics (Google).
+/// Rodapé da home: ética, privacidade do site e cookies — sem marcas de terceiros.
 class _HomeComplianceFooter extends StatelessWidget {
   const _HomeComplianceFooter({required this.onToggleTheme});
 
@@ -829,41 +825,25 @@ class _HomeComplianceFooter extends StatelessWidget {
                     textAlign: w < 480 ? TextAlign.center : TextAlign.start,
                   ),
                         SizedBox(height: w < 360 ? 10 : 12),
-                        SizedBox(
-                          width: stackLinks ? double.infinity : null,
-                          child: FilledButton.tonalIcon(
-                            onPressed: () => openPoliticaPrivacidadePage(
-                              context,
-                              onToggleTheme: onToggleTheme,
-                            ),
-                            icon: const Icon(Icons.policy_outlined, size: 20),
-                            label: Text(
-                              w < 340 ? l10n.footerBtnPolicyShort : l10n.footerBtnPolicyFull,
-                              style: GoogleFonts.inter(fontWeight: FontWeight.w600, fontSize: w < 360 ? 13 : 14),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: w < 360 ? 10 : 12),
                         if (stackLinks)
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              _policyLinkButton(
-                                l10n.footerLinkGooglePrivacy,
-                                'https://policies.google.com/privacy',
+                              _footerActionLink(
+                                l10n.footerLinkPrivacyPolicy,
+                                () => openPoliticaPrivacidadePage(context, onToggleTheme: onToggleTheme),
                                 fontSize: w < 360 ? 12 : 12.5,
                               ),
                               const SizedBox(height: 4),
-                              _policyLinkButton(
-                                l10n.footerLinkGoogleCookies,
-                                'https://policies.google.com/technologies/cookies',
+                              _footerActionLink(
+                                l10n.footerLinkManageCookies,
+                                () => openPoliticaPrivacidadePage(context, onToggleTheme: onToggleTheme),
                                 fontSize: w < 360 ? 12 : 12.5,
                               ),
                               const SizedBox(height: 4),
-                              _policyLinkButton(
-                                l10n.footerLinkGoogleTerms,
-                                'https://policies.google.com/terms',
+                              _footerActionLink(
+                                l10n.footerLinkEthicsCompliance,
+                                () => openPoliticaDevolucaoPage(context),
                                 fontSize: w < 360 ? 12 : 12.5,
                               ),
                             ],
@@ -875,28 +855,22 @@ class _HomeComplianceFooter extends StatelessWidget {
                             runSpacing: 6,
                             children: [
                               TextButton(
-                                onPressed: () => launchUrl(
-                                  Uri.parse('https://policies.google.com/privacy'),
-                                  mode: LaunchMode.externalApplication,
-                                  webOnlyWindowName: kIsWeb ? '_blank' : null,
+                                onPressed: () => openPoliticaPrivacidadePage(
+                                  context,
+                                  onToggleTheme: onToggleTheme,
                                 ),
-                                child: Text(l10n.footerLinkGooglePrivacy, style: GoogleFonts.inter(fontSize: 12.5)),
+                                child: Text(l10n.footerLinkPrivacyPolicy, style: GoogleFonts.inter(fontSize: 12.5)),
                               ),
                               TextButton(
-                                onPressed: () => launchUrl(
-                                  Uri.parse('https://policies.google.com/technologies/cookies'),
-                                  mode: LaunchMode.externalApplication,
-                                  webOnlyWindowName: kIsWeb ? '_blank' : null,
+                                onPressed: () => openPoliticaPrivacidadePage(
+                                  context,
+                                  onToggleTheme: onToggleTheme,
                                 ),
-                                child: Text(l10n.footerLinkGoogleCookies, style: GoogleFonts.inter(fontSize: 12.5)),
+                                child: Text(l10n.footerLinkManageCookies, style: GoogleFonts.inter(fontSize: 12.5)),
                               ),
                               TextButton(
-                                onPressed: () => launchUrl(
-                                  Uri.parse('https://policies.google.com/terms'),
-                                  mode: LaunchMode.externalApplication,
-                                  webOnlyWindowName: kIsWeb ? '_blank' : null,
-                                ),
-                                child: Text(l10n.footerLinkGoogleTerms, style: GoogleFonts.inter(fontSize: 12.5)),
+                                onPressed: () => openPoliticaDevolucaoPage(context),
+                                child: Text(l10n.footerLinkEthicsCompliance, style: GoogleFonts.inter(fontSize: 12.5)),
                               ),
                             ],
                           ),

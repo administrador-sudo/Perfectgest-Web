@@ -1,6 +1,5 @@
 import 'package:flutter/widgets.dart';
 
-import '../app_legal_urls.dart';
 import '../company_legal.dart';
 import '../site_public_urls.dart';
 
@@ -76,7 +75,7 @@ class _SitePolicyPrivacyTextsPt extends SitePolicyPrivacyTexts {
       'Este documento aplica-se ao site institucional $kSitePublicOrigin, operado por $kCompanyFantasyName ($kCompanyLegalName). '
       'Somos uma software house de desenvolvimento mobile, web e desktop. '
       'Abrange cookies, medição de audiência, formulário de pré-cadastro e contacto neste site — não o aplicativo móvel. '
-      'Documentos legais do produto $kProductPerfectGestIName (privacidade, exclusão de dados, FAQ e termos) estão no portal de suporte: $kAppSupportFaqUrl .';
+      'Documentação legal do produto $kProductPerfectGestIName (FAQ, privacidade, exclusão de dados e termos) não faz parte deste documento — consulte a secção Soluções deste site.';
 
   @override
   String get section2Title => '2. Que dados podemos recolher';
@@ -94,17 +93,18 @@ class _SitePolicyPrivacyTextsPt extends SitePolicyPrivacyTexts {
 
   @override
   String get section3Body =>
-      'Utilizamos cookies e armazenamento local estritamente necessários ao funcionamento do site e, quando ativado, cookies de medição de audiência (Google Analytics / gtag) '
+      'Utilizamos cookies e armazenamento local estritamente necessários ao funcionamento do site e, quando ativado com o seu consentimento, cookies de medição de audiência '
       'para compreender de forma agregada como o site é utilizado. Pode gerir ou apagar cookies nas definições do seu navegador. '
       'Se recusar cookies de medição, limitamos o envio de sinais de analytics conforme a configuração do seu browser e as nossas definições de consentimento.';
 
   @override
-  String get section4Title => '4. Google Analytics e serviços Google';
+  String get section4Title => '4. Medição de audiência';
 
   @override
   String get section4Body =>
-      'Quando o Google Analytics está configurado neste site, o tratamento de dados associado segue as políticas do Google. '
-      'Recomendamos a leitura das páginas oficiais do Google sobre privacidade, cookies e parceiros tecnológicos.';
+      'Quando activa a medição de audiência, utilizamos um prestador externo de estatísticas agregadas. '
+      'O tratamento limita-se a dados técnicos e agregados, sem venda de dados pessoais. '
+      'Pode alterar a sua escolha a qualquer momento na secção «Gerenciar cookies» do rodapé ou nesta página.';
 
   @override
   String get section5Title => '5. Base legal e retenção';
@@ -134,12 +134,12 @@ class _SitePolicyPrivacyTextsPt extends SitePolicyPrivacyTexts {
       'Os links externos são fornecidos por conveniência; não controlamos sites de terceiros. O uso do site é por sua conta e risco, na medida permitida pela lei.';
 
   @override
-  String get cookieMeasurementTitle => 'Cookies de medição (Google)';
+  String get cookieMeasurementTitle => 'Gerenciar cookies de medição';
 
   @override
   String get cookieMeasurementBody =>
-      'Se aceitar, gravamos a sua escolha no navegador e, na próxima carga da página, o script de medição poderá operar conforme as regras do Google (Consent Mode). '
-      'Pode revogar apagando os dados do site nas definições do browser.';
+      'Se aceitar, gravamos a sua escolha no navegador e, na próxima carga da página, a medição poderá operar apenas conforme o consentimento dado. '
+      'Pode recusar ou revogar apagando os dados do site nas definições do browser ou usando o botão «Recusar» abaixo.';
 
   @override
   String get snackPreferenceSavedOnce =>
@@ -179,7 +179,7 @@ class _SitePolicyPrivacyTextsEn extends SitePolicyPrivacyTexts {
       'This document applies to the institutional website $kSitePublicOrigin, operated by $kCompanyFantasyName ($kCompanyLegalName). '
       'We are a software house for mobile, web and desktop development. '
       'It covers cookies, audience measurement, the pre-registration form and contact on this site — not the mobile app. '
-      'Legal documents for the $kProductPerfectGestIName product (privacy, data deletion, FAQ and terms) are on the support portal: $kAppSupportFaqUrl .';
+      'Legal documentation for the $kProductPerfectGestIName product (FAQ, privacy, data deletion and terms) is not part of this document — see the Solutions section of this site.';
 
   @override
   String get section2Title => '2. Data we may collect';
@@ -197,17 +197,18 @@ class _SitePolicyPrivacyTextsEn extends SitePolicyPrivacyTexts {
 
   @override
   String get section3Body =>
-      'We use cookies and local storage strictly necessary for the site to work and, when enabled, audience measurement cookies (Google Analytics / gtag) '
+      'We use cookies and local storage strictly necessary for the site to work and, when enabled with your consent, audience measurement cookies '
       'to understand in aggregate how the site is used. You can manage or delete cookies in your browser settings. '
       'If you decline measurement cookies, we limit analytics signals according to your browser configuration and our consent settings.';
 
   @override
-  String get section4Title => '4. Google Analytics and Google services';
+  String get section4Title => '4. Audience measurement';
 
   @override
   String get section4Body =>
-      'When Google Analytics is configured on this site, associated data processing follows Google policies. '
-      'We recommend reading Google’s official pages on privacy, cookies and technology partners.';
+      'When you enable audience measurement, we use an external aggregated statistics provider. '
+      'Processing is limited to technical and aggregated data; we do not sell personal data. '
+      'You can change your choice at any time via «Manage cookies» in the footer or on this page.';
 
   @override
   String get section5Title => '5. Legal basis and retention';
@@ -236,12 +237,12 @@ class _SitePolicyPrivacyTextsEn extends SitePolicyPrivacyTexts {
       'External links are provided for convenience; we do not control third-party sites. You use the site at your own risk, to the extent permitted by law.';
 
   @override
-  String get cookieMeasurementTitle => 'Measurement cookies (Google)';
+  String get cookieMeasurementTitle => 'Manage measurement cookies';
 
   @override
   String get cookieMeasurementBody =>
-      'If you accept, we store your choice in the browser and, on the next page load, the measurement script may run according to Google rules (Consent Mode). '
-      'You can revoke by clearing site data in your browser settings.';
+      'If you accept, we store your choice in the browser and, on the next page load, measurement may run only according to your consent. '
+      'You can decline or revoke by clearing site data in your browser settings or using «Decline» below.';
 
   @override
   String get snackPreferenceSavedOnce =>
@@ -281,7 +282,7 @@ class _SitePolicyPrivacyTextsEs extends SitePolicyPrivacyTexts {
       'Este documento se aplica al sitio institucional $kSitePublicOrigin, operado por $kCompanyFantasyName ($kCompanyLegalName). '
       'Somos una software house de desarrollo movil, web y escritorio. '
       'Cubre cookies, medicion de audiencia, formulario de pre-registro y contacto en este sitio — no la aplicacion movil. '
-      'Los documentos legales del producto $kProductPerfectGestIName (privacidad, eliminacion de datos, FAQ y terminos) estan en el portal de soporte: $kAppSupportFaqUrl .';
+      'La documentacion legal del producto $kProductPerfectGestIName (FAQ, privacidad, eliminacion de datos y terminos) no forma parte de este documento — consulte la seccion Soluciones de este sitio.';
 
   @override
   String get section2Title => '2. Datos que podemos recopilar';
@@ -299,17 +300,18 @@ class _SitePolicyPrivacyTextsEs extends SitePolicyPrivacyTexts {
 
   @override
   String get section3Body =>
-      'Utilizamos cookies y almacenamiento local estrictamente necesarios para el funcionamiento del sitio y, cuando esta activado, cookies de medicion de audiencia (Google Analytics / gtag) '
+      'Utilizamos cookies y almacenamiento local estrictamente necesarios para el funcionamiento del sitio y, cuando esta activado con su consentimiento, cookies de medicion de audiencia '
       'para entender de forma agregada como se usa el sitio. Puede gestionar o borrar cookies en la configuracion del navegador. '
       'Si rechaza cookies de medicion, limitamos el envio de senales de analytics segun la configuracion del navegador y nuestras opciones de consentimiento.';
 
   @override
-  String get section4Title => '4. Google Analytics y servicios de Google';
+  String get section4Title => '4. Medicion de audiencia';
 
   @override
   String get section4Body =>
-      'Cuando Google Analytics esta configurado en este sitio, el tratamiento de datos asociado sigue las politicas de Google. '
-      'Recomendamos leer las paginas oficiales de Google sobre privacidad, cookies y socios tecnologicos.';
+      'Cuando activa la medicion de audiencia, utilizamos un proveedor externo de estadisticas agregadas. '
+      'El tratamiento se limita a datos tecnicos y agregados; no vendemos datos personales. '
+      'Puede cambiar su eleccion en cualquier momento en «Gestionar cookies» del pie de pagina o en esta pagina.';
 
   @override
   String get section5Title => '5. Base legal y conservacion';
@@ -338,12 +340,12 @@ class _SitePolicyPrivacyTextsEs extends SitePolicyPrivacyTexts {
       'Los enlaces externos se ofrecen por conveniencia; no controlamos sitios de terceros. El uso del sitio es bajo su propio riesgo, en la medida permitida por la ley.';
 
   @override
-  String get cookieMeasurementTitle => 'Cookies de medicion (Google)';
+  String get cookieMeasurementTitle => 'Gestionar cookies de medicion';
 
   @override
   String get cookieMeasurementBody =>
-      'Si acepta, guardamos su eleccion en el navegador y, en la proxima carga de la pagina, el script de medicion puede operar segun las reglas de Google (Consent Mode). '
-      'Puede revocar borrando los datos del sitio en la configuracion del navegador.';
+      'Si acepta, guardamos su eleccion en el navegador y, en la proxima carga de la pagina, la medicion puede operar solo segun el consentimiento dado. '
+      'Puede rechazar o revocar borrando los datos del sitio en la configuracion del navegador o usando «Rechazar» abajo.';
 
   @override
   String get snackPreferenceSavedOnce =>

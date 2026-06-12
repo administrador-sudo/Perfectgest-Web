@@ -102,6 +102,20 @@ Widget buildMetallicPreviewPage() {
   );
 }
 
+Future<void> openPoliticaDevolucaoPage(BuildContext context) async {
+  if (kIsWeb) {
+    await Navigator.of(context).pushNamed<void>('/politica-devolucao');
+    return;
+  }
+  await devolucao.loadLibrary();
+  if (!context.mounted) return;
+  await Navigator.of(context).push<void>(
+    MaterialPageRoute<void>(
+      builder: (_) => devolucao.PoliticaDevolucaoPage(),
+    ),
+  );
+}
+
 Future<void> openPoliticaPrivacidadePage(
   BuildContext context, {
   VoidCallback? onToggleTheme,

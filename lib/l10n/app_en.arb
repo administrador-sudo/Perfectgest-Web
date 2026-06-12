@@ -31,7 +31,7 @@
   "heroSubline": "Software house specialized in mobile apps, fast web platforms (Core Web Vitals), and technical SEO to grow on Google.",
   "heroCloser": "Digital solutions with robust architecture, clean code, and measurable results.",
 
-  "footerComplianceTitle": "Privacy, data and cookies",
+  "footerComplianceTitle": "Ethics & Compliance",
 
   "solAppsTitle": "Meet PerfectGest I — the management app for LLCs, MEI, and solo professionals!",
   "solAppsBody": "Register clients, create professional PDF quotes, manage cash flow, and get tax reminders with alerts.\n\nEverything on your phone, works offline.",
@@ -100,17 +100,15 @@
   "contactWhatsappPrefilled": "Hi! I'd like to talk to Perfect Gest Dev about a project.\n\n",
 
   "footerSemantics": "Perfect Gest Dev privacy, data, cookies and terms",
-  "footerComplianceBody": "Policy for this website: cookies, pre-registration and analytics. PerfectGest I documentation — Solutions section.",
-  "footerBtnPolicyShort": "Full policy",
-  "footerBtnPolicyFull": "View full policy",
-  "footerLinkGooglePrivacy": "Google Privacy",
-  "footerLinkGoogleCookies": "Google Cookies",
-  "footerLinkGoogleTerms": "Google Terms",
+  "footerComplianceBody": "Our commitment is to you: transparency, respect and direct contact with us. This site is an institutional showcase; PerfectGest I documentation is in the Solutions section.",
+  "footerLinkPrivacyPolicy": "Privacy policies",
+  "footerLinkManageCookies": "Manage cookies",
+  "footerLinkEthicsCompliance": "Ethics & compliance",
 
   "footerCompanyLegalSemantics": "Legal identification of the developer company",
 
-  "cookieBannerNarrow": "Measurement cookies (Google). You can accept, decline, or read the policy.",
-  "cookieBannerWide": "We use measurement cookies (Google Analytics) in accordance with our policy and Consent Mode.",
+  "cookieBannerNarrow": "We use measurement cookies. You can accept, decline or read our privacy policy.",
+  "cookieBannerWide": "We use audience measurement cookies only with your consent, as described in our privacy policy.",
   "cookieBtnPolicy": "Policy",
   "cookieBtnDeny": "Decline",
   "cookieBtnAccept": "Accept",

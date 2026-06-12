@@ -35,7 +35,7 @@ Ordem percebida por quem visita de fora:
 2. **Soluções (App/Web)** — ver secção abaixo.
 3. **Portfolio** — diferenciais e competências.
 4. **Contacto** — WhatsApp, e-mail, CTA.
-5. **Rodapé compliance** — política **do site** e cookies de analytics; **sem** links de políticas da app (só na secção Soluções).
+5. **Rodapé compliance** — **Ética e Compliance**: Políticas de Privacidade, Gerenciar cookies, Ética e Compliance (sem citar marcas de terceiros).
 
 Navegação adicional: página **Sobre nós** (rota interna, não no sitemap principal).
 

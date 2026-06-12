@@ -87,11 +87,9 @@ abstract class AppLocalizations {
   String get footerComplianceTitle;
   String get footerSemantics;
   String get footerComplianceBody;
-  String get footerBtnPolicyShort;
-  String get footerBtnPolicyFull;
-  String get footerLinkGooglePrivacy;
-  String get footerLinkGoogleCookies;
-  String get footerLinkGoogleTerms;
+  String get footerLinkPrivacyPolicy;
+  String get footerLinkManageCookies;
+  String get footerLinkEthicsCompliance;
   String get footerCompanyLegalSemantics;
   String get cookieBannerNarrow;
   String get cookieBannerWide;
@@ -240,7 +238,7 @@ class _AppLocalizationsPt extends AppLocalizations {
       'Soluções digitais com arquitetura robusta, código limpo e resultados mensuráveis.';
 
   @override
-  String get footerComplianceTitle => 'Privacidade, dados e cookies';
+  String get footerComplianceTitle => 'Ética e Compliance';
 
   @override
   String get solAppsTitle =>
@@ -289,29 +287,26 @@ class _AppLocalizationsPt extends AppLocalizations {
   String get contactWhatsappPrefilled =>
       'Olá! Gostaria de falar com a Perfect Gest Dev sobre um projeto.\n\n';
   @override
-  String get footerSemantics => 'Privacidade, dados, cookies e termos Perfect Gest Dev';
+  String get footerSemantics => 'Ética, compliance, privacidade e cookies — Perfect Gest Dev';
   @override
   String get footerComplianceBody =>
-      'Política deste site: cookies, pré-cadastro e analytics. Documentação do PerfectGest I — secção Soluções.';
+      'O nosso compromisso é com o utilizador: transparência, respeito e contacto directo connosco. '
+      'Este site é vitrine institucional; documentação do produto PerfectGest I encontra-se na secção Soluções.';
   @override
-  String get footerBtnPolicyShort => 'Política completa';
+  String get footerLinkPrivacyPolicy => 'Políticas de Privacidade';
   @override
-  String get footerBtnPolicyFull => 'Ver política do site';
+  String get footerLinkManageCookies => 'Gerenciar cookies';
   @override
-  String get footerLinkGooglePrivacy => 'Privacidade Google';
-  @override
-  String get footerLinkGoogleCookies => 'Cookies Google';
-  @override
-  String get footerLinkGoogleTerms => 'Termos Google';
+  String get footerLinkEthicsCompliance => 'Ética e Compliance';
   @override
   String get footerCompanyLegalSemantics =>
       'Identificacao legal da empresa desenvolvedora';
   @override
   String get cookieBannerNarrow =>
-      'Cookies de medição (Google). Pode aceitar, recusar ou ler a política.';
+      'Utilizamos cookies de medição. Pode aceitar, recusar ou ler a nossa política de privacidade.';
   @override
   String get cookieBannerWide =>
-      'Utilizamos cookies de medição (Google Analytics) conforme a nossa política e o Consent Mode.';
+      'Utilizamos cookies de medição de audiência apenas com o seu consentimento, conforme a nossa política de privacidade.';
   @override
   String get cookieBtnPolicy => 'Política';
   @override
@@ -492,7 +487,7 @@ class _AppLocalizationsEn extends AppLocalizations {
       'Digital solutions with robust architecture, clean code, and measurable results.';
 
   @override
-  String get footerComplianceTitle => 'Privacy, data and cookies';
+  String get footerComplianceTitle => 'Ethics & Compliance';
 
   @override
   String get solAppsTitle =>
@@ -541,29 +536,26 @@ class _AppLocalizationsEn extends AppLocalizations {
   String get contactWhatsappPrefilled =>
       "Hi! I'd like to talk to Perfect Gest Dev about a project.\n\n";
   @override
-  String get footerSemantics => 'Perfect Gest Dev privacy, data, cookies and terms';
+  String get footerSemantics => 'Ethics, compliance, privacy and cookies — Perfect Gest Dev';
   @override
   String get footerComplianceBody =>
-      'Policy for this website: cookies, pre-registration and analytics. PerfectGest I documentation — Solutions section.';
+      'Our commitment is to you: transparency, respect and direct contact with us. '
+      'This site is an institutional showcase; PerfectGest I documentation is in the Solutions section.';
   @override
-  String get footerBtnPolicyShort => 'Site policy';
+  String get footerLinkPrivacyPolicy => 'Privacy policies';
   @override
-  String get footerBtnPolicyFull => 'View site policy';
+  String get footerLinkManageCookies => 'Manage cookies';
   @override
-  String get footerLinkGooglePrivacy => 'Google Privacy';
-  @override
-  String get footerLinkGoogleCookies => 'Google Cookies';
-  @override
-  String get footerLinkGoogleTerms => 'Google Terms';
+  String get footerLinkEthicsCompliance => 'Ethics & compliance';
   @override
   String get footerCompanyLegalSemantics =>
       'Legal identification of the developer company';
   @override
   String get cookieBannerNarrow =>
-      'Measurement cookies (Google). You can accept, decline, or read the policy.';
+      'We use measurement cookies. You can accept, decline or read our privacy policy.';
   @override
   String get cookieBannerWide =>
-      'We use measurement cookies (Google Analytics) in accordance with our policy and Consent Mode.';
+      'We use audience measurement cookies only with your consent, as described in our privacy policy.';
   @override
   String get cookieBtnPolicy => 'Policy';
   @override
@@ -744,7 +736,7 @@ class _AppLocalizationsEs extends AppLocalizations {
       'Soluciones digitales con arquitectura robusta, código limpio y resultados medibles.';
 
   @override
-  String get footerComplianceTitle => 'Privacidad, datos y cookies';
+  String get footerComplianceTitle => 'Ética y cumplimiento';
 
   @override
   String get solAppsTitle =>
@@ -793,29 +785,26 @@ class _AppLocalizationsEs extends AppLocalizations {
   String get contactWhatsappPrefilled =>
       '¡Hola! Me gustaría hablar con Perfect Gest Dev sobre un proyecto.\n\n';
   @override
-  String get footerSemantics => 'Privacidad, datos, cookies y términos Perfect Gest Dev';
+  String get footerSemantics => 'Ética, cumplimiento, privacidad y cookies — Perfect Gest Dev';
   @override
   String get footerComplianceBody =>
-      'Política de este sitio: cookies, pre-registro y analytics. Documentación de PerfectGest I — sección Soluciones.';
+      'Nuestro compromiso es con el usuario: transparencia, respeto y contacto directo con nosotros. '
+      'Este sitio es vitrina institucional; la documentación de PerfectGest I está en la sección Soluciones.';
   @override
-  String get footerBtnPolicyShort => 'Política del sitio';
+  String get footerLinkPrivacyPolicy => 'Políticas de privacidad';
   @override
-  String get footerBtnPolicyFull => 'Ver política del sitio';
+  String get footerLinkManageCookies => 'Gestionar cookies';
   @override
-  String get footerLinkGooglePrivacy => 'Privacidad Google';
-  @override
-  String get footerLinkGoogleCookies => 'Cookies Google';
-  @override
-  String get footerLinkGoogleTerms => 'Términos Google';
+  String get footerLinkEthicsCompliance => 'Ética y cumplimiento';
   @override
   String get footerCompanyLegalSemantics =>
       'Identificacion legal de la empresa desarrolladora';
   @override
   String get cookieBannerNarrow =>
-      'Cookies de medición (Google). Puede aceptar, rechazar o leer la política.';
+      'Utilizamos cookies de medición. Puede aceptar, rechazar o leer nuestra política de privacidad.';
   @override
   String get cookieBannerWide =>
-      'Utilizamos cookies de medición (Google Analytics) conforme a nuestra política y el Consent Mode.';
+      'Utilizamos cookies de medición de audiencia solo con su consentimiento, según nuestra política de privacidad.';
   @override
   String get cookieBtnPolicy => 'Política';
   @override

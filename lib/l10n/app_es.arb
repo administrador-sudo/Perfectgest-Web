@@ -31,7 +31,7 @@
   "heroSubline": "Software house especializada en aplicaciones móviles, plataformas web rápidas (Core Web Vitals) y SEO técnico para crecer en Google.",
   "heroCloser": "Soluciones digitales con arquitectura robusta, código limpio y resultados medibles.",
 
-  "footerComplianceTitle": "Privacidad, datos y cookies",
+  "footerComplianceTitle": "Ética y cumplimiento",
 
   "solAppsTitle": "Conozca PerfectGest I — la app de gestión para ME, MEI y autónomos",
   "solAppsBody": "Registre clientes, cree presupuestos profesionales en PDF, controle su caja y reciba recordatorios fiscales con alarma.\n\nTodo en su móvil, funciona sin conexión.",
@@ -100,17 +100,15 @@
   "contactWhatsappPrefilled": "¡Hola! Me gustaría hablar con Perfect Gest Dev sobre un proyecto.\n\n",
 
   "footerSemantics": "Privacidad, datos, cookies y términos Perfect Gest Dev",
-  "footerComplianceBody": "Política de este sitio: cookies, pre-registro y analytics. Documentación de PerfectGest I — sección Soluciones.",
-  "footerBtnPolicyShort": "Política completa",
-  "footerBtnPolicyFull": "Ver política completa",
-  "footerLinkGooglePrivacy": "Privacidad Google",
-  "footerLinkGoogleCookies": "Cookies Google",
-  "footerLinkGoogleTerms": "Términos Google",
+  "footerComplianceBody": "Nuestro compromiso es con el usuario: transparencia, respeto y contacto directo con nosotros. Este sitio es vitrina institucional; la documentación de PerfectGest I está en la sección Soluciones.",
+  "footerLinkPrivacyPolicy": "Políticas de privacidad",
+  "footerLinkManageCookies": "Gestionar cookies",
+  "footerLinkEthicsCompliance": "Ética y cumplimiento",
 
   "footerCompanyLegalSemantics": "Identificacion legal de la empresa desarrolladora",
 
-  "cookieBannerNarrow": "Cookies de medición (Google). Puede aceptar, rechazar o leer la política.",
-  "cookieBannerWide": "Utilizamos cookies de medición (Google Analytics) conforme a nuestra política y el Consent Mode.",
+  "cookieBannerNarrow": "Utilizamos cookies de medición. Puede aceptar, rechazar o leer nuestra política de privacidad.",
+  "cookieBannerWide": "Utilizamos cookies de medición de audiencia solo con su consentimiento, según nuestra política de privacidad.",
   "cookieBtnPolicy": "Política",
   "cookieBtnDeny": "Rechazar",
   "cookieBtnAccept": "Aceptar",

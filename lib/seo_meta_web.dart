@@ -20,8 +20,8 @@ const String _kDocumentTitleAbout = 'Sobre nos | Perfect Gest Dev';
 const String _kMetaDescriptionPolitica =
     'Politica de privacidade, dados pessoais, cookies e termos de uso do site Perfect Gest Dev — software house Flutter e Java.';
 const String _kMetaKeywordsPolitica =
-    'Perfect Gest Dev, politica de privacidade, cookies, termos de uso, RGPD, dados pessoais, Google Analytics';
-const String _kOgTitlePolitica = 'Privacidade, dados e cookies | Perfect Gest Dev';
+    'Perfect Gest Dev, politica de privacidade, cookies, termos de uso, RGPD, dados pessoais, etica e compliance';
+const String _kOgTitlePolitica = 'Ética e compliance | Perfect Gest Dev';
 const String _kOgDescriptionPolitica =
     'Como tratamos dados, cookies de medição, direitos do titular e termos de uso do site institucional Perfect Gest Dev.';
 const String _kDocumentTitlePolitica = 'Privacidade e termos | Perfect Gest Dev';

@@ -88,10 +88,11 @@ Build: `flutter build web` + `spa-legal-paths.cjs` → `build/web/` → Render.
 
 ## 8. Rodapé vs Soluções
 
-| Zona | Conteúdo legal da app |
-|------|------------------------|
-| **Rodapé** | Não — apenas política do site + links analytics Google |
-| **Soluções** | Sim — «Obter aplicativo» + «FAQ e políticas do app» |
+| Zona | Conteúdo |
+|------|----------|
+| **Rodapé** | **Ética e Compliance** — Políticas de Privacidade, Gerenciar cookies, Ética e Compliance (links internos; **sem** marcas Google/Microsoft/lojas) |
+| **Soluções** | PerfectGest I — Obter app + FAQ/políticas (portal externo) |
+| **Banner cookies** | Texto neutro; consentimento explícito |
 
 ## 9. Pendências operacionais
 

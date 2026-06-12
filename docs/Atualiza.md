@@ -1733,3 +1733,21 @@ FROM site_leads ORDER BY created_at DESC;
 - [x] `flutter analyze`
 - [x] `npm run publish-web` → Render main
 
+## [2026-06-12] Rodape neutro — Etica e Compliance sem marcas Google
+
+### Contexto
+- Pedido: rodape sem Google/Microsoft/lojas; apenas Politicas de Privacidade, Gerenciar cookies, Etica e Compliance; compromisso com utilizador.
+
+### Arquivos alterados
+- lib/main.dart, lib/politica_page.dart, lib/site_deferred_pages.dart, lib/seo_meta_web.dart
+- lib/l10n/app_localizations.dart, app_pt/en/es.arb, site_policy_privacy_texts.dart
+- docs/FICHA_TECNICA_SITE.md, docs/PROJETO_SITE.md, docs/Atualiza.md
+
+### O que foi feito
+- Removidos links policies.google.com do rodape e da pagina de politica.
+- Rodape: tres links internos (privacidade, cookies, devolucoes/compliance).
+- Banner e politica do site: linguagem neutra (medicao de audiencia, sem nomes de fornecedor).
+
+### Validacao
+- [ ] Deploy + verificacao visual
+
