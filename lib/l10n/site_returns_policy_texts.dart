@@ -45,16 +45,16 @@ class _SiteReturnsPolicyTextsPt extends SiteReturnsPolicyTexts {
   const _SiteReturnsPolicyTextsPt() : super();
 
   @override
-  String get semanticsLabel => 'Politica de devolucao e reembolso $kCompanyFantasyName';
+  String get semanticsLabel => 'Etica e compliance $kCompanyFantasyName';
 
   @override
-  String get appBarTitle => 'Devolucao e reembolso';
+  String get appBarTitle => 'Ética e Compliance';
 
   @override
   String get brandLabel => kCompanyFantasyName;
 
   @override
-  String get docHeadline => 'Política de devolução e reembolso (site vitrine)';
+  String get docHeadline => 'Ética, conformidade e devoluções (site vitrine)';
 
   @override
   String introContactLine(String email) =>
@@ -106,16 +106,16 @@ class _SiteReturnsPolicyTextsEn extends SiteReturnsPolicyTexts {
   const _SiteReturnsPolicyTextsEn() : super();
 
   @override
-  String get semanticsLabel => '$kCompanyFantasyName returns and refunds policy';
+  String get semanticsLabel => 'Ethics and compliance $kCompanyFantasyName';
 
   @override
-  String get appBarTitle => 'Returns & refunds';
+  String get appBarTitle => 'Ethics & Compliance';
 
   @override
   String get brandLabel => kCompanyFantasyName;
 
   @override
-  String get docHeadline => 'Returns & refunds policy (showcase website)';
+  String get docHeadline => 'Ethics, compliance and returns (showcase website)';
 
   @override
   String introContactLine(String email) =>
@@ -167,16 +167,16 @@ class _SiteReturnsPolicyTextsEs extends SiteReturnsPolicyTexts {
   const _SiteReturnsPolicyTextsEs() : super();
 
   @override
-  String get semanticsLabel => 'Política de devoluciones y reembolsos $kCompanyFantasyName';
+  String get semanticsLabel => 'Etica y cumplimiento $kCompanyFantasyName';
 
   @override
-  String get appBarTitle => 'Devoluciones y reembolsos';
+  String get appBarTitle => 'Ética y cumplimiento';
 
   @override
   String get brandLabel => kCompanyFantasyName;
 
   @override
-  String get docHeadline => 'Política de devoluciones y reembolsos (sitio vitrina)';
+  String get docHeadline => 'Ética, cumplimiento y devoluciones (sitio vitrina)';
 
   @override
   String introContactLine(String email) =>

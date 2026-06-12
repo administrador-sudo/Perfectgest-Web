@@ -71,10 +71,10 @@ K(d){var x=null
 return A.kt(A.aa(this.c,x,x,x,A.b9().$1$fontWeight(C.bA),x,x),this.d,x)}}
 B.amJ.prototype={}
 B.ayK.prototype={
-ghl(){return"Politica de devolucao e reembolso Perfect Gest Dev"},
-gjT(){return"Devolucao e reembolso"},
+ghl(){return"Etica e compliance Perfect Gest Dev"},
+gjT(){return"\xc9tica e Compliance"},
 gon(){return"Perfect Gest Dev"},
-goI(){return"Pol\xedtica de devolu\xe7\xe3o e reembolso (site vitrine)"},
+goI(){return"\xc9tica, conformidade e devolu\xe7\xf5es (site vitrine)"},
 pb(d){return"\xdaltima atualiza\xe7\xe3o: documento institucional. Para solicitar reembolso, cancelamento ou esclarecimentos sobre o produto PerfectGest I, contacte: "+d+"."},
 gnG(){return"1. Escopo (site vitrine)"},
 gnF(){return"Este site \xe9 a vitrine institucional de Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA), em https://perfectgestdev.com. As vendas e pagamentos do produto PerfectGest I n\xe3o s\xe3o processados neste site \u2014 ocorrem no canal de distribui\xe7\xe3o oficial do produto ou por acordo comercial directo connosco. Publicamos esta pol\xedtica em favor da transpar\xeancia com o nosso p\xfablico e utilizadores."},
@@ -87,10 +87,10 @@ gnL(){return"1) Informe onde adquiriu o produto, data e comprovante.\n2) Descrev
 gKW(){return"CNPJ:"},
 gKZ(){return"Contato com Empresa:"}}
 B.ayI.prototype={
-ghl(){return"Perfect Gest Dev returns and refunds policy"},
-gjT(){return"Returns & refunds"},
+ghl(){return"Ethics and compliance Perfect Gest Dev"},
+gjT(){return"Ethics & Compliance"},
 gon(){return"Perfect Gest Dev"},
-goI(){return"Returns & refunds policy (showcase website)"},
+goI(){return"Ethics, compliance and returns (showcase website)"},
 pb(d){return"Last updated: institutional document. To request a refund, cancellation, or clarification about PerfectGest I, contact: "+d+"."},
 gnG(){return"1. Scope (showcase website)"},
 gnF(){return"This website is the institutional showcase of Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA) at https://perfectgestdev.com. Sales and payments for PerfectGest I are not processed on this site \u2014 they happen through the product's official distribution channel or a direct commercial agreement with us. We publish this policy for transparency with our audience and users."},
@@ -103,10 +103,10 @@ gnL(){return"1) State where you purchased the product, date, and proof.\n2) Desc
 gKW(){return"CNPJ:"},
 gKZ(){return"Company contact:"}}
 B.ayJ.prototype={
-ghl(){return"Pol\xedtica de devoluciones y reembolsos Perfect Gest Dev"},
-gjT(){return"Devoluciones y reembolsos"},
+ghl(){return"Etica y cumplimiento Perfect Gest Dev"},
+gjT(){return"\xc9tica y cumplimiento"},
 gon(){return"Perfect Gest Dev"},
-goI(){return"Pol\xedtica de devoluciones y reembolsos (sitio vitrina)"},
+goI(){return"\xc9tica, cumplimiento y devoluciones (sitio vitrina)"},
 pb(d){return"\xdaltima actualizaci\xf3n: documento institucional. Para solicitar reembolso, cancelaci\xf3n o aclaraciones sobre PerfectGest I, contacte: "+d+"."},
 gnG(){return"1. Alcance (sitio vitrina)"},
 gnF(){return"Este sitio es la vitrina institucional de Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA), en https://perfectgestdev.com. Las ventas y pagos del producto PerfectGest I no se procesan en este sitio \u2014 ocurren en el canal de distribuci\xf3n oficial del producto o por acuerdo comercial directo con nosotros. Publicamos esta pol\xedtica en favor de la transparencia con nuestro p\xfablico y usuarios."},
@@ -150,4 +150,4 @@ D.KL=new B.ayJ()
 D.KM=new B.ayK()
 D.Mw=new B.KK(null)
 D.a8b=new A.dl(null,60,null,null)})()};
-(a=>{a["SzjIkDSbdDshkZ1xhUKdikw2PrE="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["tOMgUAg3tMB9quGqQbprRQOPAvE="]=a.current})($__dart_deferred_initializers__);

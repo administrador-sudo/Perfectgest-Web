@@ -1749,5 +1749,6 @@ FROM site_leads ORDER BY created_at DESC;
 - Banner e politica do site: linguagem neutra (medicao de audiencia, sem nomes de fornecedor).
 
 ### Validacao
-- [ ] Deploy + verificacao visual
+- [x] `flutter analyze`
+- [x] `npm run publish-web` / commit `af962d4` → Render main
 
