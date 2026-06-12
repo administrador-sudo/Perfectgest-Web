@@ -2,9 +2,8 @@
 /**
  * Rotas legais no static host (Render):
  * - Remove ficheiros SEM extensao (causam download no browser).
- * - Publica apenas {rota}.html (Content-Type text/html correto).
- * No Render: Rewrite por rota, ex. /politica-devolucao -> /politica-devolucao.html
- * (ver docs/RENDER_SPA_REWRITE.md). NAO usar ficheiro sem extensao.
+ * - Publica {rota}.html com index (SPA) ou redirect (URLs legadas da app → Google Sites).
+ * Ver docs/RENDER_SPA_REWRITE.md
  */
 const fs = require('node:fs');
 const path = require('node:path');
@@ -19,22 +18,53 @@ if (!fs.existsSync(indexPath)) {
 
 const indexHtml = fs.readFileSync(indexPath);
 
-const legalSegments = [
+/** Páginas do site institucional (Flutter SPA). */
+const siteSpaPages = [
   'politica-devolucao',
-  'politica-privacidade-perfectgest-i',
-  'politica-exclusao-dados-perfectgest-i',
   'politica-privacidade-site',
   'pre-cadastro',
 ];
 
-for (const segment of legalSegments) {
+/** Rotas antigas da app no domínio do site → portal Google Sites (canónico). */
+const legacyAppRedirects = {
+  'politica-privacidade-perfectgest-i':
+    'https://sites.google.com/view/perfectgest-i-faq-suporte/politica-em-pt',
+  'politica-exclusao-dados-perfectgest-i':
+    'https://sites.google.com/view/perfectgest-exclusao-dados/exclus%C3%A3o-de-dados',
+};
+
+function removeBare(segment) {
   const barePath = path.join(buildWeb, segment);
   if (fs.existsSync(barePath)) {
     fs.rmSync(barePath, { recursive: true, force: true });
   }
+}
+
+function writeRedirectHtml(targetUrl) {
+  return `<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="0;url=${targetUrl}">
+  <link rel="canonical" href="${targetUrl}">
+  <title>Redirecionando…</title>
+</head>
+<body>
+  <p><a href="${targetUrl}">Continuar para a documentação oficial do produto</a></p>
+</body>
+</html>`;
+}
+
+for (const segment of siteSpaPages) {
+  removeBare(segment);
   fs.writeFileSync(path.join(buildWeb, `${segment}.html`), indexHtml);
 }
 
+for (const [segment, targetUrl] of Object.entries(legacyAppRedirects)) {
+  removeBare(segment);
+  fs.writeFileSync(path.join(buildWeb, `${segment}.html`), writeRedirectHtml(targetUrl));
+}
+
 console.log(
-  `spa-legal-paths: ${legalSegments.length} paginas .html geradas; removidos ficheiros sem extensao.`,
+  `spa-legal-paths: ${siteSpaPages.length} paginas SPA .html; ${Object.keys(legacyAppRedirects).length} redirects para Google Sites.`,
 );

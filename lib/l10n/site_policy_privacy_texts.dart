@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 
+import '../app_legal_urls.dart';
 import '../company_legal.dart';
 import '../site_public_urls.dart';
 
@@ -72,11 +73,10 @@ class _SitePolicyPrivacyTextsPt extends SitePolicyPrivacyTexts {
 
   @override
   String get section1Body =>
-      'O presente site é operado por $kCompanyFantasyName, nome fantasia de $kCompanyLegalName (“nós”, “nossa”). '
-      'Somos uma software house focada em desenvolvimento de software (mobile, web e desktop), consultoria técnica e conteúdo institucional. '
-      'Entre os nossos produtos destaca-se o aplicativo $kProductPerfectGestIName (Google Play e, quando disponível, Microsoft Store). '
-      'Domínio oficial: ${Uri.parse(kSitePublicOrigin).host}.\n'
-      'Políticas específicas da app $kProductPerfectGestIName: privacidade em $kAppPrivacyPolicyPublicUrl e exclusão de dados em $kAppDataDeletionPolicyPublicUrl.';
+      'Este documento aplica-se ao site institucional $kSitePublicOrigin, operado por $kCompanyFantasyName ($kCompanyLegalName). '
+      'Somos uma software house de desenvolvimento mobile, web e desktop. '
+      'Abrange cookies, medição de audiência, formulário de pré-cadastro e contacto neste site — não o aplicativo móvel. '
+      'Documentos legais do produto $kProductPerfectGestIName (privacidade, exclusão de dados, FAQ e termos) estão no portal de suporte: $kAppSupportFaqUrl .';
 
   @override
   String get section2Title => '2. Que dados podemos recolher';
@@ -176,11 +176,10 @@ class _SitePolicyPrivacyTextsEn extends SitePolicyPrivacyTexts {
 
   @override
   String get section1Body =>
-      'This website is operated by $kCompanyFantasyName, the trade name of $kCompanyLegalName (“we”, “our”). '
-      'We are a software house focused on software development (mobile, web and desktop), technical consulting and institutional content. '
-      'Among our products, the $kProductPerfectGestIName mobile app (Google Play and, when available, Microsoft Store) is a highlight. '
-      'Official domain: ${Uri.parse(kSitePublicOrigin).host}.\n'
-      'App-specific policies for $kProductPerfectGestIName: privacy at $kAppPrivacyPolicyPublicUrl and data deletion at $kAppDataDeletionPolicyPublicUrl.';
+      'This document applies to the institutional website $kSitePublicOrigin, operated by $kCompanyFantasyName ($kCompanyLegalName). '
+      'We are a software house for mobile, web and desktop development. '
+      'It covers cookies, audience measurement, the pre-registration form and contact on this site — not the mobile app. '
+      'Legal documents for the $kProductPerfectGestIName product (privacy, data deletion, FAQ and terms) are on the support portal: $kAppSupportFaqUrl .';
 
   @override
   String get section2Title => '2. Data we may collect';
@@ -279,11 +278,10 @@ class _SitePolicyPrivacyTextsEs extends SitePolicyPrivacyTexts {
 
   @override
   String get section1Body =>
-      'Este sitio web es operado por $kCompanyFantasyName, nombre comercial de $kCompanyLegalName (“nosotros”, “nuestra”). '
-      'Somos una software house enfocada en desarrollo de software (movil, web y escritorio), consultoria tecnica y contenido institucional. '
-      'Entre nuestros productos destaca la aplicacion $kProductPerfectGestIName (Google Play y, cuando este disponible, Microsoft Store). '
-      'Dominio oficial: ${Uri.parse(kSitePublicOrigin).host}.\n'
-      'Politicas especificas de la app $kProductPerfectGestIName: privacidad en $kAppPrivacyPolicyPublicUrl y eliminacion de datos en $kAppDataDeletionPolicyPublicUrl.';
+      'Este documento se aplica al sitio institucional $kSitePublicOrigin, operado por $kCompanyFantasyName ($kCompanyLegalName). '
+      'Somos una software house de desarrollo movil, web y escritorio. '
+      'Cubre cookies, medicion de audiencia, formulario de pre-registro y contacto en este sitio — no la aplicacion movil. '
+      'Los documentos legales del producto $kProductPerfectGestIName (privacidad, eliminacion de datos, FAQ y terminos) estan en el portal de soporte: $kAppSupportFaqUrl .';
 
   @override
   String get section2Title => '2. Datos que podemos recopilar';

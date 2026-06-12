@@ -1,4 +1,4 @@
-**Site (este repositório):** `webs/Web_perfectgest/` — Flutter Web (`perfectpro_web`).
+**Site (este repositório):** `webs/Web_perfectgest/` — Flutter Web (`perfectpro_web`). Ver também [`docs/PROJETO_SITE.md`](PROJETO_SITE.md) e [`docs/README.md`](README.md).
 
 **App Android (monorepo):** `apps/PerfectGest-I/` — Flutter Android/iOS; **`macos/`** (se existir) ao lado de `lib/` e `pubspec.yaml` em **`apps/PerfectGest-I/macos/`**, não na raiz do repositório.
 
@@ -6,15 +6,19 @@
 
 ## Conformidade Play Console e Microsoft Store (2026-06-08)
 
-**Origem canónica:** `https://perfectgestdev.com`
+**Site institucional:** `https://perfectgestdev.com` — vitrine da empresa (política **do site**).
 
-| Campo / requisito | Google Play Console | Microsoft Partner Center | URL no site |
-|-------------------|---------------------|--------------------------|-------------|
-| Política de privacidade da **app** | Obrigatório (Data safety + ficha) | Obrigatório se recolhe dados pessoais | `https://perfectgestdev.com/politica-privacidade-perfectgest-i` |
-| Exclusão de dados da **app** | URL dedicada (conta local = “Não”) | Mecanismo de eliminação / contacto | `https://perfectgestdev.com/politica-exclusao-dados-perfectgest-i` |
-| Política do **site** (cookies, pré-cadastro, analytics) | Opcional na ficha do app; útil para campanhas web | Suporte / site institucional | `https://perfectgestdev.com/politica-privacidade-site` |
-| Devoluções (vitrine) | Referência CDC / canal de compra | Política de reembolso se vender no site | `https://perfectgestdev.com/politica-devolucao` |
-| Pré-cadastro (leads) | Declarar na Data safety se recolher contactos via web ligada ao app | Declarar recolha se formulário estiver activo | `https://perfectgestdev.com/pre-cadastro` |
+**App PerfectGest I (legal canónico):** Google Sites — ver `apps/PerfectGest-I/docs/google_sites/LINKS_EXTERNOS.md`
+
+| Campo / requisito | Google Play Console | Microsoft Partner Center | URL canónica |
+|-------------------|---------------------|--------------------------|--------------|
+| Política de privacidade da **app** | Obrigatório | Obrigatório se recolhe dados | `https://sites.google.com/view/perfectgest-i-faq-suporte/politica-em-pt` |
+| Exclusão de dados da **app** | URL dedicada | Mecanismo de eliminação | `https://sites.google.com/view/perfectgest-exclusao-dados/exclus%C3%A3o-de-dados` |
+| Política do **site** (cookies, pré-cadastro) | Opcional na ficha app | Site institucional | `https://perfectgestdev.com/politica-privacidade-site` |
+| Devoluções (vitrine site) | Referência CDC | Política reembolso web | `https://perfectgestdev.com/politica-devolucao` |
+| Pré-cadastro (leads web) | Data safety se aplicável | Declarar se formulário activo | `https://perfectgestdev.com/pre-cadastro` |
+
+Rotas legadas no domínio do site (`/politica-privacidade-perfectgest-i`, etc.) **redireccionam** para Google Sites (build `spa-legal-paths.cjs`).
 
 ### Checklist rápido
 
@@ -31,14 +35,14 @@
 
 ### Play Console — campos práticos
 
-1. **Link de privacidade:** URL da app (`…/politica-privacidade-perfectgest-i`).
-2. **URL de exclusão de dados:** `…/politica-exclusao-dados-perfectgest-i`.
+1. **Link de privacidade:** Google Sites (`…/politica-em-pt`).
+2. **URL de exclusão de dados:** Google Sites (`…/exclusão-de-dados`).
 3. **Contas:** marcar **Não** (app local-first, sem conta em nuvem).
 4. **Data safety:** espelhar secções 2–5 da política da app + pré-cadastro web se aplicável.
 
 ### Microsoft Store — campos práticos
 
-1. **Privacy policy URL:** mesma URL da app (`…/politica-privacidade-perfectgest-i`) enquanto o produto for PerfectGest I.
+1. **Privacy policy URL:** Google Sites (`…/politica-em-pt` ou EN/ES conforme ficha).
 2. **Recolha de dados:** Sim, se Firebase/telemetria ou capabilities no manifesto o exigirem.
 3. **Assinaturas:** gestão via conta Microsoft (texto na política de exclusão, secção 4).
 4. Políticas Microsoft Store v7.x: URL activa, direitos do utilizador, base legal, sem venda de dados a terceiros para publicidade.

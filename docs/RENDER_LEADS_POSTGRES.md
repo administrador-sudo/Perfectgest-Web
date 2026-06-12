@@ -41,7 +41,7 @@ Se `storage` for `file`, falta `DATABASE_URL` — volte ao passo manual abaixo.
 | Variável | Valor |
 |----------|--------|
 | `DATABASE_URL` | URL completa do Postgres (Render liga automaticamente se usar “Link Database”) |
-| `ALLOWED_ORIGINS` | `https://perfectgest-web-desenvolvedor-apps.onrender.com` |
+| `ALLOWED_ORIGINS` | `https://perfectgestdev.com,https://perfectgest-web-desenvolvedor-apps.onrender.com` |
 
 ---
 
@@ -103,7 +103,7 @@ Gera `exports/site_leads.csv` na pasta do projeto.
 
 ## 5) Testar o formulário
 
-1. Abra: `https://perfectgest-web-desenvolvedor-apps.onrender.com/pre-cadastro`
+1. Abra: `https://perfectgestdev.com/pre-cadastro` (ou espelho Render durante transição).
 2. Preencha e envie (primeiro envio pode demorar ~1 min — cold start do plano free).
 3. Confirme na BD:
 

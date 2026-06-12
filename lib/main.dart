@@ -8,6 +8,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'app_legal_urls.dart';
 import 'app_theme.dart';
 import 'asset_screenshot.dart';
 import 'company_legal.dart';
@@ -117,16 +118,6 @@ class _PerfectProSiteAppState extends State<PerfectProSiteApp> {
           onGenerateRoute: (RouteSettings settings) {
             final routeName = normalizeWebRoute(settings.name ?? '/');
             switch (routeName) {
-              case '/politica-privacidade-perfectgest-i':
-                return MaterialPageRoute<void>(
-                  settings: settings,
-                  builder: (_) => buildPoliticaPrivacidadePerfectGestIPage(),
-                );
-              case '/politica-exclusao-dados-perfectgest-i':
-                return MaterialPageRoute<void>(
-                  settings: settings,
-                  builder: (_) => buildPoliticaExclusaoDadosPerfectGestIPage(),
-                );
               case '/politica-devolucao':
                 return MaterialPageRoute<void>(
                   settings: settings,
@@ -791,7 +782,7 @@ class _CloudItem extends StatelessWidget {
   }
 }
 
-/// Rodapé da home: página própria PerfectPro + referências oficiais Google (medição).
+/// Rodapé da home: política do site + referências Google + links externos da app (Google Sites).
 class _HomeComplianceFooter extends StatelessWidget {
   const _HomeComplianceFooter({required this.onToggleTheme});
 
@@ -802,6 +793,9 @@ class _HomeComplianceFooter extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         final l10n = AppLocalizations.of(context);
+        final locale = Localizations.localeOf(context);
+        final appPrivacyUrl = appPrivacyPolicyUrlFor(locale);
+        final appDeletionUrl = appAccountDeletionUrlFor(locale);
         final w = constraints.hasBoundedWidth && constraints.maxWidth.isFinite
             ? constraints.maxWidth
             : MediaQuery.sizeOf(context).width;
@@ -875,6 +869,24 @@ class _HomeComplianceFooter extends StatelessWidget {
                                 'https://policies.google.com/terms',
                                 fontSize: w < 360 ? 12 : 12.5,
                               ),
+                              const SizedBox(height: 8),
+                              _policyLinkButton(
+                                l10n.footerLinkAppSupport,
+                                kAppSupportFaqUrl,
+                                fontSize: w < 360 ? 12 : 12.5,
+                              ),
+                              const SizedBox(height: 4),
+                              _policyLinkButton(
+                                l10n.footerLinkAppPrivacy,
+                                appPrivacyUrl,
+                                fontSize: w < 360 ? 12 : 12.5,
+                              ),
+                              const SizedBox(height: 4),
+                              _policyLinkButton(
+                                l10n.footerLinkAppDeletion,
+                                appDeletionUrl,
+                                fontSize: w < 360 ? 12 : 12.5,
+                              ),
                             ],
                           )
                         else
@@ -906,6 +918,30 @@ class _HomeComplianceFooter extends StatelessWidget {
                                   webOnlyWindowName: kIsWeb ? '_blank' : null,
                                 ),
                                 child: Text(l10n.footerLinkGoogleTerms, style: GoogleFonts.inter(fontSize: 12.5)),
+                              ),
+                              TextButton(
+                                onPressed: () => launchUrl(
+                                  Uri.parse(kAppSupportFaqUrl),
+                                  mode: LaunchMode.externalApplication,
+                                  webOnlyWindowName: kIsWeb ? '_blank' : null,
+                                ),
+                                child: Text(l10n.footerLinkAppSupport, style: GoogleFonts.inter(fontSize: 12.5)),
+                              ),
+                              TextButton(
+                                onPressed: () => launchUrl(
+                                  Uri.parse(appPrivacyUrl),
+                                  mode: LaunchMode.externalApplication,
+                                  webOnlyWindowName: kIsWeb ? '_blank' : null,
+                                ),
+                                child: Text(l10n.footerLinkAppPrivacy, style: GoogleFonts.inter(fontSize: 12.5)),
+                              ),
+                              TextButton(
+                                onPressed: () => launchUrl(
+                                  Uri.parse(appDeletionUrl),
+                                  mode: LaunchMode.externalApplication,
+                                  webOnlyWindowName: kIsWeb ? '_blank' : null,
+                                ),
+                                child: Text(l10n.footerLinkAppDeletion, style: GoogleFonts.inter(fontSize: 12.5)),
                               ),
                             ],
                           ),
@@ -1599,9 +1635,17 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         FadeTransition(
-          opacity: _fadeIn(0.0, 0.35),
+          opacity: _fadeIn(0.0, 0.28),
           child: SlideTransition(
-            position: _slideIn(0.0, 0.35),
+            position: _slideIn(0.0, 0.28),
+            child: SectionText(title: l10n.solAppsTitle, body: l10n.solAppsBody),
+          ),
+        ),
+        const SizedBox(height: 16),
+        FadeTransition(
+          opacity: _fadeIn(0.04, 0.4),
+          child: SlideTransition(
+            position: _slideIn(0.04, 0.4),
             child: AnimatedBuilder(
               animation: Listenable.merge([_floatCtrl, widget.scrollListenable]),
               builder: (context, _) {
@@ -1691,7 +1735,7 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
           opacity: _fadeIn(0.12, 0.55),
           child: SlideTransition(
             position: _slideIn(0.12, 0.55),
-            child: SolutionsAppPromoBlock(l10n: l10n),
+            child: SolutionsAppActionsBlock(l10n: l10n),
           ),
         ),
         const SizedBox(height: 12),
@@ -2186,8 +2230,8 @@ class _DeferredSectionSkeleton extends StatelessWidget {
   }
 }
 
-class SolutionsAppPromoBlock extends StatelessWidget {
-  const SolutionsAppPromoBlock({super.key, required this.l10n});
+class SolutionsAppActionsBlock extends StatelessWidget {
+  const SolutionsAppActionsBlock({super.key, required this.l10n});
 
   final AppLocalizations l10n;
 
@@ -2195,14 +2239,10 @@ class SolutionsAppPromoBlock extends StatelessWidget {
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
     return Semantics(
-      label: l10n.solAppsTitle,
+      label: l10n.solAppsPlayStoreLabel,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          siteSectionTitle(context, l10n.solAppsTitle, fontSize: 19),
-          const SizedBox(height: 8),
-          Text(l10n.solAppsBody, style: siteBodyTextStyle(context)),
-          const SizedBox(height: 16),
           FilledButton.icon(
             onPressed: () => launchUrl(
               Uri.parse(kPerfectGestIPlayStoreUrl),
@@ -2211,6 +2251,16 @@ class SolutionsAppPromoBlock extends StatelessWidget {
             ),
             icon: const Icon(Icons.shop_rounded, size: 20),
             label: Text(l10n.solAppsPlayStoreLabel),
+          ),
+          const SizedBox(height: 10),
+          OutlinedButton.icon(
+            onPressed: () => launchUrl(
+              Uri.parse(kAppSupportFaqUrl),
+              mode: LaunchMode.externalApplication,
+              webOnlyWindowName: kIsWeb ? '_blank' : null,
+            ),
+            icon: const Icon(Icons.support_agent_outlined, size: 20),
+            label: Text(l10n.solAppsSupportPortalLabel),
           ),
           const SizedBox(height: 12),
           Text(

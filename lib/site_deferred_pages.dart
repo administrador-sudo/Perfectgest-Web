@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import 'devolucao_page.dart' deferred as devolucao;
 import 'elastic_service.dart' deferred as elastic;
-import 'legal_subpages.dart' deferred as legal;
 import 'metallic_preview_page.dart' deferred as metallic;
 import 'politica_page.dart' deferred as politica;
 import 'pre_cadastro_page.dart' deferred as pre_cadastro;
@@ -60,20 +59,6 @@ class _DeferredRouteLoaderState extends State<DeferredRouteLoader> {
       },
     );
   }
-}
-
-Widget buildPoliticaPrivacidadePerfectGestIPage() {
-  return DeferredRouteLoader(
-    loadLibrary: legal.loadLibrary,
-    builder: () => legal.PoliticaPrivacidadePerfectGestIPage(),
-  );
-}
-
-Widget buildPoliticaExclusaoDadosPerfectGestIPage() {
-  return DeferredRouteLoader(
-    loadLibrary: legal.loadLibrary,
-    builder: () => legal.PoliticaExclusaoDadosPerfectGestIPage(),
-  );
 }
 
 Widget buildPoliticaDevolucaoPage() {

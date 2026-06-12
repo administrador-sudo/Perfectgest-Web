@@ -1,4 +1,4 @@
-# Atualiza - Evolucao Continua do Site PerfectPro
+# Atualiza - Evolucao Continua do Site PerfectGest (Web_perfectgest)
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
@@ -1657,4 +1657,42 @@ FROM site_leads ORDER BY created_at DESC;
 
 ### Validacao
 - [x] `dart analyze` ficheiros alterados
+
+## [2026-06-12] Site vitrine — separar legal do site vs app (Google Sites)
+
+### Contexto
+- Pedido: site = vitrine da empresa; PerfectGest I só em Soluções; políticas da app no Google Sites (canónico).
+
+### Arquivos alterados
+- lib/app_legal_urls.dart (novo), lib/site_public_urls.dart, lib/main.dart, lib/site_deferred_pages.dart
+- lib/l10n/site_policy_privacy_texts.dart, lib/l10n/app_localizations.dart
+- scripts/spa-legal-paths.cjs, web/sitemap.xml, web/index.html
+- docs/Checklist_critico.md, docs/RENDER_SPA_REWRITE.md, docs/Atualiza.md
+
+### O que foi feito
+- Removidas páginas Flutter duplicadas da app; rotas legadas → redirect HTML para Google Sites.
+- Política do site só cobre cookies/pré-cadastro/analytics; links externos no rodapé e em Soluções.
+- Sitemap sem URLs de política da app.
+
+### Validacao
+- [ ] Deploy `npm run publish-web` + teste redirects legados
+
+## [2026-06-12] Documentação do site — vitrine vs app, domínio canónico
+
+### Contexto
+- Pedido: actualizar documentação alinhada à reorganização (site empresa, app no Google Sites).
+
+### Arquivos alterados
+- README.md, docs/README.md (novo índice), docs/PROJETO_SITE.md (reescrito)
+- docs/Prompt_IA.md, docs/FICHA_TECNICA_SITE.md, docs/Checklist_critico.md
+- docs/CheckPlay.md, docs/RENDER_SPA_REWRITE.md, docs/RENDER_LEADS_POSTGRES.md
+- docs/Politica_Privacidade_PerfectGest_I.md, docs/Politica_Exclusao_Dados_PerfectGest_I.md
+
+### O que foi feito
+- Índice central em `docs/README.md`; `PROJETO_SITE.md` descreve arquitectura actual.
+- URLs de teste e CORS apontam para `perfectgestdev.com`.
+- Políticas app marcadas como referência interna; canónico = Google Sites.
+
+### Validacao
+- [x] Revisão manual de links e consistência com `lib/site_public_urls.dart` / `lib/app_legal_urls.dart`
 

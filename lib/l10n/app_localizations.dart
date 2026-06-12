@@ -65,6 +65,7 @@ abstract class AppLocalizations {
   String get solAppsTitle;
   String get solAppsBody;
   String get solAppsPlayStoreLabel;
+  String get solAppsSupportPortalLabel;
   String get solAppsHashtags;
   String get solWebTitle;
   String get solWebBody;
@@ -91,6 +92,9 @@ abstract class AppLocalizations {
   String get footerLinkGooglePrivacy;
   String get footerLinkGoogleCookies;
   String get footerLinkGoogleTerms;
+  String get footerLinkAppSupport;
+  String get footerLinkAppPrivacy;
+  String get footerLinkAppDeletion;
   String get footerCompanyLegalSemantics;
   String get cookieBannerNarrow;
   String get cookieBannerWide;
@@ -250,6 +254,8 @@ class _AppLocalizationsPt extends AppLocalizations {
   @override
   String get solAppsPlayStoreLabel => 'Baixe na Play Store';
   @override
+  String get solAppsSupportPortalLabel => 'FAQ e políticas do app';
+  @override
   String get solAppsHashtags =>
       '#MEI #gestão #empreendedor #autônomo #microempresa #controleFinanceiro #orçamento #caixa #PerfectGest';
   @override
@@ -289,17 +295,23 @@ class _AppLocalizationsPt extends AppLocalizations {
   String get footerSemantics => 'Privacidade, dados, cookies e termos Perfect Gest Dev';
   @override
   String get footerComplianceBody =>
-      'Leia a política completa da Perfect Gest Dev (privacidade, dados, cookies e termos). Para serviços Google (ex.: Analytics), aplicam-se também as políticas oficiais do Google.';
+      'Política deste site (cookies, pré-cadastro e analytics). Documentos legais do aplicativo PerfectGest I estão no portal de suporte (Google Sites).';
   @override
   String get footerBtnPolicyShort => 'Política completa';
   @override
-  String get footerBtnPolicyFull => 'Ver política completa';
+  String get footerBtnPolicyFull => 'Ver política do site';
   @override
   String get footerLinkGooglePrivacy => 'Privacidade Google';
   @override
   String get footerLinkGoogleCookies => 'Cookies Google';
   @override
   String get footerLinkGoogleTerms => 'Termos Google';
+  @override
+  String get footerLinkAppSupport => 'FAQ PerfectGest I';
+  @override
+  String get footerLinkAppPrivacy => 'Privacidade da app';
+  @override
+  String get footerLinkAppDeletion => 'Exclusão de dados (app)';
   @override
   String get footerCompanyLegalSemantics =>
       'Identificacao legal da empresa desenvolvedora';
@@ -500,6 +512,8 @@ class _AppLocalizationsEn extends AppLocalizations {
   @override
   String get solAppsPlayStoreLabel => 'Get it on Google Play';
   @override
+  String get solAppsSupportPortalLabel => 'App FAQ and policies';
+  @override
   String get solAppsHashtags =>
       '#MEI #management #entrepreneur #freelancer #smallBusiness #cashFlow #quotes #PerfectGest';
   @override
@@ -539,17 +553,23 @@ class _AppLocalizationsEn extends AppLocalizations {
   String get footerSemantics => 'Perfect Gest Dev privacy, data, cookies and terms';
   @override
   String get footerComplianceBody =>
-      "Read Perfect Gest Dev's full policy (privacy, data, cookies, and terms). For Google services (e.g., Analytics), Google's official policies also apply.";
+      'Policy for this website (cookies, pre-registration and analytics). PerfectGest I app legal documents are on the support portal (Google Sites).';
   @override
-  String get footerBtnPolicyShort => 'Full policy';
+  String get footerBtnPolicyShort => 'Site policy';
   @override
-  String get footerBtnPolicyFull => 'View full policy';
+  String get footerBtnPolicyFull => 'View site policy';
   @override
   String get footerLinkGooglePrivacy => 'Google Privacy';
   @override
   String get footerLinkGoogleCookies => 'Google Cookies';
   @override
   String get footerLinkGoogleTerms => 'Google Terms';
+  @override
+  String get footerLinkAppSupport => 'PerfectGest I FAQ';
+  @override
+  String get footerLinkAppPrivacy => 'App privacy';
+  @override
+  String get footerLinkAppDeletion => 'App data deletion';
   @override
   String get footerCompanyLegalSemantics =>
       'Legal identification of the developer company';
@@ -750,6 +770,8 @@ class _AppLocalizationsEs extends AppLocalizations {
   @override
   String get solAppsPlayStoreLabel => 'Descárgala en Google Play';
   @override
+  String get solAppsSupportPortalLabel => 'FAQ y políticas de la app';
+  @override
   String get solAppsHashtags =>
       '#MEI #gestión #emprendedor #autónomo #microempresa #controlFinanciero #presupuesto #caja #PerfectGest';
   @override
@@ -789,17 +811,23 @@ class _AppLocalizationsEs extends AppLocalizations {
   String get footerSemantics => 'Privacidad, datos, cookies y términos Perfect Gest Dev';
   @override
   String get footerComplianceBody =>
-      'Lee la política completa de Perfect Gest Dev (privacidad, datos, cookies y términos). Para servicios de Google (p.ej., Analytics), también aplican las políticas oficiales de Google.';
+      'Política de este sitio (cookies, pre-registro y analytics). Los documentos legales de la app PerfectGest I están en el portal de soporte (Google Sites).';
   @override
-  String get footerBtnPolicyShort => 'Política completa';
+  String get footerBtnPolicyShort => 'Política del sitio';
   @override
-  String get footerBtnPolicyFull => 'Ver política completa';
+  String get footerBtnPolicyFull => 'Ver política del sitio';
   @override
   String get footerLinkGooglePrivacy => 'Privacidad Google';
   @override
   String get footerLinkGoogleCookies => 'Cookies Google';
   @override
   String get footerLinkGoogleTerms => 'Términos Google';
+  @override
+  String get footerLinkAppSupport => 'FAQ PerfectGest I';
+  @override
+  String get footerLinkAppPrivacy => 'Privacidad de la app';
+  @override
+  String get footerLinkAppDeletion => 'Eliminación de datos (app)';
   @override
   String get footerCompanyLegalSemantics =>
       'Identificacion legal de la empresa desarrolladora';
