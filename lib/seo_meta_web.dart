@@ -114,6 +114,16 @@ void applyPreCadastroSeoMetaTags() {
   _setDocumentTitle(_kDocumentTitlePreCadastro);
 }
 
+/// Meta das paginas legais PerfectGest-Clinica III (consulta isolada).
+void applyClinicaIiiLegalSeoMetaTags(String documentTitle) {
+  _syncCanonicalFromLocation();
+  _upsertMeta('description', documentTitle);
+  _upsertMeta('robots', 'index, follow');
+  _upsertMetaProperty('og:title', documentTitle);
+  _upsertMetaProperty('og:type', 'article');
+  _setDocumentTitle(documentTitle);
+}
+
 /// Restaura titulo e descricoes padrao da home ao sair de rotas institucionais.
 void restoreGlobalSeoMetaTags() => _applyHomeSeoMetaTags();
 

@@ -12,6 +12,8 @@ void applyPoliticaSeoMetaTags() {}
 
 void applyPreCadastroSeoMetaTags() {}
 
+void applyClinicaIiiLegalSeoMetaTags(String documentTitle) {}
+
 void restoreGlobalSeoMetaTags() {}
 
 void syncCanonicalToCurrentUrl() {}

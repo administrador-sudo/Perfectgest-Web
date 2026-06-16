@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'devolucao_page.dart' deferred as devolucao;
-import 'clinica_iii_legal_pages.dart' deferred as clinica_iii;
+import 'clinica_iii_legal_pages.dart';
 import 'elastic_service.dart' deferred as elastic;
 import 'metallic_preview_page.dart' deferred as metallic;
 import 'politica_page.dart' deferred as politica;
@@ -83,26 +83,11 @@ Widget buildPreCadastroPage({VoidCallback? onToggleTheme}) {
   );
 }
 
-Widget buildClinicaIiiPrivacyPage() {
-  return DeferredRouteLoader(
-    loadLibrary: clinica_iii.loadLibrary,
-    builder: () => clinica_iii.ClinicaIiiPrivacyPolicyPage(),
-  );
-}
+Widget buildClinicaIiiPrivacyPage() => const ClinicaIiiPrivacyPolicyPage();
 
-Widget buildClinicaIiiTermsPage() {
-  return DeferredRouteLoader(
-    loadLibrary: clinica_iii.loadLibrary,
-    builder: () => clinica_iii.ClinicaIiiTermsPage(),
-  );
-}
+Widget buildClinicaIiiTermsPage() => const ClinicaIiiTermsPage();
 
-Widget buildClinicaIiiHealthLgpdPage() {
-  return DeferredRouteLoader(
-    loadLibrary: clinica_iii.loadLibrary,
-    builder: () => clinica_iii.ClinicaIiiHealthLgpdPage(),
-  );
-}
+Widget buildClinicaIiiHealthLgpdPage() => const ClinicaIiiHealthLgpdPage();
 
 Future<void> openPreCadastroPage(
   BuildContext context, {

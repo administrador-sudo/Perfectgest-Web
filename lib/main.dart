@@ -52,11 +52,6 @@ String normalizeWebRoute(String path) {
   return normalized;
 }
 
-String _resolveWebInitialRoute() {
-  if (!kIsWeb) return '/';
-  return normalizeWebRoute(Uri.base.path);
-}
-
 void main() {
   configureSiteFonts();
   seo_meta.applySeoMetaTags();
@@ -114,56 +109,62 @@ class _PerfectProSiteAppState extends State<PerfectProSiteApp> {
             seo_meta.applyDocumentLanguage(resolved.toLanguageTag());
             return resolved;
           },
-          initialRoute: _resolveWebInitialRoute(),
+          onGenerateInitialRoutes: (String initialRouteName) {
+            return [_buildMaterialRoute(RouteSettings(name: initialRouteName))];
+          },
           onGenerateRoute: (RouteSettings settings) {
-            final routeName = normalizeWebRoute(settings.name ?? '/');
-            switch (routeName) {
-              case '/politica-devolucao':
-                return MaterialPageRoute<void>(
-                  settings: settings,
-                  builder: (_) => buildPoliticaDevolucaoPage(),
-                );
-              case '/politica-privacidade-site':
-                return MaterialPageRoute<void>(
-                  settings: settings,
-                  builder: (_) => buildPoliticaPrivacidadeSitePage(onToggleTheme: _toggleTheme),
-                );
-              case '/pre-cadastro':
-                return MaterialPageRoute<void>(
-                  settings: settings,
-                  builder: (_) => buildPreCadastroPage(onToggleTheme: _toggleTheme),
-                );
-              case '/politica-privacidade-clinica-iii':
-                return MaterialPageRoute<void>(
-                  settings: settings,
-                  builder: (_) => buildClinicaIiiPrivacyPage(),
-                );
-              case '/termos-clinica-iii':
-                return MaterialPageRoute<void>(
-                  settings: settings,
-                  builder: (_) => buildClinicaIiiTermsPage(),
-                );
-              case '/dados-saude-lgpd-clinica-iii':
-                return MaterialPageRoute<void>(
-                  settings: settings,
-                  builder: (_) => buildClinicaIiiHealthLgpdPage(),
-                );
-              case '/amostra-metal':
-                return MaterialPageRoute<void>(
-                  settings: settings,
-                  builder: (_) => buildMetallicPreviewPage(),
-                );
-              case '/':
-              default:
-                return MaterialPageRoute<void>(
-                  settings: settings,
-                  builder: (_) => SiteHomePage(onToggleTheme: _toggleTheme),
-                );
-            }
+            return _buildMaterialRoute(settings);
           },
         );
       },
     );
+  }
+
+  MaterialPageRoute<void> _buildMaterialRoute(RouteSettings settings) {
+    final routeName = normalizeWebRoute(settings.name ?? '/');
+    switch (routeName) {
+      case '/politica-devolucao':
+        return MaterialPageRoute<void>(
+          settings: settings,
+          builder: (_) => buildPoliticaDevolucaoPage(),
+        );
+      case '/politica-privacidade-site':
+        return MaterialPageRoute<void>(
+          settings: settings,
+          builder: (_) => buildPoliticaPrivacidadeSitePage(onToggleTheme: _toggleTheme),
+        );
+      case '/pre-cadastro':
+        return MaterialPageRoute<void>(
+          settings: settings,
+          builder: (_) => buildPreCadastroPage(onToggleTheme: _toggleTheme),
+        );
+      case '/politica-privacidade-clinica-iii':
+        return MaterialPageRoute<void>(
+          settings: settings,
+          builder: (_) => buildClinicaIiiPrivacyPage(),
+        );
+      case '/termos-clinica-iii':
+        return MaterialPageRoute<void>(
+          settings: settings,
+          builder: (_) => buildClinicaIiiTermsPage(),
+        );
+      case '/dados-saude-lgpd-clinica-iii':
+        return MaterialPageRoute<void>(
+          settings: settings,
+          builder: (_) => buildClinicaIiiHealthLgpdPage(),
+        );
+      case '/amostra-metal':
+        return MaterialPageRoute<void>(
+          settings: settings,
+          builder: (_) => buildMetallicPreviewPage(),
+        );
+      case '/':
+      default:
+        return MaterialPageRoute<void>(
+          settings: settings,
+          builder: (_) => SiteHomePage(onToggleTheme: _toggleTheme),
+        );
+    }
   }
 }
 

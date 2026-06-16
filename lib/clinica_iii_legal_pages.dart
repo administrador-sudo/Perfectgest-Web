@@ -25,6 +25,7 @@ abstract final class _ClinicaLegalStyle {
 
   static TextStyle title({double fontSize = 20, FontWeight weight = FontWeight.w600}) {
     return TextStyle(
+      inherit: false,
       fontFamily: 'Segoe UI',
       fontFamilyFallback: _fontFallback,
       fontSize: fontSize,
@@ -37,6 +38,7 @@ abstract final class _ClinicaLegalStyle {
 
   static TextStyle body({double fontSize = 14, Color? color}) {
     return TextStyle(
+      inherit: false,
       fontFamily: 'Segoe UI',
       fontFamilyFallback: _fontFallback,
       fontSize: fontSize,
@@ -114,10 +116,31 @@ class ClinicaIiiHealthLgpdPage extends StatelessWidget {
   }
 }
 
-class _ClinicaIiiLegalPage extends StatelessWidget {
+class _ClinicaIiiLegalPage extends StatefulWidget {
   const _ClinicaIiiLegalPage({required this.kind});
 
   final ClinicaIiiLegalPageKind kind;
+
+  @override
+  State<_ClinicaIiiLegalPage> createState() => _ClinicaIiiLegalPageState();
+}
+
+class _ClinicaIiiLegalPageState extends State<_ClinicaIiiLegalPage> {
+  var _seoApplied = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_seoApplied || !kIsWeb) return;
+    _seoApplied = true;
+    final lt = ClinicaIiiLegalTexts.of(context);
+    final title = switch (widget.kind) {
+      ClinicaIiiLegalPageKind.privacy => lt.privacyTitle,
+      ClinicaIiiLegalPageKind.terms => lt.termsTitle,
+      ClinicaIiiLegalPageKind.healthLgpd => lt.healthLgpdTitle,
+    };
+    seo_meta.applyClinicaIiiLegalSeoMetaTags(title);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -125,12 +148,12 @@ class _ClinicaIiiLegalPage extends StatelessWidget {
     final padH = w < 400 ? 20.0 : 32.0;
     final lt = ClinicaIiiLegalTexts.of(context);
 
-    final pageTitle = switch (kind) {
+    final pageTitle = switch (widget.kind) {
       ClinicaIiiLegalPageKind.privacy => lt.privacyTitle,
       ClinicaIiiLegalPageKind.terms => lt.termsTitle,
       ClinicaIiiLegalPageKind.healthLgpd => lt.healthLgpdTitle,
     };
-    final sections = switch (kind) {
+    final sections = switch (widget.kind) {
       ClinicaIiiLegalPageKind.privacy => lt.privacySections,
       ClinicaIiiLegalPageKind.terms => lt.termsSections,
       ClinicaIiiLegalPageKind.healthLgpd => lt.healthLgpdSections,
@@ -138,7 +161,9 @@ class _ClinicaIiiLegalPage extends StatelessWidget {
 
     final scaffold = Theme(
       data: _ClinicaLegalStyle.theme(),
-      child: Scaffold(
+      child: DefaultTextStyle(
+        style: _ClinicaLegalStyle.body(),
+        child: Scaffold(
         backgroundColor: _ClinicaLegalStyle.pageBg,
         appBar: _ClinicaIiiLegalAppBar(title: pageTitle),
         body: SelectionArea(
@@ -181,12 +206,13 @@ class _ClinicaIiiLegalPage extends StatelessWidget {
                     const SizedBox(height: 32),
                     const Divider(height: 1, thickness: 1),
                     const SizedBox(height: 16),
-                    _ClinicaIiiFooterLinks(current: kind, lt: lt),
+                    _ClinicaIiiFooterLinks(current: widget.kind, lt: lt),
                   ],
                 ),
               ),
             ),
           ),
+        ),
         ),
       ),
     );
