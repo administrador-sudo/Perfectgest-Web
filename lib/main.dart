@@ -153,6 +153,26 @@ class _PerfectProSiteAppState extends State<PerfectProSiteApp> {
           settings: settings,
           builder: (_) => buildClinicaIiiHealthLgpdPage(),
         );
+      case '/perfectgest-i-politica-privacidade':
+        return MaterialPageRoute<void>(
+          settings: settings,
+          builder: (_) => buildPerfectGestIPrivacyPage(),
+        );
+      case '/perfectgest-i-termos':
+        return MaterialPageRoute<void>(
+          settings: settings,
+          builder: (_) => buildPerfectGestITermsPage(),
+        );
+      case '/perfectgest-i-exclusao-dados':
+        return MaterialPageRoute<void>(
+          settings: settings,
+          builder: (_) => buildPerfectGestIDeletionPage(),
+        );
+      case '/perfectgest-i-faq':
+        return MaterialPageRoute<void>(
+          settings: settings,
+          builder: (_) => buildPerfectGestIFaqPage(),
+        );
       case '/amostra-metal':
         return MaterialPageRoute<void>(
           settings: settings,

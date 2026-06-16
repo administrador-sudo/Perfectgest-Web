@@ -14,6 +14,8 @@ void applyPreCadastroSeoMetaTags() {}
 
 void applyClinicaIiiLegalSeoMetaTags(String documentTitle) {}
 
+void applyPerfectGestILegalSeoMetaTags(String documentTitle) {}
+
 void restoreGlobalSeoMetaTags() {}
 
 void syncCanonicalToCurrentUrl() {}

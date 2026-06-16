@@ -1785,3 +1785,31 @@ FROM site_leads ORDER BY created_at DESC;
 - [x] `flutter analyze` ficheiros novos
 - [ ] Teste manual das 3 URLs em janela anónima após deploy Render concluir
 
+## [2026-06-16] Políticas PerfectGest I no domínio (futuro — app continua Google Sites)
+
+### Contexto
+- Pedido: páginas legais PerfectGest I em perfectgestdev.com, modelo Clinica III (HTML estático PT/EN/ES), independentes da vitrine.
+- **App Android:** canónico permanece Google Sites (`lib/app_legal_urls.dart`); rotas legadas `/politica-privacidade-perfectgest-i` mantêm redirect.
+
+### Arquivos novos/alterados
+- `scripts/perfectgest-i-legal-data.cjs`, `scripts/perfectgest-i-static-html.cjs`
+- `lib/l10n/perfectgest_i_legal_texts.dart`, `lib/perfectgest_i_legal_pages.dart`
+- `lib/site_public_urls.dart`, `lib/app_legal_urls.dart` (URLs futuras no domínio)
+- `scripts/spa-legal-paths.cjs`, `lib/main.dart`, `web/index.html`
+- `docs/RENDER_SPA_REWRITE.md`
+
+### URLs (domínio — referência futura)
+- `https://perfectgestdev.com/perfectgest-i-politica-privacidade`
+- `https://perfectgestdev.com/perfectgest-i-termos`
+- `https://perfectgestdev.com/perfectgest-i-exclusao-dados`
+- `https://perfectgestdev.com/perfectgest-i-faq`
+
+### Pendências (operador)
+- [ ] Quatro rewrites no Render (ver `RENDER_SPA_REWRITE.md`)
+- [ ] `npm run publish-web` após validação local
+- [ ] Migrar app (`legal_urls.dart`) só quando decidir trocar canónico de Google Sites → domínio
+
+### Validação
+- [ ] `flutter analyze`
+- [ ] `node scripts/perfectgest-i-static-html.cjs` após `flutter build web`
+

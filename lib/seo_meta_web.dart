@@ -124,6 +124,11 @@ void applyClinicaIiiLegalSeoMetaTags(String documentTitle) {
   _setDocumentTitle(documentTitle);
 }
 
+/// Meta das paginas legais PerfectGest I no dominio (consulta isolada).
+void applyPerfectGestILegalSeoMetaTags(String documentTitle) {
+  applyClinicaIiiLegalSeoMetaTags(documentTitle);
+}
+
 /// Restaura titulo e descricoes padrao da home ao sair de rotas institucionais.
 void restoreGlobalSeoMetaTags() => _applyHomeSeoMetaTags();
 

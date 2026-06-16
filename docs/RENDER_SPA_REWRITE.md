@@ -26,7 +26,11 @@ Isto publica `politica-devolucao.html` (e as outras) e **remove** ficheiros sem 
 | `/pre-cadastro` | `/pre-cadastro.html` | **Rewrite** |
 | `/politica-privacidade-clinica-iii` | `/politica-privacidade-clinica-iii.html` | **Rewrite** (HTML estático — PerfectGest-Clinica III) |
 | `/termos-clinica-iii` | `/termos-clinica-iii.html` | **Rewrite** |
-| `/dados-saude-lgpd-clinica-iii` | `/dados-saude-lgpd-clinica-iii.html` | **Rewrite** |
+| `/dados-saude-lgpd-clinica-iii` | `/dados-saude-lgpd-clinica-iii.html` | **Rewrite** (HTML estático — PerfectGest-Clinica III) |
+| `/perfectgest-i-politica-privacidade` | `/perfectgest-i-politica-privacidade.html` | **Rewrite** (HTML estático — PerfectGest I; futuro canónico) |
+| `/perfectgest-i-termos` | `/perfectgest-i-termos.html` | **Rewrite** |
+| `/perfectgest-i-exclusao-dados` | `/perfectgest-i-exclusao-dados.html` | **Rewrite** |
+| `/perfectgest-i-faq` | `/perfectgest-i-faq.html` | **Rewrite** |
 
 As duas rotas `…-perfectgest-i` servem **redirect estático** para o portal Google Sites (políticas da app PerfectGest I). O site institucional mantém `/politica-privacidade-site`. As três rotas `…-clinica-iii` são **HTML estático** (gerado por `scripts/clinica-iii-static-html.cjs` no build — sem Flutter, PT/EN/ES, preto no branco).
 

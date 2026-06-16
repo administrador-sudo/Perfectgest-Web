@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'devolucao_page.dart' deferred as devolucao;
 import 'clinica_iii_legal_pages.dart';
+import 'perfectgest_i_legal_pages.dart';
 import 'elastic_service.dart' deferred as elastic;
 import 'metallic_preview_page.dart' deferred as metallic;
 import 'politica_page.dart' deferred as politica;
@@ -88,6 +89,14 @@ Widget buildClinicaIiiPrivacyPage() => const ClinicaIiiPrivacyPolicyPage();
 Widget buildClinicaIiiTermsPage() => const ClinicaIiiTermsPage();
 
 Widget buildClinicaIiiHealthLgpdPage() => const ClinicaIiiHealthLgpdPage();
+
+Widget buildPerfectGestIPrivacyPage() => const PerfectGestIPrivacyPolicyPage();
+
+Widget buildPerfectGestITermsPage() => const PerfectGestITermsPage();
+
+Widget buildPerfectGestIDeletionPage() => const PerfectGestIDeletionPage();
+
+Widget buildPerfectGestIFaqPage() => const PerfectGestIFaqPage();
 
 Future<void> openPreCadastroPage(
   BuildContext context, {

@@ -1,5 +1,7 @@
 import 'package:flutter/widgets.dart';
 
+import 'site_public_urls.dart';
+
 /// URLs canónicas da app PerfectGest I (portal externo de suporte — conformidade nas consolas de distribuição).
 /// Espelham `apps/PerfectGest-I/lib/config/legal_urls.dart`.
 
@@ -30,6 +32,13 @@ const String kAppTermsOfUseUrl =
 /// Rotas legadas no domínio do site (redireccionam para Google Sites no build estático).
 const String kLegacyAppPrivacyPolicyPath = '/politica-privacidade-perfectgest-i';
 const String kLegacyAppDataDeletionPath = '/politica-exclusao-dados-perfectgest-i';
+
+// --- Futuro: páginas PerfectGest I no domínio (app continua a usar [kApp*] Google Sites) ---
+
+const String kDomainPerfectGestIPrivacyPublicUrl = kPerfectGestIPrivacyPolicyPublicUrl;
+const String kDomainPerfectGestITermsPublicUrl = kPerfectGestITermsPublicUrl;
+const String kDomainPerfectGestIDeletionPublicUrl = kPerfectGestIDeletionPublicUrl;
+const String kDomainPerfectGestIFaqPublicUrl = kPerfectGestIFaqPublicUrl;
 
 String appPrivacyPolicyUrlFor(Locale locale) {
   switch (locale.languageCode) {
