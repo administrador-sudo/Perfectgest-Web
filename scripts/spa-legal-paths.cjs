@@ -19,6 +19,7 @@ if (!fs.existsSync(indexPath)) {
 const indexHtml = fs.readFileSync(indexPath);
 const { writeAll: writeClinicaIiiStaticHtml } = require('./clinica-iii-static-html.cjs');
 const { writeAll: writePerfectGestIStaticHtml } = require('./perfectgest-i-static-html.cjs');
+const { sync: syncPerfectGestILegalFromMd } = require('./perfectgest-i-sync-legal-from-md.cjs');
 
 /** Páginas do site institucional (Flutter SPA). */
 const siteSpaPages = [
@@ -34,7 +35,7 @@ const clinicaIiiStaticSlugs = [
   'dados-saude-lgpd-clinica-iii',
 ];
 
-/** PerfectGest I: HTML estático no domínio (futuro canónico; app continua Google Sites). */
+/** PerfectGest I: HTML estático no domínio (canónico app + site). */
 const perfectGestIStaticSlugs = [
   'perfectgest-i-politica-privacidade',
   'perfectgest-i-termos',
@@ -86,6 +87,7 @@ for (const segment of perfectGestIStaticSlugs) {
 }
 
 writeClinicaIiiStaticHtml(buildWeb);
+syncPerfectGestILegalFromMd();
 writePerfectGestIStaticHtml(buildWeb);
 
 for (const [segment, targetUrl] of Object.entries(legacyAppRedirects)) {
