@@ -1,6 +1,6 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
 $__dart_deferred_initializers__.current=function(a,b,c,$){var A,B={
-aPL(){A.tc()
+aPT(){A.te()
 A.fB("description","Politica de privacidade, dados pessoais, cookies e termos de uso do site Perfect Gest Dev \u2014 software house Flutter e Java.")
 A.fB("keywords","Perfect Gest Dev, politica de privacidade, cookies, termos de uso, RGPD, dados pessoais, etica e compliance")
 A.fB("robots","index, follow")
@@ -12,4 +12,4 @@ b.G.document.title="Privacidade e termos | Perfect Gest Dev"}}
 A=c[0]
 B=a.updateHolder(c[9],B)
 var z=a.updateTypes([])};
-(a=>{a["rP1uty4txWwMYS7hOx8elkCEl5k="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["RL8+TY/4dnVDr385HVL4IjHOQ/c="]=a.current})($__dart_deferred_initializers__);
