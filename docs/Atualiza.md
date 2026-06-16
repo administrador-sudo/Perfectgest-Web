@@ -1777,10 +1777,11 @@ FROM site_leads ORDER BY created_at DESC;
 - `https://perfectgestdev.com/dados-saude-lgpd-clinica-iii`
 
 ### Pendencias (operador)
-- [ ] `npm run publish-web` + três rewrites no Render (ver `docs/RENDER_SPA_REWRITE.md`)
+- [x] Push `main` commit `c916bf2` → Render (deploy automático)
+- [ ] Três rewrites no Render se ainda não existirem (ver `docs/RENDER_SPA_REWRITE.md`)
 - [ ] Partner Center: colar URL de privacidade (e termos se pedido)
 
 ### Validacao
 - [x] `flutter analyze` ficheiros novos
-- [ ] Teste manual das 3 URLs em janela anónima após deploy
+- [ ] Teste manual das 3 URLs em janela anónima após deploy Render concluir
 

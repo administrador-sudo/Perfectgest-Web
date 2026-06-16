@@ -1,12 +1,89 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
+import 'l10n/app_localizations.dart';
 import 'l10n/clinica_iii_legal_texts.dart';
-import 'metallic_site_shell.dart';
+import 'locale_controller.dart';
 import 'seo_meta_stub.dart' if (dart.library.html) 'seo_meta_web.dart' as seo_meta;
-import 'site_language_menu.dart';
 import 'site_public_urls.dart';
+
+/// Paleta documento legal (estilo Microsoft Store) — independente da vitrine.
+abstract final class _ClinicaLegalStyle {
+  static const pageBg = Color(0xFFFFFFFF);
+  static const headerBg = Color(0xFFF3F3F3);
+  static const textPrimary = Color(0xFF1A1A1A);
+  static const textSecondary = Color(0xFF605E5C);
+  static const border = Color(0xFFE1E1E1);
+  static const linkColor = Color(0xFF0067B8);
+
+  static const _fontFallback = <String>[
+    'Segoe UI Web',
+    'Helvetica Neue',
+    'Arial',
+    'sans-serif',
+  ];
+
+  static TextStyle title({double fontSize = 20, FontWeight weight = FontWeight.w600}) {
+    return TextStyle(
+      fontFamily: 'Segoe UI',
+      fontFamilyFallback: _fontFallback,
+      fontSize: fontSize,
+      fontWeight: weight,
+      height: 1.35,
+      color: textPrimary,
+      letterSpacing: -0.2,
+    );
+  }
+
+  static TextStyle body({double fontSize = 14, Color? color}) {
+    return TextStyle(
+      fontFamily: 'Segoe UI',
+      fontFamilyFallback: _fontFallback,
+      fontSize: fontSize,
+      fontWeight: FontWeight.w400,
+      height: 1.6,
+      color: color ?? textPrimary,
+    );
+  }
+
+  static TextStyle linkStyle({double fontSize = 14}) {
+    return body(fontSize: fontSize, color: linkColor).copyWith(
+      decoration: TextDecoration.underline,
+      decorationColor: linkColor,
+    );
+  }
+
+  static ThemeData theme() {
+    return ThemeData(
+      brightness: Brightness.light,
+      useMaterial3: true,
+      scaffoldBackgroundColor: pageBg,
+      colorScheme: const ColorScheme.light(
+        primary: linkColor,
+        onSurface: textPrimary,
+        outline: border,
+        surface: pageBg,
+      ),
+      appBarTheme: const AppBarTheme(
+        backgroundColor: pageBg,
+        foregroundColor: textPrimary,
+        surfaceTintColor: Colors.transparent,
+        elevation: 0,
+        scrolledUnderElevation: 0,
+      ),
+      dividerColor: border,
+      textButtonTheme: TextButtonThemeData(
+        style: TextButton.styleFrom(
+          foregroundColor: linkColor,
+          textStyle: linkStyle(fontSize: 14),
+          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
+          minimumSize: Size.zero,
+          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        ),
+      ),
+    );
+  }
+}
 
 enum ClinicaIiiLegalPageKind { privacy, terms, healthLgpd }
 
@@ -15,9 +92,7 @@ class ClinicaIiiPrivacyPolicyPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _ClinicaIiiLegalPage(
-      kind: ClinicaIiiLegalPageKind.privacy,
-    );
+    return const _ClinicaIiiLegalPage(kind: ClinicaIiiLegalPageKind.privacy);
   }
 }
 
@@ -26,9 +101,7 @@ class ClinicaIiiTermsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _ClinicaIiiLegalPage(
-      kind: ClinicaIiiLegalPageKind.terms,
-    );
+    return const _ClinicaIiiLegalPage(kind: ClinicaIiiLegalPageKind.terms);
   }
 }
 
@@ -37,9 +110,7 @@ class ClinicaIiiHealthLgpdPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _ClinicaIiiLegalPage(
-      kind: ClinicaIiiLegalPageKind.healthLgpd,
-    );
+    return const _ClinicaIiiLegalPage(kind: ClinicaIiiLegalPageKind.healthLgpd);
   }
 }
 
@@ -50,9 +121,8 @@ class _ClinicaIiiLegalPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cs = Theme.of(context).colorScheme;
     final w = MediaQuery.sizeOf(context).width;
-    final padH = w < 400 ? 16.0 : 24.0;
+    final padH = w < 400 ? 20.0 : 32.0;
     final lt = ClinicaIiiLegalTexts.of(context);
 
     final pageTitle = switch (kind) {
@@ -66,41 +136,54 @@ class _ClinicaIiiLegalPage extends StatelessWidget {
       ClinicaIiiLegalPageKind.healthLgpd => lt.healthLgpdSections,
     };
 
-    final scaffold = Scaffold(
-      backgroundColor: siteScaffoldBackground(context),
-      appBar: _clinicaIiiLegalAppBar(context, title: pageTitle),
-      body: SiteBackgroundShell(
-        child: SingleChildScrollView(
-          padding: EdgeInsets.fromLTRB(padH, 16, padH, 28),
-          child: Center(
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 720),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  siteSectionTitle(context, pageTitle, fontSize: w < 400 ? 18 : 22),
-                  const SizedBox(height: 8),
-                  Text(
-                    lt.lastUpdated,
-                    style: siteBodyTextStyle(context, fontSize: 13),
-                  ),
-                  const SizedBox(height: 14),
-                  SiteSectionPanel(
-                    radius: 14,
-                    padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
-                    child: Text(
-                      lt.legalHeaderBody,
-                      style: siteBodyTextStyle(context, fontSize: 13.5, height: 1.5),
+    final scaffold = Theme(
+      data: _ClinicaLegalStyle.theme(),
+      child: Scaffold(
+        backgroundColor: _ClinicaLegalStyle.pageBg,
+        appBar: _ClinicaIiiLegalAppBar(title: pageTitle),
+        body: SelectionArea(
+          child: SingleChildScrollView(
+            padding: EdgeInsets.fromLTRB(padH, 24, padH, 40),
+            child: Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 800),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      pageTitle,
+                      style: _ClinicaLegalStyle.title(fontSize: w < 400 ? 22 : 26),
                     ),
-                  ),
-                  const SizedBox(height: 16),
-                  for (final s in sections)
-                    _ClinicaLegalSection(heading: s.heading, body: s.body),
-                  const SizedBox(height: 24),
-                  Divider(color: cs.outline.withValues(alpha: 0.6)),
-                  const SizedBox(height: 12),
-                  _ClinicaIiiFooterLinks(current: kind, lt: lt),
-                ],
+                    const SizedBox(height: 8),
+                    Text(
+                      lt.lastUpdated,
+                      style: _ClinicaLegalStyle.body(
+                        fontSize: 13,
+                        color: _ClinicaLegalStyle.textSecondary,
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        color: _ClinicaLegalStyle.headerBg,
+                        border: Border.all(color: _ClinicaLegalStyle.border),
+                      ),
+                      child: Text(
+                        lt.legalHeaderBody,
+                        style: _ClinicaLegalStyle.body(fontSize: 14),
+                      ),
+                    ),
+                    const SizedBox(height: 28),
+                    for (final s in sections)
+                      _ClinicaLegalSection(heading: s.heading, body: s.body),
+                    const SizedBox(height: 32),
+                    const Divider(height: 1, thickness: 1),
+                    const SizedBox(height: 16),
+                    _ClinicaIiiFooterLinks(current: kind, lt: lt),
+                  ],
+                ),
               ),
             ),
           ),
@@ -113,21 +196,97 @@ class _ClinicaIiiLegalPage extends StatelessWidget {
   }
 }
 
-PreferredSizeWidget _clinicaIiiLegalAppBar(
-  BuildContext context, {
-  required String title,
-}) {
-  final cs = Theme.of(context).colorScheme;
-  return AppBar(
-    automaticallyImplyLeading: false,
-    backgroundColor: siteAppBarBackground(context),
-    surfaceTintColor: Colors.transparent,
-    title: Text(
-      title,
-      style: GoogleFonts.inter(fontWeight: FontWeight.w700, color: cs.onSurface),
-    ),
-    actions: const [SiteLanguageMenuButton()],
-  );
+class _ClinicaIiiLegalAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const _ClinicaIiiLegalAppBar({required this.title});
+
+  final String title;
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: _ClinicaLegalStyle.pageBg,
+      child: DecoratedBox(
+        decoration: const BoxDecoration(
+          border: Border(bottom: BorderSide(color: _ClinicaLegalStyle.border)),
+        ),
+        child: SafeArea(
+          bottom: false,
+          child: SizedBox(
+            height: kToolbarHeight,
+            child: Row(
+              children: [
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(
+                    title,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: _ClinicaLegalStyle.title(fontSize: 15, weight: FontWeight.w600),
+                  ),
+                ),
+                const _ClinicaLanguageMenu(),
+                const SizedBox(width: 4),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Selector PT/EN/ES — visual neutro, sem cores da vitrine.
+class _ClinicaLanguageMenu extends StatelessWidget {
+  const _ClinicaLanguageMenu();
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    return ValueListenableBuilder<Locale?>(
+      valueListenable: appLocaleController,
+      builder: (context, manualLocale, _) {
+        final activeCode = manualLocale?.languageCode;
+        return PopupMenuButton<String>(
+          tooltip: l10n.languageMenuTooltip,
+          icon: const Icon(
+            Icons.language,
+            color: _ClinicaLegalStyle.textPrimary,
+            size: 22,
+          ),
+          color: _ClinicaLegalStyle.pageBg,
+          onSelected: (value) {
+            appLocaleController.setLocale(value.isEmpty ? null : Locale(value));
+          },
+          itemBuilder: (context) => <PopupMenuEntry<String>>[
+            CheckedPopupMenuItem<String>(
+              value: '',
+              checked: activeCode == null,
+              child: Text(l10n.languageFollowSystem, style: _ClinicaLegalStyle.body(fontSize: 14)),
+            ),
+            const PopupMenuDivider(height: 1),
+            CheckedPopupMenuItem<String>(
+              value: 'pt',
+              checked: activeCode == 'pt',
+              child: Text(l10n.languageNamePortuguese, style: _ClinicaLegalStyle.body(fontSize: 14)),
+            ),
+            CheckedPopupMenuItem<String>(
+              value: 'en',
+              checked: activeCode == 'en',
+              child: Text(l10n.languageNameEnglish, style: _ClinicaLegalStyle.body(fontSize: 14)),
+            ),
+            CheckedPopupMenuItem<String>(
+              value: 'es',
+              checked: activeCode == 'es',
+              child: Text(l10n.languageNameSpanish, style: _ClinicaLegalStyle.body(fontSize: 14)),
+            ),
+          ],
+        );
+      },
+    );
+  }
 }
 
 class _ClinicaIiiFooterLinks extends StatelessWidget {
@@ -138,12 +297,11 @@ class _ClinicaIiiFooterLinks extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cs = Theme.of(context).colorScheme;
     final links = <Widget>[];
 
     void addLink(String label, String path, ClinicaIiiLegalPageKind target) {
       if (current == target) {
-        links.add(Text(label, style: siteBodyTextStyle(context, fontSize: 13)));
+        links.add(Text(label, style: _ClinicaLegalStyle.body(fontSize: 14)));
         return;
       }
       links.add(
@@ -155,15 +313,15 @@ class _ClinicaIiiFooterLinks extends StatelessWidget {
             }
             Navigator.of(context).pushReplacementNamed(path);
           },
-          child: Text(label, style: GoogleFonts.inter(fontSize: 13)),
+          child: Text(label),
         ),
       );
     }
 
     addLink(lt.footerPrivacy, kClinicaIIIPrivacyPolicyPath, ClinicaIiiLegalPageKind.privacy);
-    links.add(Text(' · ', style: TextStyle(color: cs.onSurface.withValues(alpha: 0.5))));
+    links.add(Text(' · ', style: _ClinicaLegalStyle.body(fontSize: 14, color: _ClinicaLegalStyle.textSecondary)));
     addLink(lt.footerTerms, kClinicaIIITermsPath, ClinicaIiiLegalPageKind.terms);
-    links.add(Text(' · ', style: TextStyle(color: cs.onSurface.withValues(alpha: 0.5))));
+    links.add(Text(' · ', style: _ClinicaLegalStyle.body(fontSize: 14, color: _ClinicaLegalStyle.textSecondary)));
     addLink(lt.footerHealthLgpd, kClinicaIIIHealthLgpdPath, ClinicaIiiLegalPageKind.healthLgpd);
 
     return Center(
@@ -185,18 +343,14 @@ class _ClinicaLegalSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 14),
-      child: SiteSectionPanel(
-        radius: 14,
-        padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            siteSectionTitle(context, heading, fontSize: 15),
-            const SizedBox(height: 6),
-            Text(body, style: siteBodyTextStyle(context, fontSize: 13.5, height: 1.5)),
-          ],
-        ),
+      padding: const EdgeInsets.only(bottom: 24),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(heading, style: _ClinicaLegalStyle.title(fontSize: 16)),
+          const SizedBox(height: 8),
+          Text(body, style: _ClinicaLegalStyle.body(fontSize: 14)),
+        ],
       ),
     );
   }
