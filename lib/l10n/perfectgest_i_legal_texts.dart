@@ -4,7 +4,7 @@ import '../company_legal.dart';
 import 'play_store_app_legal_texts.dart';
 
 /// Textos legais PerfectGest I no domínio (PT/EN/ES) — paralelo a
-/// `scripts/perfectgest-i-legal-data.cjs`. Canónico na app: Google Sites.
+/// `scripts/perfectgest-i-legal-data.cjs`.
 abstract class PerfectGestILegalTexts {
   const PerfectGestILegalTexts();
 
@@ -37,7 +37,6 @@ abstract class PerfectGestILegalTexts {
   List<LegalSectionText> get faqSections;
 }
 
-const String _kPgIProductEmail = 'sac.perfectgest@gmail.com';
 const String _kPgIPublisher = 'Marcos Leandro dos Santos';
 
 const String _kHeaderPt =
@@ -45,30 +44,24 @@ const String _kHeaderPt =
     'Nome fantasia: $kCompanyFantasyName · CNPJ $kCompanyCnpj\n'
     '$kCompanyAddressLine\n'
     'Responsável editorial do produto: $_kPgIPublisher\n'
-    'Contacto do produto: $_kPgIProductEmail · Suporte institucional: $kCompanyContactEmail\n\n'
-    'Estas páginas no domínio perfectgestdev.com são uma cópia de referência para o futuro. '
-    'A app PerfectGest I (Google Play) continua a apontar para o portal Google Sites até nova publicação.';
+    'Suporte: $kCompanyContactEmail';
 
 const String _kHeaderEn =
     '$kCompanyLegalName\n'
     'Trade name: $kCompanyFantasyName · CNPJ $kCompanyCnpj\n'
     '$kCompanyAddressLine\n'
     'Product publisher: $_kPgIPublisher\n'
-    'Product contact: $_kPgIProductEmail · Institutional support: $kCompanyContactEmail\n\n'
-    'These pages on perfectgestdev.com are a reference copy for future use. '
-    'The PerfectGest I app (Google Play) still links to the Google Sites portal until republished.';
+    'Support: $kCompanyContactEmail';
 
 const String _kHeaderEs =
     '$kCompanyLegalName\n'
     'Nombre comercial: $kCompanyFantasyName · CNPJ $kCompanyCnpj\n'
     '$kCompanyAddressLine\n'
     'Responsable editorial del producto: $_kPgIPublisher\n'
-    'Contacto del producto: $_kPgIProductEmail · Soporte institucional: $kCompanyContactEmail\n\n'
-    'Estas páginas en perfectgestdev.com son una copia de referencia para el futuro. '
-    'La app PerfectGest I (Google Play) sigue apuntando al portal Google Sites hasta nueva publicación.';
+    'Soporte: $kCompanyContactEmail';
 
 const List<LegalSectionText> _kPrivacyPt = <LegalSectionText>[
-  LegalSectionText(heading: '1. Controlador e contacto', body: 'O $kProductPerfectGestIName é operado por $_kPgIPublisher. Para direitos LGPD: $_kPgIProductEmail.'),
+  LegalSectionText(heading: '1. Controlador e contacto', body: 'O $kProductPerfectGestIName é operado por $_kPgIPublisher. Para direitos LGPD: $kCompanyContactEmail.'),
   LegalSectionText(heading: '2. Armazenamento local', body: 'Modelo local-first: clientes, orçamentos, caixa e ordens de serviço ficam em SQLite no dispositivo. Não enviamos esses dados automaticamente para servidores PerfectGest.'),
   LegalSectionText(heading: '3. Quando os dados podem sair do aparelho', body: 'Somente por acção sua: partilhar PDF, backup exportado, cartão de visita (PNG/vCard/QR). Partilha de backup é sua responsabilidade.'),
   LegalSectionText(heading: '4. Cartão de visita', body: 'Dados da aba Empresa alimentam o cartão digital. Clientes e financeiro não entram no cartão. Modo estático após 1.º cartão sem Pro; funções avançadas com Plano Pro — tudo na app.'),
@@ -85,13 +78,13 @@ const List<LegalSectionText> _kTermsPt = <LegalSectionText>[
   LegalSectionText(heading: '4. Cancelamento', body: 'Google Play → Pagamentos e subscrições → Subscrições.'),
   LegalSectionText(heading: '5. Lembretes fiscais', body: 'Informativos; não substituem contabilista.'),
   LegalSectionText(heading: '6. Responsabilidade', body: 'Ferramenta de apoio; decisões de negócio são do utilizador.'),
-  LegalSectionText(heading: '7. Contacto', body: _kPgIProductEmail),
+  LegalSectionText(heading: '7. Contacto', body: kCompanyContactEmail),
 ];
 
 const List<LegalSectionText> _kDeletionPt = <LegalSectionText>[
   LegalSectionText(heading: '1. Dados locais', body: 'Configurações → Dados no dispositivo → Eliminar todos os dados. Ou desinstalar. Irreversível sem backup externo.'),
   LegalSectionText(heading: '2. Ficheiros exportados', body: 'PDFs e backups partilhados devem ser apagados manualmente onde os guardou.'),
-  LegalSectionText(heading: '3. Firebase (metadados)', body: 'E-mail $_kPgIProductEmail, assunto «Solicitação de Exclusão de Dados Técnicos». Prazo: até 15 dias úteis.'),
+  LegalSectionText(heading: '3. Firebase (metadados)', body: 'E-mail $kCompanyContactEmail, assunto «Solicitação de Exclusão de Dados Técnicos». Prazo: até 15 dias úteis.'),
   LegalSectionText(heading: '4. Subscrições', body: 'Eliminar dados não cancela subscrição Google Play — gerir na loja.'),
 ];
 
@@ -161,7 +154,7 @@ class _PerfectGestILegalTextsEn extends PerfectGestILegalTexts {
   String get footerFaq => 'FAQ';
   @override
   List<LegalSectionText> get privacySections => const [
-    LegalSectionText(heading: '1. Controller and contact', body: '$kProductPerfectGestIName is operated by $_kPgIPublisher. For LGPD rights: $_kPgIProductEmail.'),
+    LegalSectionText(heading: '1. Controller and contact', body: '$kProductPerfectGestIName is operated by $_kPgIPublisher. For LGPD rights: $kCompanyContactEmail.'),
     LegalSectionText(heading: '2. Local storage', body: 'Local-first: clients, estimates, cash stay in SQLite on the device.'),
     LegalSectionText(heading: '5. Trial and Pro Plan', body: '7 days; 5+5+5 limits. Budget PDF for first 4 only; blocked from 5th and after 7 days without Pro.'),
     LegalSectionText(heading: '8. Governing law', body: 'Laws of Brazil; venue Caxias do Sul/RS.'),
@@ -170,12 +163,12 @@ class _PerfectGestILegalTextsEn extends PerfectGestILegalTexts {
   List<LegalSectionText> get termsSections => const [
     LegalSectionText(heading: '1. Purpose', body: 'These Terms govern $kProductPerfectGestIName on your phone.'),
     LegalSectionText(heading: '3. Trial and subscription', body: '7-day trial; 5+5+5. Pro via Google Play.'),
-    LegalSectionText(heading: '7. Contact', body: _kPgIProductEmail),
+    LegalSectionText(heading: '7. Contact', body: kCompanyContactEmail),
   ];
   @override
   List<LegalSectionText> get deletionSections => const [
     LegalSectionText(heading: '1. Local data', body: 'Settings → Device data → Delete all data.'),
-    LegalSectionText(heading: '3. Firebase (metadata)', body: 'Email $_kPgIProductEmail — Technical Data Deletion Request.'),
+    LegalSectionText(heading: '3. Firebase (metadata)', body: 'Email $kCompanyContactEmail — Technical Data Deletion Request.'),
   ];
   @override
   List<LegalSectionText> get faqSections => const [
@@ -209,7 +202,7 @@ class _PerfectGestILegalTextsEs extends PerfectGestILegalTexts {
   String get footerFaq => 'Preguntas frecuentes';
   @override
   List<LegalSectionText> get privacySections => const [
-    LegalSectionText(heading: '1. Controlador y contacto', body: '$kProductPerfectGestIName es operado por $_kPgIPublisher. Para derechos LGPD: $_kPgIProductEmail.'),
+    LegalSectionText(heading: '1. Controlador y contacto', body: '$kProductPerfectGestIName es operado por $_kPgIPublisher. Para derechos LGPD: $kCompanyContactEmail.'),
     LegalSectionText(heading: '2. Almacenamiento local', body: 'Modelo local-first: datos en SQLite en el dispositivo.'),
     LegalSectionText(heading: '5. Prueba y Plan Pro', body: '7 días; límites 5+5+5. PDF de presupuesto en los 4 primeros; bloqueado desde el 5.º y tras 7 días sin Pro.'),
   ];
@@ -217,12 +210,12 @@ class _PerfectGestILegalTextsEs extends PerfectGestILegalTexts {
   List<LegalSectionText> get termsSections => const [
     LegalSectionText(heading: '1. Objeto', body: 'Términos de $kProductPerfectGestIName en el móvil.'),
     LegalSectionText(heading: '3. Prueba y suscripción', body: '7 días; 5+5+5. Plan Pro en Google Play.'),
-    LegalSectionText(heading: '7. Contacto', body: _kPgIProductEmail),
+    LegalSectionText(heading: '7. Contacto', body: kCompanyContactEmail),
   ];
   @override
   List<LegalSectionText> get deletionSections => const [
     LegalSectionText(heading: '1. Datos locales', body: 'Ajustes → Datos en el dispositivo → Eliminar todos los datos.'),
-    LegalSectionText(heading: '3. Firebase (metadatos)', body: 'Correo $_kPgIProductEmail — Solicitud de Eliminación de Datos Técnicos.'),
+    LegalSectionText(heading: '3. Firebase (metadatos)', body: 'Correo $kCompanyContactEmail — Solicitud de Eliminación de Datos Técnicos.'),
   ];
   @override
   List<LegalSectionText> get faqSections => const [

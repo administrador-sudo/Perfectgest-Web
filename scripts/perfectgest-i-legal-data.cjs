@@ -1,11 +1,9 @@
-/** PerfectGest I — documentos legais no domínio (paralelo a lib/l10n/perfectgest_i_legal_texts.dart).
- * Canónico na app: Google Sites (ver lib/app_legal_urls.dart). */
+/** PerfectGest I — documentos legais no domínio (paralelo a lib/l10n/perfectgest_i_legal_texts.dart). */
 const PRODUCT = 'PerfectGest I';
 const FANTASY = 'Perfect Gest Dev';
 const LEGAL_NAME = 'PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA';
 const CNPJ = '66.889.409/0001-19';
-const EMAIL = 'sac.perfectgest@gmail.com';
-const EMAIL_INST = 'suporte@perfectgestdev.com';
+const EMAIL = 'suporte@perfectgestdev.com';
 const ADDRESS = 'Caxias do Sul — RS — Brasil';
 const PUBLISHER = 'Marcos Leandro dos Santos';
 
@@ -15,25 +13,19 @@ const header = {
     `Nome fantasia: ${FANTASY} · CNPJ ${CNPJ}\n` +
     `${ADDRESS}\n` +
     `Responsável editorial do produto: ${PUBLISHER}\n` +
-    `Contacto do produto: ${EMAIL} · Suporte institucional: ${EMAIL_INST}\n\n` +
-    'Estas páginas no domínio perfectgestdev.com são uma cópia de referência para o futuro. ' +
-    'A app PerfectGest I (Google Play) continua a apontar para o portal Google Sites até nova publicação.',
+    `Suporte: ${EMAIL}`,
   en:
     `${LEGAL_NAME}\n` +
     `Trade name: ${FANTASY} · CNPJ ${CNPJ}\n` +
     `${ADDRESS}\n` +
     `Product publisher: ${PUBLISHER}\n` +
-    `Product contact: ${EMAIL} · Institutional support: ${EMAIL_INST}\n\n` +
-    'These pages on perfectgestdev.com are a reference copy for future use. ' +
-    'The PerfectGest I app (Google Play) still links to the Google Sites portal until republished.',
+    `Support: ${EMAIL}`,
   es:
     `${LEGAL_NAME}\n` +
     `Nombre comercial: ${FANTASY} · CNPJ ${CNPJ}\n` +
     `${ADDRESS}\n` +
     `Responsable editorial del producto: ${PUBLISHER}\n` +
-    `Contacto del producto: ${EMAIL} · Soporte institucional: ${EMAIL_INST}\n\n` +
-    'Estas páginas en perfectgestdev.com son una copia de referencia para el futuro. ' +
-    'La app PerfectGest I (Google Play) sigue apuntando al portal Google Sites hasta nueva publicación.',
+    `Soporte: ${EMAIL}`,
 };
 
 const lastUpdated = {

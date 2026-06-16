@@ -31,7 +31,7 @@ const String kClinicaIIITermsPublicUrl = '$kSitePublicOrigin$kClinicaIIITermsPat
 const String kClinicaIIIHealthLgpdPublicUrl =
     '$kSitePublicOrigin$kClinicaIIIHealthLgpdPath';
 
-/// Políticas PerfectGest I no domínio (HTML estático — futuro canónico; app usa Google Sites).
+/// Políticas PerfectGest I no domínio (HTML estático trílingue — canónico app e site).
 const String kPerfectGestIPrivacyPolicyPath = '/perfectgest-i-politica-privacidade';
 const String kPerfectGestITermsPath = '/perfectgest-i-termos';
 const String kPerfectGestIDeletionPath = '/perfectgest-i-exclusao-dados';
