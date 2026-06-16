@@ -1752,3 +1752,35 @@ FROM site_leads ORDER BY created_at DESC;
 - [x] `flutter analyze`
 - [x] `npm run publish-web` / commit `af962d4` → Render main
 
+## [2026-06-16] Políticas PerfectGest-Clinica III — páginas isoladas (PT/EN/ES)
+
+### Contexto
+- Pedido: publicar 3 políticas do app Windows no domínio perfectgestdev.com, sem alterar a vitrine; acesso só por URL directa; links entre as 3 páginas; sem navegação para o site.
+
+### Arquivos alterados
+- lib/l10n/clinica_iii_legal_texts.dart (novo)
+- lib/clinica_iii_legal_pages.dart (novo)
+- lib/company_legal.dart, lib/site_public_urls.dart
+- lib/main.dart, lib/site_deferred_pages.dart
+- scripts/spa-legal-paths.cjs
+- docs/RENDER_SPA_REWRITE.md, docs/Checklist_critico.md, docs/Atualiza.md
+
+### O que foi feito
+- Três rotas SPA: privacidade, termos, dados de saúde/LGPD (`…-clinica-iii`).
+- Casca isolada: idioma PT/EN/ES + rodapé interno entre as 3; sem voltar à home nem rodapé da vitrine.
+- Cabeçalho legal com CNPJ, razão social e papéis LGPD (controlador clínica / operador Perfect Gest Dev).
+- Constantes públicas em `site_public_urls.dart` para Partner Center e app MSIX.
+
+### URLs canónicas
+- `https://perfectgestdev.com/politica-privacidade-clinica-iii`
+- `https://perfectgestdev.com/termos-clinica-iii`
+- `https://perfectgestdev.com/dados-saude-lgpd-clinica-iii`
+
+### Pendencias (operador)
+- [ ] `npm run publish-web` + três rewrites no Render (ver `docs/RENDER_SPA_REWRITE.md`)
+- [ ] Partner Center: colar URL de privacidade (e termos se pedido)
+
+### Validacao
+- [x] `flutter analyze` ficheiros novos
+- [ ] Teste manual das 3 URLs em janela anónima após deploy
+

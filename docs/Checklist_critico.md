@@ -18,6 +18,14 @@
 | Devoluções (vitrine site) | Referência CDC | Política reembolso web | `https://perfectgestdev.com/politica-devolucao` |
 | Pré-cadastro (leads web) | Data safety se aplicável | Declarar se formulário activo | `https://perfectgestdev.com/pre-cadastro` |
 
+**PerfectGest-Clinica III (Windows / Microsoft Store)** — páginas isoladas no domínio (consulta directa; fora da vitrine):
+
+| Documento | URL canónica |
+|-----------|----------------|
+| Política de privacidade | `https://perfectgestdev.com/politica-privacidade-clinica-iii` |
+| Termos de serviço | `https://perfectgestdev.com/termos-clinica-iii` |
+| Dados de saúde + LGPD | `https://perfectgestdev.com/dados-saude-lgpd-clinica-iii` |
+
 Rotas legadas no domínio do site (`/politica-privacidade-perfectgest-i`, etc.) **redireccionam** para Google Sites (build `spa-legal-paths.cjs`).
 
 ### Checklist rápido

@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'devolucao_page.dart' deferred as devolucao;
+import 'clinica_iii_legal_pages.dart' deferred as clinica_iii;
 import 'elastic_service.dart' deferred as elastic;
 import 'metallic_preview_page.dart' deferred as metallic;
 import 'politica_page.dart' deferred as politica;
@@ -79,6 +80,27 @@ Widget buildPreCadastroPage({VoidCallback? onToggleTheme}) {
   return DeferredRouteLoader(
     loadLibrary: pre_cadastro.loadLibrary,
     builder: () => pre_cadastro.PreCadastroPage(onToggleTheme: onToggleTheme),
+  );
+}
+
+Widget buildClinicaIiiPrivacyPage() {
+  return DeferredRouteLoader(
+    loadLibrary: clinica_iii.loadLibrary,
+    builder: () => clinica_iii.ClinicaIiiPrivacyPolicyPage(),
+  );
+}
+
+Widget buildClinicaIiiTermsPage() {
+  return DeferredRouteLoader(
+    loadLibrary: clinica_iii.loadLibrary,
+    builder: () => clinica_iii.ClinicaIiiTermsPage(),
+  );
+}
+
+Widget buildClinicaIiiHealthLgpdPage() {
+  return DeferredRouteLoader(
+    loadLibrary: clinica_iii.loadLibrary,
+    builder: () => clinica_iii.ClinicaIiiHealthLgpdPage(),
   );
 }
 

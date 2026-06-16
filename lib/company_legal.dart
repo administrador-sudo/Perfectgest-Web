@@ -8,6 +8,9 @@ const String kCompanyLegalName =
 /// Produto mobile PerfectGest I.
 const String kProductPerfectGestIName = 'PerfectGest I';
 
+/// Produto desktop PerfectGest-Clinica III (Microsoft Store).
+const String kProductPerfectGestClinicaIIIName = 'PerfectGest-Clinica III';
+
 /// URL pública de distribuição do aplicativo (canal externo — não citado no site).
 const String kPerfectGestIProductUrl =
     'https://play.google.com/store/apps/details?id=br.com.perfectpro.one';

@@ -15,7 +15,7 @@ Isto publica `politica-devolucao.html` (e as outras) e **remove** ficheiros sem 
 
 **Apague** a regra global `/*` → `/index.html` se existir (pode dar pagina branca ou vazia).
 
-**Adicione cinco regras Rewrite** (uma por linha, por esta ordem):
+**Adicione oito regras Rewrite** (uma por linha, por esta ordem):
 
 | Source | Destination | Action |
 |--------|-------------|--------|
@@ -24,8 +24,11 @@ Isto publica `politica-devolucao.html` (e as outras) e **remove** ficheiros sem 
 | `/politica-exclusao-dados-perfectgest-i` | `/politica-exclusao-dados-perfectgest-i.html` | **Rewrite** (HTML redirect → Google Sites) |
 | `/politica-privacidade-site` | `/politica-privacidade-site.html` | **Rewrite** |
 | `/pre-cadastro` | `/pre-cadastro.html` | **Rewrite** |
+| `/politica-privacidade-clinica-iii` | `/politica-privacidade-clinica-iii.html` | **Rewrite** (SPA isolada — PerfectGest-Clinica III) |
+| `/termos-clinica-iii` | `/termos-clinica-iii.html` | **Rewrite** |
+| `/dados-saude-lgpd-clinica-iii` | `/dados-saude-lgpd-clinica-iii.html` | **Rewrite** |
 
-As duas rotas `…-perfectgest-i` servem **redirect estático** para o portal Google Sites (políticas da app). O site institucional mantém só `/politica-privacidade-site`.
+As duas rotas `…-perfectgest-i` servem **redirect estático** para o portal Google Sites (políticas da app PerfectGest I). O site institucional mantém `/politica-privacidade-site`. As três rotas `…-clinica-iii` são páginas legais isoladas do produto Windows (sem navegação para a vitrine).
 
 O URL no browser continua `/politica-devolucao`; o conteudo vem do `.html` com tipo correto.
 

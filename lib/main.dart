@@ -133,6 +133,21 @@ class _PerfectProSiteAppState extends State<PerfectProSiteApp> {
                   settings: settings,
                   builder: (_) => buildPreCadastroPage(onToggleTheme: _toggleTheme),
                 );
+              case '/politica-privacidade-clinica-iii':
+                return MaterialPageRoute<void>(
+                  settings: settings,
+                  builder: (_) => buildClinicaIiiPrivacyPage(),
+                );
+              case '/termos-clinica-iii':
+                return MaterialPageRoute<void>(
+                  settings: settings,
+                  builder: (_) => buildClinicaIiiTermsPage(),
+                );
+              case '/dados-saude-lgpd-clinica-iii':
+                return MaterialPageRoute<void>(
+                  settings: settings,
+                  builder: (_) => buildClinicaIiiHealthLgpdPage(),
+                );
               case '/amostra-metal':
                 return MaterialPageRoute<void>(
                   settings: settings,

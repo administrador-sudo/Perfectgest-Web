@@ -19,3 +19,14 @@ const String kPreCadastroPublicUrl = '$kSitePublicOrigin$kPreCadastroPath';
 const String kSitePrivacyPolicyPublicUrl = '$kSitePublicOrigin$kSitePrivacyPolicyPath';
 
 const String kSiteReturnsPolicyPublicUrl = '$kSitePublicOrigin$kSiteReturnsPolicyPath';
+
+/// Políticas do produto PerfectGest-Clinica III (consulta isolada — sem navegação da vitrine).
+const String kClinicaIIIPrivacyPolicyPath = '/politica-privacidade-clinica-iii';
+const String kClinicaIIITermsPath = '/termos-clinica-iii';
+const String kClinicaIIIHealthLgpdPath = '/dados-saude-lgpd-clinica-iii';
+
+const String kClinicaIIIPrivacyPolicyPublicUrl =
+    '$kSitePublicOrigin$kClinicaIIIPrivacyPolicyPath';
+const String kClinicaIIITermsPublicUrl = '$kSitePublicOrigin$kClinicaIIITermsPath';
+const String kClinicaIIIHealthLgpdPublicUrl =
+    '$kSitePublicOrigin$kClinicaIIIHealthLgpdPath';

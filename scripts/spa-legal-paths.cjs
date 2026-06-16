@@ -23,6 +23,9 @@ const siteSpaPages = [
   'politica-devolucao',
   'politica-privacidade-site',
   'pre-cadastro',
+  'politica-privacidade-clinica-iii',
+  'termos-clinica-iii',
+  'dados-saude-lgpd-clinica-iii',
 ];
 
 /** Rotas antigas da app no domínio do site → portal Google Sites (canónico). */
