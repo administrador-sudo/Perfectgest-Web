@@ -1,229 +1,196 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
-  <base href="/">
-
   <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <!-- Boas práticas de segurança e privacidade (complementar cabeçalhos HTTP no servidor em produção) -->
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
-  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
-  <!-- CSP: Flutter Web + gtag adiado (pp_analytics.js) + fontes locais -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.gstatic.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob: https:; connect-src 'self' https://perfectgest-leads-api.onrender.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://www.googletagmanager.com https://www.gstatic.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;">
-  <meta name="theme-color" content="#00B4C8">
-  <meta name="description" content="Software house especialista em Flutter, Java e SDKs para apps mobile, web e desktop com alta performance.">
-  <meta name="keywords" content="Flutter, Java, SDK, PWA, SEO, Google Search Console, mobile, web, desktop">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light only">
   <meta name="robots" content="index, follow">
-  <meta name="google-site-verification" content="zftG-b4ZxVLrLOTYSyybFDG_yNnoc7_uUTPfNaSOxqU">
-  <meta property="og:title" content="Codificando o Amanha, Hoje | PerfectGest">
-  <meta property="og:description" content="Inovacao em Flutter, Java e SDKs com foco em codigo limpo, escala e performance.">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="pt_BR">
-  <meta property="og:image" content="icons/Icon-512.png">
-  <!-- Canonical alinhada ao host e path atuais (evita GSC "alternativa com canonical" em previews/staging). -->
-  <script>
-    (function () {
-      if (!document.head || !window.location || !window.location.origin) return;
-      var path = window.location.pathname || '/';
-      if (path.length > 1 && path.endsWith('/')) path = path.slice(0, -1);
-      var href = window.location.origin + (path === '/' ? '/' : path);
-      var link = document.createElement('link');
-      link.rel = 'canonical';
-      link.href = href;
-      document.head.appendChild(link);
-    })();
-  </script>
-
-  <!-- iOS meta tags & icons -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="PerfectGest">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
-
-  <title>Codificando o Amanha, Hoje | PerfectGest</title>
-  <link rel="manifest" href="manifest.json">
-  <!-- Descobre o bootstrap mais cedo (não bloqueia parsing; ajuda o browser a planear a rede) -->
-  <link rel="preload" href="flutter_bootstrap.js" as="script">
-  <link rel="preload" href="icons/Icon-192.png" as="image" type="image/png">
+  <title>Dados de saúde e LGPD — PerfectGest-Clinica III</title>
+  <meta name="description" content="Dados de saúde e LGPD — PerfectGest-Clinica III">
+  <link rel="canonical" href="https://perfectgestdev.com/dados-saude-lgpd-clinica-iii">
   <style>
-    #pp-static-landing {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      overflow-y: auto;
-      background: linear-gradient(165deg, #0f1418 0%, #111820 45%, #0c1014 100%);
-      color: #e8f7fa;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      transition: opacity 220ms ease;
+    :root { color-scheme: light only; }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0; padding: 0;
+      background: #fff; color: #000;
+      font-family: "Segoe UI", "Segoe UI Web", "Helvetica Neue", Arial, sans-serif;
+      font-size: 14px; line-height: 1.6;
     }
-    #pp-static-landing.hidden {
-      opacity: 0;
-      pointer-events: none;
+    .top {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 24px; border-bottom: 1px solid #e1e1e1;
+      background: #fff;
     }
-    #pp-static-landing .wrap {
-      max-width: 920px;
-      margin: 0 auto;
-      padding: 28px 24px 40px;
+    .top-title { font-size: 15px; font-weight: 600; color: #000; max-width: 70%; }
+    .lang-nav button {
+      background: #fff; border: 1px solid #ccc; color: #000;
+      padding: 4px 10px; margin-left: 4px; cursor: pointer; font-size: 13px;
     }
-    #pp-static-landing .brand-row {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 22px;
+    .lang-nav button.active { border-color: #0067b8; color: #0067b8; font-weight: 600; }
+    main { max-width: 800px; margin: 0 auto; padding: 24px 24px 40px; }
+    .page-title { font-size: 26px; font-weight: 600; margin: 0 0 8px; color: #000; }
+    .updated { color: #444; font-size: 13px; margin: 0 0 20px; }
+    .legal-header {
+      background: #f3f3f3; border: 1px solid #e1e1e1;
+      padding: 16px; margin-bottom: 28px; color: #000;
     }
-    #pp-static-landing .brand-row img {
-      width: 56px;
-      height: 56px;
-      border-radius: 12px;
-      flex-shrink: 0;
+    .block { margin-bottom: 24px; }
+    .block h2 { font-size: 16px; font-weight: 600; margin: 0 0 8px; color: #000; }
+    .block .body { color: #000; }
+    footer {
+      border-top: 1px solid #e1e1e1; padding-top: 16px; margin-top: 32px;
+      text-align: center; font-size: 14px;
     }
-    #pp-static-landing .brand {
-      margin: 0;
-      font-size: 22px;
-      font-weight: 800;
-      color: #00b4c8;
-      letter-spacing: 0.02em;
-    }
-    #pp-static-landing h1 {
-      margin: 0 0 12px;
-      font-size: clamp(1.35rem, 2.8vw, 1.75rem);
-      font-weight: 800;
-      line-height: 1.2;
-      color: #f0fbfd;
-    }
-    #pp-static-landing .lead {
-      margin: 0 0 14px;
-      font-size: clamp(0.95rem, 2vw, 1.05rem);
-      line-height: 1.55;
-      color: rgba(232, 247, 250, 0.88);
-      max-width: 720px;
-    }
-    #pp-static-landing .sub {
-      margin: 0 0 20px;
-      font-size: 0.92rem;
-      line-height: 1.5;
-      color: rgba(232, 247, 250, 0.72);
-      max-width: 680px;
-    }
-    #pp-static-landing .status {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 14px;
-      border: 1px solid rgba(0, 180, 200, 0.35);
-      border-radius: 10px;
-      background: rgba(17, 24, 29, 0.88);
-      font-size: 0.88rem;
-      color: rgba(232, 247, 250, 0.84);
-    }
-    #pp-static-landing .spinner {
-      width: 16px;
-      height: 16px;
-      border: 2px solid rgba(0, 180, 200, 0.25);
-      border-top-color: #00b4c8;
-      border-radius: 50%;
-      animation: pp-spin 0.85s linear infinite;
-    }
-    @keyframes pp-spin {
-      to { transform: rotate(360deg); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      #pp-static-landing .spinner { animation: none; border-top-color: #00b4c8; }
-    }
+    footer a { color: #0067b8; text-decoration: underline; }
+    footer .footer-current { color: #000; font-weight: 600; }
+    footer .sep { color: #666; }
+    [hidden] { display: none !important; }
   </style>
-  <script>
-    (function () {
-      var path = (window.location && window.location.pathname ? window.location.pathname : '').toLowerCase();
-      var standaloneLegalPaths = [
-        '/politica-devolucao',
-        '/politica-privacidade-site',
-        '/pre-cadastro',
-        '/politica-privacidade-clinica-iii',
-        '/termos-clinica-iii',
-        '/dados-saude-lgpd-clinica-iii',
-        '/politica-devolucao.html',
-        '/politica-privacidade-site.html',
-        '/pre-cadastro.html',
-        '/politica-privacidade-clinica-iii.html',
-        '/termos-clinica-iii.html',
-        '/dados-saude-lgpd-clinica-iii.html',
-      ];
-      window.__ppSkipLoadingShell = standaloneLegalPaths.indexOf(path) >= 0;
-    })();
-  </script>
-  <!-- GA4: só após consentimento + idle (ver web/pp_analytics.js) -->
-  <script src="pp_analytics.js" defer></script>
 </head>
 <body>
-  <!--
-    You can customize the "flutter_bootstrap.js" script.
-    This is useful to provide a custom configuration to the Flutter loader
-    or to give the user feedback during the initialization process.
-
-    For more details:
-    * https://docs.flutter.dev/platform-integration/web/initialization
-  -->
-  <div id="pp-static-landing" aria-busy="true">
-    <main class="wrap" role="main">
-      <header class="brand-row" role="banner">
-        <img src="icons/Icon-192.png" width="56" height="56" alt="Perfect Gest Dev" decoding="async">
-        <p class="brand">Perfect Gest Dev</p>
-      </header>
-      <h1>Inovacao em Flutter, Java e SDKs</h1>
-      <p class="lead">Criamos apps Flutter, sistemas web e integracoes Java/SDK com foco em performance, seguranca e escalabilidade para o seu negocio.</p>
-      <p class="sub">Software house especializada em aplicativo mobile, plataforma web rapida (Core Web Vitals) e SEO tecnico para crescer no Google.</p>
-      <p class="status" role="status" aria-live="polite">
-        <span class="spinner" aria-hidden="true"></span>
-        <span>Carregando experiencia Web de alta performance...</span>
-      </p>
-    </main>
-  </div>
+  <header class="top">
+    <div class="top-title" id="top-title">Dados de saúde e LGPD — PerfectGest-Clinica III</div>
+    <nav class="lang-nav" aria-label="Idioma">
+      <button type="button" data-set-lang="pt" class="active">PT</button>
+      <button type="button" data-set-lang="en">EN</button>
+      <button type="button" data-set-lang="es">ES</button>
+    </nav>
+  </header>
+  <main>
+    <div class="lang-panel" data-lang="pt">
+  <h1 class="page-title">Dados de saúde e LGPD — PerfectGest-Clinica III</h1>
+  <p class="updated">Última atualização: 16/06/2026</p>
+  <div class="legal-header">PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA<br>
+Nome fantasia: Perfect Gest Dev · CNPJ 66.889.409/0001-19<br>
+Caxias do Sul — RS — Brasil · suporte@perfectgestdev.com<br>
+<br>
+Papéis no tratamento (LGPD)<br>
+• Controlador dos dados clínicos dos pacientes: a clínica ou o profissional de saúde que utiliza o software (define finalidades e meios do tratamento no contexto da assistência).<br>
+• Operador do software: Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA) — desenvolve e mantém a ferramenta; não decide sobre o conteúdo clínico inserido pela clínica.<br>
+• Direitos do titular (dados de saúde): dirigir-se primeiro à clínica (controlador). Suporte técnico do produto: suporte@perfectgestdev.com.</div>
+  <section class="block"><h2>1. Natureza dos dados</h2><div class="body">O PerfectGest-Clinica III pode tratar dados pessoais sensíveis (dados de saúde) inseridos pela clínica ou profissional que utiliza o software (ex.: prontuário e histórico de consultas).</div></section>
+<section class="block"><h2>2. Papéis LGPD</h2><div class="body">• Controlador: clínica ou profissional de saúde que utiliza o software (define finalidades e meios do tratamento).<br>
+• Operador do software: Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA).<br>
+• Suboperadores (quando aplicável):<br>
+  — Microsoft (pagamentos de subscrição via Microsoft Store)<br>
+  — Meta/WhatsApp (mensagens, se configurado pela clínica)<br>
+  — Firebase/Google (componentes técnicos, se activados)</div></section>
+<section class="block"><h2>3. Minimização e armazenamento</h2><div class="body">• Dados clínicos permanecem no dispositivo (SQLite local).<br>
+• Logs de auditoria guardam metadados (quem / quando / o quê), sem conteúdo clínico.</div></section>
+<section class="block"><h2>4. Direitos do titular (Art. 18 LGPD)</h2><div class="body">O app oferece suporte operacional para:<br>
+• acesso e correção via ficha do paciente;<br>
+• exportação de relatório LGPD (ADMIN) em PDF/CSV (quando disponível);<br>
+• portabilidade via backup encriptado.<br>
+<br>
+Para exercer direitos sobre dados de saúde, contactar primeiro a clínica (controlador).</div></section>
+<section class="block"><h2>5. Segurança recomendada (boas práticas)</h2><div class="body">• Activar BitLocker no Windows (recomendado);<br>
+• Usar senhas fortes e perfis adequados (ADMIN / DOUTOR / OPERADOR);<br>
+• Activar encriptação da base de dados no app (opcional);<br>
+• Usar backup ZIP encriptado e guardar a senha em local seguro.</div></section>
+<section class="block"><h2>6. Contato</h2><div class="body">Dúvidas técnicas sobre o produto: suporte@perfectgestdev.com<br>
+Solicitações LGPD sobre dados clínicos: contactar a clínica (controlador).</div></section>
+</div>
+<div class="lang-panel" data-lang="en" hidden>
+  <h1 class="page-title">Health data and LGPD — PerfectGest-Clinica III</h1>
+  <p class="updated">Last updated: 16 June 2026</p>
+  <div class="legal-header">PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA<br>
+Trade name: Perfect Gest Dev · CNPJ 66.889.409/0001-19<br>
+Caxias do Sul — RS — Brasil · suporte@perfectgestdev.com<br>
+<br>
+Roles in processing (LGPD)<br>
+• Controller of patients' clinical data: the clinic or health professional using the software (defines purposes and means of processing in the care context).<br>
+• Software operator: Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA) — develops and maintains the tool; does not decide on clinical content entered by the clinic.<br>
+• Data subject rights (health data): contact the clinic first (controller). Product technical support: suporte@perfectgestdev.com.</div>
+  <section class="block"><h2>1. Nature of data</h2><div class="body">PerfectGest-Clinica III may process sensitive personal data (health data) entered by the clinic or professional using the software (e.g. medical records and visit history).</div></section>
+<section class="block"><h2>2. LGPD roles</h2><div class="body">• Controller: clinic or health professional using the software (defines purposes and means of processing).<br>
+• Software operator: Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA).<br>
+• Sub-processors (when applicable):<br>
+  — Microsoft (subscription payments via Microsoft Store)<br>
+  — Meta/WhatsApp (messages, if configured by the clinic)<br>
+  — Firebase/Google (technical components, if enabled)</div></section>
+<section class="block"><h2>3. Minimization and storage</h2><div class="body">• Clinical data remains on the device (local SQLite).<br>
+• Audit logs store metadata (who / when / what), without clinical content.</div></section>
+<section class="block"><h2>4. Data subject rights (LGPD Art. 18)</h2><div class="body">The app provides operational support for:<br>
+• access and correction via patient record;<br>
+• LGPD report export (ADMIN) in PDF/CSV (when available);<br>
+• portability via encrypted backup.<br>
+<br>
+To exercise rights regarding health data, contact the clinic first (controller).</div></section>
+<section class="block"><h2>5. Recommended security (best practices)</h2><div class="body">• Enable BitLocker on Windows (recommended);<br>
+• Use strong passwords and appropriate roles (ADMIN / DOCTOR / OPERATOR);<br>
+• Enable database encryption in the app (optional);<br>
+• Use encrypted ZIP backup and store the password securely.</div></section>
+<section class="block"><h2>6. Contact</h2><div class="body">Technical questions about the product: suporte@perfectgestdev.com<br>
+LGPD requests regarding clinical data: contact the clinic (controller).</div></section>
+</div>
+<div class="lang-panel" data-lang="es" hidden>
+  <h1 class="page-title">Datos de salud y LGPD — PerfectGest-Clinica III</h1>
+  <p class="updated">Última actualización: 16/06/2026</p>
+  <div class="legal-header">PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA<br>
+Nombre comercial: Perfect Gest Dev · CNPJ 66.889.409/0001-19<br>
+Caxias do Sul — RS — Brasil · suporte@perfectgestdev.com<br>
+<br>
+Roles en el tratamiento (LGPD)<br>
+• Controlador de los datos clínicos de los pacientes: la clínica o el profesional de salud que utiliza el software (define finalidades y medios del tratamiento en el contexto de la asistencia).<br>
+• Operador del software: Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA) — desarrolla y mantiene la herramienta; no decide sobre el contenido clínico introducido por la clínica.<br>
+• Derechos del titular (datos de salud): dirigirse primero a la clínica (controlador). Soporte técnico del producto: suporte@perfectgestdev.com.</div>
+  <section class="block"><h2>1. Naturaleza de los datos</h2><div class="body">PerfectGest-Clinica III puede tratar datos personales sensibles (datos de salud) introducidos por la clinica o profesional que utiliza el software (ej.: historial clinico y consultas).</div></section>
+<section class="block"><h2>2. Roles LGPD</h2><div class="body">• Controlador: clinica o profesional de salud que utiliza el software (define finalidades y medios del tratamiento).<br>
+• Operador del software: Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA).<br>
+• Suboperadores (cuando aplique):<br>
+  — Microsoft (pagos de suscripcion via Microsoft Store)<br>
+  — Meta/WhatsApp (mensajes, si lo configura la clinica)<br>
+  — Firebase/Google (componentes tecnicos, si estan activados)</div></section>
+<section class="block"><h2>3. Minimizacion y almacenamiento</h2><div class="body">• Los datos clinicos permanecen en el dispositivo (SQLite local).<br>
+• Los registros de auditoria guardan metadatos (quien / cuando / que), sin contenido clinico.</div></section>
+<section class="block"><h2>4. Derechos del titular (Art. 18 LGPD)</h2><div class="body">La app ofrece soporte operacional para:<br>
+• acceso y correccion via ficha del paciente;<br>
+• exportacion de informe LGPD (ADMIN) en PDF/CSV (cuando este disponible);<br>
+• portabilidad via copia cifrada.<br>
+<br>
+Para ejercer derechos sobre datos de salud, contactar primero la clinica (controlador).</div></section>
+<section class="block"><h2>5. Seguridad recomendada (buenas practicas)</h2><div class="body">• Activar BitLocker en Windows (recomendado);<br>
+• Usar contrasenas fuertes y perfiles adecuados (ADMIN / MEDICO / OPERADOR);<br>
+• Activar cifrado de base de datos en la app (opcional);<br>
+• Usar copia ZIP cifrada y guardar la contrasena en lugar seguro.</div></section>
+<section class="block"><h2>6. Contacto</h2><div class="body">Dudas tecnicas sobre el producto: suporte@perfectgestdev.com<br>
+Solicitudes LGPD sobre datos clinicos: contactar la clinica (controlador).</div></section>
+</div>
+    <footer>
+      <div data-lang="pt" class="footer-lang"><a href="/politica-privacidade-clinica-iii">Política de Privacidade</a><span class="sep"> · </span><a href="/termos-clinica-iii">Termos de Serviço</a><span class="sep"> · </span><span class="footer-current">Dados de saúde e LGPD</span></div>
+      <div data-lang="en" class="footer-lang" hidden><a href="/politica-privacidade-clinica-iii">Privacy Policy</a><span class="sep"> · </span><a href="/termos-clinica-iii">Terms of Service</a><span class="sep"> · </span><span class="footer-current">Health data and LGPD</span></div>
+      <div data-lang="es" class="footer-lang" hidden><a href="/politica-privacidade-clinica-iii">Política de Privacidad</a><span class="sep"> · </span><a href="/termos-clinica-iii">Términos de Servicio</a><span class="sep"> · </span><span class="footer-current">Datos de salud y LGPD</span></div>
+    </footer>
+  </main>
   <script>
     (function () {
-      const landing = document.getElementById('pp-static-landing');
-      if (!landing) return;
-      if (window.__ppSkipLoadingShell) {
-        landing.remove();
-        return;
+      var titles = {"pt":"Dados de saúde e LGPD — PerfectGest-Clinica III","en":"Health data and LGPD — PerfectGest-Clinica III","es":"Datos de salud y LGPD — PerfectGest-Clinica III"};
+      function setLang(lang) {
+        document.querySelectorAll('.lang-panel').forEach(function (el) {
+          el.hidden = el.getAttribute('data-lang') !== lang;
+        });
+        document.querySelectorAll('.footer-lang').forEach(function (el) {
+          el.hidden = el.getAttribute('data-lang') !== lang;
+        });
+        document.querySelectorAll('[data-set-lang]').forEach(function (btn) {
+          btn.classList.toggle('active', btn.getAttribute('data-set-lang') === lang);
+        });
+        var t = titles[lang] || titles.pt;
+        document.title = t;
+        document.getElementById('top-title').textContent = t;
+        document.documentElement.lang = lang === 'pt' ? 'pt-BR' : lang;
+        try { localStorage.setItem('pp_clinica_iii_lang', lang); } catch (e) {}
       }
-      const hide = () => {
-        landing.setAttribute('aria-hidden', 'true');
-        landing.setAttribute('aria-busy', 'false');
-        landing.classList.add('hidden');
-        setTimeout(() => landing.remove(), 260);
-      };
-      window.addEventListener('flutter-first-frame', hide, { once: true });
-      const observer = new MutationObserver(() => {
-        if (document.querySelector('flt-glass-pane, flutter-view')) {
-          hide();
-          observer.disconnect();
-        }
+      document.querySelectorAll('[data-set-lang]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          setLang(btn.getAttribute('data-set-lang'));
+        });
       });
-      observer.observe(document.body, { childList: true, subtree: true });
-      setTimeout(() => {
-        observer.disconnect();
-        hide();
-      }, 7000);
+      var saved = null;
+      try { saved = localStorage.getItem('pp_clinica_iii_lang'); } catch (e) {}
+      if (saved === 'en' || saved === 'es' || saved === 'pt') setLang(saved);
     })();
   </script>
-  <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>

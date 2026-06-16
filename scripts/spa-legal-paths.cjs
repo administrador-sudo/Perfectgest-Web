@@ -17,12 +17,17 @@ if (!fs.existsSync(indexPath)) {
 }
 
 const indexHtml = fs.readFileSync(indexPath);
+const { writeAll: writeClinicaIiiStaticHtml } = require('./clinica-iii-static-html.cjs');
 
 /** Páginas do site institucional (Flutter SPA). */
 const siteSpaPages = [
   'politica-devolucao',
   'politica-privacidade-site',
   'pre-cadastro',
+];
+
+/** Clinica III: HTML estático (sem Flutter — evita texto invisível com tema escuro). */
+const clinicaIiiStaticSlugs = [
   'politica-privacidade-clinica-iii',
   'termos-clinica-iii',
   'dados-saude-lgpd-clinica-iii',
@@ -63,11 +68,17 @@ for (const segment of siteSpaPages) {
   fs.writeFileSync(path.join(buildWeb, `${segment}.html`), indexHtml);
 }
 
+for (const segment of clinicaIiiStaticSlugs) {
+  removeBare(segment);
+}
+
+writeClinicaIiiStaticHtml(buildWeb);
+
 for (const [segment, targetUrl] of Object.entries(legacyAppRedirects)) {
   removeBare(segment);
   fs.writeFileSync(path.join(buildWeb, `${segment}.html`), writeRedirectHtml(targetUrl));
 }
 
 console.log(
-  `spa-legal-paths: ${siteSpaPages.length} paginas SPA .html; ${Object.keys(legacyAppRedirects).length} redirects para Google Sites.`,
+  `spa-legal-paths: ${siteSpaPages.length} SPA .html; ${clinicaIiiStaticSlugs.length} Clinica III estatico; ${Object.keys(legacyAppRedirects).length} redirects Google Sites.`,
 );
