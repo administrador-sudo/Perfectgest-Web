@@ -19,6 +19,7 @@ if (!fs.existsSync(indexPath)) {
 const indexHtml = fs.readFileSync(indexPath);
 const { writeAll: writeClinicaIiiStaticHtml } = require('./clinica-iii-static-html.cjs');
 const { writeAll: writePerfectGestIStaticHtml } = require('./perfectgest-i-static-html.cjs');
+const { writeAll: writeContabilIStaticHtml } = require('./contabil-i-static-html.cjs');
 const { sync: syncPerfectGestILegalFromMd } = require('./perfectgest-i-sync-legal-from-md.cjs');
 
 /** Páginas do site institucional (Flutter SPA). */
@@ -41,6 +42,14 @@ const perfectGestIStaticSlugs = [
   'perfectgest-i-termos',
   'perfectgest-i-exclusao-dados',
   'perfectgest-i-faq',
+];
+
+/** PerfectGest-Contabil I: HTML estático (Google Play). */
+const contabilIStaticSlugs = [
+  'contabil-i-politica-privacidade',
+  'contabil-i-termos',
+  'contabil-i-exclusao-dados',
+  'contabil-i-faq',
 ];
 
 /** Rotas antigas da app no domínio do site → portal Google Sites (canónico). */
@@ -86,9 +95,14 @@ for (const segment of perfectGestIStaticSlugs) {
   removeBare(segment);
 }
 
+for (const segment of contabilIStaticSlugs) {
+  removeBare(segment);
+}
+
 writeClinicaIiiStaticHtml(buildWeb);
 syncPerfectGestILegalFromMd();
 writePerfectGestIStaticHtml(buildWeb);
+writeContabilIStaticHtml(buildWeb);
 
 for (const [segment, targetUrl] of Object.entries(legacyAppRedirects)) {
   removeBare(segment);
@@ -96,5 +110,5 @@ for (const [segment, targetUrl] of Object.entries(legacyAppRedirects)) {
 }
 
 console.log(
-  `spa-legal-paths: ${siteSpaPages.length} SPA .html; ${clinicaIiiStaticSlugs.length} Clinica III estatico; ${perfectGestIStaticSlugs.length} PerfectGest I estatico; ${Object.keys(legacyAppRedirects).length} redirects Google Sites.`,
+  `spa-legal-paths: ${siteSpaPages.length} SPA .html; ${clinicaIiiStaticSlugs.length} Clinica III estatico; ${perfectGestIStaticSlugs.length} PerfectGest I estatico; ${contabilIStaticSlugs.length} Contabil I estatico; ${Object.keys(legacyAppRedirects).length} redirects Google Sites.`,
 );
