@@ -21,6 +21,7 @@ const { writeAll: writeClinicaIiiStaticHtml } = require('./clinica-iii-static-ht
 const { writeAll: writePerfectGestIStaticHtml } = require('./perfectgest-i-static-html.cjs');
 const { writeAll: writeContabilIStaticHtml } = require('./contabil-i-static-html.cjs');
 const { sync: syncPerfectGestILegalFromMd } = require('./perfectgest-i-sync-legal-from-md.cjs');
+const { sync: syncContabilILegalFromMd } = require('./contabil-i-sync-legal-from-md.cjs');
 
 /** Páginas do site institucional (Flutter SPA). */
 const siteSpaPages = [
@@ -101,6 +102,7 @@ for (const segment of contabilIStaticSlugs) {
 
 writeClinicaIiiStaticHtml(buildWeb);
 syncPerfectGestILegalFromMd();
+syncContabilILegalFromMd();
 writePerfectGestIStaticHtml(buildWeb);
 writeContabilIStaticHtml(buildWeb);
 
