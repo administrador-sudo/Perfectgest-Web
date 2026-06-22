@@ -1599,109 +1599,92 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        FadeTransition(
-          opacity: _fadeIn(0.0, 0.28),
-          child: SlideTransition(
-            position: _slideIn(0.0, 0.28),
-            child: SectionText(title: l10n.solAppsTitle, body: l10n.solAppsBody),
+        _buildProductBlock(
+          context,
+          l10n,
+          title: l10n.solAppsTitle,
+          body: l10n.solAppsBody,
+          mockupStartIndex: 0,
+          phoneFrame: DeviceFrame(
+            title: 'Android 14',
+            width: 190,
+            height: 338,
+            radius: 34,
+            imageAsset: 'IMAGENS_APP/Screenshot/phone_03_inicio.png',
+            fallbackImageAsset: 'IMAGENS_APP/Screenshot/PerfectGest (1).png',
+            imageLeft: 27,
+            imageTop: 20,
+            imageWidth: 136,
+            imageHeight: 297,
+            previewCaption: l10n.solPreviewPhoneInicio,
+            loadImage: _loadedMockupCount > 0,
           ),
+          tabletFrame: DeviceFrame(
+            title: 'Android tablet',
+            width: 228,
+            height: 308,
+            radius: 26,
+            imageAsset: 'IMAGENS_APP/Screenshot/tablet_01_inicio.jpg',
+            fallbackImageAsset: 'IMAGENS_APP/Screenshot/tablet_01_inicio.jpg',
+            imageLeft: 30,
+            imageTop: 16,
+            imageWidth: 168,
+            imageHeight: 276,
+            previewCaption: l10n.solPreviewTabletInicio,
+            loadImage: _loadedMockupCount > 1,
+          ),
+          actions: SolutionsAppActionsBlock(
+            getAppLabel: l10n.solAppsGetAppLabel,
+            supportPortalLabel: l10n.solAppsSupportPortalLabel,
+            productUrl: kPerfectGestIProductUrl,
+            supportUrl: kAppSupportFaqUrl,
+            hashtags: l10n.solAppsHashtags,
+          ),
+          fadeBegin: 0.0,
+          fadeEnd: 0.4,
         ),
-        const SizedBox(height: 16),
-        FadeTransition(
-          opacity: _fadeIn(0.04, 0.4),
-          child: SlideTransition(
-            position: _slideIn(0.04, 0.4),
-            child: AnimatedBuilder(
-              animation: Listenable.merge([_floatCtrl, widget.scrollListenable]),
-              builder: (context, _) {
-                return Semantics(
-                  label: l10n.solShowcaseSemantics,
-                  child: Wrap(
-                    spacing: 16,
-                    runSpacing: 16,
-                    children: [
-                      _floatedDevice(
-                        0,
-                        DeviceFrame(
-                          title: 'Android 14',
-                          width: 190,
-                          height: 338,
-                          radius: 34,
-                          imageAsset: 'IMAGENS_APP/Screenshot/phone_03_inicio.png',
-                          fallbackImageAsset: 'IMAGENS_APP/Screenshot/PerfectGest (1).png',
-                          imageLeft: 27,
-                          imageTop: 20,
-                          imageWidth: 136,
-                          imageHeight: 297,
-                          previewCaption: l10n.solPreviewPhoneInicio,
-                          loadImage: _loadedMockupCount > 0,
-                        ),
-                      ),
-                      _floatedDevice(
-                        1,
-                        DeviceFrame(
-                          title: 'Android 14',
-                          width: 190,
-                          height: 338,
-                          radius: 34,
-                          imageAsset: 'IMAGENS_APP/Screenshot/PerfectGest (2).png',
-                          fallbackImageAsset: 'IMAGENS_APP/Screenshot/PerfectGest (1).png',
-                          imageLeft: 27,
-                          imageTop: 20,
-                          imageWidth: 136,
-                          imageHeight: 297,
-                          previewCaption: l10n.solPreviewPhoneOrcamentos,
-                          loadImage: _loadedMockupCount > 1,
-                        ),
-                      ),
-                      _floatedDevice(
-                        2,
-                        DeviceFrame(
-                          title: 'Android tablet',
-                          width: 228,
-                          height: 308,
-                          radius: 26,
-                          imageAsset: 'IMAGENS_APP/Screenshot/tablet_01_inicio.jpg',
-                          fallbackImageAsset: 'IMAGENS_APP/Screenshot/tablet_01_inicio.jpg',
-                          imageLeft: 30,
-                          imageTop: 16,
-                          imageWidth: 168,
-                          imageHeight: 276,
-                          previewCaption: l10n.solPreviewTabletInicio,
-                          loadImage: _loadedMockupCount > 2,
-                        ),
-                      ),
-                      _floatedDevice(
-                        3,
-                        DeviceFrame(
-                          title: 'Android tablet',
-                          width: 228,
-                          height: 308,
-                          radius: 26,
-                          imageAsset: 'IMAGENS_APP/Screenshot/tablet_02_orcamentos.jpg',
-                          fallbackImageAsset: 'IMAGENS_APP/Screenshot/tablet_02_orcamentos.jpg',
-                          imageLeft: 30,
-                          imageTop: 16,
-                          imageWidth: 168,
-                          imageHeight: 276,
-                          previewCaption: l10n.solPreviewTabletOrcamentos,
-                          loadImage: _loadedMockupCount > 3,
-                        ),
-                      ),
-                    ],
-                  ),
-                );
-              },
-            ),
+        const SizedBox(height: 28),
+        _buildProductBlock(
+          context,
+          l10n,
+          title: l10n.solContabilAppsTitle,
+          body: l10n.solContabilAppsBody,
+          mockupStartIndex: 2,
+          phoneFrame: DeviceFrame(
+            title: 'Android 14',
+            width: 190,
+            height: 338,
+            radius: 34,
+            imageAsset: 'IMAGENS_APP/Screenshot/contabil_phone_empresa.png',
+            imageLeft: 27,
+            imageTop: 20,
+            imageWidth: 136,
+            imageHeight: 297,
+            previewCaption: l10n.solPreviewContabilPhoneEmpresa,
+            loadImage: _loadedMockupCount > 2,
           ),
-        ),
-        const SizedBox(height: 16),
-        FadeTransition(
-          opacity: _fadeIn(0.12, 0.55),
-          child: SlideTransition(
-            position: _slideIn(0.12, 0.55),
-            child: SolutionsAppActionsBlock(l10n: l10n),
+          tabletFrame: DeviceFrame(
+            title: 'Android tablet',
+            width: 228,
+            height: 308,
+            radius: 26,
+            imageAsset: 'IMAGENS_APP/Screenshot/contabil_tablet_lancar.jpg',
+            fallbackImageAsset: 'IMAGENS_APP/Screenshot/contabil_tablet_lancar.jpg',
+            imageLeft: 30,
+            imageTop: 16,
+            imageWidth: 168,
+            imageHeight: 276,
+            previewCaption: l10n.solPreviewContabilTabletLancar,
+            loadImage: _loadedMockupCount > 3,
           ),
+          actions: SolutionsAppActionsBlock(
+            getAppLabel: l10n.solAppsGetAppLabel,
+            supportPortalLabel: l10n.solContabilAppsSupportPortalLabel,
+            productUrl: kPerfectGestContabilIProductUrl,
+            supportUrl: kPerfectGestContabilIFaqUrl,
+          ),
+          fadeBegin: 0.08,
+          fadeEnd: 0.48,
         ),
         const SizedBox(height: 12),
         FadeTransition(
@@ -1712,6 +1695,65 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
               title: l10n.solWebTitle,
               body: l10n.solWebBody,
             ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildProductBlock(
+    BuildContext context,
+    AppLocalizations l10n, {
+    required String title,
+    required String body,
+    required int mockupStartIndex,
+    required DeviceFrame phoneFrame,
+    required DeviceFrame tabletFrame,
+    required SolutionsAppActionsBlock actions,
+    required double fadeBegin,
+    required double fadeEnd,
+  }) {
+    final actionsFadeBegin = fadeBegin + 0.12;
+    final actionsFadeEnd = fadeEnd + 0.15;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        FadeTransition(
+          opacity: _fadeIn(fadeBegin, fadeEnd - 0.12),
+          child: SlideTransition(
+            position: _slideIn(fadeBegin, fadeEnd - 0.12),
+            child: SectionText(title: title, body: body),
+          ),
+        ),
+        const SizedBox(height: 16),
+        FadeTransition(
+          opacity: _fadeIn(fadeBegin + 0.04, fadeEnd),
+          child: SlideTransition(
+            position: _slideIn(fadeBegin + 0.04, fadeEnd),
+            child: AnimatedBuilder(
+              animation: Listenable.merge([_floatCtrl, widget.scrollListenable]),
+              builder: (context, _) {
+                return Semantics(
+                  label: l10n.solShowcaseSemantics,
+                  child: Wrap(
+                    spacing: 16,
+                    runSpacing: 16,
+                    children: [
+                      _floatedDevice(mockupStartIndex, phoneFrame),
+                      _floatedDevice(mockupStartIndex + 1, tabletFrame),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+        ),
+        const SizedBox(height: 16),
+        FadeTransition(
+          opacity: _fadeIn(actionsFadeBegin, actionsFadeEnd),
+          child: SlideTransition(
+            position: _slideIn(actionsFadeBegin, actionsFadeEnd),
+            child: actions,
           ),
         ),
       ],
@@ -2196,45 +2238,58 @@ class _DeferredSectionSkeleton extends StatelessWidget {
 }
 
 class SolutionsAppActionsBlock extends StatelessWidget {
-  const SolutionsAppActionsBlock({super.key, required this.l10n});
+  const SolutionsAppActionsBlock({
+    super.key,
+    required this.getAppLabel,
+    required this.supportPortalLabel,
+    required this.productUrl,
+    required this.supportUrl,
+    this.hashtags,
+  });
 
-  final AppLocalizations l10n;
+  final String getAppLabel;
+  final String supportPortalLabel;
+  final String productUrl;
+  final String supportUrl;
+  final String? hashtags;
 
   @override
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
     return Semantics(
-      label: l10n.solAppsGetAppLabel,
+      label: getAppLabel,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           FilledButton.icon(
             onPressed: () => launchUrl(
-              Uri.parse(kPerfectGestIProductUrl),
+              Uri.parse(productUrl),
               mode: LaunchMode.externalApplication,
               webOnlyWindowName: kIsWeb ? '_blank' : null,
             ),
             icon: const Icon(Icons.download_rounded, size: 20),
-            label: Text(l10n.solAppsGetAppLabel),
+            label: Text(getAppLabel),
           ),
           const SizedBox(height: 10),
           OutlinedButton.icon(
             onPressed: () => launchUrl(
-              Uri.parse(kAppSupportFaqUrl),
+              Uri.parse(supportUrl),
               mode: LaunchMode.externalApplication,
               webOnlyWindowName: kIsWeb ? '_blank' : null,
             ),
             icon: const Icon(Icons.support_agent_outlined, size: 20),
-            label: Text(l10n.solAppsSupportPortalLabel),
+            label: Text(supportPortalLabel),
           ),
-          const SizedBox(height: 12),
-          Text(
-            l10n.solAppsHashtags,
-            style: siteBodyTextStyle(context).copyWith(
-              fontSize: 13,
-              color: cs.onSurfaceVariant,
+          if (hashtags != null) ...[
+            const SizedBox(height: 12),
+            Text(
+              hashtags!,
+              style: siteBodyTextStyle(context).copyWith(
+                fontSize: 13,
+                color: cs.onSurfaceVariant,
+              ),
             ),
-          ),
+          ],
         ],
       ),
     );

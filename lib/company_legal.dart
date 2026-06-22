@@ -28,6 +28,10 @@ const String kPerfectGestContabilIDeletionUrl =
 const String kPerfectGestContabilIFaqUrl =
     'https://perfectgestdev.com/contabil-i-faq';
 
+/// Google Play — PerfectGest-Contabil I.
+const String kPerfectGestContabilIProductUrl =
+    'https://play.google.com/store/apps/details?id=br.perfectgestcontabil.dev';
+
 /// URL pública de distribuição do aplicativo (canal externo — não citado no site).
 const String kPerfectGestIProductUrl =
     'https://play.google.com/store/apps/details?id=br.com.perfectpro.one';

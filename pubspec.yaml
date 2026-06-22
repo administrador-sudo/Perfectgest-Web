@@ -77,14 +77,14 @@ flutter:
     - assets/fonts/
     - IMAGENS_APP/Screenshot/phone_03_inicio.png
     - "IMAGENS_APP/Screenshot/PerfectGest (1).png"
-    - "IMAGENS_APP/Screenshot/PerfectGest (2).png"
     - IMAGENS_APP/Screenshot/tablet_01_inicio.jpg
-    - IMAGENS_APP/Screenshot/tablet_02_orcamentos.jpg
+    - IMAGENS_APP/Screenshot/contabil_phone_empresa.png
+    - IMAGENS_APP/Screenshot/contabil_tablet_lancar.jpg
     - IMAGENS_APP/Screenshot/phone_03_inicio.webp
     - "IMAGENS_APP/Screenshot/PerfectGest (1).webp"
-    - "IMAGENS_APP/Screenshot/PerfectGest (2).webp"
     - IMAGENS_APP/Screenshot/tablet_01_inicio.webp
-    - IMAGENS_APP/Screenshot/tablet_02_orcamentos.webp
+    - IMAGENS_APP/Screenshot/contabil_phone_empresa.webp
+    - IMAGENS_APP/Screenshot/contabil_tablet_lancar.webp
 
   fonts:
     - family: Inter

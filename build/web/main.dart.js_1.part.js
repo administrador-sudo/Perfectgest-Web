@@ -1,5 +1,5 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
-$__dart_deferred_initializers__.current=function(a,b,c,$){var A,C,B={Lx:function Lx(d){this.a=d},
+$__dart_deferred_initializers__.current=function(a,b,c,$){var A,C,B={Ly:function Ly(d){this.a=d},
 aZa(){return new B.nK(null)},
 nK:function nK(d){this.a=d},
 a1H:function a1H(){this.c=this.a=null},
@@ -15,7 +15,7 @@ _.c=d
 _.d=e
 _.e=f
 _.a=g},
-H0:function H0(d,e,f){this.c=d
+H1:function H1(d,e,f){this.c=d
 this.d=e
 this.a=f},
 aNw(d){switch(d.al(y.k).r.f.gcz()){case"en":return D.LP
@@ -31,11 +31,11 @@ B=a.updateHolder(c[3],B)
 D=c[12]
 E=c[9]
 F=c[11]
-B.Lx.prototype={
+B.Ly.prototype={
 G(d){var x,w=null,v=A.F(d),u=B.aNw(d)
 v=v.ax.k3
 x=A.bc().$3$color$fontSize$height(v.an(0.72),11.5,1.4)
-return A.c6(A.b([A.Z("PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA",w,w,w,A.bc().$4$color$fontSize$fontWeight$height(v.an(0.85),12,C.aQ,1.3),w,w),C.o6,A.Z(u.gLK()+" 66.889.409/0001-19",w,w,w,x,w,w),C.kG,A.Z(u.gLN()+" +55 51 989045442",w,w,w,x,w,w),C.kG,A.Z("Caxias do Sul \u2014 RS \u2014 Brasil",w,w,w,x,w,w)],y.e),C.a_,C.y,C.D)}}
+return A.c2(A.b([A.Z("PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA",w,w,w,A.bc().$4$color$fontSize$fontWeight$height(v.an(0.85),12,C.aQ,1.3),w,w),C.o6,A.Z(u.gLM()+" 66.889.409/0001-19",w,w,w,x,w,w),C.kG,A.Z(u.gLP()+" +55 51 989045442",w,w,w,x,w,w),C.kG,A.Z("Caxias do Sul \u2014 RS \u2014 Brasil",w,w,w,x,w,w)],y.e),C.a_,C.y,C.D)}}
 B.nK.prototype={
 ab(){return new B.a1H()}}
 B.a1H.prototype={
@@ -64,8 +64,8 @@ u=y.e
 v=A.b([A.Z(this.c,s,s,s,A.bc().$3$color$fontSize$fontWeight(v,15,C.aR),s,s),C.bV,A.Z(this.d,s,s,s,A.bc().$3$color$fontSize$height(v.an(0.8),13.5,1.55),s,s)],u)
 t=this.e
 if(t!=null)C.b.a0(v,A.b([C.cl,A.jD(C.by,t,C.cE,6,10)],u))
-return new A.bt(C.qm,A.dW(new A.bt(new A.af(q,q,q,q),A.c6(v,C.a_,C.y,C.D),s),new A.bP(p,s,w,x,s,s,C.U),C.au),s)}}
-B.H0.prototype={
+return new A.bt(C.qm,A.dW(new A.bt(new A.af(q,q,q,q),A.c2(v,C.a_,C.y,C.D),s),new A.bP(p,s,w,x,s,s,C.U),C.au),s)}}
+B.H1.prototype={
 G(d){var x=null
 return A.iG(A.Z(this.c,x,x,x,A.bc().$1$fontWeight(C.aj),x,x),this.d,x)}}
 B.aoz.prototype={}
@@ -83,8 +83,8 @@ gnV(){return"3. Produtos digitais, assinaturas e cancelamento"},
 gnU(){return"Para produtos digitais e assinaturas, reembolso e cancelamento dependem do canal de aquisi\xe7\xe3o; cada canal tem fluxos e prazos pr\xf3prios. Independentemente do canal, pode contactar-nos: analisamos pedidos de forma imparcial e orientamos a melhor resolu\xe7\xe3o, incluindo falhas t\xe9cnicas comprovadas."},
 gnX(){return"4. Como solicitar (passo a passo)"},
 gnW(){return"1) Informe onde adquiriu o produto, data e comprovante.\n2) Descreva o motivo (arrependimento, cobran\xe7a indevida, defeito t\xe9cnico, etc.).\n3) Envie para o nosso e-mail de suporte.\nResponderemos com orienta\xe7\xf5es claras e, quando aplic\xe1vel, com o procedimento adequado ao seu caso."},
-gLK(){return"CNPJ:"},
-gLN(){return"Contato com Empresa:"}}
+gLM(){return"CNPJ:"},
+gLP(){return"Contato com Empresa:"}}
 B.aAX.prototype={
 ghu(){return"Ethics and compliance Perfect Gest Dev"},
 gk0(){return"Ethics & Compliance"},
@@ -99,8 +99,8 @@ gnV(){return"3. Digital products, subscriptions, and cancellation"},
 gnU(){return"For digital products and subscriptions, refunds and cancellation depend on the purchase channel; each channel has its own flows and timelines. Regardless of channel, you may contact us: we review requests impartially and guide the best resolution, including confirmed technical issues."},
 gnX(){return"4. How to request (step by step)"},
 gnW(){return"1) State where you purchased the product, date, and proof.\n2) Describe the reason (withdrawal, incorrect charge, technical defect, etc.).\n3) Send it to our support email.\nWe will reply with clear guidance and, when applicable, the right procedure for your case."},
-gLK(){return"CNPJ:"},
-gLN(){return"Company contact:"}}
+gLM(){return"CNPJ:"},
+gLP(){return"Company contact:"}}
 B.aAY.prototype={
 ghu(){return"Etica y cumplimiento Perfect Gest Dev"},
 gk0(){return"\xc9tica y cumplimiento"},
@@ -115,8 +115,8 @@ gnV(){return"3. Productos digitales, suscripciones y cancelaci\xf3n"},
 gnU(){return"Para productos digitales y suscripciones, reembolso y cancelaci\xf3n dependen del canal de adquisici\xf3n; cada canal tiene flujos y plazos propios. Independientemente del canal, puede contactarnos: revisamos solicitudes de forma imparcial y orientamos la mejor resoluci\xf3n, incluidas fallas t\xe9cnicas comprobadas."},
 gnX(){return"4. C\xf3mo solicitar (paso a paso)"},
 gnW(){return"1) Indique d\xf3nde adquiri\xf3 el producto, fecha y comprobante.\n2) Describa el motivo (desistimiento, cobro indebido, defecto t\xe9cnico, etc.).\n3) Env\xedelo a nuestro correo de soporte.\nResponderemos con orientaciones claras y, cuando aplique, con el procedimiento adecuado a su caso."},
-gLK(){return"CNPJ:"},
-gLN(){return"Contacto con la empresa:"}}
+gLM(){return"CNPJ:"},
+gLP(){return"Contacto con la empresa:"}}
 var z=a.updateTypes([])
 B.ay3.prototype={
 $2(d,e){var x,w,v,u,t,s,r,q=this,p=null,o="suporte@perfectgestdev.com",n=e.b
@@ -129,24 +129,24 @@ t=A.Z(v.goC(),p,p,p,A.bc().$4$color$fontSize$fontWeight$letterSpacing(u.b,15,C.a
 s=v.goX()
 r=q.d<400?18:22
 u=u.k3
-u=A.b([t,C.eg,A.Z(s,p,p,p,A.bc().$4$color$fontSize$fontWeight$height(u,r,C.aR,1.2),p,p),C.cl,A.Z(v.pu(o),p,p,p,A.bc().$3$color$fontSize$height(u.an(0.72),13,1.45),p,p),C.hJ,new B.t9(v.gnR(),v.gnQ(),p,p),new B.t9(v.gnT(),v.gnS(),p,p),new B.t9(v.gnV(),v.gnU(),p,p),new B.t9(v.gnX(),v.gnW(),A.b([new B.H0(o,new B.ay2(),p)],y.n),p),C.ef,D.NJ,C.kF,A.Z(q.e.v6(A.qU(new A.eH(Date.now(),0,!1))),p,p,p,A.bc().$3$color$fontSize$fontWeight(u.an(0.7),12,C.aj),p,p)],y.e)
+u=A.b([t,C.eg,A.Z(s,p,p,p,A.bc().$4$color$fontSize$fontWeight$height(u,r,C.aR,1.2),p,p),C.cl,A.Z(v.pu(o),p,p,p,A.bc().$3$color$fontSize$height(u.an(0.72),13,1.45),p,p),C.hJ,new B.t9(v.gnR(),v.gnQ(),p,p),new B.t9(v.gnT(),v.gnS(),p,p),new B.t9(v.gnV(),v.gnU(),p,p),new B.t9(v.gnX(),v.gnW(),A.b([new B.H1(o,new B.ay2(),p)],y.n),p),C.ef,D.NJ,C.hK,A.Z(q.e.v7(A.qU(new A.eH(Date.now(),0,!1))),p,p,p,A.bc().$3$color$fontSize$fontWeight(u.an(0.7),12,C.aj),p,p)],y.e)
 u.push(D.acU)
-return A.iD(A.dV(new A.dn(new A.ab(0,x,0,1/0),A.c6(u,C.a_,C.y,C.D),p),p,p),p,new A.af(w,16,w,28),C.af)},
+return A.iD(A.dV(new A.dn(new A.ab(0,x,0,1/0),A.c2(u,C.a_,C.y,C.D),p),p,p),p,new A.af(w,16,w,28),C.af)},
 $S:207}
 B.ay2.prototype={
 $0(){return A.xR(A.ej("mailto:suporte@perfectgestdev.com",0,null),C.h3,null)},
 $S:0};(function inheritance(){var x=a.inheritMany,w=a.inherit
-x(A.a9,[B.Lx,B.t9,B.H0])
+x(A.a9,[B.Ly,B.t9,B.H1])
 w(B.nK,A.U)
 w(B.a1H,A.Y)
 w(B.ay3,A.pj)
 w(B.ay2,A.k2)
 w(B.aoz,A.K)
 x(B.aoz,[B.aAZ,B.aAX,B.aAY])})()
-A.IC(b.typeUniverse,JSON.parse('{"Lx":{"a9":[],"e":[]},"H0":{"a9":[],"e":[]},"nK":{"U":[],"e":[]},"a1H":{"Y":["nK"]},"t9":{"a9":[],"e":[]}}'))
-var y={p:A.a4("fH"),e:A.a4("q<e>"),n:A.a4("q<H0>"),h:A.a4("fL"),k:A.a4("mo")};(function constants(){D.LP=new B.aAX()
+A.ID(b.typeUniverse,JSON.parse('{"Ly":{"a9":[],"e":[]},"H1":{"a9":[],"e":[]},"nK":{"U":[],"e":[]},"a1H":{"Y":["nK"]},"t9":{"a9":[],"e":[]}}'))
+var y={p:A.a4("fH"),e:A.a4("q<e>"),n:A.a4("q<H1>"),h:A.a4("fL"),k:A.a4("mo")};(function constants(){D.LP=new B.aAX()
 D.LQ=new B.aAY()
 D.LR=new B.aAZ()
-D.NJ=new B.Lx(null)
+D.NJ=new B.Ly(null)
 D.acU=new A.d5(null,60,null,null)})()};
-(a=>{a["uTAQnFDPWTajp9QyYs8buPyK8Tk="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["JbNH4ArW5OoOz7CqBWXd1DNxHFw="]=a.current})($__dart_deferred_initializers__);
