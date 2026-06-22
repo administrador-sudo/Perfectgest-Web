@@ -60,7 +60,7 @@
   <main>
     <div class="lang-panel" data-lang="pt">
   <h1 class="page-title">Política de Privacidade — PerfectGest-Contabil I</h1>
-  <p class="updated">Última atualização: 19/06/2026</p>
+  <p class="updated">Última atualização: 21/06/2026</p>
   <div class="legal-header">PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA<br>
 Nome fantasia: Perfect Gest Dev · CNPJ 66.889.409/0001-19<br>
 Caxias do Sul — RS — Brasil · suporte@perfectgestdev.com<br>
@@ -70,19 +70,19 @@ Papéis no tratamento (LGPD)<br>
 • Controlador dos dados contábeis e da empresa: o titular da ME/MEI ou o profissional que utiliza o software.<br>
 • Operador do software: Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA) — desenvolve e mantém a ferramenta; não decide sobre o conteúdo inserido pelo utilizador.<br>
 • Direitos do titular: aceder, corrigir, exportar e eliminar no próprio app, ou contactar suporte@perfectgestdev.com.</div>
-  <section class="block"><h2>1. Quem somos</h2><div class="body">Esta política descreve como o aplicativo PerfectGest-Contabil I (“App”), desenvolvido pela PerfectGest, trata informações quando você o utiliza em seu dispositivo Android.<br>
+  <section class="block"><h2>1. Quem somos</h2><div class="body">Esta política descreve como o aplicativo PerfectGest-Contabil I (&quot;App&quot;), desenvolvido pela PerfectGest, trata informações quando você o utiliza em seu dispositivo Android.<br>
 <br>
 - Nome do app: PerfectGest-Contabil I<br>
 - Pacote Android: br.perfectgestcontabil.dev<br>
 - Contacto para privacidade: suporte@perfectgestdev.com<br>
 - Política pública: https://perfectgestdev.com/contabil-i-politica-privacidade</div></section>
-<section class="block"><h2>2. Princípio fundamental: dados no seu dispositivo</h2><div class="body">O App foi concebido para contabilidade operacional offline-first. Por defeito:<br>
+<section class="block"><h2>2. Princípio fundamental: dados no seu dispositivo</h2><div class="body">O App foi concebido para contabilidade operacional 100% offline no dia a dia:<br>
 <br>
 - Lançamentos, obrigações fiscais, fechos de mês e dados da empresa ficam no seu dispositivo (armazenamento local).<br>
 - Não enviamos os seus dados contábeis para servidores da PerfectGest automaticamente.<br>
 - Não utilizamos rastreamento publicitário nem analytics de conteúdo contábil.<br>
 <br>
-Qualquer saída local ocorre quando você toca em “Gerar e partilhar PDF”, “Exportar backup” ou “Importar backup”.<br>
+Qualquer saída local ocorre quando você toca em &quot;Gerar e partilhar PDF&quot;, &quot;Exportar backup&quot; ou &quot;Importar backup&quot;.<br>
 <br>
 Excepção (com consentimento): envio do mês para conferência contábil, validação de subscrição Google Play, bónus certificado A1 e dados necessários ao serviço de abertura de empresa — ver secção 5.</div></section>
 <section class="block"><h2>3. Dados que o App pode tratar</h2><div class="body">3.1 Dados que você insere<br>
@@ -90,9 +90,11 @@ Excepção (com consentimento): envio do mês para conferência contábil, valid
 Tipo · Exemplos · Onde ficam<br>
 Dados da empresa · Razão social, CNPJ/CPF, CNAE, contactos · Dispositivo (local)<br>
 Dados financeiros · Lançamentos, valores, categorias, saldos · Dispositivo (local)<br>
+NF emitidas · Número NF, cliente, CNPJ/CPF, valor, IRRF · Dispositivo (local)<br>
 Obrigações fiscais · Marcações de cumprimento, observações · Dispositivo (local)<br>
 Comprovantes · Nome do ficheiro anexado (opcional) · Dispositivo (local)<br>
 Preferências · Tema, aceites de privacidade e nuvem · Dispositivo (local)<br>
+Chave API Gemini · Configurada pelo utilizador para IA · Dispositivo (local — SharedPreferences)<br>
 <br>
 3.2 Dados que o App não recolhe automaticamente<br>
 <br>
@@ -105,6 +107,7 @@ Preferências · Tema, aceites de privacidade e nuvem · Dispositivo (local)<br>
 - Registrar e exibir livro caixa e lançamentos<br>
 - Acompanhar obrigações fiscais e fechos de mês<br>
 - Gerar PDF e backup quando solicitado<br>
+- Calcular IR/IRPF e Carnê-Leão com base nos lançamentos<br>
 - Validar subscrição e prestar serviços contratados (abertura de empresa, conferência CRC, bónus A1) — com consentimento<br>
 <br>
 Base legal (LGPD): execução de contrato e funcionalidades solicitadas; consentimento para envio à nuvem e serviços contábeis adicionais.</div></section>
@@ -117,7 +120,7 @@ Partilhar PDF · Enviado ao app que você escolher<br>
 Exportar backup JSON · Partilhado por você<br>
 Abrir portal fiscal · Browser externo — política dos sites governamentais<br>
 <br>
-5.2 Serviços na nuvem (Firebase/Google) — consentimento<br>
+5.2 Serviços na nuvem (Firebase/Google e Google Gemini) — consentimento<br>
 <br>
 Activados apenas com aceite explícito:<br>
 <br>
@@ -127,12 +130,23 @@ Envio para conferência CRC · Pacote mensal: empresa, movimentos, conciliação
 Abertura de empresa · Dados cadastrais e documentos necessários ao processo · PerfectGest / parceiros<br>
 Bónus certificado A1 · Estado bónus, código promocional · Firebase + Quality Cert<br>
 Sessão técnica · Identificador anónimo Firebase · Google Firebase<br>
+Assistente IA PerfectGest / IR com IA · Perguntas de texto inseridas pelo utilizador · Google Gemini API (chave do utilizador)<br>
+<br>
+Nota sobre a IA Gemini: a chave API é configurada e armazenada localmente pelo utilizador em SharedPreferences. A PerfectGest não tem acesso à chave nem ao histórico de conversas. O envio de perguntas para a API Gemini ocorre directamente do dispositivo para servidores Google, regido pela política de privacidade Google. Não são enviados dados contábeis em bruto — apenas o texto da pergunta do utilizador.<br>
 <br>
 Pode revogar consentimento de nuvem em Privacidade e segurança. O livro caixa local continua; conferência, bónus A1 e validação na nuvem ficam indisponíveis até novo aceite.<br>
 <br>
-5.3 Serviço de abertura de empresa — prazo e taxas<br>
+5.3 Declaração de armazenamento e envio (aceite no onboarding)<br>
 <br>
-Quando contratado (planos Contabil+ ou Anual):<br>
+O utilizador declara estar ciente de que os seus dados contábeis são armazenados exclusivamente no seu dispositivo local.<br>
+<br>
+Parágrafo Único: caso o utilizador contrate o plano Com Contador ou Anual + A1, autoriza o envio de relatórios em formato de arquivo criptografado para o sistema da PerfectGestDev, com a finalidade estrita de análise e aprovação por um Contador Certificado. A PerfectGestDev exime-se de qualquer responsabilidade pela guarda permanente desses arquivos, cabendo ao utilizador a manutenção do backup original em seu aparelho.<br>
+<br>
+Implementação técnica: o pacote de conferência (JSON + PDF + comprovantes) é cifrado no dispositivo com AES-256-CBC antes de ser transmitido para o Firebase Storage/Firestore. Apenas a PerfectGestDev detém a chave de decifração, que é partilhada com o Contador Certificado responsável pela análise.<br>
+<br>
+5.4 Serviço de abertura de empresa — prazo e taxas<br>
+<br>
+Quando contratado (planos Com Contador ou Anual + A1):<br>
 <br>
 - Taxas oficiais (Junta Comercial, prefeitura, Receita, etc.) não estão incluídas — pagas pelo cliente aos órgãos competentes.<br>
 - O processo de abertura pode demorar até 14 (catorze) dias, após documentação completa, referindo-se às etapas administrativas: solicitação na Junta Comercial, aprovações, registos na prefeitura e demais trâmites legais — sujeito a prazos de terceiros e exigências documentais.<br>
@@ -140,8 +154,9 @@ Quando contratado (planos Contabil+ ou Anual):<br>
 Detalhes contratuais: Termos de Uso, secção 5.</div></section>
 <section class="block"><h2>6. Segurança</h2><div class="body">- Dados locais no espaço privado da aplicação.<br>
 - Nuvem (Firebase) só após consentimento; regras de acesso restritas à equipa autorizada.<br>
+- Chave API Gemini armazenada localmente — nunca transmitida a servidores PerfectGest.<br>
 - Recomendamos bloqueio de ecrã e backup seguro.</div></section>
-<section class="block"><h2>7. Retenção e eliminação</h2><div class="body">No dispositivo: até “Eliminar todos os dados” ou desinstalar.<br>
+<section class="block"><h2>7. Retenção e eliminação</h2><div class="body">No dispositivo: até &quot;Eliminar todos os dados&quot; ou desinstalar.<br>
 <br>
 Na nuvem (envios conferência): retidos pelo tempo necessário à prestação do serviço e obrigações legais/contábeis; solicite informações via suporte@perfectgestdev.com.</div></section>
 <section class="block"><h2>8. Os seus direitos (LGPD)</h2><div class="body">Aceder, corrigir, exportar, eliminar (local), revogar consentimento e opor-se a tratamentos ilícitos.<br>
@@ -149,11 +164,11 @@ Na nuvem (envios conferência): retidos pelo tempo necessário à prestação do
 Contacto: suporte@perfectgestdev.com</div></section>
 <section class="block"><h2>9. Crianças</h2><div class="body">Destinado a adultos e empreendedores (ME, MEI). Não se destina a menores de 18 anos.</div></section>
 <section class="block"><h2>10. Alterações</h2><div class="body">Atualizações refletidas nesta data e, quando relevante, na Google Play.</div></section>
-<section class="block"><h2>11. Google Play</h2><div class="body">Complementa a Política de Dados do Utilizador da Google Play. Formulário “Segurança dos dados” na Play Console resume estas informações.</div></section>
+<section class="block"><h2>11. Google Play</h2><div class="body">Complementa a Política de Dados do Utilizador da Google Play. Formulário &quot;Segurança dos dados&quot; na Play Console resume estas informações.</div></section>
 </div>
 <div class="lang-panel" data-lang="en" hidden>
   <h1 class="page-title">Privacy Policy — PerfectGest-Contabil I</h1>
-  <p class="updated">Last updated: 19 June 2026</p>
+  <p class="updated">Last updated: 21 June 2026</p>
   <div class="legal-header">PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA<br>
 Trade name: Perfect Gest Dev · CNPJ 66.889.409/0001-19<br>
 Caxias do Sul — RS — Brasil · suporte@perfectgestdev.com<br>
@@ -163,58 +178,93 @@ Roles in processing (LGPD)<br>
 • Controller of accounting and business data: the ME/MEI owner or professional using the software.<br>
 • Software operator: Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA) — develops and maintains the tool; does not decide on user-entered content.<br>
 • Data subject rights: access, correct, export, and delete in the app, or contact suporte@perfectgestdev.com.</div>
-  <section class="block"><h2>1. Who we are</h2><div class="body">This policy describes how the PerfectGest-Contabil I app (“App”), developed by PerfectGest, handles information when you use it on your Android device.<br>
+  <section class="block"><h2>1. Who we are</h2><div class="body">This policy describes how the PerfectGest-Contabil I app (&quot;App&quot;), developed by PerfectGest, handles information when you use it on your Android device.<br>
 <br>
-App name: PerfectGest-Contabil I<br>
-Android package: br.perfectgestcontabil.dev<br>
-Privacy contact: suporte@perfectgestdev.com<br>
-Public policy: https://perfectgestdev.com/contabil-i-politica-privacidade</div></section>
-<section class="block"><h2>2. Core principle: data on your device</h2><div class="body">The App is designed for offline-first operational accounting. By default:<br>
+- App name: PerfectGest-Contabil I<br>
+- Android package: br.perfectgestcontabil.dev<br>
+- Privacy contact: suporte@perfectgestdev.com<br>
+- Public policy: https://perfectgestdev.com/contabil-i-politica-privacidade</div></section>
+<section class="block"><h2>2. Core principle: data on your device</h2><div class="body">The App is designed for 100% offline day-to-day operational accounting:<br>
 <br>
-• Entries, tax obligations, month-end closing and company data stay on your device (local storage).<br>
-• We do not automatically send your accounting data to PerfectGest servers.<br>
-• We do not use ad tracking or accounting-content analytics.<br>
+- Entries, tax obligations, month-end closing and company data stay on your device (local storage).<br>
+- We do not automatically send your accounting data to PerfectGest servers.<br>
+- We do not use ad tracking or accounting-content analytics.<br>
 <br>
-Local export only when you tap “Generate and share PDF”, “Export backup” or “Import backup”.<br>
+Local export only when you tap &quot;Generate and share PDF&quot;, &quot;Export backup&quot; or &quot;Import backup&quot;.<br>
 <br>
 Exception (with consent): sending the month for accounting review, Google Play subscription validation, A1 certificate bonus, and data needed for company opening services — see section 5.</div></section>
 <section class="block"><h2>3. Data the App may process</h2><div class="body">3.1 Data you enter<br>
-• Company data: legal name, tax ID, CNAE, contacts — on device<br>
-• Financial data: entries, amounts, categories, balances — on device<br>
-• Tax obligations: compliance marks, notes — on device<br>
-• Receipts: attached file name (optional) — on device<br>
-• Preferences: theme, privacy and cloud consent — on device<br>
+<br>
+Type · Examples · Where stored<br>
+Company data · Legal name, tax ID, CNAE, contacts · Device (local)<br>
+Financial data · Entries, amounts, categories, balances · Device (local)<br>
+Issued invoices · Invoice number, customer, tax ID, amount, IRRF · Device (local)<br>
+Tax obligations · Compliance marks, notes · Device (local)<br>
+Receipts · Attached file name (optional) · Device (local)<br>
+Preferences · Theme, privacy and cloud consent · Device (local)<br>
+Gemini API key · Configured by user for AI · Device (local — SharedPreferences)<br>
 <br>
 3.2 Not collected automatically<br>
-GPS location, phone contacts, ad identifiers, browsing history outside the App.</div></section>
-<section class="block"><h2>4. How we use data</h2><div class="body">We use data to: operate the cash book and entries; track tax obligations and month-end closing; generate PDF and backup when requested; validate subscriptions and deliver contracted services (company opening, CRC review, A1 bonus) — with consent.<br>
+<br>
+- GPS location<br>
+- Phone contact list<br>
+- Ad identifiers<br>
+- Browsing history outside the App</div></section>
+<section class="block"><h2>4. How we use data</h2><div class="body">We use data to:<br>
+<br>
+- Record and display the cash book and entries<br>
+- Track tax obligations and month-end closing<br>
+- Generate PDF and backup when requested<br>
+- Calculate income tax (IR/IRPF) and Carnê-Leão from entries<br>
+- Validate subscriptions and deliver contracted services (company opening, CRC review, A1 bonus) — with consent<br>
 <br>
 Legal basis (LGPD): contract performance and features you request; consent for cloud upload and additional accounting services.</div></section>
-<section class="block"><h2>5. Sharing with third parties</h2><div class="body">We do not sell accounting data.<br>
+<section class="block"><h2>5. Sharing with third parties</h2><div class="body">The App does not sell accounting data.<br>
 <br>
 5.1 Local actions (your initiative only)<br>
-• Share PDF — sent to the app you choose<br>
-• Export/import JSON backup — shared by you<br>
-• Open tax portals — external browser; government site policies apply<br>
 <br>
-5.2 Cloud services (Firebase/Google) — with consent<br>
+Action · What happens<br>
+Share PDF · Sent to the app you choose<br>
+Export JSON backup · Shared by you<br>
+Open tax portal · External browser — government site policies apply<br>
+<br>
+5.2 Cloud services (Firebase/Google and Google Gemini) — with consent<br>
+<br>
 Enabled only with explicit acceptance:<br>
-• Validate Google Play subscription — purchase token, product ID<br>
-• CRC review — monthly package: company, entries, reconciliation, PDF<br>
-• Company opening — registration data and documents for the process<br>
-• A1 certificate bonus — bonus status, promo code<br>
-• Technical session — anonymous Firebase identifier<br>
+<br>
+Purpose · Data processed · Operator<br>
+Validate subscription (Google Play) · Purchase token, product ID · Google Firebase<br>
+CRC review submission · Monthly package: company, entries, reconciliation, PDF · Google Firebase (Firestore/Storage)<br>
+Company opening · Registration data and documents for the process · PerfectGest / partners<br>
+A1 certificate bonus · Bonus status, promo code · Firebase + Quality Cert<br>
+Technical session · Anonymous Firebase identifier · Google Firebase<br>
+PerfectGest AI Assistant / IR with AI · Text questions entered by user · Google Gemini API (user key)<br>
+<br>
+Note on Gemini AI: the API key is configured and stored locally by the user in SharedPreferences. PerfectGest does not have access to the key or conversation history. Questions are sent directly from the device to Google servers, governed by Google privacy policy. Raw accounting data is not sent — only the user question text.<br>
 <br>
 You may revoke cloud consent in Privacy &amp; security. Local cash book continues; review, A1 bonus and cloud validation require new consent.<br>
 <br>
-5.3 Company opening — timeline and fees<br>
-When contracted (Contabil+ or Annual plans):<br>
-• Official fees (Commercial Registry, city hall, tax authority, etc.) are not included — paid by the client to the competent bodies.<br>
-• The opening process may take up to 14 (fourteen) days after complete documentation, referring to administrative steps: Commercial Registry request, approvals, city hall registration and other legal procedures — subject to third-party deadlines.<br>
+5.3 Storage and submission statement (onboarding acceptance)<br>
+<br>
+The user acknowledges that accounting data is stored exclusively on the local device.<br>
+<br>
+Sole paragraph: if the user subscribes to the Com Contador or Anual + A1 plan, they authorize sending reports as encrypted files to the PerfectGestDev system for strict analysis and approval by a Certified Accountant. PerfectGestDev is not responsible for permanent storage of those files; the user must keep the original backup on their device.<br>
+<br>
+Technical implementation: the review package (JSON + PDF + receipts) is encrypted on the device with AES-256-CBC before transmission to Firebase Storage/Firestore. Only PerfectGestDev holds the decryption key, shared with the Certified Accountant responsible for analysis.<br>
+<br>
+5.4 Company opening service — timeline and fees<br>
+<br>
+When contracted (Com Contador or Anual + A1 plans):<br>
+<br>
+- Official fees (Commercial Registry, city hall, tax authority, etc.) are not included — paid by the client to competent bodies.<br>
+- The opening process may take up to 14 (fourteen) days after complete documentation, referring to administrative steps: Commercial Registry request, approvals, city hall registration and other legal procedures — subject to third-party deadlines.<br>
 <br>
 Contract details: Terms of Use, section 5.</div></section>
-<section class="block"><h2>6. Security</h2><div class="body">Local data in the app private space. Cloud (Firebase) only after consent; restricted access for authorized team. We recommend screen lock and secure backups.</div></section>
-<section class="block"><h2>7. Retention and deletion</h2><div class="body">On device: until “Delete all data” or uninstall.<br>
+<section class="block"><h2>6. Security</h2><div class="body">- Local data in the app private space.<br>
+- Cloud (Firebase) only after consent; restricted access for authorized team.<br>
+- Gemini API key stored locally — never sent to PerfectGest servers.<br>
+- We recommend screen lock and secure backups.</div></section>
+<section class="block"><h2>7. Retention and deletion</h2><div class="body">On device: until &quot;Delete all data&quot; or uninstall.<br>
 <br>
 In the cloud (review submissions): retained as long as needed for the service and legal/accounting obligations; contact suporte@perfectgestdev.com.</div></section>
 <section class="block"><h2>8. Your rights (LGPD)</h2><div class="body">Access, correct, export, delete (locally), revoke consent and object to unlawful processing.<br>
@@ -222,11 +272,11 @@ In the cloud (review submissions): retained as long as needed for the service an
 Contact: suporte@perfectgestdev.com</div></section>
 <section class="block"><h2>9. Children</h2><div class="body">Intended for adults and entrepreneurs (ME, MEI). Not intended for under-18s.</div></section>
 <section class="block"><h2>10. Changes</h2><div class="body">Updates reflected on this date and, when relevant, on Google Play.</div></section>
-<section class="block"><h2>11. Google Play</h2><div class="body">Complements Google Play User Data Policy. The Play Console “Data safety” form summarizes this information.</div></section>
+<section class="block"><h2>11. Google Play</h2><div class="body">Complements Google Play User Data Policy. The Play Console &quot;Data safety&quot; form summarizes this information.</div></section>
 </div>
 <div class="lang-panel" data-lang="es" hidden>
   <h1 class="page-title">Política de Privacidad — PerfectGest-Contabil I</h1>
-  <p class="updated">Última actualización: 19/06/2026</p>
+  <p class="updated">Última actualización: 21/06/2026</p>
   <div class="legal-header">PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA<br>
 Nombre comercial: Perfect Gest Dev · CNPJ 66.889.409/0001-19<br>
 Caxias do Sul — RS — Brasil · suporte@perfectgestdev.com<br>
@@ -236,44 +286,101 @@ Roles en el tratamiento (LGPD)<br>
 • Controlador de los datos contables y de la empresa: el titular de la ME/MEI o el profesional que utiliza el software.<br>
 • Operador del software: Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA) — desarrolla y mantiene la herramienta; no decide sobre el contenido introducido por el usuario.<br>
 • Derechos del titular: acceder, corregir, exportar y eliminar en la app, o contactar suporte@perfectgestdev.com.</div>
-  <section class="block"><h2>1. Quiénes somos</h2><div class="body">Esta política describe cómo la app PerfectGest-Contabil I (“App”), desarrollada por PerfectGest, trata la información cuando la utiliza en su dispositivo Android.<br>
+  <section class="block"><h2>1. Quiénes somos</h2><div class="body">Esta política describe cómo la app PerfectGest-Contabil I (&quot;App&quot;), desarrollada por PerfectGest, trata la información cuando la utiliza en su dispositivo Android.<br>
 <br>
-Nombre: PerfectGest-Contabil I<br>
-Paquete Android: br.perfectgestcontabil.dev<br>
-Contacto privacidad: suporte@perfectgestdev.com<br>
-Política pública: https://perfectgestdev.com/contabil-i-politica-privacidade</div></section>
-<section class="block"><h2>2. Principio fundamental: datos en su dispositivo</h2><div class="body">La App está diseñada para contabilidad operacional offline-first. Por defecto:<br>
+- Nombre: PerfectGest-Contabil I<br>
+- Paquete Android: br.perfectgestcontabil.dev<br>
+- Contacto privacidad: suporte@perfectgestdev.com<br>
+- Política pública: https://perfectgestdev.com/contabil-i-politica-privacidade</div></section>
+<section class="block"><h2>2. Principio fundamental: datos en su dispositivo</h2><div class="body">La App está diseñada para contabilidad operacional 100% offline en el día a día:<br>
 <br>
-• Movimientos, obligaciones fiscales, cierres de mes y datos de la empresa permanecen en el dispositivo.<br>
-• No enviamos automáticamente sus datos contables a servidores PerfectGest.<br>
-• No utilizamos rastreo publicitario ni analytics del contenido contable.<br>
+- Movimientos, obligaciones fiscales, cierres de mes y datos de la empresa permanecen en el dispositivo (almacenamiento local).<br>
+- No enviamos automáticamente sus datos contables a servidores PerfectGest.<br>
+- No utilizamos rastreo publicitario ni analytics del contenido contable.<br>
+<br>
+La exportación local ocurre cuando toca &quot;Generar y compartir PDF&quot;, &quot;Exportar backup&quot; o &quot;Importar backup&quot;.<br>
 <br>
 Excepción (con consentimiento): envío del mes para revisión contable, validación de suscripción Google Play, bono certificado A1 y datos para apertura de empresa — ver sección 5.</div></section>
 <section class="block"><h2>3. Datos que la App puede tratar</h2><div class="body">3.1 Datos que usted introduce<br>
-• Empresa, datos financieros, obligaciones fiscales, comprobantes (nombre de archivo), preferencias — en el dispositivo<br>
+<br>
+Tipo · Ejemplos · Dónde quedan<br>
+Datos de la empresa · Razón social, CNPJ/CPF, CNAE, contactos · Dispositivo (local)<br>
+Datos financieros · Movimientos, valores, categorías, saldos · Dispositivo (local)<br>
+NF emitidas · Número NF, cliente, CNPJ/CPF, valor, IRRF · Dispositivo (local)<br>
+Obligaciones fiscales · Marcas de cumplimiento, observaciones · Dispositivo (local)<br>
+Comprobantes · Nombre del archivo adjunto (opcional) · Dispositivo (local)<br>
+Preferencias · Tema, aceptaciones de privacidad y nube · Dispositivo (local)<br>
+Clave API Gemini · Configurada por el usuario para IA · Dispositivo (local — SharedPreferences)<br>
 <br>
 3.2 No recogidos automáticamente<br>
-Ubicación GPS, lista de contactos, identificadores publicitarios, historial de navegación.</div></section>
-<section class="block"><h2>4. Cómo usamos los datos</h2><div class="body">Para operar el libro de caja, obligaciones, cierres, PDF y backup; validar suscripción y prestar servicios contratados (apertura de empresa, revisión CRC, bono A1) — con consentimiento. Base legal LGPD: ejecución de contrato y consentimiento para la nube.</div></section>
-<section class="block"><h2>5. Compartir con terceros</h2><div class="body">No vendemos datos contables.<br>
+<br>
+- Ubicación GPS<br>
+- Lista de contactos del teléfono<br>
+- Identificadores publicitarios<br>
+- Historial de navegación fuera de la App</div></section>
+<section class="block"><h2>4. Cómo usamos los datos</h2><div class="body">Usamos los datos para:<br>
+<br>
+- Registrar y mostrar libro de caja y movimientos<br>
+- Seguir obligaciones fiscales y cierres de mes<br>
+- Generar PDF y backup cuando se solicite<br>
+- Calcular IR/IRPF y Carnê-Leão a partir de los movimientos<br>
+- Validar suscripción y prestar servicios contratados (apertura de empresa, revisión CRC, bono A1) — con consentimiento<br>
+<br>
+Base legal (LGPD): ejecución de contrato y funcionalidades solicitadas; consentimiento para envío a la nube y servicios contables adicionales.</div></section>
+<section class="block"><h2>5. Compartir con terceros</h2><div class="body">La App no vende datos contables.<br>
 <br>
 5.1 Acciones locales (solo por su iniciativa)<br>
-• Compartir PDF, exportar/importar backup JSON, abrir portales fiscales en el navegador<br>
 <br>
-5.2 Servicios en la nube (Firebase/Google) — con consentimiento<br>
-• Validar suscripción Google Play · Envío para revisión CRC · Apertura de empresa · Bono A1 · Sesión técnica Firebase<br>
+Acción · Qué ocurre<br>
+Compartir PDF · Enviado a la app que usted elija<br>
+Exportar backup JSON · Compartido por usted<br>
+Abrir portal fiscal · Navegador externo — política de sitios gubernamentales<br>
 <br>
-Puede revocar el consentimiento de nube en Privacidad y seguridad.<br>
+5.2 Servicios en la nube (Firebase/Google y Google Gemini) — consentimiento<br>
 <br>
-5.3 Apertura de empresa — plazo y tasas<br>
-• Tasas oficiales no incluidas — pagadas por el cliente.<br>
-• El proceso puede demorar hasta 14 (catorce) días tras documentación completa (Junta Comercial, aprobaciones, prefectura, etc.).</div></section>
-<section class="block"><h2>6. Seguridad</h2><div class="body">Datos locales en espacio privado de la app. Nube solo con consentimiento. Recomendamos bloqueo de pantalla y backup seguro.</div></section>
-<section class="block"><h2>7. Retención y eliminación</h2><div class="body">En el dispositivo: hasta «Eliminar todos los datos» o desinstalar. En la nube: según servicio y obligaciones legales; contacte suporte@perfectgestdev.com.</div></section>
-<section class="block"><h2>8. Sus derechos (LGPD)</h2><div class="body">Acceso, corrección, exportación, eliminación local, revocación de consentimiento. Contacto: suporte@perfectgestdev.com</div></section>
+Activados solo con aceptación explícita:<br>
+<br>
+Finalidad · Datos tratados · Operador<br>
+Validar suscripción (Google Play) · Token de compra, ID producto · Google Firebase<br>
+Envío para revisión CRC · Paquete mensual: empresa, movimientos, conciliación, PDF · Google Firebase (Firestore/Storage)<br>
+Apertura de empresa · Datos registrales y documentos del proceso · PerfectGest / socios<br>
+Bono certificado A1 · Estado bono, código promocional · Firebase + Quality Cert<br>
+Sesión técnica · Identificador anónimo Firebase · Google Firebase<br>
+Asistente IA PerfectGest / IR con IA · Preguntas de texto del usuario · Google Gemini API (clave del usuario)<br>
+<br>
+Nota sobre IA Gemini: la clave API se configura y almacena localmente por el usuario en SharedPreferences. PerfectGest no tiene acceso a la clave ni al historial de conversaciones. El envío de preguntas ocurre directamente del dispositivo a servidores Google, regido por la política de privacidad de Google. No se envían datos contables en bruto — solo el texto de la pregunta.<br>
+<br>
+Puede revocar el consentimiento de nube en Privacidad y seguridad. El libro de caja local continúa; revisión, bono A1 y validación en la nube quedan indisponibles hasta nuevo consentimiento.<br>
+<br>
+5.3 Declaración de almacenamiento y envío (aceptación en onboarding)<br>
+<br>
+El usuario declara estar consciente de que sus datos contables se almacenan exclusivamente en su dispositivo local.<br>
+<br>
+Párrafo único: si contrata el plan Com Contador o Anual + A1, autoriza el envío de informes en formato de archivo cifrado al sistema PerfectGestDev, con la finalidad estricta de análisis y aprobación por un Contador Certificado. PerfectGestDev se exime de responsabilidad por la guarda permanente de esos archivos; corresponde al usuario mantener el backup original en su dispositivo.<br>
+<br>
+Implementación técnica: el paquete de revisión (JSON + PDF + comprobantes) se cifra en el dispositivo con AES-256-CBC antes de transmitirse a Firebase Storage/Firestore. Solo PerfectGestDev posee la clave de descifrado, compartida con el Contador Certificado responsable del análisis.<br>
+<br>
+5.4 Servicio de apertura de empresa — plazo y tasas<br>
+<br>
+Cuando se contrata (planes Com Contador o Anual + A1):<br>
+<br>
+- Tasas oficiales (Junta Comercial, prefectura, Receita, etc.) no están incluidas — pagadas por el cliente a los órganos competentes.<br>
+- El proceso de apertura puede demorar hasta 14 (catorce) días, tras documentación completa, refiriéndose a etapas administrativas: solicitud en Junta Comercial, aprobaciones, registros en prefectura y demás trámites legales — sujeto a plazos de terceros.<br>
+<br>
+Detalles contractuales: Términos de Uso, sección 5.</div></section>
+<section class="block"><h2>6. Seguridad</h2><div class="body">- Datos locales en el espacio privado de la aplicación.<br>
+- Nube (Firebase) solo tras consentimiento; acceso restringido al equipo autorizado.<br>
+- Clave API Gemini almacenada localmente — nunca transmitida a servidores PerfectGest.<br>
+- Recomendamos bloqueo de pantalla y backup seguro.</div></section>
+<section class="block"><h2>7. Retención y eliminación</h2><div class="body">En el dispositivo: hasta «Eliminar todos los datos» o desinstalar.<br>
+<br>
+En la nube (envíos de revisión): retenidos el tiempo necesario para el servicio y obligaciones legales/contables; solicite información vía suporte@perfectgestdev.com.</div></section>
+<section class="block"><h2>8. Sus derechos (LGPD)</h2><div class="body">Acceder, corregir, exportar, eliminar (local), revocar consentimiento y oponerse a tratamientos ilícitos.<br>
+<br>
+Contacto: suporte@perfectgestdev.com</div></section>
 <section class="block"><h2>9. Menores</h2><div class="body">Destinado a adultos y emprendedores (ME, MEI). No dirigido a menores de 18 años.</div></section>
 <section class="block"><h2>10. Cambios</h2><div class="body">Actualizaciones reflejadas en esta fecha y, cuando corresponda, en Google Play.</div></section>
-<section class="block"><h2>11. Google Play</h2><div class="body">Complementa la Política de Datos de Usuario de Google Play.</div></section>
+<section class="block"><h2>11. Google Play</h2><div class="body">Complementa la Política de Datos de Usuario de Google Play. El formulario &quot;Seguridad de los datos&quot; en Play Console resume esta información.</div></section>
 </div>
     <footer>
       <div data-lang="pt" class="footer-lang"><span class="footer-current">Política de Privacidade</span><span class="sep"> · </span><a href="/contabil-i-termos">Termos de Uso</a><span class="sep"> · </span><a href="/contabil-i-exclusao-dados">Exclusão de Dados</a><span class="sep"> · </span><a href="/contabil-i-faq">Perguntas frequentes</a></div>

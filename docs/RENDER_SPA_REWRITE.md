@@ -31,6 +31,10 @@ Isto publica `politica-devolucao.html` (e as outras) e **remove** ficheiros sem 
 | `/perfectgest-i-termos` | `/perfectgest-i-termos.html` | **Rewrite** |
 | `/perfectgest-i-exclusao-dados` | `/perfectgest-i-exclusao-dados.html` | **Rewrite** |
 | `/perfectgest-i-faq` | `/perfectgest-i-faq.html` | **Rewrite** |
+| `/contabil-i-politica-privacidade` | `/contabil-i-politica-privacidade.html` | **Rewrite** (HTML estático — PerfectGest-Contabil I / Google Play) |
+| `/contabil-i-termos` | `/contabil-i-termos.html` | **Rewrite** |
+| `/contabil-i-exclusao-dados` | `/contabil-i-exclusao-dados.html` | **Rewrite** |
+| `/contabil-i-faq` | `/contabil-i-faq.html` | **Rewrite** |
 
 As duas rotas `…-perfectgest-i` servem **redirect estático** para o portal Google Sites (políticas da app PerfectGest I). O site institucional mantém `/politica-privacidade-site`. As três rotas `…-clinica-iii` são **HTML estático** (gerado por `scripts/clinica-iii-static-html.cjs` no build — sem Flutter, PT/EN/ES, preto no branco).
 

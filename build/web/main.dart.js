@@ -895,7 +895,7 @@ a.l()
 return l},
 lw(a){return new A.Pd(a)},
 b5_(a){var s,r,q,p,o,n,m
-A:for(s=a.length,r=0;r<6;++r){q=B.VW[r]
+A:for(s=a.length,r=0;r<6;++r){q=B.VZ[r]
 p=q.c
 o=p.length
 if(s<o)continue A
@@ -995,7 +995,7 @@ break A}if(B.hp===a||B.k8===a||B.Dr===a){s=new A.B9(A.aIW("8a2@q\u03a9qk1&kq3@q\
 break A}s=null}return s},
 aXN(a){var s
 if(a.length===0)return 98784247808
-s=B.a5T.h(0,a)
+s=B.a5W.h(0,a)
 return s==null?B.c.gB(a)+98784247808:s},
 aM1(){var s=new A.Ts(A.b([],t.k5),B.W),r=new A.af8(s)
 r.b=s
@@ -1025,7 +1025,7 @@ p.a8g()
 return p},
 aWV(a){return new A.abv($.ar,a)},
 aGl(){var s,r,q,p,o=v.G,n=o.window,m=A.aWy(n.navigator)
-if(m==null||m.length===0)return B.YU
+if(m==null||m.length===0)return B.YY
 s=A.b([],t.ss)
 for(n=m.length,r=0;r<m.length;m.length===n||(0,A.x)(m),++r){q=m[r]
 p=new o.Intl.Locale(q)
@@ -1054,7 +1054,7 @@ A.W(s.style,"width","100%")
 A.W(s.style,"height","100%")
 return s},
 aGW(a){var s=null
-return new A.it(B.a7M,s,s,s,a,s)},
+return new A.it(B.a7P,s,s,s,a,s)},
 b4I(a){var s
 A:{if(0===a){s=1
 break A}if(1===a){s=4
@@ -1124,9 +1124,9 @@ q.toString
 r.setAttribute("aria-live",q)
 return r},
 b2m(a){var s=a.a
-if(s.y)return B.am4
-else if(s.d!==B.R)return B.am5
-else return B.am3},
+if(s.y)return B.am7
+else if(s.d!==B.R)return B.am8
+else return B.am6},
 b_9(a){var s=new A.an9(A.c2(v.G.document,"input"),new A.p_(a.p3,B.ep),B.qv,a),r=A.rk(s.cK(),a)
 s.a!==$&&A.be()
 s.a=r
@@ -1253,7 +1253,7 @@ c.adoptText(b)
 c.first()
 for(s=a.length,r=0;!J.d(c.next(),-1);r=q){q=J.ao(c.current())
 for(p=r,o=0,n=0;p<q;++p){m=a.charCodeAt(p)
-if(B.abC.q(0,m)){++o;++n}else if(B.abM.q(0,m))++n
+if(B.abF.q(0,m)){++o;++n}else if(B.abP.q(0,m))++n
 else if(n>0){k.push(new A.q7(r,p,B.rj,o,n))
 r=p
 o=0
@@ -1600,7 +1600,7 @@ s=B.c.q(s,"OS 15_")}else s=!1
 if(s)return"BlinkMacSystemFont"
 if($.bu().gdO()===B.bt||$.bu().gdO()===B.cB)return"-apple-system, BlinkMacSystemFont"
 return"Arial"},
-aIo(a){if(B.abD.q(0,a))return a
+aIo(a){if(B.abG.q(0,a))return a
 if($.bu().gdO()===B.bt||$.bu().gdO()===B.cB)if(a===".SF Pro Text"||a===".SF Pro Display"||a===".SF UI Text"||a===".SF UI Display")return A.aPP()
 return'"'+A.j(a)+'", '+A.aPP()+", sans-serif"},
 hv(a,b){var s,r,q
@@ -6295,7 +6295,7 @@ if(b===c)break
 r=a.charCodeAt(b)}if((r|32)!==100)break;++b;--s
 if(b===c)break}if(b!==c)throw A.i(A.bQ("Invalid padding character",a,b))
 return-s-1},
-aLd(a){return B.a7o.h(0,a.toLowerCase())},
+aLd(a){return B.a7r.h(0,a.toLowerCase())},
 aLW(a,b,c){return new A.AW(a,b)},
 b2D(a){return a.ml()},
 b0Z(a,b){return new A.awi(a,[],A.b4L())},
@@ -7527,7 +7527,7 @@ aN4(a,b,c,d,e,f,g,h){return new A.kz(a,b,c,d,g.a,g.b,h.a,h.b,f.a,f.b,e.a,e.b)},
 aH7(a,b,c,d,e){return new A.kz(a.a,a.b,a.c,a.d,d.a,d.b,e.a,e.b,c.a,c.b,b.a,b.b)},
 aZr(a,b,c,d,e,f,g,h,i,j,k,l){return new A.kz(f,j,g,c,h,i,k,l,d,e,a,b)},
 aZs(a,b,c,d,e,f,g,h,i,j,k,l,m){return new A.qX(m,f,j,g,c,h,i,k,l,d,e,a,b)},
-SN(a,b){return a>0&&b>0?new A.at(a,b):B.aag},
+SN(a,b){return a>0&&b>0?new A.at(a,b):B.aaj},
 Ci(a,b,c,d){var s=a+b
 if(s>c)return Math.min(d,c/s)
 return d},
@@ -8320,8 +8320,8 @@ return s},
 aHs(a,b,c){var s,r,q=new A.rM(a,b,c,new A.aV(A.b([],t.F),t.Q),new A.et(A.u(t.M,t.S),t.PD))
 if(b!=null)if(a.gp()===b.gp()){q.a=b
 q.b=null
-s=b}else{if(a.gp()>b.gp())q.c=B.anp
-else q.c=B.ano
+s=b}else{if(a.gp()>b.gp())q.c=B.ans
+else q.c=B.anr
 s=a}else s=a
 s.ee(q.gqZ())
 s=q.gIQ()
@@ -8805,7 +8805,7 @@ aKF(a,b){return new A.mT(a,b,null,null,null)},
 aVR(a){return new A.mT(null,a.a,a,null,null)},
 aKG(a,b){var s,r=b.c
 if(r!=null)return r
-r=A.cv(a,B.aj8,t.ho)
+r=A.cv(a,B.ajb,t.ho)
 r.toString
 s=b.b
 A:{if(B.iy===s){r=r.gV()
@@ -9097,8 +9097,8 @@ s=A.b(p.b[1].split("."),t.s)
 r=s.length>1?B.b.ga8(s):q
 return new A.jt(a,-1,q,q,q,-1,-1,r,s.length>1?A.hU(s,1,null,t.N).bH(0,"."):B.b.gct(s))},
 b_y(a){var s,r,q,p,o,n,m,l,k,j,i=null,h="<unknown>"
-if(a==="<asynchronous suspension>")return B.ad5
-else if(a==="...")return B.ad6
+if(a==="<asynchronous suspension>")return B.ad8
+else if(a==="...")return B.ad9
 if(!B.c.bP(a,"#"))return A.b_w(a)
 s=A.cK("^#(\\d+) +(.+) \\((.+?):?(\\d+){0,1}:?(\\d+){0,1}\\)$",!0,!1).rH(a).b
 r=s[2]
@@ -11659,7 +11659,7 @@ p=A.bz(l.a,6)
 o=A.bz(l.a,8)
 l.d===$&&A.a()
 n=A.bz(25,84)
-s=new A.TI(l,B.ak1,m,d,s,r,q,p,o,n)
+s=new A.TI(l,B.ak4,m,d,s,r,q,p,o,n)
 break
 case 1:s=l.a
 s===$&&A.a()
@@ -11711,29 +11711,29 @@ p=A.bz(l.a,2)
 o=A.bz(l.a,2)
 l.d===$&&A.a()
 n=A.bz(25,84)
-s=new A.TG(l,B.ak0,m,d,s,r,q,p,o,n)
+s=new A.TG(l,B.ak3,m,d,s,r,q,p,o,n)
 break
 case 4:s=l.a
 s===$&&A.a()
 s=A.bz(s,200)
-r=A.bz(A.aah(l,B.us,B.Xm),24)
+r=A.bz(A.aah(l,B.us,B.Xt),24)
 q=A.bz(A.aah(l,B.us,B.a0p),32)
 p=A.bz(l.a,10)
 o=A.bz(l.a,12)
 l.d===$&&A.a()
 n=A.bz(25,84)
-s=new A.TJ(l,B.ak2,m,d,s,r,q,p,o,n)
+s=new A.TJ(l,B.ak5,m,d,s,r,q,p,o,n)
 break
 case 5:s=l.a
 s===$&&A.a()
 s=A.bz(A.Bp(s+240),40)
-r=A.bz(A.aah(l,B.uF,B.a3b),24)
-q=A.bz(A.aah(l,B.uF,B.a3e),32)
+r=A.bz(A.aah(l,B.uF,B.a3c),24)
+q=A.bz(A.aah(l,B.uF,B.a3f),32)
 p=A.bz(l.a+15,8)
 o=A.bz(l.a+15,12)
 l.d===$&&A.a()
 n=A.bz(25,84)
-s=new A.TC(l,B.ak3,m,d,s,r,q,p,o,n)
+s=new A.TC(l,B.ak6,m,d,s,r,q,p,o,n)
 break
 case 7:s=l.a
 s===$&&A.a()
@@ -11744,7 +11744,7 @@ p=A.bz(l.a,0)
 o=A.bz(l.a,0)
 l.d===$&&A.a()
 n=A.bz(25,84)
-s=new A.TH(l,B.ak4,m,d,s,r,q,p,o,n)
+s=new A.TH(l,B.ak7,m,d,s,r,q,p,o,n)
 break
 case 8:s=l.a
 s===$&&A.a()
@@ -11755,7 +11755,7 @@ p=A.bz(l.a,10)
 o=A.bz(l.a,16)
 l.d===$&&A.a()
 n=A.bz(25,84)
-s=new A.TE(l,B.ak5,m,d,s,r,q,p,o,n)
+s=new A.TE(l,B.ak8,m,d,s,r,q,p,o,n)
 break
 default:s=null}return s},
 aag:function aag(a,b){this.a=a
@@ -13172,7 +13172,7 @@ this.b=b},
 a0r:function a0r(){},
 RV(a,b,c){return new A.RU(a,c,b,null)},
 aHJ(a){var s=null
-return new A.awY(a,80,s,3,s,s,s,s,s,s,B.a7R,s,s)},
+return new A.awY(a,80,s,3,s,s,s,s,s,s,B.a7U,s,s)},
 RT:function RT(a,b,c,d,e){var _=this
 _.d=a
 _.e=b
@@ -13552,7 +13552,7 @@ _.f=a2
 _.$ti=a3},
 RF:function RF(){},
 GA:function GA(){},
-aX0(a,b,c,d){var s=new A.mX(new A.hf(b,new A.aV(A.b([],t.F),t.Q),0),new A.abL(),new A.abM(),d,null),r=A.v_(a,B.amJ,t.X)
+aX0(a,b,c,d){var s=new A.mX(new A.hf(b,new A.aV(A.b([],t.F),t.Q),0),new A.abL(),new A.abM(),d,null),r=A.v_(a,B.amM,t.X)
 r=r==null?null:r.gl9()
 if(r===!1)return s
 if(b.gaP().gi1())r=A.F(a).ax.k2
@@ -14948,7 +14948,7 @@ b0_(a){if(a===B.Ju||a===B.oQ)return 14.5
 return 9.5},
 b01(a,b){if(a===0)return b===1?B.oQ:B.Jt
 if(a===b-1)return B.Ju
-return B.anm},
+return B.anp},
 b00(a){var s,r=null,q=a.a.a
 switch(q){case 1:s=A.m4(r,r,r,r,r,r,r,r,r,r,r,r).ax.k3===a.k3
 break
@@ -15042,7 +15042,7 @@ _.bt$=b
 _.c=_.a=null},
 arH:function arH(){},
 m4(c5,c6,c7,c8,c9,d0,d1,d2,d3,d4,d5,d6){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c,b,a,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,c0,c1=null,c2=A.b([],t.FO),c3=A.b([],t.lY),c4=A.al()
-switch(c4.a){case 0:case 1:case 2:s=B.a7y
+switch(c4.a){case 0:case 1:case 2:s=B.a7B
 break
 case 3:case 4:case 5:s=B.hn
 break
@@ -15094,7 +15094,7 @@ a8=new A.L_(n?B.pP:B.N8,c1,c,b,c1,c1,c9,s)
 a9=n?B.Nl:B.Nc
 b0=n?B.pN:B.lH
 b1=n?B.pN:B.Ms
-if(d6){b2=A.aOc(c4,c1,c1,B.aix,B.aiF,B.aiH)
+if(d6){b2=A.aOc(c4,c1,c1,B.aiA,B.aiI,B.aiK)
 p=c9.a===B.ag
 b3=p?c9.k3:c9.k2
 b4=p?c9.k2:c9.k3
@@ -15108,15 +15108,15 @@ b8=b7.b8(c1)
 if(d1==null)d1=n?new A.cQ(c1,c1,c1,c1,c1,$.aJC(),c1,c1,c1):new A.cQ(c1,c1,c1,c1,c1,$.aJB(),c1,c1,c1)
 b9=d?B.Qs:B.mG
 if(c5!=null)c5=c5.gkR()
-if(d2==null)d2=B.aa3
-if(d4==null)d4=B.ae9
+if(d2==null)d2=B.aa6
+if(d4==null)d4=B.aec
 if(k==null)k=n?B.dQ:B.h
 if(h==null){h=c9.y
 if(h.j(0,i))h=B.h}p=A.b05(c3)
 a1=A.b07(c2)
 t.Q6.a(c5)
 a2=c5==null?B.JH:c5
-c0=A.aHp(c1,p,a2,j===!0,B.JO,B.a7x,B.K6,B.K7,B.K8,B.Km,a8,c7,c8,B.M1,B.M2,B.M5,B.M6,c9,c1,B.O4,B.O5,k,B.Ok,a9,d0,B.On,B.Oo,B.Op,B.Pr,B.Pv,a1,B.Py,B.PA,c,b0,a7,b,B.PR,d1,h,B.R4,B.UP,s,B.a7B,B.a7C,B.a7D,B.Dh,B.a7S,B.a7U,B.a95,B.L5,c4,d2,i,e,f,b9,b8,B.aaa,B.aac,d3,B.aaY,B.aaZ,B.ab_,a6,B.ab0,B.m,B.acS,B.acX,b1,q,B.adf,B.adq,d4,B.aey,d5,B.aiS,B.aiT,B.aiY,b5,a5,d6,r)
+c0=A.aHp(c1,p,a2,j===!0,B.JO,B.a7A,B.K6,B.K7,B.K8,B.Km,a8,c7,c8,B.M1,B.M2,B.M5,B.M6,c9,c1,B.O4,B.O5,k,B.Ok,a9,d0,B.On,B.Oo,B.Op,B.Pr,B.Pv,a1,B.Py,B.PA,c,b0,a7,b,B.PR,d1,h,B.R4,B.US,s,B.a7E,B.a7F,B.a7G,B.Dh,B.a7V,B.a7X,B.a98,B.L5,c4,d2,i,e,f,b9,b8,B.aad,B.aaf,d3,B.ab0,B.ab1,B.ab2,a6,B.ab3,B.m,B.acV,B.ad_,b1,q,B.adi,B.adt,d4,B.aeB,d5,B.aiV,B.aiW,B.aj0,b5,a5,d6,r)
 return c0},
 aHp(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,c0,c1,c2,c3,c4,c5,c6,c7,c8,c9,d0,d1,d2,d3,d4,d5,d6,d7,d8,d9,e0,e1,e2,e3,e4,e5,e6,e7,e8,e9,f0,f1,f2,f3,f4,f5,f6,f7,f8,f9,g0,g1,g2,g3){return new A.iJ(d,s,b1,b,c1,c3,d1,d2,e2,f1,!0,g3,l,m,r,a4,a5,b4,b5,b6,b7,d4,d5,d6,e1,e5,e7,f0,g1,b9,d7,d8,f6,g0,a,c,e,f,g,h,i,k,n,o,p,q,a0,a1,a3,a6,a7,a8,a9,b0,b2,b3,b8,c2,c4,c5,c6,c7,c8,c9,d0,d3,d9,e0,e3,e4,e6,e8,e9,f2,f3,f4,f5,f7,f8,f9,j,a2,c0)},
 b04(){var s=null
@@ -15252,7 +15252,7 @@ if(s==null)s=a.c4.c
 return new A.PS(a,b,B.oz,b.a,b.b,b.c,b.d,b.e,b.f,s,b.w)},
 b0p(a){var s
 A:{if(B.a7===a||B.L===a||B.bO===a){s=B.fq
-break A}if(B.bv===a||B.aZ===a||B.bw===a){s=B.ak9
+break A}if(B.bv===a||B.aZ===a||B.bw===a){s=B.akc
 break A}s=null}return s},
 b0q(a,b,c){var s,r
 if(a===b)return a
@@ -15532,21 +15532,21 @@ _.w=h
 _.x=i
 _.y=j},
 a4o:function a4o(){},
-b0i(a){return A.aOc(a,null,null,B.aiI,B.aiB,B.aiD)},
-aOc(a,b,c,d,e,f){switch(a){case B.L:b=B.aiy
-c=B.aiG
+b0i(a){return A.aOc(a,null,null,B.aiL,B.aiE,B.aiG)},
+aOc(a,b,c,d,e,f){switch(a){case B.L:b=B.aiB
+c=B.aiJ
 break
-case B.a7:case B.bO:b=B.aiL
-c=B.aiE
+case B.a7:case B.bO:b=B.aiO
+c=B.aiH
 break
-case B.bw:b=B.aiJ
-c=B.aiC
+case B.bw:b=B.aiM
+c=B.aiF
 break
-case B.aZ:b=B.aiM
-c=B.aiA
+case B.aZ:b=B.aiP
+c=B.aiD
 break
-case B.bv:b=B.aiz
-c=B.aiK
+case B.bv:b=B.aiC
+c=B.aiN
 break
 case null:case void 0:break}b.toString
 c.toString
@@ -18191,7 +18191,7 @@ a5C:function a5C(){},
 aZG(a,b,c,d){var s,r,q,p,o=a.b
 o.toString
 s=t.ot.a(o).b
-if(s==null)o=B.a9X
+if(s==null)o=B.aa_
 else{o=c.$2(a,b)
 r=s.b
 q=s.c
@@ -19013,7 +19013,7 @@ else s=!0
 if(s)return c===B.j?new A.f(a.a,r):new A.f(a.c,r)
 else{s=a.d
 return c===B.j?new A.f(a.c,s):new A.f(a.a,s)}},
-Dp(a,b){return new A.Dn(a,b==null?B.oe:b,B.ab2)},
+Dp(a,b){return new A.Dn(a,b==null?B.oe:b,B.ab5)},
 Do(a,b){return new A.Dn(a,b==null?B.oe:b,B.dx)},
 o1:function o1(a,b){this.a=a
 this.b=b},
@@ -19779,10 +19779,10 @@ this.c=b},
 acn:function acn(){},
 aLY(a,b,c,d,e){return new A.q2(c,b,null,e,d)},
 aLX(a,b,c,d,e){return new A.uK(d,c,a,e,!1)},
-aXL(a){var s,r,q=a.d,p=B.a7w.h(0,q)
+aXL(a){var s,r,q=a.d,p=B.a7z.h(0,q)
 if(p==null)p=new A.o(q)
 q=a.e
-s=B.a5Q.h(0,q)
+s=B.a5T.h(0,q)
 if(s==null)s=new A.h(q)
 r=a.a
 switch(a.b.a){case 0:return new A.ly(p,s,a.f,r,a.r)
@@ -19893,14 +19893,14 @@ r.toString
 A.eT(r)
 q=a.h(0,"swipeEdge")
 q.toString
-return new A.nP(s,r,B.a_f[A.fe(q)])},
+return new A.nP(s,r,B.a_h[A.fe(q)])},
 E_:function E_(a,b){this.a=a
 this.b=b},
 nP:function nP(a,b,c){this.a=a
 this.b=b
 this.c=c},
 aKN(){var s=new A.a9s()
-s.a=B.a8W
+s.a=B.a8Z
 return s},
 qV:function qV(a,b){this.a=a
 this.b=b},
@@ -20090,17 +20090,17 @@ if(n==null)n=-1
 s=A.hs(a.h(0,"composingExtent"))
 return new A.cE(o,p,new A.bl(n,s==null?-1:s))},
 b46(a){var s
-A:{if("TextInputAction.none"===a){s=B.aef
-break A}if("TextInputAction.unspecified"===a){s=B.aeg
-break A}if("TextInputAction.go"===a){s=B.aej
-break A}if("TextInputAction.search"===a){s=B.aek
-break A}if("TextInputAction.send"===a){s=B.ael
-break A}if("TextInputAction.next"===a){s=B.aem
-break A}if("TextInputAction.previous"===a){s=B.aen
-break A}if("TextInputAction.continueAction"===a){s=B.aeo
-break A}if("TextInputAction.join"===a){s=B.aep
-break A}if("TextInputAction.route"===a){s=B.aeh
-break A}if("TextInputAction.emergencyCall"===a){s=B.aei
+A:{if("TextInputAction.none"===a){s=B.aei
+break A}if("TextInputAction.unspecified"===a){s=B.aej
+break A}if("TextInputAction.go"===a){s=B.aem
+break A}if("TextInputAction.search"===a){s=B.aen
+break A}if("TextInputAction.send"===a){s=B.aeo
+break A}if("TextInputAction.next"===a){s=B.aep
+break A}if("TextInputAction.previous"===a){s=B.aeq
+break A}if("TextInputAction.continueAction"===a){s=B.aer
+break A}if("TextInputAction.join"===a){s=B.aes
+break A}if("TextInputAction.route"===a){s=B.aek
+break A}if("TextInputAction.emergencyCall"===a){s=B.ael
 break A}if("TextInputAction.done"===a){s=B.IB
 break A}if("TextInputAction.newline"===a){s=B.IA
 break A}s=A.a1(A.n4(A.b([A.k9("Unknown text input action: "+a)],t.E)))}return s},
@@ -20459,7 +20459,7 @@ if(s){s=B.cU.h(0,h)
 b=m.h(0,s==null?h:s)
 if(b!=null)g=b}}a=f==null?g:f
 return a==null?B.b.ga8(a2):a},
-b0v(){return B.a5S},
+b0v(){return B.a5V},
 EV:function EV(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,b0,b1){var _=this
 _.c=a
 _.d=b
@@ -21141,7 +21141,7 @@ au7:function au7(a){this.a=a},
 Jh:function Jh(){},
 Ji:function Ji(){},
 aWm(a){var s
-switch(a.al(t.I).w.a){case 0:s=B.a8H
+switch(a.al(t.I).w.a){case 0:s=B.a8K
 break
 case 1:s=B.f
 break
@@ -21605,7 +21605,7 @@ aWP(a,b){var s=A.a7(b).i("ag<1,dA>")
 s=A.ac(new A.ag(b,new A.ab6(),s),s.i("aw.E"))
 return A.aWd(!0,s,a,B.a1_,!0,B.Oj,null)},
 aGk(a){var s
-try{a.e4()}catch(s){a.Sb()}a.w=B.amg
+try{a.e4()}catch(s){a.Sb()}a.w=B.amj
 try{a.bJ(A.b5e())}catch(s){}},
 aWN(a){a.bz()
 a.bJ(A.aQU())},
@@ -22668,7 +22668,7 @@ t.Dn.a(a)
 s=J.bB(a)
 r=s.h(a,0)
 r.toString
-switch(B.W6[A.fe(r)].a){case 0:s=s.hS(a,1)
+switch(B.W9[A.fe(r)].a){case 0:s=s.hS(a,1)
 r=s[0]
 r.toString
 A.fe(r)
@@ -22851,11 +22851,11 @@ l=b.b-m-a.a9(B.N,s,a.gc7()).b
 break A}l=d.jf(t.o.a(b.Z(0,a.a9(B.N,s,a.gc7())))).b
 break A}return r+l},
 b1n(a){return a.aE()},
-aYO(a,b,c){return new A.BW(b,new A.aj_(c),a,B.a96,null)},
+aYO(a,b,c){return new A.BW(b,new A.aj_(c),a,B.a99,null)},
 b1m(a,b){var s,r=A.aP1(a,!0,b)
 if(r!=null)return r
 s=A.b([A.k9("No Overlay widget found."),A.bv(A.p(a.gkk()).k(0)+" widgets require an Overlay widget ancestor.\nAn overlay lets widgets float on top of other widget children."),A.A0("To introduce an Overlay widget, you can either directly include one, or use a widget that contains an Overlay itself, such as a Navigator, WidgetApp, MaterialApp, or CupertinoApp.")],t.E)
-B.b.a0(s,a.arh(B.ajr))
+B.b.a0(s,a.arh(B.aju))
 throw A.i(A.n4(s))},
 aP1(a,b,c){var s,r,q
 if(c){s=t.pR
@@ -23439,7 +23439,7 @@ xC:function xC(){},
 v_(a,b,c){var s=A.ba(a,b,t.Ye)
 s=s==null?null:s.Q
 return c.i("ec<0>?").a(s)},
-aMp(a){var s=A.v_(a,B.amI,t.X)
+aMp(a){var s=A.v_(a,B.amL,t.X)
 return s==null?null:s.gjB()},
 v5:function v5(){},
 ei:function ei(){},
@@ -24629,7 +24629,7 @@ nT:function nT(){},
 oh:function oh(){},
 of:function of(){},
 aNo(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,a0,a1,a2,a3,a4,a5,a6,a7){var s=$.ay()
-return new A.TZ(b,new A.cb(B.a5L,s),new A.qd(),j,a3,i,a4,p,q,o,f,h,g,l,m,k,a7,a1,c,a5,a2,e,r,a0,d,n,a,a6,new A.LF(),new A.LF())},
+return new A.TZ(b,new A.cb(B.a5O,s),new A.qd(),j,a3,i,a4,p,q,o,f,h,g,l,m,k,a7,a1,c,a5,a2,e,r,a0,d,n,a,a6,new A.LF(),new A.LF())},
 aP5(a,b,c,d,e,f,g,h,i,j){return new A.HT(b,f,d,e,c,h,j,g,i,a,null)},
 fy:function fy(a,b,c){var _=this
 _.e=!1
@@ -24721,7 +24721,7 @@ iH:function iH(){},
 JB:function JB(){},
 JC:function JC(){},
 aNX(a,b,c,d){var s,r,q,p,o=A.aNZ(b,d,a,c)
-if(o.j(0,B.W))return B.aez
+if(o.j(0,B.W))return B.aeC
 s=A.aNY(b)
 r=o.a
 r+=(o.c-r)/2
@@ -25645,115 +25645,115 @@ RD:function RD(a,b){this.a=a
 this.x=b},
 RE:function RE(a,b){this.a=a
 this.x=b},
-b5n(a){switch(a.gcz()){case"af":return B.akb
-case"am":return B.akc
-case"ar":return B.akd
-case"as":return B.ake
-case"az":return B.akf
-case"be":return B.akg
-case"bg":return B.akh
-case"bn":return B.aki
-case"bs":return B.akj
-case"ca":return B.akk
-case"cs":return B.akl
-case"cy":return B.akm
-case"da":return B.akn
-case"de":switch(a.gdK()){case"CH":return B.ako}return B.akp
-case"el":return B.akq
-case"en":switch(a.gdK()){case"AU":return B.akr
-case"CA":return B.aks
-case"GB":return B.akt
-case"IE":return B.aku
-case"IN":return B.akv
-case"NZ":return B.akw
-case"SG":return B.akx
-case"ZA":return B.aky}return B.akz
-case"es":switch(a.gdK()){case"419":return B.akA
-case"AR":return B.akB
-case"BO":return B.akC
-case"CL":return B.akD
-case"CO":return B.akE
-case"CR":return B.akF
-case"DO":return B.akG
-case"EC":return B.akH
-case"GT":return B.akI
-case"HN":return B.akJ
-case"MX":return B.akK
-case"NI":return B.akL
-case"PA":return B.akM
-case"PE":return B.akN
-case"PR":return B.akO
-case"PY":return B.akP
-case"SV":return B.akQ
-case"US":return B.akR
-case"UY":return B.akS
-case"VE":return B.akT}return B.akU
-case"et":return B.akV
-case"eu":return B.akW
-case"fa":return B.akX
-case"fi":return B.akY
-case"fil":return B.akZ
-case"fr":switch(a.gdK()){case"CA":return B.al_}return B.al0
-case"gl":return B.al1
-case"gsw":return B.al2
-case"gu":return B.al3
-case"he":return B.al4
-case"hi":return B.al5
-case"hr":return B.al6
-case"hu":return B.al7
-case"hy":return B.al8
-case"id":return B.al9
-case"is":return B.ala
-case"it":return B.alb
-case"ja":return B.alc
-case"ka":return B.ald
-case"kk":return B.ale
-case"km":return B.alf
-case"kn":return B.alg
-case"ko":return B.alh
-case"ky":return B.ali
-case"lo":return B.alj
-case"lt":return B.alk
-case"lv":return B.all
-case"mk":return B.alm
-case"ml":return B.aln
-case"mn":return B.alo
-case"mr":return B.alp
-case"ms":return B.alq
-case"my":return B.alr
-case"nb":return B.als
-case"ne":return B.alt
-case"nl":return B.alu
-case"no":return B.alv
-case"or":return B.alw
-case"pa":return B.alx
-case"pl":return B.aly
-case"ps":return B.alz
-case"pt":switch(a.gdK()){case"PT":return B.alA}return B.alB
-case"ro":return B.alC
-case"ru":return B.alD
-case"si":return B.alE
-case"sk":return B.alF
-case"sl":return B.alG
-case"sq":return B.alH
-case"sr":switch(a.b){case"Cyrl":return B.alI
-case"Latn":return B.alJ}return B.alK
-case"sv":return B.alL
-case"sw":return B.alM
-case"ta":return B.alN
-case"te":return B.alO
-case"th":return B.alP
-case"tl":return B.alQ
-case"tr":return B.alR
-case"uk":return B.alS
-case"ur":return B.alT
-case"uz":return B.alU
-case"vi":return B.alV
-case"zh":switch(a.b){case"Hans":return B.alW
+b5n(a){switch(a.gcz()){case"af":return B.ake
+case"am":return B.akf
+case"ar":return B.akg
+case"as":return B.akh
+case"az":return B.aki
+case"be":return B.akj
+case"bg":return B.akk
+case"bn":return B.akl
+case"bs":return B.akm
+case"ca":return B.akn
+case"cs":return B.ako
+case"cy":return B.akp
+case"da":return B.akq
+case"de":switch(a.gdK()){case"CH":return B.akr}return B.aks
+case"el":return B.akt
+case"en":switch(a.gdK()){case"AU":return B.aku
+case"CA":return B.akv
+case"GB":return B.akw
+case"IE":return B.akx
+case"IN":return B.aky
+case"NZ":return B.akz
+case"SG":return B.akA
+case"ZA":return B.akB}return B.akC
+case"es":switch(a.gdK()){case"419":return B.akD
+case"AR":return B.akE
+case"BO":return B.akF
+case"CL":return B.akG
+case"CO":return B.akH
+case"CR":return B.akI
+case"DO":return B.akJ
+case"EC":return B.akK
+case"GT":return B.akL
+case"HN":return B.akM
+case"MX":return B.akN
+case"NI":return B.akO
+case"PA":return B.akP
+case"PE":return B.akQ
+case"PR":return B.akR
+case"PY":return B.akS
+case"SV":return B.akT
+case"US":return B.akU
+case"UY":return B.akV
+case"VE":return B.akW}return B.akX
+case"et":return B.akY
+case"eu":return B.akZ
+case"fa":return B.al_
+case"fi":return B.al0
+case"fil":return B.al1
+case"fr":switch(a.gdK()){case"CA":return B.al2}return B.al3
+case"gl":return B.al4
+case"gsw":return B.al5
+case"gu":return B.al6
+case"he":return B.al7
+case"hi":return B.al8
+case"hr":return B.al9
+case"hu":return B.ala
+case"hy":return B.alb
+case"id":return B.alc
+case"is":return B.ald
+case"it":return B.ale
+case"ja":return B.alf
+case"ka":return B.alg
+case"kk":return B.alh
+case"km":return B.ali
+case"kn":return B.alj
+case"ko":return B.alk
+case"ky":return B.all
+case"lo":return B.alm
+case"lt":return B.aln
+case"lv":return B.alo
+case"mk":return B.alp
+case"ml":return B.alq
+case"mn":return B.alr
+case"mr":return B.als
+case"ms":return B.alt
+case"my":return B.alu
+case"nb":return B.alv
+case"ne":return B.alw
+case"nl":return B.alx
+case"no":return B.aly
+case"or":return B.alz
+case"pa":return B.alA
+case"pl":return B.alB
+case"ps":return B.alC
+case"pt":switch(a.gdK()){case"PT":return B.alD}return B.alE
+case"ro":return B.alF
+case"ru":return B.alG
+case"si":return B.alH
+case"sk":return B.alI
+case"sl":return B.alJ
+case"sq":return B.alK
+case"sr":switch(a.b){case"Cyrl":return B.alL
+case"Latn":return B.alM}return B.alN
+case"sv":return B.alO
+case"sw":return B.alP
+case"ta":return B.alQ
+case"te":return B.alR
+case"th":return B.alS
+case"tl":return B.alT
+case"tr":return B.alU
+case"uk":return B.alV
+case"ur":return B.alW
+case"uz":return B.alX
+case"vi":return B.alY
+case"zh":switch(a.b){case"Hans":return B.alZ
 case"Hant":switch(a.gdK()){case"HK":return B.J5
-case"TW":return B.J6}return B.alX}switch(a.gdK()){case"HK":return B.J5
-case"TW":return B.J6}return B.alY
-case"zu":return B.alZ}return null},
+case"TW":return B.J6}return B.am_}switch(a.gdK()){case"HK":return B.J5
+case"TW":return B.J6}return B.am0
+case"zu":return B.am1}return null},
 VC:function VC(a){this.a=a},
 VD:function VD(a){this.a=a},
 VE:function VE(a){this.a=a},
@@ -27041,7 +27041,7 @@ i.b_()
 i.a8r(h,h,r)
 s.ch$!==$&&A.ak()
 s.ch$=i
-j=i}s.a37(new A.EP(p,B.a9i,o,j,h))
+j=i}s.a37(new A.EP(p,B.a9l,o,j,h))
 s.OS()},
 aI7(a,b,c){var s=null,r=A.E9(B.T,s,s,s,s,s,s,s,s,s,s,s,B.Pm,s,s,s,s,B.hn,s,s)
 return A.iG(A.Z(a,s,s,s,A.bc().$1$fontSize(c),B.dA,s),b,r)},
@@ -27331,8 +27331,8 @@ aF8(a){return A.b([new A.f7(B.m,new A.f(1,1+a),0),new A.f7(B.m.an(0.92),new A.f(
 a6s(a,b,c){return new A.wY(a,A.bc().$4$fontSize$fontWeight$height$letterSpacing(b,B.dU,1.12,-0.5),c,new A.aF5(),0.75,B.ey,null)},
 b5W(a,b,c){return new A.wY(a,A.bc().$4$fontSize$fontWeight$height$letterSpacing(b,B.dU,1.1,-0.2),c,new A.aF7(),0.7,B.cr,null)},
 aR7(a,b,c){return new A.wY(a,A.bc().$4$fontSize$fontWeight$height$letterSpacing(b,B.dU,1.1,0.5),c,new A.aF6(),0.65,B.pA,null)},
-aR8(a,b){var s=null,r=A.dm(14),q=A.b([new A.cs(0,B.b0,B.cr.an(0.45),B.a8j,20),new A.cs(0,B.b0,B.m.an(0.6),B.Dk,10)],t.sq),p=t.W
-return A.fj(A.Lr(A.dm(11),A.fw(B.bD,A.b([A.ajZ(0,A.dW(s,new A.bP(s,s,s,s,s,new A.eb(B.cG,B.dc,B.an,A.b([B.h,B.im,B.NF],p),s,s),B.U),B.au)),A.ix(s,A.dW(s,new A.bP(s,s,s,s,s,new A.eb(B.dd,B.dF,B.an,A.b([B.h.an(0.75),B.h.an(0.12)],p),s,s),B.U),B.au),26,s,0,0,0,s),A.fs(!1,B.a0,!0,s,A.pX(!1,s,!0,new A.bt(B.qr,A.dV(A.Z(a,s,s,s,A.bc().$3$color$fontWeight$shadows(B.cO,B.aR,A.b([new A.f7(B.h.an(0.9),B.a8w,0)],t.kO)),s,s),s,s),s),s,!0,s,s,s,s,s,s,s,s,b,s,s,s,s,s,s,s),B.z,B.p,0,s,s,s,s,s,B.bT)],t.p),B.Z,B.bW)),B.z,new A.bP(s,s,s,r,q,B.rl,B.U),s,s,B.Pi,s)},
+aR8(a,b){var s=null,r=A.dm(14),q=A.b([new A.cs(0,B.b0,B.cr.an(0.45),B.a8m,20),new A.cs(0,B.b0,B.m.an(0.6),B.Dk,10)],t.sq),p=t.W
+return A.fj(A.Lr(A.dm(11),A.fw(B.bD,A.b([A.ajZ(0,A.dW(s,new A.bP(s,s,s,s,s,new A.eb(B.cG,B.dc,B.an,A.b([B.h,B.im,B.NF],p),s,s),B.U),B.au)),A.ix(s,A.dW(s,new A.bP(s,s,s,s,s,new A.eb(B.dd,B.dF,B.an,A.b([B.h.an(0.75),B.h.an(0.12)],p),s,s),B.U),B.au),26,s,0,0,0,s),A.fs(!1,B.a0,!0,s,A.pX(!1,s,!0,new A.bt(B.qr,A.dV(A.Z(a,s,s,s,A.bc().$3$color$fontWeight$shadows(B.cO,B.aR,A.b([new A.f7(B.h.an(0.9),B.a8z,0)],t.kO)),s,s),s,s),s),s,!0,s,s,s,s,s,s,s,s,b,s,s,s,s,s,s,s),B.z,B.p,0,s,s,s,s,s,B.bT)],t.p),B.Z,B.bW)),B.z,new A.bP(s,s,s,r,q,B.rl,B.U),s,s,B.Pi,s)},
 RN:function RN(a){this.a=a},
 Bw:function Bw(a,b,c,d){var _=this
 _.c=a
@@ -28032,7 +28032,7 @@ case 2:case 3:case 4:case 5:q=A.dd(null,t.H)
 s=1
 break A}case 1:return A.P(q,r)}})
 return A.Q($async$Oj,r)},
-aGn(a){a.ga5().tK(B.a5K)
+aGn(a){a.ga5().tK(B.a5N)
 switch(A.al().a){case 0:case 1:return A.adj()
 case 2:return A.ja(A.b([A.E3(B.In),A.adi()],t.mo),t.H)
 case 3:case 4:case 5:return A.dd(null,t.H)}},
@@ -28100,7 +28100,7 @@ adr(a){var s=a/100
 return(s<=0.0031308?s*12.92:1.055*Math.pow(s,0.4166666666666667)-0.055)*255},
 aGy(a){var s=Math.pow(Math.abs(a),0.42)
 return A.qj(a)*400*s/(s+27.13)},
-aGz(a){var s=A.ny(a,B.a39),r=A.aGy(s[0]),q=A.aGy(s[1]),p=A.aGy(s[2])
+aGz(a){var s=A.ny(a,B.a3a),r=A.aGy(s[0]),q=A.aGy(s[1]),p=A.aGy(s[2])
 return Math.atan2((r+q-2*p)/9,(11*r+-12*q+p)/11)},
 aXt(a,b){var s,r,q,p,o,n=B.k.bD(b,4)<=1?0:100,m=(b&1)===0?0:100
 if(b<4){s=(a-n*0.7152-m*0.0722)/0.2126
@@ -28135,7 +28135,7 @@ if(q!==p){if(q<p){o=B.d.hh(A.adr(q)-0.5)
 n=B.d.oF(A.adr(a[r])-0.5)}else{o=B.d.oF(A.adr(q)-0.5)
 n=B.d.hh(A.adr(a[r])-0.5)}for(m=0;m<8;++m)if(Math.abs(n-o)<=1)break
 else{l=B.d.hh((o+n)/2)
-k=B.a4c[l]
+k=B.a4f[l]
 q=c[r]
 j=(k-q)/(a[r]-q)
 q=c[0]
@@ -28159,7 +28159,7 @@ j=23*(k+0.305)*l/(a1+11*l*a3+108*l*a2)
 i=j*a3
 h=j*a2
 g=460*k
-f=A.ny(A.b([A.aGA((g+451*i+288*h)/1403),A.aGA((g-891*i-261*h)/1403),A.aGA((g-220*i-6300*h)/1403)],p),B.V1)
+f=A.ny(A.b([A.aGA((g+451*i+288*h)/1403),A.aGA((g-891*i-261*h)/1403),A.aGA((g-220*i-6300*h)/1403)],p),B.V4)
 g=f[0]
 if(g<0||f[1]<0||f[2]<0)return 0
 e=f[1]
@@ -28327,7 +28327,7 @@ r=B.c.jy(a,b,r+1)}return null},
 b4K(a){switch(a.a){case 0:return B.nr
 case 2:return B.Hb
 case 1:return B.Ha
-case 3:return B.aa9
+case 3:return B.aac
 case 4:return B.Hc}},
 xR(a,b,c){var s=0,r=A.R(t.y),q,p
 var $async$xR=A.N(function(d,e){if(d===1)return A.O(e,r)
@@ -28584,7 +28584,7 @@ $1(a){this.a.b=A.aRk(a.getOutputBounds(A.cF(this.b)))},
 $S:2}
 A.tV.prototype={
 gaic(){var s,r,q=new Float32Array(20)
-for(s=this.a,r=0;r<20;++r)if(B.b.q(B.VT,r))q[r]=s[r]/255
+for(s=this.a,r=0;r<20;++r)if(B.b.q(B.VW,r))q[r]=s[r]/255
 else q[r]=s[r]
 return q},
 uv(){return $.aW.bk().ColorFilter.MakeMatrix(this.gaic())},
@@ -28790,7 +28790,7 @@ t.hA.a(o)
 n=n.MakeFreeTypeFaceFromData(o)
 if(n==null){$.dS().$1("Failed to parse fallback font "+a+" as a font.")
 s=1
-break}p.a.e.push(A.aH8(B.a7O.Jq(o),a,n))
+break}p.a.e.push(A.aH8(B.a7R.Jq(o),a,n))
 case 1:return A.P(q,r)}})
 return A.Q($async$CD,r)}}
 A.Lh.prototype={
@@ -29458,7 +29458,7 @@ l.push(new A.e1(n[0],n[1],n[2],n[3],B.mO[m]))}return l},
 d7(a){var s,r,q=this.a
 q===$&&A.a()
 s=q.a.getGlyphPositionAtCoordinate(a.a,a.b)
-r=B.a_l[J.ao(s.affinity.value)]
+r=B.a_n[J.ao(s.affinity.value)]
 return new A.ai(J.ao(s.pos),r)},
 Ot(a){var s=this.a
 s===$&&A.a()
@@ -29748,10 +29748,10 @@ k(a){return A.nk(this.a,"[","]")}}
 A.mQ.prototype={}
 A.dz.prototype={
 p7(a){return a instanceof A.dz},
-k(a){return B.aj6.k(0)+"("+this.b.length+" pictures)"}}
+k(a){return B.aj9.k(0)+"("+this.b.length+" pictures)"}}
 A.lh.prototype={
 p7(a){return a instanceof A.lh&&a.a===this.a},
-k(a){return B.aj7.k(0)+"("+this.a+")"}}
+k(a){return B.aja.k(0)+"("+this.a+")"}}
 A.NX.prototype={
 gap1(){var s,r=this,q=r.b
 if(q===$){s=r.a.$0()
@@ -29960,7 +29960,7 @@ A.pc.prototype={
 M(){return"CanvasKitVariant."+this.b}}
 A.abY.prototype={
 gn5(){var s=this.b,r=s==null?null:s.canvasKitVariant
-return A.aWY(B.a_Q,r==null?"auto":r)},
+return A.aWY(B.a_R,r==null?"auto":r)},
 gJF(){var s,r=this.b
 if(r==null)s=null
 else{r=r.canvasKitMaximumSurfaces
@@ -30104,7 +30104,7 @@ $2(a,b){this.a.$2(B.b.dS(a,t.m),b)},
 $S:289}
 A.aE5.prototype={
 $1(a){var s=A.ej(a,0,null)
-if(B.abE.q(0,B.b.gaF(s.gwP())))return s.k(0)
+if(B.abH.q(0,B.b.gaF(s.gwP())))return s.k(0)
 v.G.window.console.error("URL rejected by TrustedTypes policy flutter-engine: "+a+"(download prevented)")
 return null},
 $S:344}
@@ -30829,7 +30829,7 @@ A.af0.prototype={
 $0(){this.a.f.I(0,this.b)},
 $S:0}
 A.aeU.prototype={
-$0(){var s,r,q,p,o,n,m=this,l=m.b,k=B.a5W.h(0,l)
+$0(){var s,r,q,p,o,n,m=this,l=m.b,k=B.a5Z.h(0,l)
 if(k!=null)return k
 s=m.c
 r=s.a
@@ -31034,7 +31034,7 @@ s=A.lA()
 s.o_(o,p,0)
 r=this.a.a
 r.push(A.aGW(s))
-r.push(new A.it(B.a7N,q,q,q,q,a.f))
+r.push(new A.it(B.a7Q,q,q,q,q,a.f))
 a.b=this.md(a)
 r.pop()
 r.pop()
@@ -31569,7 +31569,7 @@ Nb(a){var s,r=this,q="flutter/navigation"
 if(A.aNv(a)){s=r.d
 s.toString
 r.W9(s)
-$.aY().jA(q,B.bG.ka(B.a7J),new A.aoq())}else if(A.aHh(a))$.aY().jA(q,B.bG.ka(new A.iq("pushRoute",r.e)),new A.aor())
+$.aY().jA(q,B.bG.ka(B.a7M),new A.aoq())}else if(A.aHh(a))$.aY().jA(q,B.bG.ka(new A.iq("pushRoute",r.e)),new A.aor())
 else{r.e=r.gn6()
 r.d.xz(-1)}},
 Wa(a,b){var s=b?a.gaxp():a.gawJ()
@@ -31796,7 +31796,7 @@ switch(s.a){case"activateSystemCursor":q=a.gdn().b
 q=A.aLM(new A.bj(q,A.m(q).i("bj<2>")))
 if(q!=null){if(q.w===$){q.gfm()
 q.w!==$&&A.ak()
-q.w=new A.ai7()}h=B.a5X.h(0,A.d8(m.h(0,"kind")))
+q.w=new A.ai7()}h=B.a6_.h(0,A.d8(m.h(0,"kind")))
 if(h==null)h="default"
 q=v.G
 if(h==="default")q.document.body.style.removeProperty("cursor")
@@ -31817,7 +31817,7 @@ if(e.b){q=t.f
 d=q.a(q.a(B.cI.hF(a2)).h(0,"data"))
 c=A.d8(d.h(0,"message"))
 if(c!=null&&c.length!==0){b=A.aGK(d,"assertiveness")
-e.a.Yo(c,B.X9[b==null?0:b])}}a.fp(a3,B.cI.cA(!0))
+e.a.Yo(c,B.Xg[b==null?0:b])}}a.fp(a3,B.cI.cA(!0))
 return
 case"flutter/navigation":q=a.gdn().b
 p=t.e8
@@ -32175,7 +32175,7 @@ q=s}return q},
 Td(a){var s,r=this,q=r.Y1(a),p=r.c
 if(q==p)return
 if(q==null){p.toString
-s=new A.wm(p,B.ak8,B.ak6)}else s=new A.wm(q,B.ot,r.d)
+s=new A.wm(p,B.akb,B.ak9)}else s=new A.wm(q,B.ot,r.d)
 r.IO(p,!0)
 r.IO(q,!1)
 r.c=q
@@ -32205,7 +32205,7 @@ $S:2}
 A.aqT.prototype={
 $1(a){var s=!1
 if(A.fp(a,"KeyboardEvent")){s=a.shiftKey
-if(s==null)s=!1}if(s)this.a.d=B.ak7},
+if(s==null)s=!1}if(s)this.a.d=B.aka},
 $S:2}
 A.aqU.prototype={
 $1(a){this.a.d=B.J3},
@@ -32749,7 +32749,7 @@ c=d?g.gcG():e
 g=d?g.gcG():e
 e=a0.buttons
 e.toString
-o.apY(j,J.ao(e),B.eb,r,s,h*c,i.b*g,1,1,Math.exp(-p/200),B.aa0,k,m)}else{k=a0.timeStamp
+o.apY(j,J.ao(e),B.eb,r,s,h*c,i.b*g,1,1,Math.exp(-p/200),B.aa3,k,m)}else{k=a0.timeStamp
 k.toString
 k=A.wu(k)
 g=$.da()
@@ -32759,7 +32759,7 @@ c=d?g.gcG():e
 g=d?g.gcG():e
 e=a0.buttons
 e.toString
-o.aq_(j,J.ao(e),B.eb,r,s,new A.aCN(b),h*c,i.b*g,1,1,q,p,B.aa_,k,m)}b.c=a0
+o.aq_(j,J.ao(e),B.eb,r,s,new A.aCN(b),h*c,i.b*g,1,1,q,p,B.aa2,k,m)}b.c=a0
 b.d=s===B.bc
 return j},
 agH(a){var s=this,r=$.bU
@@ -32779,7 +32779,7 @@ a33(a,b){var s
 if(this.a!==0)return this.OO(b)
 s=(b===0&&a>-1?A.b4I(a):b)&1073741823
 this.a=s
-return new A.kX(B.a9Z,s)},
+return new A.kX(B.aa1,s)},
 OO(a){var s=a&1073741823,r=this.a
 if(r===0&&s!==0)return new A.kX(B.eb,r)
 this.a=s
@@ -32989,7 +32989,7 @@ p.toString
 if(c===B.H7){g=p.b
 h=p.c}if(n.Hk(d,g,h))a.push(n.mX(s.b,B.kc,d,0,0,e,!1,0,g,h,0,i,j,0,0,0,0,0,k,l,m,0,a1,a2,a3))
 a.push(n.qB(b,c,d,0,0,e,!1,0,g,h,0,i,j,0,0,0,0,0,k,l,m,a0,0,a1,a2,a3))
-if(e===B.ao){a.push(n.mX(0,B.a9Y,d,0,0,e,!1,0,g,h,0,0,j,0,0,0,0,0,k,l,m,0,a1,a2,a3))
+if(e===B.ao){a.push(n.mX(0,B.aa0,d,0,0,e,!1,0,g,h,0,0,j,0,0,0,0,0,k,l,m,0,a1,a2,a3))
 q.I(0,d)}break
 case 2:s=$.l3().a
 o=s.h(0,d)
@@ -33245,7 +33245,7 @@ if((q.x1&1)!==0){s=q.a.b
 if(s!==B.R){q=q.p4
 q===$&&A.a()
 r=s===B.aM
-q=B.abP.q(0,q)
+q=B.abS.q(0,q)
 s=this.b.a
 if(q){s===$&&A.a()
 q=A.aa(r)
@@ -34733,7 +34733,7 @@ acQ(){var s=this,r=s.r
 if(r==null){r=s.r=new A.Kp(s.c)
 r.d=new A.abE(s)}return r},
 NE(a){var s,r,q,p,o,n,m=this
-if(B.b.q(B.a3N,a.type)){s=m.acQ()
+if(B.b.q(B.a3P,a.type)){s=m.acQ()
 s.toString
 r=m.c.$0()
 q=r.b
@@ -34924,7 +34924,7 @@ DH(a){var s
 if(this.b==null)return!0
 s=$.bU
 if((s==null?$.bU=A.dY():s).b)return!0
-if(!B.abH.q(0,a.type))return!0
+if(!B.abK.q(0,a.type))return!0
 if(!J.d(a.target,this.b))return!0
 s=$.bU;(s==null?$.bU=A.dY():s).sEj(!0)
 this.l()
@@ -34964,7 +34964,7 @@ if(i.e){if($.bu().geI()!==B.c9||J.d(a.type,"touchend")||J.d(a.type,"pointerup")|
 return!0}s=$.bU
 if((s==null?$.bU=A.dY():s).b)return!0
 if(++i.d>=20)return i.e=!0
-if(!B.abO.q(0,a.type))return!0
+if(!B.abR.q(0,a.type))return!0
 if(i.b!=null)return!1
 r=A.jG("activationPoint")
 switch(a.type){case"click":r.se6(new A.zK(a.offsetX,a.offsetY))
@@ -36236,7 +36236,7 @@ m=A.hs(s.h(0,"fontWeightIndex"))
 l=m!=null?A.aIA(m):"normal"
 r=A.aI_(s.h(0,"fontSize"))
 if(r==null)r=null
-p=new A.apQ(new A.ab1(r,l,A.d8(s.h(0,"fontFamily")),B.WO[o],B.mO[n]))
+p=new A.apQ(new A.ab1(r,l,A.d8(s.h(0,"fontFamily")),B.WV[o],B.mO[n]))
 break
 case"TextInput.clearClient":p=B.Lf
 break
@@ -37383,7 +37383,7 @@ r.toString
 s=s.as
 if(s==null)s=1
 q=r/14*s
-for(s=[B.aed,B.fk,B.aec],r=b.a,p=b.b,o=r+(b.c-r),n=0;n<3;++n){m=s[n]
+for(s=[B.aeg,B.fk,B.aef],r=b.a,p=b.b,o=r+(b.c-r),n=0;n<3;++n){m=s[n]
 l=a.gbr().c.y.a
 if((l|m.a)!==l)continue
 k=this.apo(m,q,a.gbr().giP()+a.gbr().gpg(),a.gbr().giP())
@@ -37407,7 +37407,7 @@ break
 case 3:case 2:g=new Float32Array(2)
 i=a.gbr().c.Q
 i.toString
-g[0]=q*(i===B.aeb?1:4)
+g[0]=q*(i===B.aee?1:4)
 g[1]=q
 l.setLineDash(g)
 l.beginPath()
@@ -37644,7 +37644,7 @@ switch(a.b.a){case 0:s=a.a-1
 break
 case 1:s=a.a
 break
-default:s=null}if(s<0)return B.aex
+default:s=null}if(s<0)return B.aeA
 r=this.c.length
 if(s>=r)return new A.bl(r,r)
 q=this.giw().fv(s)
@@ -37680,13 +37680,13 @@ k.b.axr(s)
 for(s=this.giw(),r=s.e,q=r.length,p=b.a,o=b.b,n=0;n<r.length;r.length===q||(0,A.x)(r),++n){m=r[n]
 l=m.c
 l.k(0)
-k.UA(B.ada,a,s,m,p,o)
+k.UA(B.add,a,s,m,p,o)
 l.k(0)
-k.UB(B.adb,a,s,m,p,o)
+k.UB(B.ade,a,s,m,p,o)
 l.k(0)
-k.UB(B.add,a,s,m,p,o)
+k.UB(B.adg,a,s,m,p,o)
 l.k(0)
-k.UA(B.adc,a,s,m,p,o)}},
+k.UA(B.adf,a,s,m,p,o)}},
 tC(a){var s,r
 switch(a.b.a){case 0:s=a.a-1
 break
@@ -38248,7 +38248,7 @@ $ib9:1}
 J.AU.prototype={$iaJ:1}
 J.np.prototype={
 gB(a){return 0},
-gem(a){return B.ajl},
+gem(a){return B.ajo},
 k(a){return String(a)}}
 J.Sx.prototype={}
 J.m8.prototype={}
@@ -39662,7 +39662,7 @@ if(r.b!==r)throw A.i(new A.je("Local '' has been assigned during initialization.
 r.b=s
 q=s}return q}}
 A.v1.prototype={
-gem(a){return B.aj4},
+gem(a){return B.aj7},
 AH(a,b,c){A.my(a,b,c)
 return c==null?new Uint8Array(a,b):new Uint8Array(a,b,c)},
 Jq(a){return this.AH(a,0,null)},
@@ -39707,7 +39707,7 @@ return s},
 Yv(a){return this.AG(0,0,null)},
 $ik0:1}
 A.BD.prototype={
-gem(a){return B.aj5},
+gem(a){return B.aj8},
 gZV(a){return 1},
 Oy(a,b,c){throw A.i(A.bR("Int64 accessor not supported by dart2js."))},
 P4(a,b,c,d){throw A.i(A.bR("Int64 accessor not supported by dart2js."))},
@@ -39747,19 +39747,19 @@ $iaI:1,
 $iy:1,
 $iV:1}
 A.BE.prototype={
-gem(a){return B.ajf},
+gem(a){return B.aji},
 cU(a,b,c){return new Float32Array(a.subarray(b,A.oN(b,c,a.length)))},
 hS(a,b){return this.cU(a,b,null)},
 $icB:1,
 $iabS:1}
 A.BF.prototype={
-gem(a){return B.ajg},
+gem(a){return B.ajj},
 cU(a,b,c){return new Float64Array(a.subarray(b,A.oN(b,c,a.length)))},
 hS(a,b){return this.cU(a,b,null)},
 $icB:1,
 $iabT:1}
 A.RR.prototype={
-gem(a){return B.aji},
+gem(a){return B.ajl},
 h(a,b){A.mx(b,a,a.length)
 return a[b]},
 cU(a,b,c){return new Int16Array(a.subarray(b,A.oN(b,c,a.length)))},
@@ -39767,7 +39767,7 @@ hS(a,b){return this.cU(a,b,null)},
 $icB:1,
 $iaeu:1}
 A.BG.prototype={
-gem(a){return B.ajj},
+gem(a){return B.ajm},
 h(a,b){A.mx(b,a,a.length)
 return a[b]},
 cU(a,b,c){return new Int32Array(a.subarray(b,A.oN(b,c,a.length)))},
@@ -39775,7 +39775,7 @@ hS(a,b){return this.cU(a,b,null)},
 $icB:1,
 $iaev:1}
 A.RS.prototype={
-gem(a){return B.ajk},
+gem(a){return B.ajn},
 h(a,b){A.mx(b,a,a.length)
 return a[b]},
 cU(a,b,c){return new Int8Array(a.subarray(b,A.oN(b,c,a.length)))},
@@ -39783,7 +39783,7 @@ hS(a,b){return this.cU(a,b,null)},
 $icB:1,
 $iaew:1}
 A.BJ.prototype={
-gem(a){return B.ajF},
+gem(a){return B.ajI},
 h(a,b){A.mx(b,a,a.length)
 return a[b]},
 cU(a,b,c){return new Uint16Array(a.subarray(b,A.oN(b,c,a.length)))},
@@ -39791,7 +39791,7 @@ hS(a,b){return this.cU(a,b,null)},
 $icB:1,
 $iaqx:1}
 A.BK.prototype={
-gem(a){return B.ajG},
+gem(a){return B.ajJ},
 h(a,b){A.mx(b,a,a.length)
 return a[b]},
 cU(a,b,c){return new Uint32Array(a.subarray(b,A.oN(b,c,a.length)))},
@@ -39799,7 +39799,7 @@ hS(a,b){return this.cU(a,b,null)},
 $icB:1,
 $iwd:1}
 A.BL.prototype={
-gem(a){return B.ajH},
+gem(a){return B.ajK},
 gJ(a){return a.length},
 h(a,b){A.mx(b,a,a.length)
 return a[b]},
@@ -39808,7 +39808,7 @@ hS(a,b){return this.cU(a,b,null)},
 $icB:1,
 $iaqy:1}
 A.lC.prototype={
-gem(a){return B.ajI},
+gem(a){return B.ajL},
 gJ(a){return a.length},
 h(a,b){A.mx(b,a,a.length)
 return a[b]},
@@ -41918,7 +41918,7 @@ H(a,b){this.hC(b,0,b.length,!1)},
 hC(a,b,c,d){var s,r
 A.dC(b,c,a.length,null,null)
 for(s=this.a,r=b;r<c;++r)if((a[r]&4294967168)!==0){if(r>b)s.hC(a,b,r,!1)
-s.H(0,B.V9)
+s.H(0,B.Vd)
 b=r+1}if(b<c)s.hC(a,b,c,!1)}}
 A.aAE.prototype={
 bo(){this.a.bo()},
@@ -42207,7 +42207,7 @@ if(r>255){if(s>b){q=this.a
 q.toString
 q.H(0,A.hS(a,b,s))}q=this.a
 q.toString
-q.H(0,A.hS(B.Wl,0,1))
+q.H(0,A.hS(B.Wp,0,1))
 b=s+1}}if(b<c)this.Qt(a,b,c,!1)}}
 A.UL.prototype={
 H(a,b){this.hC(b,0,b.length,!1)},
@@ -43416,8 +43416,8 @@ return A.M(s.a,s.b,s.c,s.d,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B
 k(a){var s=this
 return"Rect.fromLTRB("+B.d.am(s.a,1)+", "+B.d.am(s.b,1)+", "+B.d.am(s.c,1)+", "+B.d.am(s.d,1)+")"}}
 A.aF.prototype={
-YU(a,b,c){if(c==null)c=B.aad
-if(b==null)b=B.aaf
+YU(a,b,c){if(c==null)c=B.aag
+if(b==null)b=B.aai
 return new A.aF(A.D(this.a,c.a,b.a),A.D(this.b,c.b,b.b))},
 h7(a,b){return this.YU(0,null,b)},
 YT(a,b){return this.YU(0,b,null)},
@@ -43905,7 +43905,7 @@ return b instanceof A.f1&&b.a===this.a},
 gB(a){return this.a},
 k(a){var s=this.a
 if(B.k.bD(s,100)!==0)return"FontWeight("+s+")"
-s=B.a5U.h(0,this.gwb())
+s=B.a5X.h(0,this.gwb())
 s.toString
 return s}}
 A.kf.prototype={
@@ -44500,7 +44500,7 @@ h=r[4]
 g=r[5]
 f=r[6]
 e=r[7]
-for(d=l,q=0;q<64;++q,e=f,f=g,g=h,h=b,i=j,j=k,k=d,d=a){c=(e+(((h>>>6|h<<26)^(h>>>11|h<<21)^(h>>>25|h<<7))>>>0)>>>0)+(((h&g^~h&f)>>>0)+(B.Y9[q]+s[q]>>>0)>>>0)>>>0
+for(d=l,q=0;q<64;++q,e=f,f=g,g=h,h=b,i=j,j=k,k=d,d=a){c=(e+(((h>>>6|h<<26)^(h>>>11|h<<21)^(h>>>25|h<<7))>>>0)>>>0)+(((h&g^~h&f)>>>0)+(B.Yg[q]+s[q]>>>0)>>>0)>>>0
 b=i+c>>>0
 a=c+((((d>>>2|d<<30)^(d>>>13|d<<19)^(d>>>22|d<<10))>>>0)+((d&k^d&j^k&j)>>>0)>>>0)>>>0}r.$flags&2&&A.aB(r)
 r[0]=d+l>>>0
@@ -44629,7 +44629,7 @@ break A}if(q||B.ll===r){k=1
 break A}k=null}o=m.x
 o===$&&A.a()
 n=new A.rq(s,A.te(l,o-s,a*k),B.c5)
-n.a=B.aiU
+n.a=B.aiX
 m.eZ()
 return m.zS(n)},
 ayW(){return this.LH(1)},
@@ -45367,7 +45367,7 @@ G(a){var s=null,r=A.ba(a,B.c8,t.l).w.r.b+8,q=this.c.Z(0,new A.f(8,r)),p=A.c6(thi
 $.a0()
 o=A.aQG(new A.A_(s,s,o,B.Me))
 o.toString
-return new A.bt(new A.af(8,r,8,8),new A.ie(new A.NO(q),A.fj(A.aUV(A.dW(new A.bt(B.Pl,p,s),new A.hj(B.NY.d5(a),s,s,s,A.D_(B.ls,new A.aD(B.O1.d5(a),1,B.u,-1))),B.au),new A.Fo(new A.yT(o),new A.Fn(20,20,s))),B.Z,B.abQ,s,s,s,222),s),s)}}
+return new A.bt(new A.af(8,r,8,8),new A.ie(new A.NO(q),A.fj(A.aUV(A.dW(new A.bt(B.Pl,p,s),new A.hj(B.NY.d5(a),s,s,s,A.D_(B.ls,new A.aD(B.O1.d5(a),1,B.u,-1))),B.au),new A.Fo(new A.yT(o),new A.Fn(20,20,s))),B.Z,B.abT,s,s,s,222),s),s)}}
 A.pr.prototype={
 ab(){return new A.Fz()}}
 A.Fz.prototype={
@@ -45484,11 +45484,11 @@ q=q.a
 p.ao(q.gp())
 s=new A.f(0,49.75).Y(0,this.x)
 r=p.ao(q.gp())
-r=A.iu(B.a8i,B.f,r==null?1:r)
+r=A.iu(B.a8l,B.f,r==null?1:r)
 r.toString
 q=p.ao(q.gp())
 if(q==null)q=1
-return A.oe(A.aN7(null,B.z,new A.uT(q,B.a_0,new A.df(B.JX,this.e)),s,1,B.acO),r)}}
+return A.oe(A.aN7(null,B.z,new A.uT(q,B.a_2,new A.df(B.JX,this.e)),s,1,B.acR),r)}}
 A.Jf.prototype={
 l(){var s=this,r=s.bt$
 if(r!=null)r.L(s.gfG())
@@ -45604,7 +45604,7 @@ switch(a.al(t.I).w.a){case 0:s=A.ba(a,B.c8,t.l).w.r.c
 break
 case 1:s=A.ba(a,B.c8,t.l).w.r.a
 break
-default:s=r}return A.fw(B.bD,A.b([this.a.c,new A.SF(0,0,0,Math.max(s,20),A.uQ(B.cu,r,r,r,this.gal0(),r,r,r),r)],t.p),B.Z,B.ad4)}}
+default:s=r}return A.fw(B.bD,A.b([this.a.c,new A.SF(0,0,0,Math.max(s,20),A.uQ(B.cu,r,r,r,this.gal0(),r,r,r),r)],t.p),B.Z,B.ad7)}}
 A.atk.prototype={
 $1(a){var s=this.a,r=s.d,q=r==null,p=q?null:r.b.c!=null
 if(p===!0)if(!q)r.b.oU()
@@ -45782,8 +45782,8 @@ $S:252}
 A.Z5.prototype={
 aJ(a,b){var s,r,q,p=$.a0(),o=A.b0()
 o.r=this.b.gp()
-s=A.lR(B.a8r,6)
-r=A.nS(B.a8B,new A.f(7,b.b))
+s=A.lR(B.a8u,6)
+r=A.nS(B.a8E,new A.f(7,b.b))
 q=A.bY(p.r)
 q.aA(new A.l7(s))
 q.aA(new A.fY(r))
@@ -46242,7 +46242,7 @@ p=q.f
 if(p==null){q=q.e
 q.toString
 q=A.aKG(a,q)}else q=p
-s=A.Z(q,r,B.b_,r,B.afN.cd(this.a.d!=null?B.iD.d5(a):B.fQ),r,r)
+s=A.Z(q,r,B.b_,r,B.afQ.cd(this.a.d!=null?B.iD.d5(a):B.fQ),r,r)
 q=this.a.e
 switch(q==null?r:q.b){case B.iy:case B.fN:case B.iz:case B.fO:case B.q3:case B.lM:case B.lN:case B.iA:case B.iB:case null:case void 0:return s
 case B.lO:q=B.iD.d5(a)
@@ -46282,13 +46282,13 @@ o=new A.aQ(r)
 o.dP()
 o.x6(1.5707963267948966)
 for(n=0;n<4;++n){a.fK(p,m)
-s.concat(A.aIV(A.mE(r)))}a.kS(B.a8O,B.a8o,m)
-a.kS(B.a8M,B.a8n,m)
-a.kS(B.a8N,B.a8l,m)
+s.concat(A.aIV(A.mE(r)))}a.kS(B.a8R,B.a8r,m)
+a.kS(B.a8P,B.a8q,m)
+a.kS(B.a8Q,B.a8o,m)
 s.restore()},
 ec(a){return!a.b.j(0,this.b)}}
 A.zp.prototype={
-gaor(){var s=B.af8.cd(this.b)
+gaor(){var s=B.afb.cd(this.b)
 return s},
 d5(a){var s,r=this,q=r.a,p=q.a,o=p instanceof A.cG?p.d5(a):p,n=q.b
 if(n instanceof A.cG)n=n.d5(a)
@@ -46326,7 +46326,7 @@ gjI(){var s=this.c
 return s==null?this.x.c:s},
 glj(){var s=null,r=this.d
 if(r==null){r=this.x.w
-r=new A.atT(r.a,r.b,B.ann,this.geP(),s,s,s,s,s,s,s,s,s)}return r},
+r=new A.atT(r.a,r.b,B.anq,this.geP(),s,s,s,s,s,s,s,s,s)}return r},
 glP(){var s=this.e
 return s==null?this.x.d:s},
 gkn(){var s=this.f
@@ -46574,7 +46574,7 @@ j(a,b){if(b==null)return!1
 if(J.T(b)!==A.p(this))return!1
 return this.$ti.b(b)&&J.d(b.a,this.a)},
 gB(a){return A.M(A.p(this),this.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a)},
-k(a){var s=this.$ti,r=s.c,q=this.a,p=A.c5(r)===B.ajC?"<'"+A.j(q)+"'>":"<"+A.j(q)+">"
+k(a){var s=this.$ti,r=s.c,q=this.a,p=A.c5(r)===B.ajF?"<'"+A.j(q)+"'>":"<"+A.j(q)+">"
 if(A.p(this)===A.c5(s))return"["+p+"]"
 return"["+A.c5(r).k(0)+" "+p+"]"}}
 A.im.prototype={}
@@ -46945,7 +46945,7 @@ return A.b([A.k5("Event",this.a,!0,B.cc,s,s,s,B.br,!1,!0,!0,B.cQ,s),A.k5("Target
 $S:21}
 A.Ae.prototype={}
 A.ajP.prototype={
-$1(a){return a.f!==B.aa1},
+$1(a){return a.f!==B.aa4},
 $S:326}
 A.ajQ.prototype={
 $1(a){var s,r,q,p,o,n,m,l,k,j=a.a,i=this.a.$1(j)
@@ -47290,7 +47290,7 @@ if(r.at!=null)r.cM("onStart",new A.acq(r,s))}}r.tU(a)},
 h3(a){var s=this,r=s.dy
 if(r===B.kW)r=s.dy=B.Jf
 if(s.at!=null&&r===B.kX)s.cM("onStart",new A.aco(s))},
-oT(a){var s=this,r=s.dy,q=r===B.kX||r===B.amp
+oT(a){var s=this,r=s.dy,q=r===B.kX||r===B.ams
 if(r===B.kW){s.X(B.aF)
 return}if(q&&s.ch!=null)if(s.ch!=null)s.cM("onEnd",new A.acp(s))
 s.dy=B.oC},
@@ -48979,7 +48979,7 @@ s.push(B.Lw)
 return s},
 ahH(a,b){var s,r,q,p,o,n,m,l=this,k=null,j=l.a.fx,i=A.by(a,B.l1),h=i==null?k:i.e
 if(h==null)h=B.ag
-if(j!==B.kL)s=j===B.aiP&&h===B.J
+if(j!==B.kL)s=j===B.aiS&&h===B.J
 else s=!0
 i=A.by(a,B.Ji)
 i=i==null?k:i.as
@@ -49013,7 +49013,7 @@ p=k.cx
 k=k.k1
 o=m.gahz()
 n=m.a
-return new A.EV(l,r,q,new A.awy(),l,l,l,l,l,l,B.a7q,l,l,j,B.a17,m.gahG(),p,l,B.agI,s,k,o,l,n.k4,n.ok,!1,!1,l,l,l,new A.pO(m,t.bT))},
+return new A.EV(l,r,q,new A.awy(),l,l,l,l,l,l,B.a7t,l,l,j,B.a17,m.gahG(),p,l,B.agL,s,k,o,l,n.k4,n.ok,!1,!1,l,l,l,new A.pO(m,t.bT))},
 G(a){var s,r=this.a9E(a)
 this.a.toString
 s=this.d
@@ -50062,7 +50062,7 @@ b1===$&&A.a()
 b1=A.b([b0,b1],t.Eo)
 b0=c7.a
 b2=b0.cx
-b0=A.k3(b0.e,c8,1,B.aev,!1,c,B.bd,c8,B.b6)
+b0=A.k3(b0.e,c8,1,B.aey,!1,c,B.bd,c8,B.b6)
 b3=A.aJY(b,B.cd,A.aQq(),B.a6,A.aQr())
 b4=A.aJY(c7.a9p(d0,c9,s,p),B.cd,A.aQq(),B.a6,A.aQr())
 b5=g.X(o)
@@ -50152,7 +50152,7 @@ A.ayV.prototype={
 $2(a,b){return this.a.t$.cv(a,this.b)},
 $S:11}
 A.Yp.prototype={
-gEw(){return B.XZ},
+gEw(){return B.Y5},
 JK(a){var s
 switch(a.a){case 0:s=this.d.b
 break
@@ -51062,7 +51062,7 @@ G(a){var s=null,r=A.ba(a,B.c8,t.l).w.r.b+8
 return new A.bt(new A.af(8,r,8,8),new A.ie(new A.NO(this.c.Z(0,new A.f(8,r))),A.cM(A.fs(!1,B.a0,!0,B.K0,A.c6(this.d,B.at,B.y,B.e7),B.cq,s,1,s,s,s,s,s,B.e8),s,222),s),s)}}
 A.ui.prototype={
 G(a){var s=null
-return A.cM(A.iG(this.d,this.c,A.E9(B.dd,s,s,s,s,B.dy,s,s,B.dy,A.F(a).ax.a===B.J?B.h:B.a5,s,B.acM,B.P8,s,B.hu,s,s,s,s,s)),s,1/0)}}
+return A.cM(A.iG(this.d,this.c,A.E9(B.dd,s,s,s,s,B.dy,s,s,B.dy,A.F(a).ax.a===B.J?B.h:B.a5,s,B.acP,B.P8,s,B.hu,s,s,s,s,s)),s,1/0)}}
 A.NS.prototype={
 G(a){var s,r,q,p,o,n,m,l,k,j,i,h=this,g=null
 A.F(a)
@@ -51070,7 +51070,7 @@ s=A.aKP(a)
 r=t.l
 q=A.ba(a,B.l2,r).w
 p=q.f.Y(0,h.x)
-o=new A.au4(a,g,6,g,g,B.aaN,B.T,g,g,g,g,g,g,B.z,g)
+o=new A.au4(a,g,6,g,g,B.aaQ,B.T,g,g,g,g,g,g,B.z,g)
 n=s.at
 if(n==null)n=B.Ke
 q=s.f
@@ -51084,7 +51084,7 @@ if(k==null)k=o.gbv()
 j=s.as
 if(j==null){j=o.as
 j.toString}i=new A.e8(q,g,g,new A.dn(n,A.fs(!1,B.a0,!0,g,h.as,j,h.c,m,g,l,h.z,k,g,B.e8),g),g)
-return A.b_(g,g,new A.yd(p,new A.fL(A.ba(a,g,r).w.a1R(!0,!0,!0,!0),i,g),B.dM,B.bs,g,g),!1,g,g,g,!1,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,B.abt,g,g,g,g,g,g,g,B.t,g)}}
+return A.b_(g,g,new A.yd(p,new A.fL(A.ba(a,g,r).w.a1R(!0,!0,!0,!0),i,g),B.dM,B.bs,g,g),!1,g,g,g,!1,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,g,B.abw,g,g,g,g,g,g,g,B.t,g)}}
 A.zB.prototype={
 re(a,b,c,d){var s=this.cI,r=s==null
 if((r?null:s.a)!==b){if(!r)s.l()
@@ -51096,7 +51096,7 @@ this.Qa()}}
 A.a9H.prototype={
 $3(a,b,c){var s=null,r=new A.dU(this.a,s),q=new A.md(this.b.a,r,s)
 q=A.kD(!0,q,!1,B.aA,!0)
-return A.b_(s,s,q,!1,s,s,s,!1,s,s,s,B.abl,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,B.t,s)},
+return A.b_(s,s,q,!1,s,s,s,!1,s,s,s,B.abo,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,B.t,s)},
 $S:590}
 A.au4.prototype={
 gRP(){var s,r=this,q=r.ay
@@ -51357,7 +51357,7 @@ o=A.AA(m,m,m,m,n.dx,m,m,n.z,m,m,n.c,p,q,n.e,m,m,m)
 s=n.fr
 if(s!=null)o=s.b8(o)
 if(o.gcZ()==null)o=o.aq7(o.gd4())
-return new A.HR(m,o,m,B.ams,n.cy,n.ax,n.db,n.w,m,m,m,m)}}
+return new A.HR(m,o,m,B.amv,n.cy,n.ax,n.db,n.w,m,m,m,m)}}
 A.HR.prototype={
 ab(){return new A.a37()}}
 A.a37.prototype={
@@ -51409,7 +51409,7 @@ gbg(){var s,r=this,q=r.id
 if(q===$){s=A.F(r.fy)
 r.id!==$&&A.ak()
 q=r.id=s.ax}return q},
-gbT(){return B.aka},
+gbT(){return B.akd},
 gd4(){return new A.br(new A.avD(this),t.b)},
 gdY(){return new A.br(new A.avE(this),t.b)},
 gcX(){return B.fr},
@@ -52246,7 +52246,7 @@ break A}q=null}return q},
 G(a2){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c,b,a,a0=this,a1=null
 a0.EW(a2)
 s=A.F(a2)
-r=a0.gcS().a.hb(B.abN)
+r=a0.gcS().a.hb(B.abQ)
 q=t.EK
 p=A.dq(r,q)
 p.H(0,B.X)
@@ -52268,7 +52268,7 @@ k=a0.w
 if(k===$){q=a0.gaot()
 p=t.k
 o=t.g
-j=A.aA([B.kN,new A.cO(q,new A.aV(A.b([],p),o),t.wY),B.aj3,new A.cO(q,new A.aV(A.b([],p),o),t.nz)],t.u,t.od)
+j=A.aA([B.kN,new A.cO(q,new A.aV(A.b([],p),o),t.wY),B.aj6,new A.cO(q,new A.aV(A.b([],p),o),t.nz)],t.u,t.od)
 a0.w!==$&&A.ak()
 a0.w=j
 k=j}q=a0.a.ok
@@ -52376,13 +52376,13 @@ A.qa.prototype={
 M(){return"ListTileTitleAlignment."+this.b},
 IX(a,b,c,d){var s,r,q=this
 A:{if(B.rm===q){s=B.rn.IX(a,b,c,d)
-break A}r=B.UQ===q
+break A}r=B.UT===q
 if(r&&b>72){s=16
 break A}if(r){s=(b-a)/2
 if(d)s=Math.min(s,16)
-break A}if(B.UR===q){s=c.ap
+break A}if(B.UU===q){s=c.ap
 break A}if(B.rn===q){s=(b-a)/2
-break A}if(B.US===q){s=b-a-c.ap
+break A}if(B.UV===q){s=b-a-c.ap
 break A}s=null}return s}}
 A.PF.prototype={
 TY(a,b){return!1},
@@ -52462,7 +52462,7 @@ return s.b}}
 A.jK.prototype={
 M(){return"_ListTileSlot."+this.b}}
 A.a05.prototype={
-gEw(){return B.a_I},
+gEw(){return B.a_J},
 JK(a){var s,r=this
 switch(a.a){case 0:s=r.d
 break
@@ -52783,7 +52783,7 @@ r.f=s.d},
 $S:0}
 A.PP.prototype={
 G(a){var s=this.c.Y(0,new A.f(0,40.95))
-return A.aN7(A.lg(null,B.Nt,!0),B.Z,new A.uT(1,B.a1Y,new A.df(B.JW,B.v)),s,1.25,B.acP)}}
+return A.aN7(A.lg(null,B.Nt,!0),B.Z,new A.uT(1,B.a1Y,new A.df(B.JW,B.v)),s,1.25,B.acS)}}
 A.qi.prototype={
 M(){return"MaterialType."+this.b}}
 A.Be.prototype={
@@ -52985,7 +52985,7 @@ m=r.e
 if(m==null)m=s.gbv()
 l=A.b([],t.p)
 for(k=this.d,j=0;j<5;++j){i=j===k
-l.push(new A.A2(1,B.mD,new A.Bu(A.b_(h,h,new A.oC(i,B.eE,!1,new A.aiv(this,j,q),h),!1,h,h,h,!1,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,B.HG,h,i,h,h,h,h,h,B.t,h),h),h))}return A.fs(!1,B.a0,!0,h,A.kD(!0,A.b_(h,h,A.cM(A.eK(l,B.at,B.y,B.D,0),this.as,h),!0,h,h,h,!0,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,B.abq,h,h,h,h,h,h,h,B.t,h),!1,B.aA,!0),B.z,p,o,h,n,h,m,h,B.bT)}}
+l.push(new A.A2(1,B.mD,new A.Bu(A.b_(h,h,new A.oC(i,B.eE,!1,new A.aiv(this,j,q),h),!1,h,h,h,!1,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,B.HG,h,i,h,h,h,h,h,B.t,h),h),h))}return A.fs(!1,B.a0,!0,h,A.kD(!0,A.b_(h,h,A.cM(A.eK(l,B.at,B.y,B.D,0),this.as,h),!0,h,h,h,!0,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,B.abt,h,h,h,h,h,h,h,B.t,h),!1,B.aA,!0),B.z,p,o,h,n,h,m,h,B.bT)}}
 A.aiu.prototype={
 $0(){return this.a.f.$1(this.b)},
 $S:0}
@@ -53528,7 +53528,7 @@ gjq(){return A.b6c()},
 JC(a,b,c,d,e,f){return A.aVO(a,b,c,d,e,f)}}
 A.Si.prototype={
 a94(a){var s=t.Tr
-s=A.ac(new A.ag(B.a06,new A.aj7(a),s),s.i("aw.E"))
+s=A.ac(new A.ag(B.a07,new A.aj7(a),s),s.i("aw.E"))
 return s},
 j(a,b){if(b==null)return!1
 if(this===b)return!0
@@ -53788,7 +53788,7 @@ m=j.a
 l=m.e
 k=s.c
 if(k==null)k=r.gwB()
-l=A.b_(i,i,A.iD(new A.PE(g,i),i,k,B.af),!1,i,i,i,!0,i,i,i,i,i,i,i,l,i,i,i,i,i,i,i,!0,i,i,i,i,i,i,i,i,i,i,B.abp,!0,i,i,i,i,i,i,B.t,i)
+l=A.b_(i,i,A.iD(new A.PE(g,i),i,k,B.af),!1,i,i,i,!0,i,i,i,i,i,i,i,l,i,i,i,i,i,i,i,!0,i,i,i,i,i,i,i,i,i,i,B.abs,!0,i,i,i,i,i,i,B.t,i)
 m=m.d.p3
 m.toString
 return A.fG(m,new A.aye(j,new A.fm(B.Rh),s,r,new A.fm(new A.ci(0,h,B.aa)),new A.fm(new A.ci(0,h*n,B.aa))),new A.dn(B.Kd,new A.Pk(56,l,i),i))}}
@@ -54032,7 +54032,7 @@ if(!J.d(s.e,a)&&s.c!=null)s.af(new A.ayy(s,a))},
 sBe(a){var s=this
 if(!J.d(s.f,a)&&s.c!=null)s.af(new A.ayw(s,a))},
 a_I(a){var s,r,q,p=this
-p.sD8(B.an9)
+p.sD8(B.anc)
 s=a.a
 if(s!=null)s=a.b===0&&s.j(0,B.f)
 else s=!0
@@ -54048,11 +54048,11 @@ if(s!=null)s.ZD()
 p.sBe(a)
 p.sEN(a)
 return!0},
-a_N(a){this.sD8(B.ana)
+a_N(a){this.sD8(B.and)
 this.a.d.atz(1-a.b)
 this.sBe(a)},
 a_x(){var s=this
-s.sD8(B.anb)
+s.sD8(B.ane)
 s.a.d.Vt(!0)
 s.sBe(null)
 s.sEN(null)},
@@ -54204,7 +54204,7 @@ J.ao(r.save())
 a.tI(-1,1)
 r.translate(-p,0)
 a.L4(new A.n(q,q,q+n,q+o),-1.5707963267948966+h,f,!1,j)
-r.restore()}else a.L4(new A.n(q,q,q+n,q+o),0,6.282185307179586,!1,j)}if(e.d==null)s.d=B.ad8
+r.restore()}else a.L4(new A.n(q,q,q+n,q+o),0,6.282185307179586,!1,j)}if(e.d==null)s.d=B.adb
 else s.d=B.cC
 a.L4(new A.n(q,q,q+n,q+o),e.z,e.Q,!1,s)},
 ec(a){var s=this,r=!0
@@ -54274,7 +54274,7 @@ l=c*3/2*3.141592653589793
 k=Math.max(b*3/2*3.141592653589793-l,0.001)
 j=new A.dn(n,A.h2(h,h,h,new A.Yt(q,r.e,h,b,c,d,e,p,o,-1.5707963267948966+l+e*3.141592653589793*2+d*0.5*3.141592653589793,k,g.z,h,!0,h),B.G),h)
 if(m!=null)j=new A.bt(m,j,h)
-return A.b_(h,h,j,!1,h,h,h,!1,h,h,h,h,h,h,h,s.r,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,B.abs,h,h,h,h,h,h,h,B.t,s.w)},
+return A.b_(h,h,j,!1,h,h,h,!1,h,h,h,h,h,h,h,s.r,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,B.abv,h,h,h,h,h,h,h,B.t,s.w)},
 a9o(){return A.fG(this.guP(),new A.asY(this),null)},
 G(a){return new A.dU(new A.asZ(this),null)}}
 A.asY.prototype={
@@ -54400,7 +54400,7 @@ s.fj(a)}else r.da().bO(new A.alU(s,a),t.H)
 p=q.x
 if(p!=null)p.bd()
 q.x=null},
-atK(){return this.a_X(B.acV)},
+atK(){return this.a_X(B.acY)},
 G(a){var s,r,q,p=this
 p.y=A.ba(a,B.oE,t.l).w.z
 s=p.r
@@ -54431,7 +54431,7 @@ if((s.a.a&30)===0)s.fj(this.b)},
 $S:29}
 A.alT.prototype={
 $0(){if(this.b.ch)return
-this.a.a_X(B.acW)},
+this.a.a_X(B.acZ)},
 $S:0}
 A.xk.prototype={
 cO(a){return this.f!==a.f}}
@@ -54647,7 +54647,7 @@ aw(){var s,r=this,q=null
 r.aQ()
 s=r.c
 s.toString
-r.dy=new A.a2R(s,B.aaQ,$.ay())
+r.dy=new A.a2R(s,B.aaT,$.ay())
 r.a.toString
 r.db=B.lw
 r.cx=B.LH
@@ -54777,7 +54777,7 @@ d=A.ba(a,B.c8,e).w
 k.gom()
 c=A.ba(a,B.l2,e).w
 m=d.r.B2(c.f.d)
-d=A.ba(a,B.amE,e).w
+d=A.ba(a,B.amH,e).w
 k.gom()
 e=A.ba(a,B.l2,e).w
 e=e.f.d!==0?0:j
@@ -54878,7 +54878,7 @@ s.b2$=null
 s.aG()}}
 A.TR.prototype={
 G(a){var s=this,r=null
-if(A.F(a).w===B.L)return new A.uc(8,B.ec,s.c,s.d,!1,B.aae,3,r,B.qf,B.qe,A.JX(),r,r,3,r)
+if(A.F(a).w===B.L)return new A.uc(8,B.ec,s.c,s.d,!1,B.aah,3,r,B.qf,B.qe,A.JX(),r,r,3,r)
 return new A.wX(s.c,s.d,r,r,r,r,B.cR,B.fU,A.JX(),r,r,0,r)}}
 A.wX.prototype={
 ab(){var s=null
@@ -55287,10 +55287,10 @@ b=new A.c8(s,!1,new A.fS(l,new A.aB4(),f,a0,a2),a0)}else{s=a.e
 s.toString
 b=new A.fS(s,new A.aB5(),f,a0,a2)}}return new A.pQ("<SnackBar Hero tag - "+a1.c.k(0)+">",A.z1(b,a.a.db,a0),!0,a0)}}
 A.aB3.prototype={
-$0(){this.a.al(t.Pu).f.a1K(B.acT)},
+$0(){this.a.al(t.Pu).f.a1K(B.acW)},
 $S:0}
 A.aB2.prototype={
-$1(a){this.a.al(t.Pu).f.a1K(B.acU)},
+$1(a){this.a.al(t.Pu).f.a1K(B.acX)},
 $S:255}
 A.aB4.prototype={
 $3(a,b,c){return new A.e8(B.JF,null,b,c,null)},
@@ -55440,7 +55440,7 @@ return b instanceof A.rC&&J.d(b.a,this.a)}}
 A.a41.prototype={}
 A.RG.prototype={}
 A.ahI.prototype={
-tz(a){return B.acL},
+tz(a){return B.acO},
 AL(a,b,c,d){var s,r,q,p=null,o=A.F(a)
 a.al(t.bZ)
 s=A.F(a)
@@ -55455,9 +55455,9 @@ case 2:s=A.aO7(0.7853981633974483,q)
 break
 default:s=p}return s},
 ty(a,b){var s
-switch(a.a){case 2:s=B.a8k
+switch(a.a){case 2:s=B.a8n
 break
-case 0:s=B.a8m
+case 0:s=B.a8p
 break
 case 1:s=B.f
 break
@@ -55483,7 +55483,7 @@ if(J.T(b)!==A.p(s))return!1
 return b instanceof A.Em&&J.d(b.a,s.a)&&J.d(b.b,s.b)&&J.d(b.c,s.c)}}
 A.a46.prototype={}
 A.V7.prototype={
-G(a){var s=this.c.Z(0,B.Dl),r=this.d.Y(0,B.a8h),q=A.ba(a,B.c8,t.l).w.r.b+8,p=44<=s.b-8-q,o=new A.f(8,q)
+G(a){var s=this.c.Z(0,B.Dl),r=this.d.Y(0,B.a8k),q=A.ba(a,B.c8,t.l).w.r.b+8,p=44<=s.b-8-q,o=new A.f(8,q)
 return new A.bt(new A.af(8,q,8,8),new A.ie(new A.V8(s.Z(0,o),r.Z(0,o),p),new A.Ir(this.e,p,A.b6F(),null),null),null)}}
 A.Ir.prototype={
 ab(){return new A.a4b(new A.kP(),null,null)},
@@ -55501,7 +55501,7 @@ q=l.d
 p=l.a
 o=p.d
 n=t.A9
-n=q?new A.fA(B.ad7,n):new A.fA(B.Ii,n)
+n=q?new A.fA(B.ada,n):new A.fA(B.Ii,n)
 m=A.cI(q?B.j1:B.PZ,k,k,k)
 j=q?j.gaT():j.gaU()
 n=A.b([new A.a4a(m,new A.aC3(l),j,n)],t.p)
@@ -55767,7 +55767,7 @@ A.xt.prototype={
 M(){return"_TextSelectionToolbarItemPosition."+this.b}}
 A.V9.prototype={
 G(a){var s=this,r=null
-return A.iG(s.c,s.d,A.E9(s.f,r,B.p,r,r,r,r,r,r,A.b00(A.F(a).ax),r,B.I6,s.e,r,B.hu,r,r,r,B.ahw,r))}}
+return A.iG(s.c,s.d,A.E9(s.f,r,B.p,r,r,r,r,r,r,A.b00(A.F(a).ax),r,B.I6,s.e,r,B.hu,r,r,r,B.ahz,r))}}
 A.e3.prototype={
 b8(b3){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c,b,a,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9,b0,b1=this,b2=null
 if(b3==null)return b1
@@ -56204,7 +56204,7 @@ a3.e===$&&A.a()
 if(c===!0)c=a4
 else{if(a0==null)c=a4
 else c=a0
-if(c==null)c=""}a2=new A.Cn(c,new A.aqn(a3,new A.a4m(l,e,B.bd,d,m,a,a1,a4)),B.P,B.Ou,B.bs,!0,B.aiZ,!0,a4,a3.gacJ(),a2,a3.d)
+if(c==null)c=""}a2=new A.Cn(c,new A.aqn(a3,new A.a4m(l,e,B.bd,d,m,a,a1,a4)),B.P,B.Ou,B.bs,!0,B.aj1,!0,a4,a3.gacJ(),a2,a3.d)
 return a2}}
 A.aqn.prototype={
 $2(a,b){var s=this.a.a.c
@@ -58347,7 +58347,7 @@ A.a44.prototype={
 giZ(){var s,r=this.d
 if(r===0)return B.f
 s=this.a
-if(!isFinite(s.c.gkl()))return B.a8D
+if(!isFinite(s.c.gkl()))return B.a8G
 return new A.f(r*(this.c-s.c.gkl()),0)},
 akR(a,b,c){var s,r,q=this,p=q.c
 if(b===p&&a===p){q.c=q.a.FR(a,b,c)
@@ -58447,7 +58447,7 @@ else{p=p.a
 r=p==null?null:p.xx(q.x)}if(r!=null)s.t7(r)
 s.r5(" ")
 p=s.kK()
-p.iV(B.a98)
+p.iV(B.a9b)
 q.ch=p}return p},
 RF(a){var s,r=this,q=r.aaU()
 $.a0()
@@ -58515,7 +58515,7 @@ if(r){l=n?m:s.a
 r=new A.f(l.a-(b.c-b.a),l.b)
 break A}r=null}return new A.f(A.D(r.a+j.giZ().a,0,j.c),r.b+j.giZ().b)},
 gamD(){var s,r,q=this.as
-A:{if(q==null||B.ad9.j(0,q)){s=!0
+A:{if(q==null||B.adc.j(0,q)){s=!0
 break A}r=q.d
 s=r===0
 break A}return s},
@@ -58527,7 +58527,7 @@ return q.d-q.b},
 yw(a1){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c=this,b=null,a=c.b,a0=a.a
 if(a0.c.gN2()<1)return b
 A:{s=a1.a
-if(0===s){r=B.aah
+if(0===s){r=B.aak
 break A}q=b
 r=!1
 q=a1.b
@@ -58782,7 +58782,7 @@ p=h.gow()
 o=h.r
 o=o==null?g:o*a2+a1
 n=h.w
-n=n==null?g:B.a4_[B.k.du(n.gwb(),0,8)]
+n=n==null?g:B.a42[B.k.du(n.gwb(),0,8)]
 m=h.y
 m=m==null?g:m*a6+a5
 l=h.z
@@ -58864,7 +58864,7 @@ if(r===b)return B.cV
 s=!0
 if(r.a===b.a)if(r.d==b.d)if(r.r==b.r)if(J.d(r.w,b.w))if(r.x==b.x)if(r.y==b.y)if(r.z==b.z)if(r.Q==b.Q)if(r.as==b.as)if(r.at==b.at)if(J.d(r.ax,b.ax))if(r.ay==b.ay)if(r.ch==b.ch)if(A.cg(r.dy,b.dy))if(A.cg(r.fr,b.fr))if(A.cg(r.fx,b.fx)){s=A.cg(r.giQ(),b.giQ())
 s=!s}if(s)return B.bN
-if(!J.d(r.b,b.b)||!J.d(r.c,b.c)||!J.d(r.CW,b.CW)||!J.d(r.cx,b.cx)||r.cy!=b.cy||r.db!=b.db)return B.aaM
+if(!J.d(r.b,b.b)||!J.d(r.c,b.c)||!J.d(r.CW,b.CW)||!J.d(r.cx,b.cx)||r.cy!=b.cy||r.db!=b.db)return B.aaP
 return B.cV},
 j(a,b){var s,r=this
 if(b==null)return!1
@@ -58927,13 +58927,13 @@ A.ati.prototype={
 eQ(a){return(this.b+this.c*a)*Math.pow(2.718281828459045,this.a*a)},
 fL(a){var s=this.a,r=Math.pow(2.718281828459045,s*a),q=this.c
 return s*(this.b+q*a)*r+q*r},
-gtr(){return B.ad1}}
+gtr(){return B.ad4}}
 A.axg.prototype={
 eQ(a){var s=this
 return s.c*Math.pow(2.718281828459045,s.a*a)+s.d*Math.pow(2.718281828459045,s.b*a)},
 fL(a){var s=this,r=s.a,q=s.b
 return s.c*r*Math.pow(2.718281828459045,r*a)+s.d*q*Math.pow(2.718281828459045,q*a)},
-gtr(){return B.ad3}}
+gtr(){return B.ad6}}
 A.aCi.prototype={
 eQ(a){var s=this,r=s.a*a
 return Math.pow(2.718281828459045,s.b*a)*(s.c*Math.cos(r)+s.d*Math.sin(r))},
@@ -58941,7 +58941,7 @@ fL(a){var s,r=this,q=r.b,p=Math.pow(2.718281828459045,q*a),o=r.a,n=o*a,m=Math.co
 n=r.d
 s=r.c
 return p*(n*o*m-s*o*l)+q*p*(n*l+s*m)},
-gtr(){return B.ad2}}
+gtr(){return B.ad5}}
 A.EA.prototype={
 k(a){return"Tolerance(distance: \xb1"+A.j(this.a)+", time: \xb10.001, velocity: \xb1"+A.j(this.c)+")"}}
 A.vo.prototype={
@@ -59026,7 +59026,7 @@ if(!J.d(s.b,p.t$.gv())){s.a=p.gv()
 s.b=p.t$.gv()
 p.eV=0
 o.l_(0)
-p.fN=B.aaK}else{q=o.x
+p.fN=B.aaN}else{q=o.x
 q===$&&A.a()
 if(q===o.b)s.a=s.b=p.t$.gv()
 else{s=o.r
@@ -59035,7 +59035,7 @@ case 2:s=p.cm
 if(!J.d(s.b,p.t$.gv())){s.a=s.b=p.t$.gv()
 p.eV=0
 o.l_(0)
-p.fN=B.aaL}else{p.fN=B.nt
+p.fN=B.aaO}else{p.fN=B.nt
 s=o.r
 if(!(s!=null&&s.a!=null))o.bR()}break
 case 3:s=p.cm
@@ -59130,7 +59130,7 @@ if(r!=null){r.S$=$.ay()
 r.R$=0}r=t.S
 s=$.ay()
 this.ax$=new A.RO(new A.alm(this),new A.ai8(B.dy,A.u(r,t.ZA)),A.u(r,t.xg),s)},
-agG(a){B.a7L.lI("first-frame",null,!1,t.H)},
+agG(a){B.a7O.lI("first-frame",null,!1,t.H)},
 aeX(a){this.L6()
 this.al8()},
 al8(){$.bD.k4$.push(new A.all(this))},
@@ -59602,7 +59602,7 @@ bi(a){return 1e5},
 bh(a){return 1e5},
 gkq(){return!0},
 iT(a){return!0},
-cH(a){return a.b5(B.acI)},
+cH(a){return a.b5(B.acL)},
 aJ(a,b){var s,r,q,p,o,n,m,l,k,j=this
 try{p=a.gcj()
 o=j.gv()
@@ -59635,15 +59635,15 @@ M(){return"MainAxisAlignment."+this.b},
 uf(a,b,c,d){var s,r,q,p=this
 A:{if(B.y===p){s=c?new A.at(a,d):new A.at(0,d)
 break A}if(B.CX===p){s=B.y.uf(a,b,!c,d)
-break A}r=B.a5N===p
+break A}r=B.a5Q===p
 if(r&&b<2){s=B.y.uf(a,b,c,d)
-break A}q=B.a5O===p
+break A}q=B.a5R===p
 if(q&&b===0){s=B.y.uf(a,b,c,d)
-break A}if(B.a5M===p){s=new A.at(a/2,d)
+break A}if(B.a5P===p){s=new A.at(a/2,d)
 break A}if(r){s=new A.at(0,a/(b-1)+d)
 break A}if(q){s=a/b
 s=new A.at(s/2,s+d)
-break A}if(B.a5P===p){s=a/(b+1)
+break A}if(B.a5S===p){s=a/(b+1)
 s=new A.at(s,s+d)
 break A}s=null}return s}}
 A.pq.prototype={
@@ -61423,7 +61423,7 @@ j(a,b){var s=this
 if(b==null)return!1
 return b instanceof A.HW&&b.a===s.a&&b.b===s.b&&b.d===s.d&&J.d(b.f,s.f)&&A.oW(b.e,s.e)},
 gB(a){var s=this,r=s.e
-return A.M(s.a,s.b,s.d,s.f,A.aYK(r==null?B.abL:r),B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a)}}
+return A.M(s.a,s.b,s.d,s.f,A.aYK(r==null?B.abO:r),B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a)}}
 A.aAq.prototype={
 gex(){var s=this.d
 return s==null?this.gbS():s},
@@ -61860,7 +61860,7 @@ A.a5C.prototype={}
 A.lH.prototype={
 j(a,b){if(b==null)return!1
 return b instanceof A.lH&&b.b===this.b},
-gB(a){return A.M(B.ajR,this.b,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a)}}
+gB(a){return A.M(B.ajU,this.b,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a)}}
 A.hX.prototype={
 aE(){this.a=this.b=null
 this.a7h()},
@@ -62334,12 +62334,12 @@ l=s>r!==(B.am===m)
 k=A.cj(B.l,s,r,!1)
 j=A.b([],t.AO)
 for(a0=a0.mp(k),m=a0.length,i=0;i<a0.length;a0.length===m||(0,A.x)(a0),++i){h=a0[i]
-j.push(new A.n(h.a,h.b,h.c,h.d))}A:{if(p){a0=B.aak
+j.push(new A.n(h.a,h.b,h.c,h.d))}A:{if(p){a0=B.aan
 break A}a0=l
 g=a0
-if(a0){a0=B.aaI
+if(a0){a0=B.aaL
 break A}a0=!1===g
-if(a0){a0=B.aar
+if(a0){a0=B.aau
 break A}a0=a}f=a0.a
 e=a
 d=a0.b
@@ -63384,7 +63384,7 @@ a2I(a){return new A.n(0,0,0+a.a,0+a.b)},
 k(a){return"CustomClipper"}}
 A.o5.prototype={
 DV(a){return this.b.dI(new A.n(0,0,0+a.a,0+a.b),this.c)},
-Eq(a){if(A.p(a)!==B.ajA)return!0
+Eq(a){if(A.p(a)!==B.ajD)return!0
 t.jH.a(a)
 return!a.b.j(0,this.b)||a.c!=this.c}}
 A.xc.prototype={
@@ -64017,7 +64017,7 @@ s.k4=!1
 s.p1=p
 s.ok=b}}o=o.a(A.C.prototype.gaC.call(r))
 o.toString
-a.t5(o,A.eh.prototype.geB.call(r),B.f,B.aaJ)},
+a.t5(o,A.eh.prototype.geB.call(r),B.f,B.aaM)},
 ef(a,b){b.e8(this.Ou())}}
 A.akO.prototype={
 $2(a,b){return this.a.tX(a,b)},
@@ -64765,18 +64765,18 @@ M(){return"WrapAlignment."+this.b},
 Ae(a,b,c,d){var s,r,q=this
 A:{if(B.by===q){s=new A.at(d?a:0,b)
 break A}if(B.J7===q){s=B.by.Ae(a,b,c,!d)
-break A}r=B.am_===q
+break A}r=B.am2===q
 if(r&&c<2){s=B.by.Ae(a,b,c,d)
 break A}if(B.kU===q){s=new A.at(a/2,b)
 break A}if(r){s=new A.at(0,a/(c-1)+b)
-break A}if(B.am0===q){s=a/c
+break A}if(B.am3===q){s=a/c
 s=new A.at(s/2,s+b)
-break A}if(B.am1===q){s=a/(c+1)
+break A}if(B.am4===q){s=a/(c+1)
 s=new A.at(s,s+b)
 break A}s=null}return s}}
 A.F4.prototype={
 M(){return"WrapCrossAlignment."+this.b},
-gacj(){switch(this.a){case 0:var s=B.am2
+gacj(){switch(this.a){case 0:var s=B.am5
 break
 case 1:s=B.cE
 break
@@ -65305,7 +65305,7 @@ aym(a){var s,r,q=this,p=new A.aqf(a)
 if(q.b==null){s=q.b=new A.bw(new A.as($.ar,t.U),t.T)
 r=q.c
 if(r!=null)if(r)s.h8()
-else s.rj(B.aiR)}q.b.a.fs(p,p,t.H)},
+else s.rj(B.aiU)}q.b.a.fs(p,p,t.H)},
 oE(a,b){return this.a.a.oE(a,b)},
 oD(a){return this.oE(a,null)},
 fs(a,b,c){return this.a.a.fs(a,b,c)},
@@ -65874,7 +65874,7 @@ if(s==null||!s.dx.aH(b))return null
 return r.a.dx.h(0,b)},
 aws(a,b,c){var s,r=this.ad4(a,b)
 if(r!=null){r.$1(c)
-return}if(b===B.abc){s=this.c.h(0,a)
+return}if(b===B.abf){s=this.c.h(0,a)
 s=(s==null?null:s.c)!=null}else s=!1
 if(s)this.c.h(0,a).c.$0()},
 k(a){return"<optimized out>#"+A.bn(this)}}
@@ -65909,27 +65909,27 @@ this.y=a},
 sm9(a){a.toString
 this.fz(B.HC,a)},
 sCY(a){this.fz(B.kq,a)},
-sCO(a){this.fz(B.abd,a)},
+sCO(a){this.fz(B.abg,a)},
 sCZ(a){this.fz(B.kr,a)},
 sD_(a){this.fz(B.kn,a)},
 sCX(a){this.fz(B.ko,a)},
 savM(a){this.mE(B.HE,new A.anO(a))},
 sN9(a){this.fz(B.HD,a)},
 sN5(a){this.fz(B.HB,a)},
-sCK(a){this.fz(B.abg,a)},
-sCL(a){this.fz(B.abk,a)},
-sCV(a){this.fz(B.ab7,a)},
-sCT(a){this.mE(B.abh,new A.anM(a))},
-sCR(a){this.mE(B.ab9,new A.anK(a))},
-sCU(a){this.mE(B.abi,new A.anN(a))},
-sCS(a){this.mE(B.ab6,new A.anL(a))},
-sD0(a){this.mE(B.aba,new A.anP(a))},
-sD1(a){this.mE(B.abb,new A.anQ(a))},
-sCM(a){this.fz(B.abe,a)},
-sCN(a){this.fz(B.abj,a)},
+sCK(a){this.fz(B.abj,a)},
+sCL(a){this.fz(B.abn,a)},
+sCV(a){this.fz(B.aba,a)},
+sCT(a){this.mE(B.abk,new A.anM(a))},
+sCR(a){this.mE(B.abc,new A.anK(a))},
+sCU(a){this.mE(B.abl,new A.anN(a))},
+sCS(a){this.mE(B.ab9,new A.anL(a))},
+sD0(a){this.mE(B.abd,new A.anP(a))},
+sD1(a){this.mE(B.abe,new A.anQ(a))},
+sCM(a){this.fz(B.abh,a)},
+sCN(a){this.fz(B.abm,a)},
 sCP(a){this.fz(B.kp,a)},
-sN8(a){this.fz(B.ab8,a)},
-sN4(a){this.fz(B.abf,a)},
+sN8(a){this.fz(B.abb,a)},
+sN4(a){this.fz(B.abi,a)},
 sa3b(a){return},
 sa3c(a){return},
 saww(a){if(a===this.rx)return
@@ -66505,7 +66505,7 @@ yb(){var s=0,r=A.R(t.H),q=this,p,o,n,m,l
 var $async$yb=A.N(function(a,b){if(a===1)return A.O(b,r)
 for(;;)switch(s){case 0:m=t.S
 s=2
-return A.S(B.a9_.Cr("getKeyboardState",m,m),$async$yb)
+return A.S(B.a92.Cr("getKeyboardState",m,m),$async$yb)
 case 2:l=b
 if(l!=null)for(m=l.gco(),m=m.gad(m),p=q.a;m.A();){o=m.gT()
 n=l.h(0,o)
@@ -66728,7 +66728,7 @@ a.oe(J.jV(B.cA.gcl(b),b.byteOffset,4*s))}else if(t.s4.b(b)){a.fD(14)
 s=b.length
 l.hP(a,s)
 a.kv(4)
-a.oe(J.jV(B.a7P.gcl(b),b.byteOffset,4*s))}else if(t.OE.b(b)){a.fD(11)
+a.oe(J.jV(B.a7S.gcl(b),b.byteOffset,4*s))}else if(t.OE.b(b)){a.fD(11)
 s=b.length
 l.hP(a,s)
 a.kv(8)
@@ -66871,7 +66871,7 @@ if(q==null)q=this.a
 if(J.d(r==null?null:t.ZC.a(r.a),q))return
 p=q.Bb(a)
 s.m(0,a,p)
-B.a8V.cQ("activateSystemCursor",A.aA(["device",p.b,"kind",t.ZC.a(p.a).a],t.N,t.z),t.H)}}
+B.a8Y.cQ("activateSystemCursor",A.aA(["device",p.b,"kind",t.ZC.a(p.a).a],t.N,t.z),t.H)}}
 A.By.prototype={}
 A.cR.prototype={
 k(a){var s=this.gvC()
@@ -67149,9 +67149,9 @@ A.a1Y.prototype={}
 A.SQ.prototype={
 gkg(){var s=this.a,r=B.D9.h(0,s)
 return r==null?new A.o(98784247808+B.c.gB(s)):r},
-gML(){var s,r=this.b,q=B.a7t.h(0,r),p=q==null?null:q[this.c]
+gML(){var s,r=this.b,q=B.a7w.h(0,r),p=q==null?null:q[this.c]
 if(p!=null)return p
-s=B.a5V.h(0,r)
+s=B.a5Y.h(0,r)
 if(s!=null)return s
 if(r.length===1)return new A.h(r.toLowerCase().charCodeAt(0))
 return new A.h(B.c.gB(this.a)+98784247808)},
@@ -67748,7 +67748,7 @@ $S:0}
 A.Eg.prototype={}
 A.a17.prototype={
 Ru(a){var s,r=a.ml()
-if($.ch().a!==$.aFA()){s=B.aer.ml()
+if($.ch().a!==$.aFA()){s=B.aeu.ml()
 s.m(0,"isMultiline",a.b.j(0,B.kJ))
 r.m(0,"inputType",s)}return r},
 a3z(a){var s,r=$.ch().c
@@ -67762,7 +67762,7 @@ return A.b([r,q,s.c-r,s.d-q,a.a,a.c.a],t.a0)},
 $S:359}
 A.a5m.prototype={}
 A.adV.prototype={
-$2(a,b){return new A.va(b,B.abK,this.a.f,null)},
+$2(a,b){return new A.va(b,B.abN,this.a.f,null)},
 $S:360}
 A.adW.prototype={
 $1(a){return A.aXy(this.a,a)},
@@ -67797,7 +67797,7 @@ return A.S(B.Db.lI("dispose",q.a,!1,t.H),$async$l)
 case 4:case 3:return A.P(null,r)}})
 return A.Q($async$l,r)}}
 A.Sy.prototype={
-G(a){return A.fw(B.bD,A.b([B.aa8,this.c],t.p),B.Z,B.bW)}}
+G(a){return A.fw(B.bD,A.b([B.aab,this.c],t.p),B.Z,B.bW)}}
 A.ajC.prototype={
 $2(a,b){var s,r,q,p,o=$.ajz
 if(o!=null){s=b.offsetX
@@ -67866,7 +67866,7 @@ dF(a){return this.c.$1(a)}}
 A.a6Y.prototype={
 a0k(a,b,c){return a.uw(b,c)},
 aua(a,b,c){if(a.ux(b,c))return new A.at(!0,a.uw(b,c))
-return B.aaw}}
+return B.aaz}}
 A.l4.prototype={
 ab(){return new A.F5(A.aG(t.od),new A.K())}}
 A.a7_.prototype={
@@ -68382,7 +68382,7 @@ q=m.a
 p=q.e==null?A.b5Y():new A.aCO(m)
 o=q.ch
 o.toString
-k.a=A.aLl(!0,new A.BO(r,m.gait(),m.gaj8(),o,"nav",B.aj_,p,!0,B.z,s),"Navigator Scope",!0,l,l,l,l)
+k.a=A.aLl(!0,new A.BO(r,m.gait(),m.gaj8(),o,"nav",B.aj2,p,!0,B.z,s),"Navigator Scope",!0,l,l,l,l)
 s=q}else{s=m.a
 s.toString}k.b=null
 n=new A.dU(new A.aCP(k,m),l)
@@ -68492,7 +68492,7 @@ if(s!=null){s.ah()
 s.dJ()
 r.iM$=null}}},
 G(a){if(this.gtx()&&this.iM$==null)this.ui()
-return B.an5}}
+return B.an8}}
 A.a0M.prototype={
 G(a){throw A.i(A.j6("Widgets that mix AutomaticKeepAliveClientMixin into their State must call super.build() but must ignore the return value of the superclass."))}}
 A.a4L.prototype={
@@ -69417,8 +69417,8 @@ s=$.aY()
 s.k2=l.gasW()
 s.k3=$.ar
 B.no.mw(l.gaeR())
-B.a8X.mw(l.gadn())
-B.a8Z.mw(l.gag0())
+B.a9_.mw(l.gadn())
+B.a91.mw(l.gag0())
 s=new A.NI(A.u(p,t.qa),B.Dt)
 B.Dt.mw(s.gahS())
 l.hg$=s
@@ -69619,7 +69619,7 @@ else q=!0
 if(q){q=B.qa
 break A}q=null}return q}return a>0?B.qb:B.Om},
 gG6(){this.a.toString
-B.a7s.h(0,this.uk(this.w))
+B.a7v.h(0,this.uk(this.w))
 return 0.4},
 gUy(){var s=this.c.gv()
 s.toString
@@ -69681,8 +69681,8 @@ if(o.gj9()){s=Math.abs(r)
 if(s-Math.abs(q)<400||s<700)return B.oB
 p=o.uk(r)}else{s=Math.abs(q)
 if(s-Math.abs(r)<400||s<700)return B.oB
-p=o.uk(q)}if(p===o.uk(o.w))return B.amn
-return B.amo},
+p=o.uk(q)}if(p===o.uk(o.w))return B.amq
+return B.amr},
 abi(a){var s,r,q,p,o=this
 if(o.y){s=o.gjX().r
 s=s!=null&&s.a!=null}else s=!0
@@ -69948,7 +69948,7 @@ q=s==null?o:s.gi5()
 r.ay=q}if(q==null){s=p.w
 r=s==null?o:s.b}else r=q}r.kA(!0)
 break}},
-ic(){return this.DI(B.ajZ)},
+ic(){return this.DI(B.ak1)},
 apU(){if(!this.z)return!1
 this.z=!1
 return!0},
@@ -70429,13 +70429,13 @@ A.wD.prototype={}
 A.Zx.prototype={}
 A.a9J.prototype={
 a_i(a,b){var s,r,q={},p=a.gi5().gpX().fu(0),o=q.a=q.b=null
-switch(b){case B.d5:o=B.aaG
+switch(b){case B.d5:o=B.aaJ
 break
-case B.d7:o=B.aaH
+case B.d7:o=B.aaK
 break
-case B.d8:o=B.aav
+case B.d8:o=B.aay
 break
-case B.d6:o=B.aax
+case B.d6:o=B.aaA
 break}s=o.a
 q.b=s
 r=o.b
@@ -70746,7 +70746,7 @@ A.b5.prototype={
 k(a){var s,r=this,q=r.a
 if(q!=null)s=" "+q
 else s=""
-if(A.p(r)===B.ajm)return"[GlobalKey#"+A.bn(r)+s+"]"
+if(A.p(r)===B.ajp)return"[GlobalKey#"+A.bn(r)+s+"]"
 return"["+("<optimized out>#"+A.bn(r))+s+"]"}}
 A.pO.prototype={
 j(a,b){if(b==null)return!1
@@ -71239,7 +71239,7 @@ this.$1(s)}},
 $S:14}
 A.h9.prototype={
 Ix(){var s=this,r=s.a,q=r==null?null:r.y
-if(q==null)q=B.a9j
+if(q==null)q=B.a9m
 r=s.e
 r.toString
 s.y=q.awL(A.p(r),s)},
@@ -71396,7 +71396,7 @@ G(a){var s=this,r=A.u(t.u,t.xR),q=A.by(a,B.oH),p=q==null?null:q.cx,o=A.ra(a)
 q=!0
 if(s.d==null)if(s.e==null)if(s.f==null)if(s.w==null)if(s.x==null)if(s.y==null)if(s.z==null)q=s.Q!=null
 if(q)r.m(0,B.hR,new A.bV(new A.ad_(s),new A.ad0(s,p),t.UN))
-if(s.ch!=null)r.m(0,B.ajc,new A.bV(new A.ad1(s),new A.ad5(s,p),t.uA))
+if(s.ch!=null)r.m(0,B.ajf,new A.bV(new A.ad1(s),new A.ad5(s,p),t.uA))
 q=!0
 if(s.db==null)q=s.fr!=null
 if(q)r.m(0,B.kO,new A.bV(new A.ad6(s),new A.ad7(s,p),t.jn))
@@ -71407,7 +71407,7 @@ if(s.xr!=null||s.y1!=null||s.y2!=null||s.R!=null||s.S!=null)r.m(0,B.oo,new A.bV(
 q=!0
 q=s.ac!=null
 if(q)r.m(0,B.kP,new A.bV(new A.adc(s),new A.ad2(s,o,a,p),t.YC))
-if(s.ae!=null||s.a4!=null||s.ap!=null)r.m(0,B.ajz,new A.bV(new A.ad3(s),new A.ad4(s,p),t.lG))
+if(s.ae!=null||s.a4!=null||s.ap!=null)r.m(0,B.ajC,new A.bV(new A.ad3(s),new A.ad4(s,p),t.lG))
 return new A.iz(s.c,r,s.c3,s.bQ,null)}}
 A.ad_.prototype={
 $0(){return A.E5(this.a,-1,null)},
@@ -71512,7 +71512,7 @@ a.db=s.cu
 a.c=null},
 $S:414}
 A.iz.prototype={
-ab(){return new A.vk(B.a7r)}}
+ab(){return new A.vk(B.a7u)}}
 A.vk.prototype={
 aw(){var s,r=this
 r.aQ()
@@ -72047,7 +72047,7 @@ if(r!=null)f.push(new A.kf("FILL",r))
 if(q!=null)f.push(new A.kf("wght",q))
 if(p!=null)f.push(new A.kf("GRAD",p))
 if(o!=null)f.push(new A.kf("opsz",o))
-k=A.aHa(i,i,i,B.aew,i,i,!0,i,A.e2(i,i,i,i,i,i,i,i,i,A.dE(i,i,l,i,i,i,i,i,n.b,i,i,s,i,f,i,i,1,!1,B.E,i,i,i,i,g.w,i,i),A.ef(n.a)),B.bd,h,i,B.aN,B.b6)
+k=A.aHa(i,i,i,B.aez,i,i,!0,i,A.e2(i,i,i,i,i,i,i,i,i,A.dE(i,i,l,i,i,i,i,i,n.b,i,i,s,i,f,i,i,1,!1,B.E,i,i,i,i,g.w,i,i),A.ef(n.a)),B.bd,h,i,B.aN,B.b6)
 if(n.d)switch(h.a){case 0:f=new A.aQ(new Float64Array(16))
 f.dP()
 f.mv(-1,1,1,1)
@@ -72128,7 +72128,7 @@ Bp(){this.a6o()
 this.af(new A.avN(this))},
 Xx(){var s=this.c
 s.toString
-s=A.by(s,B.amF)
+s=A.by(s,B.amI)
 s=s==null?null:s.Q
 if(s==null){s=$.vE.lW$
 s===$&&A.a()
@@ -72662,7 +72662,7 @@ s.dB(-q,-p,0,1)
 return s},
 yN(a){var s
 A:{s=!0
-if(B.amq===a){s=!1
+if(B.amt===a){s=!1
 break A}if(B.kY===a){this.a.toString
 break A}if(B.hX===a||a==null){this.a.toString
 break A}s=null}return s},
@@ -73100,14 +73100,14 @@ s.ah()}},
 I_(a,b){var s=this.c,r=a.length,q=s.$2(r!==0?B.b.ga8(a):null,b)
 if(q!=null)return q
 return A.b4k(a,b)},
-k(a){return B.ajn.k(0)}}
+k(a){return B.ajq.k(0)}}
 A.a08.prototype={}
 A.afq.prototype={
 $1(a){var s
 if(a instanceof A.b7&&this.b.b(a.ga5())){this.a.a=a
 return!1}s=a.e
 s.toString
-return A.p(s)!==B.ajo},
+return A.p(s)!==B.ajr},
 $S:35}
 A.kr.prototype={
 j(a,b){var s=this
@@ -73183,7 +73183,7 @@ G(a){var s=this,r=null,q=s.d,p=q.c,o=q.a,n=s.w
 return A.fw(B.T,A.b([A.aVq(A.Sb(new A.a0d(s.f,s.r,A.Um(s.c,n),r),o),p),A.h8(A.Sb(A.a8L(A.dW(A.Um(r,n),new A.hj(r,r,r,q.b,p),B.au),s.e,new A.a0J(p,r)),o),!0,r)],t.p),B.z,B.bW)}}
 A.a0J.prototype={
 DV(a){var s=A.bY($.a0().r)
-s.sBT(B.a99)
+s.sBT(B.a9c)
 s.aA(new A.fY(B.ed))
 s.aA(new A.Ko(this.b.a2P(new A.n(0,0,0+a.a,0+a.b)),B.f,null))
 return s},
@@ -73228,7 +73228,7 @@ gcN(){var s=this.d
 if(B.LV!==s)return s
 return B.aN},
 gnt(){var s=this.a
-return s.a>s.b?B.a93:B.a92},
+return s.a>s.b?B.a96:B.a95},
 vx(a,b,c,d,e){var s=this,r=c==null?s.gcN():c,q=b==null?s.r:b,p=e==null?s.w:e,o=d==null?s.f:d,n=a==null?s.cy:a
 return new A.Br(s.a,s.b,r,s.e,o,q,p,s.x,!1,s.z,s.Q,s.as,s.at,s.ax,s.ay,s.ch,s.CW,s.cx,n,!1,s.dx,s.dy,s.fr,s.fx)},
 vt(a){var s=null
@@ -73472,7 +73472,7 @@ k=A.b_(i,i,A.jg(new A.dn(B.i6,l==null?i:A.lg(i,l,!0),i),B.dy,i,i,i,i),!1,i,i,i,!
 return A.aUY(new A.n_(!r,new A.a0u(k,q,i),i))}}
 A.ai3.prototype={
 $0(){if(this.a.d)A.aYJ(this.b)
-else A.E3(B.adp)},
+else A.E3(B.ads)},
 $S:0}
 A.Ks.prototype={
 G(a){return A.aGV(!0,null,t.Bs.a(this.c).gp(),this.e,null,this.f,null)}}
@@ -73488,7 +73488,7 @@ Kd(){var s=t.S
 return new A.wt(B.bs,-1,-1,B.dV,A.u(s,t.C),A.de(s),null,null,A.to(),A.u(s,t.B))},
 a08(a){a.n=this.a}}
 A.a0u.prototype={
-G(a){return new A.iz(this.c,A.aA([B.ajN,new A.XK(this.d)],t.u,t.xR),B.ba,!1,null)}}
+G(a){return new A.iz(this.c,A.aA([B.ajQ,new A.XK(this.d)],t.u,t.xR),B.ba,!1,null)}}
 A.RY.prototype={
 G(a){var s=this,r=a.al(t.I).w,q=A.b([],t.p),p=s.c
 if(p!=null)q.push(A.B3(p,B.le))
@@ -73639,7 +73639,7 @@ q=c.CW.x
 q===$&&A.a()
 s.sp(q)}n.a5V(c)
 p.d=B.hZ}if(a)n.oR(null)
-s=o===B.anh||o===B.oL
+s=o===B.ank||o===B.oL
 q=b.w
 if(s)q.h_(new A.GK(n,d))
 else q.h_(new A.x0(n,d))},
@@ -73652,7 +73652,7 @@ r.ahM()
 s.f=new A.th(new ($.a6H())(a))
 if(s.w!=null)a.f.a.bO(new A.aA0(s),t.P)},
 at8(a,b){var s,r=this
-r.d=B.and
+r.d=B.ang
 s=r.a
 if((s.e.a.a&30)!==0)return!0
 if(!s.lU(r.y)){r.d=B.hZ
@@ -73667,11 +73667,11 @@ apP(a,b,c){var s=this
 if(s.d.a>=10)return
 s.z=!c
 s.y=a
-s.d=B.ani
+s.d=B.anl
 s.x=b},
 apQ(a,b,c){return this.apP(a,b,c,t.z)},
 l(){var s,r,q,p,o,n,m,l=this,k={}
-l.d=B.anf
+l.d=B.ani
 s=l.a
 r=s.r
 q=new A.azZ()
@@ -73905,7 +73905,7 @@ a=!0
 switch(p.d.a){case 1:a0=b2.mI(r-1,A.i4())
 a1=a0>=0?q[a0]:b3
 a1=a1==null?b3:a1.a
-p.d=B.ang
+p.d=B.anj
 g.h_(new A.x0(p.a,a1))
 continue A
 case 2:if(d||e==null){a1=p.a
@@ -73966,14 +73966,14 @@ a1=a1.e.a
 if((a1.a&30)!==0)A.a1(A.aP("Future already completed"))
 a1.is(a2)
 p.y=null
-p.d=B.anc
+p.d=B.anf
 continue A
 case 10:if(!c&&p.a.b!=null){if(f!=null)p.C5(f)
 f=b3}a0=b2.mI(r,A.JS())
 a1=a0>=0?q[a0]:b3
 a1=a1==null?b3:a1.a
 a2=p.a
-if(a2.b===b2)p.d=B.ane
+if(a2.b===b2)p.d=B.anh
 else p.d=B.l3
 if(p.z)m.h_(new A.GJ(a2,a1))
 continue A
@@ -74177,7 +74177,7 @@ if(s!=null)s.sYc(!0)},
 $S:0}
 A.aiH.prototype={
 $1(a){if(a.a||!this.a.AR())return!1
-this.b.e5(B.a7T)
+this.b.e5(B.a7W)
 return!0},
 $S:172}
 A.HD.prototype={
@@ -74772,7 +74772,7 @@ return new A.x2(new A.Zn(q,new A.dU(r.d,p),p),A.b_(p,p,r.e,!1,p,p,p,!1,p,p,p,p,p
 A.axi.prototype={
 $0(){var s=this.a.c
 s.toString
-return A.b1m(s,this.b===B.a97)},
+return A.b1m(s,this.b===B.a9a)},
 $S:448}
 A.axk.prototype={
 $0(){this.a.d=this.b},
@@ -75103,7 +75103,7 @@ r===$&&A.a()
 r.e=A.dI(0,B.d.b4(0.15+l*0.02))
 r.l_(0)
 n.at=0.5
-n.a=B.amr}else{q=a.d
+n.a=B.amu}else{q=a.d
 if(q!=null){p=a.b.ga5()
 p.toString
 t.x.a(p)
@@ -76255,7 +76255,7 @@ break
 default:s=null}return s},
 $S:459}
 A.wZ.prototype={
-ab(){return new A.mq(A.acb(!0,B.ajO.k(0)+" Focus Scope",!1),A.Dc(),this.$ti.i("mq<1>"))}}
+ab(){return new A.mq(A.acb(!0,B.ajR.k(0)+" Focus Scope",!1),A.Dc(),this.$ti.i("mq<1>"))}}
 A.mq.prototype={
 aw(){var s,r,q=this
 q.aQ()
@@ -76312,7 +76312,7 @@ $1(a){var s,r=null,q=A.aA([B.om,new A.Zz(a,new A.aV(A.b([],t.k),t.g))],t.u,t.od)
 o===$&&A.a()
 s=p.d
 if(s==null)s=p.d=new A.jn(new A.dU(new A.awT(p),r),p.a.c.ry)
-return A.mH(q,new A.vf(p.r,B.af,B.abI,A.aOF(new A.jn(new A.ns(new A.awU(p),s,o,r),r),p.f,!0),r))},
+return A.mH(q,new A.vf(p.r,B.af,B.abL,A.aOF(new A.jn(new A.ns(new A.awU(p),s,o,r),r),p.f,!0),r))},
 $S:461}
 A.awU.prototype={
 $2(a,b){var s,r,q=this.a,p=q.a.c,o=p.p3
@@ -76434,9 +76434,9 @@ t.r.a(s)
 o=new A.Ks(n.grd(),n.gAI(),!0,new A.an(s,new A.hZ(new A.fm(B.bZ),new A.eq(r,q),p),p.i("an<az.T>")),m)}else o=A.aGV(!0,m,m,n.grd(),m,n.gAI(),m)
 o=A.h8(o,!n.p3.gaP().gm4(),m)
 s=n.grd()
-return s?A.b_(m,m,o,!1,m,m,m,!1,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,B.a91,m,m,m,m,B.t,m):o},
+return s?A.b_(m,m,o,!1,m,m,m,!1,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,m,B.a94,m,m,m,m,B.t,m):o},
 a9w(a){var s=this,r=null,q=s.x2
-return q==null?s.x2=A.b_(r,r,new A.wZ(s,s.rx,A.m(s).i("wZ<1>")),!1,r,r,r,!1,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,B.a90,r,r,r,r,B.t,r):q},
+return q==null?s.x2=A.b_(r,r,new A.wZ(s,s.rx,A.m(s).i("wZ<1>")),!1,r,r,r,!1,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,B.a93,r,r,r,r,B.t,r):q},
 k(a){return"ModalRoute("+this.c.k(0)+", animation: "+A.j(this.ch)+")"}}
 A.ai6.prototype={
 $0(){this.a.p2=this.b},
@@ -77163,13 +77163,13 @@ return!1}return!0},
 vd(){this.fr.vd()
 this.IL()},
 IL(){var s,r,q,p,o,n,m=this,l=m.w
-switch(l.a.c.a){case 0:s=B.aaE
+switch(l.a.c.a){case 0:s=B.aaH
 break
-case 2:s=B.aaA
+case 2:s=B.aaD
 break
-case 3:s=B.aau
+case 3:s=B.aax
 break
-case 1:s=B.aat
+case 1:s=B.aaw
 break
 default:s=null}r=s.a
 q=null
@@ -77845,7 +77845,7 @@ t.x.a(o)
 s=o.e_(a)
 if(!this.go){r=s.b
 if(r<0||s.a<0)return A.bb(o.aS(null),B.f)
-if(r>o.gv().b||s.a>o.gv().a)return B.a8U}q=A.a6e(p)
+if(r>o.gv().b||s.a>o.gv().a)return B.a8X}q=A.a6e(p)
 return A.bb(o.aS(null),new A.f(s.a+q.a,s.b+q.b))},
 Iu(a,b){var s,r,q,p=this,o=p.dx,n=A.a6e(o)
 o=o.c.ga5()
@@ -78061,7 +78061,7 @@ s.toString
 if(r>s)a.savM(q.gaiQ())}},
 r9(a,b,c){var s,r,q,p,o,n,m,l=this
 if(c.length!==0){s=B.b.ga8(c).fx
-s=!(s!=null&&s.q(0,B.abv))}else s=!0
+s=!(s!=null&&s.q(0,B.aby))}else s=!0
 if(s){l.bG=null
 l.PX(a,b,c)
 return}s=l.bG
@@ -78074,7 +78074,7 @@ q=A.b([s],r)
 p=A.b([],r)
 for(s=c.length,o=null,n=0;n<c.length;c.length===s||(0,A.x)(c),++n){m=c[n]
 r=m.fx
-if(r!=null&&r.q(0,B.abx))q.push(m)
+if(r!=null&&r.q(0,B.abA))q.push(m)
 else{if(!m.fy.ax)o=m.x
 p.push(m)}}b.sa3c(o)
 a.mo(q,null)
@@ -78319,7 +78319,7 @@ s=this.CW
 return r?s.gc8()+s.gcc():s.gdM()},
 guC(){var s,r=this.gI2()
 A:{if(B.Hr===r||B.Hs===r){s=this.CW.b
-break A}if(B.aaX===r||B.Ht===r){s=this.CW.a
+break A}if(B.ab_===r||B.Ht===r){s=this.CW.a
 break A}s=null}return s},
 gI2(){var s=this.dy
 if(s===B.bY||s===B.bQ)return this.e===B.j?B.Hs:B.Hr
@@ -78864,10 +78864,10 @@ s=B.b.gct(r.gja().f).z
 s.toString
 s=p-s>1e-10
 p=s}}if(!p)return q
-switch(A.bA(B.b.gct(r.gja().f).ghY()).a){case 0:q.m(0,B.ajT,new A.bV(new A.akf(r),r.gTS(),t.lh))
+switch(A.bA(B.b.gct(r.gja().f).ghY()).a){case 0:q.m(0,B.ajW,new A.bV(new A.akf(r),r.gTS(),t.lh))
 break
-case 1:q.m(0,B.ajL,new A.bV(new A.akg(r),r.gTS(),t.Pw))
-break}q.m(0,B.ajP,new A.bV(new A.akh(r),new A.aki(r),t.Bk))
+case 1:q.m(0,B.ajO,new A.bV(new A.akg(r),r.gTS(),t.Pw))
+break}q.m(0,B.ajS,new A.bV(new A.akh(r),new A.aki(r),t.Bk))
 return q},
 a0F(a,b,c){var s,r=this.z
 if($.a_.ai$.x.h(0,r)==null)return!1
@@ -79000,7 +79000,7 @@ if(r!=null)r.L(s.gdR())
 s.b2$=null
 s.aG()}}
 A.vA.prototype={
-ab(){return new A.nZ(A.u(t.u,t.xR),new A.no(),new A.no(),new A.no(),A.b_A(),A.aKN(),A.b([],t.RW),new A.a38(B.Hu,$.ay()),B.aee)}}
+ab(){return new A.nZ(A.u(t.u,t.xR),new A.no(),new A.no(),new A.no(),A.b_A(),A.aKN(),A.b([],t.RW),new A.a38(B.Hu,$.ay()),B.aeh)}}
 A.nZ.prototype={
 gH3(){var s=this.y.at
 return s.a!=null||s.b!=null},
@@ -79050,8 +79050,8 @@ r.jW()}}$.oY()
 s=A.al()!==B.a7&&A.al()!==B.L
 if(s)$.ajz=r.y},
 anS(){var s,r=this,q=r.y.at.c
-A:{if(B.hA===q||B.HA===q){s=B.aeB
-break A}if(B.cY===q){s=B.aeA
+A:{if(B.hA===q||B.HA===q){s=B.aeE
+break A}if(B.cY===q){s=B.aeD
 break A}s=null}r.k2=new A.cE("__",s,B.bm)
 if(r.gH3())r.alM()
 else{s=r.f
@@ -79496,7 +79496,7 @@ q.k1=null
 if(q.y.at.c===B.cY)return
 s=q.z
 if(s!=null){r=q.RN(b)
-s.a.e.f0(new A.OI(b,r,a,B.ab5))}q.f_()
+s.a.e.f0(new A.OI(b,r,a,B.ab8))}q.f_()
 s=q.ch
 s.a=B.al
 s.ah()
@@ -79546,7 +79546,7 @@ dE(){return this.fS(!0)},
 nY(a){var s,r=this
 r.rg()
 s=r.z
-if(s!=null)s.a.e.f0(B.ab1)
+if(s!=null)s.a.e.f0(B.ab4)
 if(a===B.ap){r.ot()
 r.lK()}r.f_()
 s=r.ch
@@ -79659,7 +79659,7 @@ a.at=B.eD},
 $S:194}
 A.amE.prototype={
 $0(){var s=t.mf
-return A.aNL(this.a,A.dq(new A.b4(B.a3h,new A.amD(),s),s.i("y.E")))},
+return A.aNL(this.a,A.dq(new A.b4(B.a3i,new A.amD(),s),s.i("y.E")))},
 $S:195}
 A.amD.prototype={
 $1(a){return a!==B.bj},
@@ -79677,7 +79677,7 @@ a.dy=s.gYV()
 a.at=B.eD},
 $S:196}
 A.amG.prototype={
-$0(){return A.PN(this.a,B.abG)},
+$0(){return A.PN(this.a,B.abJ)},
 $S:95}
 A.amH.prototype={
 $1(a){var s=this.a
@@ -80461,7 +80461,7 @@ if(r==null)return B.h1
 s=this.a.c
 if(s==null){s=this.d
 s.toString}return s.asV(r,b)},
-G(a){var s=null,r=B.ajB.k(0)
+G(a){var s=null,r=B.ajE.k(0)
 return A.n5(!1,!1,this.a.e,r,s,s,s,!0,s,s,s,this.gaeU(),s,s)}}
 A.DE.prototype={
 l(){this.dJ()},
@@ -80501,7 +80501,7 @@ r=o.f==null&&A.aZg(a,l)
 q=r?A.ak3(a):o.f
 p=A.aNm(k,B.Z,q,B.aP,!1,B.ba,n,n,n,n,new A.aop(m,o,k))
 A.ra(a)
-return r&&q!=null?new A.vf(n,n,B.abJ,p,n):p}}
+return r&&q!=null?new A.vf(n,n,B.abM,p,n):p}}
 A.aop.prototype={
 $2(a,b){return new A.xn(this.c,b,B.Z,this.a.a,null)},
 $S:501}
@@ -80828,8 +80828,8 @@ r.aI()},
 ajn(){var s,r=this,q=A.aMA(B.f),p=r.gv(),o=new A.jk(q,new A.n(0,0,0+p.a,0+p.b))
 r.ir(o,B.f)
 o.qe()
-if(r.bW!==B.acZ&&!q.ya()){q.l()
-if(r.bW===B.acY)throw A.i(A.j6("SnapshotWidget used with a child that contains a PlatformView."))
+if(r.bW!==B.ad1&&!q.ya()){q.l()
+if(r.bW===B.ad0)throw A.i(A.j6("SnapshotWidget used with a child that contains a PlatformView."))
 r.kY=!0
 return null}p=r.gv()
 s=q.axT(new A.n(0,0,0+p.a,0+p.b),r.C)
@@ -80861,15 +80861,15 @@ p.toString
 r.a1h(a,b,s,q,p,o.C)}}}
 A.Ut.prototype={}
 A.FK.prototype={
-ger(){return A.a1(A.ks(this,A.nm(B.adj,"gayK",1,[],[],0)))},
-ser(a){A.a1(A.ks(this,A.nm(B.adg,"sayE",2,[a],[],0)))},
-gdt(){return A.a1(A.ks(this,A.nm(B.adk,"gayL",1,[],[],0)))},
-sdt(a){A.a1(A.ks(this,A.nm(B.ado,"sayG",2,[a],[],0)))},
-glJ(){return A.a1(A.ks(this,A.nm(B.adl,"gayM",1,[],[],0)))},
-slJ(a){A.a1(A.ks(this,A.nm(B.adi,"sayH",2,[a],[],0)))},
-gmQ(){return A.a1(A.ks(this,A.nm(B.adm,"gayN",1,[],[],0)))},
-smQ(a){A.a1(A.ks(this,A.nm(B.adh,"sayJ",2,[a],[],0)))},
-Vb(a){return A.a1(A.ks(this,A.nm(B.adn,"ayO",0,[a],[],0)))},
+ger(){return A.a1(A.ks(this,A.nm(B.adm,"gayK",1,[],[],0)))},
+ser(a){A.a1(A.ks(this,A.nm(B.adj,"sayE",2,[a],[],0)))},
+gdt(){return A.a1(A.ks(this,A.nm(B.adn,"gayL",1,[],[],0)))},
+sdt(a){A.a1(A.ks(this,A.nm(B.adr,"sayG",2,[a],[],0)))},
+glJ(){return A.a1(A.ks(this,A.nm(B.ado,"gayM",1,[],[],0)))},
+slJ(a){A.a1(A.ks(this,A.nm(B.adl,"sayH",2,[a],[],0)))},
+gmQ(){return A.a1(A.ks(this,A.nm(B.adp,"gayN",1,[],[],0)))},
+smQ(a){A.a1(A.ks(this,A.nm(B.adk,"sayJ",2,[a],[],0)))},
+Vb(a){return A.a1(A.ks(this,A.nm(B.adq,"ayO",0,[a],[],0)))},
 a2(a){},
 l(){},
 L(a){},
@@ -84877,7 +84877,7 @@ s.toString
 return new A.c9(s,t.az)},
 $S:506}
 A.aER.prototype={
-$2(a,b){var s,r=B.a5Z.h(0,a),q=$.aJj()
+$2(a,b){var s,r=B.a61.h(0,a),q=$.aJj()
 if(q instanceof A.wh)q=$.b2A=A.b2I()
 if($.a6M() instanceof A.wh)$.b4W=A.b2H()
 if(r==null)A.a1(A.bF("Missing DateTime formatting patterns",null))
@@ -85377,7 +85377,7 @@ o=s.d
 n=s.e
 m=a8.e.$1(b1).tF(b1)
 l=!0
-if(o!==B.d4)if(!(o===B.ei&&!b1.d)){b0=o===B.aiV&&b1.d
+if(o!==B.d4)if(!(o===B.ei&&!b1.d)){b0=o===B.aiY&&b1.d
 l=b0}k=l?r:q
 j=l?q:r
 i=b1.d?1:-1
@@ -86368,7 +86368,7 @@ return A.lg(A.k3(A.kE(new A.Yw(s,k),B.h,A.aNn(A.iD(A.dV(new A.dn(B.p3,A.c6(n,B.a
 A.Yw.prototype={
 gwS(){return B.I9},
 G(a){var s=null
-return A.fs(!1,B.a0,!0,s,A.dW(A.kD(!1,A.cM(A.eK(A.b([B.o5,A.hB(A.Z(this.c,1,B.b_,s,A.Fr(15,B.aj),s,s),1),B.am7,B.Ia],t.p),B.at,B.y,B.D,0),56,s),!1,B.aA,!0),B.p5,B.au),B.z,B.h,0,s,s,s,s,s,B.bT)}}
+return A.fs(!1,B.a0,!0,s,A.dW(A.kD(!1,A.cM(A.eK(A.b([B.o5,A.hB(A.Z(this.c,1,B.b_,s,A.Fr(15,B.aj),s,s),1),B.ama,B.Ia],t.p),B.at,B.y,B.D,0),56,s),!1,B.aA,!0),B.p5,B.au),B.z,B.h,0,s,s,s,s,s,B.bT)}}
 A.Yy.prototype={
 G(a){var s=A.cv(a,B.ax,t.J)
 s.toString
@@ -86743,8 +86743,8 @@ gph(){return"Pol\xedtica de Privacidade"},
 gpi(){return"Termos de Servi\xe7o"},
 gLQ(){return"Dados de sa\xfade e LGPD"},
 gpQ(){return B.a2I},
-gpV(){return B.a_s},
-gMh(){return B.WF}}
+gpV(){return B.a_t},
+gMh(){return B.WL}}
 A.at3.prototype={
 gme(){return"Privacy Policy \u2014 PerfectGest-Clinica III"},
 gmk(){return"Terms of Service \u2014 PerfectGest-Clinica III"},
@@ -86755,7 +86755,7 @@ gph(){return"Privacy Policy"},
 gpi(){return"Terms of Service"},
 gLQ(){return"Health data and LGPD"},
 gpQ(){return B.a1q},
-gpV(){return B.Wi},
+gpV(){return B.Wm},
 gMh(){return B.a2C}}
 A.at4.prototype={
 gme(){return"Politica de privacidad \u2014 PerfectGest-Clinica III"},
@@ -86766,9 +86766,9 @@ gpA(){return"PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA\nNombre comercial: Pe
 gph(){return"Politica de privacidad"},
 gpi(){return"Terminos de servicio"},
 gLQ(){return"Datos de salud y LGPD"},
-gpQ(){return B.WG},
-gpV(){return B.VL},
-gMh(){return B.X0}}
+gpQ(){return B.WN},
+gpV(){return B.VP},
+gMh(){return B.X7}}
 A.ajk.prototype={}
 A.axs.prototype={
 gme(){return"Pol\xedtica de Privacidade \u2014 PerfectGest I"},
@@ -86781,10 +86781,10 @@ gph(){return"Pol\xedtica de Privacidade"},
 gpi(){return"Termos e Condi\xe7\xf5es"},
 gLO(){return"Exclus\xe3o de Dados"},
 gLP(){return"Perguntas frequentes"},
-gpQ(){return B.X7},
-gpV(){return B.VP},
-gKN(){return B.YK},
-gLh(){return B.YL}}
+gpQ(){return B.WC},
+gpV(){return B.Wr},
+gKN(){return B.YP},
+gLh(){return B.Va}}
 A.axq.prototype={
 gme(){return"Privacy Policy \u2014 PerfectGest I"},
 gmk(){return"Terms and Conditions \u2014 PerfectGest I"},
@@ -86796,10 +86796,10 @@ gph(){return"Privacy Policy"},
 gpi(){return"Terms and Conditions"},
 gLO(){return"Data Deletion"},
 gLP(){return"FAQ"},
-gpQ(){return B.Zt},
-gpV(){return B.Yg},
+gpQ(){return B.X8},
+gpV(){return B.WM},
 gKN(){return B.a2b},
-gLh(){return B.a_o}}
+gLh(){return B.a4_}}
 A.axr.prototype={
 gme(){return"Pol\xedtica de Privacidad \u2014 PerfectGest I"},
 gmk(){return"T\xe9rminos y Condiciones \u2014 PerfectGest I"},
@@ -86811,10 +86811,10 @@ gph(){return"Pol\xedtica de Privacidad"},
 gpi(){return"T\xe9rminos y Condiciones"},
 gLO(){return"Eliminaci\xf3n de Datos"},
 gLP(){return"Preguntas frecuentes"},
-gpQ(){return B.Yk},
-gpV(){return B.YZ},
-gKN(){return B.Xu},
-gLh(){return B.a0c}}
+gpQ(){return B.a2J},
+gpV(){return B.Wh},
+gKN(){return B.XB},
+gLh(){return B.a3E}}
 A.L.prototype={}
 A.PL.prototype={
 q8(a){var s=a==null
@@ -86884,16 +86884,16 @@ A.axz.prototype={
 $1(a){return B.M8},
 $S:8}
 A.axA.prototype={
-$1(a){return B.a9g},
+$1(a){return B.a9j},
 $S:8}
 A.axB.prototype={
-$1(a){return B.a9h},
+$1(a){return B.a9k},
 $S:8}
 A.axC.prototype={
-$1(a){return B.a9a},
+$1(a){return B.a9d},
 $S:8}
 A.axD.prototype={
-$1(a){return B.a9b},
+$1(a){return B.a9e},
 $S:8}
 A.axE.prototype={
 $1(a){return A.b4q()},
@@ -86978,12 +86978,12 @@ l=e.grV()
 l=i.yo(new A.vz(e.grV(),new A.yi(n,h),m),m,620,0,l)
 m=i.w
 k=e.gpK()
-k=i.yo(new A.vz(e.gpK(),B.aa4,m),m,340,1,k)
+k=i.yo(new A.vz(e.gpK(),B.aa7,m),m,340,1,k)
 m=i.x
 j=e.gpJ()
 j=i.yo(new A.vz(e.gpJ(),B.NL,m),m,320,2,j)
 m=e.gBX()
-q.push(A.iD(A.b_(h,h,A.c6(A.b([o,new A.Aw(n,i.f),l,k,j,i.yo(new A.a_x(i.a.c,h),B.ak_,250,3,m),A.cM(h,100,h)],r),B.a_,B.y,B.D),!0,h,h,h,!0,h,h,h,h,h,h,h,p,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,B.t,h),i.d,h,B.af))
+q.push(A.iD(A.b_(h,h,A.c6(A.b([o,new A.Aw(n,i.f),l,k,j,i.yo(new A.a_x(i.a.c,h),B.ak2,250,3,m),A.cM(h,100,h)],r),B.a_,B.y,B.D),!0,h,h,h,!0,h,h,h,h,h,h,h,p,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,B.t,h),i.d,h,B.af))
 q.push(A.ix(h,new A.Ug(76,i.a.c,new A.aAK(i),new A.aAL(i),new A.aAM(i),new A.aAN(i,a),new A.aAO(i,a),new A.aAP(i),h),h,h,0,0,0,h))
 q.push(A.ix(0,new A.IR(i.a.c,h),h,h,0,0,h,h))
 return A.kE(h,s,A.fw(B.bD,q,B.z,B.bW),g)}}
@@ -87059,7 +87059,7 @@ f=A.Z(n.gJ6(),p,p,p,A.bc().$3$color$fontSize$height(h.an(0.78),15,1.5),p,p)
 s=o.ry
 if(s==null){s=o.n
 h=s==null?h:s}else h=s
-return A.b_(p,p,A.kE(k,l,new A.lX(A.c6(A.b([A.hB(A.iD(A.dV(new A.dn(B.p2,A.c6(A.b([j,B.eg,i,B.cl,g,B.bV,f,B.hJ,A.aGi(h.an(0.35),p,1,p,p,p),B.hJ,new A.oE(B.Qb,n.gJ1(),n.gJ0(),p),B.d_,new A.oE(B.Qk,n.gIZ(),n.gIY(),p),B.d_,new A.oE(B.Qe,n.gJa(),n.gJ9(),p),B.d_,new A.oE(B.Qf,n.gJ3(),n.gJ2(),p),B.d_,new A.oE(B.Qm,n.gJc(),n.gJb(),p)],r),B.a_,B.y,B.D),p),p,p),p,B.Pc,B.af),1),B.anl],r),B.at,B.y,B.D),p),p),!1,p,p,p,!1,p,p,p,p,p,p,p,m,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,B.t,p)}}
+return A.b_(p,p,A.kE(k,l,new A.lX(A.c6(A.b([A.hB(A.iD(A.dV(new A.dn(B.p2,A.c6(A.b([j,B.eg,i,B.cl,g,B.bV,f,B.hJ,A.aGi(h.an(0.35),p,1,p,p,p),B.hJ,new A.oE(B.Qb,n.gJ1(),n.gJ0(),p),B.d_,new A.oE(B.Qk,n.gIZ(),n.gIY(),p),B.d_,new A.oE(B.Qe,n.gJa(),n.gJ9(),p),B.d_,new A.oE(B.Qf,n.gJ3(),n.gJ2(),p),B.d_,new A.oE(B.Qm,n.gJc(),n.gJb(),p)],r),B.a_,B.y,B.D),p),p,p),p,B.Pc,B.af),1),B.ano],r),B.at,B.y,B.D),p),p),!1,p,p,p,!1,p,p,p,p,p,p,p,m,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,B.t,p)}}
 A.aB8.prototype={
 $0(){return A.d0(this.a,!1).dG()},
 $S:0}
@@ -87094,7 +87094,7 @@ s=A.dm(14)
 r=p.ry
 if(r==null){r=p.n
 if(r==null)r=p.k3}r=A.j_(r,1)
-return A.fj(A.Z(this.c,q,q,q,B.ai0,q,q),B.z,new A.bP(o,q,r,s,q,q,B.U),q,q,B.P6,1/0)}}
+return A.fj(A.Z(this.c,q,q,q,B.ai3,q,q),B.z,new A.bP(o,q,r,s,q,q,B.U),q,q,B.P6,1/0)}}
 A.mf.prototype={
 G(a){var s,r,q=null,p=A.F(a).ax,o=p.RG
 o=(o==null?p.k2:o).an(0.4)
@@ -87102,7 +87102,7 @@ s=A.dm(12)
 r=p.ry
 if(r==null){r=p.n
 if(r==null)r=p.k3}r=A.j_(r.an(0.7),1)
-return new A.bt(B.OQ,A.fj(A.c6(A.b([A.Z(this.c,q,q,q,B.aih,q,q),B.eg,A.Z(this.d,q,q,q,A.dE(q,q,p.k3.an(0.82),q,q,q,q,q,q,q,q,13.3,q,q,q,q,1.35,!0,q,q,q,q,q,q,q,q),q,q)],t.p),B.a_,B.y,B.D),B.z,new A.bP(o,q,r,s,q,q,B.U),q,q,B.OZ,1/0),q)}}
+return new A.bt(B.OQ,A.fj(A.c6(A.b([A.Z(this.c,q,q,q,B.aik,q,q),B.eg,A.Z(this.d,q,q,q,A.dE(q,q,p.k3.an(0.82),q,q,q,q,q,q,q,q,13.3,q,q,q,q,1.35,!0,q,q,q,q,q,q,q,q),q,q)],t.p),B.a_,B.y,B.D),B.z,new A.bP(o,q,r,s,q,q,B.U),q,q,B.OZ,1/0),q)}}
 A.a_x.prototype={
 G(a){return A.B1(new A.avy(this))}}
 A.avy.prototype={
@@ -87217,7 +87217,7 @@ d.push(A.eJ(!1,m,m,m,A.cI(B.j2,l.b,m,22),m,m,A.aIL(),m,m,m,r))}if(s){r=i.gxe()
 d.push(A.eJ(!1,m,m,m,A.cI(B.j5,l.b,m,22),m,m,A.aF_(),m,m,m,r))}if(s){r=k?i.gtm():i.gtl()
 q=k?B.j4:B.j3
 d.push(A.eJ(!1,m,m,m,A.cI(q,l.b,m,22),m,m,n.d,m,m,m,r))}if(s)d.push(B.o3)
-if(s)d.push(B.ad0)
+if(s)d.push(B.ad3)
 if(j){s=i.gxf()
 r=l.b
 s=A.eJ(!1,m,m,m,A.cI(B.j2,r,m,22),m,m,A.aIL(),m,m,m,s)
@@ -87368,7 +87368,7 @@ l(){this.gyK().l()
 this.gyI().l()
 this.a7t()},
 zQ(a,b){var s=t.Ni
-return new A.an(A.bH(new A.ci(a,b,B.cs),this.gyI(),null),new A.aC(B.a8A,B.f,s),s.i("an<az.T>"))},
+return new A.an(A.bH(new A.ci(a,b,B.cs),this.gyI(),null),new A.aC(B.a8D,B.f,s),s.i("an<az.T>"))},
 G(a){var s,r,q,p,o,n,m,l,k=this,j=null,i=A.cv(a,B.ax,t.J)
 i.toString
 s=k.gyI()
@@ -87477,7 +87477,7 @@ if(l==null){l=m.n
 m=l==null?m.k3:l}else m=l
 l=t.p
 return A.c6(A.b([new A.c8(r,!1,q,k),B.d_,s,B.ef,A.jD(B.by,A.b([n,A.y8(o,A.F(a).ax.k2,p,new A.ayj(a),new A.aD(m,1,B.u,-1))],l),B.cE,10,10)],l),B.a_,B.y,B.D)},
-yC(a,b,c,d,e){var s=null,r=A.F(a).ax,q=0.35+d*0.12,p=A.bH(new A.ci(q,B.d.du(q+0.35,0,1),B.KB),this.gyr(),s).gp(),o=B.d.du(p,0,1),n=A.cI(b,r.b,s,18),m=A.Z(c,s,s,s,B.aim,s,s),l=r.ry
+yC(a,b,c,d,e){var s=null,r=A.F(a).ax,q=0.35+d*0.12,p=A.bH(new A.ci(q,B.d.du(q+0.35,0,1),B.KB),this.gyr(),s).gp(),o=B.d.du(p,0,1),n=A.cI(b,r.b,s,18),m=A.Z(c,s,s,s,B.aip,s,s),l=r.ry
 if(l==null){l=r.n
 if(l==null)l=r.k3}return A.Sb(A.aO8(A.y8(n,r.k2,m,new A.ayf(a,e),new A.aD(l,1,B.u,-1)),0.85+0.15*p),o)}}
 A.ayk.prototype={
@@ -87495,7 +87495,7 @@ A.ayj.prototype={
 $0(){return A.d0(this.a,!1).jJ(A.ex(new A.ayg(),null,t.z))},
 $S:0}
 A.ayg.prototype={
-$1(a){return B.ad_},
+$1(a){return B.ad2},
 $S:545}
 A.ayf.prototype={
 $0(){return A.JV(this.a,this.b)},
@@ -87530,7 +87530,7 @@ m=n==null
 if(m){l=s.n
 if(l==null)l=s.k3}else l=n
 k=s.k2
-l=A.y8(o,k,B.aiO,A.aIL(),new A.aD(l,1,B.u,-1))
+l=A.y8(o,k,B.aiR,A.aIL(),new A.aD(l,1,B.u,-1))
 o=A.cI(B.Q3,p,h,18)
 j=A.Z(r.gwE(),h,h,h,B.ID,h,h)
 if(m){i=s.n
@@ -87686,18 +87686,18 @@ A.uY.prototype={
 M(){return"MetallicAccent."+this.b}}
 A.RN.prototype={
 G(a){var s=null,r=t.W
-return A.fw(B.bD,A.b([B.O9,A.dW(s,new A.bP(s,s,s,s,s,new A.iy(B.JG,0.95,B.an,s,0,A.b([B.cr.an(0.42),B.ey.an(0.18),B.p],r),B.tS,s),B.U),B.au),A.dW(s,new A.bP(s,s,s,s,s,new A.iy(B.JB,0.7,B.an,s,0,A.b([B.h.an(0.06),B.p],r),s,s),B.U),B.au),new A.e8(B.dc,s,s,new A.Ox(1,0.38,A.dW(s,new A.bP(s,s,s,s,s,new A.eb(B.cG,B.dc,B.an,A.b([B.p,B.cr.an(0.12),B.m.an(0.75)],r),B.a0Q,s),B.U),B.au),s),s),B.a7H,B.amH],t.p),B.Z,B.o8)}}
+return A.fw(B.bD,A.b([B.O9,A.dW(s,new A.bP(s,s,s,s,s,new A.iy(B.JG,0.95,B.an,s,0,A.b([B.cr.an(0.42),B.ey.an(0.18),B.p],r),B.tS,s),B.U),B.au),A.dW(s,new A.bP(s,s,s,s,s,new A.iy(B.JB,0.7,B.an,s,0,A.b([B.h.an(0.06),B.p],r),s,s),B.U),B.au),new A.e8(B.dc,s,s,new A.Ox(1,0.38,A.dW(s,new A.bP(s,s,s,s,s,new A.eb(B.cG,B.dc,B.an,A.b([B.p,B.cr.an(0.12),B.m.an(0.75)],r),B.a0Q,s),B.U),B.au),s),s),B.a7K,B.amK],t.p),B.Z,B.o8)}}
 A.Bw.prototype={
-G(a){var s=null,r=this.d,q=A.dm(r),p=A.b([new A.cs(2,B.b0,B.cr.an(0.5),B.a8f,48),new A.cs(0,B.b0,B.ey.an(0.35),B.Dl,28),new A.cs(0,B.b0,B.m.an(0.85),B.a8d,24)],t.sq),o=t.W
-return A.fj(A.Lr(A.dm(r-3.12),A.fw(B.bD,A.b([A.ajZ(0,A.dW(s,new A.bP(s,s,s,s,s,new A.iy(B.JC,1.05,B.an,s,0,A.b([B.N3,B.lF,B.cO],o),s,s),B.U),B.au)),B.aa6,B.aa7,A.ix(s,A.dW(s,new A.bP(s,s,s,s,s,new A.eb(B.cG,B.dc,B.an,A.b([B.h.an(0.42),B.h.an(0.16),B.h.an(0.04),B.p],o),B.a0J,s),B.U),B.au),165,s,0,0,0,s),A.ix(s,A.fj(s,B.z,new A.bP(s,s,s,A.dm(50),s,new A.iy(B.T,0.5,B.an,s,0,A.b([B.h.an(0.72),B.h.an(0.22),B.p],o),B.tS,s),B.U),68,s,s,130),s,s,10,s,6,s),B.aa5,A.ajZ(0,A.dW(s,new A.bP(s,s,s,s,s,new A.eb(B.JE,B.JD,B.an,A.b([B.h.an(0.22),B.p,B.p,B.m.an(0.35)],o),B.YW,s),B.U),B.au)),A.ix(0,A.dW(s,new A.bP(s,s,s,s,s,new A.eb(B.cG,B.dc,B.an,A.b([B.p,B.m.an(0.45)],o),s,s),B.U),B.au),90,s,0,0,s,s),new A.bt(this.e,this.c,s)],t.p),B.Z,B.bW)),B.z,new A.bP(s,s,s,q,p,B.rl,B.U),s,s,B.Pq,s)}}
+G(a){var s=null,r=this.d,q=A.dm(r),p=A.b([new A.cs(2,B.b0,B.cr.an(0.5),B.a8i,48),new A.cs(0,B.b0,B.ey.an(0.35),B.Dl,28),new A.cs(0,B.b0,B.m.an(0.85),B.a8g,24)],t.sq),o=t.W
+return A.fj(A.Lr(A.dm(r-3.12),A.fw(B.bD,A.b([A.ajZ(0,A.dW(s,new A.bP(s,s,s,s,s,new A.iy(B.JC,1.05,B.an,s,0,A.b([B.N3,B.lF,B.cO],o),s,s),B.U),B.au)),B.aa9,B.aaa,A.ix(s,A.dW(s,new A.bP(s,s,s,s,s,new A.eb(B.cG,B.dc,B.an,A.b([B.h.an(0.42),B.h.an(0.16),B.h.an(0.04),B.p],o),B.a0J,s),B.U),B.au),165,s,0,0,0,s),A.ix(s,A.fj(s,B.z,new A.bP(s,s,s,A.dm(50),s,new A.iy(B.T,0.5,B.an,s,0,A.b([B.h.an(0.72),B.h.an(0.22),B.p],o),B.tS,s),B.U),68,s,s,130),s,s,10,s,6,s),B.aa8,A.ajZ(0,A.dW(s,new A.bP(s,s,s,s,s,new A.eb(B.JE,B.JD,B.an,A.b([B.h.an(0.22),B.p,B.p,B.m.an(0.35)],o),B.Z_,s),B.U),B.au)),A.ix(0,A.dW(s,new A.bP(s,s,s,s,s,new A.eb(B.cG,B.dc,B.an,A.b([B.p,B.m.an(0.45)],o),s,s),B.U),B.au),90,s,0,0,s,s),new A.bt(this.e,this.c,s)],t.p),B.Z,B.bW)),B.z,new A.bP(s,s,s,q,p,B.rl,B.U),s,s,B.Pq,s)}}
 A.aF5.prototype={
-$1(a){return B.UM.lT(a)},
+$1(a){return B.UP.lT(a)},
 $S:49}
 A.aF7.prototype={
-$1(a){return B.UO.lT(a)},
+$1(a){return B.UR.lT(a)},
 $S:49}
 A.aF6.prototype={
-$1(a){return B.UN.lT(a)},
+$1(a){return B.UQ.lT(a)},
 $S:49}
 A.wY.prototype={
 G(a){var s,r,q,p,o,n,m,l=this,k=null,j=l.e,i=A.aF8(j),h=l.d,g=h.r
@@ -87713,7 +87713,7 @@ if(p==null)p=q.a(p)
 s.push(A.oe(A.Z(o,k,k,k,h.cd(B.h.an(0.18)),k,k),p))}j=-j*0.35
 s.push(A.oe(A.aog(B.i4,A.Z(o,k,k,k,h.cd(B.h),k,k),l.f),new A.f(0,j)))
 s.push(A.ix(k,A.z1(new A.e8(B.de,k,1,A.cM(A.Z(o,k,k,k,h.Zd(B.h.an(l.r),A.b([new A.f7(l.w.an(0.35),B.f,8)],t.kO)),k,k),g*0.52,k),k),B.Z,k),k,k,0,k,j,k))
-s.push(A.oe(A.Z(o,k,k,k,h.cd(B.h.an(0.35)),k,k),B.a8F))
+s.push(A.oe(A.Z(o,k,k,k,h.cd(B.h.an(0.35)),k,k),B.a8I))
 return A.fw(B.bD,s,B.z,B.bW)}}
 A.Bv.prototype={
 G(a){var s=null
@@ -87796,13 +87796,13 @@ A.ajh.prototype={
 $1(a){return new A.t7(A.b3z(this.a),null)},
 $S:548}
 A.Sr.prototype={
-G(a){return B.a9f}}
+G(a){return B.a9i}}
 A.Ss.prototype={
-G(a){return B.a9d}}
+G(a){return B.a9g}}
 A.Sp.prototype={
-G(a){return B.a9c}}
+G(a){return B.a9f}}
 A.Sq.prototype={
-G(a){return B.a9e}}
+G(a){return B.a9h}}
 A.t7.prototype={
 ab(){return new A.a13()}}
 A.a13.prototype={
@@ -87854,7 +87854,7 @@ return A.lg(A.k3(A.kE(new A.a12(s,k),B.h,A.aNn(A.iD(A.dV(new A.dn(B.p3,A.c6(n,B.
 A.a12.prototype={
 gwS(){return B.I9},
 G(a){var s=null
-return A.fs(!1,B.a0,!0,s,A.dW(A.kD(!1,A.cM(A.eK(A.b([B.o5,A.hB(A.Z(this.c,1,B.b_,s,A.GW(15,B.aj),s,s),1),B.an8,B.Ia],t.p),B.at,B.y,B.D,0),56,s),!1,B.aA,!0),B.p5,B.au),B.z,B.h,0,s,s,s,s,s,B.bT)}}
+return A.fs(!1,B.a0,!0,s,A.dW(A.kD(!1,A.cM(A.eK(A.b([B.o5,A.hB(A.Z(this.c,1,B.b_,s,A.GW(15,B.aj),s,s),1),B.anb,B.Ia],t.p),B.at,B.y,B.D,0),56,s),!1,B.aA,!0),B.p5,B.au),B.z,B.h,0,s,s,s,s,s,B.bT)}}
 A.a14.prototype={
 G(a){var s=A.cv(a,B.ax,t.J)
 s.toString
@@ -87919,7 +87919,7 @@ return new A.uv(s,new A.au2(this),null,t.qs)}}
 A.au2.prototype={
 $2(a,b){var s=null
 if(b.a!==B.ix)return A.kE(s,s,A.dV(A.aKh(A.F(a).ax.b,s),s,s),s)
-if(b.c!=null)return B.aaR
+if(b.c!=null)return B.aaU
 return this.a.a.aph()},
 $S:550}
 A.aEd.prototype={
@@ -87960,7 +87960,7 @@ s.q8(a.length===0?null:new A.d_(a,null,null))},
 $S:36}
 A.aou.prototype={
 $1(a){var s=null,r=this.a,q=this.b,p=t.N
-return A.b([A.j1(r==null,A.Z(q.gwl(),s,s,s,s,s,s),"",p),B.aa2,A.j1(r==="pt",A.Z(q.gwo(),s,s,s,s,s,s),"pt",p),A.j1(r==="en",A.Z(q.gwn(),s,s,s,s,s,s),"en",p),A.j1(r==="es",A.Z(q.gwp(),s,s,s,s,s,s),"es",p)],t.Do)},
+return A.b([A.j1(r==null,A.Z(q.gwl(),s,s,s,s,s,s),"",p),B.aa5,A.j1(r==="pt",A.Z(q.gwo(),s,s,s,s,s,s),"pt",p),A.j1(r==="en",A.Z(q.gwn(),s,s,s,s,s,s),"en",p),A.j1(r==="es",A.Z(q.gwp(),s,s,s,s,s,s),"es",p)],t.Do)},
 $S:73}
 A.aFm.prototype={
 $1(a){return new A.xo(this.a,this.b,this.c,null)},
@@ -87984,7 +87984,7 @@ l=A.Z(f.gEH(),g,g,g,A.bc().$2$color$fontSize(l.an(0.65),12),g,g)
 k=A.dm(12)
 h=s.RG
 if(h==null)h=n
-return A.aon(A.mH(p,A.aLl(!0,A.b_(g,g,new A.NS(n,B.P4,new A.df(m,B.v),A.cM(A.c6(A.b([new A.bt(B.Po,j,g),new A.bt(B.P2,l,g),A.hB(new A.bt(B.OX,A.Lr(k,A.lg(A.B1(new A.aBc(this)),h,!0)),g),1)],i),B.bq,B.y,B.D),r.b*0.88,q),g),!1,g,g,g,!1,g,g,g,g,g,g,g,o,g,g,g,g,g,g,g,!0,g,g,g,g,g,g,g,g,g,g,g,!0,g,g,g,g,g,g,B.t,g),g,!0,g,g,g,g)),g,B.a5R)}}
+return A.aon(A.mH(p,A.aLl(!0,A.b_(g,g,new A.NS(n,B.P4,new A.df(m,B.v),A.cM(A.c6(A.b([new A.bt(B.Po,j,g),new A.bt(B.P2,l,g),A.hB(new A.bt(B.OX,A.Lr(k,A.lg(A.B1(new A.aBc(this)),h,!0)),g),1)],i),B.bq,B.y,B.D),r.b*0.88,q),g),!1,g,g,g,!1,g,g,g,g,g,g,g,o,g,g,g,g,g,g,g,!0,g,g,g,g,g,g,g,g,g,g,g,!0,g,g,g,g,g,g,B.t,g),g,!0,g,g,g,g)),g,B.a5U)}}
 A.aBa.prototype={
 $1(a){A.d0(this.a,!1).MR()
 return null},
@@ -88430,7 +88430,7 @@ A.ar1.prototype={}
 A.a7P.prototype={}
 A.ahX.prototype={
 wr(a,b,c,d,e,f,g,h){var s=t.y
-return B.a7K.lI("launch",A.aA(["url",a,"useSafariVC",f,"useWebView",g,"enableJavaScript",!0,"enableDomStorage",!0,"universalLinksOnly",e,"headers",d],t.N,t.K),!1,s).bO(new A.ahY(),s)}}
+return B.a7N.lI("launch",A.aA(["url",a,"useSafariVC",f,"useWebView",g,"enableJavaScript",!0,"enableDomStorage",!0,"universalLinksOnly",e,"headers",d],t.N,t.K),!1,s).bO(new A.ahY(),s)}}
 A.ahY.prototype={
 $1(a){return a===!0},
 $S:568}
@@ -88445,8 +88445,8 @@ if(q!==B.Ha)if(q!==B.Hb){s=r&&q===B.nr
 p=s}return this.wr(a,!0,!0,b.b.c,q===B.Hc,p,p,b.d)}}
 A.aqG.prototype={
 awf(a,b){var s,r=A.aOj(a),q=r==null?null:r.geR()
-if(B.abF.q(0,q))return!1
-if(b==null)s=this.b&&B.abB.q(0,q)?"_top":""
+if(B.abI.q(0,q))return!1
+if(b==null)s=this.b&&B.abE.q(0,q)?"_top":""
 else s=b
 this.a.open(a,s,"noopener,noreferrer")
 return!0},
@@ -91175,7 +91175,7 @@ if(s==null){throw"DeferredLoading state error: code with hash '"+a+"' was not lo
 v.deferredInitialized[a]=true},
 deferredLibraryParts:{devolucao:[0,1,2],elastic:[3,4],metallic:[5],politica:[0,6,1,7],pre_cadastro:[0,6,3,8],tecnologias:[9]},
 deferredPartUris:["main.dart.js_3.part.js","main.dart.js_2.part.js","main.dart.js_1.part.js","main.dart.js_8.part.js","main.dart.js_10.part.js","main.dart.js_9.part.js","main.dart.js_6.part.js","main.dart.js_5.part.js","main.dart.js_7.part.js","main.dart.js_11.part.js"],
-deferredPartHashes:["9u8bagi8JnmNg3yuz+b5O5HGZRA=","R0yuN4SyVA3ENqKV0Cz029sbxLQ=","KT9noqF8/08JX63pKJ1CUQPrB2A=","ihqSNt1AESe1zw1OVmJKNrtm79I=","BgdWV5NTwgQKbtWxnjKMdkTKXqg=","WYdaTT0CUiGqsw3q1A2vIz10W+I=","C9QxUHLzQ+PUDSj6om0f7KNynCQ=","hOcdEpMO3/gXPPtq1WYzqD16q1M=","qHCo81hbONC2/9oNqx79y05s5mQ=","PajW6N7WWfRsaXQZDsmCJ/eMxkM="],
+deferredPartHashes:["9u8bagi8JnmNg3yuz+b5O5HGZRA=","R0yuN4SyVA3ENqKV0Cz029sbxLQ=","uTAQnFDPWTajp9QyYs8buPyK8Tk=","ihqSNt1AESe1zw1OVmJKNrtm79I=","BgdWV5NTwgQKbtWxnjKMdkTKXqg=","Tax7jrwsTgOGA5k8ABQamUJTDfE=","C9QxUHLzQ+PUDSj6om0f7KNynCQ=","hOcdEpMO3/gXPPtq1WYzqD16q1M=","RvfbBk//K1ehTmojU9B4YLSGoX0=","xBM+Wcv59Egou51IJWBEhDzdQHs="],
 typeUniverse:{eC:new Map(),tR:{},eT:{},tPV:{},sEA:[]},
 mangledGlobalNames:{t:"int",G:"double",dj:"num",k:"String",J:"bool",b9:"Null",V:"List",K:"Object",bd:"Map",aJ:"JSObject"},
 mangledNames:{},
@@ -91198,12 +91198,12 @@ B.d=J.nn.prototype
 B.c=J.km.prototype
 B.Rp=J.fq.prototype
 B.Rq=J.AU.prototype
-B.a7O=A.qr.prototype
+B.a7R=A.qr.prototype
 B.aS=A.BD.prototype
-B.a7P=A.BE.prototype
+B.a7S=A.BE.prototype
 B.Dg=A.BF.prototype
 B.cA=A.BG.prototype
-B.a7Q=A.BJ.prototype
+B.a7T=A.BJ.prototype
 B.k6=A.BK.prototype
 B.V=A.lC.prototype
 B.H4=J.Sx.prototype
@@ -91215,7 +91215,7 @@ B.ep=new A.ty(0,"nothing")
 B.lj=new A.ty(1,"requestedFocus")
 B.Jv=new A.ty(2,"receivedDomFocus")
 B.Jw=new A.ty(3,"receivedDomBlur")
-B.anr=new A.a6X(0,"unknown")
+B.anu=new A.a6X(0,"unknown")
 B.Jx=new A.fh(0,1)
 B.Jy=new A.fh(0,-1)
 B.oR=new A.fh(1,0)
@@ -91243,7 +91243,7 @@ B.ae=new A.i7(3,"completed")
 B.a6=new A.er(0.4,0,0.2,1)
 B.cd=new A.aS(15e4)
 B.eF=new A.aS(75e3)
-B.ans=new A.Ku(B.a6,B.cd,B.eF)
+B.anv=new A.Ku(B.a6,B.cd,B.eF)
 B.JH=new A.jW(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.e=new A.a8W(0,"sRGB")
 B.p=new A.r(0,0,0,0,B.e)
@@ -91294,7 +91294,7 @@ B.ls=new A.cN(B.fe,B.fe,B.fe,B.fe)
 B.kh=new A.aF(40,40)
 B.JW=new A.cN(B.kh,B.kh,B.kh,B.kh)
 B.ke=new A.aF(16,16)
-B.ant=new A.cN(B.ke,B.ke,B.ke,B.ke)
+B.anw=new A.cN(B.ke,B.ke,B.ke,B.ke)
 B.ki=new A.aF(60,50)
 B.JX=new A.cN(B.ki,B.ki,B.ki,B.ki)
 B.ec=new A.aF(4,4)
@@ -91313,9 +91313,9 @@ B.p1=new A.dl(B.v,B.v,B.v,B.v)
 B.K6=new A.yB(null,null,null,null,null,null,null)
 B.K7=new A.yC(null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.K8=new A.yD(null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.aaS=new A.TM(0,"normal")
+B.aaV=new A.TM(0,"normal")
 B.ns=new A.SO(null)
-B.K9=new A.yE(B.aaS,B.ns)
+B.K9=new A.yE(B.aaV,B.ns)
 B.Hl=new A.TM(1,"fast")
 B.Ka=new A.yE(B.Hl,B.ns)
 B.i5=new A.ab(0,1/0,0,1/0)
@@ -91351,20 +91351,20 @@ B.Ko=new A.tN(B.Ly)
 B.Kp=new A.nh(A.aR6(),A.a4("nh<t>"))
 B.Kq=new A.a6Y()
 B.Kr=new A.ya(A.a4("ya<G>"))
-B.anu=new A.a7x()
+B.anx=new A.a7x()
 B.Ks=new A.a7v()
 B.Kt=new A.a7w()
-B.anv=new A.a7P()
+B.any=new A.a7P()
 B.pc=new A.a7T()
 B.Ku=new A.Le()
 B.Kv=new A.Li()
 B.i9=new A.Nv()
 B.Kw=new A.a9q()
 B.pe=new A.NG()
-B.anw=new A.NE()
+B.anz=new A.NE()
 B.Kx=new A.NF()
 B.Ky=new A.NH()
-B.anx=new A.NK()
+B.anA=new A.NK()
 B.Kz=new A.NL()
 B.x=new A.zI()
 B.KA=new A.aa7()
@@ -91377,7 +91377,7 @@ B.pi=new A.Oa()
 B.b1=new A.Oa()
 B.KD=new A.abG()
 B.pj=new A.Oq()
-B.any=new A.OC()
+B.anB=new A.OC()
 B.KE=new A.ade()
 B.ai=new A.aez()
 B.bG=new A.aeB()
@@ -91529,7 +91529,7 @@ B.L5=new A.Si()
 B.aw=new A.iB(4,"keyboard")
 B.lt=new A.lF()
 B.L6=new A.ajm()
-B.anz=new A.ajV()
+B.anC=new A.ajV()
 B.L8=new A.ak1()
 B.po=new A.nT()
 B.La=new A.amh()
@@ -91556,10 +91556,10 @@ B.ah=new A.Vo()
 B.dL=new A.aqJ()
 B.fp=new A.Vr(0,0,0,0)
 B.a15=s([],A.a4("q<a9X>"))
-B.anA=new A.aqP()
+B.anD=new A.aqP()
 B.bL={}
 B.D5=new A.a2(B.bL,[],t.w)
-B.anB=new A.ar1()
+B.anE=new A.ar1()
 B.et=new A.Xu()
 B.cK=new A.Xv()
 B.lv=new A.XL()
@@ -91575,7 +91575,7 @@ B.Lv=new A.YF()
 B.Lw=new A.Z2()
 B.dM=new A.Zg()
 B.Lx=new A.atQ()
-B.anC=new A.FK()
+B.anF=new A.FK()
 B.aV=new A.Zq()
 B.ia=new A.au3()
 B.N=new A.aua()
@@ -91611,8 +91611,8 @@ B.ew=new A.tS(3,3,"mixed")
 B.M6=new A.tT(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.lx=new A.dH(0,B.v)
 B.M7=new A.Lk(B.ns)
-B.ab3=new A.kH(2,"clear")
-B.ex=new A.yZ(B.ab3)
+B.ab6=new A.kH(2,"clear")
+B.ex=new A.yZ(B.ab6)
 B.M8=new A.Lm(null)
 B.M9=new A.u1("/politica-privacidade-clinica-iii",null)
 B.Ma=new A.u1("/dados-saude-lgpd-clinica-iii",null)
@@ -91826,8 +91826,8 @@ B.Mv=new A.r(1,0.10980392156862745,0.10980392156862745,0.11764705882352941,B.e)
 B.Nv=new A.r(1,0.1411764705882353,0.1411764705882353,0.14901960784313725,B.e)
 B.NX=new A.cG(B.h,"systemBackground",null,B.h,B.m,B.h,B.m,B.h,B.Mv,B.h,B.Nv)
 B.q7=new A.cG(B.m,"label",null,B.m,B.h,B.m,B.h,B.m,B.h,B.m,B.h)
-B.ama=new A.Z9(B.q7,B.fQ)
-B.oz=new A.Zb(null,B.iC,B.h,B.NU,B.NX,B.iC,!1,B.ama)
+B.amd=new A.Z9(B.q7,B.fQ)
+B.oz=new A.Zb(null,B.iC,B.h,B.NU,B.NX,B.iC,!1,B.amd)
 B.cP=new A.ud(B.oz,null,null,null,null,null,null,null,null)
 B.b9=new A.Ny(0,"base")
 B.iE=new A.Ny(1,"elevated")
@@ -91839,25 +91839,25 @@ B.O6=new A.pt(1,"initializingServices")
 B.q9=new A.pt(2,"initializedServices")
 B.O7=new A.pt(3,"initializingUi")
 B.O8=new A.pt(4,"initialized")
-B.anD=new A.a9p(1,"traversalOrder")
+B.anG=new A.a9p(1,"traversalOrder")
 B.JA=new A.db(0.55,0.95)
 B.an=new A.Eu(0,"clamp")
 B.MR=new A.r(1,0.4196078431372549,0.3058823529411765,0.07058823529411765,B.e)
 B.Mk=new A.r(1,0.10196078431372549,0.0784313725490196,0.03137254901960784,B.e)
-B.XY=s([B.MR,B.Mk,B.cO,B.m],t.W)
-B.VK=s([0,0.28,0.55,1],t.n)
-B.aab=new A.iy(B.JA,1.45,B.an,null,0,B.XY,B.VK,null)
-B.Kg=new A.bP(null,null,null,null,null,B.aab,B.U)
+B.Y4=s([B.MR,B.Mk,B.cO,B.m],t.W)
+B.VO=s([0,0.28,0.55,1],t.n)
+B.aae=new A.iy(B.JA,1.45,B.an,null,0,B.Y4,B.VO,null)
+B.Kg=new A.bP(null,null,null,null,null,B.aae,B.U)
 B.au=new A.NC(0,"background")
 B.O9=new A.zw(B.Kg,B.au,null,null)
 B.Oa=new A.NC(1,"foreground")
-B.an6=new A.a0N(null)
-B.eC=new A.lk(null,null,null,B.an6,null)
+B.an9=new A.a0N(null)
+B.eC=new A.lk(null,null,null,B.an9,null)
 B.eh=new A.l(!0,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.d2=new A.w5(0,"clip")
 B.b6=new A.aq8(0,"parent")
-B.an7=new A.a0P(null)
-B.Ob=new A.ug(B.eh,null,!0,B.d2,null,B.b6,null,B.an7,null)
+B.ana=new A.a0P(null)
+B.Ob=new A.ug(B.eh,null,!0,B.d2,null,B.b6,null,B.ana,null)
 B.lS=new A.pu(!1)
 B.fR=new A.pu(!0)
 B.lT=new A.pv(!1)
@@ -91869,7 +91869,7 @@ B.Od=new A.uj(1)
 B.br=new A.zy(3,"info")
 B.Oe=new A.zy(5,"hint")
 B.Of=new A.zy(6,"summary")
-B.anE=new A.ll(1,"sparse")
+B.anH=new A.ll(1,"sparse")
 B.Og=new A.ll(10,"shallow")
 B.Oh=new A.ll(11,"truncateChildren")
 B.Oi=new A.ll(5,"error")
@@ -92075,7 +92075,7 @@ B.iV=new A.Ac(2,"End")
 B.qR=new A.Ad(1,"auto")
 B.qS=new A.n6(0,"touch")
 B.mF=new A.n6(1,"traditional")
-B.anG=new A.ac8(0,"automatic")
+B.anJ=new A.ac8(0,"automatic")
 B.qT=new A.acc("focus")
 B.c0=new A.ut(0,"normal")
 B.ct=new A.ut(1,"italic")
@@ -92201,12 +92201,12 @@ B.R2=new A.Pf(!0,!0,B.D5)
 B.b3=s([],t.oU)
 B.R4=new A.AN(null,null,null,null,null,null,null,null,null,B.qR,B.pj,!1,null,!1,null,null,null,null,null,null,null,null,!1,null,null,null,null,null,null,null,null,null,null,null,!1,null,null)
 B.R7=new A.ci(0,0.55,B.cs)
-B.a8G=new A.f(0.05,0)
-B.a8I=new A.f(0.133333,0.06)
-B.a8Q=new A.f(0.166666,0.4)
-B.a8v=new A.f(0.208333,0.82)
-B.a8R=new A.f(0.25,1)
-B.d3=new A.Ep(B.a8G,B.a8I,B.a8Q,B.a8v,B.a8R)
+B.a8J=new A.f(0.05,0)
+B.a8L=new A.f(0.133333,0.06)
+B.a8T=new A.f(0.166666,0.4)
+B.a8y=new A.f(0.208333,0.82)
+B.a8U=new A.f(0.25,1)
+B.d3=new A.Ep(B.a8J,B.a8L,B.a8T,B.a8y,B.a8U)
 B.rb=new A.ci(0,0.8888888888888888,B.d3)
 B.rc=new A.ci(0.5,1,B.bZ)
 B.R8=new A.ci(0,0.6666666666666666,B.aa)
@@ -92254,7 +92254,7 @@ B.ja=new A.B_(1,"domText")
 B.h2=new A.B_(2,"sizedSpan")
 B.Ry=new A.af4(!1,255)
 B.Rz=new A.af5(255)
-B.anI=new A.uM(0,"platformDefault")
+B.anL=new A.uM(0,"platformDefault")
 B.RA=new A.uM(1,"inAppWebView")
 B.RB=new A.uM(2,"inAppBrowserView")
 B.h3=new A.uM(3,"externalApplication")
@@ -92267,412 +92267,467 @@ B.Na=new A.r(1,0.41568627450980394,0.41568627450980394,0.41568627450980394,B.e)
 B.MG=new A.r(1,0.7529411764705882,0.7529411764705882,0.7529411764705882,B.e)
 B.N0=new A.r(1,1,0.8784313725490196,0.5098039215686274,B.e)
 B.a24=s([B.h,B.pZ,B.Na,B.h,B.MG,B.N0],t.W)
-B.a3v=s([0,0.12,0.38,0.52,0.78,1],t.n)
-B.UM=new A.eb(B.de,B.oS,B.an,B.a24,B.a3v,null)
+B.a3w=s([0,0.12,0.38,0.52,0.78,1],t.n)
+B.UP=new A.eb(B.de,B.oS,B.an,B.a24,B.a3w,null)
 B.N_=new A.r(1,0.9098039215686274,0.9098039215686274,0.9098039215686274,B.e)
 B.Nx=new A.r(1,0.4392156862745098,0.4392156862745098,0.4392156862745098,B.e)
 B.Nd=new A.r(1,0.1450980392156863,0.1450980392156863,0.1450980392156863,B.e)
-B.ZW=s([B.h,B.N_,B.Nx,B.Nd,B.pZ,B.ez],t.W)
-B.a3K=s([0,0.12,0.42,0.62,0.82,1],t.n)
-B.rl=new A.eb(B.de,B.oS,B.an,B.ZW,B.a3K,null)
+B.ZY=s([B.h,B.N_,B.Nx,B.Nd,B.pZ,B.ez],t.W)
+B.a3M=s([0,0.12,0.42,0.62,0.82,1],t.n)
+B.rl=new A.eb(B.de,B.oS,B.an,B.ZY,B.a3M,null)
 B.Nj=new A.r(1,1,0.9529411764705882,0.8392156862745098,B.e)
 B.Nr=new A.r(1,0.47843137254901963,0.3058823529411765,0.13333333333333333,B.e)
 B.Mt=new A.r(1,0.23921568627450981,0.1411764705882353,0.06274509803921569,B.e)
-B.WE=s([B.Nj,B.pA,B.q0,B.Nr,B.Mt],t.W)
-B.Wx=s([0,0.22,0.5,0.78,1],t.n)
-B.UN=new A.eb(B.cG,B.dc,B.an,B.WE,B.Wx,null)
+B.WK=s([B.Nj,B.pA,B.q0,B.Nr,B.Mt],t.W)
+B.WD=s([0,0.22,0.5,0.78,1],t.n)
+B.UQ=new A.eb(B.cG,B.dc,B.an,B.WK,B.WD,null)
 B.NI=new A.r(1,1,0.9764705882352941,0.7686274509803922,B.e)
 B.No=new A.r(1,0.5450980392156862,0.4117647058823529,0.0784313725490196,B.e)
 B.MK=new A.r(1,0.2901960784313726,0.2196078431372549,0.03137254901960784,B.e)
-B.V8=s([B.NI,B.cr,B.ey,B.No,B.MK],t.W)
-B.a35=s([0,0.25,0.55,0.8,1],t.n)
-B.UO=new A.eb(B.cG,B.dc,B.an,B.V8,B.a35,null)
-B.UP=new A.uP(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.Vc=s([B.NI,B.cr,B.ey,B.No,B.MK],t.W)
+B.a36=s([0,0.25,0.55,0.8,1],t.n)
+B.UR=new A.eb(B.cG,B.dc,B.an,B.Vc,B.a36,null)
+B.US=new A.uP(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.rm=new A.qa(0,"threeLine")
-B.UQ=new A.qa(1,"titleHeight")
-B.UR=new A.qa(2,"top")
+B.UT=new A.qa(1,"titleHeight")
+B.UU=new A.qa(2,"top")
 B.rn=new A.qa(3,"center")
-B.US=new A.qa(4,"bottom")
-B.UT=s(["de gen.","de febr.","de mar\xe7","d\u2019abr.","de maig","de juny","de jul.","d\u2019ag.","de set.","d\u2019oct.","de nov.","de des."],t.s)
-B.UV=s(["\u0996\u09cd\u09b0\u09bf\u09b8\u09cd\u099f\u09aa\u09c2\u09b0\u09cd\u09ac","\u0996\u09cd\u09b0\u09c0\u09b7\u09cd\u099f\u09be\u09ac\u09cd\u09a6"],t.s)
+B.UV=new A.qa(4,"bottom")
+B.UW=s(["de gen.","de febr.","de mar\xe7","d\u2019abr.","de maig","de juny","de jul.","d\u2019ag.","de set.","d\u2019oct.","de nov.","de des."],t.s)
+B.UY=s(["\u0996\u09cd\u09b0\u09bf\u09b8\u09cd\u099f\u09aa\u09c2\u09b0\u09cd\u09ac","\u0996\u09cd\u09b0\u09c0\u09b7\u09cd\u099f\u09be\u09ac\u09cd\u09a6"],t.s)
 B.ro=s(["\u0416","\u0414","\u0421","\u0421","\u0411","\u0416","\u0421"],t.s)
-B.UW=s(["\u0434\u043e \u043d. \u044d.","\u043d. \u044d."],t.s)
-B.UX=s(["\u0d9a\u0dca\u200d\u0dbb\u0dd2\u0dc3\u0dca\u0dad\u0dd4 \u0db4\u0dd6\u0dbb\u0dca\u0dc0","\u0d9a\u0dca\u200d\u0dbb\u0dd2\u0dc3\u0dca\u0dad\u0dd4 \u0dc0\u0dbb\u0dca\u0dc2"],t.s)
+B.UZ=s(["\u0434\u043e \u043d. \u044d.","\u043d. \u044d."],t.s)
+B.V_=s(["\u0d9a\u0dca\u200d\u0dbb\u0dd2\u0dc3\u0dca\u0dad\u0dd4 \u0db4\u0dd6\u0dbb\u0dca\u0dc0","\u0d9a\u0dca\u200d\u0dbb\u0dd2\u0dc3\u0dca\u0dad\u0dd4 \u0dc0\u0dbb\u0dca\u0dc2"],t.s)
 B.rp=s(["{1} '\xe0' {0}","{1} '\xe0' {0}","{1}, {0}","{1} {0}"],t.s)
-B.UZ=s(["y\u5e74M\u6708d\u65e5EEEE","y\u5e74M\u6708d\u65e5","y\u5e74M\u6708d\u65e5","y/M/d"],t.s)
+B.V1=s(["y\u5e74M\u6708d\u65e5EEEE","y\u5e74M\u6708d\u65e5","y\u5e74M\u6708d\u65e5","y/M/d"],t.s)
 B.rq=s(["\u06cc","\u062f","\u0633","\u0686","\u067e","\u062c","\u0634"],t.s)
-B.V_=s(["am Vormittag","am Namittag"],t.s)
+B.V2=s(["am Vormittag","am Namittag"],t.s)
 B.jb=s(["\u064a\u0648\u0646\u06cd","\u062f\u0648\u0646\u06cd","\u062f\u0631\u06d0\u0646\u06cd","\u0685\u0644\u0631\u0646\u06cd","\u067e\u064a\u0646\u0681\u0646\u06cd","\u062c\u0645\u0639\u0647","\u0627\u0648\u0646\u06cd"],t.s)
-B.V0=s(["\u5348\u524d","\u5348\u5f8c"],t.s)
+B.V3=s(["\u5348\u524d","\u5348\u5f8c"],t.s)
 B.rr=s(["N","P","U","S","\u010c","P","S"],t.s)
 B.a0n=s([1373.2198709594231,-1100.4251190754821,-7.278681089101213],t.n)
-B.a__=s([-271.815969077903,559.6580465940733,-32.46047482791194],t.n)
-B.a4d=s([1.9622899599665666,-57.173814538844006,308.7233197812385],t.n)
-B.V1=s([B.a0n,B.a__,B.a4d],t.zg)
-B.V2=s(["d, MMMM y, EEEE","d MMMM, y","d MMM, y","dd-MM-yy"],t.s)
-B.V3=s(["y('e')'ko' MMMM'ren' d('a'), EEEE","y('e')'ko' MMMM'ren' d('a')","y('e')'ko' MMM d('a')","yy/M/d"],t.s)
-B.V4=s(["\u0c15\u0c4d\u0c30\u0c40\u0c2a\u0c42","\u0c15\u0c4d\u0c30\u0c40\u0c36"],t.s)
+B.a_1=s([-271.815969077903,559.6580465940733,-32.46047482791194],t.n)
+B.a4g=s([1.9622899599665666,-57.173814538844006,308.7233197812385],t.n)
+B.V4=s([B.a0n,B.a_1,B.a4g],t.zg)
+B.V5=s(["d, MMMM y, EEEE","d MMMM, y","d MMM, y","dd-MM-yy"],t.s)
+B.V6=s(["y('e')'ko' MMMM'ren' d('a'), EEEE","y('e')'ko' MMMM'ren' d('a')","y('e')'ko' MMM d('a')","yy/M/d"],t.s)
+B.V7=s(["\u0c15\u0c4d\u0c30\u0c40\u0c2a\u0c42","\u0c15\u0c4d\u0c30\u0c40\u0c36"],t.s)
 B.rs=s(["\u0906\u0907\u0924","\u0938\u094b\u092e","\u092e\u0919\u094d\u0917\u0932","\u092c\u0941\u0927","\u092c\u093f\u0939\u093f","\u0936\u0941\u0915\u094d\u0930","\u0936\u0928\u093f"],t.s)
 B.rt=s(["\u099c","\u09ab","\u09ae","\u098f","\u09ae","\u099c","\u099c","\u0986","\u099b","\u0985","\u09a8","\u09a1"],t.s)
 B.ru=s(["\u0ea1.\u0e81.","\u0e81.\u0e9e.","\u0ea1.\u0e99.","\u0ea1.\u0eaa.","\u0e9e.\u0e9e.","\u0ea1\u0eb4.\u0e96.","\u0e81.\u0ea5.","\u0eaa.\u0eab.","\u0e81.\u0e8d.","\u0e95.\u0ea5.","\u0e9e.\u0e88.","\u0e97.\u0ea7."],t.s)
-B.V5=s(["\u0b95\u0bbf\u0bb1\u0bbf\u0bb8\u0bcd\u0ba4\u0bc1\u0bb5\u0bc1\u0b95\u0bcd\u0b95\u0bc1 \u0bae\u0bc1\u0ba9\u0bcd","\u0b85\u0ba9\u0bcd\u0ba9\u0bcb \u0b9f\u0bcb\u0bae\u0bbf\u0ba9\u0bbf"],t.s)
+B.V8=s(["\u0b95\u0bbf\u0bb1\u0bbf\u0bb8\u0bcd\u0ba4\u0bc1\u0bb5\u0bc1\u0b95\u0bcd\u0b95\u0bc1 \u0bae\u0bc1\u0ba9\u0bcd","\u0b85\u0ba9\u0bcd\u0ba9\u0bcb \u0b9f\u0bcb\u0bae\u0bbf\u0ba9\u0bbf"],t.s)
 B.rv=s(["\u0627\u0644\u0631\u0628\u0639 \u0627\u0644\u0623\u0648\u0644","\u0627\u0644\u0631\u0628\u0639 \u0627\u0644\u062b\u0627\u0646\u064a","\u0627\u0644\u0631\u0628\u0639 \u0627\u0644\u062b\u0627\u0644\u062b","\u0627\u0644\u0631\u0628\u0639 \u0627\u0644\u0631\u0627\u0628\u0639"],t.s)
-B.V6=s(["\u049a\u0430\u04a3\u0442\u0430\u0440","\u0410\u049b\u043f\u0430\u043d","\u041d\u0430\u0443\u0440\u044b\u0437","\u0421\u04d9\u0443\u0456\u0440","\u041c\u0430\u043c\u044b\u0440","\u041c\u0430\u0443\u0441\u044b\u043c","\u0428\u0456\u043b\u0434\u0435","\u0422\u0430\u043c\u044b\u0437","\u049a\u044b\u0440\u043a\u04af\u0439\u0435\u043a","\u049a\u0430\u0437\u0430\u043d","\u049a\u0430\u0440\u0430\u0448\u0430","\u0416\u0435\u043b\u0442\u043e\u049b\u0441\u0430\u043d"],t.s)
+B.V9=s(["\u049a\u0430\u04a3\u0442\u0430\u0440","\u0410\u049b\u043f\u0430\u043d","\u041d\u0430\u0443\u0440\u044b\u0437","\u0421\u04d9\u0443\u0456\u0440","\u041c\u0430\u043c\u044b\u0440","\u041c\u0430\u0443\u0441\u044b\u043c","\u0428\u0456\u043b\u0434\u0435","\u0422\u0430\u043c\u044b\u0437","\u049a\u044b\u0440\u043a\u04af\u0439\u0435\u043a","\u049a\u0430\u0437\u0430\u043d","\u049a\u0430\u0440\u0430\u0448\u0430","\u0416\u0435\u043b\u0442\u043e\u049b\u0441\u0430\u043d"],t.s)
 B.rw=s(["text","multiline","number","phone","datetime","emailAddress","url","visiblePassword","name","address","none","webSearch","twitter"],t.s)
+B.RX=new A.L("O que \xe9 o PerfectGest I?","Aplica\xe7\xe3o de gest\xe3o no telem\xf3vel, com dados guardados localmente (SQLite). N\xe3o h\xe1 \xabconta na nuvem\xbb PerfectGest para clientes, or\xe7amentos ou caixa.")
+B.SL=new A.L("A app funciona sem internet?","Sim, o uso di\xe1rio \xe9 offline-first. Servi\xe7os Google opcionais (Analytics, Remote Config, Firestore m\xednimo para o Plano Inicial) podem usar rede quando activos.")
+B.To=new A.L("Como funciona o per\xedodo de teste?","7 dias desde a primeira abertura, com uso ilimitado: clientes, or\xe7amentos, lan\xe7amentos de caixa, PDF, ordens de servi\xe7o e contratos \u2014 sem subscri\xe7\xe3o paga e sem cart\xe3o na app durante esse per\xedodo.\n\nAp\xf3s os 7 dias sem Plano Pro: pode consultar e editar o que j\xe1 est\xe1 no telem\xf3vel, mas n\xe3o cria novos registos nem gera novos PDF. Assinatura: Configura\xe7\xf5es \u2192 Ver planos e pre\xe7os (Google Play).")
+B.T6=new A.L("Quanto custa o Plano Pro?","Na Google Play (Brasil): R$ 9,90/m\xeas ou R$ 99,90/ano (equivalente a cerca de R$ 8,33/m\xeas \u2014 2 meses gr\xe1tis no anual). Pre\xe7os podem variar por pa\xeds; a loja mostra o valor final.")
+B.RQ=new A.L("O que aconteceu ao \xabPlano Inicial 5+5+5\xbb?","Modelo anterior, substitu\xeddo em 2026. O modelo actual \xe9 7 dias ilimitados + assinatura Pro. Textos antigos em capturas ou reviews podem referir limites que j\xe1 n\xe3o se aplicam.")
+B.Ur=new A.L("Onde compro ou gerencio a subscri\xe7\xe3o?","Configura\xe7\xf5es \u2192 Assinatura Google Play. Pagamentos pelo Google. Cancelamento: Play Store \u2192 Pagamentos e subscri\xe7\xf5es \u2192 Subscri\xe7\xf5es.")
+B.S2=new A.L("O que \xe9 o cart\xe3o de visita digital?","Na aba Empresa edita os dados profissionais da empresa (n\xe3o inclui clientes nem caixa). O cart\xe3o mostra log\xf3tipo, nome, slogan, CNPJ, nome do profissional e contactos com r\xf3tulos no rodap\xe9 (at\xe9 2 por linha). Temas: branco, cinza ou preto.\n\nPartilhar cart\xe3o de visita gera PNG e abre a folha de partilha (WhatsApp, e-mail, etc.). Ap\xf3s o primeiro cart\xe3o, sem Plano Pro o cart\xe3o fica em modo est\xe1tico (pode partilhar o PNG do snapshot); com Pro, edita e usa fun\xe7\xf5es avan\xe7adas s\xf3 na app (vCard, QR, preview interactivo) \u2014 sem p\xe1gina web alojada pela PerfectGest.\n\nClientes e dados financeiros ficam protegidos: s\xf3 no telem\xf3vel; n\xe3o entram no cart\xe3o nem s\xe3o enviados automaticamente para servidores.")
+B.Sm=new A.L("Os meus dados de clientes e financeiros est\xe3o protegidos?","Sim. Clientes, or\xe7amentos, caixa e valores ficam na base local. A app n\xe3o envia esses dados para servidores.\n\nS\xf3 saem do telem\xf3vel se voc\xea decidir:\n\n- Partilhar um PDF\n- Partilhar o cart\xe3o de visita (PNG, vCard ou QR \u2014 contactos profissionais)\n- Partilhar um backup exportado em Configura\xe7\xf5es (recomendamos backup encriptado no Plano Pro)")
+B.Sn=new A.L("O que s\xe3o os lembretes fiscais?","Obriga\xe7\xf5es pr\xe9-configuradas (MEI, Aut\xf4nomo, ME) com alarmes no dispositivo. Meramente informativos \u2014 n\xe3o substituem contabilista.")
+B.S8=new A.L("O que \xe9 o calend\xe1rio semanal?","Na aba Empresa, calend\xe1rio da semana com indicadores de vencimentos fiscais.")
+B.T5=new A.L("O que s\xe3o os \xab\xdaltimos lan\xe7amentos\xbb?","Atalhos na p\xe1gina inicial para o \xfaltimo cliente, or\xe7amento, ordem de servi\xe7o e lan\xe7amento de caixa.")
+B.So=new A.L("A app envia notifica\xe7\xf5es?","Apenas notifica\xe7\xf5es locais para lembretes fiscais. Sem envio a servidores externos.")
+B.U5=new A.L("Onde est\xe1 a pol\xedtica de privacidade?","Configura\xe7\xf5es \u2192 Ajuda e suporte \u2014 links para Pol\xedtica, Exclus\xe3o de dados e Termos. E-mail: suporte@perfectgestdev.com.")
+B.Ud=new A.L("Como apago todos os dados neste aparelho?","Configura\xe7\xf5es \u2192 Dados no dispositivo \u2192 Eliminar todos os dados neste aparelho. N\xe3o apaga PDFs ou backups j\xe1 exportados. Para dados t\xe9cnicos Google: p\xe1gina de exclus\xe3o de dados.")
+B.SP=new A.L("A app tem an\xfancios?","N\xe3o.")
+B.Un=new A.L("H\xe1 Firebase Crashlytics?","N\xe3o. Analytics regista eventos gen\xe9ricos; n\xe3o envia crash reports autom\xe1ticos.")
+B.Sv=new A.L("Em que idiomas est\xe1 a app?","Portugu\xeas (Brasil), ingl\xeas (EUA), espanhol (Espanha).")
+B.ST=new A.L("Como posso dar sugest\xf5es?","Aba Empresa \u2192 D\xea sua contribui\xe7\xe3o \u2192 e-mail suporte@perfectgestdev.com.\n\nVisite a p\xe1gina do Desenvolvedor para mais informa\xe7\xf5es e ferramentas: perfectgestdev.com")
+B.Va=s([B.RX,B.SL,B.To,B.T6,B.RQ,B.Ur,B.S2,B.Sm,B.Sn,B.S8,B.T5,B.So,B.U5,B.Ud,B.SP,B.Un,B.Sv,B.ST],t.h)
 B.rx=s(["EEEE d. MMMM y","d. MMMM y","d. MMM y","dd.MM.y"],t.s)
-B.V7=s(["\u12d3\u1218\u1270 \u12d3\u1208\u121d","\u12d3\u1218\u1270 \u121d\u1215\u1228\u1275"],t.s)
+B.Vb=s(["\u12d3\u1218\u1270 \u12d3\u1208\u121d","\u12d3\u1218\u1270 \u121d\u1215\u1228\u1275"],t.s)
 B.ry=s(["ne","po","\xfat","st","\u010dt","p\xe1","so"],t.s)
-B.V9=s([239,191,189],t.t)
+B.Vd=s([239,191,189],t.t)
 B.rz=s(["\u0a10\u0a24\u0a35\u0a3e\u0a30","\u0a38\u0a4b\u0a2e\u0a35\u0a3e\u0a30","\u0a2e\u0a70\u0a17\u0a32\u0a35\u0a3e\u0a30","\u0a2c\u0a41\u0a71\u0a27\u0a35\u0a3e\u0a30","\u0a35\u0a40\u0a30\u0a35\u0a3e\u0a30","\u0a38\u0a3c\u0a41\u0a71\u0a15\u0a30\u0a35\u0a3e\u0a30","\u0a38\u0a3c\u0a28\u0a3f\u0a71\u0a1a\u0a30\u0a35\u0a3e\u0a30"],t.s)
 B.rA=s(["janu\xe1r","febru\xe1r","m\xe1rcius","\xe1prilis","m\xe1jus","j\xfanius","j\xfalius","augusztus","szeptember","okt\xf3ber","november","december"],t.s)
 B.rB=s(["\u049b\u0430\u04a3.","\u0430\u049b\u043f.","\u043d\u0430\u0443.","\u0441\u04d9\u0443.","\u043c\u0430\u043c.","\u043c\u0430\u0443.","\u0448\u0456\u043b.","\u0442\u0430\u043c.","\u049b\u044b\u0440.","\u049b\u0430\u0437.","\u049b\u0430\u0440.","\u0436\u0435\u043b."],t.s)
 B.rC=s(["So.","Mo.","Di.","Mi.","Do.","Fr.","Sa."],t.s)
 B.dW=s(["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],t.s)
-B.Vc=s(["\u0924\u093f\u0967","\u0924\u093f\u0968","\u0924\u093f\u0969","\u0924\u093f\u096a"],t.s)
+B.Vg=s(["\u0924\u093f\u0967","\u0924\u093f\u0968","\u0924\u093f\u0969","\u0924\u093f\u096a"],t.s)
 B.rD=s(["V","H","K","Sz","Cs","P","Sz"],t.s)
-B.Vd=s(["y 'm'. MMMM d 'd'., EEEE","y 'm'. MMMM d 'd'.","y-MM-dd","y-MM-dd"],t.s)
-B.Ve=s(["Milattan \xd6nce","Milattan Sonra"],t.s)
-B.Vf=s(["\u0399\u03b1\u03bd","\u03a6\u03b5\u03b2","\u039c\u03b1\u03c1","\u0391\u03c0\u03c1","\u039c\u03b1\u0390","\u0399\u03bf\u03c5\u03bd","\u0399\u03bf\u03c5\u03bb","\u0391\u03c5\u03b3","\u03a3\u03b5\u03c0","\u039f\u03ba\u03c4","\u039d\u03bf\u03b5","\u0394\u03b5\u03ba"],t.s)
+B.Vh=s(["y 'm'. MMMM d 'd'., EEEE","y 'm'. MMMM d 'd'.","y-MM-dd","y-MM-dd"],t.s)
+B.Vi=s(["Milattan \xd6nce","Milattan Sonra"],t.s)
+B.Vj=s(["\u0399\u03b1\u03bd","\u03a6\u03b5\u03b2","\u039c\u03b1\u03c1","\u0391\u03c0\u03c1","\u039c\u03b1\u0390","\u0399\u03bf\u03c5\u03bd","\u0399\u03bf\u03c5\u03bb","\u0391\u03c5\u03b3","\u03a3\u03b5\u03c0","\u039f\u03ba\u03c4","\u039d\u03bf\u03b5","\u0394\u03b5\u03ba"],t.s)
 B.rE=s(["T","H","M","H","T","K","H","E","S","L","M","J"],t.s)
 B.jc=s(["ned","pon","uto","sri","\u010det","pet","sub"],t.s)
 B.rF=s(["\u12a5\u1211\u12f5","\u1230\u129e","\u121b\u12ad\u1230\u129e","\u1228\u1261\u12d5","\u1210\u1219\u1235","\u12d3\u122d\u1265","\u1245\u12f3\u121c"],t.s)
-B.Vg=s(["1\u5b63\u5ea6","2\u5b63\u5ea6","3\u5b63\u5ea6","4\u5b63\u5ea6"],t.s)
+B.Vk=s(["1\u5b63\u5ea6","2\u5b63\u5ea6","3\u5b63\u5ea6","4\u5b63\u5ea6"],t.s)
 B.jd=s(["Jumapili","Jumatatu","Jumanne","Jumatano","Alhamisi","Ijumaa","Jumamosi"],t.s)
 B.rG=s(["d","h","m","m","e","p","sh"],t.s)
 B.rH=s(["\u178f\u17d2\u179a\u17b8\u1798\u17b6\u179f\u1791\u17b8 1","\u178f\u17d2\u179a\u17b8\u1798\u17b6\u179f\u1791\u17b8 2","\u178f\u17d2\u179a\u17b8\u1798\u17b6\u179f\u1791\u17b8 3","\u178f\u17d2\u179a\u17b8\u1798\u17b6\u179f\u1791\u17b8 4"],t.s)
-B.Vh=s(["{1} {0}\u0c15\u0c3f","{1} {0}\u0c15\u0c3f","{1} {0}","{1} {0}"],t.s)
+B.Vl=s(["{1} {0}\u0c15\u0c3f","{1} {0}\u0c15\u0c3f","{1} {0}","{1} {0}"],t.s)
 B.rI=s(["Jan","Feb","Mas","Eph","Mey","Jun","Jul","Aga","Sep","Okt","Nov","Dis"],t.s)
 B.rJ=s(["\u12a5","\u1230","\u121b","\u1228","\u1210","\u12d3","\u1245"],t.s)
 B.rK=s(["\u0906\u0907\u0924\u092c\u093e\u0930","\u0938\u094b\u092e\u092c\u093e\u0930","\u092e\u0919\u094d\u0917\u0932\u092c\u093e\u0930","\u092c\u0941\u0927\u092c\u093e\u0930","\u092c\u093f\u0939\u093f\u092c\u093e\u0930","\u0936\u0941\u0915\u094d\u0930\u092c\u093e\u0930","\u0936\u0928\u093f\u092c\u093e\u0930"],t.s)
-B.a4j=new A.d_("pt",null,null)
-B.a4h=new A.d_("en",null,null)
-B.a4i=new A.d_("es",null,null)
-B.mK=s([B.a4j,B.a4h,B.a4i],t.ss)
-B.Vi=s(["H:mm:ss '\u0447'. zzzz","H:mm:ss '\u0447'. z","H:mm:ss '\u0447'.","H:mm '\u0447'."],t.s)
-B.Vj=s([3,4],t.t)
-B.Vk=s(["\u0996\u09cd\u09b0\u09bf\u09b8\u09cd\u099f\u09aa\u09c2\u09b0\u09cd\u09ac","\u0996\u09c3\u09b7\u09cd\u099f\u09be\u09ac\u09cd\u09a6"],t.s)
+B.a4m=new A.d_("pt",null,null)
+B.a4k=new A.d_("en",null,null)
+B.a4l=new A.d_("es",null,null)
+B.mK=s([B.a4m,B.a4k,B.a4l],t.ss)
+B.Vm=s(["H:mm:ss '\u0447'. zzzz","H:mm:ss '\u0447'. z","H:mm:ss '\u0447'.","H:mm '\u0447'."],t.s)
+B.Vn=s([3,4],t.t)
+B.Vo=s(["\u0996\u09cd\u09b0\u09bf\u09b8\u09cd\u099f\u09aa\u09c2\u09b0\u09cd\u09ac","\u0996\u09c3\u09b7\u09cd\u099f\u09be\u09ac\u09cd\u09a6"],t.s)
 B.je=s(["\u062c\u0646\u0648\u0631\u06cc","\u0641\u0631\u0648\u0631\u06cc","\u0645\u0627\u0631\u0686","\u0627\u067e\u0631\u06cc\u0644","\u0645\u0626\u06cc","\u062c\u0648\u0646","\u062c\u0648\u0644\u0627\u0626\u06cc","\u0627\u06af\u0633\u062a","\u0633\u062a\u0645\u0628\u0631","\u0627\u06a9\u062a\u0648\u0628\u0631","\u0646\u0648\u0645\u0628\u0631","\u062f\u0633\u0645\u0628\u0631"],t.s)
 B.rL=s(["su","ma","ti","ke","to","pe","la"],t.s)
 B.rM=s(["\u039a\u03c5\u03c1\u03b9\u03b1\u03ba\u03ae","\u0394\u03b5\u03c5\u03c4\u03ad\u03c1\u03b1","\u03a4\u03c1\u03af\u03c4\u03b7","\u03a4\u03b5\u03c4\u03ac\u03c1\u03c4\u03b7","\u03a0\u03ad\u03bc\u03c0\u03c4\u03b7","\u03a0\u03b1\u03c1\u03b1\u03c3\u03ba\u03b5\u03c5\u03ae","\u03a3\u03ac\u03b2\u03b2\u03b1\u03c4\u03bf"],t.s)
 B.rN=s(["\u10d9","\u10dd","\u10e1","\u10dd","\u10ee","\u10de","\u10e8"],t.s)
-B.Vm=s(["\u0431.\u0437.\u0434.","\u0431.\u0437."],t.s)
-B.Vn=s(["tammi","helmi","maalis","huhti","touko","kes\xe4","hein\xe4","elo","syys","loka","marras","joulu"],t.s)
-B.Vo=s(["I. negyed\xe9v","II. negyed\xe9v","III. negyed\xe9v","IV. negyed\xe9v"],t.s)
-B.VF=s(["{1} \u0b85\u0ba9\u0bcd\u0bb1\u0bc1 {0}","{1} \u0b85\u0ba9\u0bcd\u0bb1\u0bc1 {0}","{1}, {0}","{1}, {0}"],t.s)
-B.TJ=new A.L("1. Aceptacion","Al instalar o utilizar PerfectGest-Clinica III, el usuario acepta estos Terminos.")
-B.Ut=new A.L("2. Alcance","La app es una herramienta de apoyo a la gestion clinica y organizacional. No sustituye, bajo ninguna circunstancia, el juicio profesional, el diagnostico o el tratamiento medico.")
+B.Vq=s(["\u0431.\u0437.\u0434.","\u0431.\u0437."],t.s)
+B.Vr=s(["tammi","helmi","maalis","huhti","touko","kes\xe4","hein\xe4","elo","syys","loka","marras","joulu"],t.s)
+B.Vs=s(["I. negyed\xe9v","II. negyed\xe9v","III. negyed\xe9v","IV. negyed\xe9v"],t.s)
+B.VJ=s(["{1} \u0b85\u0ba9\u0bcd\u0bb1\u0bc1 {0}","{1} \u0b85\u0ba9\u0bcd\u0bb1\u0bc1 {0}","{1}, {0}","{1}, {0}"],t.s)
+B.TL=new A.L("1. Aceptacion","Al instalar o utilizar PerfectGest-Clinica III, el usuario acepta estos Terminos.")
+B.Ux=new A.L("2. Alcance","La app es una herramienta de apoyo a la gestion clinica y organizacional. No sustituye, bajo ninguna circunstancia, el juicio profesional, el diagnostico o el tratamiento medico.")
 B.S_=new A.L("3. Cuentas y responsabilidades","\u2022 El usuario es responsable de mantener las credenciales (usuario y contrasena) seguras.\n\u2022 La clinica o profesional que utiliza el software es responsable del contenido introducido y del uso adecuado del sistema.")
-B.UL=new A.L("4. Uso aceptable","Esta prohibido:\n\u2022 usar la app con fines ilegales;\n\u2022 intentar eludir mecanismos de seguridad;\n\u2022 introducir codigo malicioso;\n\u2022 copiar, distribuir o explotar comercialmente el software fuera de los limites de la licencia.")
+B.UO=new A.L("4. Uso aceptable","Esta prohibido:\n\u2022 usar la app con fines ilegales;\n\u2022 intentar eludir mecanismos de seguridad;\n\u2022 introducir codigo malicioso;\n\u2022 copiar, distribuir o explotar comercialmente el software fuera de los limites de la licencia.")
 B.S0=new A.L("5. Datos y copias de seguridad","\u2022 Los datos clinicos se almacenan localmente en el dispositivo.\n\u2022 Las copias exportadas manualmente deben guardarse de forma segura por la clinica.")
-B.SU=new A.L("6. Compras en la aplicacion (Microsoft Store)","Las suscripciones, cuando apliquen, se procesan en Microsoft Store (Microsoft Corporation). Los pagos y la gestion de suscripcion se realizan mediante la cuenta Microsoft del usuario. Perfect Gest Dev no procesa ni almacena datos de tarjeta.")
-B.Ss=new A.L("7. Limitacion de responsabilidad","Hacemos esfuerzos para mantener la app funcional y segura, pero no garantizamos operacion ininterrumpida. El uso de la app y las decisiones clinicas basadas en los datos introducidos son responsabilidad de la clinica o del profesional de salud.")
-B.Ts=new A.L("8. Terminacion","Podemos suspender el acceso en caso de violacion de estos Terminos o por exigencia legal.")
-B.Tt=new A.L("9. Cambios","Podemos actualizar estos Terminos. El uso continuado tras cambios significativos implica aceptacion de la version actualizada.")
-B.ST=new A.L("10. Contacto","suporte@perfectgestdev.com")
-B.VL=s([B.TJ,B.Ut,B.S_,B.UL,B.S0,B.SU,B.Ss,B.Ts,B.Tt,B.ST],t.h)
-B.VM=s(["1\xfa r\xe1ithe","2\xfa r\xe1ithe","3\xfa r\xe1ithe","4\xfa r\xe1ithe"],t.s)
-B.VN=s(["a h.mm.ss zzzz","a h.mm.ss z","a h.mm.ss","a h.mm"],t.s)
-B.VO=s(["xaneiro","febreiro","marzo","abril","maio","xu\xf1o","xullo","agosto","setembro","outubro","novembro","decembro"],t.s)
-B.SB=new A.L("1. Objeto","Estes Termos regem a app PerfectGest I, para gest\xe3o empresarial (clientes, or\xe7amentos, caixa, ordem de servi\xe7o, lembretes fiscais, cart\xe3o de visita digital), com dados principalmente no dispositivo.\n\nDados de clientes e financeiros permanecem no aparelho e n\xe3o s\xe3o transmitidos automaticamente. Podem sair somente por ac\xe7\xe3o do utilizador (partilha de PDF, backup exportado, cart\xe3o de visita PNG/vCard/QR). Ver Pol\xedtica de Privacidade.\n\nEditor: Marcos Leandro dos Santos.")
-B.Se=new A.L("2. Elegibilidade","Utilizadores maiores de 18 anos.")
-B.SH=new A.L("3. Plano Inicial, per\xedodo de teste e assinaturas","- Per\xedodo de teste: 7 dias a contar da primeira abertura da app no aparelho (data registada de forma an\xf3nima para evitar rein\xedcio indevido do teste).\n- Durante o teste: at\xe9 5 clientes, 5 or\xe7amentos e 5 lan\xe7amentos de caixa, incluindo PDF. Ao guardar o 4.\xba registo de cada tipo, a app avisa que falta apenas 1. O 6.\xba registo (ou acima dos limites) exige Plano Pro, mesmo antes de terminarem os 7 dias.\n- Ap\xf3s 7 dias sem Plano Pro: n\xe3o \xe9 poss\xedvel criar novos clientes, or\xe7amentos ou lan\xe7amentos de caixa; pode consultar e editar os dados j\xe1 guardados no aparelho.\n- Plano Pro: uso ilimitado, restauro de backup encriptado e cart\xe3o de visita interactivo na app \u2014 assinatura mensal ou anual via Google Play (pre\xe7o e condi\xe7\xf5es na loja).\n- Renova\xe7\xe3o autom\xe1tica at\xe9 cancelar na Play Store: Pagamentos e subscri\xe7\xf5es \u2192 Subscri\xe7\xf5es.")
-B.Up=new A.L("4. Cancelamento","Google Play Store \u2192 Pagamentos e subscri\xe7\xf5es \u2192 Subscri\xe7\xf5es.")
-B.RR=new A.L("5. Direito de arrependimento (Brasil \u2014 CDC)","7 dias corridos quando aplic\xe1vel, sem preju\xedzo das regras Google Play. Reembolsos via canais Google.")
-B.TO=new A.L("6. Lembretes fiscais","Meramente informativos; n\xe3o substituem contabilista. Responsabilidade do utilizador.")
-B.Tk=new A.L("7. Limita\xe7\xe3o de responsabilidade","Ferramenta de apoio; n\xe3o substitui assessoria profissional. Decis\xf5es de neg\xf3cio s\xe3o do utilizador.")
-B.Sn=new A.L("8. Propriedade intelectual","Licen\xe7a revog\xe1vel, n\xe3o exclusiva. Proibida engenharia inversa il\xedcita.")
-B.T5=new A.L("9. Altera\xe7\xf5es","Vers\xe3o vigente publicada no URL abaixo.")
-B.SW=new A.L("10. Lei e foro","Leis do Brasil; foro Caxias do Sul/RS, sem preju\xedzo do consumidor.")
-B.ri=new A.L("11. Contacto","suporte@perfectgestdev.com")
-B.VP=s([B.SB,B.Se,B.SH,B.Up,B.RR,B.TO,B.Tk,B.Sn,B.T5,B.SW,B.ri],t.h)
+B.SW=new A.L("6. Compras en la aplicacion (Microsoft Store)","Las suscripciones, cuando apliquen, se procesan en Microsoft Store (Microsoft Corporation). Los pagos y la gestion de suscripcion se realizan mediante la cuenta Microsoft del usuario. Perfect Gest Dev no procesa ni almacena datos de tarjeta.")
+B.Su=new A.L("7. Limitacion de responsabilidad","Hacemos esfuerzos para mantener la app funcional y segura, pero no garantizamos operacion ininterrumpida. El uso de la app y las decisiones clinicas basadas en los datos introducidos son responsabilidad de la clinica o del profesional de salud.")
+B.Tw=new A.L("8. Terminacion","Podemos suspender el acceso en caso de violacion de estos Terminos o por exigencia legal.")
+B.Tx=new A.L("9. Cambios","Podemos actualizar estos Terminos. El uso continuado tras cambios significativos implica aceptacion de la version actualizada.")
+B.SV=new A.L("10. Contacto","suporte@perfectgestdev.com")
+B.VP=s([B.TL,B.Ux,B.S_,B.UO,B.S0,B.SW,B.Su,B.Tw,B.Tx,B.SV],t.h)
+B.VQ=s(["1\xfa r\xe1ithe","2\xfa r\xe1ithe","3\xfa r\xe1ithe","4\xfa r\xe1ithe"],t.s)
+B.VR=s(["a h.mm.ss zzzz","a h.mm.ss z","a h.mm.ss","a h.mm"],t.s)
+B.VS=s(["xaneiro","febreiro","marzo","abril","maio","xu\xf1o","xullo","agosto","setembro","outubro","novembro","decembro"],t.s)
 B.rO=s(["\u0458\u0430\u043d.","\u0444\u0435\u0432.","\u043c\u0430\u0440.","\u0430\u043f\u0440.","\u043c\u0430\u0458","\u0458\u0443\u043d.","\u0458\u0443\u043b.","\u0430\u0432\u0433.","\u0441\u0435\u043f\u0442.","\u043e\u043a\u0442.","\u043d\u043e\u0435\u043c.","\u0434\u0435\u043a."],t.s)
-B.VQ=s(["y MMMM d, EEEE","y MMMM d","y MMM d","yy/M/d"],t.s)
-B.VR=s(["HH 'h' mm 'min' ss 's' zzzz","HH 'h' mm 'min' ss 's' z","HH 'h' mm 'min' ss 's'","HH 'h' mm"],t.s)
+B.VT=s(["y MMMM d, EEEE","y MMMM d","y MMM d","yy/M/d"],t.s)
+B.VU=s(["HH 'h' mm 'min' ss 's' zzzz","HH 'h' mm 'min' ss 's' z","HH 'h' mm 'min' ss 's'","HH 'h' mm"],t.s)
 B.rP=s(["janv\u0101ris","febru\u0101ris","marts","apr\u012blis","maijs","j\u016bnijs","j\u016blijs","augusts","septembris","oktobris","novembris","decembris"],t.s)
-B.VS=s([4,4],t.t)
+B.VV=s([4,4],t.t)
 B.rQ=s([4,5],t.t)
-B.VT=s([4,9,14,19],t.t)
+B.VW=s([4,9,14,19],t.t)
 B.eS=s(["f.Kr.","e.Kr."],t.s)
 B.rR=s(["Januwari","Februwari","Mashi","Ephreli","Meyi","Juni","Julayi","Agasti","Septhemba","Okthoba","Novemba","Disemba"],t.s)
 B.cf=s(["{1}, {0}","{1}, {0}","{1}, {0}","{1}, {0}"],t.s)
 B.rS=s(["Dydd Sul","Dydd Llun","Dydd Mawrth","Dydd Mercher","Dydd Iau","Dydd Gwener","Dydd Sadwrn"],t.s)
 B.rT=s(["\u0ea1\u0eb1\u0e87\u0e81\u0ead\u0e99","\u0e81\u0eb8\u0ea1\u0e9e\u0eb2","\u0ea1\u0eb5\u0e99\u0eb2","\u0ec0\u0ea1\u0eaa\u0eb2","\u0e9e\u0eb6\u0e94\u0eaa\u0eb0\u0e9e\u0eb2","\u0ea1\u0eb4\u0e96\u0eb8\u0e99\u0eb2","\u0e81\u0ecd\u0ea5\u0eb0\u0e81\u0ebb\u0e94","\u0eaa\u0eb4\u0e87\u0eab\u0eb2","\u0e81\u0eb1\u0e99\u0e8d\u0eb2","\u0e95\u0eb8\u0ea5\u0eb2","\u0e9e\u0eb0\u0e88\u0eb4\u0e81","\u0e97\u0eb1\u0e99\u0ea7\u0eb2"],t.s)
-B.VU=s(["prije Krista","poslije Krista"],t.s)
+B.VX=s(["prije Krista","poslije Krista"],t.s)
 B.rU=s(["Paz","Pzt","Sal","\xc7ar","Per","Cum","Cmt"],t.s)
-B.a2J=s([137,80,78,71,13,10,26,10],t.Z)
+B.a2K=s([137,80,78,71,13,10,26,10],t.Z)
 B.QQ=new A.ne(0,"png")
 B.QY=new A.kh(B.QQ,!1,0,"png")
-B.QO=new A.lx(B.a2J,B.QY,0,"png")
-B.a2V=s([71,73,70,56,55,97],t.Z)
-B.QN=new A.lx(B.a2V,B.j6,1,"gif87a")
-B.a_W=s([71,73,70,56,57,97],t.Z)
-B.QM=new A.lx(B.a_W,B.j6,2,"gif89a")
-B.Va=s([255,216,255],t.Z)
+B.QO=new A.lx(B.a2K,B.QY,0,"png")
+B.a2W=s([71,73,70,56,55,97],t.Z)
+B.QN=new A.lx(B.a2W,B.j6,1,"gif87a")
+B.a_X=s([71,73,70,56,57,97],t.Z)
+B.QM=new A.lx(B.a_X,B.j6,2,"gif89a")
+B.Ve=s([255,216,255],t.Z)
 B.QR=new A.ne(2,"jpeg")
 B.R1=new A.kh(B.QR,!1,3,"jpeg")
-B.QP=new A.lx(B.Va,B.R1,3,"jpeg")
-B.WK=s([82,73,70,70,null,null,null,null,87,69,66,80],t.Z)
-B.QL=new A.lx(B.WK,B.ra,4,"webp")
-B.Wm=s([66,77],t.Z)
+B.QP=new A.lx(B.Ve,B.R1,3,"jpeg")
+B.WR=s([82,73,70,70,null,null,null,null,87,69,66,80],t.Z)
+B.QL=new A.lx(B.WR,B.ra,4,"webp")
+B.Wq=s([66,77],t.Z)
 B.QS=new A.ne(4,"bmp")
 B.R_=new A.kh(B.QS,!1,6,"bmp")
-B.QK=new A.lx(B.Wm,B.R_,5,"bmp")
-B.VW=s([B.QO,B.QN,B.QM,B.QP,B.QL,B.QK],A.a4("q<lx>"))
-B.VY=s(["zzzz HH:mm:ss","z HH:mm:ss","H:mm:ss","H:mm"],t.s)
+B.QK=new A.lx(B.Wq,B.R_,5,"bmp")
+B.VZ=s([B.QO,B.QN,B.QM,B.QP,B.QL,B.QK],A.a4("q<lx>"))
+B.W0=s(["zzzz HH:mm:ss","z HH:mm:ss","H:mm:ss","H:mm"],t.s)
 B.rV=s(["jan","feb","mar","apr","mai","jun","jul","aug","sep","okt","nov","des"],t.s)
 B.rW=s(["\u0ea7\u0eb1\u0e99\u0ead\u0eb2\u0e97\u0eb4\u0e94","\u0ea7\u0eb1\u0e99\u0e88\u0eb1\u0e99","\u0ea7\u0eb1\u0e99\u0ead\u0eb1\u0e87\u0e84\u0eb2\u0e99","\u0ea7\u0eb1\u0e99\u0e9e\u0eb8\u0e94","\u0ea7\u0eb1\u0e99\u0e9e\u0eb0\u0eab\u0eb1\u0e94","\u0ea7\u0eb1\u0e99\u0eaa\u0eb8\u0e81","\u0ea7\u0eb1\u0e99\u0ec0\u0eaa\u0ebb\u0eb2"],t.s)
-B.W5=s(["I. n.\xe9v","II. n.\xe9v","III. n.\xe9v","IV. n.\xe9v"],t.s)
+B.W8=s(["I. n.\xe9v","II. n.\xe9v","III. n.\xe9v","IV. n.\xe9v"],t.s)
 B.rX=s(["S","P","A","T","K","P","\u0160"],t.s)
 B.rY=s(["\u062c\u0646\u0648\u0631\u064a","\u0641\u0628\u0631\u0648\u0631\u064a","\u0645\u0627\u0631\u0686","\u0627\u067e\u0631\u06cc\u0644","\u0645\u06cd","\u062c\u0648\u0646","\u062c\u0648\u0644\u0627\u06cc","\u0627\u06ab\u0633\u062a","\u0633\u06d0\u067e\u062a\u0645\u0628\u0631","\u0627\u06a9\u062a\u0648\u0628\u0631","\u0646\u0648\u0645\u0628\u0631","\u062f\u0633\u0645\u0628\u0631"],t.s)
 B.oM=new A.HD(0,"named")
 B.Jr=new A.HD(1,"anonymous")
-B.W6=s([B.oM,B.Jr],A.a4("q<HD>"))
-B.W7=s(["EEEE, d 'de' MMMM 'de' y","d 'de' MMMM 'de' y","d 'de' MMM 'de' y","dd/MM/y"],t.s)
-B.W8=s(["Ion","Chwef","Maw","Ebr","Mai","Meh","Gorff","Awst","Medi","Hyd","Tach","Rhag"],t.s)
+B.W9=s([B.oM,B.Jr],A.a4("q<HD>"))
+B.Wa=s(["EEEE, d 'de' MMMM 'de' y","d 'de' MMMM 'de' y","d 'de' MMM 'de' y","dd/MM/y"],t.s)
+B.Wb=s(["Ion","Chwef","Maw","Ebr","Mai","Meh","Gorff","Awst","Medi","Hyd","Tach","Rhag"],t.s)
 B.aG=s(["January","February","March","April","May","June","July","August","September","October","November","December"],t.s)
-B.a_2=s([0.41233895,0.35762064,0.18051042],t.n)
-B.Xs=s([0.2126,0.7152,0.0722],t.n)
-B.a3D=s([0.01932141,0.11916382,0.95034478],t.n)
-B.dX=s([B.a_2,B.Xs,B.a3D],t.zg)
-B.Wa=s(["{1} 'n\xeb' {0}","{1} 'n\xeb' {0}","{1}, {0}","{1}, {0}"],t.s)
+B.a_4=s([0.41233895,0.35762064,0.18051042],t.n)
+B.Xz=s([0.2126,0.7152,0.0722],t.n)
+B.a3F=s([0.01932141,0.11916382,0.95034478],t.n)
+B.dX=s([B.a_4,B.Xz,B.a3F],t.zg)
+B.Wd=s(["{1} 'n\xeb' {0}","{1} 'n\xeb' {0}","{1}, {0}","{1}, {0}"],t.s)
 B.o=s([5,6],t.t)
-B.Wb=s(["h:mm:ss a, zzzz","h:mm:ss a, z","h:mm:ss a","h:mm a"],t.s)
-B.Wc=s(["\u0441\u0456\u0447\u0435\u043d\u044c","\u043b\u044e\u0442\u0438\u0439","\u0431\u0435\u0440\u0435\u0437\u0435\u043d\u044c","\u043a\u0432\u0456\u0442\u0435\u043d\u044c","\u0442\u0440\u0430\u0432\u0435\u043d\u044c","\u0447\u0435\u0440\u0432\u0435\u043d\u044c","\u043b\u0438\u043f\u0435\u043d\u044c","\u0441\u0435\u0440\u043f\u0435\u043d\u044c","\u0432\u0435\u0440\u0435\u0441\u0435\u043d\u044c","\u0436\u043e\u0432\u0442\u0435\u043d\u044c","\u043b\u0438\u0441\u0442\u043e\u043f\u0430\u0434","\u0433\u0440\u0443\u0434\u0435\u043d\u044c"],t.s)
-B.Wd=s(["1. \xe7eyrek","2. \xe7eyrek","3. \xe7eyrek","4. \xe7eyrek"],t.s)
+B.We=s(["h:mm:ss a, zzzz","h:mm:ss a, z","h:mm:ss a","h:mm a"],t.s)
+B.Wf=s(["\u0441\u0456\u0447\u0435\u043d\u044c","\u043b\u044e\u0442\u0438\u0439","\u0431\u0435\u0440\u0435\u0437\u0435\u043d\u044c","\u043a\u0432\u0456\u0442\u0435\u043d\u044c","\u0442\u0440\u0430\u0432\u0435\u043d\u044c","\u0447\u0435\u0440\u0432\u0435\u043d\u044c","\u043b\u0438\u043f\u0435\u043d\u044c","\u0441\u0435\u0440\u043f\u0435\u043d\u044c","\u0432\u0435\u0440\u0435\u0441\u0435\u043d\u044c","\u0436\u043e\u0432\u0442\u0435\u043d\u044c","\u043b\u0438\u0441\u0442\u043e\u043f\u0430\u0434","\u0433\u0440\u0443\u0434\u0435\u043d\u044c"],t.s)
+B.Wg=s(["1. \xe7eyrek","2. \xe7eyrek","3. \xe7eyrek","4. \xe7eyrek"],t.s)
 B.rZ=s([0,4,12,1,5,13,3,7,15],t.t)
-B.We=s(["EEEE, d. MMMM y","d. MMMM y","d. MMM y","d. MM. yy"],t.s)
+B.SN=new A.L("1. Objeto","Estos T\xe9rminos regulan PerfectGest I (clientes, presupuestos, caja, \xf3rdenes de servicio, recordatorios fiscales, tarjeta de visita digital), con datos principalmente en el dispositivo.\n\nDatos de clientes y financieros permanecen en el dispositivo y no se transmiten autom\xe1ticamente. Solo pueden salir por acci\xf3n expl\xedcita (compartir PDF, backup exportado, PNG/vCard/QR de la tarjeta). V\xe9ase Pol\xedtica de Privacidad.\n\nEditor: Marcos Leandro dos Santos.")
+B.SA=new A.L("2. Elegibilidad","Usuarios mayores de 18 a\xf1os.")
+B.U2=new A.L("3. Per\xedodo de prueba y suscripciones","- Per\xedodo de prueba: 7 d\xedas desde la primera apertura (marca an\xf3nima en el dispositivo).\n- Durante la prueba: uso ilimitado \u2014 clientes, presupuestos, caja, PDF, \xf3rdenes y contratos, sin suscripci\xf3n de pago y sin tarjeta en la app.\n- Tras 7 d\xedas sin Plan Pro: no puede crear registros nuevos ni PDF nuevos; puede consultar y editar lo guardado.\n- Plan Pro: uso ilimitado, restauraci\xf3n de backup cifrado, tarjeta interactiva \u2014 mensual (R$ 9,90) o anual (R$ 99,90, 2 meses gratis) v\xeda Google Play.\n- Renovaci\xf3n autom\xe1tica hasta cancelar en Play Store: Pagos y suscripciones \u2192 Suscripciones.")
+B.T1=new A.L("4. Cancelaci\xf3n","Google Play Store \u2192 Pagos y suscripciones.")
+B.Sr=new A.L("5. Desistimiento (Brasil \u2014 CDC)","7 d\xedas naturales cuando corresponda. Reembolsos v\xeda Google.")
+B.RT=new A.L("6. Recordatorios fiscales","Informativos; no asesoramiento fiscal.")
+B.T9=new A.L("7. Limitaci\xf3n de responsabilidad","Herramienta de gesti\xf3n; responsabilidad del usuario.")
+B.Uf=new A.L("8. Propiedad intelectual","Licencia revocable; sin ingenier\xeda inversa il\xedcita.")
+B.SX=new A.L("9. Cambios","Versi\xf3n publicada en URL abajo.")
+B.UC=new A.L("10. Ley y fuero","Brasil; Caxias do Sul/RS.")
+B.ri=new A.L("11. Contacto","suporte@perfectgestdev.com")
+B.Wh=s([B.SN,B.SA,B.U2,B.T1,B.Sr,B.RT,B.T9,B.Uf,B.SX,B.UC,B.ri],t.h)
+B.Wi=s(["EEEE, d. MMMM y","d. MMMM y","d. MMM y","d. MM. yy"],t.s)
 B.t_=s(["januar","februar","marts","april","maj","juni","juli","august","september","oktober","november","december"],t.s)
 B.t0=s(["\u043d","\u043f","\u0430","\u0441","\u0447","\u043f","\u0441"],t.s)
-B.Wf=s(["\u0908\u0938\u093e-\u092a\u0942\u0930\u094d\u0935","\u0908\u0938\u094d\u0935\u0940"],t.s)
+B.Wj=s(["\u0908\u0938\u093e-\u092a\u0942\u0930\u094d\u0935","\u0908\u0938\u094d\u0935\u0940"],t.s)
 B.t1=s(["Jan.","Feb.","Mrt.","Apr.","Mei","Jun.","Jul.","Aug.","Sep.","Okt.","Nov.","Des."],t.s)
-B.Wg=s(["\u0b92\u0ba9\u0bcd\u0bb1\u0bbe\u0bae\u0bcd \u0b95\u0bbe\u0bb2\u0bbe\u0ba3\u0bcd\u0b9f\u0bc1","\u0b87\u0bb0\u0ba3\u0bcd\u0b9f\u0bbe\u0bae\u0bcd \u0b95\u0bbe\u0bb2\u0bbe\u0ba3\u0bcd\u0b9f\u0bc1","\u0bae\u0bc2\u0ba9\u0bcd\u0bb1\u0bbe\u0bae\u0bcd \u0b95\u0bbe\u0bb2\u0bbe\u0ba3\u0bcd\u0b9f\u0bc1","\u0ba8\u0bbe\u0ba9\u0bcd\u0b95\u0bbe\u0bae\u0bcd \u0b95\u0bbe\u0bb2\u0bbe\u0ba3\u0bcd\u0b9f\u0bc1"],t.s)
-B.Wh=s(["\uc81c 1/4\ubd84\uae30","\uc81c 2/4\ubd84\uae30","\uc81c 3/4\ubd84\uae30","\uc81c 4/4\ubd84\uae30"],t.s)
+B.Wk=s(["\u0b92\u0ba9\u0bcd\u0bb1\u0bbe\u0bae\u0bcd \u0b95\u0bbe\u0bb2\u0bbe\u0ba3\u0bcd\u0b9f\u0bc1","\u0b87\u0bb0\u0ba3\u0bcd\u0b9f\u0bbe\u0bae\u0bcd \u0b95\u0bbe\u0bb2\u0bbe\u0ba3\u0bcd\u0b9f\u0bc1","\u0bae\u0bc2\u0ba9\u0bcd\u0bb1\u0bbe\u0bae\u0bcd \u0b95\u0bbe\u0bb2\u0bbe\u0ba3\u0bcd\u0b9f\u0bc1","\u0ba8\u0bbe\u0ba9\u0bcd\u0b95\u0bbe\u0bae\u0bcd \u0b95\u0bbe\u0bb2\u0bbe\u0ba3\u0bcd\u0b9f\u0bc1"],t.s)
+B.Wl=s(["\uc81c 1/4\ubd84\uae30","\uc81c 2/4\ubd84\uae30","\uc81c 3/4\ubd84\uae30","\uc81c 4/4\ubd84\uae30"],t.s)
 B.t2=s(["Su.","M\xe4.","Zi.","Mi.","Du.","Fr.","Sa."],t.s)
-B.SF=new A.L("1. Acceptance","By installing or using PerfectGest-Clinica III, you agree to these Terms.")
-B.UB=new A.L("2. Scope","The app is a tool to support clinical and organizational management. It does not replace professional judgment, diagnosis, or medical treatment under any circumstances.")
-B.Su=new A.L("3. Accounts and responsibilities","\u2022 You are responsible for keeping credentials (username and password) secure.\n\u2022 The clinic or professional using the software is responsible for content entered and proper use of the system.")
-B.S9=new A.L("4. Acceptable use","The following is prohibited:\n\u2022 using the app for illegal purposes;\n\u2022 attempting to bypass security mechanisms;\n\u2022 introducing malicious code;\n\u2022 copying, distributing, or commercially exploiting the software beyond the license limits.")
-B.Tz=new A.L("5. Data and backups","\u2022 Clinical data is stored locally on the device.\n\u2022 Manually exported backups must be kept secure by the clinic.")
-B.U7=new A.L("6. In-app purchases (Microsoft Store)","Subscriptions, when applicable, are processed by the Microsoft Store (Microsoft Corporation). Payments and subscription management are handled through the user's Microsoft account. Perfect Gest Dev does not process or store card data.")
-B.Ue=new A.L("7. Limitation of liability","We make efforts to keep the app functional and secure but do not guarantee uninterrupted operation. Use of the app and clinical decisions based on entered data are the responsibility of the clinic or health professional.")
-B.Sc=new A.L("8. Termination","We may suspend access in case of violation of these Terms or legal requirement.")
-B.TV=new A.L("9. Changes","We may update these Terms. Continued use after significant changes means acceptance of the updated version.")
-B.UC=new A.L("10. Contact","suporte@perfectgestdev.com")
-B.Wi=s([B.SF,B.UB,B.Su,B.S9,B.Tz,B.U7,B.Ue,B.Sc,B.TV,B.UC],t.h)
-B.Wj=s(["\u091c\u0928","\u092b\u0947\u0947\u092c","\u092e\u093e\u0930\u094d\u091a","\u0905\u092a\u094d\u0930","\u092e\u0947","\u091c\u0941\u0928","\u091c\u0941\u0932","\u0905\u0917","\u0938\u0947\u092a","\u0905\u0915\u094d\u091f\u094b","\u0928\u094b\u092d\u0947","\u0921\u093f\u0938\u0947"],t.s)
-B.Wl=s([65533],t.t)
+B.SH=new A.L("1. Acceptance","By installing or using PerfectGest-Clinica III, you agree to these Terms.")
+B.UE=new A.L("2. Scope","The app is a tool to support clinical and organizational management. It does not replace professional judgment, diagnosis, or medical treatment under any circumstances.")
+B.Sw=new A.L("3. Accounts and responsibilities","\u2022 You are responsible for keeping credentials (username and password) secure.\n\u2022 The clinic or professional using the software is responsible for content entered and proper use of the system.")
+B.Sb=new A.L("4. Acceptable use","The following is prohibited:\n\u2022 using the app for illegal purposes;\n\u2022 attempting to bypass security mechanisms;\n\u2022 introducing malicious code;\n\u2022 copying, distributing, or commercially exploiting the software beyond the license limits.")
+B.TC=new A.L("5. Data and backups","\u2022 Clinical data is stored locally on the device.\n\u2022 Manually exported backups must be kept secure by the clinic.")
+B.Ub=new A.L("6. In-app purchases (Microsoft Store)","Subscriptions, when applicable, are processed by the Microsoft Store (Microsoft Corporation). Payments and subscription management are handled through the user's Microsoft account. Perfect Gest Dev does not process or store card data.")
+B.Uh=new A.L("7. Limitation of liability","We make efforts to keep the app functional and secure but do not guarantee uninterrupted operation. Use of the app and clinical decisions based on entered data are the responsibility of the clinic or health professional.")
+B.Sf=new A.L("8. Termination","We may suspend access in case of violation of these Terms or legal requirement.")
+B.TZ=new A.L("9. Changes","We may update these Terms. Continued use after significant changes means acceptance of the updated version.")
+B.UF=new A.L("10. Contact","suporte@perfectgestdev.com")
+B.Wm=s([B.SH,B.UE,B.Sw,B.Sb,B.TC,B.Ub,B.Uh,B.Sf,B.TZ,B.UF],t.h)
+B.Wn=s(["\u091c\u0928","\u092b\u0947\u0947\u092c","\u092e\u093e\u0930\u094d\u091a","\u0905\u092a\u094d\u0930","\u092e\u0947","\u091c\u0941\u0928","\u091c\u0941\u0932","\u0905\u0917","\u0938\u0947\u092a","\u0905\u0915\u094d\u091f\u094b","\u0928\u094b\u092d\u0947","\u0921\u093f\u0938\u0947"],t.s)
+B.Wp=s([65533],t.t)
+B.SD=new A.L("1. Objeto","Estes Termos regem a app PerfectGest I, para gest\xe3o empresarial (clientes, or\xe7amentos, caixa, ordem de servi\xe7o, lembretes fiscais, cart\xe3o de visita digital), com dados principalmente no dispositivo.\n\nDados de clientes e financeiros permanecem no aparelho e n\xe3o s\xe3o transmitidos automaticamente. Podem sair somente por ac\xe7\xe3o do utilizador (partilha de PDF, backup exportado, cart\xe3o de visita PNG/vCard/QR). Ver Pol\xedtica de Privacidade.\n\nEditor: Marcos Leandro dos Santos.")
+B.Sh=new A.L("2. Elegibilidade","Utilizadores maiores de 18 anos.")
+B.Tk=new A.L("3. Per\xedodo de teste e assinaturas","- Per\xedodo de teste: 7 dias a contar da primeira abertura da app (marca an\xf3nima no dispositivo para evitar rein\xedcio indevido).\n- Durante o teste: uso ilimitado \u2014 clientes, or\xe7amentos, lan\xe7amentos de caixa, PDF, ordens de servi\xe7o e contratos, sem subscri\xe7\xe3o paga e sem cart\xe3o na app.\n- Ap\xf3s 7 dias sem Plano Pro: n\xe3o \xe9 poss\xedvel criar novos registos nem gerar novos PDF; pode consultar e editar dados j\xe1 guardados.\n- Plano Pro: uso ilimitado, restauro de backup encriptado e cart\xe3o de visita interactivo \u2014 assinatura mensal (R$ 9,90) ou anual (R$ 99,90, 2 meses gr\xe1tis) via Google Play (pre\xe7o final na loja).\n- Renova\xe7\xe3o autom\xe1tica at\xe9 cancelar na Play Store: Pagamentos e subscri\xe7\xf5es \u2192 Subscri\xe7\xf5es.")
+B.Ut=new A.L("4. Cancelamento","Google Play Store \u2192 Pagamentos e subscri\xe7\xf5es \u2192 Subscri\xe7\xf5es.")
+B.RR=new A.L("5. Direito de arrependimento (Brasil \u2014 CDC)","7 dias corridos quando aplic\xe1vel, sem preju\xedzo das regras Google Play. Reembolsos via canais Google.")
+B.TR=new A.L("6. Lembretes fiscais","Meramente informativos; n\xe3o substituem contabilista. Responsabilidade do utilizador.")
+B.Tn=new A.L("7. Limita\xe7\xe3o de responsabilidade","Ferramenta de apoio; n\xe3o substitui assessoria profissional. Decis\xf5es de neg\xf3cio s\xe3o do utilizador.")
+B.Sp=new A.L("8. Propriedade intelectual","Licen\xe7a revog\xe1vel, n\xe3o exclusiva. Proibida engenharia inversa il\xedcita.")
+B.T7=new A.L("9. Altera\xe7\xf5es","Vers\xe3o vigente publicada no URL abaixo.")
+B.SY=new A.L("10. Lei e foro","Leis do Brasil; foro Caxias do Sul/RS, sem preju\xedzo do consumidor.")
+B.Wr=s([B.SD,B.Sh,B.Tk,B.Ut,B.RR,B.TR,B.Tn,B.Sp,B.T7,B.SY,B.ri],t.h)
 B.t3=s(["ned","pon","uto","sre","\u010det","pet","sub"],t.s)
 B.t4=s(["dom","lun","mar","mer","gio","ven","sab"],t.s)
-B.Wo=s(["{1} \u0930\u094b\u091c\u0940 {0}","{1} \u0930\u094b\u091c\u0940 {0}","{1}, {0}","{1}, {0}"],t.s)
-B.Wp=s(["\u05e8\u05d1\u05e2\u05d5\u05df 1","\u05e8\u05d1\u05e2\u05d5\u05df 2","\u05e8\u05d1\u05e2\u05d5\u05df 3","\u05e8\u05d1\u05e2\u05d5\u05df 4"],t.s)
+B.Wt=s(["{1} \u0930\u094b\u091c\u0940 {0}","{1} \u0930\u094b\u091c\u0940 {0}","{1}, {0}","{1}, {0}"],t.s)
+B.Wu=s(["\u05e8\u05d1\u05e2\u05d5\u05df 1","\u05e8\u05d1\u05e2\u05d5\u05df 2","\u05e8\u05d1\u05e2\u05d5\u05df 3","\u05e8\u05d1\u05e2\u05d5\u05df 4"],t.s)
 B.t5=s(["1.","2.","3.","4.","5.","6.","7.","8.","9.","10.","11.","12."],t.s)
 B.cg=s([6,6],t.t)
-B.Wq=s(["EEEE, d 'de' MMMM 'de' y","d 'de' MMMM 'de' y","d 'de' MMM 'de' y","dd/MM/yy"],t.s)
+B.Wv=s(["EEEE, d 'de' MMMM 'de' y","d 'de' MMMM 'de' y","d 'de' MMM 'de' y","dd/MM/yy"],t.s)
 B.jf=s(["Januar","Februar","M\xe4rz","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"],t.s)
 B.t6=s(["\u0b30","\u0b38\u0b4b","\u0b2e","\u0b2c\u0b41","\u0b17\u0b41","\u0b36\u0b41","\u0b36"],t.s)
 B.t7=s(["\u0b9e\u0bbe","\u0ba4\u0bbf","\u0b9a\u0bc6","\u0baa\u0bc1","\u0bb5\u0bbf","\u0bb5\u0bc6","\u0b9a"],t.s)
-B.Wr=s(["EEEE, d MMMM, y","d MMMM, y","d MMM, y","dd/MM/y"],t.s)
+B.Ww=s(["EEEE, d MMMM, y","d MMMM, y","d MMM, y","dd/MM/y"],t.s)
 B.t8=s(["\u0c9c","\u0cab\u0cc6","\u0cae\u0cbe","\u0c8f","\u0cae\u0cc7","\u0c9c\u0cc2","\u0c9c\u0cc1","\u0c86","\u0cb8\u0cc6","\u0c85","\u0ca8","\u0ca1\u0cbf"],t.s)
 B.t9=s(["\u062d","\u0646","\u062b","\u0631","\u062e","\u062c","\u0633"],t.s)
 B.ta=s(["\u0416","\u0414","\u0428","\u0428","\u0411","\u0416","\u0418"],t.s)
-B.Ws=s(["de gener","de febrer","de mar\xe7","d\u2019abril","de maig","de juny","de juliol","d\u2019agost","de setembre","d\u2019octubre","de novembre","de desembre"],t.s)
+B.Wx=s(["de gener","de febrer","de mar\xe7","d\u2019abril","de maig","de juny","de juliol","d\u2019agost","de setembre","d\u2019octubre","de novembre","de desembre"],t.s)
 B.tb=s(["\u091c\u0928\u0935\u0930\u0940","\u092b\u093c\u0930\u0935\u0930\u0940","\u092e\u093e\u0930\u094d\u091a","\u0905\u092a\u094d\u0930\u0948\u0932","\u092e\u0908","\u091c\u0942\u0928","\u091c\u0941\u0932\u093e\u0908","\u0905\u0917\u0938\u094d\u0924","\u0938\u093f\u0924\u0902\u092c\u0930","\u0905\u0915\u094d\u0924\u0942\u092c\u0930","\u0928\u0935\u0902\u092c\u0930","\u0926\u093f\u0938\u0902\u092c\u0930"],t.s)
-B.Wt=s(["\u0441\u0442\u0443","\u043b\u044e\u0442","\u0441\u0430\u043a","\u043a\u0440\u0430","\u043c\u0430\u0439","\u0447\u044d\u0440","\u043b\u0456\u043f","\u0436\u043d\u0456","\u0432\u0435\u0440","\u043a\u0430\u0441","\u043b\u0456\u0441","\u0441\u043d\u0435"],t.s)
+B.Wy=s(["\u0441\u0442\u0443","\u043b\u044e\u0442","\u0441\u0430\u043a","\u043a\u0440\u0430","\u043c\u0430\u0439","\u0447\u044d\u0440","\u043b\u0456\u043f","\u0436\u043d\u0456","\u0432\u0435\u0440","\u043a\u0430\u0441","\u043b\u0456\u0441","\u0441\u043d\u0435"],t.s)
 B.dl=s(["j","f","m","a","m","j","j","a","s","o","n","d"],t.s)
-B.Wu=s(["{1} \u0a8f {0} \u0ab5\u0abe\u0a97\u0acd\u0aaf\u0ac7","{1} \u0a8f {0} \u0ab5\u0abe\u0a97\u0acd\u0aaf\u0ac7","{1} {0}","{1} {0}"],t.s)
-B.Wv=s(["1-\u056b\u0576 \u0565\u057c\u0561\u0574\u057d\u0575\u0561\u056f","2-\u0580\u0564 \u0565\u057c\u0561\u0574\u057d\u0575\u0561\u056f","3-\u0580\u0564 \u0565\u057c\u0561\u0574\u057d\u0575\u0561\u056f","4-\u0580\u0564 \u0565\u057c\u0561\u0574\u057d\u0575\u0561\u056f"],t.s)
+B.Wz=s(["{1} \u0a8f {0} \u0ab5\u0abe\u0a97\u0acd\u0aaf\u0ac7","{1} \u0a8f {0} \u0ab5\u0abe\u0a97\u0acd\u0aaf\u0ac7","{1} {0}","{1} {0}"],t.s)
+B.WA=s(["1-\u056b\u0576 \u0565\u057c\u0561\u0574\u057d\u0575\u0561\u056f","2-\u0580\u0564 \u0565\u057c\u0561\u0574\u057d\u0575\u0561\u056f","3-\u0580\u0564 \u0565\u057c\u0561\u0574\u057d\u0575\u0561\u056f","4-\u0580\u0564 \u0565\u057c\u0561\u0574\u057d\u0575\u0561\u056f"],t.s)
 B.tc=s(["Jan","Feb","Mar","Apr","Mei","Jun","Jul","Agu","Sep","Okt","Nov","Des"],t.s)
 B.td=s(["\u039a\u03c5\u03c1","\u0394\u03b5\u03c5","\u03a4\u03c1\u03af","\u03a4\u03b5\u03c4","\u03a0\u03ad\u03bc","\u03a0\u03b1\u03c1","\u03a3\u03ac\u03b2"],t.s)
-B.Ww=s(["\u041c\u042d\u04e8","\u041c\u042d"],t.s)
+B.WB=s(["\u041c\u042d\u04e8","\u041c\u042d"],t.s)
 B.te=s(["\u1007\u1014\u103a","\u1016\u1031","\u1019\u1010\u103a","\u1027","\u1019\u1031","\u1007\u103d\u1014\u103a","\u1007\u1030","\u1029","\u1005\u1000\u103a","\u1021\u1031\u102c\u1000\u103a","\u1014\u102d\u102f","\u1012\u102e"],t.s)
 B.tf=s(["Ch\u1ee7 Nh\u1eadt","Th\u1ee9 Hai","Th\u1ee9 Ba","Th\u1ee9 T\u01b0","Th\u1ee9 N\u0103m","Th\u1ee9 S\xe1u","Th\u1ee9 B\u1ea3y"],t.s)
 B.tg=s(["I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII"],t.s)
+B.Tu=new A.L("Introdu\xe7\xe3o","A PerfectGest I, sob responsabilidade de Marcos Leandro dos Santos, estabelece esta Pol\xedtica de Privacidade em conformidade com a Lei Geral de Prote\xe7\xe3o de Dados (LGPD - Lei 13.709/18) e as pol\xedticas para desenvolvedores da Google Play Store.")
+B.Uj=new A.L("Controlador de Dados e Contato","O respons\xe1vel pelo tratamento de dados \xe9 Marcos Leandro dos Santos. Para o exerc\xedcio de direitos de acesso, retifica\xe7\xe3o ou exclus\xe3o, entre em contato via e-mail: suporte@perfectgestdev.com.")
+B.RM=new A.L("Armazenamento local e natureza dos dados","O aplicativo opera em modelo local-first. Os dados de gest\xe3o comercial s\xe3o armazenados exclusivamente no dispositivo do usu\xe1rio via SQLite. A PerfectGest I n\xe3o coleta, n\xe3o acede e n\xe3o transfere automaticamente esses dados para servidores pr\xf3prios.\n\nDados de clientes e financeiros \u2014 protegidos no aparelho\n\nPermanecem no dispositivo e n\xe3o saem da app por iniciativa do sistema:\n\n- Cadastro e hist\xf3rico de clientes\n- Or\xe7amentos, itens, valores e estados\n- Caixa \u2014 entradas, sa\xeddas, categorias e saldos\n- Ordens de servi\xe7o / produ\xe7\xe3o e projetos\n- Contratos e documentos auxiliares de gest\xe3o\n- Qualquer valor, nome de cliente ou movimento financeiro registado na app\n\nN\xe3o enviamos estes dados para Firebase, Firestore, Analytics nem outros servidores por iniciativa da app. O Firebase Analytics regista apenas eventos gen\xe9ricos de uso (ex.: navega\xe7\xe3o entre ecr\xe3s), sem nomes de clientes, valores de caixa ou conte\xfado de or\xe7amentos.\n\nQuando os dados podem sair do aparelho (sempre por ac\xe7\xe3o do utilizador)\n\nA sa\xedda ocorre somente se o utilizador decidir explicitamente:\n\n- Partilhar ou guardar PDF (or\xe7amento, caixa, relat\xf3rio, etc.) \u2014 o documento gerado naquele momento\n- Partilhar cart\xe3o de visita (PNG) \u2014 apenas dados profissionais da empresa (nome, contactos, redes, log\xf3tipo); nunca a lista de clientes nem dados financeiros\n- Partilhar ficheiro de contactos (vCard) ou mostrar QR com dados profissionais (Plano Pro \u2014 ver abaixo)\n- Criar e partilhar backup \u2014 ficheiro de backup (simples ou encriptado) que o utilizador escolhe enviar por WhatsApp, e-mail, Drive, etc.; cont\xe9m a c\xf3pia local que exportou\n\nImportante: partilhar um backup \xe9 responsabilidade do utilizador quanto ao destino e \xe0 seguran\xe7a do ficheiro. Recomendamos backups encriptados (Plano Pro) e destinat\xe1rios de confian\xe7a.\n\nDados da empresa no cart\xe3o de visita\n\nOs contactos da aba Empresa (telefone, e-mail, WhatsApp, etc.) servem tamb\xe9m o cart\xe3o de visita, mas n\xe3o misturam nem exp\xf5em automaticamente os m\xf3dulos Clientes, Or\xe7amentos ou Caixa.")
+B.SC=new A.L("Cart\xe3o de visita \u2014 armazenamento local e modo est\xe1tico","O cart\xe3o de visita digital (aba Empresa) utiliza os dados da empresa guardados no dispositivo. Ao concluir a cria\xe7\xe3o do primeiro cart\xe3o, o aplicativo pode guardar uma c\xf3pia congelada (snapshot) local \u2014 imagem PNG e dados do layout \u2014 para exibi\xe7\xe3o em modo est\xe1tico quando n\xe3o houver assinatura Plano Pro activa.\n\n- No dispositivo: snapshot, log\xf3tipo e ficheiros tempor\xe1rios de partilha permanecem no aparelho at\xe9 limpar dados ou desinstalar.\n- Partilha PNG: mesmo em modo est\xe1tico, pode partilhar a imagem do snapshot (ex.: WhatsApp, e-mail) por ac\xe7\xe3o expl\xedcita; n\xe3o enviamos essa imagem automaticamente a servidores PerfectGest.\n- Edi\xe7\xe3o e funcionalidades avan\xe7adas (vCard, QR, preview interactivo com toques em contactos): requerem Plano Pro \u2014 sempre dentro da app; n\xe3o h\xe1 p\xe1gina web do cart\xe3o alojada pela PerfectGest.")
+B.Sy=new A.L("Cart\xe3o de visita interactivo na app (Plano Pro)","Com Plano Pro, ap\xf3s o primeiro cart\xe3o, pode continuar a editar e usar fun\xe7\xf5es avan\xe7adas no telem\xf3vel:\n\n- Preview interactivo (toques abrem WhatsApp, telefone, e-mail, site ou mapa, conforme configurado)\n- Exportar vCard (.vcf) e gerar QR com dados de contacto\n- Partilhar PNG actualizado\n\nTudo permanece no dispositivo at\xe9 partilhar ou mostrar o QR por ac\xe7\xe3o expl\xedcita. N\xe3o publicamos nem alojamos o cart\xe3o num site PerfectGest; n\xe3o enviamos o conte\xfado do cart\xe3o para Firestore nem outros servidores por iniciativa da app.\n\nO que nunca entra no cart\xe3o: cadastro de clientes, or\xe7amentos, lan\xe7amentos de caixa, valores financeiros, contratos ou backups.")
+B.S7=new A.L("Modelo de acesso \u2014 per\xedodo de teste e Plano Pro","- Per\xedodo de teste (7 dias): desde a primeira abertura, uso ilimitado (clientes, or\xe7amentos, caixa, PDF, OS, contratos) sem subscri\xe7\xe3o paga e sem cart\xe3o na app.\n- Ap\xf3s 7 dias sem Plano Pro: pode consultar e editar dados locais; n\xe3o permite criar novos registos nem gerar novos PDF.\n- Plano Pro: uso ilimitado, restauro de backup encriptado e cart\xe3o interactivo \u2014 assinatura mensal (R$ 9,90) ou anual (R$ 99,90) na Google Play.\n\nA data de in\xedcio do teste \xe9 guardada de forma an\xf3nima por aparelho (servi\xe7o Firebase) para coer\xeancia do per\xedodo \u2014 sem dados de clientes, or\xe7amentos ou caixa.")
+B.Sg=new A.L("Coleta de dados e servi\xe7os de terceiros","- Google Analytics (Firebase): eventos gen\xe9ricos de uso; sem Crashlytics; sem nomes ou valores financeiros.\n- Firebase Remote Config: vers\xf5es m\xednimas e flags de seguran\xe7a.\n- Cloud Firestore: metadados an\xf3nimos do Plano Inicial \u2014 identificador de instala\xe7\xe3o por aparelho, in\xedcio do per\xedodo de teste, elegibilidade freemium e consumo do 1.\xba cart\xe3o (sem dados de clientes, or\xe7amentos ou caixa).\n- Google Play Billing: subscri\xe7\xf5es.")
+B.St=new A.L("Notifica\xe7\xf5es locais","Lembretes fiscais processados no dispositivo; sem envio a servidores externos. Permiss\xe3o POST_NOTIFICATIONS no Android 13+.")
+B.SB=new A.L("Declara\xe7\xf5es de seguran\xe7a","- HTTPS/TLS em telemetria e metadados t\xe9cnicos.\n- Sem venda de dados para publicidade.\n- Separa\xe7\xe3o cart\xe3o vs. gest\xe3o: cart\xe3o = s\xf3 informa\xe7\xe3o profissional configurada; clientes e financeiro locais, excepto PDFs ou backups partilhados pelo utilizador.")
+B.UM=new A.L("Reten\xe7\xe3o e exclus\xe3o","- Dados comerciais locais e snapshot do cart\xe3o: eliminados ao limpar dados da app ou desinstalar.\n- Telemetria (Firebase): pedido por e-mail, at\xe9 15 dias \xfateis.")
+B.Us=new A.L("Permiss\xf5es de sistema","Importar log\xf3tipos; guardar PDFs e backups; notifica\xe7\xf5es locais (Android 13+).")
+B.SG=new A.L("Elegibilidade e foro","Utilizadores maiores de 18 anos. Leis do Brasil; foro de Caxias do Sul/RS.")
+B.WC=s([B.Tu,B.Uj,B.RM,B.SC,B.Sy,B.S7,B.Sg,B.St,B.SB,B.UM,B.Us,B.SG],t.h)
 B.th=s(["pr. Kr.","po Kr."],t.s)
-B.Wy=s(["\u1001\u101b\u1005\u103a\u1010\u1031\u102c\u103a \u1019\u1015\u1031\u102b\u103a\u1019\u102e\u1014\u103e\u1005\u103a","\u1001\u101b\u1005\u103a\u1014\u103e\u1005\u103a"],t.s)
+B.WE=s(["\u1001\u101b\u1005\u103a\u1010\u1031\u102c\u103a \u1019\u1015\u1031\u102b\u103a\u1019\u102e\u1014\u103e\u1005\u103a","\u1001\u101b\u1005\u103a\u1014\u103e\u1005\u103a"],t.s)
 B.ti=s(["jan","feb","mar","apr","maj","jun","jul","avg","sep","okt","nov","dec"],t.s)
 B.tj=s(["\u0cad\u0cbe","\u0cb8\u0ccb","\u0cae\u0c82","\u0cac\u0cc1","\u0c97\u0cc1","\u0cb6\u0cc1","\u0cb6"],t.s)
 B.tk=s(["ian.","feb.","mar.","apr.","mai","iun.","iul.","aug.","sept.","oct.","nov.","dec."],t.s)
-B.Th=new A.L("1. Natureza dos dados","O PerfectGest-Clinica III pode tratar dados pessoais sens\xedveis (dados de sa\xfade) inseridos pela cl\xednica ou profissional que utiliza o software (ex.: prontu\xe1rio e hist\xf3rico de consultas).")
-B.T2=new A.L("2. Pap\xe9is LGPD","\u2022 Controlador: cl\xednica ou profissional de sa\xfade que utiliza o software (define finalidades e meios do tratamento).\n\u2022 Operador do software: Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA).\n\u2022 Suboperadores (quando aplic\xe1vel):\n  \u2014 Microsoft (pagamentos de subscri\xe7\xe3o via Microsoft Store)\n  \u2014 Meta/WhatsApp (mensagens, se configurado pela cl\xednica)\n  \u2014 Firebase/Google (componentes t\xe9cnicos, se activados)")
-B.Tx=new A.L("3. Minimiza\xe7\xe3o e armazenamento","\u2022 Dados cl\xednicos permanecem no dispositivo (SQLite local).\n\u2022 Logs de auditoria guardam metadados (quem / quando / o qu\xea), sem conte\xfado cl\xednico.")
+B.Tj=new A.L("1. Natureza dos dados","O PerfectGest-Clinica III pode tratar dados pessoais sens\xedveis (dados de sa\xfade) inseridos pela cl\xednica ou profissional que utiliza o software (ex.: prontu\xe1rio e hist\xf3rico de consultas).")
+B.T4=new A.L("2. Pap\xe9is LGPD","\u2022 Controlador: cl\xednica ou profissional de sa\xfade que utiliza o software (define finalidades e meios do tratamento).\n\u2022 Operador do software: Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA).\n\u2022 Suboperadores (quando aplic\xe1vel):\n  \u2014 Microsoft (pagamentos de subscri\xe7\xe3o via Microsoft Store)\n  \u2014 Meta/WhatsApp (mensagens, se configurado pela cl\xednica)\n  \u2014 Firebase/Google (componentes t\xe9cnicos, se activados)")
+B.TB=new A.L("3. Minimiza\xe7\xe3o e armazenamento","\u2022 Dados cl\xednicos permanecem no dispositivo (SQLite local).\n\u2022 Logs de auditoria guardam metadados (quem / quando / o qu\xea), sem conte\xfado cl\xednico.")
 B.RU=new A.L("4. Direitos do titular (Art. 18 LGPD)","O app oferece suporte operacional para:\n\u2022 acesso e corre\xe7\xe3o via ficha do paciente;\n\u2022 exporta\xe7\xe3o de relat\xf3rio LGPD (ADMIN) em PDF/CSV (quando dispon\xedvel);\n\u2022 portabilidade via backup encriptado.\n\nPara exercer direitos sobre dados de sa\xfade, contactar primeiro a cl\xednica (controlador).")
-B.SY=new A.L("5. Seguran\xe7a recomendada (boas pr\xe1ticas)","\u2022 Activar BitLocker no Windows (recomendado);\n\u2022 Usar senhas fortes e perfis adequados (ADMIN / DOUTOR / OPERADOR);\n\u2022 Activar encripta\xe7\xe3o da base de dados no app (opcional);\n\u2022 Usar backup ZIP encriptado e guardar a senha em local seguro.")
-B.Sa=new A.L("6. Contato","D\xfavidas t\xe9cnicas sobre o produto: suporte@perfectgestdev.com\nSolicita\xe7\xf5es LGPD sobre dados cl\xednicos: contactar a cl\xednica (controlador).")
-B.WF=s([B.Th,B.T2,B.Tx,B.RU,B.SY,B.Sa],t.h)
-B.TF=new A.L("1. Alcance","PerfectGest-Clinica III es un sistema de gestion clinica para Windows. La app almacena datos clinicos localmente en el dispositivo (contenedor MSIX). La clinica o profesional que utiliza el software es responsable de la insercion y gestion de los datos.")
-B.U2=new A.L("2. Datos tratados","La app trata datos introducidos por el usuario (ej.: pacientes, historial clinico, agenda, equipo). Por defecto, no enviamos contenido clinico a la nube.\n\n2.1 Datos locales (por defecto)\n\u2022 Pacientes e historial clinico (salud) \u2014 SQLite local\n\u2022 Agenda y registros de operacion \u2014 SQLite local\n\u2022 Sesion/cuenta local y perfiles (ADMIN/MEDICO/OPERADOR) \u2014 SQLite local\n\n2.2 Datos que pueden salir del dispositivo (opcionales / por configuracion)\n\u2022 Pagos de suscripcion: Microsoft Store (Microsoft Corporation). Perfect Gest Dev no almacena datos de tarjeta.\n\u2022 WhatsApp Cloud API: si lo configura la clinica, los mensajes se envian a Meta (WhatsApp).\n\u2022 Firebase (opcional): licencias remotas y configuracion tecnica (sin historial clinico).\n\u2022 Informe tecnico de inestabilidad (con consentimiento): informe anonimo sin datos de pacientes.")
-B.TU=new A.L("3. Finalidades","\u2022 Operar las funcionalidades de la app (gestion clinica y organizacional)\n\u2022 Soporte tecnico cuando se solicite\n\u2022 Cumplimiento de obligaciones legales/regulatorias")
-B.U1=new A.L("4. Base legal (LGPD)","El tratamiento de datos de salud ocurre en el contexto de la clinica (controlador). El software ofrece mecanismos de seguridad y auditoria para apoyar el cumplimiento.")
-B.SS=new A.L("5. Seguridad","\u2022 Auditoria de acceso: metadatos (sin contenido clinico en el registro), retencion configurable\n\u2022 Copia de seguridad cifrada (ZIP): AES-256 + manifiesto HMAC\n\u2022 Cifrado de base de datos (opcional): SQLite + passphrase en Credential Locker de Windows")
+B.T_=new A.L("5. Seguran\xe7a recomendada (boas pr\xe1ticas)","\u2022 Activar BitLocker no Windows (recomendado);\n\u2022 Usar senhas fortes e perfis adequados (ADMIN / DOUTOR / OPERADOR);\n\u2022 Activar encripta\xe7\xe3o da base de dados no app (opcional);\n\u2022 Usar backup ZIP encriptado e guardar a senha em local seguro.")
+B.Sd=new A.L("6. Contato","D\xfavidas t\xe9cnicas sobre o produto: suporte@perfectgestdev.com\nSolicita\xe7\xf5es LGPD sobre dados cl\xednicos: contactar a cl\xednica (controlador).")
+B.WL=s([B.Tj,B.T4,B.TB,B.RU,B.T_,B.Sd],t.h)
+B.T0=new A.L("1. Purpose","These Terms govern PerfectGest I (customers, budgets, cash, work orders, fiscal reminders, digital business card), with data primarily on your device.\n\nClient and financial data stay on the device and are not transmitted automatically. They may leave only through your actions (share PDF, exported backup, business card PNG/vCard/QR). See Privacy Policy.\n\nPublisher: Marcos Leandro dos Santos.")
+B.Sz=new A.L("2. Eligibility","Users aged 18 or over.")
+B.T2=new A.L("3. Trial period and subscriptions","- Trial period: 7 days from first app open (anonymous device timestamp to prevent improper resets).\n- During trial: unlimited use \u2014 clients, estimates, cash entries, PDF, work orders and contracts, no paid subscription and no card required in the app.\n- After 7 days without Pro Plan: cannot create new records or new PDFs; may view and edit saved data.\n- Pro Plan: unlimited use, encrypted backup restore, interactive business card \u2014 monthly (R$ 9.90) or annual (R$ 99.90, 2 months free) via Google Play (final price in store).\n- Auto-renewal until cancelled in Play Store: Payments & subscriptions \u2192 Subscriptions.")
+B.TN=new A.L("4. Cancellation","Google Play Store \u2192 Payments & subscriptions.")
+B.SI=new A.L("5. Statutory rights (Brazil)","Consumer Code may apply (7-day withdrawal where applicable). Refunds via Google.")
+B.UK=new A.L("6. Fiscal reminders","Informational only; not tax advice.")
+B.U3=new A.L("7. Limitation of liability","Management tool; user responsible for business decisions.")
+B.Sk=new A.L("8. Intellectual property","Revocable license; no unlawful reverse engineering.")
+B.T3=new A.L("9. Changes","Current version at URL below.")
+B.TG=new A.L("10. Governing law","Brazil; venue Caxias do Sul/RS.")
+B.UH=new A.L("11. Contact","suporte@perfectgestdev.com")
+B.WM=s([B.T0,B.Sz,B.T2,B.TN,B.SI,B.UK,B.U3,B.Sk,B.T3,B.TG,B.UH],t.h)
+B.TH=new A.L("1. Alcance","PerfectGest-Clinica III es un sistema de gestion clinica para Windows. La app almacena datos clinicos localmente en el dispositivo (contenedor MSIX). La clinica o profesional que utiliza el software es responsable de la insercion y gestion de los datos.")
+B.U7=new A.L("2. Datos tratados","La app trata datos introducidos por el usuario (ej.: pacientes, historial clinico, agenda, equipo). Por defecto, no enviamos contenido clinico a la nube.\n\n2.1 Datos locales (por defecto)\n\u2022 Pacientes e historial clinico (salud) \u2014 SQLite local\n\u2022 Agenda y registros de operacion \u2014 SQLite local\n\u2022 Sesion/cuenta local y perfiles (ADMIN/MEDICO/OPERADOR) \u2014 SQLite local\n\n2.2 Datos que pueden salir del dispositivo (opcionales / por configuracion)\n\u2022 Pagos de suscripcion: Microsoft Store (Microsoft Corporation). Perfect Gest Dev no almacena datos de tarjeta.\n\u2022 WhatsApp Cloud API: si lo configura la clinica, los mensajes se envian a Meta (WhatsApp).\n\u2022 Firebase (opcional): licencias remotas y configuracion tecnica (sin historial clinico).\n\u2022 Informe tecnico de inestabilidad (con consentimiento): informe anonimo sin datos de pacientes.")
+B.TY=new A.L("3. Finalidades","\u2022 Operar las funcionalidades de la app (gestion clinica y organizacional)\n\u2022 Soporte tecnico cuando se solicite\n\u2022 Cumplimiento de obligaciones legales/regulatorias")
+B.U6=new A.L("4. Base legal (LGPD)","El tratamiento de datos de salud ocurre en el contexto de la clinica (controlador). El software ofrece mecanismos de seguridad y auditoria para apoyar el cumplimiento.")
+B.SU=new A.L("5. Seguridad","\u2022 Auditoria de acceso: metadatos (sin contenido clinico en el registro), retencion configurable\n\u2022 Copia de seguridad cifrada (ZIP): AES-256 + manifiesto HMAC\n\u2022 Cifrado de base de datos (opcional): SQLite + passphrase en Credential Locker de Windows")
 B.S6=new A.L("6. Retencion y eliminacion","\u2022 Los datos permanecen en el dispositivo mientras la app este instalada\n\u2022 La desinstalacion elimina datos del contenedor MSIX; las copias exportadas son responsabilidad de la clinica")
-B.U6=new A.L("7. Derechos del titular","\u2022 Acceso/correccion via ficha del paciente\n\u2022 Informe LGPD (ADMIN) en PDF/CSV\n\u2022 Portabilidad via copia cifrada\n\u2022 Solicitudes adicionales: contactar la clinica (controlador) o suporte@perfectgestdev.com (soporte tecnico)")
-B.Sq=new A.L("8. Contacto","suporte@perfectgestdev.com")
-B.WG=s([B.TF,B.U2,B.TU,B.U1,B.SS,B.S6,B.U6,B.Sq],t.h)
+B.Ua=new A.L("7. Derechos del titular","\u2022 Acceso/correccion via ficha del paciente\n\u2022 Informe LGPD (ADMIN) en PDF/CSV\n\u2022 Portabilidad via copia cifrada\n\u2022 Solicitudes adicionales: contactar la clinica (controlador) o suporte@perfectgestdev.com (soporte tecnico)")
+B.Ss=new A.L("8. Contacto","suporte@perfectgestdev.com")
+B.WN=s([B.TH,B.U7,B.TY,B.U6,B.SU,B.S6,B.Ua,B.Ss],t.h)
 B.tl=s(["Ean","Feabh","M\xe1rta","Aib","Beal","Meith","I\xfail","L\xfan","MF\xf3mh","DF\xf3mh","Samh","Noll"],t.s)
-B.WH=s(["1. \u043a\u0432.","2. \u043a\u0432.","3. \u043a\u0432.","4. \u043a\u0432."],t.s)
+B.WO=s(["1. \u043a\u0432.","2. \u043a\u0432.","3. \u043a\u0432.","4. \u043a\u0432."],t.s)
 B.tm=s(["{1} 'nang' {0}","{1} 'nang' {0}","{1}, {0}","{1}, {0}"],t.s)
 B.tn=s(["\u10d8\u10d0\u10dc\u10d5\u10d0\u10e0\u10d8","\u10d7\u10d4\u10d1\u10d4\u10e0\u10d5\u10d0\u10da\u10d8","\u10db\u10d0\u10e0\u10e2\u10d8","\u10d0\u10de\u10e0\u10d8\u10da\u10d8","\u10db\u10d0\u10d8\u10e1\u10d8","\u10d8\u10d5\u10dc\u10d8\u10e1\u10d8","\u10d8\u10d5\u10da\u10d8\u10e1\u10d8","\u10d0\u10d2\u10d5\u10d8\u10e1\u10e2\u10dd","\u10e1\u10d4\u10e5\u10e2\u10d4\u10db\u10d1\u10d4\u10e0\u10d8","\u10dd\u10e5\u10e2\u10dd\u10db\u10d1\u10d4\u10e0\u10d8","\u10dc\u10dd\u10d4\u10db\u10d1\u10d4\u10e0\u10d8","\u10d3\u10d4\u10d9\u10d4\u10db\u10d1\u10d4\u10e0\u10d8"],t.s)
-B.WI=s(["\u0a08\u0a38\u0a35\u0a40 \u0a2a\u0a42\u0a30\u0a35","\u0a08\u0a38\u0a35\u0a40 \u0a38\u0a70\u0a28"],t.s)
-B.WJ=s(["1\u129b\u12cd \u1229\u1265","2\u129b\u12cd \u1229\u1265","3\u129b\u12cd \u1229\u1265","4\u129b\u12cd \u1229\u1265"],t.s)
+B.WP=s(["\u0a08\u0a38\u0a35\u0a40 \u0a2a\u0a42\u0a30\u0a35","\u0a08\u0a38\u0a35\u0a40 \u0a38\u0a70\u0a28"],t.s)
+B.WQ=s(["1\u129b\u12cd \u1229\u1265","2\u129b\u12cd \u1229\u1265","3\u129b\u12cd \u1229\u1265","4\u129b\u12cd \u1229\u1265"],t.s)
 B.to=s(["EEEE, d. MMMM y.","d. MMMM y.","d. M. y.","d.M.yy."],t.s)
-B.WL=s(["\u0642\u0628\u0644 \u0627\u0632 \u0645\u06cc\u0644\u0627\u062f","\u0645\u06cc\u0644\u0627\u062f\u06cc"],t.s)
-B.WM=s(["\u062c\u0646\u0648\u0631\u064a","\u0641\u0628\u0631\u0648\u0631\u064a","\u0645\u0627\u0631\u0686","\u0627\u067e\u0631\u06cc\u0644","\u0645\u06cd","\u062c\u0648\u0646","\u062c\u0648\u0644\u0627\u06cc","\u0627\u06ab\u0633\u062a","\u0633\u067e\u062a\u0645\u0628\u0631","\u0627\u06a9\u062a\u0648\u0628\u0631","\u0646\u0648\u0645\u0628\u0631","\u062f\u0633\u0645\u0628\u0631"],t.s)
+B.WS=s(["\u0642\u0628\u0644 \u0627\u0632 \u0645\u06cc\u0644\u0627\u062f","\u0645\u06cc\u0644\u0627\u062f\u06cc"],t.s)
+B.WT=s(["\u062c\u0646\u0648\u0631\u064a","\u0641\u0628\u0631\u0648\u0631\u064a","\u0645\u0627\u0631\u0686","\u0627\u067e\u0631\u06cc\u0644","\u0645\u06cd","\u062c\u0648\u0646","\u062c\u0648\u0644\u0627\u06cc","\u0627\u06ab\u0633\u062a","\u0633\u067e\u062a\u0645\u0628\u0631","\u0627\u06a9\u062a\u0648\u0628\u0631","\u0646\u0648\u0645\u0628\u0631","\u062f\u0633\u0645\u0628\u0631"],t.s)
 B.dz=new A.m1(0,"left")
 B.fj=new A.m1(1,"right")
 B.dA=new A.m1(2,"center")
 B.hM=new A.m1(3,"justify")
 B.bd=new A.m1(4,"start")
 B.kI=new A.m1(5,"end")
-B.WO=s([B.dz,B.fj,B.dA,B.hM,B.bd,B.kI],A.a4("q<m1>"))
+B.WV=s([B.dz,B.fj,B.dA,B.hM,B.bd,B.kI],A.a4("q<m1>"))
 B.a1=s(["{1} {0}","{1} {0}","{1} {0}","{1} {0}"],t.s)
 B.tp=s(["n","p","u","s","\u0161","p","s"],t.s)
-B.WP=s(["I \u10d9\u10d5\u10d0\u10e0\u10e2\u10d0\u10da\u10d8","II \u10d9\u10d5\u10d0\u10e0\u10e2\u10d0\u10da\u10d8","III \u10d9\u10d5\u10d0\u10e0\u10e2\u10d0\u10da\u10d8","IV \u10d9\u10d5\u10d0\u10e0\u10e2\u10d0\u10da\u10d8"],t.s)
-B.WQ=s(["prije nove ere","nove ere"],t.s)
-B.WR=s(["\uc624\uc804","\uc624\ud6c4"],t.s)
-B.WS=s(["\u062c","\u0641","\u0645","\u0627","\u0645","\u062c","\u062c","\u0627","\u0633","\u0627","\u0646","\u062f"],t.s)
-B.WT=s(["leden","\xfanor","b\u0159ezen","duben","kv\u011bten","\u010derven","\u010dervenec","srpen","z\xe1\u0159\xed","\u0159\xedjen","listopad","prosinec"],t.s)
-B.WU=s(["stycznia","lutego","marca","kwietnia","maja","czerwca","lipca","sierpnia","wrze\u015bnia","pa\u017adziernika","listopada","grudnia"],t.s)
+B.WW=s(["I \u10d9\u10d5\u10d0\u10e0\u10e2\u10d0\u10da\u10d8","II \u10d9\u10d5\u10d0\u10e0\u10e2\u10d0\u10da\u10d8","III \u10d9\u10d5\u10d0\u10e0\u10e2\u10d0\u10da\u10d8","IV \u10d9\u10d5\u10d0\u10e0\u10e2\u10d0\u10da\u10d8"],t.s)
+B.WX=s(["prije nove ere","nove ere"],t.s)
+B.WY=s(["\uc624\uc804","\uc624\ud6c4"],t.s)
+B.WZ=s(["\u062c","\u0641","\u0645","\u0627","\u0645","\u062c","\u062c","\u0627","\u0633","\u0627","\u0646","\u062f"],t.s)
+B.X_=s(["leden","\xfanor","b\u0159ezen","duben","kv\u011bten","\u010derven","\u010dervenec","srpen","z\xe1\u0159\xed","\u0159\xedjen","listopad","prosinec"],t.s)
+B.X0=s(["stycznia","lutego","marca","kwietnia","maja","czerwca","lipca","sierpnia","wrze\u015bnia","pa\u017adziernika","listopada","grudnia"],t.s)
 B.tq=s(["p. n. e.","n. e."],t.s)
 B.tr=s(["gen","feb","mar","apr","mag","giu","lug","ago","set","ott","nov","dic"],t.s)
 B.h4=s(["1. kvartal","2. kvartal","3. kvartal","4. kvartal"],t.s)
-B.YC=s([2,1.13276676],t.n)
-B.Vl=s([2.18349805,1.20311921],t.n)
+B.YH=s([2,1.13276676],t.n)
+B.Vp=s([2.18349805,1.20311921],t.n)
 B.a1E=s([2.33888662,1.28698796],t.n)
 B.a1V=s([2.48660575,1.36351941],t.n)
-B.Xb=s([2.62226596,1.44717976],t.n)
-B.XP=s([2.7514899,1.53385819],t.n)
-B.a_N=s([3.36298265,1.98288283],t.n)
-B.Z8=s([4.08649929,2.23811846],t.n)
-B.a_k=s([4.85481134,2.47563463],t.n)
-B.Xo=s([5.62945551,2.72948597],t.n)
-B.YD=s([6.43023796,2.98020421],t.n)
-B.ts=s([B.YC,B.Vl,B.a1E,B.a1V,B.Xb,B.XP,B.a_N,B.Z8,B.a_k,B.Xo,B.YD],t.zg)
-B.WV=s(["EEEE\u060c d MMMM\u060c y","d MMMM\u060c y","d MMM\u060c y","d/M/yy"],t.s)
-B.WW=s(["v.Chr.","n.Chr."],t.s)
-B.WX=s(["\u0e01\u0e48\u0e2d\u0e19\u0e40\u0e17\u0e35\u0e48\u0e22\u0e07","\u0e2b\u0e25\u0e31\u0e07\u0e40\u0e17\u0e35\u0e48\u0e22\u0e07"],t.s)
-B.WY=s(["\u0b95\u0bbf.\u0bae\u0bc1.","\u0b95\u0bbf.\u0baa\u0bbf."],t.s)
-B.WZ=s(["\u1798\u17bb\u1793\u200b\u1782\u17d2\u179a\u17b7\u179f\u17d2\u178f\u179f\u1780\u179a\u17b6\u1787","\u1782\u17d2\u179a\u17b7\u179f\u17d2\u178f\u179f\u1780\u179a\u17b6\u1787"],t.s)
-B.X_=s(["{1} \u1793\u17c5\u200b\u1798\u17c9\u17c4\u1784 {0}","{1} \u1793\u17c5\u200b\u1798\u17c9\u17c4\u1784 {0}","{1}, {0}","{1}, {0}"],t.s)
+B.Xi=s([2.62226596,1.44717976],t.n)
+B.XW=s([2.7514899,1.53385819],t.n)
+B.a_O=s([3.36298265,1.98288283],t.n)
+B.Zb=s([4.08649929,2.23811846],t.n)
+B.a_m=s([4.85481134,2.47563463],t.n)
+B.Xv=s([5.62945551,2.72948597],t.n)
+B.YI=s([6.43023796,2.98020421],t.n)
+B.ts=s([B.YH,B.Vp,B.a1E,B.a1V,B.Xi,B.XW,B.a_O,B.Zb,B.a_m,B.Xv,B.YI],t.zg)
+B.X1=s(["EEEE\u060c d MMMM\u060c y","d MMMM\u060c y","d MMM\u060c y","d/M/yy"],t.s)
+B.X2=s(["v.Chr.","n.Chr."],t.s)
+B.X3=s(["\u0e01\u0e48\u0e2d\u0e19\u0e40\u0e17\u0e35\u0e48\u0e22\u0e07","\u0e2b\u0e25\u0e31\u0e07\u0e40\u0e17\u0e35\u0e48\u0e22\u0e07"],t.s)
+B.X4=s(["\u0b95\u0bbf.\u0bae\u0bc1.","\u0b95\u0bbf.\u0baa\u0bbf."],t.s)
+B.X5=s(["\u1798\u17bb\u1793\u200b\u1782\u17d2\u179a\u17b7\u179f\u17d2\u178f\u179f\u1780\u179a\u17b6\u1787","\u1782\u17d2\u179a\u17b7\u179f\u17d2\u178f\u179f\u1780\u179a\u17b6\u1787"],t.s)
+B.X6=s(["{1} \u1793\u17c5\u200b\u1798\u17c9\u17c4\u1784 {0}","{1} \u1793\u17c5\u200b\u1798\u17c9\u17c4\u1784 {0}","{1}, {0}","{1}, {0}"],t.s)
 B.tt=s(["\u099c\u09be\u09a8\u09c1\u09f1\u09be\u09f0\u09c0","\u09ab\u09c7\u09ac\u09cd\u09f0\u09c1\u09f1\u09be\u09f0\u09c0","\u09ae\u09be\u09f0\u09cd\u099a","\u098f\u09aa\u09cd\u09f0\u09bf\u09b2","\u09ae\u09c7\u2019","\u099c\u09c1\u09a8","\u099c\u09c1\u09b2\u09be\u0987","\u0986\u0997\u09b7\u09cd\u099f","\u099b\u09c7\u09aa\u09cd\u09a4\u09c7\u09ae\u09cd\u09ac\u09f0","\u0985\u0995\u09cd\u099f\u09cb\u09ac\u09f0","\u09a8\u09f1\u09c7\u09ae\u09cd\u09ac\u09f0","\u09a1\u09bf\u099a\u09c7\u09ae\u09cd\u09ac\u09f0"],t.s)
-B.TC=new A.L("1. Naturaleza de los datos","PerfectGest-Clinica III puede tratar datos personales sensibles (datos de salud) introducidos por la clinica o profesional que utiliza el software (ej.: historial clinico y consultas).")
-B.Uu=new A.L("2. Roles LGPD","\u2022 Controlador: clinica o profesional de salud que utiliza el software (define finalidades y medios del tratamiento).\n\u2022 Operador del software: Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA).\n\u2022 Suboperadores (cuando aplique):\n  \u2014 Microsoft (pagos de suscripcion via Microsoft Store)\n  \u2014 Meta/WhatsApp (mensajes, si lo configura la clinica)\n  \u2014 Firebase/Google (componentes tecnicos, si estan activados)")
-B.TD=new A.L("3. Minimizacion y almacenamiento","\u2022 Los datos clinicos permanecen en el dispositivo (SQLite local).\n\u2022 Los registros de auditoria guardan metadatos (quien / cuando / que), sin contenido clinico.")
-B.RQ=new A.L("4. Derechos del titular (Art. 18 LGPD)","La app ofrece soporte operacional para:\n\u2022 acceso y correccion via ficha del paciente;\n\u2022 exportacion de informe LGPD (ADMIN) en PDF/CSV (cuando este disponible);\n\u2022 portabilidad via copia cifrada.\n\nPara ejercer derechos sobre datos de salud, contactar primero la clinica (controlador).")
-B.Tp=new A.L("5. Seguridad recomendada (buenas practicas)","\u2022 Activar BitLocker en Windows (recomendado);\n\u2022 Usar contrasenas fuertes y perfiles adecuados (ADMIN / MEDICO / OPERADOR);\n\u2022 Activar cifrado de base de datos en la app (opcional);\n\u2022 Usar copia ZIP cifrada y guardar la contrasena en lugar seguro.")
+B.TD=new A.L("1. Naturaleza de los datos","PerfectGest-Clinica III puede tratar datos personales sensibles (datos de salud) introducidos por la clinica o profesional que utiliza el software (ej.: historial clinico y consultas).")
+B.Uy=new A.L("2. Roles LGPD","\u2022 Controlador: clinica o profesional de salud que utiliza el software (define finalidades y medios del tratamiento).\n\u2022 Operador del software: Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA).\n\u2022 Suboperadores (cuando aplique):\n  \u2014 Microsoft (pagos de suscripcion via Microsoft Store)\n  \u2014 Meta/WhatsApp (mensajes, si lo configura la clinica)\n  \u2014 Firebase/Google (componentes tecnicos, si estan activados)")
+B.TE=new A.L("3. Minimizacion y almacenamiento","\u2022 Los datos clinicos permanecen en el dispositivo (SQLite local).\n\u2022 Los registros de auditoria guardan metadatos (quien / cuando / que), sin contenido clinico.")
+B.RP=new A.L("4. Derechos del titular (Art. 18 LGPD)","La app ofrece soporte operacional para:\n\u2022 acceso y correccion via ficha del paciente;\n\u2022 exportacion de informe LGPD (ADMIN) en PDF/CSV (cuando este disponible);\n\u2022 portabilidad via copia cifrada.\n\nPara ejercer derechos sobre datos de salud, contactar primero la clinica (controlador).")
+B.Tt=new A.L("5. Seguridad recomendada (buenas practicas)","\u2022 Activar BitLocker en Windows (recomendado);\n\u2022 Usar contrasenas fuertes y perfiles adecuados (ADMIN / MEDICO / OPERADOR);\n\u2022 Activar cifrado de base de datos en la app (opcional);\n\u2022 Usar copia ZIP cifrada y guardar la contrasena en lugar seguro.")
 B.RW=new A.L("6. Contacto","Dudas tecnicas sobre el producto: suporte@perfectgestdev.com\nSolicitudes LGPD sobre datos clinicos: contactar la clinica (controlador).")
-B.X0=s([B.TC,B.Uu,B.TD,B.RQ,B.Tp,B.RW],t.h)
+B.X7=s([B.TD,B.Uy,B.TE,B.RP,B.Tt,B.RW],t.h)
 B.tu=s(["J","F","M","A","M","J","J","O","S","O","N","D"],t.s)
 B.tv=s(["CN","Th 2","Th 3","Th 4","Th 5","Th 6","Th 7"],t.s)
 B.tw=s(["\u05d0\u05f3","\u05d1\u05f3","\u05d2\u05f3","\u05d3\u05f3","\u05d4\u05f3","\u05d5\u05f3","\u05e9\u05f3"],t.s)
+B.TV=new A.L("Introduction","PerfectGest I, operated by Marcos Leandro dos Santos, provides this Privacy Policy in compliance with Brazil\u2019s LGPD (Law 13.709/18) and Google Play developer policies.")
+B.Tf=new A.L("Data controller and contact","Controller: Marcos Leandro dos Santos. Contact: suporte@perfectgestdev.com.")
+B.SF=new A.L("Local storage","The app is local-first. Business data is stored only on your device (SQLite). PerfectGest I does not automatically collect, access, or transfer that data to its own servers.\n\nClient and financial data \u2014 protected on the device\n\nThese stay on the device and do not leave the app unless you choose to:\n\n- Client records and history\n- Estimates, line items, amounts, and status\n- Cash flow \u2014 income, expenses, categories, balances\n- Work orders, projects, contracts, and management documents\n- Any client name, amount, or financial movement in the app\n\nWe do not send this data to Firebase, Firestore, Analytics, or other servers. Firebase Analytics logs generic usage events only \u2014 not client names, cash amounts, or estimate content.\n\nWhen data may leave the device (your explicit action only)\n\n- Share or save a PDF (estimate, cash report, etc.)\n- Share business card PNG \u2014 professional company contacts only; never your client list or financial data\n- Share vCard or show QR with professional contacts (Pro Plan \u2014 see below)\n- Share a backup file you exported (plain or encrypted) via WhatsApp, email, Drive, etc.\n\nImportant: sharing a backup is your responsibility regarding destination and security. We recommend encrypted backups (Pro Plan).\n\nBusiness card vs. management data\n\nThe Company tab feeds the digital business card with your business contact info only. It does not expose Clients, Estimates, or Cash modules.")
+B.Td=new A.L("Business card \u2014 local storage and static mode","After your first card is saved, a local snapshot (PNG + layout) may be shown in static mode without Pro. You may still share that snapshot PNG via the system share sheet. Advanced features (edit after freeze, vCard, QR, interactive preview with tappable contacts) require Pro Plan \u2014 inside the app only; PerfectGest does not host a public web page for your card.")
+B.Ta=new A.L("Interactive business card in the app (Pro Plan)","With Pro Plan, after your first card you can keep editing and use advanced features on your phone:\n\n- Interactive preview (taps open WhatsApp, phone, email, website, or maps as configured)\n- Export vCard (.vcf) and generate QR with contact data\n- Share an updated PNG\n\nEverything stays on the device until you share or show the QR. We do not publish or host your card on a PerfectGest website or upload card content to Firestore.\n\nNever included in the card: clients, estimates, cash entries, financial amounts, contracts, or backups.")
+B.TF=new A.L("Trial period and Pro Plan","- Trial period (7 days): from first open, unlimited use (clients, estimates, cash, PDF, work orders, contracts) with no paid subscription and no card in the app.\n- After 7 days without Pro Plan: view and edit local data; cannot create new records or new PDFs.\n- Pro Plan: unlimited use, encrypted backup restore, interactive business card \u2014 monthly (R$ 9.90) or annual (R$ 99.90) via Google Play.\n\nThe trial start date is stored anonymously per device (Firebase service) for period consistency \u2014 not client, estimate, or cash data.")
+B.Uc=new A.L("Third-party services","Firebase Analytics (generic events, no Crashlytics), Remote Config, Firestore (minimal anonymous device metadata for the Initial Plan \u2014 installation identifier, trial start timestamp, freemium eligibility, and first business-card save \u2014 not clients, estimates, or cash data), Google Play Billing. No in-app ads.")
+B.Tm=new A.L("Local notifications","Fiscal reminders on-device only; no external server transfer. POST_NOTIFICATIONS on Android 13+.")
+B.Uv=new A.L("Security","HTTPS/TLS for telemetry; no sale of data for ads; business card contains only professional info you configure.")
+B.SK=new A.L("Retention and deletion","Local business data and card snapshot: removed when you clear app data or uninstall. Telemetry (Firebase): email request, up to 15 business days.")
+B.Tz=new A.L("Permissions","Import logos; save PDFs and backups; local notifications.")
+B.S4=new A.L("Eligibility and law","Users 18+. Laws of Brazil; venue Caxias do Sul/RS.")
+B.X8=s([B.TV,B.Tf,B.SF,B.Td,B.Ta,B.TF,B.Uc,B.Tm,B.Uv,B.SK,B.Tz,B.S4],t.h)
 B.tx=s(["\u0ead\u0eb2","\u0e88","\u0ead","\u0e9e","\u0e9e\u0eab","\u0eaa\u0eb8","\u0eaa"],t.s)
 B.a2=s(["AM","PM"],t.s)
-B.X2=s(["da manh\xe3","da tarde"],t.s)
-B.X3=s(["\xee.Hr.","d.Hr."],t.s)
-B.X4=s(["priek\u0161pusdien\u0101","p\u0113cpusdien\u0101"],t.s)
+B.Xa=s(["da manh\xe3","da tarde"],t.s)
+B.Xb=s(["\xee.Hr.","d.Hr."],t.s)
+B.Xc=s(["priek\u0161pusdien\u0101","p\u0113cpusdien\u0101"],t.s)
 B.aH=s(["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],t.s)
-B.X5=s(["y- MMMM d- EEEE","y- MMMM d","y- MMM d","dd-MM-yy"],t.s)
+B.Xd=s(["y- MMMM d- EEEE","y- MMMM d","y- MMM d","dd-MM-yy"],t.s)
 B.ty=s(["\u0e44\u0e15\u0e23\u0e21\u0e32\u0e2a 1","\u0e44\u0e15\u0e23\u0e21\u0e32\u0e2a 2","\u0e44\u0e15\u0e23\u0e21\u0e32\u0e2a 3","\u0e44\u0e15\u0e23\u0e21\u0e32\u0e2a 4"],t.s)
-B.X6=s(["\u0c15\u0c4d\u0c30\u0c40\u0c38\u0c4d\u0c24\u0c41 \u0c2a\u0c42\u0c30\u0c4d\u0c35\u0c02","\u0c15\u0c4d\u0c30\u0c40\u0c38\u0c4d\u0c24\u0c41 \u0c36\u0c15\u0c02"],t.s)
-B.Tq=new A.L("Introdu\xe7\xe3o","A PerfectGest I, sob responsabilidade de Marcos Leandro dos Santos, estabelece esta Pol\xedtica de Privacidade em conformidade com a Lei Geral de Prote\xe7\xe3o de Dados (LGPD - Lei 13.709/18) e as pol\xedticas para desenvolvedores da Google Play Store.")
-B.Ug=new A.L("Controlador de Dados e Contato","O respons\xe1vel pelo tratamento de dados \xe9 Marcos Leandro dos Santos. Para o exerc\xedcio de direitos de acesso, retifica\xe7\xe3o ou exclus\xe3o, entre em contato via e-mail: suporte@perfectgestdev.com.")
-B.RN=new A.L("Armazenamento local e natureza dos dados","O aplicativo opera em modelo local-first. Os dados de gest\xe3o comercial s\xe3o armazenados exclusivamente no dispositivo do usu\xe1rio via SQLite. A PerfectGest I n\xe3o coleta, n\xe3o acede e n\xe3o transfere automaticamente esses dados para servidores pr\xf3prios.\n\nDados de clientes e financeiros \u2014 protegidos no aparelho\n\nPermanecem no dispositivo e n\xe3o saem da app por iniciativa do sistema:\n\n- Cadastro e hist\xf3rico de clientes\n- Or\xe7amentos, itens, valores e estados\n- Caixa \u2014 entradas, sa\xeddas, categorias e saldos\n- Ordens de servi\xe7o / produ\xe7\xe3o e projetos\n- Contratos e documentos auxiliares de gest\xe3o\n- Qualquer valor, nome de cliente ou movimento financeiro registado na app\n\nN\xe3o enviamos estes dados para Firebase, Firestore, Analytics nem outros servidores por iniciativa da app. O Firebase Analytics regista apenas eventos gen\xe9ricos de uso (ex.: navega\xe7\xe3o entre ecr\xe3s), sem nomes de clientes, valores de caixa ou conte\xfado de or\xe7amentos.\n\nQuando os dados podem sair do aparelho (sempre por ac\xe7\xe3o do utilizador)\n\nA sa\xedda ocorre somente se o utilizador decidir explicitamente:\n\n- Partilhar ou guardar PDF (or\xe7amento, caixa, relat\xf3rio, etc.) \u2014 o documento gerado naquele momento\n- Partilhar cart\xe3o de visita (PNG) \u2014 apenas dados profissionais da empresa (nome, contactos, redes, log\xf3tipo); nunca a lista de clientes nem dados financeiros\n- Partilhar ficheiro de contactos (vCard) ou mostrar QR com dados profissionais (Plano Pro \u2014 ver abaixo)\n- Criar e partilhar backup \u2014 ficheiro de backup (simples ou encriptado) que o utilizador escolhe enviar por WhatsApp, e-mail, Drive, etc.; cont\xe9m a c\xf3pia local que exportou\n\nImportante: partilhar um backup \xe9 responsabilidade do utilizador quanto ao destino e \xe0 seguran\xe7a do ficheiro. Recomendamos backups encriptados (Plano Pro) e destinat\xe1rios de confian\xe7a.\n\nDados da empresa no cart\xe3o de visita\n\nOs contactos da aba Empresa (telefone, e-mail, WhatsApp, etc.) servem tamb\xe9m o cart\xe3o de visita, mas n\xe3o misturam nem exp\xf5em automaticamente os m\xf3dulos Clientes, Or\xe7amentos ou Caixa.")
-B.SA=new A.L("Cart\xe3o de visita \u2014 armazenamento local e modo est\xe1tico","O cart\xe3o de visita digital (aba Empresa) utiliza os dados da empresa guardados no dispositivo. Ao concluir a cria\xe7\xe3o do primeiro cart\xe3o, o aplicativo pode guardar uma c\xf3pia congelada (snapshot) local \u2014 imagem PNG e dados do layout \u2014 para exibi\xe7\xe3o em modo est\xe1tico quando n\xe3o houver assinatura Plano Pro activa.\n\n- No dispositivo: snapshot, log\xf3tipo e ficheiros tempor\xe1rios de partilha permanecem no aparelho at\xe9 limpar dados ou desinstalar.\n- Partilha PNG: mesmo em modo est\xe1tico, pode partilhar a imagem do snapshot (ex.: WhatsApp, e-mail) por ac\xe7\xe3o expl\xedcita; n\xe3o enviamos essa imagem automaticamente a servidores PerfectGest.\n- Edi\xe7\xe3o e funcionalidades avan\xe7adas (vCard, QR, preview interactivo com toques em contactos): requerem Plano Pro \u2014 sempre dentro da app; n\xe3o h\xe1 p\xe1gina web do cart\xe3o alojada pela PerfectGest.")
-B.Sw=new A.L("Cart\xe3o de visita interactivo na app (Plano Pro)","Com Plano Pro, ap\xf3s o primeiro cart\xe3o, pode continuar a editar e usar fun\xe7\xf5es avan\xe7adas no telem\xf3vel:\n\n- Preview interactivo (toques abrem WhatsApp, telefone, e-mail, site ou mapa, conforme configurado)\n- Exportar vCard (.vcf) e gerar QR com dados de contacto\n- Partilhar PNG actualizado\n\nTudo permanece no dispositivo at\xe9 partilhar ou mostrar o QR por ac\xe7\xe3o expl\xedcita. N\xe3o publicamos nem alojamos o cart\xe3o num site PerfectGest; n\xe3o enviamos o conte\xfado do cart\xe3o para Firestore nem outros servidores por iniciativa da app.\n\nO que nunca entra no cart\xe3o: cadastro de clientes, or\xe7amentos, lan\xe7amentos de caixa, valores financeiros, contratos ou backups.")
-B.UA=new A.L("Modelo de acesso \u2014 per\xedodo de teste e Plano Pro","- Per\xedodo de teste (7 dias): desde a primeira abertura da app, pode criar at\xe9 5 clientes, 5 or\xe7amentos e 5 lan\xe7amentos de caixa, incluindo PDF, sem subscri\xe7\xe3o paga durante esse per\xedodo.\n- Limites durante o teste: ao guardar o 4.\xba registo de cada tipo, a app informa que \xe9 o \xfaltimo daquele tipo no teste. O 6.\xba (ou acima dos limites) exige Plano Pro, mesmo dentro dos 7 dias.\n- Ap\xf3s 7 dias sem Plano Pro: a app continua utiliz\xe1vel para consultar e editar dados locais, mas n\xe3o permite criar novos clientes, or\xe7amentos ou lan\xe7amentos de caixa.\n- Plano Pro: uso ilimitado, restauro de backup encriptado e cart\xe3o de visita interactivo na app (edi\xe7\xe3o ap\xf3s o primeiro cart\xe3o, vCard, QR, preview com toques), via assinatura mensal ou anual na Google Play.\n\nA data de in\xedcio do teste \xe9 guardada de forma an\xf3nima por aparelho (servi\xe7o Firebase) para coer\xeancia do per\xedodo \u2014 sem dados de clientes, or\xe7amentos ou caixa.")
-B.Sd=new A.L("Coleta de dados e servi\xe7os de terceiros","- Google Analytics (Firebase): eventos gen\xe9ricos de uso; sem Crashlytics; sem nomes ou valores financeiros.\n- Firebase Remote Config: vers\xf5es m\xednimas e flags de seguran\xe7a.\n- Cloud Firestore: metadados an\xf3nimos do Plano Inicial \u2014 identificador de instala\xe7\xe3o por aparelho, in\xedcio do per\xedodo de teste, elegibilidade freemium e consumo do 1.\xba cart\xe3o (sem dados de clientes, or\xe7amentos ou caixa).\n- Google Play Billing: subscri\xe7\xf5es.")
-B.Sr=new A.L("Notifica\xe7\xf5es locais","Lembretes fiscais processados no dispositivo; sem envio a servidores externos. Permiss\xe3o POST_NOTIFICATIONS no Android 13+.")
-B.Sz=new A.L("Declara\xe7\xf5es de seguran\xe7a","- HTTPS/TLS em telemetria e metadados t\xe9cnicos.\n- Sem venda de dados para publicidade.\n- Separa\xe7\xe3o cart\xe3o vs. gest\xe3o: cart\xe3o = s\xf3 informa\xe7\xe3o profissional configurada; clientes e financeiro locais, excepto PDFs ou backups partilhados pelo utilizador.")
-B.UJ=new A.L("Reten\xe7\xe3o e exclus\xe3o","- Dados comerciais locais e snapshot do cart\xe3o: eliminados ao limpar dados da app ou desinstalar.\n- Telemetria (Firebase): pedido por e-mail, at\xe9 15 dias \xfateis.")
-B.Uo=new A.L("Permiss\xf5es de sistema","Importar log\xf3tipos; guardar PDFs e backups; notifica\xe7\xf5es locais (Android 13+).")
-B.SE=new A.L("Elegibilidade e foro","Utilizadores maiores de 18 anos. Leis do Brasil; foro de Caxias do Sul/RS.")
-B.X7=s([B.Tq,B.Ug,B.RN,B.SA,B.Sw,B.UA,B.Sd,B.Sr,B.Sz,B.UJ,B.Uo,B.SE],t.h)
-B.X8=s(["\u043f\u0440\u0435\u0434 \u043d\u0430\u0448\u0430\u0442\u0430 \u0435\u0440\u0430","\u043e\u0434 \u043d\u0430\u0448\u0430\u0442\u0430 \u0435\u0440\u0430"],t.s)
-B.X9=s([B.lo,B.lp],A.a4("q<yu>"))
-B.Xa=s(["\u0411\u0456\u0437\u0434\u0456\u04a3 \u0437\u0430\u043c\u0430\u043d\u044b\u043c\u044b\u0437\u0493\u0430 \u0434\u0435\u0439\u0456\u043d","\u0431\u0456\u0437\u0434\u0456\u04a3 \u0437\u0430\u043c\u0430\u043d\u044b\u043c\u044b\u0437"],t.s)
+B.Xe=s(["\u0c15\u0c4d\u0c30\u0c40\u0c38\u0c4d\u0c24\u0c41 \u0c2a\u0c42\u0c30\u0c4d\u0c35\u0c02","\u0c15\u0c4d\u0c30\u0c40\u0c38\u0c4d\u0c24\u0c41 \u0c36\u0c15\u0c02"],t.s)
+B.Xf=s(["\u043f\u0440\u0435\u0434 \u043d\u0430\u0448\u0430\u0442\u0430 \u0435\u0440\u0430","\u043e\u0434 \u043d\u0430\u0448\u0430\u0442\u0430 \u0435\u0440\u0430"],t.s)
+B.Xg=s([B.lo,B.lp],A.a4("q<yu>"))
+B.Xh=s(["\u0411\u0456\u0437\u0434\u0456\u04a3 \u0437\u0430\u043c\u0430\u043d\u044b\u043c\u044b\u0437\u0493\u0430 \u0434\u0435\u0439\u0456\u043d","\u0431\u0456\u0437\u0434\u0456\u04a3 \u0437\u0430\u043c\u0430\u043d\u044b\u043c\u044b\u0437"],t.s)
 B.tz=s(["\u0ab0\u0ab5\u0abf\u0ab5\u0abe\u0ab0","\u0ab8\u0acb\u0aae\u0ab5\u0abe\u0ab0","\u0aae\u0a82\u0a97\u0ab3\u0ab5\u0abe\u0ab0","\u0aac\u0ac1\u0aa7\u0ab5\u0abe\u0ab0","\u0a97\u0ac1\u0ab0\u0ac1\u0ab5\u0abe\u0ab0","\u0ab6\u0ac1\u0a95\u0acd\u0ab0\u0ab5\u0abe\u0ab0","\u0ab6\u0aa8\u0abf\u0ab5\u0abe\u0ab0"],t.s)
 B.jg=s(["janvier","f\xe9vrier","mars","avril","mai","juin","juillet","ao\xfbt","septembre","octobre","novembre","d\xe9cembre"],t.s)
-B.Xc=s(["urtarrila","otsaila","martxoa","apirila","maiatza","ekaina","uztaila","abuztua","iraila","urria","azaroa","abendua"],t.s)
-B.Xd=s(["sv\u0113tdiena","pirmdiena","otrdiena","tre\u0161diena","ceturtdiena","piektdiena","sestdiena"],t.s)
-B.Xe=s(["janu\xe1r","febru\xe1r","marec","apr\xedl","m\xe1j","j\xfan","j\xfal","august","september","okt\xf3ber","november","december"],t.s)
+B.Xj=s(["urtarrila","otsaila","martxoa","apirila","maiatza","ekaina","uztaila","abuztua","iraila","urria","azaroa","abendua"],t.s)
+B.Xk=s(["sv\u0113tdiena","pirmdiena","otrdiena","tre\u0161diena","ceturtdiena","piektdiena","sestdiena"],t.s)
+B.Xl=s(["janu\xe1r","febru\xe1r","marec","apr\xedl","m\xe1j","j\xfan","j\xfal","august","september","okt\xf3ber","november","december"],t.s)
 B.bb=s(["BC","AD"],t.s)
-B.Xf=s(["B.","B.e.","\xc7.a.","\xc7.","C.a.","C.","\u015e."],t.s)
-B.Xg=s(["EEEE, d. MMMM y.","d. MMMM y.","d. MMM y.","dd. MM. y."],t.s)
+B.Xm=s(["B.","B.e.","\xc7.a.","\xc7.","C.a.","C.","\u015e."],t.s)
+B.Xn=s(["EEEE, d. MMMM y.","d. MMMM y.","d. MMM y.","dd. MM. y."],t.s)
 B.tA=s(["\u043d\u0434","\u043f\u043d","\u0430\u045e","\u0441\u0440","\u0447\u0446","\u043f\u0442","\u0441\u0431"],t.s)
 B.eT=s(["s\xf8ndag","mandag","tirsdag","onsdag","torsdag","fredag","l\xf8rdag"],t.s)
-B.Xh=s(["EEEE \u0e97\u0eb5 d MMMM G y","d MMMM y","d MMM y","d/M/y"],t.s)
-B.Xi=s(["I \u0443\u043b\u0438\u0440\u0430\u043b","II \u0443\u043b\u0438\u0440\u0430\u043b","III \u0443\u043b\u0438\u0440\u0430\u043b","IV \u0443\u043b\u0438\u0440\u0430\u043b"],t.s)
+B.Xo=s(["EEEE \u0e97\u0eb5 d MMMM G y","d MMMM y","d MMM y","d/M/y"],t.s)
+B.Xp=s(["I \u0443\u043b\u0438\u0440\u0430\u043b","II \u0443\u043b\u0438\u0440\u0430\u043b","III \u0443\u043b\u0438\u0440\u0430\u043b","IV \u0443\u043b\u0438\u0440\u0430\u043b"],t.s)
 B.tB=s(["niedziela","poniedzia\u0142ek","wtorek","\u015broda","czwartek","pi\u0105tek","sobota"],t.s)
 B.tC=s(["janv.","f\xe9vr.","mars","avr.","mai","juin","juill.","ao\xfbt","sept.","oct.","nov.","d\xe9c."],t.s)
-B.Xj=s(["prie\u0161 Krist\u0173","po Kristaus"],t.s)
+B.Xq=s(["prie\u0161 Krist\u0173","po Kristaus"],t.s)
 B.tD=s(["jaanuar","veebruar","m\xe4rts","aprill","mai","juuni","juuli","august","september","oktoober","november","detsember"],t.s)
-B.Xl=s(["pred Kr.","po Kr."],t.s)
-B.Xm=s([18,15,10,12,15,18,15,12,12],t.n)
-B.Xn=s(["tammikuu","helmikuu","maaliskuu","huhtikuu","toukokuu","kes\xe4kuu","hein\xe4kuu","elokuu","syyskuu","lokakuu","marraskuu","joulukuu"],t.s)
-B.Xp=s(["1. ceturksnis","2. ceturksnis","3. ceturksnis","4. ceturksnis"],t.s)
-B.Xq=s(["\u0434\u043e \u043d. \u0435.","\u043d. \u0435."],t.s)
-B.Xr=s(["\u043f\u0440.\u043e\u0431.","\u0441\u043b.\u043e\u0431."],t.s)
+B.Xs=s(["pred Kr.","po Kr."],t.s)
+B.Xt=s([18,15,10,12,15,18,15,12,12],t.n)
+B.Xu=s(["tammikuu","helmikuu","maaliskuu","huhtikuu","toukokuu","kes\xe4kuu","hein\xe4kuu","elokuu","syyskuu","lokakuu","marraskuu","joulukuu"],t.s)
+B.Xw=s(["1. ceturksnis","2. ceturksnis","3. ceturksnis","4. ceturksnis"],t.s)
+B.Xx=s(["\u0434\u043e \u043d. \u0435.","\u043d. \u0435."],t.s)
+B.Xy=s(["\u043f\u0440.\u043e\u0431.","\u0441\u043b.\u043e\u0431."],t.s)
 B.tE=s(["\u0e27\u0e31\u0e19\u0e2d\u0e32\u0e17\u0e34\u0e15\u0e22\u0e4c","\u0e27\u0e31\u0e19\u0e08\u0e31\u0e19\u0e17\u0e23\u0e4c","\u0e27\u0e31\u0e19\u0e2d\u0e31\u0e07\u0e04\u0e32\u0e23","\u0e27\u0e31\u0e19\u0e1e\u0e38\u0e18","\u0e27\u0e31\u0e19\u0e1e\u0e24\u0e2b\u0e31\u0e2a\u0e1a\u0e14\u0e35","\u0e27\u0e31\u0e19\u0e28\u0e38\u0e01\u0e23\u0e4c","\u0e27\u0e31\u0e19\u0e40\u0e2a\u0e32\u0e23\u0e4c"],t.s)
-B.Xt=s(["CC","OC"],t.s)
+B.XA=s(["CC","OC"],t.s)
 B.RV=new A.L("Introducci\xf3n","PerfectGest I ofrece control claro de datos seg\xfan Google Play y LGPD. La app es local-first.")
-B.Uy=new A.L("Resumen","Datos de clientes y financieros no se env\xedan autom\xe1ticamente a servidores PerfectGest. Solo pueden salir del tel\xe9fono si usted comparte PDFs, comparte backups exportados, comparte PNG/vCard de la tarjeta o muestra un QR con contactos profesionales.")
-B.TP=new A.L("1. Datos de gesti\xf3n (local)","En SQLite en el dispositivo: clientes, presupuestos, caja, \xf3rdenes, empresa, snapshot de tarjeta, recordatorios fiscales.\n\nC\xf3mo eliminar\n\n- En la app: Ajustes \u2192 Datos en el dispositivo \u2192 Eliminar todos los datos\n- Android: Ajustes \u2192 Apps \u2192 PerfectGest I \u2192 Almacenamiento \u2192 Borrar datos\n- Desinstalar\n\nAviso: sin copia externa, no hay recuperaci\xf3n \u2014 no guardamos copias en servidores propios.\n\nBackups compartidos: elim\xednelos manualmente donde los guard\xf3.")
-B.TG=new A.L("2. Firebase / telemetr\xeda","Metadatos an\xf3nimos de instalaci\xf3n. No alojamos contenido de tarjeta en servidores.\n\nCorreo: suporte@perfectgestdev.com \u2014 Asunto: Solicitud de Eliminaci\xf3n de Datos T\xe9cnicos")
+B.UD=new A.L("Resumen","Datos de clientes y financieros no se env\xedan autom\xe1ticamente a servidores PerfectGest. Solo pueden salir del tel\xe9fono si usted comparte PDFs, comparte backups exportados, comparte PNG/vCard de la tarjeta o muestra un QR con contactos profesionales.")
+B.TS=new A.L("1. Datos de gesti\xf3n (local)","En SQLite en el dispositivo: clientes, presupuestos, caja, \xf3rdenes, empresa, snapshot de tarjeta, recordatorios fiscales.\n\nC\xf3mo eliminar\n\n- En la app: Ajustes \u2192 Datos en el dispositivo \u2192 Eliminar todos los datos\n- Android: Ajustes \u2192 Apps \u2192 PerfectGest I \u2192 Almacenamiento \u2192 Borrar datos\n- Desinstalar\n\nAviso: sin copia externa, no hay recuperaci\xf3n \u2014 no guardamos copias en servidores propios.\n\nBackups compartidos: elim\xednelos manualmente donde los guard\xf3.")
+B.TI=new A.L("2. Firebase / telemetr\xeda","Metadatos an\xf3nimos de instalaci\xf3n. No alojamos contenido de tarjeta en servidores.\n\nCorreo: suporte@perfectgestdev.com \u2014 Asunto: Solicitud de Eliminaci\xf3n de Datos T\xe9cnicos")
 B.S1=new A.L("3. Notificaciones locales","Se cancelan al desinstalar o borrar datos.")
-B.Sv=new A.L("4. Plazos","Datos locales: inmediato. Telemetr\xeda Firebase: hasta 15 d\xedas h\xe1biles.")
-B.Xu=s([B.RV,B.Uy,B.TP,B.TG,B.S1,B.Sv],t.h)
-B.Xv=s(["S","L","M","K","M","C","L","S","W","P","L","G"],t.s)
+B.Sx=new A.L("4. Plazos","Datos locales: inmediato. Telemetr\xeda Firebase: hasta 15 d\xedas h\xe1biles.")
+B.XB=s([B.RV,B.UD,B.TS,B.TI,B.S1,B.Sx],t.h)
+B.XC=s(["S","L","M","K","M","C","L","S","W","P","L","G"],t.s)
 B.dm=s(["S","M","T","O","T","F","L"],t.s)
-B.Xw=s(["\u0570\u0578\u0582\u0576\u057e\u0561\u0580\u056b","\u0583\u0565\u057f\u0580\u057e\u0561\u0580\u056b","\u0574\u0561\u0580\u057f\u056b","\u0561\u057a\u0580\u056b\u056c\u056b","\u0574\u0561\u0575\u056b\u057d\u056b","\u0570\u0578\u0582\u0576\u056b\u057d\u056b","\u0570\u0578\u0582\u056c\u056b\u057d\u056b","\u0585\u0563\u0578\u057d\u057f\u0578\u057d\u056b","\u057d\u0565\u057a\u057f\u0565\u0574\u0562\u0565\u0580\u056b","\u0570\u0578\u056f\u057f\u0565\u0574\u0562\u0565\u0580\u056b","\u0576\u0578\u0575\u0565\u0574\u0562\u0565\u0580\u056b","\u0564\u0565\u056f\u057f\u0565\u0574\u0562\u0565\u0580\u056b"],t.s)
-B.Xx=s(["\xc71","\xc72","\xc73","\xc74"],t.s)
-B.Xy=s(["Ch1","Ch2","Ch3","Ch4"],t.s)
-B.Xz=s(["gen.","febr.","mar\xe7","abr.","maig","juny","jul.","ag.","set.","oct.","nov.","des."],t.s)
+B.XD=s(["\u0570\u0578\u0582\u0576\u057e\u0561\u0580\u056b","\u0583\u0565\u057f\u0580\u057e\u0561\u0580\u056b","\u0574\u0561\u0580\u057f\u056b","\u0561\u057a\u0580\u056b\u056c\u056b","\u0574\u0561\u0575\u056b\u057d\u056b","\u0570\u0578\u0582\u0576\u056b\u057d\u056b","\u0570\u0578\u0582\u056c\u056b\u057d\u056b","\u0585\u0563\u0578\u057d\u057f\u0578\u057d\u056b","\u057d\u0565\u057a\u057f\u0565\u0574\u0562\u0565\u0580\u056b","\u0570\u0578\u056f\u057f\u0565\u0574\u0562\u0565\u0580\u056b","\u0576\u0578\u0575\u0565\u0574\u0562\u0565\u0580\u056b","\u0564\u0565\u056f\u057f\u0565\u0574\u0562\u0565\u0580\u056b"],t.s)
+B.XE=s(["\xc71","\xc72","\xc73","\xc74"],t.s)
+B.XF=s(["Ch1","Ch2","Ch3","Ch4"],t.s)
+B.XG=s(["gen.","febr.","mar\xe7","abr.","maig","juny","jul.","ag.","set.","oct.","nov.","des."],t.s)
 B.tF=s(["\u0930\u0935\u093f","\u0938\u094b\u092e","\u092e\u0902\u0917\u0932","\u092c\u0941\u0927","\u0917\u0941\u0930\u0941","\u0936\u0941\u0915\u094d\u0930","\u0936\u0928\u093f"],t.s)
 B.ch=s(["D","L","M","M","J","V","S"],t.s)
 B.tG=s(["\u0b9c\u0ba9.","\u0baa\u0bbf\u0baa\u0bcd.","\u0bae\u0bbe\u0bb0\u0bcd.","\u0b8f\u0baa\u0bcd.","\u0bae\u0bc7","\u0b9c\u0bc2\u0ba9\u0bcd","\u0b9c\u0bc2\u0bb2\u0bc8","\u0b86\u0b95.","\u0b9a\u0bc6\u0baa\u0bcd.","\u0b85\u0b95\u0bcd.","\u0ba8\u0bb5.","\u0b9f\u0bbf\u0b9a."],t.s)
-B.XA=s(["EEEE, d MMMM, y","d MMMM y","dd-MMM-y","dd/MM/yy"],t.s)
-B.XB=s(["af","am","ar","as","az","be","bg","bn","bs","ca","cs","cy","da","de","el","en","es","et","eu","fa","fi","fil","fr","gl","gsw","gu","he","hi","hr","hu","hy","id","is","it","ja","ka","kk","km","kn","ko","ky","lo","lt","lv","mk","ml","mn","mr","ms","my","nb","ne","nl","no","or","pa","pl","ps","pt","ro","ru","si","sk","sl","sq","sr","sv","sw","ta","te","th","tl","tr","uk","ur","uz","vi","zh","zu"],t.s)
-B.XC=s(["avanti Cristo","dopo Cristo"],t.s)
+B.XH=s(["EEEE, d MMMM, y","d MMMM y","dd-MMM-y","dd/MM/yy"],t.s)
+B.XI=s(["af","am","ar","as","az","be","bg","bn","bs","ca","cs","cy","da","de","el","en","es","et","eu","fa","fi","fil","fr","gl","gsw","gu","he","hi","hr","hu","hy","id","is","it","ja","ka","kk","km","kn","ko","ky","lo","lt","lv","mk","ml","mn","mr","ms","my","nb","ne","nl","no","or","pa","pl","ps","pt","ro","ru","si","sk","sl","sq","sr","sv","sw","ta","te","th","tl","tr","uk","ur","uz","vi","zh","zu"],t.s)
+B.XJ=s(["avanti Cristo","dopo Cristo"],t.s)
 B.tH=s(["\u09b0\u09ac\u09bf","\u09b8\u09cb\u09ae","\u09ae\u0999\u09cd\u0997\u09b2","\u09ac\u09c1\u09a7","\u09ac\u09c3\u09b9\u09b8\u09cd\u09aa\u09a4\u09bf","\u09b6\u09c1\u0995\u09cd\u09b0","\u09b6\u09a8\u09bf"],t.s)
 B.tI=s(["Jan","Feb","Mac","Apr","Mei","Jun","Jul","Ogo","Sep","Okt","Nov","Dis"],t.s)
-B.XD=s(["EEEE 'den' d. MMMM y","d. MMMM y","d. MMM y","dd.MM.y"],t.s)
-B.XE=s(["ap.","ip."],t.s)
+B.XK=s(["EEEE 'den' d. MMMM y","d. MMMM y","d. MMM y","dd.MM.y"],t.s)
+B.XL=s(["ap.","ip."],t.s)
 B.eU=s(["Ene","Peb","Mar","Abr","May","Hun","Hul","Ago","Set","Okt","Nob","Dis"],t.s)
 B.jh=s(["Jan","Feb","M\xe4r","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"],t.s)
-B.XF=s(["af","am","ar","as","az","be","bg","bn","bo","bs","ca","cs","cy","da","de","el","en","es","et","eu","fa","fi","fil","fr","ga","gl","gsw","gu","he","hi","hr","hu","hy","id","is","it","ja","ka","kk","km","kn","ko","ky","lo","lt","lv","mk","ml","mn","mr","ms","my","nb","ne","nl","no","or","pa","pl","pt","ro","ru","si","sk","sl","sq","sr","sv","sw","ta","te","th","tl","tr","ug","uk","ur","uz","vi","zh","zu"],t.s)
-B.XG=s(["\u043f\u0440\u0432\u0438 \u043a\u0432\u0430\u0440\u0442\u0430\u043b","\u0434\u0440\u0443\u0433\u0438 \u043a\u0432\u0430\u0440\u0442\u0430\u043b","\u0442\u0440\u0435\u045b\u0438 \u043a\u0432\u0430\u0440\u0442\u0430\u043b","\u0447\u0435\u0442\u0432\u0440\u0442\u0438 \u043a\u0432\u0430\u0440\u0442\u0430\u043b"],t.s)
+B.XM=s(["af","am","ar","as","az","be","bg","bn","bo","bs","ca","cs","cy","da","de","el","en","es","et","eu","fa","fi","fil","fr","ga","gl","gsw","gu","he","hi","hr","hu","hy","id","is","it","ja","ka","kk","km","kn","ko","ky","lo","lt","lv","mk","ml","mn","mr","ms","my","nb","ne","nl","no","or","pa","pl","pt","ro","ru","si","sk","sl","sq","sr","sv","sw","ta","te","th","tl","tr","ug","uk","ur","uz","vi","zh","zu"],t.s)
+B.XN=s(["\u043f\u0440\u0432\u0438 \u043a\u0432\u0430\u0440\u0442\u0430\u043b","\u0434\u0440\u0443\u0433\u0438 \u043a\u0432\u0430\u0440\u0442\u0430\u043b","\u0442\u0440\u0435\u045b\u0438 \u043a\u0432\u0430\u0440\u0442\u0430\u043b","\u0447\u0435\u0442\u0432\u0440\u0442\u0438 \u043a\u0432\u0430\u0440\u0442\u0430\u043b"],t.s)
 B.eV=s(["Segoe UI Web","Helvetica Neue","Arial","sans-serif"],t.s)
-B.XH=s(["1. hiruhilekoa","2. hiruhilekoa","3. hiruhilekoa","4. hiruhilekoa"],t.s)
-B.XI=s(["\u05dc\u05e4\u05e0\u05d4\u05f4\u05e6","\u05d0\u05d7\u05d4\u05f4\u05e6"],t.s)
-B.XJ=s(["{1}, {0}","{1}, {0}","{1}, {0}","{1} {0}"],t.s)
+B.XO=s(["1. hiruhilekoa","2. hiruhilekoa","3. hiruhilekoa","4. hiruhilekoa"],t.s)
+B.XP=s(["\u05dc\u05e4\u05e0\u05d4\u05f4\u05e6","\u05d0\u05d7\u05d4\u05f4\u05e6"],t.s)
+B.XQ=s(["{1}, {0}","{1}, {0}","{1}, {0}","{1} {0}"],t.s)
 B.tJ=s(["\u17a2","\u1785","\u17a2","\u1796","\u1796","\u179f","\u179f"],t.s)
 B.tK=s(["januar","februar","mart","april","maj","jun","jul","avgust","septembar","oktobar","novembar","decembar"],t.s)
 B.aI=s(["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],t.s)
 B.tL=s(["\u053f","\u0535","\u0535","\u0549","\u0540","\u0548","\u0547"],t.s)
 B.eW=s(["\u661f\u671f\u65e5","\u661f\u671f\u4e00","\u661f\u671f\u4e8c","\u661f\u671f\u4e09","\u661f\u671f\u56db","\u661f\u671f\u4e94","\u661f\u671f\u516d"],t.s)
-B.XK=s(["\u0d1e\u0d3e","\u0d24\u0d3f","\u0d1a\u0d4a","\u0d2c\u0d41","\u0d35\u0d4d\u0d2f\u0d3e","\u0d35\u0d46","\u0d36"],t.s)
+B.XR=s(["\u0d1e\u0d3e","\u0d24\u0d3f","\u0d1a\u0d4a","\u0d2c\u0d41","\u0d35\u0d4d\u0d2f\u0d3e","\u0d35\u0d46","\u0d36"],t.s)
 B.ji=s(["\u1798\u1780\u179a\u17b6","\u1780\u17bb\u1798\u17d2\u1797\u17c8","\u1798\u17b8\u1793\u17b6","\u1798\u17c1\u179f\u17b6","\u17a7\u179f\u1797\u17b6","\u1798\u17b7\u1790\u17bb\u1793\u17b6","\u1780\u1780\u17d2\u1780\u178a\u17b6","\u179f\u17b8\u17a0\u17b6","\u1780\u1789\u17d2\u1789\u17b6","\u178f\u17bb\u179b\u17b6","\u179c\u17b7\u1785\u17d2\u1786\u17b7\u1780\u17b6","\u1792\u17d2\u1793\u17bc"],t.s)
 B.tM=s(["dg","dl","dt","dc","dj","dv","ds"],t.s)
-B.XL=s(["pred Kristom","po Kristovi"],t.s)
-B.XM=s(["\u0e81\u0ec8\u0ead\u0e99 \u0e84.\u0eaa.","\u0e84.\u0eaa."],t.s)
+B.XS=s(["pred Kristom","po Kristovi"],t.s)
+B.XT=s(["\u0e81\u0ec8\u0ead\u0e99 \u0e84.\u0eaa.","\u0e84.\u0eaa."],t.s)
 B.tN=s(["zo","ma","di","wo","do","vr","za"],t.s)
-B.XN=s(["\u044f\u043d\u0432.","\u0444\u0435\u0432.","\u043c\u0430\u0440.","\u0430\u043f\u0440.","\u043c\u0430\u0439","\u0438\u044e\u043d.","\u0438\u044e\u043b.","\u0430\u0432\u0433.","\u0441\u0435\u043d.","\u043e\u043a\u0442.","\u043d\u043e\u044f.","\u0434\u0435\u043a."],t.s)
-B.XO=s(["EEEE, d 'de' MMMM 'de' y","d 'de' MMMM 'de' y","d MMM y","dd/MM/yy"],t.s)
+B.XU=s(["\u044f\u043d\u0432.","\u0444\u0435\u0432.","\u043c\u0430\u0440.","\u0430\u043f\u0440.","\u043c\u0430\u0439","\u0438\u044e\u043d.","\u0438\u044e\u043b.","\u0430\u0432\u0433.","\u0441\u0435\u043d.","\u043e\u043a\u0442.","\u043d\u043e\u044f.","\u0434\u0435\u043a."],t.s)
+B.XV=s(["EEEE, d 'de' MMMM 'de' y","d 'de' MMMM 'de' y","d MMM y","dd/MM/yy"],t.s)
 B.tO=s(["\u0436\u0441","\u0434\u0441","\u0441\u0441","\u0441\u0440","\u0431\u0441","\u0436\u043c","\u0441\u0431"],t.s)
 B.tP=s(["\u056f\u056b\u0580\u0561\u056f\u056b","\u0565\u0580\u056f\u0578\u0582\u0577\u0561\u0562\u0569\u056b","\u0565\u0580\u0565\u0584\u0577\u0561\u0562\u0569\u056b","\u0579\u0578\u0580\u0565\u0584\u0577\u0561\u0562\u0569\u056b","\u0570\u056b\u0576\u0563\u0577\u0561\u0562\u0569\u056b","\u0578\u0582\u0580\u0562\u0561\u0569","\u0577\u0561\u0562\u0561\u0569"],t.s)
 B.tQ=s(["\u09b0","\u09b8\u09cb","\u09ae","\u09ac\u09c1","\u09ac\u09c3","\u09b6\u09c1","\u09b6"],t.s)
 B.tR=s(["\u0d89\u0dbb\u0dd2\u0daf\u0dcf","\u0dc3\u0db3\u0dd4\u0daf\u0dcf","\u0d85\u0d9f\u0dc4","\u0db6\u0daf\u0dcf\u0daf\u0dcf","\u0db6\u0dca\u200d\u0dbb\u0dc4\u0dc3\u0dca","\u0dc3\u0dd2\u0d9a\u0dd4","\u0dc3\u0dd9\u0db1"],t.s)
-B.XQ=s(["F1","F2","F3","F4"],t.s)
-B.XR=s(["1. \u010detrtletje","2. \u010detrtletje","3. \u010detrtletje","4. \u010detrtletje"],t.s)
+B.XX=s(["F1","F2","F3","F4"],t.s)
+B.XY=s(["1. \u010detrtletje","2. \u010detrtletje","3. \u010detrtletje","4. \u010detrtletje"],t.s)
 B.tS=s([0,0.35,1],t.n)
-B.XS=s(["EEEE, d MMMM 'de' y","d MMMM 'de' y","d MMM y","d/M/yy"],t.s)
-B.XT=s(["I ketvirtis","II ketvirtis","III ketvirtis","IV ketvirtis"],t.s)
-B.XU=s(["1:a kvartalet","2:a kvartalet","3:e kvartalet","4:e kvartalet"],t.s)
+B.XZ=s(["EEEE, d MMMM 'de' y","d MMMM 'de' y","d MMM y","d/M/yy"],t.s)
+B.Y_=s(["I ketvirtis","II ketvirtis","III ketvirtis","IV ketvirtis"],t.s)
+B.Y0=s(["1:a kvartalet","2:a kvartalet","3:e kvartalet","4:e kvartalet"],t.s)
 B.tT=s(["\u044f\u043d\u0443\u0430\u0440\u0438","\u0444\u0435\u0432\u0440\u0443\u0430\u0440\u0438","\u043c\u0430\u0440\u0442","\u0430\u043f\u0440\u0438\u043b","\u043c\u0430\u0439","\u044e\u043d\u0438","\u044e\u043b\u0438","\u0430\u0432\u0433\u0443\u0441\u0442","\u0441\u0435\u043f\u0442\u0435\u043c\u0432\u0440\u0438","\u043e\u043a\u0442\u043e\u043c\u0432\u0440\u0438","\u043d\u043e\u0435\u043c\u0432\u0440\u0438","\u0434\u0435\u043a\u0435\u043c\u0432\u0440\u0438"],t.s)
 B.mL=s(["\u0698\u0627\u0646\u0648\u06cc\u0647","\u0641\u0648\u0631\u06cc\u0647","\u0645\u0627\u0631\u0633","\u0622\u0648\u0631\u06cc\u0644","\u0645\u0647","\u0698\u0648\u0626\u0646","\u0698\u0648\u0626\u06cc\u0647","\u0627\u0648\u062a","\u0633\u067e\u062a\u0627\u0645\u0628\u0631","\u0627\u06a9\u062a\u0628\u0631","\u0646\u0648\u0627\u0645\u0628\u0631","\u062f\u0633\u0627\u0645\u0628\u0631"],t.s)
 B.tU=s(["e diel","e h\xebn\xeb","e mart\xeb","e m\xebrkur\xeb","e enjte","e premte","e shtun\xeb"],t.s)
-B.XV=s(["d","l","m","m","j","v","s"],t.s)
-B.XW=s(["\u0441\u0456\u0447\u043d\u044f","\u043b\u044e\u0442\u043e\u0433\u043e","\u0431\u0435\u0440\u0435\u0437\u043d\u044f","\u043a\u0432\u0456\u0442\u043d\u044f","\u0442\u0440\u0430\u0432\u043d\u044f","\u0447\u0435\u0440\u0432\u043d\u044f","\u043b\u0438\u043f\u043d\u044f","\u0441\u0435\u0440\u043f\u043d\u044f","\u0432\u0435\u0440\u0435\u0441\u043d\u044f","\u0436\u043e\u0432\u0442\u043d\u044f","\u043b\u0438\u0441\u0442\u043e\u043f\u0430\u0434\u0430","\u0433\u0440\u0443\u0434\u043d\u044f"],t.s)
-B.XX=s(["Sv\u0113td.","Pirmd.","Otrd.","Tre\u0161d.","Ceturtd.","Piektd.","Sestd."],t.s)
+B.Y1=s(["d","l","m","m","j","v","s"],t.s)
+B.Y2=s(["\u0441\u0456\u0447\u043d\u044f","\u043b\u044e\u0442\u043e\u0433\u043e","\u0431\u0435\u0440\u0435\u0437\u043d\u044f","\u043a\u0432\u0456\u0442\u043d\u044f","\u0442\u0440\u0430\u0432\u043d\u044f","\u0447\u0435\u0440\u0432\u043d\u044f","\u043b\u0438\u043f\u043d\u044f","\u0441\u0435\u0440\u043f\u043d\u044f","\u0432\u0435\u0440\u0435\u0441\u043d\u044f","\u0436\u043e\u0432\u0442\u043d\u044f","\u043b\u0438\u0441\u0442\u043e\u043f\u0430\u0434\u0430","\u0433\u0440\u0443\u0434\u043d\u044f"],t.s)
+B.Y3=s(["Sv\u0113td.","Pirmd.","Otrd.","Tre\u0161d.","Ceturtd.","Piektd.","Sestd."],t.s)
 B.tV=s(["urt.","ots.","mar.","api.","mai.","eka.","uzt.","abu.","ira.","urr.","aza.","abe."],t.s)
 B.tW=s(["1-\u0440 \u0441\u0430\u0440","2-\u0440 \u0441\u0430\u0440","3-\u0440 \u0441\u0430\u0440","4-\u0440 \u0441\u0430\u0440","5-\u0440 \u0441\u0430\u0440","6-\u0440 \u0441\u0430\u0440","7-\u0440 \u0441\u0430\u0440","8-\u0440 \u0441\u0430\u0440","9-\u0440 \u0441\u0430\u0440","10-\u0440 \u0441\u0430\u0440","11-\u0440 \u0441\u0430\u0440","12-\u0440 \u0441\u0430\u0440"],t.s)
 B.tX=s(["Oca","\u015eub","Mar","Nis","May","Haz","Tem","A\u011fu","Eyl","Eki","Kas","Ara"],t.s)
@@ -92680,287 +92735,222 @@ B.tY=s(["\u0e21\u0e01\u0e23\u0e32\u0e04\u0e21","\u0e01\u0e38\u0e21\u0e20\u0e32\u
 B.bP=new A.kS(0,"label")
 B.bn=new A.kS(1,"avatar")
 B.cF=new A.kS(2,"deleteIcon")
-B.XZ=s([B.bP,B.bn,B.cF],A.a4("q<kS>"))
-B.Y_=s(["\u05dc\u05e4\u05e0\u05d9 \u05d4\u05e1\u05e4\u05d9\u05e8\u05d4","\u05dc\u05e1\u05e4\u05d9\u05e8\u05d4"],t.s)
-B.Y0=s(["I \u10d9\u10d5.","II \u10d9\u10d5.","III \u10d9\u10d5.","IV \u10d9\u10d5."],t.s)
+B.Y5=s([B.bP,B.bn,B.cF],A.a4("q<kS>"))
+B.Y6=s(["\u05dc\u05e4\u05e0\u05d9 \u05d4\u05e1\u05e4\u05d9\u05e8\u05d4","\u05dc\u05e1\u05e4\u05d9\u05e8\u05d4"],t.s)
+B.Y7=s(["I \u10d9\u10d5.","II \u10d9\u10d5.","III \u10d9\u10d5.","IV \u10d9\u10d5."],t.s)
 B.tZ=s(["janv.","f\xe9vr.","mars","avr.","mai","juin","juil.","ao\xfbt","sept.","oct.","nov.","d\xe9c."],t.s)
-B.Y1=s(["1\u0ca8\u0cc7 \u0ca4\u0ccd\u0cb0\u0cc8\u0cae\u0cbe\u0cb8\u0cbf\u0c95","2\u0ca8\u0cc7 \u0ca4\u0ccd\u0cb0\u0cc8\u0cae\u0cbe\u0cb8\u0cbf\u0c95","3\u0ca8\u0cc7 \u0ca4\u0ccd\u0cb0\u0cc8\u0cae\u0cbe\u0cb8\u0cbf\u0c95","4\u0ca8\u0cc7 \u0ca4\u0ccd\u0cb0\u0cc8\u0cae\u0cbe\u0cb8\u0cbf\u0c95"],t.s)
-B.Y2=s(["{1} 'am' {0}","{1} 'am' {0}","{1} {0}","{1} {0}"],t.s)
-B.Y3=s(["{1} 'om' {0}","{1} 'om' {0}","{1} {0}","{1} {0}"],t.s)
-B.Y4=s(["Ion","Chw","Maw","Ebr","Mai","Meh","Gor","Awst","Medi","Hyd","Tach","Rhag"],t.s)
+B.Y8=s(["1\u0ca8\u0cc7 \u0ca4\u0ccd\u0cb0\u0cc8\u0cae\u0cbe\u0cb8\u0cbf\u0c95","2\u0ca8\u0cc7 \u0ca4\u0ccd\u0cb0\u0cc8\u0cae\u0cbe\u0cb8\u0cbf\u0c95","3\u0ca8\u0cc7 \u0ca4\u0ccd\u0cb0\u0cc8\u0cae\u0cbe\u0cb8\u0cbf\u0c95","4\u0ca8\u0cc7 \u0ca4\u0ccd\u0cb0\u0cc8\u0cae\u0cbe\u0cb8\u0cbf\u0c95"],t.s)
+B.Y9=s(["{1} 'am' {0}","{1} 'am' {0}","{1} {0}","{1} {0}"],t.s)
+B.Ya=s(["{1} 'om' {0}","{1} 'om' {0}","{1} {0}","{1} {0}"],t.s)
+B.Yb=s(["Ion","Chw","Maw","Ebr","Mai","Meh","Gor","Awst","Medi","Hyd","Tach","Rhag"],t.s)
 B.u_=s(["ika-1 quarter","ika-2 quarter","ika-3 quarter","ika-4 na quarter"],t.s)
-B.Y5=s(["Suku pertama","Suku Ke-2","Suku Ke-3","Suku Ke-4"],t.s)
-B.Y6=s(["1. \u010dtvrtlet\xed","2. \u010dtvrtlet\xed","3. \u010dtvrtlet\xed","4. \u010dtvrtlet\xed"],t.s)
-B.Y7=s(["EEEE, d MMMM y '\u0433'.","d MMMM y '\u0433'.","d MMM y '\u0433'.","dd.MM.y"],t.s)
+B.Yc=s(["Suku pertama","Suku Ke-2","Suku Ke-3","Suku Ke-4"],t.s)
+B.Yd=s(["1. \u010dtvrtlet\xed","2. \u010dtvrtlet\xed","3. \u010dtvrtlet\xed","4. \u010dtvrtlet\xed"],t.s)
+B.Ye=s(["EEEE, d MMMM y '\u0433'.","d MMMM y '\u0433'.","d MMM y '\u0433'.","dd.MM.y"],t.s)
 B.u0=s(["\u0a9c\u0abe\u0aa8\u0acd\u0aaf\u0ac1\u0a86\u0ab0\u0ac0","\u0aab\u0ac7\u0aac\u0acd\u0ab0\u0ac1\u0a86\u0ab0\u0ac0","\u0aae\u0abe\u0ab0\u0acd\u0a9a","\u0a8f\u0aaa\u0acd\u0ab0\u0abf\u0ab2","\u0aae\u0ac7","\u0a9c\u0ac2\u0aa8","\u0a9c\u0ac1\u0ab2\u0abe\u0a88","\u0a91\u0a97\u0ab8\u0acd\u0a9f","\u0ab8\u0aaa\u0acd\u0a9f\u0ac7\u0aae\u0acd\u0aac\u0ab0","\u0a91\u0a95\u0acd\u0a9f\u0acb\u0aac\u0ab0","\u0aa8\u0ab5\u0ac7\u0aae\u0acd\u0aac\u0ab0","\u0aa1\u0abf\u0ab8\u0ac7\u0aae\u0acd\u0aac\u0ab0"],t.s)
-B.Y8=s(["EEEE, dd MMMM y","dd MMMM y","dd MMM y","y/MM/dd"],t.s)
+B.Yf=s(["EEEE, dd MMMM y","dd MMMM y","dd MMM y","y/MM/dd"],t.s)
 B.u1=s(["jan.","feb.","mar.","apr.","maj","jun.","jul.","avg.","sep.","okt.","nov.","dec."],t.s)
 B.jj=s(["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],t.s)
-B.Y9=s([1116352408,1899447441,3049323471,3921009573,961987163,1508970993,2453635748,2870763221,3624381080,310598401,607225278,1426881987,1925078388,2162078206,2614888103,3248222580,3835390401,4022224774,264347078,604807628,770255983,1249150122,1555081692,1996064986,2554220882,2821834349,2952996808,3210313671,3336571891,3584528711,113926993,338241895,666307205,773529912,1294757372,1396182291,1695183700,1986661051,2177026350,2456956037,2730485921,2820302411,3259730800,3345764771,3516065817,3600352804,4094571909,275423344,430227734,506948616,659060556,883997877,958139571,1322822218,1537002063,1747873779,1955562222,2024104815,2227730452,2361852424,2428436474,2756734187,3204031479,3329325298],t.t)
+B.Yg=s([1116352408,1899447441,3049323471,3921009573,961987163,1508970993,2453635748,2870763221,3624381080,310598401,607225278,1426881987,1925078388,2162078206,2614888103,3248222580,3835390401,4022224774,264347078,604807628,770255983,1249150122,1555081692,1996064986,2554220882,2821834349,2952996808,3210313671,3336571891,3584528711,113926993,338241895,666307205,773529912,1294757372,1396182291,1695183700,1986661051,2177026350,2456956037,2730485921,2820302411,3259730800,3345764771,3516065817,3600352804,4094571909,275423344,430227734,506948616,659060556,883997877,958139571,1322822218,1537002063,1747873779,1955562222,2024104815,2227730452,2361852424,2428436474,2756734187,3204031479,3329325298],t.t)
 B.jk=s(["1.\xba trimestre","2.\xba trimestre","3.\xba trimestre","4.\xba trimestre"],t.s)
-B.Ya=s(["H.mm.ss zzzz","H.mm.ss z","H.mm.ss","H.mm"],t.s)
-B.Yb=s(["\u043d\u044d\u0433\u0434\u04af\u0433\u044d\u044d\u0440 \u0441\u0430\u0440","\u0445\u043e\u0451\u0440\u0434\u0443\u0433\u0430\u0430\u0440 \u0441\u0430\u0440","\u0433\u0443\u0440\u0430\u0432\u0434\u0443\u0433\u0430\u0430\u0440 \u0441\u0430\u0440","\u0434\u04e9\u0440\u04e9\u0432\u0434\u04af\u0433\u044d\u044d\u0440 \u0441\u0430\u0440","\u0442\u0430\u0432\u0434\u0443\u0433\u0430\u0430\u0440 \u0441\u0430\u0440","\u0437\u0443\u0440\u0433\u0430\u0430\u0434\u0443\u0433\u0430\u0430\u0440 \u0441\u0430\u0440","\u0434\u043e\u043b\u043e\u043e\u0434\u0443\u0433\u0430\u0430\u0440 \u0441\u0430\u0440","\u043d\u0430\u0439\u043c\u0434\u0443\u0433\u0430\u0430\u0440 \u0441\u0430\u0440","\u0435\u0441\u0434\u04af\u0433\u044d\u044d\u0440 \u0441\u0430\u0440","\u0430\u0440\u0430\u0432\u0434\u0443\u0433\u0430\u0430\u0440 \u0441\u0430\u0440","\u0430\u0440\u0432\u0430\u043d \u043d\u044d\u0433\u0434\u04af\u0433\u044d\u044d\u0440 \u0441\u0430\u0440","\u0430\u0440\u0432\u0430\u043d \u0445\u043e\u0451\u0440\u0434\u0443\u0433\u0430\u0430\u0440 \u0441\u0430\u0440"],t.s)
-B.Yc=s(["1-\u0440 \u0443\u043b\u0438\u0440\u0430\u043b","2-\u0440 \u0443\u043b\u0438\u0440\u0430\u043b","3-\u0440 \u0443\u043b\u0438\u0440\u0430\u043b","4-\u0440 \u0443\u043b\u0438\u0440\u0430\u043b"],t.s)
+B.Yh=s(["H.mm.ss zzzz","H.mm.ss z","H.mm.ss","H.mm"],t.s)
+B.Yi=s(["\u043d\u044d\u0433\u0434\u04af\u0433\u044d\u044d\u0440 \u0441\u0430\u0440","\u0445\u043e\u0451\u0440\u0434\u0443\u0433\u0430\u0430\u0440 \u0441\u0430\u0440","\u0433\u0443\u0440\u0430\u0432\u0434\u0443\u0433\u0430\u0430\u0440 \u0441\u0430\u0440","\u0434\u04e9\u0440\u04e9\u0432\u0434\u04af\u0433\u044d\u044d\u0440 \u0441\u0430\u0440","\u0442\u0430\u0432\u0434\u0443\u0433\u0430\u0430\u0440 \u0441\u0430\u0440","\u0437\u0443\u0440\u0433\u0430\u0430\u0434\u0443\u0433\u0430\u0430\u0440 \u0441\u0430\u0440","\u0434\u043e\u043b\u043e\u043e\u0434\u0443\u0433\u0430\u0430\u0440 \u0441\u0430\u0440","\u043d\u0430\u0439\u043c\u0434\u0443\u0433\u0430\u0430\u0440 \u0441\u0430\u0440","\u0435\u0441\u0434\u04af\u0433\u044d\u044d\u0440 \u0441\u0430\u0440","\u0430\u0440\u0430\u0432\u0434\u0443\u0433\u0430\u0430\u0440 \u0441\u0430\u0440","\u0430\u0440\u0432\u0430\u043d \u043d\u044d\u0433\u0434\u04af\u0433\u044d\u044d\u0440 \u0441\u0430\u0440","\u0430\u0440\u0432\u0430\u043d \u0445\u043e\u0451\u0440\u0434\u0443\u0433\u0430\u0430\u0440 \u0441\u0430\u0440"],t.s)
+B.Yj=s(["1-\u0440 \u0443\u043b\u0438\u0440\u0430\u043b","2-\u0440 \u0443\u043b\u0438\u0440\u0430\u043b","3-\u0440 \u0443\u043b\u0438\u0440\u0430\u043b","4-\u0440 \u0443\u043b\u0438\u0440\u0430\u043b"],t.s)
 B.mM=s(["\u7b2c1\u5b63","\u7b2c2\u5b63","\u7b2c3\u5b63","\u7b2c4\u5b63"],t.s)
 B.u2=s(["\u0b1c\u0b3e","\u0b2b\u0b47","\u0b2e\u0b3e","\u0b05","\u0b2e\u0b07","\u0b1c\u0b41","\u0b1c\u0b41","\u0b05","\u0b38\u0b47","\u0b05","\u0b28","\u0b21\u0b3f"],t.s)
 B.cw=s(["{1} 'at' {0}","{1} 'at' {0}","{1}, {0}","{1}, {0}"],t.s)
 B.dn=s(["E","F","M","A","M","J","J","A","S","O","N","D"],t.s)
 B.u3=s(["Ean\xe1ir","Feabhra","M\xe1rta","Aibre\xe1n","Bealtaine","Meitheamh","I\xfail","L\xfanasa","Me\xe1n F\xf3mhair","Deireadh F\xf3mhair","Samhain","Nollaig"],t.s)
 B.u4=s(["1.er trimestre","2.\xba trimestre","3.er trimestre","4.\xba trimestre"],t.s)
-B.Yd=s(["1-chorak","2-chorak","3-chorak","4-chorak"],t.s)
-B.Ye=s(["\u0e1b\u0e35\u0e01\u0e48\u0e2d\u0e19\u0e04\u0e23\u0e34\u0e2a\u0e15\u0e01\u0e32\u0e25","\u0e04\u0e23\u0e34\u0e2a\u0e15\u0e4c\u0e28\u0e31\u0e01\u0e23\u0e32\u0e0a"],t.s)
+B.Yk=s(["1-chorak","2-chorak","3-chorak","4-chorak"],t.s)
+B.Yl=s(["\u0e1b\u0e35\u0e01\u0e48\u0e2d\u0e19\u0e04\u0e23\u0e34\u0e2a\u0e15\u0e01\u0e32\u0e25","\u0e04\u0e23\u0e34\u0e2a\u0e15\u0e4c\u0e28\u0e31\u0e01\u0e23\u0e32\u0e0a"],t.s)
 B.u5=s(["\u65e5\u66dc\u65e5","\u6708\u66dc\u65e5","\u706b\u66dc\u65e5","\u6c34\u66dc\u65e5","\u6728\u66dc\u65e5","\u91d1\u66dc\u65e5","\u571f\u66dc\u65e5"],t.s)
 B.u6=s(["\u044f\u043d\u0432\u0430\u0440\u044c","\u0444\u0435\u0432\u0440\u0430\u043b\u044c","\u043c\u0430\u0440\u0442","\u0430\u043f\u0440\u0435\u043b\u044c","\u043c\u0430\u0439","\u0438\u044e\u043d\u044c","\u0438\u044e\u043b\u044c","\u0430\u0432\u0433\u0443\u0441\u0442","\u0441\u0435\u043d\u0442\u044f\u0431\u0440\u044c","\u043e\u043a\u0442\u044f\u0431\u0440\u044c","\u043d\u043e\u044f\u0431\u0440\u044c","\u0434\u0435\u043a\u0430\u0431\u0440\u044c"],t.s)
 B.u7=s(["M","S","S","R","K","J","S"],t.s)
-B.T_=new A.L("1. Purpose","These Terms govern PerfectGest I (customers, budgets, cash, work orders, fiscal reminders, digital business card), with data primarily on your device.\n\nClient and financial data stay on the device and are not transmitted automatically. They may leave only through your actions (share PDF, exported backup, business card PNG/vCard/QR). See Privacy Policy.\n\nPublisher: Marcos Leandro dos Santos.")
-B.Sx=new A.L("2. Eligibility","Users aged 18 or over.")
-B.RL=new A.L("3. Initial Plan, trial period, and subscriptions","- Trial period: 7 days from the first time you open the app on the device (anonymous timestamp stored to prevent improper trial resets).\n- During the trial: up to 5 clients, 5 estimates, and 5 cash entries, including PDF. When saving the 4th record of each type, the app warns that only 1 remains. A 6th record (or exceeding limits) requires Pro Plan, even before the 7 days end.\n- After 7 days without Pro Plan: you cannot create new clients, estimates, or cash entries; you may view and edit data already stored on the device.\n- Pro Plan: unlimited use, encrypted backup restore, and interactive business card in the app \u2014 monthly or annual subscription via Google Play (price and terms in the store).\n- Auto-renewal until cancelled in the Play Store: Payments & subscriptions \u2192 Subscriptions.")
-B.TL=new A.L("4. Cancellation","Google Play Store \u2192 Payments & subscriptions.")
-B.SG=new A.L("5. Statutory rights (Brazil)","Consumer Code may apply (7-day withdrawal where applicable). Refunds via Google.")
-B.UH=new A.L("6. Fiscal reminders","Informational only; not tax advice.")
-B.TZ=new A.L("7. Limitation of liability","Management tool; user responsible for business decisions.")
-B.Sh=new A.L("8. Intellectual property","Revocable license; no unlawful reverse engineering.")
-B.T1=new A.L("9. Changes","Current version at URL below.")
-B.TE=new A.L("10. Governing law","Brazil; venue Caxias do Sul/RS.")
-B.UE=new A.L("11. Contact","suporte@perfectgestdev.com")
-B.Yg=s([B.T_,B.Sx,B.RL,B.TL,B.SG,B.UH,B.TZ,B.Sh,B.T1,B.TE,B.UE],t.h)
 B.u8=s(["\u043d\u0435\u0434.","\u043f\u043e\u043d.","\u0432\u0442\u043e.","\u0441\u0440\u0435.","\u0447\u0435\u0442.","\u043f\u0435\u0442.","\u0441\u0430\u0431."],t.s)
 B.u9=s(["dg.","dl.","dt.","dc.","dj.","dv.","ds."],t.s)
-B.Yh=s(["f.h.","e.h."],t.s)
+B.Yn=s(["f.h.","e.h."],t.s)
 B.ua=s(["\u0436\u0435\u043a\u0441\u0435\u043d\u0431\u0456","\u0434\u04af\u0439\u0441\u0435\u043d\u0431\u0456","\u0441\u0435\u0439\u0441\u0435\u043d\u0431\u0456","\u0441\u04d9\u0440\u0441\u0435\u043d\u0431\u0456","\u0431\u0435\u0439\u0441\u0435\u043d\u0431\u0456","\u0436\u04b1\u043c\u0430","\u0441\u0435\u043d\u0431\u0456"],t.s)
 B.ub=s(["\u0ead\u0eb2\u0e97\u0eb4\u0e94","\u0e88\u0eb1\u0e99","\u0ead\u0eb1\u0e87\u0e84\u0eb2\u0e99","\u0e9e\u0eb8\u0e94","\u0e9e\u0eb0\u0eab\u0eb1\u0e94","\u0eaa\u0eb8\u0e81","\u0ec0\u0eaa\u0ebb\u0eb2"],t.s)
-B.Yi=s(["urtarrilak","otsailak","martxoak","apirilak","maiatzak","ekainak","uztailak","abuztuak","irailak","urriak","azaroak","abenduak"],t.s)
-B.Yj=s(["\u17a2\u17b6\u1791\u17b7\u178f\u17d2\u1799","\u1785\u1793\u17d2\u1791","\u17a2\u1784\u17d2\u1782\u17b6\u179a","\u1796\u17bb\u1792","\u1796\u17d2\u179a\u17a0\u179f\u17d2\u1794\u178f\u17b7\u17cd","\u179f\u17bb\u1780\u17d2\u179a","\u179f\u17c5\u179a\u17cd"],t.s)
-B.Us=new A.L("Introducci\xf3n","PerfectGest I, bajo responsabilidad de Marcos Leandro dos Santos, establece esta Pol\xedtica de Privacidad conforme a la LGPD de Brasil (Ley 13.709/18) y las pol\xedticas de Google Play.")
-B.Tw=new A.L("Responsable y contacto","Responsable: Marcos Leandro dos Santos. Contacto: suporte@perfectgestdev.com.")
-B.UK=new A.L("Almacenamiento local","La app es local-first. Los datos de gesti\xf3n se guardan solo en el dispositivo (SQLite). PerfectGest I no recoge, accede ni transfiere autom\xe1ticamente esos datos a servidores propios.\n\nDatos de clientes y financieros \u2014 protegidos en el dispositivo\n\nPermanecen en el dispositivo y no salen de la app por iniciativa del sistema:\n\n- Registro e historial de clientes\n- Presupuestos, \xedtems, importes y estados\n- Caja \u2014 ingresos, gastos, categor\xedas y saldos\n- \xd3rdenes de servicio, proyectos, contratos y documentos de gesti\xf3n\n- Cualquier nombre de cliente, importe o movimiento financiero\n\nNo enviamos estos datos a Firebase, Firestore, Analytics u otros servidores. Firebase Analytics registra solo eventos gen\xe9ricos de uso, sin nombres de clientes ni importes de caja.\n\nCu\xe1ndo pueden salir del dispositivo (solo por su acci\xf3n)\n\n- Compartir o guardar PDF (presupuesto, informe de caja, etc.)\n- Compartir tarjeta de visita (PNG) \u2014 solo datos profesionales; nunca lista de clientes ni datos financieros\n- Compartir vCard o mostrar QR con contactos profesionales (Plan Pro \u2014 ver abajo)\n- Compartir archivo de backup que export\xf3 (simple o cifrado)\n\nImportante: compartir un backup es responsabilidad del usuario sobre destino y seguridad. Recomendamos copias cifradas (Plan Pro).\n\nTarjeta de visita vs. gesti\xf3n interna\n\nLa pesta\xf1a Empresa alimenta la tarjeta con contactos profesionales; no expone Clientes, Presupuestos ni Caja.")
-B.Ta=new A.L("Tarjeta de visita \u2014 modo est\xe1tico","Tras guardar la primera tarjeta, puede mostrarse una copia congelada local sin Pro. Puede seguir compartiendo el PNG por la hoja de compartir del sistema. Funciones avanzadas (editar tras congelar, vCard, QR, vista previa interactiva con toques) requieren Plan Pro \u2014 solo en la app; PerfectGest no aloja una p\xe1gina web p\xfablica de su tarjeta.")
-B.Te=new A.L("Tarjeta interactiva en la app (Plan Pro)","Con Plan Pro, tras la primera tarjeta puede seguir editando y usar funciones avanzadas en el tel\xe9fono:\n\n- Vista previa interactiva (toques abren WhatsApp, tel\xe9fono, correo, web o mapa)\n- Exportar vCard (.vcf) y generar QR con datos de contacto\n- Compartir PNG actualizado\n\nTodo permanece en el dispositivo hasta que comparta o muestre el QR. No publicamos ni alojamos la tarjeta en un sitio PerfectGest ni enviamos su contenido a Firestore.\n\nNunca incluidos en la tarjeta: clientes, presupuestos, caja, importes financieros, contratos ni backups.")
-B.Si=new A.L("Per\xedodo de prueba y Plan Pro","- Per\xedodo de prueba (7 d\xedas): desde la primera apertura de la app, puede crear hasta 5 clientes, 5 presupuestos y 5 movimientos de caja, con PDF, sin suscripci\xf3n de pago durante ese per\xedodo.\n- L\xedmites durante la prueba: al guardar el 4.\xba registro de cada tipo, la app avisa que es el \xfaltimo de ese tipo en la prueba. El 6.\xba registro (o por encima de los l\xedmites) requiere Plan Pro, incluso dentro de los 7 d\xedas.\n- Tras 7 d\xedas sin Plan Pro: la app sigue siendo utilizable para consultar y editar datos locales, pero no permite crear nuevos clientes, presupuestos ni movimientos de caja.\n- Plan Pro: uso ilimitado, restauraci\xf3n de backup cifrado y tarjeta interactiva en la app (editar tras la primera tarjeta, vCard, QR, vista previa con toques), mensual o anual v\xeda Google Play.\n\nLa fecha de inicio de la prueba se guarda de forma an\xf3nima por dispositivo (servicio Firebase) para coherencia del per\xedodo \u2014 sin datos de clientes, presupuestos ni caja.")
-B.Ub=new A.L("Servicios de terceros","Firebase Analytics (eventos gen\xe9ricos, sin Crashlytics), Remote Config, Firestore (metadatos an\xf3nimos m\xednimos del Plan Inicial por dispositivo: identificador de instalaci\xf3n, inicio del per\xedodo de prueba, elegibilidad freemium y primer guardado de tarjeta \u2014 sin clientes, presupuestos ni caja), Google Play Billing. Sin publicidad en la app.")
-B.SP=new A.L("Notificaciones locales","Recordatorios fiscales solo en el dispositivo. Permiso POST_NOTIFICATIONS en Android 13+.")
-B.SR=new A.L("Seguridad y retenci\xf3n","HTTPS/TLS; no venta de datos para anuncios. Datos locales y snapshot de tarjeta: se eliminan al borrar datos o desinstalar. Telemetr\xeda (Firebase): solicitud por correo, hasta 15 d\xedas h\xe1biles.")
-B.Uv=new A.L("Permisos, elegibilidad y foro","Logotipos, PDFs, backups, notificaciones. Usuarios mayores de 18 a\xf1os. Leyes de Brasil; fuero Caxias do Sul/RS.")
-B.Yk=s([B.Us,B.Tw,B.UK,B.Ta,B.Te,B.Si,B.Ub,B.SP,B.SR,B.Uv],t.h)
-B.Yl=s(["{1}\u060c \u0633\u0627\u0639\u062a {0}","{1}\u060c \u0633\u0627\u0639\u062a {0}","{1}\u060c\u200f {0}","{1}\u060c\u200f {0}"],t.s)
-B.Ym=s(["\u0ca4\u0ccd\u0cb0\u0cc8 1","\u0ca4\u0ccd\u0cb0\u0cc8 2","\u0ca4\u0ccd\u0cb0\u0cc8 3","\u0ca4\u0ccd\u0cb0\u0cc8 4"],t.s)
-B.Yn=s(["p\u0159ed na\u0161\xedm letopo\u010dtem","na\u0161eho letopo\u010dtu"],t.s)
-B.Yo=s(["X","F","M","A","M","X","X","A","S","O","N","D"],t.s)
-B.Yp=s(["ikota yesi-1","ikota yesi-2","ikota yesi-3","ikota yesi-4"],t.s)
-B.Yq=s(["\u0434\u0430 \u043d\u0430\u0440\u0430\u0434\u0436\u044d\u043d\u043d\u044f \u0425\u0440\u044b\u0441\u0442\u043e\u0432\u0430","\u0430\u0434 \u043d\u0430\u0440\u0430\u0434\u0436\u044d\u043d\u043d\u044f \u0425\u0440\u044b\u0441\u0442\u043e\u0432\u0430"],t.s)
-B.Yr=s(["tammikuuta","helmikuuta","maaliskuuta","huhtikuuta","toukokuuta","kes\xe4kuuta","hein\xe4kuuta","elokuuta","syyskuuta","lokakuuta","marraskuuta","joulukuuta"],t.s)
+B.Yo=s(["urtarrilak","otsailak","martxoak","apirilak","maiatzak","ekainak","uztailak","abuztuak","irailak","urriak","azaroak","abenduak"],t.s)
+B.Yp=s(["\u17a2\u17b6\u1791\u17b7\u178f\u17d2\u1799","\u1785\u1793\u17d2\u1791","\u17a2\u1784\u17d2\u1782\u17b6\u179a","\u1796\u17bb\u1792","\u1796\u17d2\u179a\u17a0\u179f\u17d2\u1794\u178f\u17b7\u17cd","\u179f\u17bb\u1780\u17d2\u179a","\u179f\u17c5\u179a\u17cd"],t.s)
+B.Yq=s(["{1}\u060c \u0633\u0627\u0639\u062a {0}","{1}\u060c \u0633\u0627\u0639\u062a {0}","{1}\u060c\u200f {0}","{1}\u060c\u200f {0}"],t.s)
+B.Yr=s(["\u0ca4\u0ccd\u0cb0\u0cc8 1","\u0ca4\u0ccd\u0cb0\u0cc8 2","\u0ca4\u0ccd\u0cb0\u0cc8 3","\u0ca4\u0ccd\u0cb0\u0cc8 4"],t.s)
+B.Ys=s(["p\u0159ed na\u0161\xedm letopo\u010dtem","na\u0161eho letopo\u010dtu"],t.s)
+B.Yt=s(["X","F","M","A","M","X","X","A","S","O","N","D"],t.s)
+B.Yu=s(["ikota yesi-1","ikota yesi-2","ikota yesi-3","ikota yesi-4"],t.s)
+B.Yv=s(["\u0434\u0430 \u043d\u0430\u0440\u0430\u0434\u0436\u044d\u043d\u043d\u044f \u0425\u0440\u044b\u0441\u0442\u043e\u0432\u0430","\u0430\u0434 \u043d\u0430\u0440\u0430\u0434\u0436\u044d\u043d\u043d\u044f \u0425\u0440\u044b\u0441\u0442\u043e\u0432\u0430"],t.s)
+B.Yw=s(["tammikuuta","helmikuuta","maaliskuuta","huhtikuuta","toukokuuta","kes\xe4kuuta","hein\xe4kuuta","elokuuta","syyskuuta","lokakuuta","marraskuuta","joulukuuta"],t.s)
 B.uc=s(["ig.","al.","ar.","az.","og.","or.","lr."],t.s)
 B.ud=s(["{1} 'u' {0}","{1} 'u' {0}","{1} {0}","{1} {0}"],t.s)
-B.Ys=s(["Thg 1","Thg 2","Thg 3","Thg 4","Thg 5","Thg 6","Thg 7","Thg 8","Thg 9","Thg 10","Thg 11","Thg 12"],t.s)
+B.Yx=s(["Thg 1","Thg 2","Thg 3","Thg 4","Thg 5","Thg 6","Thg 7","Thg 8","Thg 9","Thg 10","Thg 11","Thg 12"],t.s)
 B.ue=s(["\u0930\u0935\u093f\u0935\u093e\u0930","\u0938\u094b\u092e\u0935\u093e\u0930","\u092e\u0902\u0917\u0932\u0935\u093e\u0930","\u092c\u0941\u0927\u0935\u093e\u0930","\u0917\u0941\u0930\u0941\u0935\u093e\u0930","\u0936\u0941\u0915\u094d\u0930\u0935\u093e\u0930","\u0936\u0928\u093f\u0935\u093e\u0930"],t.s)
-B.Yt=s(["\xd6\xd6","\xd6S"],t.s)
-B.Yu=s(["\u0c95\u0ccd\u0cb0\u0cbf.\u0caa\u0cc2","\u0c95\u0ccd\u0cb0\u0cbf.\u0cb6"],t.s)
-B.Yv=s(["EEEE\u0e17\u0e35\u0e48 d MMMM G y","d MMMM G y","d MMM y","d/M/yy"],t.s)
-B.Yw=s(["prie\u0161piet","popiet"],t.s)
-B.Yx=s(["K.a.","K.o."],t.s)
-B.Yy=s(["1\u0ab2\u0acb \u0aa4\u0acd\u0ab0\u0abf\u0aae\u0abe\u0ab8","2\u0a9c\u0acb \u0aa4\u0acd\u0ab0\u0abf\u0aae\u0abe\u0ab8","3\u0a9c\u0acb \u0aa4\u0acd\u0ab0\u0abf\u0aae\u0abe\u0ab8","4\u0aa5\u0acb \u0aa4\u0acd\u0ab0\u0abf\u0aae\u0abe\u0ab8"],t.s)
+B.Yy=s(["\xd6\xd6","\xd6S"],t.s)
+B.Yz=s(["\u0c95\u0ccd\u0cb0\u0cbf.\u0caa\u0cc2","\u0c95\u0ccd\u0cb0\u0cbf.\u0cb6"],t.s)
+B.YA=s(["EEEE\u0e17\u0e35\u0e48 d MMMM G y","d MMMM G y","d MMM y","d/M/yy"],t.s)
+B.YB=s(["prie\u0161piet","popiet"],t.s)
+B.YC=s(["K.a.","K.o."],t.s)
+B.YD=s(["1\u0ab2\u0acb \u0aa4\u0acd\u0ab0\u0abf\u0aae\u0abe\u0ab8","2\u0a9c\u0acb \u0aa4\u0acd\u0ab0\u0abf\u0aae\u0abe\u0ab8","3\u0a9c\u0acb \u0aa4\u0acd\u0ab0\u0abf\u0aae\u0abe\u0ab8","4\u0aa5\u0acb \u0aa4\u0acd\u0ab0\u0abf\u0aae\u0abe\u0ab8"],t.s)
 B.uf=s(["\u7d00\u5143\u524d","\u897f\u66a6"],t.s)
 B.ug=s(["\u0a9c\u0abe","\u0aab\u0ac7","\u0aae\u0abe","\u0a8f","\u0aae\u0ac7","\u0a9c\u0ac2","\u0a9c\u0ac1","\u0a91","\u0ab8","\u0a91","\u0aa8","\u0aa1\u0abf"],t.s)
-B.Yz=s(["1e kwartaal","2e kwartaal","3e kwartaal","4e kwartaal"],t.s)
-B.YA=s(["de.","du."],t.s)
-B.YB=s(["i. e.","i. sz."],t.s)
+B.YE=s(["1e kwartaal","2e kwartaal","3e kwartaal","4e kwartaal"],t.s)
+B.YF=s(["de.","du."],t.s)
+B.YG=s(["i. e.","i. sz."],t.s)
 B.uh=s(["Ahad","Isnin","Selasa","Rabu","Khamis","Jumaat","Sabtu"],t.s)
 B.ui=s(["sunnudagur","m\xe1nudagur","\xferi\xf0judagur","mi\xf0vikudagur","fimmtudagur","f\xf6studagur","laugardagur"],t.s)
 B.uj=s(["\u1007\u1014\u103a\u1014\u101d\u102b\u101b\u102e","\u1016\u1031\u1016\u1031\u102c\u103a\u101d\u102b\u101b\u102e","\u1019\u1010\u103a","\u1027\u1015\u103c\u102e","\u1019\u1031","\u1007\u103d\u1014\u103a","\u1007\u1030\u101c\u102d\u102f\u1004\u103a","\u1029\u1002\u102f\u1010\u103a","\u1005\u1000\u103a\u1010\u1004\u103a\u1018\u102c","\u1021\u1031\u102c\u1000\u103a\u1010\u102d\u102f\u1018\u102c","\u1014\u102d\u102f\u101d\u1004\u103a\u1018\u102c","\u1012\u102e\u1007\u1004\u103a\u1018\u102c"],t.s)
 B.jl=s(["\u9031\u65e5","\u9031\u4e00","\u9031\u4e8c","\u9031\u4e09","\u9031\u56db","\u9031\u4e94","\u9031\u516d"],t.s)
 B.uk=s(["G","F","M","A","M","G","L","A","S","O","N","D"],t.s)
 B.dY=s(["K1","K2","K3","K4"],t.s)
-B.YE=s(["y MMMM d, EEEE","d MMMM y","d MMM y","dd/MM/y"],t.s)
-B.YF=s(["KK","BK"],t.s)
+B.YJ=s(["y MMMM d, EEEE","d MMMM y","d MMM y","dd/MM/y"],t.s)
+B.YK=s(["KK","BK"],t.s)
 B.h5=s(["s\xf8n.","man.","tir.","ons.","tor.","fre.","l\xf8r."],t.s)
-B.YG=s(["KV1","KV2","KV3","KV4"],t.s)
+B.YL=s(["KV1","KV2","KV3","KV4"],t.s)
 B.jm=s(["n","p","u","s","\u010d","p","s"],t.s)
-B.YH=s(["1Hh","2Hh","3Hh","4Hh"],t.s)
+B.YM=s(["1Hh","2Hh","3Hh","4Hh"],t.s)
 B.ul=s(["\u17a2\u17b6\u1791\u17b7\u178f\u17d2\u1799","\u1785\u1793\u17d2\u1791","\u17a2\u1784\u17d2\u1782\u17b6\u179a","\u1796\u17bb\u1792","\u1796\u17d2\u179a\u17a0","\u179f\u17bb\u1780\u17d2\u179a","\u179f\u17c5\u179a\u17cd"],t.s)
 B.um=s(["\u0b9c\u0ba9\u0bb5\u0bb0\u0bbf","\u0baa\u0bbf\u0baa\u0bcd\u0bb0\u0bb5\u0bb0\u0bbf","\u0bae\u0bbe\u0bb0\u0bcd\u0b9a\u0bcd","\u0b8f\u0baa\u0bcd\u0bb0\u0bb2\u0bcd","\u0bae\u0bc7","\u0b9c\u0bc2\u0ba9\u0bcd","\u0b9c\u0bc2\u0bb2\u0bc8","\u0b86\u0b95\u0bb8\u0bcd\u0b9f\u0bcd","\u0b9a\u0bc6\u0baa\u0bcd\u0b9f\u0bae\u0bcd\u0baa\u0bb0\u0bcd","\u0b85\u0b95\u0bcd\u0b9f\u0bcb\u0baa\u0bb0\u0bcd","\u0ba8\u0bb5\u0bae\u0bcd\u0baa\u0bb0\u0bcd","\u0b9f\u0bbf\u0b9a\u0bae\u0bcd\u0baa\u0bb0\u0bcd"],t.s)
-B.YI=s(["\u0434\u0430 \u043d.\u044d.","\u043d.\u044d."],t.s)
-B.YJ=s(["\xeenainte de Hristos","dup\u0103 Hristos"],t.s)
+B.YN=s(["\u0434\u0430 \u043d.\u044d.","\u043d.\u044d."],t.s)
+B.YO=s(["\xeenainte de Hristos","dup\u0103 Hristos"],t.s)
 B.jn=s(["nedjelja","ponedjeljak","utorak","srijeda","\u010detvrtak","petak","subota"],t.s)
-B.TI=new A.L("Introdu\xe7\xe3o","O PerfectGest I oferece controlo claro dos dados, em conformidade com a Google Play e a LGPD. A app \xe9 local-first.")
-B.RM=new A.L("Resumo","Dados de clientes e financeiros n\xe3o s\xe3o enviados automaticamente para servidores PerfectGest. S\xf3 podem sair do telem\xf3vel se partilhar PDFs, partilhar ficheiros de backup que exportou, partilhar PNG/vCard do cart\xe3o de visita ou mostrar um QR com contactos profissionais.")
-B.UF=new A.L("1. Dados de gest\xe3o (local)","Armazenados em SQLite no dispositivo: clientes, or\xe7amentos, caixa, ordens de servi\xe7o, dados da empresa, c\xf3pia do cart\xe3o de visita, lembretes fiscais.\n\nComo eliminar\n\n- Na app: Configura\xe7\xf5es \u2192 Dados no dispositivo \u2192 Eliminar todos os dados neste aparelho\n- Android: Defini\xe7\xf5es \u2192 Apps \u2192 PerfectGest I \u2192 Armazenamento \u2192 Limpar dados\n- Desinstalar a app\n\nAviso: sem c\xf3pia externa, n\xe3o h\xe1 recupera\xe7\xe3o \u2014 n\xe3o guardamos c\xf3pias nos nossos servidores.\n\nBackups partilhados: elimine manualmente no WhatsApp, e-mail ou nuvem onde os guardou.")
+B.TK=new A.L("Introdu\xe7\xe3o","O PerfectGest I oferece controlo claro dos dados, em conformidade com a Google Play e a LGPD. A app \xe9 local-first.")
+B.RL=new A.L("Resumo","Dados de clientes e financeiros n\xe3o s\xe3o enviados automaticamente para servidores PerfectGest. S\xf3 podem sair do telem\xf3vel se partilhar PDFs, partilhar ficheiros de backup que exportou, partilhar PNG/vCard do cart\xe3o de visita ou mostrar um QR com contactos profissionais.")
+B.UI=new A.L("1. Dados de gest\xe3o (local)","Armazenados em SQLite no dispositivo: clientes, or\xe7amentos, caixa, ordens de servi\xe7o, dados da empresa, c\xf3pia do cart\xe3o de visita, lembretes fiscais.\n\nComo eliminar\n\n- Na app: Configura\xe7\xf5es \u2192 Dados no dispositivo \u2192 Eliminar todos os dados neste aparelho\n- Android: Defini\xe7\xf5es \u2192 Apps \u2192 PerfectGest I \u2192 Armazenamento \u2192 Limpar dados\n- Desinstalar a app\n\nAviso: sem c\xf3pia externa, n\xe3o h\xe1 recupera\xe7\xe3o \u2014 n\xe3o guardamos c\xf3pias nos nossos servidores.\n\nBackups partilhados: elimine manualmente no WhatsApp, e-mail ou nuvem onde os guardou.")
 B.RY=new A.L("2. Firebase / telemetria","Metadados an\xf3nimos de instala\xe7\xe3o e m\xe9tricas de uso para elegibilidade do Plano Inicial. N\xe3o alojamos conte\xfado do cart\xe3o de visita em servidores.\n\nE-mail: suporte@perfectgestdev.com \u2014 Assunto: Solicita\xe7\xe3o de Exclus\xe3o de Dados T\xe9cnicos")
-B.SI=new A.L("3. Notifica\xe7\xf5es locais","Canceladas ao desinstalar ou ao apagar os dados na app.")
-B.Tm=new A.L("4. Prazos","Dados locais: imediato. Telemetria Firebase: at\xe9 15 dias \xfateis ap\xf3s pedido por e-mail.")
-B.YK=s([B.TI,B.RM,B.UF,B.RY,B.SI,B.Tm],t.h)
+B.SJ=new A.L("3. Notifica\xe7\xf5es locais","Canceladas ao desinstalar ou ao apagar os dados na app.")
+B.Tq=new A.L("4. Prazos","Dados locais: imediato. Telemetria Firebase: at\xe9 15 dias \xfateis ap\xf3s pedido por e-mail.")
+B.YP=s([B.TK,B.RL,B.UI,B.RY,B.SJ,B.Tq],t.h)
 B.jo=s(["\u0627\u062a\u0648\u0627\u0631","\u067e\u06cc\u0631","\u0645\u0646\u06af\u0644","\u0628\u062f\u06be","\u062c\u0645\u0639\u0631\u0627\u062a","\u062c\u0645\u0639\u06c1","\u06c1\u0641\u062a\u06c1"],t.s)
-B.RX=new A.L("O que \xe9 o PerfectGest I?","Aplica\xe7\xe3o de gest\xe3o no telem\xf3vel, com dados guardados localmente (SQLite). N\xe3o h\xe1 \xabconta na nuvem\xbb PerfectGest para clientes, or\xe7amentos ou caixa.")
-B.SK=new A.L("A app funciona sem internet?","Sim, o uso di\xe1rio \xe9 offline-first. Servi\xe7os Google opcionais (Analytics, Remote Config, Firestore m\xednimo para o Plano Inicial) podem usar rede quando activos.")
-B.Ty=new A.L("Como funciona o per\xedodo de teste?","7 dias desde a primeira abertura. Durante esse tempo: at\xe9 5 clientes, 5 or\xe7amentos e 5 lan\xe7amentos de caixa (com PDF), sem subscri\xe7\xe3o paga. Ao guardar o 4.\xba de cada tipo, a app avisa que falta 1. O 6.\xba ou o fim dos 7 dias sem Plano Pro impede novos registos; pode continuar a consultar e editar o que j\xe1 est\xe1 no telem\xf3vel. Subscri\xe7\xe3o: Configura\xe7\xf5es \u2192 Assinatura Google Play.")
-B.TA=new A.L("Como funciona o Plano Inicial?","\xc9 o conjunto de limites 5+5+5 aplicado durante os 7 dias de teste (ver acima). Fora do teste ou acima dos limites, \xe9 necess\xe1rio o Plano Pro (mensal ou anual na Google Play).")
-B.Un=new A.L("Onde compro ou gerencio a subscri\xe7\xe3o?","Configura\xe7\xf5es \u2192 Assinatura Google Play. Pagamentos pelo Google. Cancelamento: Play Store \u2192 Pagamentos e subscri\xe7\xf5es \u2192 Subscri\xe7\xf5es.")
-B.S2=new A.L("O que \xe9 o cart\xe3o de visita digital?","Na aba Empresa edita os dados profissionais da empresa (n\xe3o inclui clientes nem caixa). O cart\xe3o mostra log\xf3tipo, nome, slogan, CNPJ, nome do profissional e contactos com r\xf3tulos no rodap\xe9 (at\xe9 2 por linha). Temas: branco, cinza ou preto.\n\nPartilhar cart\xe3o de visita gera PNG e abre a folha de partilha (WhatsApp, e-mail, etc.). Ap\xf3s o primeiro cart\xe3o, sem Plano Pro o cart\xe3o fica em modo est\xe1tico (pode partilhar o PNG do snapshot); com Pro, edita e usa fun\xe7\xf5es avan\xe7adas s\xf3 na app (vCard, QR, preview interactivo) \u2014 sem p\xe1gina web alojada pela PerfectGest.\n\nClientes e dados financeiros ficam protegidos: s\xf3 no telem\xf3vel; n\xe3o entram no cart\xe3o nem s\xe3o enviados automaticamente para servidores.")
-B.Sk=new A.L("Os meus dados de clientes e financeiros est\xe3o protegidos?","Sim. Clientes, or\xe7amentos, caixa e valores ficam na base local. A app n\xe3o envia esses dados para servidores.\n\nS\xf3 saem do telem\xf3vel se voc\xea decidir:\n\n- Partilhar um PDF\n- Partilhar o cart\xe3o de visita (PNG, vCard ou QR \u2014 contactos profissionais)\n- Partilhar um backup exportado em Configura\xe7\xf5es (recomendamos backup encriptado no Plano Pro)")
-B.Sl=new A.L("O que s\xe3o os lembretes fiscais?","Obriga\xe7\xf5es pr\xe9-configuradas (MEI, Aut\xf4nomo, ME) com alarmes no dispositivo. Meramente informativos \u2014 n\xe3o substituem contabilista.")
-B.S7=new A.L("O que \xe9 o calend\xe1rio semanal?","Na aba Empresa, calend\xe1rio da semana com indicadores de vencimentos fiscais.")
-B.T4=new A.L("O que s\xe3o os \xab\xdaltimos lan\xe7amentos\xbb?","Atalhos na p\xe1gina inicial para o \xfaltimo cliente, or\xe7amento, ordem de servi\xe7o e lan\xe7amento de caixa.")
-B.Sm=new A.L("A app envia notifica\xe7\xf5es?","Apenas notifica\xe7\xf5es locais para lembretes fiscais. Sem envio a servidores externos.")
-B.U0=new A.L("Onde est\xe1 a pol\xedtica de privacidade?","Configura\xe7\xf5es \u2192 Ajuda e suporte \u2014 links para Pol\xedtica, Exclus\xe3o de dados e Termos. E-mail: suporte@perfectgestdev.com.")
-B.U9=new A.L("Como apago todos os dados neste aparelho?","Configura\xe7\xf5es \u2192 Dados no dispositivo \u2192 Eliminar todos os dados neste aparelho. N\xe3o apaga PDFs ou backups j\xe1 exportados. Para dados t\xe9cnicos Google: p\xe1gina de exclus\xe3o de dados.")
-B.SO=new A.L("A app tem an\xfancios?","N\xe3o.")
-B.Uj=new A.L("H\xe1 Firebase Crashlytics?","N\xe3o. Analytics regista eventos gen\xe9ricos; n\xe3o envia crash reports autom\xe1ticos.")
-B.St=new A.L("Em que idiomas est\xe1 a app?","Portugu\xeas (Brasil), ingl\xeas (EUA), espanhol (Espanha).")
-B.Uz=new A.L("Como posso dar sugest\xf5es?","Aba Empresa \u2192 D\xea sua contribui\xe7\xe3o \u2192 e-mail suporte@perfectgestdev.com.")
-B.YL=s([B.RX,B.SK,B.Ty,B.TA,B.Un,B.S2,B.Sk,B.Sl,B.S7,B.T4,B.Sm,B.U0,B.U9,B.SO,B.Uj,B.St,B.Uz],t.h)
-B.YM=s(["\u0441\u0456\u0447.","\u043b\u044e\u0442.","\u0431\u0435\u0440.","\u043a\u0432\u0456\u0442.","\u0442\u0440\u0430\u0432.","\u0447\u0435\u0440\u0432.","\u043b\u0438\u043f.","\u0441\u0435\u0440\u043f.","\u0432\u0435\u0440.","\u0436\u043e\u0432\u0442.","\u043b\u0438\u0441\u0442.","\u0433\u0440\u0443\u0434."],t.s)
-B.YN=s(["m.a.","milodiy"],t.s)
-B.YO=s(["\u042f\u043d\u0432","\u0424\u0435\u0432","\u041c\u0430\u0440","\u0410\u043f\u0440","\u041c\u0430\u0439","\u0418\u044e\u043d","\u0418\u044e\u043b","\u0410\u0432\u0433","\u0421\u0435\u043d","\u041e\u043a\u0442","\u041d\u043e\u044f","\u0414\u0435\u043a"],t.s)
-B.YP=s(["1. \u0442\u0440\u0438\u043c.","2. \u0442\u0440\u0438\u043c.","3. \u0442\u0440\u0438\u043c.","4. \u0442\u0440\u0438\u043c."],t.s)
+B.YQ=s(["\u0441\u0456\u0447.","\u043b\u044e\u0442.","\u0431\u0435\u0440.","\u043a\u0432\u0456\u0442.","\u0442\u0440\u0430\u0432.","\u0447\u0435\u0440\u0432.","\u043b\u0438\u043f.","\u0441\u0435\u0440\u043f.","\u0432\u0435\u0440.","\u0436\u043e\u0432\u0442.","\u043b\u0438\u0441\u0442.","\u0433\u0440\u0443\u0434."],t.s)
+B.YR=s(["m.a.","milodiy"],t.s)
+B.YS=s(["\u042f\u043d\u0432","\u0424\u0435\u0432","\u041c\u0430\u0440","\u0410\u043f\u0440","\u041c\u0430\u0439","\u0418\u044e\u043d","\u0418\u044e\u043b","\u0410\u0432\u0433","\u0421\u0435\u043d","\u041e\u043a\u0442","\u041d\u043e\u044f","\u0414\u0435\u043a"],t.s)
+B.YT=s(["1. \u0442\u0440\u0438\u043c.","2. \u0442\u0440\u0438\u043c.","3. \u0442\u0440\u0438\u043c.","4. \u0442\u0440\u0438\u043c."],t.s)
 B.un=s(["s\xf6n","m\xe5n","tis","ons","tors","fre","l\xf6r"],t.s)
 B.jp=s(["a.C.","d.C."],t.s)
-B.YR=s(["\u0d1e","\u0d24\u0d3f","\u0d1a\u0d4a","\u0d2c\u0d41","\u0d35\u0d4d\u0d2f\u0d3e","\u0d35\u0d46","\u0d36"],t.s)
+B.YV=s(["\u0d1e","\u0d24\u0d3f","\u0d1a\u0d4a","\u0d2c\u0d41","\u0d35\u0d4d\u0d2f\u0d3e","\u0d35\u0d46","\u0d36"],t.s)
 B.dp=s(["a.m.","p.m."],t.s)
-B.YS=s(["\u1229\u12651","\u1229\u12652","\u1229\u12653","\u1229\u12654"],t.s)
-B.YT=s(["\u0e81\u0ec8\u0ead\u0e99\u0e97\u0ec8\u0ebd\u0e87","\u0eab\u0ebc\u0eb1\u0e87\u0e97\u0ec8\u0ebd\u0e87"],t.s)
+B.YW=s(["\u1229\u12651","\u1229\u12652","\u1229\u12653","\u1229\u12654"],t.s)
+B.YX=s(["\u0e81\u0ec8\u0ead\u0e99\u0e97\u0ec8\u0ebd\u0e87","\u0eab\u0ebc\u0eb1\u0e87\u0e97\u0ec8\u0ebd\u0e87"],t.s)
 B.uo=s(["jan.","febr.","m\xe1rc.","\xe1pr.","m\xe1j.","j\xfan.","j\xfal.","aug.","szept.","okt.","nov.","dec."],t.s)
 B.up=s(["yanvar","fevral","mart","aprel","may","iyun","iyul","avqust","sentyabr","oktyabr","noyabr","dekabr"],t.s)
-B.a4g=new A.d_("en",null,"US")
-B.YU=s([B.a4g],t.ss)
-B.YV=s(["\u049b\u0430\u04a3\u0442\u0430\u0440","\u0430\u049b\u043f\u0430\u043d","\u043d\u0430\u0443\u0440\u044b\u0437","\u0441\u04d9\u0443\u0456\u0440","\u043c\u0430\u043c\u044b\u0440","\u043c\u0430\u0443\u0441\u044b\u043c","\u0448\u0456\u043b\u0434\u0435","\u0442\u0430\u043c\u044b\u0437","\u049b\u044b\u0440\u043a\u04af\u0439\u0435\u043a","\u049b\u0430\u0437\u0430\u043d","\u049b\u0430\u0440\u0430\u0448\u0430","\u0436\u0435\u043b\u0442\u043e\u049b\u0441\u0430\u043d"],t.s)
+B.a4j=new A.d_("en",null,"US")
+B.YY=s([B.a4j],t.ss)
+B.YZ=s(["\u049b\u0430\u04a3\u0442\u0430\u0440","\u0430\u049b\u043f\u0430\u043d","\u043d\u0430\u0443\u0440\u044b\u0437","\u0441\u04d9\u0443\u0456\u0440","\u043c\u0430\u043c\u044b\u0440","\u043c\u0430\u0443\u0441\u044b\u043c","\u0448\u0456\u043b\u0434\u0435","\u0442\u0430\u043c\u044b\u0437","\u049b\u044b\u0440\u043a\u04af\u0439\u0435\u043a","\u049b\u0430\u0437\u0430\u043d","\u049b\u0430\u0440\u0430\u0448\u0430","\u0436\u0435\u043b\u0442\u043e\u049b\u0441\u0430\u043d"],t.s)
 B.uq=s(["\u05d9\u05e0\u05d5\u05f3","\u05e4\u05d1\u05e8\u05f3","\u05de\u05e8\u05e5","\u05d0\u05e4\u05e8\u05f3","\u05de\u05d0\u05d9","\u05d9\u05d5\u05e0\u05d9","\u05d9\u05d5\u05dc\u05d9","\u05d0\u05d5\u05d2\u05f3","\u05e1\u05e4\u05d8\u05f3","\u05d0\u05d5\u05e7\u05f3","\u05e0\u05d5\u05d1\u05f3","\u05d3\u05e6\u05de\u05f3"],t.s)
-B.YW=s([0,0.32,0.68,1],t.n)
-B.YX=s(["Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"],t.s)
-B.YY=s(["1\u0c35 \u0c24\u0c4d\u0c30\u0c48\u0c2e\u0c3e\u0c38\u0c3f\u0c15\u0c02","2\u0c35 \u0c24\u0c4d\u0c30\u0c48\u0c2e\u0c3e\u0c38\u0c3f\u0c15\u0c02","3\u0c35 \u0c24\u0c4d\u0c30\u0c48\u0c2e\u0c3e\u0c38\u0c3f\u0c15\u0c02","4\u0c35 \u0c24\u0c4d\u0c30\u0c48\u0c2e\u0c3e\u0c38\u0c3f\u0c15\u0c02"],t.s)
+B.Z_=s([0,0.32,0.68,1],t.n)
+B.Z0=s(["Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"],t.s)
+B.Z1=s(["1\u0c35 \u0c24\u0c4d\u0c30\u0c48\u0c2e\u0c3e\u0c38\u0c3f\u0c15\u0c02","2\u0c35 \u0c24\u0c4d\u0c30\u0c48\u0c2e\u0c3e\u0c38\u0c3f\u0c15\u0c02","3\u0c35 \u0c24\u0c4d\u0c30\u0c48\u0c2e\u0c3e\u0c38\u0c3f\u0c15\u0c02","4\u0c35 \u0c24\u0c4d\u0c30\u0c48\u0c2e\u0c3e\u0c38\u0c3f\u0c15\u0c02"],t.s)
 B.ur=s(["1\u0b2e \u0b24\u0b4d\u0b30\u0b5f\u0b2e\u0b3e\u0b38","2\u0b5f \u0b24\u0b4d\u0b30\u0b5f\u0b2e\u0b3e\u0b38","3\u0b5f \u0b24\u0b4d\u0b30\u0b5f\u0b2e\u0b3e\u0b38","4\u0b30\u0b4d\u0b25 \u0b24\u0b4d\u0b30\u0b5f\u0b2e\u0b3e\u0b38"],t.s)
 B.us=s([0,41,61,101,131,181,251,301,360],t.n)
-B.SM=new A.L("1. Objeto","Estos T\xe9rminos regulan PerfectGest I (clientes, presupuestos, caja, \xf3rdenes de servicio, recordatorios fiscales, tarjeta de visita digital), con datos principalmente en el dispositivo.\n\nDatos de clientes y financieros permanecen en el dispositivo y no se transmiten autom\xe1ticamente. Solo pueden salir por acci\xf3n expl\xedcita (compartir PDF, backup exportado, PNG/vCard/QR de la tarjeta). V\xe9ase Pol\xedtica de Privacidad.\n\nEditor: Marcos Leandro dos Santos.")
-B.Sy=new A.L("2. Elegibilidad","Usuarios mayores de 18 a\xf1os.")
-B.SZ=new A.L("3. Plan Inicial, per\xedodo de prueba y suscripciones","- Per\xedodo de prueba: 7 d\xedas desde la primera apertura de la app en el dispositivo (marca de tiempo an\xf3nima para evitar reinicios indebidos de la prueba).\n- Durante la prueba: hasta 5 clientes, 5 presupuestos y 5 movimientos de caja, con PDF. Al guardar el 4.\xba registro de cada tipo, la app avisa que solo queda 1. El 6.\xba registro (o por encima de los l\xedmites) requiere Plan Pro, incluso antes de que terminen los 7 d\xedas.\n- Tras 7 d\xedas sin Plan Pro: no puede crear nuevos clientes, presupuestos ni movimientos de caja; puede consultar y editar los datos ya guardados en el dispositivo.\n- Plan Pro: uso ilimitado, restauraci\xf3n de backup cifrado y tarjeta de visita interactiva en la app \u2014 suscripci\xf3n mensual o anual v\xeda Google Play (precio y condiciones en la tienda).\n- Renovaci\xf3n autom\xe1tica hasta cancelar en Play Store: Pagos y suscripciones \u2192 Suscripciones.")
-B.T0=new A.L("4. Cancelaci\xf3n","Google Play Store \u2192 Pagos y suscripciones.")
-B.Sp=new A.L("5. Desistimiento (Brasil \u2014 CDC)","7 d\xedas naturales cuando corresponda. Reembolsos v\xeda Google.")
-B.RT=new A.L("6. Recordatorios fiscales","Informativos; no asesoramiento fiscal.")
-B.T7=new A.L("7. Limitaci\xf3n de responsabilidad","Herramienta de gesti\xf3n; responsabilidad del usuario.")
-B.Uc=new A.L("8. Propiedad intelectual","Licencia revocable; sin ingenier\xeda inversa il\xedcita.")
-B.SV=new A.L("9. Cambios","Versi\xf3n publicada en URL abajo.")
-B.Ux=new A.L("10. Ley y fuero","Brasil; Caxias do Sul/RS.")
-B.YZ=s([B.SM,B.Sy,B.SZ,B.T0,B.Sp,B.RT,B.T7,B.Uc,B.SV,B.Ux,B.ri],t.h)
-B.Z_=s(["\u0642\u0628\u0644 \u0627\u0644\u0645\u064a\u0644\u0627\u062f","\u0645\u064a\u0644\u0627\u062f\u064a"],t.s)
-B.Z1=s(["{1} '\u043e' {0}","{1} '\u043e' {0}","{1}, {0}","{1}, {0}"],t.s)
-B.Z0=s(["{1} '\u0443' {0}","{1} '\u0443' {0}","{1}, {0}","{1}, {0}"],t.s)
-B.amh=new A.mi(0,0)
-B.amm=new A.mi(1,0.05)
-B.amk=new A.mi(3,0.08)
-B.aml=new A.mi(6,0.11)
-B.amj=new A.mi(8,0.12)
-B.ami=new A.mi(12,0.14)
-B.ut=s([B.amh,B.amm,B.amk,B.aml,B.amj,B.ami],A.a4("q<mi>"))
-B.Z2=s(["HH:mm:ss, zzzz","HH:mm:ss z","HH:mm:ss","HH:mm"],t.s)
+B.Z2=s(["\u0642\u0628\u0644 \u0627\u0644\u0645\u064a\u0644\u0627\u062f","\u0645\u064a\u0644\u0627\u062f\u064a"],t.s)
+B.Z4=s(["{1} '\u043e' {0}","{1} '\u043e' {0}","{1}, {0}","{1}, {0}"],t.s)
+B.Z3=s(["{1} '\u0443' {0}","{1} '\u0443' {0}","{1}, {0}","{1}, {0}"],t.s)
+B.amk=new A.mi(0,0)
+B.amp=new A.mi(1,0.05)
+B.amn=new A.mi(3,0.08)
+B.amo=new A.mi(6,0.11)
+B.amm=new A.mi(8,0.12)
+B.aml=new A.mi(12,0.14)
+B.ut=s([B.amk,B.amp,B.amn,B.amo,B.amm,B.aml],A.a4("q<mi>"))
+B.Z5=s(["HH:mm:ss, zzzz","HH:mm:ss z","HH:mm:ss","HH:mm"],t.s)
 B.jq=s(["\u041d\u044f","\u0414\u0430","\u041c\u044f","\u041b\u0445","\u041f\u04af","\u0411\u0430","\u0411\u044f"],t.s)
-B.Z3=s(["EEEE, y. 'gada' d. MMMM","y. 'gada' d. MMMM","y. 'gada' d. MMM","dd.MM.yy"],t.s)
+B.Z6=s(["EEEE, y. 'gada' d. MMMM","y. 'gada' d. MMMM","y. 'gada' d. MMM","dd.MM.yy"],t.s)
 B.uu=s(["\u0d1e\u0d3e\u0d2f\u0d7c","\u0d24\u0d3f\u0d19\u0d4d\u0d15\u0d7e","\u0d1a\u0d4a\u0d35\u0d4d\u0d35","\u0d2c\u0d41\u0d27\u0d7b","\u0d35\u0d4d\u0d2f\u0d3e\u0d34\u0d02","\u0d35\u0d46\u0d33\u0d4d\u0d33\u0d3f","\u0d36\u0d28\u0d3f"],t.s)
-B.Z4=s(["sv\u0113td.","pirmd.","otrd.","tre\u0161d.","ceturtd.","piektd.","sestd."],t.s)
-B.Z5=s(["\u0431.\u0437.\u0447.","\u0431.\u0437."],t.s)
-B.Z6=s(["thg 1","thg 2","thg 3","thg 4","thg 5","thg 6","thg 7","thg 8","thg 9","thg 10","thg 11","thg 12"],t.s)
-B.Z7=s(["pre nove ere","nove ere"],t.s)
+B.Z7=s(["sv\u0113td.","pirmd.","otrd.","tre\u0161d.","ceturtd.","piektd.","sestd."],t.s)
+B.Z8=s(["\u0431.\u0437.\u0447.","\u0431.\u0437."],t.s)
+B.Z9=s(["thg 1","thg 2","thg 3","thg 4","thg 5","thg 6","thg 7","thg 8","thg 9","thg 10","thg 11","thg 12"],t.s)
+B.Za=s(["pre nove ere","nove ere"],t.s)
 B.uv=s(["\u0a10\u0a24","\u0a38\u0a4b\u0a2e","\u0a2e\u0a70\u0a17\u0a32","\u0a2c\u0a41\u0a71\u0a27","\u0a35\u0a40\u0a30","\u0a38\u0a3c\u0a41\u0a71\u0a15\u0a30","\u0a38\u0a3c\u0a28\u0a3f\u0a71\u0a1a\u0a30"],t.s)
 B.uw=s(["Januari","Februari","Machi","Aprili","Mei","Juni","Julai","Agosti","Septemba","Oktoba","Novemba","Desemba"],t.s)
 B.jr=s(["Linggo","Lunes","Martes","Miyerkules","Huwebes","Biyernes","Sabado"],t.s)
 B.ux=s(["Ionawr","Chwefror","Mawrth","Ebrill","Mai","Mehefin","Gorffennaf","Awst","Medi","Hydref","Tachwedd","Rhagfyr"],t.s)
-B.Z9=s(["1. \u010det.","2. \u010det.","3. \u010det.","4. \u010det."],t.s)
+B.Zc=s(["1. \u010det.","2. \u010det.","3. \u010det.","4. \u010det."],t.s)
 B.uy=s(["av. J.-C.","ap. J.-C."],t.s)
-B.Za=s(["zzzz HH:mm:ss","z HH:mm:ss","HH:mm:ss","HH:mm"],t.s)
-B.Zb=s(["Dom.","Luns","Mar.","M\xe9r.","Xov.","Ven.","S\xe1b."],t.s)
-B.Zc=s(["\u0421","\u041b","\u0411","\u041a","\u0422","\u0427","\u041b","\u0421","\u0412","\u0416","\u041b","\u0413"],t.s)
+B.Zd=s(["zzzz HH:mm:ss","z HH:mm:ss","HH:mm:ss","HH:mm"],t.s)
+B.Ze=s(["Dom.","Luns","Mar.","M\xe9r.","Xov.","Ven.","S\xe1b."],t.s)
+B.Zf=s(["\u0421","\u041b","\u0411","\u041a","\u0422","\u0427","\u041b","\u0421","\u0412","\u0416","\u041b","\u0413"],t.s)
 B.uz=s(["1-\u0439 \u043a\u0432\u0430\u0440\u0442\u0430\u043b","2-\u0439 \u043a\u0432\u0430\u0440\u0442\u0430\u043b","3-\u0439 \u043a\u0432\u0430\u0440\u0442\u0430\u043b","4-\u0439 \u043a\u0432\u0430\u0440\u0442\u0430\u043b"],t.s)
-B.Zd=s(["y '\u043e\u043d\u044b' MMMM'\u044b\u043d' d, EEEE '\u0433\u0430\u0440\u0430\u0433'","y '\u043e\u043d\u044b' MMMM'\u044b\u043d' d","y '\u043e\u043d\u044b' MMM'\u044b\u043d' d","y.MM.dd"],t.s)
-B.Ze=s(["{1} \u05d1\u05e9\u05e2\u05d4 {0}","{1} \u05d1\u05e9\u05e2\u05d4 {0}","{1}, {0}","{1}, {0}"],t.s)
-B.Zf=s(["xan.","feb.","mar.","abr.","maio","xu\xf1o","xul.","ago.","set.","out.","nov.","dec."],t.s)
-B.Zg=s(["p.K.","mb.K."],t.s)
+B.Zg=s(["y '\u043e\u043d\u044b' MMMM'\u044b\u043d' d, EEEE '\u0433\u0430\u0440\u0430\u0433'","y '\u043e\u043d\u044b' MMMM'\u044b\u043d' d","y '\u043e\u043d\u044b' MMM'\u044b\u043d' d","y.MM.dd"],t.s)
+B.Zh=s(["{1} \u05d1\u05e9\u05e2\u05d4 {0}","{1} \u05d1\u05e9\u05e2\u05d4 {0}","{1}, {0}","{1}, {0}"],t.s)
+B.Zi=s(["xan.","feb.","mar.","abr.","maio","xu\xf1o","xul.","ago.","set.","out.","nov.","dec."],t.s)
+B.Zj=s(["p.K.","mb.K."],t.s)
 B.uA=s(["Yak","Dush","Sesh","Chor","Pay","Jum","Shan"],t.s)
-B.Zn=s(["EEEE d MMMM y","d MMMM y","d MMM y","dd/MM/yy"],t.s)
-B.Zo=s(["\u0574.\u0569.\u0561.","\u0574.\u0569."],t.s)
-B.Zp=s(["tremujori i par\xeb","tremujori i dyt\xeb","tremujori i tret\xeb","tremujori i kat\xebrt"],t.s)
-B.Zq=s(["Domingo","Luns","Martes","M\xe9rcores","Xoves","Venres","S\xe1bado"],t.s)
-B.Zr=s(["\u0a2a\u0a39\u0a3f\u0a32\u0a40 \u0a24\u0a3f\u0a2e\u0a3e\u0a39\u0a40","\u0a26\u0a42\u0a1c\u0a40 \u0a24\u0a3f\u0a2e\u0a3e\u0a39\u0a40","\u0a24\u0a40\u0a1c\u0a40 \u0a24\u0a3f\u0a2e\u0a3e\u0a39\u0a40","\u0a1a\u0a4c\u0a25\u0a40 \u0a24\u0a3f\u0a2e\u0a3e\u0a39\u0a40"],t.s)
-B.Zs=s(["EEEE, d MMMM y","d MMMM y","d/MM/y","d/MM/yy"],t.s)
+B.Zq=s(["EEEE d MMMM y","d MMMM y","d MMM y","dd/MM/yy"],t.s)
+B.Zr=s(["\u0574.\u0569.\u0561.","\u0574.\u0569."],t.s)
+B.Zs=s(["tremujori i par\xeb","tremujori i dyt\xeb","tremujori i tret\xeb","tremujori i kat\xebrt"],t.s)
+B.Zt=s(["Domingo","Luns","Martes","M\xe9rcores","Xoves","Venres","S\xe1bado"],t.s)
+B.Zu=s(["\u0a2a\u0a39\u0a3f\u0a32\u0a40 \u0a24\u0a3f\u0a2e\u0a3e\u0a39\u0a40","\u0a26\u0a42\u0a1c\u0a40 \u0a24\u0a3f\u0a2e\u0a3e\u0a39\u0a40","\u0a24\u0a40\u0a1c\u0a40 \u0a24\u0a3f\u0a2e\u0a3e\u0a39\u0a40","\u0a1a\u0a4c\u0a25\u0a40 \u0a24\u0a3f\u0a2e\u0a3e\u0a39\u0a40"],t.s)
+B.Zv=s(["EEEE, d MMMM y","d MMMM y","d/MM/y","d/MM/yy"],t.s)
 B.uB=s(["\u0cad\u0cbe\u0ca8\u0cc1\u0cb5\u0cbe\u0cb0","\u0cb8\u0ccb\u0cae\u0cb5\u0cbe\u0cb0","\u0cae\u0c82\u0c97\u0cb3\u0cb5\u0cbe\u0cb0","\u0cac\u0cc1\u0ca7\u0cb5\u0cbe\u0cb0","\u0c97\u0cc1\u0cb0\u0cc1\u0cb5\u0cbe\u0cb0","\u0cb6\u0cc1\u0c95\u0ccd\u0cb0\u0cb5\u0cbe\u0cb0","\u0cb6\u0ca8\u0cbf\u0cb5\u0cbe\u0cb0"],t.s)
-B.TR=new A.L("Introduction","PerfectGest I, operated by Marcos Leandro dos Santos, provides this Privacy Policy in compliance with Brazil\u2019s LGPD (Law 13.709/18) and Google Play developer policies.")
-B.Td=new A.L("Data controller and contact","Controller: Marcos Leandro dos Santos. Contact: suporte@perfectgestdev.com.")
-B.SD=new A.L("Local storage","The app is local-first. Business data is stored only on your device (SQLite). PerfectGest I does not automatically collect, access, or transfer that data to its own servers.\n\nClient and financial data \u2014 protected on the device\n\nThese stay on the device and do not leave the app unless you choose to:\n\n- Client records and history\n- Estimates, line items, amounts, and status\n- Cash flow \u2014 income, expenses, categories, balances\n- Work orders, projects, contracts, and management documents\n- Any client name, amount, or financial movement in the app\n\nWe do not send this data to Firebase, Firestore, Analytics, or other servers. Firebase Analytics logs generic usage events only \u2014 not client names, cash amounts, or estimate content.\n\nWhen data may leave the device (your explicit action only)\n\n- Share or save a PDF (estimate, cash report, etc.)\n- Share business card PNG \u2014 professional company contacts only; never your client list or financial data\n- Share vCard or show QR with professional contacts (Pro Plan \u2014 see below)\n- Share a backup file you exported (plain or encrypted) via WhatsApp, email, Drive, etc.\n\nImportant: sharing a backup is your responsibility regarding destination and security. We recommend encrypted backups (Pro Plan).\n\nBusiness card vs. management data\n\nThe Company tab feeds the digital business card with your business contact info only. It does not expose Clients, Estimates, or Cash modules.")
-B.Tb=new A.L("Business card \u2014 local storage and static mode","After your first card is saved, a local snapshot (PNG + layout) may be shown in static mode without Pro. You may still share that snapshot PNG via the system share sheet. Advanced features (edit after freeze, vCard, QR, interactive preview with tappable contacts) require Pro Plan \u2014 inside the app only; PerfectGest does not host a public web page for your card.")
-B.T8=new A.L("Interactive business card in the app (Pro Plan)","With Pro Plan, after your first card you can keep editing and use advanced features on your phone:\n\n- Interactive preview (taps open WhatsApp, phone, email, website, or maps as configured)\n- Export vCard (.vcf) and generate QR with contact data\n- Share an updated PNG\n\nEverything stays on the device until you share or show the QR. We do not publish or host your card on a PerfectGest website or upload card content to Firestore.\n\nNever included in the card: clients, estimates, cash entries, financial amounts, contracts, or backups.")
-B.TY=new A.L("Trial period and Pro Plan","- Trial period (7 days): from the first time you open the app, you may create up to 5 clients, 5 estimates, and 5 cash entries, including PDF, with no paid subscription during that period.\n- Limits during the trial: when saving the 4th record of each type, the app warns it is the last of that type in the trial. A 6th record (or exceeding limits) requires Pro Plan, even within the 7 days.\n- After 7 days without Pro Plan: the app remains usable to view and edit local data, but you cannot create new clients, estimates, or cash entries.\n- Pro Plan: unlimited use, encrypted backup restore, and interactive business card in the app (edit after first card, vCard, QR, tappable preview), monthly or annual via Google Play.\n\nThe trial start date is stored anonymously per device (Firebase service) for period consistency \u2014 not client, estimate, or cash data.")
-B.U8=new A.L("Third-party services","Firebase Analytics (generic events, no Crashlytics), Remote Config, Firestore (minimal anonymous device metadata for the Initial Plan \u2014 installation identifier, trial start timestamp, freemium eligibility, and first business-card save \u2014 not clients, estimates, or cash data), Google Play Billing. No in-app ads.")
-B.Tj=new A.L("Local notifications","Fiscal reminders on-device only; no external server transfer. POST_NOTIFICATIONS on Android 13+.")
-B.Ur=new A.L("Security","HTTPS/TLS for telemetry; no sale of data for ads; business card contains only professional info you configure.")
-B.SJ=new A.L("Retention and deletion","Local business data and card snapshot: removed when you clear app data or uninstall. Telemetry (Firebase): email request, up to 15 business days.")
-B.Tv=new A.L("Permissions","Import logos; save PDFs and backups; local notifications.")
-B.S4=new A.L("Eligibility and law","Users 18+. Laws of Brazil; venue Caxias do Sul/RS.")
-B.Zt=s([B.TR,B.Td,B.SD,B.Tb,B.T8,B.TY,B.U8,B.Tj,B.Ur,B.SJ,B.Tv,B.S4],t.h)
 B.uC=s(["S","M","D","W","D","V","S"],t.s)
-B.Zu=s(["vm.","nm."],t.s)
+B.Zw=s(["vm.","nm."],t.s)
 B.uD=s(["\u0da2","\u0db4\u0dd9","\u0db8\u0dcf","\u0d85","\u0db8\u0dd0","\u0da2\u0dd6","\u0da2\u0dd6","\u0d85","\u0dc3\u0dd0","\u0d94","\u0db1\u0dd9","\u0daf\u0dd9"],t.s)
 B.uE=s(["\u0a10","\u0a38\u0a4b","\u0a2e\u0a70","\u0a2c\u0a41\u0a71","\u0a35\u0a40","\u0a38\u0a3c\u0a41\u0a71","\u0a38\u0a3c"],t.s)
-B.Zv=s(["\u0c24\u0c4d\u0c30\u0c481","\u0c24\u0c4d\u0c30\u0c482","\u0c24\u0c4d\u0c30\u0c483","\u0c24\u0c4d\u0c30\u0c484"],t.s)
+B.Zx=s(["\u0c24\u0c4d\u0c30\u0c481","\u0c24\u0c4d\u0c30\u0c482","\u0c24\u0c4d\u0c30\u0c483","\u0c24\u0c4d\u0c30\u0c484"],t.s)
 B.uF=s([0,21,51,121,151,191,271,321,360],t.n)
-B.Zw=s(["1-ci kv.","2-ci kv.","3-c\xfc kv.","4-c\xfc kv."],t.s)
-B.Zx=s(["y\u5e74M\u6708d\u65e5EEEE","y\u5e74M\u6708d\u65e5","y\u5e74M\u6708d\u65e5","d/M/y"],t.s)
+B.Zy=s(["1-ci kv.","2-ci kv.","3-c\xfc kv.","4-c\xfc kv."],t.s)
+B.Zz=s(["y\u5e74M\u6708d\u65e5EEEE","y\u5e74M\u6708d\u65e5","y\u5e74M\u6708d\u65e5","d/M/y"],t.s)
 B.js=s(["\u0627\u0644\u0623\u062d\u062f","\u0627\u0644\u0627\u062b\u0646\u064a\u0646","\u0627\u0644\u062b\u0644\u0627\u062b\u0627\u0621","\u0627\u0644\u0623\u0631\u0628\u0639\u0627\u0621","\u0627\u0644\u062e\u0645\u064a\u0633","\u0627\u0644\u062c\u0645\u0639\u0629","\u0627\u0644\u0633\u0628\u062a"],t.s)
-B.Zy=s(["antes de Cristo","despois de Cristo"],t.s)
+B.ZA=s(["antes de Cristo","despois de Cristo"],t.s)
 B.uG=s(["EEEE d MMMM y","d MMMM y","d MMM y","d/M/yy"],t.s)
-B.Zz=s(["th\xe1ng 1","th\xe1ng 2","th\xe1ng 3","th\xe1ng 4","th\xe1ng 5","th\xe1ng 6","th\xe1ng 7","th\xe1ng 8","th\xe1ng 9","th\xe1ng 10","th\xe1ng 11","th\xe1ng 12"],t.s)
+B.ZB=s(["th\xe1ng 1","th\xe1ng 2","th\xe1ng 3","th\xe1ng 4","th\xe1ng 5","th\xe1ng 6","th\xe1ng 7","th\xe1ng 8","th\xe1ng 9","th\xe1ng 10","th\xe1ng 11","th\xe1ng 12"],t.s)
 B.uH=s(["Jan","Feb","Mac","Apr","Mei","Jun","Jul","Ago","Sep","Okt","Nov","Des"],t.s)
-B.ZA=s(["J","F","M","E","M","J","J","A","S","O","N","D"],t.s)
-B.ZB=s(["\u0554\u0580\u056b\u057d\u057f\u0578\u057d\u056b\u0581 \u0561\u057c\u0561\u057b","\u0554\u0580\u056b\u057d\u057f\u0578\u057d\u056b\u0581 \u0570\u0565\u057f\u0578"],t.s)
-B.ZC=s(["1-\u0448\u044b \u043a\u0432\u0430\u0440\u0442\u0430\u043b","2-\u0433\u0456 \u043a\u0432\u0430\u0440\u0442\u0430\u043b","3-\u0446\u0456 \u043a\u0432\u0430\u0440\u0442\u0430\u043b","4-\u0442\u044b \u043a\u0432\u0430\u0440\u0442\u0430\u043b"],t.s)
-B.ZD=s(["r.n.","i.n."],t.s)
+B.ZC=s(["J","F","M","E","M","J","J","A","S","O","N","D"],t.s)
+B.ZD=s(["\u0554\u0580\u056b\u057d\u057f\u0578\u057d\u056b\u0581 \u0561\u057c\u0561\u057b","\u0554\u0580\u056b\u057d\u057f\u0578\u057d\u056b\u0581 \u0570\u0565\u057f\u0578"],t.s)
+B.ZE=s(["1-\u0448\u044b \u043a\u0432\u0430\u0440\u0442\u0430\u043b","2-\u0433\u0456 \u043a\u0432\u0430\u0440\u0442\u0430\u043b","3-\u0446\u0456 \u043a\u0432\u0430\u0440\u0442\u0430\u043b","4-\u0442\u044b \u043a\u0432\u0430\u0440\u0442\u0430\u043b"],t.s)
+B.ZF=s(["r.n.","i.n."],t.s)
 B.uI=s(["I","F","M","A","M","I","I","A","S","O","N","D"],t.s)
-B.ZE=s(["\u0698\u0627\u0646\u0648\u06cc\u0647\u0654","\u0641\u0648\u0631\u06cc\u0647\u0654","\u0645\u0627\u0631\u0633","\u0622\u0648\u0631\u06cc\u0644","\u0645\u0647\u0654","\u0698\u0648\u0626\u0646","\u0698\u0648\u0626\u06cc\u0647\u0654","\u0627\u0648\u062a","\u0633\u067e\u062a\u0627\u0645\u0628\u0631","\u0627\u06a9\u062a\u0628\u0631","\u0646\u0648\u0627\u0645\u0628\u0631","\u062f\u0633\u0627\u0645\u0628\u0631"],t.s)
-B.ZF=s(["a h:mm:ss zzzz","a h:mm:ss z","a h:mm:ss","a h:mm"],t.s)
-B.ZG=s(["\u0635","\u0645"],t.s)
-B.ZH=s(["para Krishtit","mbas Krishtit"],t.s)
-B.ZI=s(["PG","PTG"],t.s)
-B.ZJ=s(["sausis","vasaris","kovas","balandis","gegu\u017e\u0117","bir\u017eelis","liepa","rugpj\u016btis","rugs\u0117jis","spalis","lapkritis","gruodis"],t.s)
-B.ZL=s(["D","L","M","M","X","V","S"],t.s)
-B.ZM=s(["N","P","W","\u015a","C","P","S"],t.s)
+B.ZG=s(["\u0698\u0627\u0646\u0648\u06cc\u0647\u0654","\u0641\u0648\u0631\u06cc\u0647\u0654","\u0645\u0627\u0631\u0633","\u0622\u0648\u0631\u06cc\u0644","\u0645\u0647\u0654","\u0698\u0648\u0626\u0646","\u0698\u0648\u0626\u06cc\u0647\u0654","\u0627\u0648\u062a","\u0633\u067e\u062a\u0627\u0645\u0628\u0631","\u0627\u06a9\u062a\u0628\u0631","\u0646\u0648\u0627\u0645\u0628\u0631","\u062f\u0633\u0627\u0645\u0628\u0631"],t.s)
+B.ZH=s(["a h:mm:ss zzzz","a h:mm:ss z","a h:mm:ss","a h:mm"],t.s)
+B.ZI=s(["\u0635","\u0645"],t.s)
+B.ZJ=s(["para Krishtit","mbas Krishtit"],t.s)
+B.ZK=s(["PG","PTG"],t.s)
+B.ZL=s(["sausis","vasaris","kovas","balandis","gegu\u017e\u0117","bir\u017eelis","liepa","rugpj\u016btis","rugs\u0117jis","spalis","lapkritis","gruodis"],t.s)
+B.ZN=s(["D","L","M","M","X","V","S"],t.s)
+B.ZO=s(["N","P","W","\u015a","C","P","S"],t.s)
 B.uJ=s(["\u0b9e\u0bbe\u0baf\u0bbf\u0bb1\u0bc1","\u0ba4\u0bbf\u0b99\u0bcd\u0b95\u0bb3\u0bcd","\u0b9a\u0bc6\u0bb5\u0bcd\u0bb5\u0bbe\u0baf\u0bcd","\u0baa\u0bc1\u0ba4\u0ba9\u0bcd","\u0bb5\u0bbf\u0baf\u0bbe\u0bb4\u0ba9\u0bcd","\u0bb5\u0bc6\u0bb3\u0bcd\u0bb3\u0bbf","\u0b9a\u0ba9\u0bbf"],t.s)
-B.ZN=s(["1-\u056b\u0576 \u0565\u057c\u0574\u057d.","2-\u0580\u0564 \u0565\u057c\u0574\u057d.","3-\u0580\u0564 \u0565\u057c\u0574\u057d.","4-\u0580\u0564 \u0565\u057c\u0574\u057d."],t.s)
+B.ZP=s(["1-\u056b\u0576 \u0565\u057c\u0574\u057d.","2-\u0580\u0564 \u0565\u057c\u0574\u057d.","3-\u0580\u0564 \u0565\u057c\u0574\u057d.","4-\u0580\u0564 \u0565\u057c\u0574\u057d."],t.s)
 B.uK=s(["Robo ya 1","Robo ya 2","Robo ya 3","Robo ya 4"],t.s)
-B.ZO=s(["d MMMM y EEEE","d MMMM y","d MMM y","d.MM.y"],t.s)
-B.ZP=s(["EEEE d. MMMM y","d. MMMM y","d. M. y","dd.MM.yy"],t.s)
+B.ZQ=s(["d MMMM y EEEE","d MMMM y","d MMM y","d.MM.y"],t.s)
+B.ZR=s(["EEEE d. MMMM y","d. MMMM y","d. M. y","dd.MM.yy"],t.s)
 B.uL=s(["Y","F","M","A","M","I","I","A","S","O","N","D"],t.s)
-B.ZQ=s(["\u05dc\u05e4\u05e0\u05d4\u05f4\u05e1","\u05dc\u05e1\u05e4\u05d9\u05e8\u05d4"],t.s)
+B.ZS=s(["\u05dc\u05e4\u05e0\u05d4\u05f4\u05e1","\u05dc\u05e1\u05e4\u05d9\u05e8\u05d4"],t.s)
 B.uM=s(["\uc77c\uc694\uc77c","\uc6d4\uc694\uc77c","\ud654\uc694\uc77c","\uc218\uc694\uc77c","\ubaa9\uc694\uc77c","\uae08\uc694\uc77c","\ud1a0\uc694\uc77c"],t.s)
 B.uN=s(["f\xf8r Kristus","etter Kristus"],t.s)
-B.ZR=s(["EEEE d MMMM y","d MMMM y","d MMM y","dd-MM-y"],t.s)
+B.ZT=s(["EEEE d MMMM y","d MMMM y","d MMM y","dd-MM-y"],t.s)
 B.uO=s(["\u0540","\u0553","\u0544","\u0531","\u0544","\u0540","\u0540","\u0555","\u054d","\u0540","\u0546","\u0534"],t.s)
 B.uP=s(["\u0c06\u0c26\u0c3f","\u0c38\u0c4b\u0c2e","\u0c2e\u0c02\u0c17\u0c33","\u0c2c\u0c41\u0c27","\u0c17\u0c41\u0c30\u0c41","\u0c36\u0c41\u0c15\u0c4d\u0c30","\u0c36\u0c28\u0c3f"],t.s)
-B.ZS=s(["1ste kwartaal","2de kwartaal","3de kwartaal","4de kwartaal"],t.s)
-B.ZT=s(["1. nelj\xe4nnes","2. nelj\xe4nnes","3. nelj\xe4nnes","4. nelj\xe4nnes"],t.s)
+B.ZU=s(["1ste kwartaal","2de kwartaal","3de kwartaal","4de kwartaal"],t.s)
+B.ZV=s(["1. nelj\xe4nnes","2. nelj\xe4nnes","3. nelj\xe4nnes","4. nelj\xe4nnes"],t.s)
 B.h6=s(["a.\xa0m.","p.\xa0m."],t.s)
-B.ZU=s(["EEEE, MMMM d, y","MMMM d, y","MMM d, y","y-MM-dd"],t.s)
+B.ZW=s(["EEEE, MMMM d, y","MMMM d, y","MMM d, y","y-MM-dd"],t.s)
 B.av=s(["Q1","Q2","Q3","Q4"],t.s)
 B.uQ=s(["\u0e2d\u0e32.","\u0e08.","\u0e2d.","\u0e1e.","\u0e1e\u0e24.","\u0e28.","\u0e2a."],t.s)
 B.uR=s(["\u0d1c\u0d28\u0d41","\u0d2b\u0d46\u0d2c\u0d4d\u0d30\u0d41","\u0d2e\u0d3e\u0d7c","\u0d0f\u0d2a\u0d4d\u0d30\u0d3f","\u0d2e\u0d47\u0d2f\u0d4d","\u0d1c\u0d42\u0d7a","\u0d1c\u0d42\u0d32\u0d48","\u0d13\u0d17","\u0d38\u0d46\u0d2a\u0d4d\u0d31\u0d4d\u0d31\u0d02","\u0d12\u0d15\u0d4d\u0d1f\u0d4b","\u0d28\u0d35\u0d02","\u0d21\u0d3f\u0d38\u0d02"],t.s)
 B.uS=s(["\u0e2d\u0e32","\u0e08","\u0e2d","\u0e1e","\u0e1e\u0e24","\u0e28","\u0e2a"],t.s)
-B.ZV=s(["v.C.","n.C."],t.s)
-B.ZX=s(["fyrir Krist","eftir Krist"],t.s)
+B.ZX=s(["v.C.","n.C."],t.s)
+B.ZZ=s(["fyrir Krist","eftir Krist"],t.s)
 B.uT=s(["U","O","M","A","M","E","U","A","I","U","A","A"],t.s)
-B.ZY=s([-1,0,0,1,0,0,-1,0,1,0,0,0,-1,1,0,1,1,1,1,0],t.n)
+B.a__=s([-1,0,0,1,0,0,-1,0,1,0,0,0,-1,1,0,1,1,1,1,0],t.n)
 B.uU=s(["CN","T2","T3","T4","T5","T6","T7"],t.s)
 B.uV=s(["dum.","lun.","mar.","mie.","joi","vin.","s\xe2m."],t.s)
-B.ZZ=s(["\u1325\u12cb\u1275","\u12a8\u1230\u12d3\u1275"],t.s)
+B.a_0=s(["\u1325\u12cb\u1275","\u12a8\u1230\u12d3\u1275"],t.s)
 B.eX=s(["S","M","D","M","D","F","S"],t.s)
 B.JV=new A.KO(2,"outer")
 B.pH=new A.r(0.09803921568627451,0,0,0,B.e)
 B.f=new A.f(0,0)
 B.Kk=new A.cs(0.2,B.JV,B.pH,B.f,11)
-B.a_0=s([B.Kk],t.sq)
+B.a_2=s([B.Kk],t.sq)
 B.uW=s(["\u1015\u1011\u1019 \u101e\u102f\u1036\u1038\u101c\u1015\u1010\u103a","\u1012\u102f\u1010\u102d\u101a \u101e\u102f\u1036\u1038\u101c\u1015\u1010\u103a","\u1010\u1010\u102d\u101a \u101e\u102f\u1036\u1038\u101c\u1015\u1010\u103a","\u1005\u1010\u102f\u1010\u1039\u1011 \u101e\u102f\u1036\u1038\u101c\u1015\u1010\u103a"],t.s)
 B.uX=s(["\u10d8\u10d0\u10dc","\u10d7\u10d4\u10d1","\u10db\u10d0\u10e0","\u10d0\u10de\u10e0","\u10db\u10d0\u10d8","\u10d8\u10d5\u10dc","\u10d8\u10d5\u10da","\u10d0\u10d2\u10d5","\u10e1\u10d4\u10e5","\u10dd\u10e5\u10e2","\u10dc\u10dd\u10d4","\u10d3\u10d4\u10d9"],t.s)
 B.jt=s(["januar","februar","mars","april","mai","juni","juli","august","september","oktober","november","desember"],t.s)
 B.uY=s(["\u1010","\u1010","\u1021","\u1017","\u1000","\u101e","\u1005"],t.s)
 B.uZ=s(["EEEE, d MMMM y","d MMMM y","d MMM y","dd/MM/y"],t.s)
-B.a_1=s(["R1","R2","R3","R4"],t.s)
+B.a_3=s(["R1","R2","R3","R4"],t.s)
 B.v_=s(["\u091c","\u092b\u093c","\u092e\u093e","\u0905","\u092e","\u091c\u0942","\u091c\u0941","\u0905","\u0938\u093f","\u0905","\u0928","\u0926\u093f"],t.s)
-B.a_3=s(["RC","AD"],t.s)
+B.a_5=s(["RC","AD"],t.s)
 B.v0=s(["P","P","S","\xc7","P","C","C"],t.s)
-B.a_4=s(["EEEE, dd MMMM, y","d MMMM, y","d MMM. y","dd.MM.yy"],t.s)
+B.a_6=s(["EEEE, dd MMMM, y","d MMMM, y","d MMM. y","dd.MM.yy"],t.s)
 B.v1=s(["sty","lut","mar","kwi","maj","cze","lip","sie","wrz","pa\u017a","lis","gru"],t.s)
 B.v2=s(["\u09a6\u09c7\u0993","\u09b8\u09cb\u09ae","\u09ae\u0999\u09cd\u0997\u09b2","\u09ac\u09c1\u09a7","\u09ac\u09c3\u09b9","\u09b6\u09c1\u0995\u09cd\u09f0","\u09b6\u09a8\u09bf"],t.s)
 B.v3=s(["S","P","O","T","C","P","S"],t.s)
@@ -92972,24 +92962,24 @@ B.LD=new A.a0i()
 B.LY=new A.a54()
 B.Lz=new A.a_q()
 B.mN=s([B.Lo,B.LD,B.LY,B.Lz],A.a4("q<dt<K>>"))
-B.a_5=s(["\u0e95\u0ea11","\u0e95\u0ea12","\u0e95\u0ea13","\u0e95\u0ea14"],t.s)
-B.a_6=s(["{1} \u0641\u064a {0}","{1} \u0641\u064a {0}","{1}, {0}","{1}, {0}"],t.s)
-B.a_7=s(["y. MMMM d., EEEE","y. MMMM d.","y. MMM d.","y. MM. dd."],t.s)
-B.a_8=s(["\u062c\u0646\u0648\u0631\u064a","\u0641\u06d0\u0628\u0631\u0648\u0631\u064a","\u0645\u0627\u0631\u0686","\u0627\u067e\u0631\u06cc\u0644","\u0645\u06cd","\u062c\u0648\u0646","\u062c\u0648\u0644\u0627\u06cc","\u0627\u06ab\u0633\u062a","\u0633\u067e\u062a\u0645\u0628\u0631","\u0627\u06a9\u062a\u0648\u0628\u0631","\u0646\u0648\u0645\u0628\u0631","\u062f\u0633\u0645\u0628\u0631"],t.s)
+B.a_7=s(["\u0e95\u0ea11","\u0e95\u0ea12","\u0e95\u0ea13","\u0e95\u0ea14"],t.s)
+B.a_8=s(["{1} \u0641\u064a {0}","{1} \u0641\u064a {0}","{1}, {0}","{1}, {0}"],t.s)
+B.a_9=s(["y. MMMM d., EEEE","y. MMMM d.","y. MMM d.","y. MM. dd."],t.s)
+B.a_a=s(["\u062c\u0646\u0648\u0631\u064a","\u0641\u06d0\u0628\u0631\u0648\u0631\u064a","\u0645\u0627\u0631\u0686","\u0627\u067e\u0631\u06cc\u0644","\u0645\u06cd","\u062c\u0648\u0646","\u062c\u0648\u0644\u0627\u06cc","\u0627\u06ab\u0633\u062a","\u0633\u067e\u062a\u0645\u0628\u0631","\u0627\u06a9\u062a\u0648\u0628\u0631","\u0646\u0648\u0645\u0628\u0631","\u062f\u0633\u0645\u0628\u0631"],t.s)
 B.v6=s(["\u0c06\u0c26\u0c3f\u0c35\u0c3e\u0c30\u0c02","\u0c38\u0c4b\u0c2e\u0c35\u0c3e\u0c30\u0c02","\u0c2e\u0c02\u0c17\u0c33\u0c35\u0c3e\u0c30\u0c02","\u0c2c\u0c41\u0c27\u0c35\u0c3e\u0c30\u0c02","\u0c17\u0c41\u0c30\u0c41\u0c35\u0c3e\u0c30\u0c02","\u0c36\u0c41\u0c15\u0c4d\u0c30\u0c35\u0c3e\u0c30\u0c02","\u0c36\u0c28\u0c3f\u0c35\u0c3e\u0c30\u0c02"],t.s)
 B.jv=s(["\u042f","\u0424","\u041c","\u0410","\u041c","\u0418","\u0418","\u0410","\u0421","\u041e","\u041d","\u0414"],t.s)
 B.v7=s(["V","H","K","Sze","Cs","P","Szo"],t.s)
-B.a_9=s(["Tr\u01b0\u1edbc CN","Sau CN"],t.s)
-B.a_a=s(["S1","S2","S3","S4"],t.s)
+B.a_b=s(["Tr\u01b0\u1edbc CN","Sau CN"],t.s)
+B.a_c=s(["S1","S2","S3","S4"],t.s)
 B.v8=s(["\u091c\u093e","\u092b\u0947","\u092e\u093e","\u090f","\u092e\u0947","\u091c\u0942","\u091c\u0941","\u0911","\u0938","\u0911","\u0928\u094b","\u0921\u093f"],t.s)
 B.v9=s(["\u897f\u5143\u524d","\u897f\u5143"],t.s)
-B.a_b=s(["SA","CH"],t.s)
+B.a_d=s(["SA","CH"],t.s)
 B.va=s(["\u0436\u0435\u043a\u0448\u0435\u043c\u0431\u0438","\u0434\u04af\u0439\u0448\u04e9\u043c\u0431\u04af","\u0448\u0435\u0439\u0448\u0435\u043c\u0431\u0438","\u0448\u0430\u0440\u0448\u0435\u043c\u0431\u0438","\u0431\u0435\u0439\u0448\u0435\u043c\u0431\u0438","\u0436\u0443\u043c\u0430","\u0438\u0448\u0435\u043c\u0431\u0438"],t.s)
-B.a_c=s(["EEEE, d MMMM y '\u0440'.","d MMMM y '\u0440'.","d MMM y '\u0440'.","dd.MM.yy"],t.s)
+B.a_e=s(["EEEE, d MMMM y '\u0440'.","d MMMM y '\u0440'.","d MMM y '\u0440'.","dd.MM.yy"],t.s)
 B.vb=s(["\u043d\u0435\u0434\u0435\u043b\u0430","\u043f\u043e\u043d\u0435\u0434\u0435\u043b\u043d\u0438\u043a","\u0432\u0442\u043e\u0440\u043d\u0438\u043a","\u0441\u0440\u0435\u0434\u0430","\u0447\u0435\u0442\u0432\u0440\u0442\u043e\u043a","\u043f\u0435\u0442\u043e\u043a","\u0441\u0430\u0431\u043e\u0442\u0430"],t.s)
-B.a_d=s(["SM","M"],t.s)
+B.a_f=s(["SM","M"],t.s)
 B.vc=s(["J","F","M","A","M","J","J","\xc1","S","O","N","D"],t.s)
-B.a_e=s(["K.a.","Kristo ondoren"],t.s)
+B.a_g=s(["K.a.","Kristo ondoren"],t.s)
 B.aX=s(["1","2","3","4","5","6","7","8","9","10","11","12"],t.s)
 B.vd=s(["HH:mm:ss (zzzz)","HH:mm:ss (z)","HH:mm:ss","HH:mm"],t.s)
 B.ve=s(["\u0c1c","\u0c2b\u0c3f","\u0c2e\u0c3e","\u0c0f","\u0c2e\u0c47","\u0c1c\u0c42","\u0c1c\u0c41","\u0c06","\u0c38\u0c46","\u0c05","\u0c28","\u0c21\u0c3f"],t.s)
@@ -92997,147 +92987,126 @@ B.vf=s(["\u5468\u65e5","\u5468\u4e00","\u5468\u4e8c","\u5468\u4e09","\u5468\u56d
 B.vg=s(["\u0570\u0576\u057e","\u0583\u057f\u057e","\u0574\u0580\u057f","\u0561\u057a\u0580","\u0574\u0575\u057d","\u0570\u0576\u057d","\u0570\u056c\u057d","\u0585\u0563\u057d","\u057d\u0565\u057a","\u0570\u0578\u056f","\u0576\u0578\u0575","\u0564\u0565\u056f"],t.s)
 B.Ik=new A.E_(0,"left")
 B.Il=new A.E_(1,"right")
-B.a_f=s([B.Ik,B.Il],A.a4("q<E_>"))
+B.a_h=s([B.Ik,B.Il],A.a4("q<E_>"))
 B.cx=s(["T1","T2","T3","T4"],t.s)
-B.a_g=s(["EEEE, d MMMM y","d MMMM y","d MMM y","dd/MM/yy"],t.s)
+B.a_i=s(["EEEE, d MMMM y","d MMMM y","d MMM y","dd/MM/yy"],t.s)
 B.vh=s(["jan.","feb.","mar.","apr.","maj","jun.","jul.","aug.","sep.","okt.","nov.","dec."],t.s)
-B.a_h=s(["\u043f.\u043d.\u0435.","\u043d.\u0435."],t.s)
+B.a_j=s(["\u043f.\u043d.\u0435.","\u043d.\u0435."],t.s)
 B.vi=s(["\u0930\u0935\u093f\u0935\u093e\u0930","\u0938\u094b\u092e\u0935\u093e\u0930","\u092e\u0902\u0917\u0933\u0935\u093e\u0930","\u092c\u0941\u0927\u0935\u093e\u0930","\u0917\u0941\u0930\u0941\u0935\u093e\u0930","\u0936\u0941\u0915\u094d\u0930\u0935\u093e\u0930","\u0936\u0928\u093f\u0935\u093e\u0930"],t.s)
-B.a_i=s(["\u0a88\u0ab8\u0ab5\u0ac0\u0ab8\u0aa8 \u0aaa\u0ac2\u0ab0\u0acd\u0ab5\u0ac7","\u0a87\u0ab8\u0ab5\u0ac0\u0ab8\u0aa8"],t.s)
-B.a_j=s(["TO","TK"],t.s)
+B.a_k=s(["\u0a88\u0ab8\u0ab5\u0ac0\u0ab8\u0aa8 \u0aaa\u0ac2\u0ab0\u0acd\u0ab5\u0ac7","\u0a87\u0ab8\u0ab5\u0ac0\u0ab8\u0aa8"],t.s)
+B.a_l=s(["TO","TK"],t.s)
 B.vj=s(["Sondag","Maandag","Dinsdag","Woensdag","Donderdag","Vrydag","Saterdag"],t.s)
 B.aq=new A.E8(0,"upstream")
-B.a_l=s([B.aq,B.l],A.a4("q<E8>"))
+B.a_n=s([B.aq,B.l],A.a4("q<E8>"))
 B.am=new A.Ec(0,"rtl")
 B.j=new A.Ec(1,"ltr")
 B.mO=s([B.am,B.j],A.a4("q<Ec>"))
-B.a_m=s(["\u1014\u1036\u1014\u1000\u103a","\u100a\u1014\u1031"],t.s)
-B.a_n=s(["h:mm:ss\u202fa zzzz","h:mm:ss\u202fa z","h:mm:ss\u202fa","h:mm\u202fa"],t.s)
+B.a_o=s(["\u1014\u1036\u1014\u1000\u103a","\u100a\u1014\u1031"],t.s)
+B.a_p=s(["h:mm:ss\u202fa zzzz","h:mm:ss\u202fa z","h:mm:ss\u202fa","h:mm\u202fa"],t.s)
 B.vk=s(["\u0b9c","\u0baa\u0bbf","\u0bae\u0bbe","\u0b8f","\u0bae\u0bc7","\u0b9c\u0bc2","\u0b9c\u0bc2","\u0b86","\u0b9a\u0bc6","\u0b85","\u0ba8","\u0b9f\u0bbf"],t.s)
 B.vl=s(["\u0d89\u0dbb\u0dd2\u0daf\u0dcf","\u0dc3\u0db3\u0dd4\u0daf\u0dcf","\u0d85\u0d9f\u0dc4\u0dbb\u0dd4\u0dc0\u0dcf\u0daf\u0dcf","\u0db6\u0daf\u0dcf\u0daf\u0dcf","\u0db6\u0dca\u200d\u0dbb\u0dc4\u0dc3\u0dca\u0db4\u0dad\u0dd2\u0db1\u0dca\u0daf\u0dcf","\u0dc3\u0dd2\u0d9a\u0dd4\u0dbb\u0dcf\u0daf\u0dcf","\u0dc3\u0dd9\u0db1\u0dc3\u0dd4\u0dbb\u0dcf\u0daf\u0dcf"],t.s)
 B.vm=s(["igandea","astelehena","asteartea","asteazkena","osteguna","ostirala","larunbata"],t.s)
 B.vn=s(["nedelja","ponedeljak","utorak","sreda","\u010detvrtak","petak","subota"],t.s)
 B.mP=s(["EEEE, d. MMMM y","d. MMMM y","dd.MM.y","dd.MM.yy"],t.s)
-B.Ud=new A.L("What is PerfectGest I?","A mobile business management app. Data is stored locally (SQLite). No PerfectGest cloud account for clients, estimates, or cash.")
-B.TM=new A.L("Does it work offline?","Offline-first for daily use. Optional Google services may need a network when active.")
-B.T3=new A.L("How does the trial period work?","7 days from first open. During that time: up to 5 clients, 5 estimates, and 5 cash entries (including PDF) with no paid subscription. When saving the 4th of each type, the app warns that 1 remains. A 6th record or the end of 7 days without Pro Plan blocks new records; you can still view and edit existing data on the device. Subscribe in Settings \u2192 Google Play subscription.")
-B.Ua=new A.L("How does the Initial Plan work?","The 5+5+5 limits apply during the 7-day trial (see above). After the trial or above limits, Pro Plan is required (monthly or annual on Google Play).")
-B.Sj=new A.L("Where do I manage the subscription?","Settings \u2192 Google Play subscription. Cancel via Play Store \u2192 Payments & subscriptions.")
-B.Tn=new A.L("What is the digital business card?","In Company, edit professional business details only (not clients or cash). Share card generates a PNG via the system share sheet. After your first card, without Pro Plan the card is static (you can still share the snapshot PNG); with Pro, edit and use advanced features in the app only (vCard, QR, interactive preview) \u2014 no PerfectGest-hosted web page.\n\nClients and financial data stay protected on the device and are not sent to servers automatically.")
-B.Ul=new A.L("Are my client and financial data protected?","Yes. Stored locally. They leave the device only if you share a PDF, card PNG/vCard/QR, or an exported backup file (encrypted backup recommended on Pro).")
-B.Uk=new A.L("What are fiscal reminders?","On-device alerts for MEI, Freelancer, ME obligations. Informational only.")
-B.To=new A.L("Weekly calendar, Latest entries, notifications, ads, Crashlytics, languages?","Weekly fiscal calendar in Company; home shortcuts to recent records; local notifications only; no ads; no Crashlytics; PT / EN / ES.")
-B.Ti=new A.L("Privacy, deletion, suggestions?","Settings \u2192 Help and support for legal links. Wipe device: Settings \u2192 Data on this device \u2192 Delete all data. Feedback: Company tab \u2192 email suporte@perfectgestdev.com.")
-B.a_o=s([B.Ud,B.TM,B.T3,B.Ua,B.Sj,B.Tn,B.Ul,B.Uk,B.To,B.Ti],t.h)
 B.vo=s(["\u0458\u0430\u043d\u0443\u0430\u0440\u0438","\u0444\u0435\u0432\u0440\u0443\u0430\u0440\u0438","\u043c\u0430\u0440\u0442","\u0430\u043f\u0440\u0438\u043b","\u043c\u0430\u0458","\u0458\u0443\u043d\u0438","\u0458\u0443\u043b\u0438","\u0430\u0432\u0433\u0443\u0441\u0442","\u0441\u0435\u043f\u0442\u0435\u043c\u0432\u0440\u0438","\u043e\u043a\u0442\u043e\u043c\u0432\u0440\u0438","\u043d\u043e\u0435\u043c\u0432\u0440\u0438","\u0434\u0435\u043a\u0435\u043c\u0432\u0440\u0438"],t.s)
-B.a_p=s(["1. kv.","2. kv.","3. kv.","4. kv."],t.s)
-B.a_q=s(["EEEE, d MMMM y","d MMMM y","d MMM y","dd.MM.y"],t.s)
-B.a_r=s(["1-\u0447\u0435\u0439.","2-\u0447\u0435\u0439.","3-\u0447\u0435\u0439.","4-\u0447\u0435\u0439."],t.s)
-B.Um=new A.L("1. Aceita\xe7\xe3o","Ao instalar ou utilizar o PerfectGest-Clinica III, o utilizador concorda com estes Termos.")
-B.Ui=new A.L("2. Escopo","O app \xe9 uma ferramenta de apoio \xe0 gest\xe3o cl\xednica e organizacional. N\xe3o substitui, em hip\xf3tese alguma, julgamento profissional, diagn\xf3stico ou tratamento m\xe9dico.")
-B.SC=new A.L("3. Contas e responsabilidades","\u2022 O utilizador \xe9 respons\xe1vel por manter as credenciais (utilizador e senha) em seguran\xe7a.\n\u2022 A cl\xednica ou profissional que utiliza o software \xe9 respons\xe1vel pelo conte\xfado inserido e pelo uso adequado do sistema.")
-B.RO=new A.L("4. Uso aceit\xe1vel","\xc9 proibido:\n\u2022 usar o app para fins ilegais;\n\u2022 tentar contornar mecanismos de seguran\xe7a;\n\u2022 introduzir c\xf3digo malicioso;\n\u2022 copiar, distribuir ou explorar comercialmente o software fora dos limites da licen\xe7a.")
-B.Tg=new A.L("5. Dados e backups","\u2022 Os dados cl\xednicos s\xe3o armazenados localmente no dispositivo.\n\u2022 Backups exportados manualmente devem ser guardados com seguran\xe7a pela cl\xednica.")
-B.TS=new A.L("6. Compras na aplica\xe7\xe3o (Microsoft Store)","Subscri\xe7\xf5es, quando aplic\xe1vel, s\xe3o processadas pela Microsoft Store (Microsoft Corporation). Pagamentos e gest\xe3o de subscri\xe7\xe3o s\xe3o feitos pela conta Microsoft do utilizador. A Perfect Gest Dev n\xe3o processa nem armazena dados de cart\xe3o.")
-B.SQ=new A.L("7. Limita\xe7\xe3o de responsabilidade","Empregamos esfor\xe7os para manter o app funcional e seguro, mas n\xe3o garantimos opera\xe7\xe3o ininterrupta. O uso do app e as decis\xf5es cl\xednicas tomadas com base nos dados inseridos s\xe3o de responsabilidade da cl\xednica ou do profissional de sa\xfade.")
-B.TH=new A.L("8. Encerramento","Podemos suspender o acesso em caso de viola\xe7\xe3o destes Termos ou por exig\xeancia legal.")
-B.T6=new A.L("9. Altera\xe7\xf5es","Podemos actualizar estes Termos. A continua\xe7\xe3o do uso ap\xf3s altera\xe7\xf5es significativas significa aceita\xe7\xe3o da vers\xe3o actualizada.")
-B.UD=new A.L("10. Contato","suporte@perfectgestdev.com")
-B.a_s=s([B.Um,B.Ui,B.SC,B.RO,B.Tg,B.TS,B.SQ,B.TH,B.T6,B.UD],t.h)
-B.a_t=s(["\u0d9a\u0dcf\u0dbb\u0dca:1","\u0d9a\u0dcf\u0dbb\u0dca:2","\u0d9a\u0dcf\u0dbb\u0dca:3","\u0d9a\u0dcf\u0dbb\u0dca:4"],t.s)
+B.a_q=s(["1. kv.","2. kv.","3. kv.","4. kv."],t.s)
+B.a_r=s(["EEEE, d MMMM y","d MMMM y","d MMM y","dd.MM.y"],t.s)
+B.a_s=s(["1-\u0447\u0435\u0439.","2-\u0447\u0435\u0439.","3-\u0447\u0435\u0439.","4-\u0447\u0435\u0439."],t.s)
+B.Uq=new A.L("1. Aceita\xe7\xe3o","Ao instalar ou utilizar o PerfectGest-Clinica III, o utilizador concorda com estes Termos.")
+B.Ul=new A.L("2. Escopo","O app \xe9 uma ferramenta de apoio \xe0 gest\xe3o cl\xednica e organizacional. N\xe3o substitui, em hip\xf3tese alguma, julgamento profissional, diagn\xf3stico ou tratamento m\xe9dico.")
+B.SE=new A.L("3. Contas e responsabilidades","\u2022 O utilizador \xe9 respons\xe1vel por manter as credenciais (utilizador e senha) em seguran\xe7a.\n\u2022 A cl\xednica ou profissional que utiliza o software \xe9 respons\xe1vel pelo conte\xfado inserido e pelo uso adequado do sistema.")
+B.RN=new A.L("4. Uso aceit\xe1vel","\xc9 proibido:\n\u2022 usar o app para fins ilegais;\n\u2022 tentar contornar mecanismos de seguran\xe7a;\n\u2022 introduzir c\xf3digo malicioso;\n\u2022 copiar, distribuir ou explorar comercialmente o software fora dos limites da licen\xe7a.")
+B.Ti=new A.L("5. Dados e backups","\u2022 Os dados cl\xednicos s\xe3o armazenados localmente no dispositivo.\n\u2022 Backups exportados manualmente devem ser guardados com seguran\xe7a pela cl\xednica.")
+B.TW=new A.L("6. Compras na aplica\xe7\xe3o (Microsoft Store)","Subscri\xe7\xf5es, quando aplic\xe1vel, s\xe3o processadas pela Microsoft Store (Microsoft Corporation). Pagamentos e gest\xe3o de subscri\xe7\xe3o s\xe3o feitos pela conta Microsoft do utilizador. A Perfect Gest Dev n\xe3o processa nem armazena dados de cart\xe3o.")
+B.SR=new A.L("7. Limita\xe7\xe3o de responsabilidade","Empregamos esfor\xe7os para manter o app funcional e seguro, mas n\xe3o garantimos opera\xe7\xe3o ininterrupta. O uso do app e as decis\xf5es cl\xednicas tomadas com base nos dados inseridos s\xe3o de responsabilidade da cl\xednica ou do profissional de sa\xfade.")
+B.TJ=new A.L("8. Encerramento","Podemos suspender o acesso em caso de viola\xe7\xe3o destes Termos ou por exig\xeancia legal.")
+B.T8=new A.L("9. Altera\xe7\xf5es","Podemos actualizar estes Termos. A continua\xe7\xe3o do uso ap\xf3s altera\xe7\xf5es significativas significa aceita\xe7\xe3o da vers\xe3o actualizada.")
+B.UG=new A.L("10. Contato","suporte@perfectgestdev.com")
+B.a_t=s([B.Uq,B.Ul,B.SE,B.RN,B.Ti,B.TW,B.SR,B.TJ,B.T8,B.UG],t.h)
+B.a_u=s(["\u0d9a\u0dcf\u0dbb\u0dca:1","\u0d9a\u0dcf\u0dbb\u0dca:2","\u0d9a\u0dcf\u0dbb\u0dca:3","\u0d9a\u0dcf\u0dbb\u0dca:4"],t.s)
 B.vp=s(["ISonto","UMsombuluko","ULwesibili","ULwesithathu","ULwesine","ULwesihlanu","UMgqibelo"],t.s)
-B.a_y=s(["\u03c0.\u03a7.","\u03bc.\u03a7."],t.s)
-B.a_z=s(["\u0642.\u0645.","\u0645."],t.s)
+B.a_z=s(["\u03c0.\u03a7.","\u03bc.\u03a7."],t.s)
+B.a_A=s(["\u0642.\u0645.","\u0645."],t.s)
 B.vq=s(["\u1007","\u1016","\u1019","\u1027","\u1019","\u1007","\u1007","\u1029","\u1005","\u1021","\u1014","\u1012"],t.s)
 B.vr=s(["EEEE, d 'de' MMMM 'de' y","d 'de' MMMM 'de' y","d MMM y","d/M/yy"],t.s)
-B.a_A=s(["s\xf8n","man","tir","ons","tor","fre","l\xf8r"],t.s)
-B.a_B=s(["Tr\u01b0\u1edbc Thi\xean Ch\xfaa","Sau C\xf4ng Nguy\xean"],t.s)
-B.a_C=s(["dop.","pop."],t.s)
-B.a_D=s(["1. nelj.","2. nelj.","3. nelj.","4. nelj."],t.s)
-B.a_E=s(["\u0441\u0442\u0443","\u043b\u044e\u0442","\u0441\u0430\u043a","\u043a\u0440\u0430","\u043c\u0430\u044f","\u0447\u044d\u0440","\u043b\u0456\u043f","\u0436\u043d\u0456","\u0432\u0435\u0440","\u043a\u0430\u0441","\u043b\u0456\u0441","\u0441\u043d\u0435"],t.s)
+B.a_B=s(["s\xf8n","man","tir","ons","tor","fre","l\xf8r"],t.s)
+B.a_C=s(["Tr\u01b0\u1edbc Thi\xean Ch\xfaa","Sau C\xf4ng Nguy\xean"],t.s)
+B.a_D=s(["dop.","pop."],t.s)
+B.a_E=s(["1. nelj.","2. nelj.","3. nelj.","4. nelj."],t.s)
+B.a_F=s(["\u0441\u0442\u0443","\u043b\u044e\u0442","\u0441\u0430\u043a","\u043a\u0440\u0430","\u043c\u0430\u044f","\u0447\u044d\u0440","\u043b\u0456\u043f","\u0436\u043d\u0456","\u0432\u0435\u0440","\u043a\u0430\u0441","\u043b\u0456\u0441","\u0441\u043d\u0435"],t.s)
 B.vs=s(["\u056f\u056b\u0580","\u0565\u0580\u056f","\u0565\u0580\u0584","\u0579\u0580\u0584","\u0570\u0576\u0563","\u0578\u0582\u0580","\u0577\u0562\u0569"],t.s)
 B.vt=s(["\u09a6","\u09b8","\u09ae","\u09ac","\u09ac","\u09b6","\u09b6"],t.s)
-B.a_F=s(["\u1798\u17bb\u1793 \u1782.\u179f.","\u1782.\u179f."],t.s)
+B.a_G=s(["\u1798\u17bb\u1793 \u1782.\u179f.","\u1782.\u179f."],t.s)
 B.jw=s(["\u0458","\u0444","\u043c","\u0430","\u043c","\u0458","\u0458","\u0430","\u0441","\u043e","\u043d","\u0434"],t.s)
 B.dq=s(["Lin","Lun","Mar","Miy","Huw","Biy","Sab"],t.s)
-B.a_H=s(["M\xd6","MS"],t.s)
+B.a_I=s(["M\xd6","MS"],t.s)
 B.vu=s(["\u0a1c\u0a28\u0a35\u0a30\u0a40","\u0a2b\u0a3c\u0a30\u0a35\u0a30\u0a40","\u0a2e\u0a3e\u0a30\u0a1a","\u0a05\u0a2a\u0a4d\u0a30\u0a48\u0a32","\u0a2e\u0a08","\u0a1c\u0a42\u0a28","\u0a1c\u0a41\u0a32\u0a3e\u0a08","\u0a05\u0a17\u0a38\u0a24","\u0a38\u0a24\u0a70\u0a2c\u0a30","\u0a05\u0a15\u0a24\u0a42\u0a2c\u0a30","\u0a28\u0a35\u0a70\u0a2c\u0a30","\u0a26\u0a38\u0a70\u0a2c\u0a30"],t.s)
 B.O=s(["HH:mm:ss zzzz","HH:mm:ss z","HH:mm:ss","HH:mm"],t.s)
 B.dC=new A.jK(0,"leading")
 B.c7=new A.jK(1,"title")
 B.dD=new A.jK(2,"subtitle")
 B.fx=new A.jK(3,"trailing")
-B.a_I=s([B.dC,B.c7,B.dD,B.fx],A.a4("q<jK>"))
-B.a_J=s(["\u0644\u0647 \u0645\u06cc\u0644\u0627\u062f \u0648\u0693\u0627\u0646\u062f\u06d0","\u0645."],t.s)
-B.a_K=s(["I kw.","II kw.","III kw.","IV kw."],t.s)
-B.a_L=s(["\u0399\u03b1\u03bd","\u03a6\u03b5\u03b2","\u039c\u03ac\u03c1","\u0391\u03c0\u03c1","\u039c\u03ac\u03b9","\u0399\u03bf\u03cd\u03bd","\u0399\u03bf\u03cd\u03bb","\u0391\u03cd\u03b3","\u03a3\u03b5\u03c0","\u039f\u03ba\u03c4","\u039d\u03bf\u03ad","\u0394\u03b5\u03ba"],t.s)
-B.a_M=s(["\u7b2c1\u56db\u534a\u671f","\u7b2c2\u56db\u534a\u671f","\u7b2c3\u56db\u534a\u671f","\u7b2c4\u56db\u534a\u671f"],t.s)
+B.a_J=s([B.dC,B.c7,B.dD,B.fx],A.a4("q<jK>"))
+B.a_K=s(["\u0644\u0647 \u0645\u06cc\u0644\u0627\u062f \u0648\u0693\u0627\u0646\u062f\u06d0","\u0645."],t.s)
+B.a_L=s(["I kw.","II kw.","III kw.","IV kw."],t.s)
+B.a_M=s(["\u0399\u03b1\u03bd","\u03a6\u03b5\u03b2","\u039c\u03ac\u03c1","\u0391\u03c0\u03c1","\u039c\u03ac\u03b9","\u0399\u03bf\u03cd\u03bd","\u0399\u03bf\u03cd\u03bb","\u0391\u03cd\u03b3","\u03a3\u03b5\u03c0","\u039f\u03ba\u03c4","\u039d\u03bf\u03ad","\u0394\u03b5\u03ba"],t.s)
+B.a_N=s(["\u7b2c1\u56db\u534a\u671f","\u7b2c2\u56db\u534a\u671f","\u7b2c3\u56db\u534a\u671f","\u7b2c4\u56db\u534a\u671f"],t.s)
 B.vv=s(["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"],t.s)
-B.a_O=s(["\u091c\u0928","\u092b\u0947\u092c","\u092e\u093e\u0930\u094d\u091a","\u0905\u092a\u094d\u0930","\u092e\u0947","\u091c\u0941\u0928","\u091c\u0941\u0932","\u0905\u0917","\u0938\u0947\u092a","\u0905\u0915\u094d\u091f\u094b","\u0928\u094b\u092d\u0947","\u0921\u093f\u0938\u0947"],t.s)
+B.a_P=s(["\u091c\u0928","\u092b\u0947\u092c","\u092e\u093e\u0930\u094d\u091a","\u0905\u092a\u094d\u0930","\u092e\u0947","\u091c\u0941\u0928","\u091c\u0941\u0932","\u0905\u0917","\u0938\u0947\u092a","\u0905\u0915\u094d\u091f\u094b","\u0928\u094b\u092d\u0947","\u0921\u093f\u0938\u0947"],t.s)
 B.vw=s(["\u0a1c\u0a28","\u0a2b\u0a3c\u0a30","\u0a2e\u0a3e\u0a30\u0a1a","\u0a05\u0a2a\u0a4d\u0a30\u0a48","\u0a2e\u0a08","\u0a1c\u0a42\u0a28","\u0a1c\u0a41\u0a32\u0a3e","\u0a05\u0a17","\u0a38\u0a24\u0a70","\u0a05\u0a15\u0a24\u0a42","\u0a28\u0a35\u0a70","\u0a26\u0a38\u0a70"],t.s)
-B.a_P=s(["EEEE, d-MMMM, y","d-MMMM, y","d-MMM, y","dd/MM/yy"],t.s)
+B.a_Q=s(["EEEE, d-MMMM, y","d-MMMM, y","d-MMM, y","dd/MM/yy"],t.s)
 B.eY=s(["v. Chr.","n. Chr."],t.s)
 B.LZ=new A.pc(0,"auto")
 B.M_=new A.pc(1,"full")
 B.M0=new A.pc(2,"chromium")
-B.a_Q=s([B.LZ,B.M_,B.M0,B.di],A.a4("q<pc>"))
-B.a_R=s(["dom.","luns","mar.","m\xe9r.","xov.","ven.","s\xe1b."],t.s)
+B.a_R=s([B.LZ,B.M_,B.M0,B.di],A.a4("q<pc>"))
+B.a_S=s(["dom.","luns","mar.","m\xe9r.","xov.","ven.","s\xe1b."],t.s)
 B.vx=s(["zondag","maandag","dinsdag","woensdag","donderdag","vrijdag","zaterdag"],t.s)
-B.a_S=s(["\u0bae\u0bc1\u0bb1\u0bcd\u0baa\u0b95\u0bb2\u0bcd","\u0baa\u0bbf\u0bb1\u0bcd\u0baa\u0b95\u0bb2\u0bcd"],t.s)
-B.a_T=s(["Kuartal ke-1","Kuartal ke-2","Kuartal ke-3","Kuartal ke-4"],t.s)
+B.a_T=s(["\u0bae\u0bc1\u0bb1\u0bcd\u0baa\u0b95\u0bb2\u0bcd","\u0baa\u0bbf\u0bb1\u0bcd\u0baa\u0b95\u0bb2\u0bcd"],t.s)
+B.a_U=s(["Kuartal ke-1","Kuartal ke-2","Kuartal ke-3","Kuartal ke-4"],t.s)
 B.vy=s(["\u043d\u044f\u0434\u0437\u0435\u043b\u044f","\u043f\u0430\u043d\u044f\u0434\u0437\u0435\u043b\u0430\u043a","\u0430\u045e\u0442\u043e\u0440\u0430\u043a","\u0441\u0435\u0440\u0430\u0434\u0430","\u0447\u0430\u0446\u0432\u0435\u0440","\u043f\u044f\u0442\u043d\u0456\u0446\u0430","\u0441\u0443\u0431\u043e\u0442\u0430"],t.s)
-B.a_U=s(["Yan","Fev","Mar","Apr","May","Iyn","Iyl","Avg","Sen","Okt","Noy","Dek"],t.s)
+B.a_V=s(["Yan","Fev","Mar","Apr","May","Iyn","Iyl","Avg","Sen","Okt","Noy","Dek"],t.s)
 B.vz=s(["\u0432\u0441","\u043f\u043d","\u0432\u0442","\u0441\u0440","\u0447\u0442","\u043f\u0442","\u0441\u0431"],t.s)
-B.a_V=s(["stycze\u0144","luty","marzec","kwiecie\u0144","maj","czerwiec","lipiec","sierpie\u0144","wrzesie\u0144","pa\u017adziernik","listopad","grudzie\u0144"],t.s)
+B.a_W=s(["stycze\u0144","luty","marzec","kwiecie\u0144","maj","czerwiec","lipiec","sierpie\u0144","wrzesie\u0144","pa\u017adziernik","listopad","grudzie\u0144"],t.s)
 B.mQ=s(["{1} 'kl'. {0}","{1} 'kl'. {0}","{1}, {0}","{1}, {0}"],t.s)
 B.vA=s(["domenica","luned\xec","marted\xec","mercoled\xec","gioved\xec","venerd\xec","sabato"],t.s)
-B.a_X=s(["Bh:mm:ss [zzzz]","Bh:mm:ss [z]","Bh:mm:ss","Bh:mm"],t.s)
+B.a_Y=s(["Bh:mm:ss [zzzz]","Bh:mm:ss [z]","Bh:mm:ss","Bh:mm"],t.s)
 B.vB=s(["Januari","Februari","Mac","April","Mei","Jun","Julai","Ogos","September","Oktober","November","Disember"],t.s)
-B.a_Y=s(["a h\uc2dc m\ubd84 s\ucd08 zzzz","a h\uc2dc m\ubd84 s\ucd08 z","a h:mm:ss","a h:mm"],t.s)
+B.a_Z=s(["a h\uc2dc m\ubd84 s\ucd08 zzzz","a h\uc2dc m\ubd84 s\ucd08 z","a h:mm:ss","a h:mm"],t.s)
 B.vC=s(["\u0c9c\u0ca8\u0cb5\u0cb0\u0cbf","\u0cab\u0cc6\u0cac\u0ccd\u0cb0\u0cb5\u0cb0\u0cbf","\u0cae\u0cbe\u0cb0\u0ccd\u0c9a\u0ccd","\u0c8f\u0caa\u0ccd\u0cb0\u0cbf\u0cb2\u0ccd","\u0cae\u0cc7","\u0c9c\u0cc2\u0ca8\u0ccd","\u0c9c\u0cc1\u0cb2\u0cc8","\u0c86\u0c97\u0cb8\u0ccd\u0c9f\u0ccd","\u0cb8\u0cc6\u0caa\u0ccd\u0c9f\u0cc6\u0c82\u0cac\u0cb0\u0ccd","\u0c85\u0c95\u0ccd\u0c9f\u0ccb\u0cac\u0cb0\u0ccd","\u0ca8\u0cb5\u0cc6\u0c82\u0cac\u0cb0\u0ccd","\u0ca1\u0cbf\u0cb8\u0cc6\u0c82\u0cac\u0cb0\u0ccd"],t.s)
 B.vD=s(["\u067e\u06c1\u0644\u06cc \u0633\u06c1 \u0645\u0627\u06c1\u06cc","\u062f\u0648\u0633\u0631\u06cc \u0633\u06c1 \u0645\u0627\u06c1\u06cc","\u062a\u06cc\u0633\u0631\u06cc \u0633\u06c1 \u0645\u0627\u06c1\u06cc","\u0686\u0648\u062a\u0647\u06cc \u0633\u06c1 \u0645\u0627\u06c1\u06cc"],t.s)
-B.a_Z=s(["\u0642.\u0645","\u0645"],t.s)
-B.a0_=s(["x.","f.","m.","a.","m.","x.","x.","a.","s.","o.","n.","d."],t.s)
-B.a00=s(["tremujori I","tremujori II","tremujori III","tremujori IV"],t.s)
+B.a0_=s(["\u0642.\u0645","\u0645"],t.s)
+B.a00=s(["x.","f.","m.","a.","m.","x.","x.","a.","s.","o.","n.","d."],t.s)
+B.a01=s(["tremujori I","tremujori II","tremujori III","tremujori IV"],t.s)
 B.vE=s(["Su.","M.","Tu.","W.","Th.","F.","Sa."],t.s)
-B.a01=s(["\u0441\u0442\u0443\u0434\u0437\u0435\u043d\u044c","\u043b\u044e\u0442\u044b","\u0441\u0430\u043a\u0430\u0432\u0456\u043a","\u043a\u0440\u0430\u0441\u0430\u0432\u0456\u043a","\u043c\u0430\u0439","\u0447\u044d\u0440\u0432\u0435\u043d\u044c","\u043b\u0456\u043f\u0435\u043d\u044c","\u0436\u043d\u0456\u0432\u0435\u043d\u044c","\u0432\u0435\u0440\u0430\u0441\u0435\u043d\u044c","\u043a\u0430\u0441\u0442\u0440\u044b\u0447\u043d\u0456\u043a","\u043b\u0456\u0441\u0442\u0430\u043f\u0430\u0434","\u0441\u043d\u0435\u0436\u0430\u043d\u044c"],t.s)
+B.a02=s(["\u0441\u0442\u0443\u0434\u0437\u0435\u043d\u044c","\u043b\u044e\u0442\u044b","\u0441\u0430\u043a\u0430\u0432\u0456\u043a","\u043a\u0440\u0430\u0441\u0430\u0432\u0456\u043a","\u043c\u0430\u0439","\u0447\u044d\u0440\u0432\u0435\u043d\u044c","\u043b\u0456\u043f\u0435\u043d\u044c","\u0436\u043d\u0456\u0432\u0435\u043d\u044c","\u0432\u0435\u0440\u0430\u0441\u0435\u043d\u044c","\u043a\u0430\u0441\u0442\u0440\u044b\u0447\u043d\u0456\u043a","\u043b\u0456\u0441\u0442\u0430\u043f\u0430\u0434","\u0441\u043d\u0435\u0436\u0430\u043d\u044c"],t.s)
 B.vF=s(["nedelja","ponedeljek","torek","sreda","\u010detrtek","petek","sobota"],t.s)
 B.vG=s(["domingo","segunda","ter\xe7a","quarta","quinta","sexta","s\xe1bado"],t.s)
-B.a02=s(["pr. Kr.","po. Kr."],t.s)
-B.a03=s(["Sul","Llun","Maw","Mer","Iau","Gwen","Sad"],t.s)
-B.a04=s(["{1}, '\u0432\u043e' {0}","{1}, '\u0432\u043e' {0}","{1}, '\u0432\u043e' {0}","{1}, '\u0432\u043e' {0}"],t.s)
+B.a03=s(["pr. Kr.","po. Kr."],t.s)
+B.a04=s(["Sul","Llun","Maw","Mer","Iau","Gwen","Sad"],t.s)
+B.a05=s(["{1}, '\u0432\u043e' {0}","{1}, '\u0432\u043e' {0}","{1}, '\u0432\u043e' {0}","{1}, '\u0432\u043e' {0}"],t.s)
 B.vH=s(["{1} 'um' {0}","{1} 'um' {0}","{1}, {0}","{1}, {0}"],t.s)
 B.eZ=s(["1\uc6d4","2\uc6d4","3\uc6d4","4\uc6d4","5\uc6d4","6\uc6d4","7\uc6d4","8\uc6d4","9\uc6d4","10\uc6d4","11\uc6d4","12\uc6d4"],t.s)
-B.a05=s(["\u0441","\u043b","\u0431","\u043a","\u0442","\u0447","\u043b","\u0441","\u0432","\u0436","\u043b","\u0433"],t.s)
+B.a06=s(["\u0441","\u043b","\u0431","\u043a","\u0442","\u0447","\u043b","\u0441","\u0432","\u0436","\u043b","\u0433"],t.s)
 B.jx=s(["D","S","T","Q","Q","S","S"],t.s)
 B.jy=s(["a. C.","d. C."],t.s)
 B.bO=new A.fx(1,"fuchsia")
-B.a06=s([B.a7,B.bO,B.L,B.bv,B.aZ,B.bw],A.a4("q<fx>"))
-B.a07=s(["1-ci kvartal","2-ci kvartal","3-c\xfc kvartal","4-c\xfc kvartal"],t.s)
-B.a08=s(["\u0644\u0647 \u0645\u06cc\u0644\u0627\u062f \u0685\u062e\u0647 \u0648\u0693\u0627\u0646\u062f\u06d0","\u0644\u0647 \u0645\u06cc\u0644\u0627\u062f \u0685\u062e\u0647 \u0648\u0631\u0648\u0633\u062a\u0647"],t.s)
-B.a09=s(["EEEE, d MMMM y","d MMMM y","d MMM y","d/MM/yy"],t.s)
-B.a0a=s(["\u0a88.\u0ab8.\u0aaa\u0ac2\u0ab0\u0acd\u0ab5\u0ac7","\u0a88.\u0ab8."],t.s)
+B.a07=s([B.a7,B.bO,B.L,B.bv,B.aZ,B.bw],A.a4("q<fx>"))
+B.a08=s(["1-ci kvartal","2-ci kvartal","3-c\xfc kvartal","4-c\xfc kvartal"],t.s)
+B.a09=s(["\u0644\u0647 \u0645\u06cc\u0644\u0627\u062f \u0685\u062e\u0647 \u0648\u0693\u0627\u0646\u062f\u06d0","\u0644\u0647 \u0645\u06cc\u0644\u0627\u062f \u0685\u062e\u0647 \u0648\u0631\u0648\u0633\u062a\u0647"],t.s)
+B.a0a=s(["EEEE, d MMMM y","d MMMM y","d MMM y","d/MM/yy"],t.s)
+B.a0b=s(["\u0a88.\u0ab8.\u0aaa\u0ac2\u0ab0\u0acd\u0ab5\u0ac7","\u0a88.\u0ab8."],t.s)
 B.vI=s(["\u0698","\u0641","\u0645","\u0622","\u0645","\u0698","\u0698","\u0627","\u0633","\u0627","\u0646","\u062f"],t.s)
-B.a0b=s(["\u0b95\u0bbe\u0bb2\u0bbe.1","\u0b95\u0bbe\u0bb2\u0bbe.2","\u0b95\u0bbe\u0bb2\u0bbe.3","\u0b95\u0bbe\u0bb2\u0bbe.4"],t.s)
-B.RZ=new A.L("\xbfQu\xe9 es PerfectGest I?","App de gesti\xf3n m\xf3vil con datos en el dispositivo (SQLite). Sin \xabcuenta en la nube\xbb para clientes, presupuestos o caja.")
-B.Sf=new A.L("\xbfFunciona sin internet?","Uso diario offline-first. Servicios Google opcionales pueden usar red.")
-B.TB=new A.L("\xbfC\xf3mo funciona el per\xedodo de prueba?","7 d\xedas desde la primera apertura. Durante ese tiempo: hasta 5 clientes, 5 presupuestos y 5 movimientos de caja (con PDF), sin suscripci\xf3n de pago. Al guardar el 4.\xba de cada tipo, la app avisa que queda 1. El 6.\xba registro o el fin de los 7 d\xedas sin Plan Pro impide nuevos registros; puede seguir consultando y editando lo ya guardado. Suscripci\xf3n: Ajustes \u2192 Suscripci\xf3n de Google Play.")
-B.U4=new A.L("\xbfC\xf3mo funciona el Plan Inicial?","Son los l\xedmites 5+5+5 aplicados durante los 7 d\xedas de prueba (v\xe9ase arriba). Fuera de la prueba o por encima de los l\xedmites, se requiere Plan Pro (mensual o anual en Google Play).")
-B.SL=new A.L("\xbfD\xf3nde gestiono la suscripci\xf3n?","Ajustes \u2192 Suscripci\xf3n de Google Play. Cancelar en Play Store.")
-B.UG=new A.L("\xbfQu\xe9 es la tarjeta de visita digital?","En Empresa, edita datos profesionales (no clientes ni caja). Compartir tarjeta genera PNG en la hoja de compartir. Tras la primera tarjeta, sin Plan Pro queda en modo est\xe1tico (puede compartir el PNG); con Pro, edita y usa funciones avanzadas solo en la app (vCard, QR, vista previa interactiva) \u2014 sin p\xe1gina web alojada por PerfectGest.\n\nClientes y datos financieros protegidos en el tel\xe9fono; no se env\xedan autom\xe1ticamente a servidores.")
-B.Tl=new A.L("\xbfEst\xe1n protegidos mis datos de clientes y financieros?","S\xed. Solo salen si usted comparte PDF, PNG/vCard/QR de la tarjeta o backup exportado (cifrado recomendado en Pro).")
-B.U5=new A.L("Recordatorios fiscales, calendario, notificaciones, anuncios, idiomas?","Recordatorios locales informativos; calendario semanal; sin anuncios; sin Crashlytics; PT / EN / ES.")
-B.Uf=new A.L("Privacidad, borrado, sugerencias?","Ajustes \u2192 Ayuda y soporte. Borrar todo: Datos en el dispositivo \u2192 Eliminar todos los datos. Sugerencias: pesta\xf1a Empresa \u2192 suporte@perfectgestdev.com.")
-B.a0c=s([B.RZ,B.Sf,B.TB,B.U4,B.SL,B.UG,B.Tl,B.U5,B.Uf],t.h)
+B.a0c=s(["\u0b95\u0bbe\u0bb2\u0bbe.1","\u0b95\u0bbe\u0bb2\u0bbe.2","\u0b95\u0bbe\u0bb2\u0bbe.3","\u0b95\u0bbe\u0bb2\u0bbe.4"],t.s)
 B.J8=new A.wz(0,"topLeft")
 B.Jb=new A.wz(3,"bottomRight")
-B.amb=new A.mh(B.J8,B.Jb)
-B.ame=new A.mh(B.Jb,B.J8)
+B.ame=new A.mh(B.J8,B.Jb)
+B.amh=new A.mh(B.Jb,B.J8)
 B.J9=new A.wz(1,"topRight")
 B.Ja=new A.wz(2,"bottomLeft")
-B.amc=new A.mh(B.J9,B.Ja)
-B.amd=new A.mh(B.Ja,B.J9)
-B.a0d=s([B.amb,B.ame,B.amc,B.amd],A.a4("q<mh>"))
+B.amf=new A.mh(B.J9,B.Ja)
+B.amg=new A.mh(B.Ja,B.J9)
+B.a0d=s([B.ame,B.amh,B.amf,B.amg],A.a4("q<mh>"))
 B.vJ=s(["GN","FB","M\xc7","AB","MG","JN","JL","AG","ST","OC","NV","DS"],t.s)
 B.a0e=s(["\u0441\u0456\u0447","\u043b\u044e\u0442","\u0431\u0435\u0440","\u043a\u0432\u0456","\u0442\u0440\u0430","\u0447\u0435\u0440","\u043b\u0438\u043f","\u0441\u0435\u0440","\u0432\u0435\u0440","\u0436\u043e\u0432","\u043b\u0438\u0441","\u0433\u0440\u0443"],t.s)
 B.vK=s(["Z","M","D","W","D","V","Z"],t.s)
@@ -93154,21 +93123,21 @@ B.vP=s(["duminic\u0103","luni","mar\u021bi","miercuri","joi","vineri","s\xe2mb\u
 B.vQ=s(["O","\u015e","M","N","M","H","T","A","E","E","K","A"],t.s)
 B.vR=s(["\u044f\u043d\u0443","\u0444\u0435\u0432","\u043c\u0430\u0440\u0442","\u0430\u043f\u0440","\u043c\u0430\u0439","\u044e\u043d\u0438","\u044e\u043b\u0438","\u0430\u0432\u0433","\u0441\u0435\u043f","\u043e\u043a\u0442","\u043d\u043e\u0435","\u0434\u0435\u043a"],t.s)
 B.a0j=s(["\u03c0.\u03bc.","\u03bc.\u03bc."],t.s)
-B.aaD=new A.at(0.01339448,0.05994973)
-B.aaC=new A.at(0.13664115,0.13592082)
-B.aap=new A.at(0.24545546,0.14099516)
-B.aas=new A.at(0.32353151,0.12808021)
-B.aaB=new A.at(0.39093068,0.11726264)
-B.aai=new A.at(0.448478,0.10808278)
-B.aan=new A.at(0.49817452,0.10026175)
-B.aaq=new A.at(0.54105583,0.09344429)
-B.aal=new A.at(0.57812578,0.08748984)
-B.aay=new A.at(0.61050961,0.08224722)
-B.aaF=new A.at(0.63903989,0.07759639)
-B.aam=new A.at(0.66416338,0.0734653)
-B.aaj=new A.at(0.68675338,0.06974996)
-B.aaz=new A.at(0.70678034,0.06529512)
-B.vS=s([B.aaD,B.aaC,B.aap,B.aas,B.aaB,B.aai,B.aan,B.aaq,B.aal,B.aay,B.aaF,B.aam,B.aaj,B.aaz],A.a4("q<+(G,G)>"))
+B.aaG=new A.at(0.01339448,0.05994973)
+B.aaF=new A.at(0.13664115,0.13592082)
+B.aas=new A.at(0.24545546,0.14099516)
+B.aav=new A.at(0.32353151,0.12808021)
+B.aaE=new A.at(0.39093068,0.11726264)
+B.aal=new A.at(0.448478,0.10808278)
+B.aaq=new A.at(0.49817452,0.10026175)
+B.aat=new A.at(0.54105583,0.09344429)
+B.aao=new A.at(0.57812578,0.08748984)
+B.aaB=new A.at(0.61050961,0.08224722)
+B.aaI=new A.at(0.63903989,0.07759639)
+B.aap=new A.at(0.66416338,0.0734653)
+B.aam=new A.at(0.68675338,0.06974996)
+B.aaC=new A.at(0.70678034,0.06529512)
+B.vS=s([B.aaG,B.aaF,B.aas,B.aav,B.aaE,B.aal,B.aaq,B.aat,B.aao,B.aaB,B.aaI,B.aap,B.aam,B.aaC],A.a4("q<+(G,G)>"))
 B.a0k=s(["aC","dC"],t.s)
 B.vT=s(["\u0644\u0648\u0645\u0693\u06cd \u0631\u0628\u0639\u0647","\u06f2\u0645\u0647 \u0631\u0628\u0639\u0647","\u06f3\u0645\u0647 \u0631\u0628\u0639\u0647","\u06f4\u0645\u0647 \u0631\u0628\u0639\u0647"],t.s)
 B.a0l=s(["Die","H\xebn","Mar","M\xebr","Enj","Pre","Sht"],t.s)
@@ -93239,7 +93208,7 @@ B.wa=s([],A.a4("q<b71>"))
 B.a1_=s([],t.E)
 B.a11=s([],t.fJ)
 B.a1c=s([],t.ER)
-B.anJ=s([],t.ss)
+B.anM=s([],t.ss)
 B.a17=s([],t.tc)
 B.jC=s([],t.jl)
 B.a1a=s([],t.wi)
@@ -93281,15 +93250,15 @@ B.wl=s(["sekmadienis","pirmadienis","antradienis","tre\u010diadienis","ketvirtad
 B.a1p=s(["fm","em"],t.s)
 B.wm=s(["\u0458\u0430\u043d\u0443\u0430\u0440","\u0444\u0435\u0431\u0440\u0443\u0430\u0440","\u043c\u0430\u0440\u0442","\u0430\u043f\u0440\u0438\u043b","\u043c\u0430\u0458","\u0458\u0443\u043d","\u0458\u0443\u043b","\u0430\u0432\u0433\u0443\u0441\u0442","\u0441\u0435\u043f\u0442\u0435\u043c\u0431\u0430\u0440","\u043e\u043a\u0442\u043e\u0431\u0430\u0440","\u043d\u043e\u0432\u0435\u043c\u0431\u0430\u0440","\u0434\u0435\u0446\u0435\u043c\u0431\u0430\u0440"],t.s)
 B.jF=s(["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],t.s)
-B.SX=new A.L("1. Scope","PerfectGest-Clinica III is a clinical management system for Windows. The app stores clinical data locally on the device (MSIX container). The clinic or health professional using the software is responsible for entering and managing data.")
-B.TX=new A.L("2. Data processed","The app processes data entered by the user (e.g. patients, medical records, schedule, team). By default, we do not send clinical content to the cloud.\n\n2.1 Local data (by default)\n\u2022 Patients and medical records (health) \u2014 local SQLite\n\u2022 Schedule and operation logs \u2014 local SQLite\n\u2022 Local session/account and roles (ADMIN/DOCTOR/OPERATOR) \u2014 local SQLite\n\n2.2 Data that may leave the device (optional / by configuration)\n\u2022 Subscription payments: Microsoft Store (Microsoft Corporation). Perfect Gest Dev does not store card data.\n\u2022 WhatsApp Cloud API: if configured by the clinic, messages are sent to Meta (WhatsApp).\n\u2022 Firebase (optional): remote licenses and technical settings (no medical records).\n\u2022 Technical crash report (with consent): anonymous report with no patient data.")
+B.SZ=new A.L("1. Scope","PerfectGest-Clinica III is a clinical management system for Windows. The app stores clinical data locally on the device (MSIX container). The clinic or health professional using the software is responsible for entering and managing data.")
+B.U1=new A.L("2. Data processed","The app processes data entered by the user (e.g. patients, medical records, schedule, team). By default, we do not send clinical content to the cloud.\n\n2.1 Local data (by default)\n\u2022 Patients and medical records (health) \u2014 local SQLite\n\u2022 Schedule and operation logs \u2014 local SQLite\n\u2022 Local session/account and roles (ADMIN/DOCTOR/OPERATOR) \u2014 local SQLite\n\n2.2 Data that may leave the device (optional / by configuration)\n\u2022 Subscription payments: Microsoft Store (Microsoft Corporation). Perfect Gest Dev does not store card data.\n\u2022 WhatsApp Cloud API: if configured by the clinic, messages are sent to Meta (WhatsApp).\n\u2022 Firebase (optional): remote licenses and technical settings (no medical records).\n\u2022 Technical crash report (with consent): anonymous report with no patient data.")
 B.S3=new A.L("3. Purposes","\u2022 Operate app features (clinical and organizational management)\n\u2022 Technical support when requested\n\u2022 Compliance with legal/regulatory obligations")
-B.Tr=new A.L("4. Legal basis (LGPD)","Health data processing occurs in the clinic's context (controller). The software provides security and audit mechanisms to support compliance.")
-B.So=new A.L("5. Security","\u2022 Access audit: metadata (no clinical content in logs), configurable retention\n\u2022 Encrypted backup (ZIP): AES-256 + HMAC manifest\n\u2022 Database encryption (optional): SQLite + passphrase in Windows Credential Locker")
-B.TQ=new A.L("6. Retention and deletion","\u2022 Data remains on the device while the app is installed\n\u2022 Uninstalling removes data from the MSIX container; exported backups remain the clinic's responsibility")
-B.SN=new A.L("7. Data subject rights","\u2022 Access/correction via patient record\n\u2022 LGPD report (ADMIN) in PDF/CSV\n\u2022 Portability via encrypted backup\n\u2022 Additional requests: contact the clinic (controller) or suporte@perfectgestdev.com (technical support)")
+B.Tv=new A.L("4. Legal basis (LGPD)","Health data processing occurs in the clinic's context (controller). The software provides security and audit mechanisms to support compliance.")
+B.Sq=new A.L("5. Security","\u2022 Access audit: metadata (no clinical content in logs), configurable retention\n\u2022 Encrypted backup (ZIP): AES-256 + HMAC manifest\n\u2022 Database encryption (optional): SQLite + passphrase in Windows Credential Locker")
+B.TU=new A.L("6. Retention and deletion","\u2022 Data remains on the device while the app is installed\n\u2022 Uninstalling removes data from the MSIX container; exported backups remain the clinic's responsibility")
+B.SO=new A.L("7. Data subject rights","\u2022 Access/correction via patient record\n\u2022 LGPD report (ADMIN) in PDF/CSV\n\u2022 Portability via encrypted backup\n\u2022 Additional requests: contact the clinic (controller) or suporte@perfectgestdev.com (technical support)")
 B.S5=new A.L("8. Contact","suporte@perfectgestdev.com")
-B.a1q=s([B.SX,B.TX,B.S3,B.Tr,B.So,B.TQ,B.SN,B.S5],t.h)
+B.a1q=s([B.SZ,B.U1,B.S3,B.Tv,B.Sq,B.TU,B.SO,B.S5],t.h)
 B.jG=s(["\u516c\u5143\u524d","\u516c\u5143"],t.s)
 B.a1r=s(["1T","2T","3T","4T"],t.s)
 B.wn=s(["\u043d\u0435\u0434\u0435\u0459\u0430","\u043f\u043e\u043d\u0435\u0434\u0435\u0459\u0430\u043a","\u0443\u0442\u043e\u0440\u0430\u043a","\u0441\u0440\u0435\u0434\u0430","\u0447\u0435\u0442\u0432\u0440\u0442\u0430\u043a","\u043f\u0435\u0442\u0430\u043a","\u0441\u0443\u0431\u043e\u0442\u0430"],t.s)
@@ -93332,11 +93301,11 @@ B.wF=s(["\u05d9\u05d5\u05dd \u05d0\u05f3","\u05d9\u05d5\u05dd \u05d1\u05f3","\u0
 B.a1M=s(["EEEE, d MMMM y","d MMMM y","d MMM y","d.M.yy"],t.s)
 B.a1N=s(["\u0642\u0628\u0644\u200c\u0627\u0632\u0638\u0647\u0631","\u0628\u0639\u062f\u0627\u0632\u0638\u0647\u0631"],t.s)
 B.wG=s(["Jan.","Feb.","M\xe4rz","Apr.","Mai","Juni","Juli","Aug.","Sept.","Okt.","Nov.","Dez."],t.s)
-B.a8E=new A.f(1.2,1.2)
-B.a8y=new A.f(2,2.5)
-B.a8L=new A.f(-1,-1)
-B.a8t=new A.f(-1.5,-2)
-B.wH=s([B.a8E,B.a8y,B.a8L,B.a8t],A.a4("q<f>"))
+B.a8H=new A.f(1.2,1.2)
+B.a8B=new A.f(2,2.5)
+B.a8O=new A.f(-1,-1)
+B.a8w=new A.f(-1.5,-2)
+B.wH=s([B.a8H,B.a8B,B.a8O,B.a8w],A.a4("q<f>"))
 B.wI=s(["Sunntig","M\xe4\xe4ntig","Ziischtig","Mittwuch","Dunschtig","Friitig","Samschtig"],t.s)
 B.a1O=s(["pred Kristusom","po Kristusu"],t.s)
 B.a1P=s(["tammik.","helmik.","maalisk.","huhtik.","toukok.","kes\xe4k.","hein\xe4k.","elok.","syysk.","lokak.","marrask.","jouluk."],t.s)
@@ -93354,8 +93323,8 @@ B.a1U=s(["I kwarta\u0142","II kwarta\u0142","III kwarta\u0142","IV kwarta\u0142"
 B.a1W=s(["\u0431\u0438\u0437\u0434\u0438\u043d \u0437\u0430\u043c\u0430\u043d\u0433\u0430 \u0447\u0435\u0439\u0438\u043d","\u0431\u0438\u0437\u0434\u0438\u043d \u0437\u0430\u043c\u0430\u043d"],t.s)
 B.a1X=s(["\u09aa\u09c2\u09f0\u09cd\u09ac\u09be\u09b9\u09cd\u09a8","\u0985\u09aa\u09f0\u09be\u09b9\u09cd\u09a8"],t.s)
 B.wO=s(["\u1303\u1295\u12e9","\u134c\u1265\u1229","\u121b\u122d\u127d","\u12a4\u1355\u122a","\u121c\u12ed","\u1301\u1295","\u1301\u120b\u12ed","\u12a6\u1308\u1235","\u1234\u1355\u1274","\u12a6\u12ad\u1276","\u1296\u126c\u121d","\u12f2\u1234\u121d"],t.s)
-B.a8g=new A.f(0,2)
-B.Kj=new A.cs(0.75,B.b0,B.pH,B.a8g,1.5)
+B.a8j=new A.f(0,2)
+B.Kj=new A.cs(0.75,B.b0,B.pH,B.a8j,1.5)
 B.a1Y=s([B.Kj],t.sq)
 B.a1Z=s(["\u0924\u093f1","\u0924\u093f2","\u0924\u093f3","\u0924\u093f4"],t.s)
 B.a2_=s(["sije\u010danj","velja\u010da","o\u017eujak","travanj","svibanj","lipanj","srpanj","kolovoz","rujan","listopad","studeni","prosinac"],t.s)
@@ -93375,13 +93344,13 @@ B.wT=s(["D","L","M","X","J","V","S"],t.s)
 B.a29=s(["EEEE, d \u05d1MMMM y","d \u05d1MMMM y","d \u05d1MMM y","d.M.y"],t.s)
 B.wU=s(["\u041d","\u041f","\u0412","\u0421","\u0427","\u041f","\u0421"],t.s)
 B.a2a=s(["EEEE, d. MMMM y","d. MMMM y","d. MMM y","d.M.y"],t.s)
-B.T9=new A.L("Introduction","PerfectGest I provides clear data control under Google Play and LGPD. The app is local-first.")
-B.S8=new A.L("Summary","Client and financial data are not sent automatically to PerfectGest servers. They may leave your phone only if you share PDFs, share backup files you exported, share business card PNG/vCard, or show a QR with professional contacts.")
-B.Tc=new A.L("1. Business data (local)","Stored in SQLite on your device: clients, estimates, cash, work orders, company data, business card snapshot, fiscal reminders.\n\nHow to delete\n\n- In app: Settings \u2192 Data on this device \u2192 Delete all data on this device\n- Android: Settings \u2192 Apps \u2192 PerfectGest I \u2192 Storage \u2192 Clear data\n- Uninstall the app\n\nWarning: without an external backup, data cannot be recovered \u2014 we do not keep copies on our servers.\n\nShared backups: delete manually from WhatsApp, email, or cloud where you stored them.")
-B.Tu=new A.L("2. Firebase telemetry","Anonymous install metadata and usage metrics for Initial Plan eligibility. We do not host business card content on servers.\n\nEmail: suporte@perfectgestdev.com \u2014 Subject: Technical Data Deletion Request")
-B.U3=new A.L("3. Local notifications","Cancelled on uninstall or data wipe.")
-B.U_=new A.L("4. Timelines","Local data: immediate. Firebase telemetry: up to 15 business days after email request.")
-B.a2b=s([B.T9,B.S8,B.Tc,B.Tu,B.U3,B.U_],t.h)
+B.Tb=new A.L("Introduction","PerfectGest I provides clear data control under Google Play and LGPD. The app is local-first.")
+B.S9=new A.L("Summary","Client and financial data are not sent automatically to PerfectGest servers. They may leave your phone only if you share PDFs, share backup files you exported, share business card PNG/vCard, or show a QR with professional contacts.")
+B.Te=new A.L("1. Business data (local)","Stored in SQLite on your device: clients, estimates, cash, work orders, company data, business card snapshot, fiscal reminders.\n\nHow to delete\n\n- In app: Settings \u2192 Data on this device \u2192 Delete all data on this device\n- Android: Settings \u2192 Apps \u2192 PerfectGest I \u2192 Storage \u2192 Clear data\n- Uninstall the app\n\nWarning: without an external backup, data cannot be recovered \u2014 we do not keep copies on our servers.\n\nShared backups: delete manually from WhatsApp, email, or cloud where you stored them.")
+B.Ty=new A.L("2. Firebase telemetry","Anonymous install metadata and usage metrics for Initial Plan eligibility. We do not host business card content on servers.\n\nEmail: suporte@perfectgestdev.com \u2014 Subject: Technical Data Deletion Request")
+B.U8=new A.L("3. Local notifications","Cancelled on uninstall or data wipe.")
+B.U4=new A.L("4. Timelines","Local data: immediate. Firebase telemetry: up to 15 business days after email request.")
+B.a2b=s([B.Tb,B.S9,B.Te,B.Ty,B.U8,B.U4],t.h)
 B.f_=s(["{1} {0}","{1} {0}","{1}, {0}","{1}, {0}"],t.s)
 B.f0=s(["\u65e5","\u4e00","\u4e8c","\u4e09","\u56db","\u4e94","\u516d"],t.s)
 B.wV=s(["\u10d9\u10d5\u10d8","\u10dd\u10e0\u10e8","\u10e1\u10d0\u10db","\u10dd\u10d7\u10ee","\u10ee\u10e3\u10d7","\u10de\u10d0\u10e0","\u10e8\u10d0\u10d1"],t.s)
@@ -93427,20 +93396,20 @@ B.mW=s(["\u099c\u09be\u09a8\u09c1\u09af\u09bc\u09be\u09b0\u09c0","\u09ab\u09c7\u
 B.a2z=s(["p.m.\u0113.","m.\u0113."],t.s)
 B.a2A=s(["EEEE, MMMM d, y","MMMM d, y","MMM d, y","d/M/yy"],t.s)
 B.a2B=s(["sunnuntaina","maanantaina","tiistaina","keskiviikkona","torstaina","perjantaina","lauantaina"],t.s)
-B.TK=new A.L("1. Nature of data","PerfectGest-Clinica III may process sensitive personal data (health data) entered by the clinic or professional using the software (e.g. medical records and visit history).")
-B.Sg=new A.L("2. LGPD roles","\u2022 Controller: clinic or health professional using the software (defines purposes and means of processing).\n\u2022 Software operator: Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA).\n\u2022 Sub-processors (when applicable):\n  \u2014 Microsoft (subscription payments via Microsoft Store)\n  \u2014 Meta/WhatsApp (messages, if configured by the clinic)\n  \u2014 Firebase/Google (technical components, if enabled)")
-B.RP=new A.L("3. Minimization and storage","\u2022 Clinical data remains on the device (local SQLite).\n\u2022 Audit logs store metadata (who / when / what), without clinical content.")
-B.TW=new A.L("4. Data subject rights (LGPD Art. 18)","The app provides operational support for:\n\u2022 access and correction via patient record;\n\u2022 LGPD report export (ADMIN) in PDF/CSV (when available);\n\u2022 portability via encrypted backup.\n\nTo exercise rights regarding health data, contact the clinic first (controller).")
-B.Uq=new A.L("5. Recommended security (best practices)","\u2022 Enable BitLocker on Windows (recommended);\n\u2022 Use strong passwords and appropriate roles (ADMIN / DOCTOR / OPERATOR);\n\u2022 Enable database encryption in the app (optional);\n\u2022 Use encrypted ZIP backup and store the password securely.")
+B.TM=new A.L("1. Nature of data","PerfectGest-Clinica III may process sensitive personal data (health data) entered by the clinic or professional using the software (e.g. medical records and visit history).")
+B.Sj=new A.L("2. LGPD roles","\u2022 Controller: clinic or health professional using the software (defines purposes and means of processing).\n\u2022 Software operator: Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA).\n\u2022 Sub-processors (when applicable):\n  \u2014 Microsoft (subscription payments via Microsoft Store)\n  \u2014 Meta/WhatsApp (messages, if configured by the clinic)\n  \u2014 Firebase/Google (technical components, if enabled)")
+B.RO=new A.L("3. Minimization and storage","\u2022 Clinical data remains on the device (local SQLite).\n\u2022 Audit logs store metadata (who / when / what), without clinical content.")
+B.U_=new A.L("4. Data subject rights (LGPD Art. 18)","The app provides operational support for:\n\u2022 access and correction via patient record;\n\u2022 LGPD report export (ADMIN) in PDF/CSV (when available);\n\u2022 portability via encrypted backup.\n\nTo exercise rights regarding health data, contact the clinic first (controller).")
+B.Uu=new A.L("5. Recommended security (best practices)","\u2022 Enable BitLocker on Windows (recommended);\n\u2022 Use strong passwords and appropriate roles (ADMIN / DOCTOR / OPERATOR);\n\u2022 Enable database encryption in the app (optional);\n\u2022 Use encrypted ZIP backup and store the password securely.")
 B.RK=new A.L("6. Contact","Technical questions about the product: suporte@perfectgestdev.com\nLGPD requests regarding clinical data: contact the clinic (controller).")
-B.a2C=s([B.TK,B.Sg,B.RP,B.TW,B.Uq,B.RK],t.h)
+B.a2C=s([B.TM,B.Sj,B.RO,B.U_,B.Uu,B.RK],t.h)
 B.xa=s(["voor Christus","na Christus"],t.s)
 B.a2D=s(["\u04af.\u04e9.","\u04af.\u0445."],t.s)
 B.a2E=s(["\u0c9c\u0ca8\u0cb5\u0cb0\u0cbf","\u0cab\u0cc6\u0cac\u0ccd\u0cb0\u0cb5\u0cb0\u0cbf","\u0cae\u0cbe\u0cb0\u0ccd\u0c9a\u0ccd","\u0c8f\u0caa\u0ccd\u0cb0\u0cbf","\u0cae\u0cc7","\u0c9c\u0cc2\u0ca8\u0ccd","\u0c9c\u0cc1\u0cb2\u0cc8","\u0c86\u0c97","\u0cb8\u0cc6\u0caa\u0ccd\u0c9f\u0cc6\u0c82","\u0c85\u0c95\u0ccd\u0c9f\u0ccb","\u0ca8\u0cb5\u0cc6\u0c82","\u0ca1\u0cbf\u0cb8\u0cc6\u0c82"],t.s)
-B.a7E=new A.uY(0,"silver")
-B.a7F=new A.uY(1,"gold")
-B.a7G=new A.uY(2,"copper")
-B.a2F=s([B.a7E,B.a7F,B.a7G],A.a4("q<uY>"))
+B.a7H=new A.uY(0,"silver")
+B.a7I=new A.uY(1,"gold")
+B.a7J=new A.uY(2,"copper")
+B.a2F=s([B.a7H,B.a7I,B.a7J],A.a4("q<uY>"))
 B.xb=s(["H:mm:ss (zzzz)","H:mm:ss (z)","H:mm:ss","H:mm"],t.s)
 B.xc=s(["\u0b30\u0b2c\u0b3f\u0b2c\u0b3e\u0b30","\u0b38\u0b4b\u0b2e\u0b2c\u0b3e\u0b30","\u0b2e\u0b19\u0b4d\u0b17\u0b33\u0b2c\u0b3e\u0b30","\u0b2c\u0b41\u0b27\u0b2c\u0b3e\u0b30","\u0b17\u0b41\u0b30\u0b41\u0b2c\u0b3e\u0b30","\u0b36\u0b41\u0b15\u0b4d\u0b30\u0b2c\u0b3e\u0b30","\u0b36\u0b28\u0b3f\u0b2c\u0b3e\u0b30"],t.s)
 B.xd=s(["1er trimestre","2e trimestre","3e trimestre","4e trimestre"],t.s)
@@ -93450,61 +93419,72 @@ B.xe=s(["ne","po","ut","st","\u0161t","pi","so"],t.s)
 B.mX=s(["1. Quartal","2. Quartal","3. Quartal","4. Quartal"],t.s)
 B.xf=s(["\u0458\u0430\u043d","\u0444\u0435\u0431","\u043c\u0430\u0440","\u0430\u043f\u0440","\u043c\u0430\u0458","\u0458\u0443\u043d","\u0458\u0443\u043b","\u0430\u0432\u0433","\u0441\u0435\u043f","\u043e\u043a\u0442","\u043d\u043e\u0432","\u0434\u0435\u0446"],t.s)
 B.a2H=s(["y\ub144 M\uc6d4 d\uc77c EEEE","y\ub144 M\uc6d4 d\uc77c","y. M. d.","yy. M. d."],t.s)
-B.Sb=new A.L("1. Escopo","O PerfectGest-Clinica III \xe9 um sistema de gest\xe3o cl\xednica para Windows. O app armazena dados cl\xednicos localmente no dispositivo (contentor MSIX). A cl\xednica ou profissional que utiliza o software \xe9 respons\xe1vel pela inser\xe7\xe3o e gest\xe3o dos dados.")
-B.Uh=new A.L("2. Dados tratados","O app trata dados inseridos pelo utilizador (ex.: pacientes, prontu\xe1rio, agenda, equipa). Por padr\xe3o, n\xe3o enviamos conte\xfado cl\xednico para a nuvem.\n\n2.1 Dados locais (por padr\xe3o)\n\u2022 Pacientes e prontu\xe1rio (sa\xfade) \u2014 SQLite local\n\u2022 Agenda e registos de opera\xe7\xe3o \u2014 SQLite local\n\u2022 Sess\xe3o/conta local e perfis (ADMIN/DOUTOR/OPERADOR) \u2014 SQLite local\n\n2.2 Dados que podem sair do dispositivo (opcionais / por configura\xe7\xe3o)\n\u2022 Pagamentos de subscri\xe7\xe3o: Microsoft Store (Microsoft Corporation). A Perfect Gest Dev n\xe3o armazena dados de cart\xe3o.\n\u2022 WhatsApp Cloud API: se configurado pela cl\xednica, mensagens s\xe3o enviadas \xe0 Meta (WhatsApp).\n\u2022 Firebase (opcional): licen\xe7as remotas e configura\xe7\xf5es t\xe9cnicas (sem prontu\xe1rio).\n\u2022 Relat\xf3rio t\xe9cnico de instabilidade (com consentimento): relat\xf3rio an\xf3nimo, sem dados de paciente.")
-B.UI=new A.L("3. Finalidades","\u2022 Operar as funcionalidades do app (gest\xe3o cl\xednica e organizacional)\n\u2022 Suporte t\xe9cnico quando solicitado\n\u2022 Cumprimento de obriga\xe7\xf5es legais/regulat\xf3rias")
-B.TT=new A.L("4. Base legal (LGPD)","O tratamento de dados de sa\xfade ocorre no contexto da cl\xednica (controlador). O software oferece mecanismos de seguran\xe7a e auditoria para apoiar a conformidade.")
-B.TN=new A.L("5. Seguran\xe7a","\u2022 Auditoria de acesso: metadados (sem conte\xfado cl\xednico no log), reten\xe7\xe3o configur\xe1vel\n\u2022 Backup encriptado (ZIP): AES-256 + manifesto HMAC\n\u2022 Encripta\xe7\xe3o da base de dados (opcional): SQLite + passphrase no Credential Locker do Windows")
+B.Se=new A.L("1. Escopo","O PerfectGest-Clinica III \xe9 um sistema de gest\xe3o cl\xednica para Windows. O app armazena dados cl\xednicos localmente no dispositivo (contentor MSIX). A cl\xednica ou profissional que utiliza o software \xe9 respons\xe1vel pela inser\xe7\xe3o e gest\xe3o dos dados.")
+B.Uk=new A.L("2. Dados tratados","O app trata dados inseridos pelo utilizador (ex.: pacientes, prontu\xe1rio, agenda, equipa). Por padr\xe3o, n\xe3o enviamos conte\xfado cl\xednico para a nuvem.\n\n2.1 Dados locais (por padr\xe3o)\n\u2022 Pacientes e prontu\xe1rio (sa\xfade) \u2014 SQLite local\n\u2022 Agenda e registos de opera\xe7\xe3o \u2014 SQLite local\n\u2022 Sess\xe3o/conta local e perfis (ADMIN/DOUTOR/OPERADOR) \u2014 SQLite local\n\n2.2 Dados que podem sair do dispositivo (opcionais / por configura\xe7\xe3o)\n\u2022 Pagamentos de subscri\xe7\xe3o: Microsoft Store (Microsoft Corporation). A Perfect Gest Dev n\xe3o armazena dados de cart\xe3o.\n\u2022 WhatsApp Cloud API: se configurado pela cl\xednica, mensagens s\xe3o enviadas \xe0 Meta (WhatsApp).\n\u2022 Firebase (opcional): licen\xe7as remotas e configura\xe7\xf5es t\xe9cnicas (sem prontu\xe1rio).\n\u2022 Relat\xf3rio t\xe9cnico de instabilidade (com consentimento): relat\xf3rio an\xf3nimo, sem dados de paciente.")
+B.UL=new A.L("3. Finalidades","\u2022 Operar as funcionalidades do app (gest\xe3o cl\xednica e organizacional)\n\u2022 Suporte t\xe9cnico quando solicitado\n\u2022 Cumprimento de obriga\xe7\xf5es legais/regulat\xf3rias")
+B.TX=new A.L("4. Base legal (LGPD)","O tratamento de dados de sa\xfade ocorre no contexto da cl\xednica (controlador). O software oferece mecanismos de seguran\xe7a e auditoria para apoiar a conformidade.")
+B.TQ=new A.L("5. Seguran\xe7a","\u2022 Auditoria de acesso: metadados (sem conte\xfado cl\xednico no log), reten\xe7\xe3o configur\xe1vel\n\u2022 Backup encriptado (ZIP): AES-256 + manifesto HMAC\n\u2022 Encripta\xe7\xe3o da base de dados (opcional): SQLite + passphrase no Credential Locker do Windows")
 B.RS=new A.L("6. Reten\xe7\xe3o e elimina\xe7\xe3o","\u2022 Dados no dispositivo enquanto o app estiver instalado\n\u2022 Desinstala\xe7\xe3o remove dados do contentor MSIX; backups exportados ficam sob responsabilidade da cl\xednica")
-B.Tf=new A.L("7. Direitos do titular","\u2022 Acesso/corre\xe7\xe3o via ficha do paciente\n\u2022 Relat\xf3rio LGPD (ADMIN) em PDF/CSV\n\u2022 Portabilidade via backup encriptado\n\u2022 Pedidos adicionais: contactar a cl\xednica (controlador) ou suporte@perfectgestdev.com (suporte t\xe9cnico)")
-B.Uw=new A.L("8. Contato","suporte@perfectgestdev.com")
-B.a2I=s([B.Sb,B.Uh,B.UI,B.TT,B.TN,B.RS,B.Tf,B.Uw],t.h)
+B.Th=new A.L("7. Direitos do titular","\u2022 Acesso/corre\xe7\xe3o via ficha do paciente\n\u2022 Relat\xf3rio LGPD (ADMIN) em PDF/CSV\n\u2022 Portabilidade via backup encriptado\n\u2022 Pedidos adicionais: contactar a cl\xednica (controlador) ou suporte@perfectgestdev.com (suporte t\xe9cnico)")
+B.UA=new A.L("8. Contato","suporte@perfectgestdev.com")
+B.a2I=s([B.Se,B.Uk,B.UL,B.TX,B.TQ,B.RS,B.Th,B.UA],t.h)
+B.Uw=new A.L("Introducci\xf3n","PerfectGest I, bajo responsabilidad de Marcos Leandro dos Santos, establece esta Pol\xedtica de Privacidad conforme a la LGPD de Brasil (Ley 13.709/18) y las pol\xedticas de Google Play.")
+B.TA=new A.L("Responsable y contacto","Responsable: Marcos Leandro dos Santos. Contacto: suporte@perfectgestdev.com.")
+B.UN=new A.L("Almacenamiento local","La app es local-first. Los datos de gesti\xf3n se guardan solo en el dispositivo (SQLite). PerfectGest I no recoge, accede ni transfiere autom\xe1ticamente esos datos a servidores propios.\n\nDatos de clientes y financieros \u2014 protegidos en el dispositivo\n\nPermanecen en el dispositivo y no salen de la app por iniciativa del sistema:\n\n- Registro e historial de clientes\n- Presupuestos, \xedtems, importes y estados\n- Caja \u2014 ingresos, gastos, categor\xedas y saldos\n- \xd3rdenes de servicio, proyectos, contratos y documentos de gesti\xf3n\n- Cualquier nombre de cliente, importe o movimiento financiero\n\nNo enviamos estos datos a Firebase, Firestore, Analytics u otros servidores. Firebase Analytics registra solo eventos gen\xe9ricos de uso, sin nombres de clientes ni importes de caja.\n\nCu\xe1ndo pueden salir del dispositivo (solo por su acci\xf3n)\n\n- Compartir o guardar PDF (presupuesto, informe de caja, etc.)\n- Compartir tarjeta de visita (PNG) \u2014 solo datos profesionales; nunca lista de clientes ni datos financieros\n- Compartir vCard o mostrar QR con contactos profesionales (Plan Pro \u2014 ver abajo)\n- Compartir archivo de backup que export\xf3 (simple o cifrado)\n\nImportante: compartir un backup es responsabilidad del usuario sobre destino y seguridad. Recomendamos copias cifradas (Plan Pro).\n\nTarjeta de visita vs. gesti\xf3n interna\n\nLa pesta\xf1a Empresa alimenta la tarjeta con contactos profesionales; no expone Clientes, Presupuestos ni Caja.")
+B.Tc=new A.L("Tarjeta de visita \u2014 modo est\xe1tico","Tras guardar la primera tarjeta, puede mostrarse una copia congelada local sin Pro. Puede seguir compartiendo el PNG por la hoja de compartir del sistema. Funciones avanzadas (editar tras congelar, vCard, QR, vista previa interactiva con toques) requieren Plan Pro \u2014 solo en la app; PerfectGest no aloja una p\xe1gina web p\xfablica de su tarjeta.")
+B.Tg=new A.L("Tarjeta interactiva en la app (Plan Pro)","Con Plan Pro, tras la primera tarjeta puede seguir editando y usar funciones avanzadas en el tel\xe9fono:\n\n- Vista previa interactiva (toques abren WhatsApp, tel\xe9fono, correo, web o mapa)\n- Exportar vCard (.vcf) y generar QR con datos de contacto\n- Compartir PNG actualizado\n\nTodo permanece en el dispositivo hasta que comparta o muestre el QR. No publicamos ni alojamos la tarjeta en un sitio PerfectGest ni enviamos su contenido a Firestore.\n\nNunca incluidos en la tarjeta: clientes, presupuestos, caja, importes financieros, contratos ni backups.")
+B.Um=new A.L("Per\xedodo de prueba y Plan Pro","- Per\xedodo de prueba (7 d\xedas): desde la primera apertura, uso ilimitado (clientes, presupuestos, caja, PDF, \xf3rdenes, contratos) sin suscripci\xf3n de pago y sin tarjeta en la app.\n- Tras 7 d\xedas sin Plan Pro: puede consultar y editar datos locales; no puede crear registros nuevos ni PDF nuevos.\n- Plan Pro: uso ilimitado, restauraci\xf3n de backup cifrado, tarjeta interactiva \u2014 mensual (R$ 9,90) o anual (R$ 99,90) v\xeda Google Play.\n\nLa fecha de inicio de la prueba se guarda de forma an\xf3nima por dispositivo (servicio Firebase) para coherencia del per\xedodo \u2014 sin datos de clientes, presupuestos ni caja.")
+B.Ue=new A.L("Servicios de terceros","Firebase Analytics (eventos gen\xe9ricos, sin Crashlytics), Remote Config, Firestore (metadatos an\xf3nimos m\xednimos del Plan Inicial por dispositivo: identificador de instalaci\xf3n, inicio del per\xedodo de prueba, elegibilidad freemium y primer guardado de tarjeta \u2014 sin clientes, presupuestos ni caja), Google Play Billing. Sin publicidad en la app.")
+B.SQ=new A.L("Notificaciones locales","Recordatorios fiscales solo en el dispositivo. Permiso POST_NOTIFICATIONS en Android 13+.")
+B.SS=new A.L("Seguridad y retenci\xf3n","HTTPS/TLS; no venta de datos para anuncios. Datos locales y snapshot de tarjeta: se eliminan al borrar datos o desinstalar. Telemetr\xeda (Firebase): solicitud por correo, hasta 15 d\xedas h\xe1biles.")
+B.Uz=new A.L("Permisos, elegibilidad y foro","Logotipos, PDFs, backups, notificaciones. Usuarios mayores de 18 a\xf1os. Leyes de Brasil; fuero Caxias do Sul/RS.")
+B.a2J=s([B.Uw,B.TA,B.UN,B.Tc,B.Tg,B.Um,B.Ue,B.SQ,B.SS,B.Uz],t.h)
 B.dt=s(["domingo","lunes","martes","mi\xe9rcoles","jueves","viernes","s\xe1bado"],t.s)
-B.a2K=s(["\u0399\u03b1\u03bd\u03bf\u03c5\u03ac\u03c1\u03b9\u03bf\u03c2","\u03a6\u03b5\u03b2\u03c1\u03bf\u03c5\u03ac\u03c1\u03b9\u03bf\u03c2","\u039c\u03ac\u03c1\u03c4\u03b9\u03bf\u03c2","\u0391\u03c0\u03c1\u03af\u03bb\u03b9\u03bf\u03c2","\u039c\u03ac\u03b9\u03bf\u03c2","\u0399\u03bf\u03cd\u03bd\u03b9\u03bf\u03c2","\u0399\u03bf\u03cd\u03bb\u03b9\u03bf\u03c2","\u0391\u03cd\u03b3\u03bf\u03c5\u03c3\u03c4\u03bf\u03c2","\u03a3\u03b5\u03c0\u03c4\u03ad\u03bc\u03b2\u03c1\u03b9\u03bf\u03c2","\u039f\u03ba\u03c4\u03ce\u03b2\u03c1\u03b9\u03bf\u03c2","\u039d\u03bf\u03ad\u03bc\u03b2\u03c1\u03b9\u03bf\u03c2","\u0394\u03b5\u03ba\u03ad\u03bc\u03b2\u03c1\u03b9\u03bf\u03c2"],t.s)
-B.a2L=s(["\u0a2a\u0a42.\u0a26\u0a41.","\u0a2c\u0a3e.\u0a26\u0a41."],t.s)
-B.a2M=s(["\u042f\u043d\u0432\u0430\u0440\u044c","\u0424\u0435\u0432\u0440\u0430\u043b\u044c","\u041c\u0430\u0440\u0442","\u0410\u043f\u0440\u0435\u043b\u044c","\u041c\u0430\u0439","\u0418\u044e\u043d\u044c","\u0418\u044e\u043b\u044c","\u0410\u0432\u0433\u0443\u0441\u0442","\u0421\u0435\u043d\u0442\u044f\u0431\u0440\u044c","\u041e\u043a\u0442\u044f\u0431\u0440\u044c","\u041d\u043e\u044f\u0431\u0440\u044c","\u0414\u0435\u043a\u0430\u0431\u0440\u044c"],t.s)
-B.a2N=s(["Krisztus el\u0151tt","id\u0151sz\xe1m\xedt\xe1sunk szerint"],t.s)
+B.a2L=s(["\u0399\u03b1\u03bd\u03bf\u03c5\u03ac\u03c1\u03b9\u03bf\u03c2","\u03a6\u03b5\u03b2\u03c1\u03bf\u03c5\u03ac\u03c1\u03b9\u03bf\u03c2","\u039c\u03ac\u03c1\u03c4\u03b9\u03bf\u03c2","\u0391\u03c0\u03c1\u03af\u03bb\u03b9\u03bf\u03c2","\u039c\u03ac\u03b9\u03bf\u03c2","\u0399\u03bf\u03cd\u03bd\u03b9\u03bf\u03c2","\u0399\u03bf\u03cd\u03bb\u03b9\u03bf\u03c2","\u0391\u03cd\u03b3\u03bf\u03c5\u03c3\u03c4\u03bf\u03c2","\u03a3\u03b5\u03c0\u03c4\u03ad\u03bc\u03b2\u03c1\u03b9\u03bf\u03c2","\u039f\u03ba\u03c4\u03ce\u03b2\u03c1\u03b9\u03bf\u03c2","\u039d\u03bf\u03ad\u03bc\u03b2\u03c1\u03b9\u03bf\u03c2","\u0394\u03b5\u03ba\u03ad\u03bc\u03b2\u03c1\u03b9\u03bf\u03c2"],t.s)
+B.a2M=s(["\u0a2a\u0a42.\u0a26\u0a41.","\u0a2c\u0a3e.\u0a26\u0a41."],t.s)
+B.a2N=s(["\u042f\u043d\u0432\u0430\u0440\u044c","\u0424\u0435\u0432\u0440\u0430\u043b\u044c","\u041c\u0430\u0440\u0442","\u0410\u043f\u0440\u0435\u043b\u044c","\u041c\u0430\u0439","\u0418\u044e\u043d\u044c","\u0418\u044e\u043b\u044c","\u0410\u0432\u0433\u0443\u0441\u0442","\u0421\u0435\u043d\u0442\u044f\u0431\u0440\u044c","\u041e\u043a\u0442\u044f\u0431\u0440\u044c","\u041d\u043e\u044f\u0431\u0440\u044c","\u0414\u0435\u043a\u0430\u0431\u0440\u044c"],t.s)
+B.a2O=s(["Krisztus el\u0151tt","id\u0151sz\xe1m\xedt\xe1sunk szerint"],t.s)
 B.jL=s(["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"],t.s)
-B.a2O=s(["\u0907. \u0938. \u092a\u0942.","\u0907. \u0938."],t.s)
-B.a2P=s(["Roimh Chr\xedost","Anno Domini"],t.s)
+B.a2P=s(["\u0907. \u0938. \u092a\u0942.","\u0907. \u0938."],t.s)
+B.a2Q=s(["Roimh Chr\xedost","Anno Domini"],t.s)
 B.xg=s(["\u4e00\u6708","\u4e8c\u6708","\u4e09\u6708","\u56db\u6708","\u4e94\u6708","\u516d\u6708","\u4e03\u6708","\u516b\u6708","\u4e5d\u6708","\u5341\u6708","\u5341\u4e00\u6708","\u5341\u4e8c\u6708"],t.s)
-B.a2Q=s(["EEEE, dd MMMM y","d MMMM y","d MMM y","dd/MM/yy"],t.s)
+B.a2R=s(["EEEE, dd MMMM y","d MMMM y","d MMM y","dd/MM/yy"],t.s)
 B.xh=s(["\u0c06","\u0c38\u0c4b","\u0c2e","\u0c2c\u0c41","\u0c17\u0c41","\u0c36\u0c41","\u0c36"],t.s)
 B.xi=s(["\u043d","\u043f","\u0443","\u0441","\u0447","\u043f","\u0441"],t.s)
-B.a2R=s(["\u0d9a\u0dca\u200d\u0dbb\u0dd2.\u0db4\u0dd6.","\u0d9a\u0dca\u200d\u0dbb\u0dd2.\u0dc0."],t.s)
-B.a2S=s(["EEEE d MMMM y","d MMMM y","d MMM y","y/M/d"],t.s)
+B.a2S=s(["\u0d9a\u0dca\u200d\u0dbb\u0dd2.\u0db4\u0dd6.","\u0d9a\u0dca\u200d\u0dbb\u0dd2.\u0dc0."],t.s)
+B.a2T=s(["EEEE d MMMM y","d MMMM y","d MMM y","y/M/d"],t.s)
 B.xj=s(["sij","velj","o\u017eu","tra","svi","lip","srp","kol","ruj","lis","stu","pro"],t.s)
-B.a2T=s(["\u0908\u0938\u093e-\u092a\u0942\u0930\u094d\u0935","\u0908\u0938\u0935\u0940 \u0938\u0928"],t.s)
-B.a2U=s(["y\u5e74M\u6708d\u65e5 EEEE","y\u5e74M\u6708d\u65e5","y\u5e74M\u6708d\u65e5","y/M/d"],t.s)
-B.a2W=s(["\u063a.\u0645.","\u063a.\u0648."],t.s)
-B.a2X=s(["\u0d15\u0d4d\u0d30\u0d3f.\u0d2e\u0d41.","\u0d0e\u0d21\u0d3f"],t.s)
-B.a2Y=s(["janu\xe1ra","febru\xe1ra","marca","apr\xedla","m\xe1ja","j\xfana","j\xfala","augusta","septembra","okt\xf3bra","novembra","decembra"],t.s)
-B.a2Z=s(["f\xf6re Kristus","efter Kristus"],t.s)
-B.a3_=s(["\u043d\u044f\u043c","\u0434\u0430\u0432\u0430\u0430","\u043c\u044f\u0433\u043c\u0430\u0440","\u043b\u0445\u0430\u0433\u0432\u0430","\u043f\u04af\u0440\u044d\u0432","\u0431\u0430\u0430\u0441\u0430\u043d","\u0431\u044f\u043c\u0431\u0430"],t.s)
-B.a30=s(["\u03c0\u03c1\u03bf \u03a7\u03c1\u03b9\u03c3\u03c4\u03bf\u03cd","\u03bc\u03b5\u03c4\u03ac \u03a7\u03c1\u03b9\u03c3\u03c4\u03cc\u03bd"],t.s)
+B.a2U=s(["\u0908\u0938\u093e-\u092a\u0942\u0930\u094d\u0935","\u0908\u0938\u0935\u0940 \u0938\u0928"],t.s)
+B.a2V=s(["y\u5e74M\u6708d\u65e5 EEEE","y\u5e74M\u6708d\u65e5","y\u5e74M\u6708d\u65e5","y/M/d"],t.s)
+B.a2X=s(["\u063a.\u0645.","\u063a.\u0648."],t.s)
+B.a2Y=s(["\u0d15\u0d4d\u0d30\u0d3f.\u0d2e\u0d41.","\u0d0e\u0d21\u0d3f"],t.s)
+B.a2Z=s(["janu\xe1ra","febru\xe1ra","marca","apr\xedla","m\xe1ja","j\xfana","j\xfala","augusta","septembra","okt\xf3bra","novembra","decembra"],t.s)
+B.a3_=s(["f\xf6re Kristus","efter Kristus"],t.s)
+B.a30=s(["\u043d\u044f\u043c","\u0434\u0430\u0432\u0430\u0430","\u043c\u044f\u0433\u043c\u0430\u0440","\u043b\u0445\u0430\u0433\u0432\u0430","\u043f\u04af\u0440\u044d\u0432","\u0431\u0430\u0430\u0441\u0430\u043d","\u0431\u044f\u043c\u0431\u0430"],t.s)
+B.a31=s(["\u03c0\u03c1\u03bf \u03a7\u03c1\u03b9\u03c3\u03c4\u03bf\u03cd","\u03bc\u03b5\u03c4\u03ac \u03a7\u03c1\u03b9\u03c3\u03c4\u03cc\u03bd"],t.s)
 B.xk=s(["\u1303\u1295\u12e9\u12c8\u122a","\u134c\u1265\u1229\u12c8\u122a","\u121b\u122d\u127d","\u12a4\u1355\u122a\u120d","\u121c\u12ed","\u1301\u1295","\u1301\u120b\u12ed","\u12a6\u1308\u1235\u1275","\u1234\u1355\u1274\u121d\u1260\u122d","\u12a6\u12ad\u1276\u1260\u122d","\u1296\u126c\u121d\u1260\u122d","\u12f2\u1234\u121d\u1260\u122d"],t.s)
-B.a31=s(["prijepodne","popodne"],t.s)
-B.a32=s(["domingo","luns","martes","m\xe9rcores","xoves","venres","s\xe1bado"],t.s)
+B.a32=s(["prijepodne","popodne"],t.s)
+B.a33=s(["domingo","luns","martes","m\xe9rcores","xoves","venres","s\xe1bado"],t.s)
 B.xl=s(["\u0d1c\u0d28\u0d41\u0d35\u0d30\u0d3f","\u0d2b\u0d46\u0d2c\u0d4d\u0d30\u0d41\u0d35\u0d30\u0d3f","\u0d2e\u0d3e\u0d7c\u0d1a\u0d4d\u0d1a\u0d4d","\u0d0f\u0d2a\u0d4d\u0d30\u0d3f\u0d7d","\u0d2e\u0d47\u0d2f\u0d4d","\u0d1c\u0d42\u0d7a","\u0d1c\u0d42\u0d32\u0d48","\u0d13\u0d17\u0d38\u0d4d\u0d31\u0d4d\u0d31\u0d4d","\u0d38\u0d46\u0d2a\u0d4d\u0d31\u0d4d\u0d31\u0d02\u0d2c\u0d7c","\u0d12\u0d15\u0d4d\u200c\u0d1f\u0d4b\u0d2c\u0d7c","\u0d28\u0d35\u0d02\u0d2c\u0d7c","\u0d21\u0d3f\u0d38\u0d02\u0d2c\u0d7c"],t.s)
-B.a33=s(["sausio","vasario","kovo","baland\u017eio","gegu\u017e\u0117s","bir\u017eelio","liepos","rugpj\u016b\u010dio","rugs\u0117jo","spalio","lapkri\u010dio","gruod\u017eio"],t.s)
-B.a34=s(["miloddan avvalgi","milodiy"],t.s)
-B.a36=s(["ledna","\xfanora","b\u0159ezna","dubna","kv\u011btna","\u010dervna","\u010dervence","srpna","z\xe1\u0159\xed","\u0159\xedjna","listopadu","prosince"],t.s)
+B.a34=s(["sausio","vasario","kovo","baland\u017eio","gegu\u017e\u0117s","bir\u017eelio","liepos","rugpj\u016b\u010dio","rugs\u0117jo","spalio","lapkri\u010dio","gruod\u017eio"],t.s)
+B.a35=s(["miloddan avvalgi","milodiy"],t.s)
+B.a37=s(["ledna","\xfanora","b\u0159ezna","dubna","kv\u011btna","\u010dervna","\u010dervence","srpna","z\xe1\u0159\xed","\u0159\xedjna","listopadu","prosince"],t.s)
 B.jM=s(["\u043d\u0434","\u043f\u043d","\u0432\u0442","\u0441\u0440","\u0447\u0442","\u043f\u0442","\u0441\u0431"],t.s)
 B.xm=s(["S","V","K","B","G","B","L","R","R","S","L","G"],t.s)
 B.xn=s(["Januarie","Februarie","Maart","April","Mei","Junie","Julie","Augustus","September","Oktober","November","Desember"],t.s)
-B.Wz=s([0.001200833568784504,0.002389694492170889,0.0002795742885861124],t.n)
+B.WF=s([0.001200833568784504,0.002389694492170889,0.0002795742885861124],t.n)
 B.a0L=s([0.0005891086651375999,0.0029785502573438758,0.0003270666104008398],t.n)
-B.Xk=s([0.00010146692491640572,0.0005364214359186694,0.0032979401770712076],t.n)
-B.a39=s([B.Wz,B.a0L,B.Xk],t.zg)
-B.a3a=s(["{1} 'klo' {0}","{1} 'klo' {0}","{1} 'klo' {0}","{1} {0}"],t.s)
-B.a3b=s([45,95,45,20,45,90,45,45,45],t.n)
-B.a3c=s(["y MMMM d, EEEE","y MMMM d","y MMM d","y-MM-dd"],t.s)
-B.a3d=s(["Xaneiro","Febreiro","Marzo","Abril","Maio","Xu\xf1o","Xullo","Agosto","Setembro","Outubro","Novembro","Decembro"],t.s)
+B.Xr=s([0.00010146692491640572,0.0005364214359186694,0.0032979401770712076],t.n)
+B.a3a=s([B.WF,B.a0L,B.Xr],t.zg)
+B.a3b=s(["{1} 'klo' {0}","{1} 'klo' {0}","{1} 'klo' {0}","{1} {0}"],t.s)
+B.a3c=s([45,95,45,20,45,90,45,45,45],t.n)
+B.a3d=s(["y MMMM d, EEEE","y MMMM d","y MMM d","y-MM-dd"],t.s)
+B.a3e=s(["Xaneiro","Febreiro","Marzo","Abril","Maio","Xu\xf1o","Xullo","Agosto","Setembro","Outubro","Novembro","Decembro"],t.s)
 B.xo=s(["led","\xfano","b\u0159e","dub","kv\u011b","\u010dvn","\u010dvc","srp","z\xe1\u0159","\u0159\xedj","lis","pro"],t.s)
-B.a3e=s([120,120,20,45,20,15,20,120,120],t.n)
+B.a3f=s([120,120,20,45,20,15,20,120,120],t.n)
 B.xp=s(["antes de Cristo","depois de Cristo"],t.s)
-B.a3f=s(["trim. I","trim. II","trim. III","trim. IV"],t.s)
-B.a3g=s(["Yanvar","Fevral","Mart","Aprel","May","Iyun","Iyul","Avgust","Sentabr","Oktabr","Noyabr","Dekabr"],t.s)
+B.a3g=s(["trim. I","trim. II","trim. III","trim. IV"],t.s)
+B.a3h=s(["Yanvar","Fevral","Mart","Aprel","May","Iyun","Iyul","Avgust","Sentabr","Oktabr","Noyabr","Dekabr"],t.s)
 B.xq=s(["jan.","feb.","mar.","apr.","mai","jun.","jul.","aug.","sep.","okt.","nov.","des."],t.s)
 B.xr=s(["Ocak","\u015eubat","Mart","Nisan","May\u0131s","Haziran","Temmuz","A\u011fustos","Eyl\xfcl","Ekim","Kas\u0131m","Aral\u0131k"],t.s)
 B.ao=new A.fM(0,"touch")
@@ -93513,11 +93493,11 @@ B.b5=new A.fM(2,"stylus")
 B.c4=new A.fM(3,"invertedStylus")
 B.bc=new A.fM(4,"trackpad")
 B.bM=new A.fM(5,"unknown")
-B.a3h=s([B.ao,B.bj,B.b5,B.c4,B.bc,B.bM],A.a4("q<fM>"))
-B.a3j=s(["y '\u0436'. d MMMM, EEEE","y '\u0436'. d MMMM","y '\u0436'. dd MMM","dd.MM.yy"],t.s)
+B.a3i=s([B.ao,B.bj,B.b5,B.c4,B.bc,B.bM],A.a4("q<fM>"))
+B.a3k=s(["y '\u0436'. d MMMM, EEEE","y '\u0436'. d MMMM","y '\u0436'. dd MMM","dd.MM.yy"],t.s)
 B.xs=s(["\u0c1c\u0c28","\u0c2b\u0c3f\u0c2c\u0c4d\u0c30","\u0c2e\u0c3e\u0c30\u0c4d\u0c1a\u0c3f","\u0c0f\u0c2a\u0c4d\u0c30\u0c3f","\u0c2e\u0c47","\u0c1c\u0c42\u0c28\u0c4d","\u0c1c\u0c41\u0c32\u0c48","\u0c06\u0c17","\u0c38\u0c46\u0c2a\u0c4d\u0c1f\u0c46\u0c02","\u0c05\u0c15\u0c4d\u0c1f\u0c4b","\u0c28\u0c35\u0c02","\u0c21\u0c3f\u0c38\u0c46\u0c02"],t.s)
-B.a3l=s(["{1} \u0915\u094b {0}","{1} \u0915\u094b {0}","{1}, {0}","{1}, {0}"],t.s)
-B.a3m=s(["\u043f\u0440\u0435\u0434\u0438 \u0425\u0440\u0438\u0441\u0442\u0430","\u0441\u043b\u0435\u0434 \u0425\u0440\u0438\u0441\u0442\u0430"],t.s)
+B.a3m=s(["{1} \u0915\u094b {0}","{1} \u0915\u094b {0}","{1}, {0}","{1}, {0}"],t.s)
+B.a3n=s(["\u043f\u0440\u0435\u0434\u0438 \u0425\u0440\u0438\u0441\u0442\u0430","\u0441\u043b\u0435\u0434 \u0425\u0440\u0438\u0441\u0442\u0430"],t.s)
 B.xt=s(["\u0441","\u043b","\u0441","\u043a","\u043c","\u0447","\u043b","\u0436","\u0432","\u043a","\u043b","\u0441"],t.s)
 B.f1=new A.hL(0,"controlModifier")
 B.f2=new A.hL(1,"shiftModifier")
@@ -93530,18 +93510,18 @@ B.ni=new A.hL(7,"functionModifier")
 B.Dc=new A.hL(8,"symbolModifier")
 B.xu=s([B.f1,B.f2,B.f3,B.f4,B.nf,B.ng,B.nh,B.ni,B.Dc],A.a4("q<hL>"))
 B.xv=s(["E","P","M","A","M","Hun","Hul","Ago","Set","Okt","Nob","Dis"],t.s)
-B.a3n=s(["Kabla ya Kristo","Baada ya Kristo"],t.s)
-B.a3o=s(["\u0db4\u0dd9.\u0dc0.","\u0db4.\u0dc0."],t.s)
+B.a3o=s(["Kabla ya Kristo","Baada ya Kristo"],t.s)
+B.a3p=s(["\u0db4\u0dd9.\u0dc0.","\u0db4.\u0dc0."],t.s)
 B.xw=s(["\u0d89","\u0dc3","\u0d85","\u0db6","\u0db6\u0dca\u200d\u0dbb","\u0dc3\u0dd2","\u0dc3\u0dd9"],t.s)
-B.a3p=s(["eram\u0131zdan \u0259vv\u0259l","yeni era"],t.s)
+B.a3q=s(["eram\u0131zdan \u0259vv\u0259l","yeni era"],t.s)
 B.ci=s(["1st quarter","2nd quarter","3rd quarter","4th quarter"],t.s)
-B.a3q=s(["\u0e01\u0e48\u0e2d\u0e19 \u0e04.\u0e28.","\u0e04.\u0e28."],t.s)
+B.a3r=s(["\u0e01\u0e48\u0e2d\u0e19 \u0e04.\u0e28.","\u0e04.\u0e28."],t.s)
 B.xx=s(["jan","shk","mar","pri","maj","qer","korr","gush","sht","tet","n\xebn","dhj"],t.s)
 B.xy=s(["januari","februari","maart","april","mei","juni","juli","augustus","september","oktober","november","december"],t.s)
-B.a3r=s(["cccc d. MMMM y","d. MMMM y","d.M.y","d.M.y"],t.s)
-B.a3s=s(["\u09e7\u09ae\u0983 \u09a4\u09bf\u0983","\u09e8\u09af\u09bc\u0983 \u09a4\u09bf\u0983","\u09e9\u09af\u09bc\u0983 \u09a4\u09bf\u0983","\u09ea\u09f0\u09cd\u09a5\u0983 \u09a4\u09bf\u0983"],t.s)
+B.a3s=s(["cccc d. MMMM y","d. MMMM y","d.M.y","d.M.y"],t.s)
+B.a3t=s(["\u09e7\u09ae\u0983 \u09a4\u09bf\u0983","\u09e8\u09af\u09bc\u0983 \u09a4\u09bf\u0983","\u09e9\u09af\u09bc\u0983 \u09a4\u09bf\u0983","\u09ea\u09f0\u09cd\u09a5\u0983 \u09a4\u09bf\u0983"],t.s)
 B.xz=s(["S","M","B","T","S","H","M"],t.s)
-B.a3t=s(["\u0c95\u0ccd\u0cb0\u0cbf\u0cb8\u0ccd\u0ca4 \u0caa\u0cc2\u0cb0\u0ccd\u0cb5","\u0c95\u0ccd\u0cb0\u0cbf\u0cb8\u0ccd\u0ca4 \u0cb6\u0c95"],t.s)
+B.a3u=s(["\u0c95\u0ccd\u0cb0\u0cbf\u0cb8\u0ccd\u0ca4 \u0caa\u0cc2\u0cb0\u0ccd\u0cb5","\u0c95\u0ccd\u0cb0\u0cbf\u0cb8\u0ccd\u0ca4 \u0cb6\u0c95"],t.s)
 B.jN=s(["antes de Cristo","despu\xe9s de Cristo"],t.s)
 B.mY=s([!0,!1],t.HZ)
 B.jO=s(["\uc77c","\uc6d4","\ud654","\uc218","\ubaa9","\uae08","\ud1a0"],t.s)
@@ -93550,86 +93530,109 @@ B.jP=s(["domingo","segunda-feira","ter\xe7a-feira","quarta-feira","quinta-feira"
 B.bI=s(["1\u6708","2\u6708","3\u6708","4\u6708","5\u6708","6\u6708","7\u6708","8\u6708","9\u6708","10\u6708","11\u6708","12\u6708"],t.s)
 B.xB=s(["P\xfchap\xe4ev","Esmasp\xe4ev","Teisip\xe4ev","Kolmap\xe4ev","Neljap\xe4ev","Reede","Laup\xe4ev"],t.s)
 B.xC=s(["\u043d\u0435\u0434","\u043f\u043e\u043d","\u0443\u0442\u043e","\u0441\u0440\u0435","\u0447\u0435\u0442","\u043f\u0435\u0442","\u0441\u0443\u0431"],t.s)
-B.a3w=s(["d.","l.","m.","m.","x.","v.","s."],t.s)
-B.a3x=s(["1. \u0161tvr\u0165rok","2. \u0161tvr\u0165rok","3. \u0161tvr\u0165rok","4. \u0161tvr\u0165rok"],t.s)
-B.a3y=s(["EEEE, d MMMM y '\u0433'.","d MMMM y '\u0433'.","d.MM.y '\u0433'.","d.MM.yy '\u0433'."],t.s)
-B.a3z=s(["1kv","2kv","3kv","4kv"],t.s)
+B.a3x=s(["d.","l.","m.","m.","x.","v.","s."],t.s)
+B.a3y=s(["1. \u0161tvr\u0165rok","2. \u0161tvr\u0165rok","3. \u0161tvr\u0165rok","4. \u0161tvr\u0165rok"],t.s)
+B.a3z=s(["EEEE, d MMMM y '\u0433'.","d MMMM y '\u0433'.","d.MM.y '\u0433'.","d.MM.yy '\u0433'."],t.s)
+B.a3A=s(["1kv","2kv","3kv","4kv"],t.s)
 B.xD=s(["\u091c\u0928\u0970","\u092b\u093c\u0930\u0970","\u092e\u093e\u0930\u094d\u091a","\u0905\u092a\u094d\u0930\u0948\u0932","\u092e\u0908","\u091c\u0942\u0928","\u091c\u0941\u0932\u0970","\u0905\u0917\u0970","\u0938\u093f\u0924\u0970","\u0905\u0915\u094d\u0924\u0942\u0970","\u0928\u0935\u0970","\u0926\u093f\u0938\u0970"],t.s)
-B.a3A=s(["\u044f\u043d\u0432.","\u0444\u0435\u0432\u0440.","\u043c\u0430\u0440.","\u0430\u043f\u0440.","\u043c\u0430\u044f","\u0438\u044e\u043d.","\u0438\u044e\u043b.","\u0430\u0432\u0433.","\u0441\u0435\u043d\u0442.","\u043e\u043a\u0442.","\u043d\u043e\u044f\u0431.","\u0434\u0435\u043a."],t.s)
-B.a3B=s(["\u0a24\u0a3f\u0a2e\u0a3e\u0a39\u0a401","\u0a24\u0a3f\u0a2e\u0a3e\u0a39\u0a402","\u0a24\u0a3f\u0a2e\u0a3e\u0a39\u0a403","\u0a24\u0a3f\u0a2e\u0a3e\u0a39\u0a404"],t.s)
-B.a3C=s(["{0} \u0b20\u0b3e\u0b30\u0b47 {1}","{0} \u0b20\u0b3e\u0b30\u0b47 {1}","{1}, {0}","{1}, {0}"],t.s)
+B.a3B=s(["\u044f\u043d\u0432.","\u0444\u0435\u0432\u0440.","\u043c\u0430\u0440.","\u0430\u043f\u0440.","\u043c\u0430\u044f","\u0438\u044e\u043d.","\u0438\u044e\u043b.","\u0430\u0432\u0433.","\u0441\u0435\u043d\u0442.","\u043e\u043a\u0442.","\u043d\u043e\u044f\u0431.","\u0434\u0435\u043a."],t.s)
+B.a3C=s(["\u0a24\u0a3f\u0a2e\u0a3e\u0a39\u0a401","\u0a24\u0a3f\u0a2e\u0a3e\u0a39\u0a402","\u0a24\u0a3f\u0a2e\u0a3e\u0a39\u0a403","\u0a24\u0a3f\u0a2e\u0a3e\u0a39\u0a404"],t.s)
+B.a3D=s(["{0} \u0b20\u0b3e\u0b30\u0b47 {1}","{0} \u0b20\u0b3e\u0b30\u0b47 {1}","{1}, {0}","{1}, {0}"],t.s)
 B.xE=s(["janar","shkurt","mars","prill","maj","qershor","korrik","gusht","shtator","tetor","n\xebntor","dhjetor"],t.s)
+B.RZ=new A.L("\xbfQu\xe9 es PerfectGest I?","App de gesti\xf3n m\xf3vil con datos en el dispositivo (SQLite). Sin \xabcuenta en la nube\xbb para clientes, presupuestos o caja.")
+B.Si=new A.L("\xbfFunciona sin internet?","Uso diario offline-first. Servicios Google opcionales pueden usar red.")
+B.TT=new A.L("\xbfC\xf3mo funciona el per\xedodo de prueba?","7 d\xedas desde la primera apertura con uso ilimitado: clientes, presupuestos, caja, PDF, \xf3rdenes de servicio y contratos \u2014 sin suscripci\xf3n de pago y sin tarjeta en la app durante la prueba.\n\nTras 7 d\xedas sin Plan Pro: puede consultar y editar lo guardado, pero no crear registros nuevos ni PDF nuevos. Suscripci\xf3n: Ajustes \u2192 Ver planes y precios (Google Play).")
+B.Sa=new A.L("\xbfCu\xe1nto cuesta el Plan Pro?","En Google Play (Brasil): R$ 9,90/mes o R$ 99,90/a\xf1o (~R$ 8,33/mes \u2014 2 meses gratis en el anual). Los precios pueden variar por pa\xeds.")
+B.UB=new A.L("\xbfQu\xe9 pas\xf3 con el \xabPlan Inicial 5+5+5\xbb?","Modelo anterior, sustituido en 2026. Modelo actual: 7 d\xedas ilimitados + suscripci\xf3n Pro.")
+B.SM=new A.L("\xbfD\xf3nde gestiono la suscripci\xf3n?","Ajustes \u2192 Suscripci\xf3n de Google Play. Cancelar en Play Store.")
+B.UJ=new A.L("\xbfQu\xe9 es la tarjeta de visita digital?","En Empresa, edita datos profesionales (no clientes ni caja). Compartir tarjeta genera PNG en la hoja de compartir. Tras la primera tarjeta, sin Plan Pro queda en modo est\xe1tico (puede compartir el PNG); con Pro, edita y usa funciones avanzadas solo en la app (vCard, QR, vista previa interactiva) \u2014 sin p\xe1gina web alojada por PerfectGest.\n\nClientes y datos financieros protegidos en el tel\xe9fono; no se env\xedan autom\xe1ticamente a servidores.")
+B.Tp=new A.L("\xbfEst\xe1n protegidos mis datos de clientes y financieros?","S\xed. Solo salen si usted comparte PDF, PNG/vCard/QR de la tarjeta o backup exportado (cifrado recomendado en Pro).")
+B.U9=new A.L("Recordatorios fiscales, calendario, notificaciones, anuncios, idiomas?","Recordatorios locales informativos; calendario semanal; sin anuncios; sin Crashlytics; PT / EN / ES.")
+B.Ui=new A.L("Privacidad, borrado, sugerencias?","Ajustes \u2192 Ayuda y soporte. Borrar todo: Datos en el dispositivo \u2192 Eliminar todos los datos. Sugerencias: pesta\xf1a Empresa \u2192 suporte@perfectgestdev.com.")
+B.a3E=s([B.RZ,B.Si,B.TT,B.Sa,B.UB,B.SM,B.UJ,B.Tp,B.U9,B.Ui],t.h)
 B.xF=s(["Min","Sen","Sel","Rab","Kam","Jum","Sab"],t.s)
 B.xG=s(["\u091c\u093e\u0928\u0947\u0935\u093e\u0930\u0940","\u092b\u0947\u092c\u094d\u0930\u0941\u0935\u093e\u0930\u0940","\u092e\u093e\u0930\u094d\u091a","\u090f\u092a\u094d\u0930\u093f\u0932","\u092e\u0947","\u091c\u0942\u0928","\u091c\u0941\u0932\u0948","\u0911\u0917\u0938\u094d\u091f","\u0938\u092a\u094d\u091f\u0947\u0902\u092c\u0930","\u0911\u0915\u094d\u091f\u094b\u092c\u0930","\u0928\u094b\u0935\u094d\u0939\u0947\u0902\u092c\u0930","\u0921\u093f\u0938\u0947\u0902\u092c\u0930"],t.s)
 B.mZ=s(["\u4e0a\u5348","\u4e0b\u5348"],t.s)
 B.xH=s(["\u09a4\u09cd\u09b0\u09c8\u09ae\u09be\u09b8\u09bf\u0995","\u09a6\u09cd\u09ac\u09bf\u09a4\u09c0\u09af\u09bc \u09a4\u09cd\u09b0\u09c8\u09ae\u09be\u09b8\u09bf\u0995","\u09a4\u09c3\u09a4\u09c0\u09af\u09bc \u09a4\u09cd\u09b0\u09c8\u09ae\u09be\u09b8\u09bf\u0995","\u099a\u09a4\u09c1\u09b0\u09cd\u09a5 \u09a4\u09cd\u09b0\u09c8\u09ae\u09be\u09b8\u09bf\u0995"],t.s)
-B.a3E=s(["\u0908\u0938\u0935\u0940\u0938\u0928\u092a\u0942\u0930\u094d\u0935","\u0908\u0938\u0935\u0940\u0938\u0928"],t.s)
-B.a3F=s(["\u03a41","\u03a42","\u03a43","\u03a44"],t.s)
+B.a3G=s(["\u0908\u0938\u0935\u0940\u0938\u0928\u092a\u0942\u0930\u094d\u0935","\u0908\u0938\u0935\u0940\u0938\u0928"],t.s)
+B.a3H=s(["\u03a41","\u03a42","\u03a43","\u03a44"],t.s)
 B.xI=s(["yakshanba","dushanba","seshanba","chorshanba","payshanba","juma","shanba"],t.s)
 B.jQ=s(["H:mm:ss zzzz","H:mm:ss z","H:mm:ss","H:mm"],t.s)
-B.a3G=s(["n","p","w","\u015b","c","p","s"],t.s)
+B.a3I=s(["n","p","w","\u015b","c","p","s"],t.s)
 B.xJ=s(["1\xba trimestre","2\xba trimestre","3\xba trimestre","4\xba trimestre"],t.s)
 B.xK=s(["A","I","S","R","K","J","S"],t.s)
 B.xL=s(["vas\xe1rnap","h\xe9tf\u0151","kedd","szerda","cs\xfct\xf6rt\xf6k","p\xe9ntek","szombat"],t.s)
 B.xM=s(["gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre"],t.s)
 B.e_=s(["EEEE, MMMM d, y","MMMM d, y","MMM d, y","M/d/yy"],t.s)
-B.a3H=s(["\u0633\u200c\u0645\u06f1","\u0633\u200c\u0645\u06f2","\u0633\u200c\u0645\u06f3","\u0633\u200c\u0645\u06f4"],t.s)
+B.a3J=s(["\u0633\u200c\u0645\u06f1","\u0633\u200c\u0645\u06f2","\u0633\u200c\u0645\u06f3","\u0633\u200c\u0645\u06f4"],t.s)
 B.jR=s(["\u064a\u0646\u0627\u064a\u0631","\u0641\u0628\u0631\u0627\u064a\u0631","\u0645\u0627\u0631\u0633","\u0623\u0628\u0631\u064a\u0644","\u0645\u0627\u064a\u0648","\u064a\u0648\u0646\u064a\u0648","\u064a\u0648\u0644\u064a\u0648","\u0623\u063a\u0633\u0637\u0633","\u0633\u0628\u062a\u0645\u0628\u0631","\u0623\u0643\u062a\u0648\u0628\u0631","\u0646\u0648\u0641\u0645\u0628\u0631","\u062f\u064a\u0633\u0645\u0628\u0631"],t.s)
-B.a3I=s(["1\ubd84\uae30","2\ubd84\uae30","3\ubd84\uae30","4\ubd84\uae30"],t.s)
+B.a3K=s(["1\ubd84\uae30","2\ubd84\uae30","3\ubd84\uae30","4\ubd84\uae30"],t.s)
 B.du=s(["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"],t.s)
-B.a3L=s(["\u0ec4\u0e95\u0ea3\u0ea1\u0eb2\u0e94 1","\u0ec4\u0e95\u0ea3\u0ea1\u0eb2\u0e94 2","\u0ec4\u0e95\u0ea3\u0ea1\u0eb2\u0e94 3","\u0ec4\u0e95\u0ea3\u0ea1\u0eb2\u0e94 4"],t.s)
-B.a3N=s(["pointerdown","pointermove","pointerleave","pointerup","pointercancel","touchstart","touchend","touchmove","touchcancel","mousedown","mousemove","mouseleave","mouseup","wheel"],t.s)
+B.a3N=s(["\u0ec4\u0e95\u0ea3\u0ea1\u0eb2\u0e94 1","\u0ec4\u0e95\u0ea3\u0ea1\u0eb2\u0e94 2","\u0ec4\u0e95\u0ea3\u0ea1\u0eb2\u0e94 3","\u0ec4\u0e95\u0ea3\u0ea1\u0eb2\u0e94 4"],t.s)
+B.a3P=s(["pointerdown","pointermove","pointerleave","pointerup","pointercancel","touchstart","touchend","touchmove","touchcancel","mousedown","mousemove","mouseleave","mouseup","wheel"],t.s)
 B.xN=s(["\u0436\u0435\u043a.","\u0434\u04af\u0439.","\u0448\u0435\u0439\u0448.","\u0448\u0430\u0440\u0448.","\u0431\u0435\u0439\u0448.","\u0436\u0443\u043c\u0430","\u0438\u0448\u043c."],t.s)
-B.a3O=s(["1.\xa0cet.","2.\xa0cet.","3.\xa0cet.","4.\xa0cet."],t.s)
+B.a3Q=s(["1.\xa0cet.","2.\xa0cet.","3.\xa0cet.","4.\xa0cet."],t.s)
 B.xO=s(["S.M.","TM"],t.s)
-B.a3P=s(["\u0458\u0430\u043d-\u043c\u0430\u0440","\u0430\u043f\u0440-\u0458\u0443\u043d","\u0458\u0443\u043b-\u0441\u0435\u043f","\u043e\u043a\u0442-\u0434\u0435\u043a"],t.s)
-B.a3Q=s(["\u0434\u043e \u0420\u043e\u0436\u0434\u0435\u0441\u0442\u0432\u0430 \u0425\u0440\u0438\u0441\u0442\u043e\u0432\u0430","\u043e\u0442 \u0420\u043e\u0436\u0434\u0435\u0441\u0442\u0432\u0430 \u0425\u0440\u0438\u0441\u0442\u043e\u0432\u0430"],t.s)
+B.a3R=s(["\u0458\u0430\u043d-\u043c\u0430\u0440","\u0430\u043f\u0440-\u0458\u0443\u043d","\u0458\u0443\u043b-\u0441\u0435\u043f","\u043e\u043a\u0442-\u0434\u0435\u043a"],t.s)
+B.a3S=s(["\u0434\u043e \u0420\u043e\u0436\u0434\u0435\u0441\u0442\u0432\u0430 \u0425\u0440\u0438\u0441\u0442\u043e\u0432\u0430","\u043e\u0442 \u0420\u043e\u0436\u0434\u0435\u0441\u0442\u0432\u0430 \u0425\u0440\u0438\u0441\u0442\u043e\u0432\u0430"],t.s)
 B.xP=s(["\u0906","\u0938\u094b","\u092e","\u092c\u0941","\u092c\u093f","\u0936\u0941","\u0936"],t.s)
-B.a3R=s(["Sebelum Masehi","Masehi"],t.s)
+B.a3T=s(["Sebelum Masehi","Masehi"],t.s)
 B.jS=s(["\u091c\u0928\u0935\u0930\u0940","\u092b\u0947\u092c\u094d\u0930\u0941\u0905\u0930\u0940","\u092e\u093e\u0930\u094d\u091a","\u0905\u092a\u094d\u0930\u093f\u0932","\u092e\u0947","\u091c\u0941\u0928","\u091c\u0941\u0932\u093e\u0908","\u0905\u0917\u0938\u094d\u091f","\u0938\u0947\u092a\u094d\u091f\u0947\u092e\u094d\u092c\u0930","\u0905\u0915\u094d\u091f\u094b\u092c\u0930","\u0928\u094b\u092d\u0947\u092e\u094d\u092c\u0930","\u0921\u093f\u0938\u0947\u092e\u094d\u092c\u0930"],t.s)
-B.a3S=s(["\u0441\u0442\u0443\u0434\u0437\u0435\u043d\u044f","\u043b\u044e\u0442\u0430\u0433\u0430","\u0441\u0430\u043a\u0430\u0432\u0456\u043a\u0430","\u043a\u0440\u0430\u0441\u0430\u0432\u0456\u043a\u0430","\u043c\u0430\u044f","\u0447\u044d\u0440\u0432\u0435\u043d\u044f","\u043b\u0456\u043f\u0435\u043d\u044f","\u0436\u043d\u0456\u045e\u043d\u044f","\u0432\u0435\u0440\u0430\u0441\u043d\u044f","\u043a\u0430\u0441\u0442\u0440\u044b\u0447\u043d\u0456\u043a\u0430","\u043b\u0456\u0441\u0442\u0430\u043f\u0430\u0434\u0430","\u0441\u043d\u0435\u0436\u043d\u044f"],t.s)
-B.a3T=s(["e.\u0259.","y.e."],t.s)
+B.a3U=s(["\u0441\u0442\u0443\u0434\u0437\u0435\u043d\u044f","\u043b\u044e\u0442\u0430\u0433\u0430","\u0441\u0430\u043a\u0430\u0432\u0456\u043a\u0430","\u043a\u0440\u0430\u0441\u0430\u0432\u0456\u043a\u0430","\u043c\u0430\u044f","\u0447\u044d\u0440\u0432\u0435\u043d\u044f","\u043b\u0456\u043f\u0435\u043d\u044f","\u0436\u043d\u0456\u045e\u043d\u044f","\u0432\u0435\u0440\u0430\u0441\u043d\u044f","\u043a\u0430\u0441\u0442\u0440\u044b\u0447\u043d\u0456\u043a\u0430","\u043b\u0456\u0441\u0442\u0430\u043f\u0430\u0434\u0430","\u0441\u043d\u0435\u0436\u043d\u044f"],t.s)
+B.a3V=s(["e.\u0259.","y.e."],t.s)
 B.jT=s(["P","E","T","K","N","R","L"],t.s)
 B.xQ=s(["jan.","feb.","mrt.","apr.","mei","jun.","jul.","aug.","sep.","okt.","nov.","dec."],t.s)
-B.a3U=s(["yan","fev","mar","apr","may","iyn","iyl","avg","sen","okt","noy","dek"],t.s)
-B.a3V=s(["EEEE, d 'de' MMMM 'de' y","d 'de' MMMM 'de' y","dd/MM/y","dd/MM/yy"],t.s)
+B.a3W=s(["yan","fev","mar","apr","may","iyn","iyl","avg","sen","okt","noy","dek"],t.s)
+B.a3X=s(["EEEE, d 'de' MMMM 'de' y","d 'de' MMMM 'de' y","dd/MM/y","dd/MM/yy"],t.s)
 B.xR=s(["D","L","M","C","D","A","S"],t.s)
 B.xS=s(["januar","februar","mart","april","maj","juni","juli","august","septembar","oktobar","novembar","decembar"],t.s)
-B.a3W=s(["1-ch","2-ch","3-ch","4-ch"],t.s)
-B.a3X=s(["\u044f\u043d\u0432.","\u0444\u0435\u0432\u0440.","\u043c\u0430\u0440\u0442","\u0430\u043f\u0440.","\u043c\u0430\u0439","\u0438\u044e\u043d\u044c","\u0438\u044e\u043b\u044c","\u0430\u0432\u0433.","\u0441\u0435\u043d\u0442.","\u043e\u043a\u0442.","\u043d\u043e\u044f\u0431.","\u0434\u0435\u043a."],t.s)
+B.a3Y=s(["1-ch","2-ch","3-ch","4-ch"],t.s)
+B.a3Z=s(["\u044f\u043d\u0432.","\u0444\u0435\u0432\u0440.","\u043c\u0430\u0440\u0442","\u0430\u043f\u0440.","\u043c\u0430\u0439","\u0438\u044e\u043d\u044c","\u0438\u044e\u043b\u044c","\u0430\u0432\u0433.","\u0441\u0435\u043d\u0442.","\u043e\u043a\u0442.","\u043d\u043e\u044f\u0431.","\u0434\u0435\u043a."],t.s)
 B.xT=s(["\u0da2\u0db1\u0dc0\u0dcf\u0dbb\u0dd2","\u0db4\u0dd9\u0db6\u0dbb\u0dc0\u0dcf\u0dbb\u0dd2","\u0db8\u0dcf\u0dbb\u0dca\u0dad\u0dd4","\u0d85\u0db4\u0dca\u200d\u0dbb\u0dda\u0dbd\u0dca","\u0db8\u0dd0\u0dba\u0dd2","\u0da2\u0dd6\u0db1\u0dd2","\u0da2\u0dd6\u0dbd\u0dd2","\u0d85\u0d9c\u0ddd\u0dc3\u0dca\u0dad\u0dd4","\u0dc3\u0dd0\u0db4\u0dca\u0dad\u0dd0\u0db8\u0dca\u0db6\u0dbb\u0dca","\u0d94\u0d9a\u0dca\u0dad\u0ddd\u0db6\u0dbb\u0dca","\u0db1\u0ddc\u0dc0\u0dd0\u0db8\u0dca\u0db6\u0dbb\u0dca","\u0daf\u0dd9\u0dc3\u0dd0\u0db8\u0dca\u0db6\u0dbb\u0dca"],t.s)
 B.jU=s(["Enero","Pebrero","Marso","Abril","Mayo","Hunyo","Hulyo","Agosto","Setyembre","Oktubre","Nobyembre","Disyembre"],t.s)
+B.Ug=new A.L("What is PerfectGest I?","A mobile business management app. Data is stored locally (SQLite). No PerfectGest cloud account for clients, estimates, or cash.")
+B.TP=new A.L("Does it work offline?","Offline-first for daily use. Optional Google services may need a network when active.")
+B.Sc=new A.L("How does the trial period work?","7 days from first open with unlimited use: clients, estimates, cash entries, PDF, work orders and contracts \u2014 no paid subscription and no card required in the app during the trial.\n\nAfter 7 days without Pro Plan: you can view and edit saved data but cannot create new records or new PDFs. Subscribe in Settings \u2192 View plans and pricing (Google Play).")
+B.TO=new A.L("How much does Pro Plan cost?","On Google Play (Brazil): R$ 9.90/month or R$ 99.90/year (~R$ 8.33/month \u2014 2 months free on annual). Prices may vary by country; the store shows the final amount.")
+B.U0=new A.L("What happened to the \xab5+5+5 Initial Plan\xbb?","Legacy model replaced in 2026. Current model: 7 unlimited days + Pro subscription.")
+B.Sl=new A.L("Where do I manage the subscription?","Settings \u2192 Google Play subscription. Cancel via Play Store \u2192 Payments & subscriptions.")
+B.Tr=new A.L("What is the digital business card?","In Company, edit professional business details only (not clients or cash). Share card generates a PNG via the system share sheet. After your first card, without Pro Plan the card is static (you can still share the snapshot PNG); with Pro, edit and use advanced features in the app only (vCard, QR, interactive preview) \u2014 no PerfectGest-hosted web page.\n\nClients and financial data stay protected on the device and are not sent to servers automatically.")
+B.Up=new A.L("Are my client and financial data protected?","Yes. Stored locally. They leave the device only if you share a PDF, card PNG/vCard/QR, or an exported backup file (encrypted backup recommended on Pro).")
+B.Uo=new A.L("What are fiscal reminders?","On-device alerts for MEI, Freelancer, ME obligations. Informational only.")
+B.Ts=new A.L("Weekly calendar, Latest entries, notifications, ads, Crashlytics, languages?","Weekly fiscal calendar in Company; home shortcuts to recent records; local notifications only; no ads; no Crashlytics; PT / EN / ES.")
+B.Tl=new A.L("Privacy, deletion, suggestions?","Settings \u2192 Help and support for legal links. Wipe device: Settings \u2192 Data on this device \u2192 Delete all data. Feedback: Company tab \u2192 email suporte@perfectgestdev.com.")
+B.a4_=s([B.Ug,B.TP,B.Sc,B.TO,B.U0,B.Sl,B.Tr,B.Up,B.Uo,B.Ts,B.Tl],t.h)
 B.bR=s(["Before Christ","Anno Domini"],t.s)
-B.a3Y=s(["B.","B.E.","\xc7.A.","\xc7.","C.A.","C.","\u015e."],t.s)
+B.a40=s(["B.","B.E.","\xc7.A.","\xc7.","C.A.","C.","\u015e."],t.s)
 B.xU=s(["\u10d9\u10d5\u10d8\u10e0\u10d0","\u10dd\u10e0\u10e8\u10d0\u10d1\u10d0\u10d7\u10d8","\u10e1\u10d0\u10db\u10e8\u10d0\u10d1\u10d0\u10d7\u10d8","\u10dd\u10d7\u10ee\u10e8\u10d0\u10d1\u10d0\u10d7\u10d8","\u10ee\u10e3\u10d7\u10e8\u10d0\u10d1\u10d0\u10d7\u10d8","\u10de\u10d0\u10e0\u10d0\u10e1\u10d9\u10d4\u10d5\u10d8","\u10e8\u10d0\u10d1\u10d0\u10d7\u10d8"],t.s)
 B.xV=s(["I","A","A","A","O","O","L"],t.s)
-B.a3Z=s(["ennen Kristuksen syntym\xe4\xe4","j\xe4lkeen Kristuksen syntym\xe4n"],t.s)
-B.a4_=s([B.eN,B.iX,B.iY,B.r,B.ab,B.aj,B.aQ,B.aR,B.dU],A.a4("q<f1>"))
-B.a40=s(["1. fj\xf3r\xf0ungur","2. fj\xf3r\xf0ungur","3. fj\xf3r\xf0ungur","4. fj\xf3r\xf0ungur"],t.s)
-B.a41=s(["\u044f\u043d\u0432\u0430\u0440\u044f","\u0444\u0435\u0432\u0440\u0430\u043b\u044f","\u043c\u0430\u0440\u0442\u0430","\u0430\u043f\u0440\u0435\u043b\u044f","\u043c\u0430\u044f","\u0438\u044e\u043d\u044f","\u0438\u044e\u043b\u044f","\u0430\u0432\u0433\u0443\u0441\u0442\u0430","\u0441\u0435\u043d\u0442\u044f\u0431\u0440\u044f","\u043e\u043a\u0442\u044f\u0431\u0440\u044f","\u043d\u043e\u044f\u0431\u0440\u044f","\u0434\u0435\u043a\u0430\u0431\u0440\u044f"],t.s)
+B.a41=s(["ennen Kristuksen syntym\xe4\xe4","j\xe4lkeen Kristuksen syntym\xe4n"],t.s)
+B.a42=s([B.eN,B.iX,B.iY,B.r,B.ab,B.aj,B.aQ,B.aR,B.dU],A.a4("q<f1>"))
+B.a43=s(["1. fj\xf3r\xf0ungur","2. fj\xf3r\xf0ungur","3. fj\xf3r\xf0ungur","4. fj\xf3r\xf0ungur"],t.s)
+B.a44=s(["\u044f\u043d\u0432\u0430\u0440\u044f","\u0444\u0435\u0432\u0440\u0430\u043b\u044f","\u043c\u0430\u0440\u0442\u0430","\u0430\u043f\u0440\u0435\u043b\u044f","\u043c\u0430\u044f","\u0438\u044e\u043d\u044f","\u0438\u044e\u043b\u044f","\u0430\u0432\u0433\u0443\u0441\u0442\u0430","\u0441\u0435\u043d\u0442\u044f\u0431\u0440\u044f","\u043e\u043a\u0442\u044f\u0431\u0440\u044f","\u043d\u043e\u044f\u0431\u0440\u044f","\u0434\u0435\u043a\u0430\u0431\u0440\u044f"],t.s)
 B.xW=s(["jan","feb","mar","apr","m\xe1j","j\xfan","j\xfal","aug","sep","okt","nov","dec"],t.s)
 B.xX=s(["s\xf6ndag","m\xe5ndag","tisdag","onsdag","torsdag","fredag","l\xf6rdag"],t.s)
-B.a42=s(["ah:mm:ss [zzzz]","ah:mm:ss [z]","ah:mm:ss","ah:mm"],t.s)
-B.a43=s(["Qu\xfd 1","Qu\xfd 2","Qu\xfd 3","Qu\xfd 4"],t.s)
-B.a44=s(["Prvi kvartal","Drugi kvartal","Tre\u0107i kvartal","\u010cetvrti kvartal"],t.s)
-B.a45=s(["\u041d\u044f\u043c","\u0414\u0430\u0432\u0430\u0430","\u041c\u044f\u0433\u043c\u0430\u0440","\u041b\u0445\u0430\u0433\u0432\u0430","\u041f\u04af\u0440\u044d\u0432","\u0411\u0430\u0430\u0441\u0430\u043d","\u0411\u044f\u043c\u0431\u0430"],t.s)
+B.a45=s(["ah:mm:ss [zzzz]","ah:mm:ss [z]","ah:mm:ss","ah:mm"],t.s)
+B.a46=s(["Qu\xfd 1","Qu\xfd 2","Qu\xfd 3","Qu\xfd 4"],t.s)
+B.a47=s(["Prvi kvartal","Drugi kvartal","Tre\u0107i kvartal","\u010cetvrti kvartal"],t.s)
+B.a48=s(["\u041d\u044f\u043c","\u0414\u0430\u0432\u0430\u0430","\u041c\u044f\u0433\u043c\u0430\u0440","\u041b\u0445\u0430\u0433\u0432\u0430","\u041f\u04af\u0440\u044d\u0432","\u0411\u0430\u0430\u0441\u0430\u043d","\u0411\u044f\u043c\u0431\u0430"],t.s)
 B.xY=s(["\u0399","\u03a6","\u039c","\u0391","\u039c","\u0399","\u0399","\u0391","\u03a3","\u039f","\u039d","\u0394"],t.s)
 B.jV=s(["EEEE, d MMMM y","d MMMM y","d MMM y","d/M/yy"],t.s)
-B.a46=s(["Th\xe1ng 1","Th\xe1ng 2","Th\xe1ng 3","Th\xe1ng 4","Th\xe1ng 5","Th\xe1ng 6","Th\xe1ng 7","Th\xe1ng 8","Th\xe1ng 9","Th\xe1ng 10","Th\xe1ng 11","Th\xe1ng 12"],t.s)
+B.a49=s(["Th\xe1ng 1","Th\xe1ng 2","Th\xe1ng 3","Th\xe1ng 4","Th\xe1ng 5","Th\xe1ng 6","Th\xe1ng 7","Th\xe1ng 8","Th\xe1ng 9","Th\xe1ng 10","Th\xe1ng 11","Th\xe1ng 12"],t.s)
 B.xZ=s(["E","F","M","A","B","M","I","L","M","D","S","N"],t.s)
-B.a47=s(["yb","yh"],t.s)
-B.a48=s(["\u0da2\u0db1","\u0db4\u0dd9\u0db6","\u0db8\u0dcf\u0dbb\u0dca\u0dad\u0dd4","\u0d85\u0db4\u0dca\u200d\u0dbb\u0dda\u0dbd\u0dca","\u0db8\u0dd0\u0dba\u0dd2","\u0da2\u0dd6\u0db1\u0dd2","\u0da2\u0dd6\u0dbd\u0dd2","\u0d85\u0d9c\u0ddd","\u0dc3\u0dd0\u0db4\u0dca","\u0d94\u0d9a\u0dca","\u0db1\u0ddc\u0dc0\u0dd0","\u0daf\u0dd9\u0dc3\u0dd0"],t.s)
-B.a49=s(["\u0d1e\u0d3e\u0d2f\u0d31\u0d3e\u0d34\u0d4d\u200c\u0d1a","\u0d24\u0d3f\u0d19\u0d4d\u0d15\u0d33\u0d3e\u0d34\u0d4d\u200c\u0d1a","\u0d1a\u0d4a\u0d35\u0d4d\u0d35\u0d3e\u0d34\u0d4d\u0d1a","\u0d2c\u0d41\u0d27\u0d28\u0d3e\u0d34\u0d4d\u200c\u0d1a","\u0d35\u0d4d\u0d2f\u0d3e\u0d34\u0d3e\u0d34\u0d4d\u200c\u0d1a","\u0d35\u0d46\u0d33\u0d4d\u0d33\u0d3f\u0d2f\u0d3e\u0d34\u0d4d\u200c\u0d1a","\u0d36\u0d28\u0d3f\u0d2f\u0d3e\u0d34\u0d4d\u200c\u0d1a"],t.s)
+B.a4a=s(["yb","yh"],t.s)
+B.a4b=s(["\u0da2\u0db1","\u0db4\u0dd9\u0db6","\u0db8\u0dcf\u0dbb\u0dca\u0dad\u0dd4","\u0d85\u0db4\u0dca\u200d\u0dbb\u0dda\u0dbd\u0dca","\u0db8\u0dd0\u0dba\u0dd2","\u0da2\u0dd6\u0db1\u0dd2","\u0da2\u0dd6\u0dbd\u0dd2","\u0d85\u0d9c\u0ddd","\u0dc3\u0dd0\u0db4\u0dca","\u0d94\u0d9a\u0dca","\u0db1\u0ddc\u0dc0\u0dd0","\u0daf\u0dd9\u0dc3\u0dd0"],t.s)
+B.a4c=s(["\u0d1e\u0d3e\u0d2f\u0d31\u0d3e\u0d34\u0d4d\u200c\u0d1a","\u0d24\u0d3f\u0d19\u0d4d\u0d15\u0d33\u0d3e\u0d34\u0d4d\u200c\u0d1a","\u0d1a\u0d4a\u0d35\u0d4d\u0d35\u0d3e\u0d34\u0d4d\u0d1a","\u0d2c\u0d41\u0d27\u0d28\u0d3e\u0d34\u0d4d\u200c\u0d1a","\u0d35\u0d4d\u0d2f\u0d3e\u0d34\u0d3e\u0d34\u0d4d\u200c\u0d1a","\u0d35\u0d46\u0d33\u0d4d\u0d33\u0d3f\u0d2f\u0d3e\u0d34\u0d4d\u200c\u0d1a","\u0d36\u0d28\u0d3f\u0d2f\u0d3e\u0d34\u0d4d\u200c\u0d1a"],t.s)
 B.y_=s(["\u1798","\u1780","\u1798","\u1798","\u17a7","\u1798","\u1780","\u179f","\u1780","\u178f","\u179c","\u1792"],t.s)
 B.y0=s(["jaan","veebr","m\xe4rts","apr","mai","juuni","juuli","aug","sept","okt","nov","dets"],t.s)
-B.a4a=s(["{0} 'do' {1}","{0} 'do' {1}","{0}, {1}","{0}, {1}"],t.s)
-B.a4b=s(["\u043f\u0440\u0435 \u043d\u043e\u0432\u0435 \u0435\u0440\u0435","\u043d\u043e\u0432\u0435 \u0435\u0440\u0435"],t.s)
-B.a4c=s([0.015176349177441876,0.045529047532325624,0.07588174588720938,0.10623444424209313,0.13658714259697685,0.16693984095186062,0.19729253930674434,0.2276452376616281,0.2579979360165119,0.28835063437139563,0.3188300904430532,0.350925934958123,0.3848314933096426,0.42057480301049466,0.458183274052838,0.4976837250274023,0.5391024159806381,0.5824650784040898,0.6277969426914107,0.6751227633498623,0.7244668422128921,0.775853049866786,0.829304845476233,0.8848452951698498,0.942497089126609,1.0022825574869039,1.0642236851973577,1.1283421258858297,1.1946592148522128,1.2631959812511864,1.3339731595349034,1.407011200216447,1.4823302800086415,1.5599503113873272,1.6398909516233677,1.7221716113234105,1.8068114625156377,1.8938294463134073,1.9832442801866852,2.075074464868551,2.1693382909216234,2.2660538449872063,2.36523901573795,2.4669114995532007,2.5710888059345764,2.6777882626779785,2.7870270208169257,2.898822059350997,3.0131901897720907,3.1301480604002863,3.2497121605402226,3.3718988244681087,3.4967242352587946,3.624204428461639,3.754355295633311,3.887192587735158,4.022731918402185,4.160988767090289,4.301978482107941,4.445716283538092,4.592217266055746,4.741496401646282,4.893568542229298,5.048448422192488,5.20615066083972,5.3666897647573375,5.5300801301023865,5.696336044816294,5.865471690767354,6.037501145825082,6.212438385869475,6.390297286737924,6.571091626112461,6.7548350853498045,6.941541251256611,7.131223617812143,7.323895587840543,7.5195704746346665,7.7182615035334345,7.919981813454504,8.124744458384042,8.332562408825165,8.543448553206703,8.757415699253682,8.974476575321063,9.194643831691977,9.417930041841839,9.644347703669503,9.873909240696694,10.106627003236781,10.342513269534024,10.58158024687427,10.8238400726681,11.069304815507364,11.317986476196008,11.569896988756009,11.825048221409341,12.083451977536606,12.345119996613247,12.610063955123938,12.878295467455942,13.149826086772048,13.42466730586372,13.702830557985108,13.984327217668513,14.269168601521828,14.55736596900856,14.848930523210871,15.143873411576273,15.44220572664832,15.743938506781891,16.04908273684337,16.35764934889634,16.66964922287304,16.985093187232053,17.30399201960269,17.62635644741625,17.95219714852476,18.281524751807332,18.614349837764564,18.95068293910138,19.290534541298456,19.633915083172692,19.98083495742689,20.331304511189067,20.685334046541502,21.042933821039977,21.404114048223256,21.76888489811322,22.137256497705877,22.50923893145328,22.884842241736916,23.264076429332462,23.6469514538663,24.033477234264016,24.42366364919083,24.817520537484558,25.21505769858089,25.61628489293138,26.021211842414342,26.429848230738664,26.842203703840827,27.258287870275353,27.678110301598522,28.10168053274597,28.529008062403893,28.96010235337422,29.39497283293396,29.83362889318845,30.276079891419332,30.722335150426627,31.172403958865512,31.62629557157785,32.08401920991837,32.54558406207592,33.010999283389665,33.4802739966603,33.953417292456834,34.430438229418264,34.911345834551085,35.39614910352207,35.88485700094671,36.37747846067349,36.87402238606382,37.37449765026789,37.87891309649659,38.38727753828926,38.89959975977785,39.41588851594697,39.93615253289054,40.460400508064545,40.98864111053629,41.520882981230194,42.05713473317016,42.597404951718396,43.141702194811224,43.6900349931913,44.24241185063697,44.798841244188324,45.35933162437017,45.92389141541209,46.49252901546552,47.065252796817916,47.64207110610409,48.22299226451468,48.808024568002054,49.3971762874833,49.9904556690408,50.587870934119984,51.189430279724725,51.79514187861014,52.40501387947288,53.0190544071392,53.637271562750364,54.259673423945976,54.88626804504493,55.517063457223934,56.15206766869424,56.79128866487574,57.43473440856916,58.08241284012621,58.734331877617365,59.39049941699807,60.05092333227251,60.715611475655585,61.38457167773311,62.057811747619894,62.7353394731159,63.417162620860914,64.10328893648692,64.79372614476921,65.48848194977529,66.18756403501224,66.89098006357258,67.59873767827808,68.31084450182222,69.02730813691093,69.74813616640164,70.47333615344107,71.20291564160104,71.93688215501312,72.67524319850172,73.41800625771542,74.16517879925733,74.9167682708136,75.67278210128072,76.43322770089146,77.1981124613393,77.96744375590167,78.74122893956174,79.51947534912904,80.30219030335869,81.08938110306934,81.88105503125999,82.67721935322541,83.4778813166706,84.28304815182372,85.09272707154808,85.90692527145302,86.72564993000343,87.54890820862819,88.3767072518277,89.2090541872801,90.04595612594655,90.88742016217518,91.73345337380438,92.58406282226491,93.43925555268066,94.29903859396902,95.16341895893969,96.03240364439274,96.9059996312159,97.78421388448044,98.6670533535366,99.55452497210776],t.n)
+B.a4d=s(["{0} 'do' {1}","{0} 'do' {1}","{0}, {1}","{0}, {1}"],t.s)
+B.a4e=s(["\u043f\u0440\u0435 \u043d\u043e\u0432\u0435 \u0435\u0440\u0435","\u043d\u043e\u0432\u0435 \u0435\u0440\u0435"],t.s)
+B.a4f=s([0.015176349177441876,0.045529047532325624,0.07588174588720938,0.10623444424209313,0.13658714259697685,0.16693984095186062,0.19729253930674434,0.2276452376616281,0.2579979360165119,0.28835063437139563,0.3188300904430532,0.350925934958123,0.3848314933096426,0.42057480301049466,0.458183274052838,0.4976837250274023,0.5391024159806381,0.5824650784040898,0.6277969426914107,0.6751227633498623,0.7244668422128921,0.775853049866786,0.829304845476233,0.8848452951698498,0.942497089126609,1.0022825574869039,1.0642236851973577,1.1283421258858297,1.1946592148522128,1.2631959812511864,1.3339731595349034,1.407011200216447,1.4823302800086415,1.5599503113873272,1.6398909516233677,1.7221716113234105,1.8068114625156377,1.8938294463134073,1.9832442801866852,2.075074464868551,2.1693382909216234,2.2660538449872063,2.36523901573795,2.4669114995532007,2.5710888059345764,2.6777882626779785,2.7870270208169257,2.898822059350997,3.0131901897720907,3.1301480604002863,3.2497121605402226,3.3718988244681087,3.4967242352587946,3.624204428461639,3.754355295633311,3.887192587735158,4.022731918402185,4.160988767090289,4.301978482107941,4.445716283538092,4.592217266055746,4.741496401646282,4.893568542229298,5.048448422192488,5.20615066083972,5.3666897647573375,5.5300801301023865,5.696336044816294,5.865471690767354,6.037501145825082,6.212438385869475,6.390297286737924,6.571091626112461,6.7548350853498045,6.941541251256611,7.131223617812143,7.323895587840543,7.5195704746346665,7.7182615035334345,7.919981813454504,8.124744458384042,8.332562408825165,8.543448553206703,8.757415699253682,8.974476575321063,9.194643831691977,9.417930041841839,9.644347703669503,9.873909240696694,10.106627003236781,10.342513269534024,10.58158024687427,10.8238400726681,11.069304815507364,11.317986476196008,11.569896988756009,11.825048221409341,12.083451977536606,12.345119996613247,12.610063955123938,12.878295467455942,13.149826086772048,13.42466730586372,13.702830557985108,13.984327217668513,14.269168601521828,14.55736596900856,14.848930523210871,15.143873411576273,15.44220572664832,15.743938506781891,16.04908273684337,16.35764934889634,16.66964922287304,16.985093187232053,17.30399201960269,17.62635644741625,17.95219714852476,18.281524751807332,18.614349837764564,18.95068293910138,19.290534541298456,19.633915083172692,19.98083495742689,20.331304511189067,20.685334046541502,21.042933821039977,21.404114048223256,21.76888489811322,22.137256497705877,22.50923893145328,22.884842241736916,23.264076429332462,23.6469514538663,24.033477234264016,24.42366364919083,24.817520537484558,25.21505769858089,25.61628489293138,26.021211842414342,26.429848230738664,26.842203703840827,27.258287870275353,27.678110301598522,28.10168053274597,28.529008062403893,28.96010235337422,29.39497283293396,29.83362889318845,30.276079891419332,30.722335150426627,31.172403958865512,31.62629557157785,32.08401920991837,32.54558406207592,33.010999283389665,33.4802739966603,33.953417292456834,34.430438229418264,34.911345834551085,35.39614910352207,35.88485700094671,36.37747846067349,36.87402238606382,37.37449765026789,37.87891309649659,38.38727753828926,38.89959975977785,39.41588851594697,39.93615253289054,40.460400508064545,40.98864111053629,41.520882981230194,42.05713473317016,42.597404951718396,43.141702194811224,43.6900349931913,44.24241185063697,44.798841244188324,45.35933162437017,45.92389141541209,46.49252901546552,47.065252796817916,47.64207110610409,48.22299226451468,48.808024568002054,49.3971762874833,49.9904556690408,50.587870934119984,51.189430279724725,51.79514187861014,52.40501387947288,53.0190544071392,53.637271562750364,54.259673423945976,54.88626804504493,55.517063457223934,56.15206766869424,56.79128866487574,57.43473440856916,58.08241284012621,58.734331877617365,59.39049941699807,60.05092333227251,60.715611475655585,61.38457167773311,62.057811747619894,62.7353394731159,63.417162620860914,64.10328893648692,64.79372614476921,65.48848194977529,66.18756403501224,66.89098006357258,67.59873767827808,68.31084450182222,69.02730813691093,69.74813616640164,70.47333615344107,71.20291564160104,71.93688215501312,72.67524319850172,73.41800625771542,74.16517879925733,74.9167682708136,75.67278210128072,76.43322770089146,77.1981124613393,77.96744375590167,78.74122893956174,79.51947534912904,80.30219030335869,81.08938110306934,81.88105503125999,82.67721935322541,83.4778813166706,84.28304815182372,85.09272707154808,85.90692527145302,86.72564993000343,87.54890820862819,88.3767072518277,89.2090541872801,90.04595612594655,90.88742016217518,91.73345337380438,92.58406282226491,93.43925555268066,94.29903859396902,95.16341895893969,96.03240364439274,96.9059996312159,97.78421388448044,98.6670533535366,99.55452497210776],t.n)
 B.y1=s(["Domh","Luan","M\xe1irt","C\xe9ad","D\xe9ar","Aoine","Sath"],t.s)
-B.a4e=s(["\u09aa\u09cd\u09f0\u09a5\u09ae \u09a4\u09bf\u09a8\u09bf\u09ae\u09be\u09b9","\u09a6\u09cd\u09ac\u09bf\u09a4\u09c0\u09af\u09bc \u09a4\u09bf\u09a8\u09bf\u09ae\u09be\u09b9","\u09a4\u09c3\u09a4\u09c0\u09af\u09bc \u09a4\u09bf\u09a8\u09bf\u09ae\u09be\u09b9","\u099a\u09a4\u09c1\u09f0\u09cd\u09a5 \u09a4\u09bf\u09a8\u09bf\u09ae\u09be\u09b9"],t.s)
+B.a4h=s(["\u09aa\u09cd\u09f0\u09a5\u09ae \u09a4\u09bf\u09a8\u09bf\u09ae\u09be\u09b9","\u09a6\u09cd\u09ac\u09bf\u09a4\u09c0\u09af\u09bc \u09a4\u09bf\u09a8\u09bf\u09ae\u09be\u09b9","\u09a4\u09c3\u09a4\u09c0\u09af\u09bc \u09a4\u09bf\u09a8\u09bf\u09ae\u09be\u09b9","\u099a\u09a4\u09c1\u09f0\u09cd\u09a5 \u09a4\u09bf\u09a8\u09bf\u09ae\u09be\u09b9"],t.s)
 B.y2=s(["sk","pr","an","tr","kt","pn","\u0161t"],t.s)
 B.y3=s(["januar","februar","marec","april","maj","junij","julij","avgust","september","oktober","november","december"],t.s)
-B.a4f=s(["\u092a\u0942\u0930\u094d\u0935\u093e\u0939\u094d\u0928","\u0905\u092a\u0930\u093e\u0939\u094d\u0928"],t.s)
+B.a4i=s(["\u092a\u0942\u0930\u094d\u0935\u093e\u0939\u094d\u0928","\u0905\u092a\u0930\u093e\u0939\u094d\u0928"],t.s)
 B.y4=s(["jan.","feb.","mar.","apr.","ma\xed","j\xfan.","j\xfal.","\xe1g\xfa.","sep.","okt.","n\xf3v.","des."],t.s)
 B.q=new A.Bb(0,"ignored")
 B.bg=new A.h(4294967304)
@@ -93648,21 +93651,21 @@ B.n3=new A.h(8589935088)
 B.n4=new A.h(8589935090)
 B.n5=new A.h(8589935092)
 B.n6=new A.h(8589935094)
-B.a5K=new A.afp("longPress")
+B.a5N=new A.afp("longPress")
 B.hu=new A.df(B.as,B.v)
-B.anK=new A.uT(1,null,B.hu)
+B.anN=new A.uT(1,null,B.hu)
 B.W=new A.n(0,0,0,0)
-B.a5L=new A.kr(B.f,B.W,B.W,B.W)
+B.a5O=new A.kr(B.f,B.W,B.W,B.W)
 B.y=new A.nw(0,"start")
 B.CX=new A.nw(1,"end")
-B.a5M=new A.nw(2,"center")
-B.a5N=new A.nw(3,"spaceBetween")
-B.a5O=new A.nw(4,"spaceAround")
-B.a5P=new A.nw(5,"spaceEvenly")
+B.a5P=new A.nw(2,"center")
+B.a5Q=new A.nw(3,"spaceBetween")
+B.a5R=new A.nw(4,"spaceAround")
+B.a5S=new A.nw(5,"spaceEvenly")
 B.e7=new A.PQ(0,"min")
 B.D=new A.PQ(1,"max")
-B.a8_={in:0,iw:1,ji:2,jw:3,mo:4,aam:5,adp:6,aue:7,ayx:8,bgm:9,bjd:10,ccq:11,cjr:12,cka:13,cmk:14,coy:15,cqu:16,drh:17,drw:18,gav:19,gfx:20,ggn:21,gti:22,guv:23,hrr:24,ibi:25,ilw:26,jeg:27,kgc:28,kgh:29,koj:30,krm:31,ktr:32,kvs:33,kwq:34,kxe:35,kzj:36,kzt:37,lii:38,lmm:39,meg:40,mst:41,mwj:42,myt:43,nad:44,ncp:45,nnx:46,nts:47,oun:48,pcr:49,pmc:50,pmu:51,ppa:52,ppr:53,pry:54,puz:55,sca:56,skk:57,tdu:58,thc:59,thx:60,tie:61,tkk:62,tlw:63,tmp:64,tne:65,tnf:66,tsf:67,uok:68,xba:69,xia:70,xkh:71,xsj:72,ybd:73,yma:74,ymt:75,yos:76,yuu:77}
-B.bS=new A.a2(B.a8_,["id","he","yi","jv","ro","aas","dz","ktz","nun","bcg","drl","rki","mom","cmr","xch","pij","quh","khk","prs","dev","vaj","gvr","nyc","duz","jal","opa","gal","oyb","tdf","kml","kwv","bmf","dtp","gdj","yam","tvd","dtp","dtp","raq","rmx","cir","mry","vaj","mry","xny","kdz","ngv","pij","vaj","adx","huw","phr","bfy","lcq","prt","pub","hle","oyb","dtp","tpo","oyb","ras","twm","weo","tyj","kak","prs","taj","ema","cax","acn","waw","suj","rki","lrr","mtm","zom","yug"],t.w)
+B.a82={in:0,iw:1,ji:2,jw:3,mo:4,aam:5,adp:6,aue:7,ayx:8,bgm:9,bjd:10,ccq:11,cjr:12,cka:13,cmk:14,coy:15,cqu:16,drh:17,drw:18,gav:19,gfx:20,ggn:21,gti:22,guv:23,hrr:24,ibi:25,ilw:26,jeg:27,kgc:28,kgh:29,koj:30,krm:31,ktr:32,kvs:33,kwq:34,kxe:35,kzj:36,kzt:37,lii:38,lmm:39,meg:40,mst:41,mwj:42,myt:43,nad:44,ncp:45,nnx:46,nts:47,oun:48,pcr:49,pmc:50,pmu:51,ppa:52,ppr:53,pry:54,puz:55,sca:56,skk:57,tdu:58,thc:59,thx:60,tie:61,tkk:62,tlw:63,tmp:64,tne:65,tnf:66,tsf:67,uok:68,xba:69,xia:70,xkh:71,xsj:72,ybd:73,yma:74,ymt:75,yos:76,yuu:77}
+B.bS=new A.a2(B.a82,["id","he","yi","jv","ro","aas","dz","ktz","nun","bcg","drl","rki","mom","cmr","xch","pij","quh","khk","prs","dev","vaj","gvr","nyc","duz","jal","opa","gal","oyb","tdf","kml","kwv","bmf","dtp","gdj","yam","tvd","dtp","dtp","raq","rmx","cir","mry","vaj","mry","xny","kdz","ngv","pij","vaj","adx","huw","phr","bfy","lcq","prt","pub","hle","oyb","dtp","tpo","oyb","ras","twm","weo","tyj","kak","prs","taj","ema","cax","acn","waw","suj","rki","lrr","mtm","zom","yug"],t.w)
 B.cy=new A.h(4294968065)
 B.nR=new A.ah(B.cy,!1,!1,!0,!1,B.q)
 B.cj=new A.h(4294968066)
@@ -93688,18 +93691,18 @@ B.kw=new A.ah(B.ya,!1,!1,!1,!1,B.q)
 B.jX=new A.h(4294967309)
 B.kz=new A.ah(B.jX,!1,!1,!1,!1,B.q)
 B.CY=new A.dJ([B.nR,B.x,B.nO,B.x,B.nP,B.x,B.nQ,B.x,B.HT,B.x,B.HQ,B.x,B.HR,B.x,B.HS,B.x,B.kD,B.x,B.kA,B.x,B.kB,B.x,B.kC,B.x,B.HU,B.x,B.HV,B.x,B.HY,B.x,B.HZ,B.x,B.kw,B.x,B.kz,B.x],t.Fp)
-B.a4D=new A.h(33)
-B.a4E=new A.h(34)
-B.a4F=new A.h(35)
-B.a4G=new A.h(36)
-B.a4H=new A.h(37)
-B.a4I=new A.h(38)
-B.a4J=new A.h(39)
-B.a4K=new A.h(40)
-B.a4L=new A.h(41)
+B.a4G=new A.h(33)
+B.a4H=new A.h(34)
+B.a4I=new A.h(35)
+B.a4J=new A.h(36)
+B.a4K=new A.h(37)
+B.a4L=new A.h(38)
+B.a4M=new A.h(39)
+B.a4N=new A.h(40)
+B.a4O=new A.h(41)
 B.yb=new A.h(42)
 B.CE=new A.h(43)
-B.a4M=new A.h(44)
+B.a4P=new A.h(44)
 B.CF=new A.h(45)
 B.CG=new A.h(46)
 B.CH=new A.h(47)
@@ -93713,49 +93716,49 @@ B.CO=new A.h(54)
 B.CP=new A.h(55)
 B.CQ=new A.h(56)
 B.CR=new A.h(57)
-B.a4N=new A.h(58)
-B.a4O=new A.h(59)
-B.a4P=new A.h(60)
-B.a4Q=new A.h(61)
-B.a4R=new A.h(62)
-B.a4S=new A.h(63)
-B.a4T=new A.h(64)
-B.a5E=new A.h(91)
-B.a5F=new A.h(92)
-B.a5G=new A.h(93)
-B.a5H=new A.h(94)
-B.a5I=new A.h(95)
-B.a5J=new A.h(96)
+B.a4Q=new A.h(58)
+B.a4R=new A.h(59)
+B.a4S=new A.h(60)
+B.a4T=new A.h(61)
+B.a4U=new A.h(62)
+B.a4V=new A.h(63)
+B.a4W=new A.h(64)
+B.a5H=new A.h(91)
+B.a5I=new A.h(92)
+B.a5J=new A.h(93)
+B.a5K=new A.h(94)
+B.a5L=new A.h(95)
+B.a5M=new A.h(96)
 B.na=new A.h(97)
 B.CW=new A.h(98)
 B.nb=new A.h(99)
-B.a4k=new A.h(100)
+B.a4n=new A.h(100)
 B.y5=new A.h(101)
 B.y6=new A.h(102)
-B.a4l=new A.h(103)
-B.a4m=new A.h(104)
-B.a4n=new A.h(105)
-B.a4o=new A.h(106)
-B.a4p=new A.h(107)
-B.a4q=new A.h(108)
-B.a4r=new A.h(109)
+B.a4o=new A.h(103)
+B.a4p=new A.h(104)
+B.a4q=new A.h(105)
+B.a4r=new A.h(106)
+B.a4s=new A.h(107)
+B.a4t=new A.h(108)
+B.a4u=new A.h(109)
 B.y7=new A.h(110)
-B.a4s=new A.h(111)
+B.a4v=new A.h(111)
 B.y8=new A.h(112)
-B.a4t=new A.h(113)
-B.a4u=new A.h(114)
-B.a4v=new A.h(115)
+B.a4w=new A.h(113)
+B.a4x=new A.h(114)
+B.a4y=new A.h(115)
 B.y9=new A.h(116)
-B.a4w=new A.h(117)
+B.a4z=new A.h(117)
 B.n_=new A.h(118)
-B.a4x=new A.h(119)
+B.a4A=new A.h(119)
 B.n0=new A.h(120)
-B.a4y=new A.h(121)
+B.a4B=new A.h(121)
 B.h9=new A.h(122)
-B.a4z=new A.h(123)
-B.a4A=new A.h(124)
-B.a4B=new A.h(125)
-B.a4C=new A.h(126)
+B.a4C=new A.h(123)
+B.a4D=new A.h(124)
+B.a4E=new A.h(125)
+B.a4F=new A.h(126)
 B.yc=new A.h(4294967297)
 B.jW=new A.h(4294967305)
 B.yd=new A.h(4294967553)
@@ -94044,24 +94047,24 @@ B.CA=new A.h(4294971674)
 B.CB=new A.h(4294971675)
 B.CC=new A.h(4294971905)
 B.CD=new A.h(4294971906)
-B.a4U=new A.h(8589934592)
-B.a4V=new A.h(8589934593)
-B.a4W=new A.h(8589934594)
-B.a4X=new A.h(8589934595)
-B.a4Y=new A.h(8589934608)
-B.a4Z=new A.h(8589934609)
-B.a5_=new A.h(8589934610)
-B.a50=new A.h(8589934611)
-B.a51=new A.h(8589934612)
-B.a52=new A.h(8589934624)
-B.a53=new A.h(8589934625)
-B.a54=new A.h(8589934626)
+B.a4X=new A.h(8589934592)
+B.a4Y=new A.h(8589934593)
+B.a4Z=new A.h(8589934594)
+B.a5_=new A.h(8589934595)
+B.a50=new A.h(8589934608)
+B.a51=new A.h(8589934609)
+B.a52=new A.h(8589934610)
+B.a53=new A.h(8589934611)
+B.a54=new A.h(8589934612)
+B.a55=new A.h(8589934624)
+B.a56=new A.h(8589934625)
+B.a57=new A.h(8589934626)
 B.n7=new A.h(8589935117)
-B.a55=new A.h(8589935144)
-B.a56=new A.h(8589935145)
+B.a58=new A.h(8589935144)
+B.a59=new A.h(8589935145)
 B.CS=new A.h(8589935146)
 B.CT=new A.h(8589935147)
-B.a57=new A.h(8589935148)
+B.a5a=new A.h(8589935148)
 B.CU=new A.h(8589935149)
 B.e2=new A.h(8589935150)
 B.CV=new A.h(8589935151)
@@ -94075,42 +94078,42 @@ B.e5=new A.h(8589935158)
 B.hk=new A.h(8589935159)
 B.e6=new A.h(8589935160)
 B.hl=new A.h(8589935161)
-B.a58=new A.h(8589935165)
-B.a59=new A.h(8589935361)
-B.a5a=new A.h(8589935362)
-B.a5b=new A.h(8589935363)
-B.a5c=new A.h(8589935364)
-B.a5d=new A.h(8589935365)
-B.a5e=new A.h(8589935366)
-B.a5f=new A.h(8589935367)
-B.a5g=new A.h(8589935368)
-B.a5h=new A.h(8589935369)
-B.a5i=new A.h(8589935370)
-B.a5j=new A.h(8589935371)
-B.a5k=new A.h(8589935372)
-B.a5l=new A.h(8589935373)
-B.a5m=new A.h(8589935374)
-B.a5n=new A.h(8589935375)
-B.a5o=new A.h(8589935376)
-B.a5p=new A.h(8589935377)
-B.a5q=new A.h(8589935378)
-B.a5r=new A.h(8589935379)
-B.a5s=new A.h(8589935380)
-B.a5t=new A.h(8589935381)
-B.a5u=new A.h(8589935382)
-B.a5v=new A.h(8589935383)
-B.a5w=new A.h(8589935384)
-B.a5x=new A.h(8589935385)
-B.a5y=new A.h(8589935386)
-B.a5z=new A.h(8589935387)
-B.a5A=new A.h(8589935388)
-B.a5B=new A.h(8589935389)
-B.a5C=new A.h(8589935390)
-B.a5D=new A.h(8589935391)
-B.a5Q=new A.dJ([32,B.ya,33,B.a4D,34,B.a4E,35,B.a4F,36,B.a4G,37,B.a4H,38,B.a4I,39,B.a4J,40,B.a4K,41,B.a4L,42,B.yb,43,B.CE,44,B.a4M,45,B.CF,46,B.CG,47,B.CH,48,B.CI,49,B.CJ,50,B.CK,51,B.CL,52,B.CM,53,B.CN,54,B.CO,55,B.CP,56,B.CQ,57,B.CR,58,B.a4N,59,B.a4O,60,B.a4P,61,B.a4Q,62,B.a4R,63,B.a4S,64,B.a4T,91,B.a5E,92,B.a5F,93,B.a5G,94,B.a5H,95,B.a5I,96,B.a5J,97,B.na,98,B.CW,99,B.nb,100,B.a4k,101,B.y5,102,B.y6,103,B.a4l,104,B.a4m,105,B.a4n,106,B.a4o,107,B.a4p,108,B.a4q,109,B.a4r,110,B.y7,111,B.a4s,112,B.y8,113,B.a4t,114,B.a4u,115,B.a4v,116,B.y9,117,B.a4w,118,B.n_,119,B.a4x,120,B.n0,121,B.a4y,122,B.h9,123,B.a4z,124,B.a4A,125,B.a4B,126,B.a4C,4294967297,B.yc,4294967304,B.bg,4294967305,B.jW,4294967309,B.jX,4294967323,B.ha,4294967423,B.bh,4294967553,B.yd,4294967555,B.jY,4294967556,B.hb,4294967558,B.n1,4294967559,B.ye,4294967560,B.yf,4294967562,B.jZ,4294967564,B.k_,4294967566,B.yg,4294967567,B.yh,4294967568,B.yi,4294967569,B.yj,4294968065,B.cy,4294968066,B.cj,4294968067,B.ck,4294968068,B.cz,4294968069,B.e0,4294968070,B.e1,4294968071,B.hc,4294968072,B.hd,4294968321,B.n2,4294968322,B.yk,4294968323,B.yl,4294968324,B.ym,4294968325,B.yn,4294968326,B.yo,4294968327,B.he,4294968328,B.yp,4294968329,B.yq,4294968330,B.yr,4294968577,B.ys,4294968578,B.yt,4294968579,B.yu,4294968580,B.yv,4294968581,B.yw,4294968582,B.yx,4294968583,B.yy,4294968584,B.yz,4294968585,B.yA,4294968586,B.yB,4294968587,B.yC,4294968588,B.yD,4294968589,B.yE,4294968590,B.yF,4294968833,B.yG,4294968834,B.yH,4294968835,B.yI,4294968836,B.yJ,4294968837,B.yK,4294968838,B.yL,4294968839,B.yM,4294968840,B.yN,4294968841,B.yO,4294968842,B.yP,4294968843,B.yQ,4294969089,B.yR,4294969090,B.yS,4294969091,B.yT,4294969092,B.yU,4294969093,B.yV,4294969094,B.yW,4294969095,B.yX,4294969096,B.yY,4294969097,B.yZ,4294969098,B.z_,4294969099,B.z0,4294969100,B.z1,4294969101,B.z2,4294969102,B.z3,4294969103,B.z4,4294969104,B.z5,4294969105,B.z6,4294969106,B.z7,4294969107,B.z8,4294969108,B.z9,4294969109,B.za,4294969110,B.zb,4294969111,B.zc,4294969112,B.zd,4294969113,B.ze,4294969114,B.zf,4294969115,B.zg,4294969116,B.zh,4294969117,B.zi,4294969345,B.zj,4294969346,B.zk,4294969347,B.zl,4294969348,B.zm,4294969349,B.zn,4294969350,B.zo,4294969351,B.zp,4294969352,B.zq,4294969353,B.zr,4294969354,B.zs,4294969355,B.zt,4294969356,B.zu,4294969357,B.zv,4294969358,B.zw,4294969359,B.zx,4294969360,B.zy,4294969361,B.zz,4294969362,B.zA,4294969363,B.zB,4294969364,B.zC,4294969365,B.zD,4294969366,B.zE,4294969367,B.zF,4294969368,B.zG,4294969601,B.zH,4294969602,B.zI,4294969603,B.zJ,4294969604,B.zK,4294969605,B.zL,4294969606,B.zM,4294969607,B.zN,4294969608,B.zO,4294969857,B.zP,4294969858,B.zQ,4294969859,B.zR,4294969860,B.zS,4294969861,B.zT,4294969863,B.zU,4294969864,B.zV,4294969865,B.zW,4294969866,B.zX,4294969867,B.zY,4294969868,B.zZ,4294969869,B.A_,4294969870,B.A0,4294969871,B.A1,4294969872,B.A2,4294969873,B.A3,4294970113,B.A4,4294970114,B.A5,4294970115,B.A6,4294970116,B.A7,4294970117,B.A8,4294970118,B.A9,4294970119,B.Aa,4294970120,B.Ab,4294970121,B.Ac,4294970122,B.Ad,4294970123,B.Ae,4294970124,B.Af,4294970125,B.Ag,4294970126,B.Ah,4294970127,B.Ai,4294970369,B.Aj,4294970370,B.Ak,4294970371,B.Al,4294970372,B.Am,4294970373,B.An,4294970374,B.Ao,4294970375,B.Ap,4294970625,B.Aq,4294970626,B.Ar,4294970627,B.As,4294970628,B.At,4294970629,B.Au,4294970630,B.Av,4294970631,B.Aw,4294970632,B.Ax,4294970633,B.Ay,4294970634,B.Az,4294970635,B.AA,4294970636,B.AB,4294970637,B.AC,4294970638,B.AD,4294970639,B.AE,4294970640,B.AF,4294970641,B.AG,4294970642,B.AH,4294970643,B.AI,4294970644,B.AJ,4294970645,B.AK,4294970646,B.AL,4294970647,B.AM,4294970648,B.AN,4294970649,B.AO,4294970650,B.AP,4294970651,B.AQ,4294970652,B.AR,4294970653,B.AS,4294970654,B.AT,4294970655,B.AU,4294970656,B.AV,4294970657,B.AW,4294970658,B.AX,4294970659,B.AY,4294970660,B.AZ,4294970661,B.B_,4294970662,B.B0,4294970663,B.B1,4294970664,B.B2,4294970665,B.B3,4294970666,B.B4,4294970667,B.B5,4294970668,B.B6,4294970669,B.B7,4294970670,B.B8,4294970671,B.B9,4294970672,B.Ba,4294970673,B.Bb,4294970674,B.Bc,4294970675,B.Bd,4294970676,B.Be,4294970677,B.Bf,4294970678,B.Bg,4294970679,B.Bh,4294970680,B.Bi,4294970681,B.Bj,4294970682,B.Bk,4294970683,B.Bl,4294970684,B.Bm,4294970685,B.Bn,4294970686,B.Bo,4294970687,B.Bp,4294970688,B.Bq,4294970689,B.Br,4294970690,B.Bs,4294970691,B.Bt,4294970692,B.Bu,4294970693,B.Bv,4294970694,B.Bw,4294970695,B.Bx,4294970696,B.By,4294970697,B.Bz,4294970698,B.BA,4294970699,B.BB,4294970700,B.BC,4294970701,B.BD,4294970702,B.BE,4294970703,B.BF,4294970704,B.BG,4294970705,B.BH,4294970706,B.BI,4294970707,B.BJ,4294970708,B.BK,4294970709,B.BL,4294970710,B.BM,4294970711,B.BN,4294970712,B.BO,4294970713,B.BP,4294970714,B.BQ,4294970715,B.BR,4294970882,B.BS,4294970884,B.BT,4294970885,B.BU,4294970886,B.BV,4294970887,B.BW,4294970888,B.BX,4294970889,B.BY,4294971137,B.BZ,4294971138,B.C_,4294971393,B.C0,4294971394,B.C1,4294971395,B.C2,4294971396,B.C3,4294971397,B.C4,4294971398,B.C5,4294971399,B.C6,4294971400,B.C7,4294971401,B.C8,4294971402,B.C9,4294971403,B.Ca,4294971649,B.Cb,4294971650,B.Cc,4294971651,B.Cd,4294971652,B.Ce,4294971653,B.Cf,4294971654,B.Cg,4294971655,B.Ch,4294971656,B.Ci,4294971657,B.Cj,4294971658,B.Ck,4294971659,B.Cl,4294971660,B.Cm,4294971661,B.Cn,4294971662,B.Co,4294971663,B.Cp,4294971664,B.Cq,4294971665,B.Cr,4294971666,B.Cs,4294971667,B.Ct,4294971668,B.Cu,4294971669,B.Cv,4294971670,B.Cw,4294971671,B.Cx,4294971672,B.Cy,4294971673,B.Cz,4294971674,B.CA,4294971675,B.CB,4294971905,B.CC,4294971906,B.CD,8589934592,B.a4U,8589934593,B.a4V,8589934594,B.a4W,8589934595,B.a4X,8589934608,B.a4Y,8589934609,B.a4Z,8589934610,B.a5_,8589934611,B.a50,8589934612,B.a51,8589934624,B.a52,8589934625,B.a53,8589934626,B.a54,8589934848,B.hf,8589934849,B.k0,8589934850,B.cT,8589934851,B.dv,8589934852,B.hg,8589934853,B.k1,8589934854,B.hh,8589934855,B.k2,8589935088,B.n3,8589935090,B.n4,8589935092,B.n5,8589935094,B.n6,8589935117,B.n7,8589935144,B.a55,8589935145,B.a56,8589935146,B.CS,8589935147,B.CT,8589935148,B.a57,8589935149,B.CU,8589935150,B.e2,8589935151,B.CV,8589935152,B.n8,8589935153,B.hi,8589935154,B.e3,8589935155,B.hj,8589935156,B.e4,8589935157,B.n9,8589935158,B.e5,8589935159,B.hk,8589935160,B.e6,8589935161,B.hl,8589935165,B.a58,8589935361,B.a59,8589935362,B.a5a,8589935363,B.a5b,8589935364,B.a5c,8589935365,B.a5d,8589935366,B.a5e,8589935367,B.a5f,8589935368,B.a5g,8589935369,B.a5h,8589935370,B.a5i,8589935371,B.a5j,8589935372,B.a5k,8589935373,B.a5l,8589935374,B.a5m,8589935375,B.a5n,8589935376,B.a5o,8589935377,B.a5p,8589935378,B.a5q,8589935379,B.a5r,8589935380,B.a5s,8589935381,B.a5t,8589935382,B.a5u,8589935383,B.a5v,8589935384,B.a5w,8589935385,B.a5x,8589935386,B.a5y,8589935387,B.a5z,8589935388,B.a5A,8589935389,B.a5B,8589935390,B.a5C,8589935391,B.a5D],A.a4("dJ<t,h>"))
+B.a5b=new A.h(8589935165)
+B.a5c=new A.h(8589935361)
+B.a5d=new A.h(8589935362)
+B.a5e=new A.h(8589935363)
+B.a5f=new A.h(8589935364)
+B.a5g=new A.h(8589935365)
+B.a5h=new A.h(8589935366)
+B.a5i=new A.h(8589935367)
+B.a5j=new A.h(8589935368)
+B.a5k=new A.h(8589935369)
+B.a5l=new A.h(8589935370)
+B.a5m=new A.h(8589935371)
+B.a5n=new A.h(8589935372)
+B.a5o=new A.h(8589935373)
+B.a5p=new A.h(8589935374)
+B.a5q=new A.h(8589935375)
+B.a5r=new A.h(8589935376)
+B.a5s=new A.h(8589935377)
+B.a5t=new A.h(8589935378)
+B.a5u=new A.h(8589935379)
+B.a5v=new A.h(8589935380)
+B.a5w=new A.h(8589935381)
+B.a5x=new A.h(8589935382)
+B.a5y=new A.h(8589935383)
+B.a5z=new A.h(8589935384)
+B.a5A=new A.h(8589935385)
+B.a5B=new A.h(8589935386)
+B.a5C=new A.h(8589935387)
+B.a5D=new A.h(8589935388)
+B.a5E=new A.h(8589935389)
+B.a5F=new A.h(8589935390)
+B.a5G=new A.h(8589935391)
+B.a5T=new A.dJ([32,B.ya,33,B.a4G,34,B.a4H,35,B.a4I,36,B.a4J,37,B.a4K,38,B.a4L,39,B.a4M,40,B.a4N,41,B.a4O,42,B.yb,43,B.CE,44,B.a4P,45,B.CF,46,B.CG,47,B.CH,48,B.CI,49,B.CJ,50,B.CK,51,B.CL,52,B.CM,53,B.CN,54,B.CO,55,B.CP,56,B.CQ,57,B.CR,58,B.a4Q,59,B.a4R,60,B.a4S,61,B.a4T,62,B.a4U,63,B.a4V,64,B.a4W,91,B.a5H,92,B.a5I,93,B.a5J,94,B.a5K,95,B.a5L,96,B.a5M,97,B.na,98,B.CW,99,B.nb,100,B.a4n,101,B.y5,102,B.y6,103,B.a4o,104,B.a4p,105,B.a4q,106,B.a4r,107,B.a4s,108,B.a4t,109,B.a4u,110,B.y7,111,B.a4v,112,B.y8,113,B.a4w,114,B.a4x,115,B.a4y,116,B.y9,117,B.a4z,118,B.n_,119,B.a4A,120,B.n0,121,B.a4B,122,B.h9,123,B.a4C,124,B.a4D,125,B.a4E,126,B.a4F,4294967297,B.yc,4294967304,B.bg,4294967305,B.jW,4294967309,B.jX,4294967323,B.ha,4294967423,B.bh,4294967553,B.yd,4294967555,B.jY,4294967556,B.hb,4294967558,B.n1,4294967559,B.ye,4294967560,B.yf,4294967562,B.jZ,4294967564,B.k_,4294967566,B.yg,4294967567,B.yh,4294967568,B.yi,4294967569,B.yj,4294968065,B.cy,4294968066,B.cj,4294968067,B.ck,4294968068,B.cz,4294968069,B.e0,4294968070,B.e1,4294968071,B.hc,4294968072,B.hd,4294968321,B.n2,4294968322,B.yk,4294968323,B.yl,4294968324,B.ym,4294968325,B.yn,4294968326,B.yo,4294968327,B.he,4294968328,B.yp,4294968329,B.yq,4294968330,B.yr,4294968577,B.ys,4294968578,B.yt,4294968579,B.yu,4294968580,B.yv,4294968581,B.yw,4294968582,B.yx,4294968583,B.yy,4294968584,B.yz,4294968585,B.yA,4294968586,B.yB,4294968587,B.yC,4294968588,B.yD,4294968589,B.yE,4294968590,B.yF,4294968833,B.yG,4294968834,B.yH,4294968835,B.yI,4294968836,B.yJ,4294968837,B.yK,4294968838,B.yL,4294968839,B.yM,4294968840,B.yN,4294968841,B.yO,4294968842,B.yP,4294968843,B.yQ,4294969089,B.yR,4294969090,B.yS,4294969091,B.yT,4294969092,B.yU,4294969093,B.yV,4294969094,B.yW,4294969095,B.yX,4294969096,B.yY,4294969097,B.yZ,4294969098,B.z_,4294969099,B.z0,4294969100,B.z1,4294969101,B.z2,4294969102,B.z3,4294969103,B.z4,4294969104,B.z5,4294969105,B.z6,4294969106,B.z7,4294969107,B.z8,4294969108,B.z9,4294969109,B.za,4294969110,B.zb,4294969111,B.zc,4294969112,B.zd,4294969113,B.ze,4294969114,B.zf,4294969115,B.zg,4294969116,B.zh,4294969117,B.zi,4294969345,B.zj,4294969346,B.zk,4294969347,B.zl,4294969348,B.zm,4294969349,B.zn,4294969350,B.zo,4294969351,B.zp,4294969352,B.zq,4294969353,B.zr,4294969354,B.zs,4294969355,B.zt,4294969356,B.zu,4294969357,B.zv,4294969358,B.zw,4294969359,B.zx,4294969360,B.zy,4294969361,B.zz,4294969362,B.zA,4294969363,B.zB,4294969364,B.zC,4294969365,B.zD,4294969366,B.zE,4294969367,B.zF,4294969368,B.zG,4294969601,B.zH,4294969602,B.zI,4294969603,B.zJ,4294969604,B.zK,4294969605,B.zL,4294969606,B.zM,4294969607,B.zN,4294969608,B.zO,4294969857,B.zP,4294969858,B.zQ,4294969859,B.zR,4294969860,B.zS,4294969861,B.zT,4294969863,B.zU,4294969864,B.zV,4294969865,B.zW,4294969866,B.zX,4294969867,B.zY,4294969868,B.zZ,4294969869,B.A_,4294969870,B.A0,4294969871,B.A1,4294969872,B.A2,4294969873,B.A3,4294970113,B.A4,4294970114,B.A5,4294970115,B.A6,4294970116,B.A7,4294970117,B.A8,4294970118,B.A9,4294970119,B.Aa,4294970120,B.Ab,4294970121,B.Ac,4294970122,B.Ad,4294970123,B.Ae,4294970124,B.Af,4294970125,B.Ag,4294970126,B.Ah,4294970127,B.Ai,4294970369,B.Aj,4294970370,B.Ak,4294970371,B.Al,4294970372,B.Am,4294970373,B.An,4294970374,B.Ao,4294970375,B.Ap,4294970625,B.Aq,4294970626,B.Ar,4294970627,B.As,4294970628,B.At,4294970629,B.Au,4294970630,B.Av,4294970631,B.Aw,4294970632,B.Ax,4294970633,B.Ay,4294970634,B.Az,4294970635,B.AA,4294970636,B.AB,4294970637,B.AC,4294970638,B.AD,4294970639,B.AE,4294970640,B.AF,4294970641,B.AG,4294970642,B.AH,4294970643,B.AI,4294970644,B.AJ,4294970645,B.AK,4294970646,B.AL,4294970647,B.AM,4294970648,B.AN,4294970649,B.AO,4294970650,B.AP,4294970651,B.AQ,4294970652,B.AR,4294970653,B.AS,4294970654,B.AT,4294970655,B.AU,4294970656,B.AV,4294970657,B.AW,4294970658,B.AX,4294970659,B.AY,4294970660,B.AZ,4294970661,B.B_,4294970662,B.B0,4294970663,B.B1,4294970664,B.B2,4294970665,B.B3,4294970666,B.B4,4294970667,B.B5,4294970668,B.B6,4294970669,B.B7,4294970670,B.B8,4294970671,B.B9,4294970672,B.Ba,4294970673,B.Bb,4294970674,B.Bc,4294970675,B.Bd,4294970676,B.Be,4294970677,B.Bf,4294970678,B.Bg,4294970679,B.Bh,4294970680,B.Bi,4294970681,B.Bj,4294970682,B.Bk,4294970683,B.Bl,4294970684,B.Bm,4294970685,B.Bn,4294970686,B.Bo,4294970687,B.Bp,4294970688,B.Bq,4294970689,B.Br,4294970690,B.Bs,4294970691,B.Bt,4294970692,B.Bu,4294970693,B.Bv,4294970694,B.Bw,4294970695,B.Bx,4294970696,B.By,4294970697,B.Bz,4294970698,B.BA,4294970699,B.BB,4294970700,B.BC,4294970701,B.BD,4294970702,B.BE,4294970703,B.BF,4294970704,B.BG,4294970705,B.BH,4294970706,B.BI,4294970707,B.BJ,4294970708,B.BK,4294970709,B.BL,4294970710,B.BM,4294970711,B.BN,4294970712,B.BO,4294970713,B.BP,4294970714,B.BQ,4294970715,B.BR,4294970882,B.BS,4294970884,B.BT,4294970885,B.BU,4294970886,B.BV,4294970887,B.BW,4294970888,B.BX,4294970889,B.BY,4294971137,B.BZ,4294971138,B.C_,4294971393,B.C0,4294971394,B.C1,4294971395,B.C2,4294971396,B.C3,4294971397,B.C4,4294971398,B.C5,4294971399,B.C6,4294971400,B.C7,4294971401,B.C8,4294971402,B.C9,4294971403,B.Ca,4294971649,B.Cb,4294971650,B.Cc,4294971651,B.Cd,4294971652,B.Ce,4294971653,B.Cf,4294971654,B.Cg,4294971655,B.Ch,4294971656,B.Ci,4294971657,B.Cj,4294971658,B.Ck,4294971659,B.Cl,4294971660,B.Cm,4294971661,B.Cn,4294971662,B.Co,4294971663,B.Cp,4294971664,B.Cq,4294971665,B.Cr,4294971666,B.Cs,4294971667,B.Ct,4294971668,B.Cu,4294971669,B.Cv,4294971670,B.Cw,4294971671,B.Cx,4294971672,B.Cy,4294971673,B.Cz,4294971674,B.CA,4294971675,B.CB,4294971905,B.CC,4294971906,B.CD,8589934592,B.a4X,8589934593,B.a4Y,8589934594,B.a4Z,8589934595,B.a5_,8589934608,B.a50,8589934609,B.a51,8589934610,B.a52,8589934611,B.a53,8589934612,B.a54,8589934624,B.a55,8589934625,B.a56,8589934626,B.a57,8589934848,B.hf,8589934849,B.k0,8589934850,B.cT,8589934851,B.dv,8589934852,B.hg,8589934853,B.k1,8589934854,B.hh,8589934855,B.k2,8589935088,B.n3,8589935090,B.n4,8589935092,B.n5,8589935094,B.n6,8589935117,B.n7,8589935144,B.a58,8589935145,B.a59,8589935146,B.CS,8589935147,B.CT,8589935148,B.a5a,8589935149,B.CU,8589935150,B.e2,8589935151,B.CV,8589935152,B.n8,8589935153,B.hi,8589935154,B.e3,8589935155,B.hj,8589935156,B.e4,8589935157,B.n9,8589935158,B.e5,8589935159,B.hk,8589935160,B.e6,8589935161,B.hl,8589935165,B.a5b,8589935361,B.a5c,8589935362,B.a5d,8589935363,B.a5e,8589935364,B.a5f,8589935365,B.a5g,8589935366,B.a5h,8589935367,B.a5i,8589935368,B.a5j,8589935369,B.a5k,8589935370,B.a5l,8589935371,B.a5m,8589935372,B.a5n,8589935373,B.a5o,8589935374,B.a5p,8589935375,B.a5q,8589935376,B.a5r,8589935377,B.a5s,8589935378,B.a5t,8589935379,B.a5u,8589935380,B.a5v,8589935381,B.a5w,8589935382,B.a5x,8589935383,B.a5y,8589935384,B.a5z,8589935385,B.a5A,8589935386,B.a5B,8589935387,B.a5C,8589935388,B.a5D,8589935389,B.a5E,8589935390,B.a5F,8589935391,B.a5G],A.a4("dJ<t,h>"))
 B.nU=new A.ah(B.ha,!1,!1,!1,!1,B.q)
-B.a5R=new A.dJ([B.nU,B.pb],t.Fp)
-B.ack=new A.ah(B.n7,!1,!1,!1,!1,B.q)
+B.a5U=new A.dJ([B.nU,B.pb],t.Fp)
+B.acn=new A.ah(B.n7,!1,!1,!1,!1,B.q)
 B.I_=new A.ah(B.jW,!1,!1,!1,!1,B.q)
 B.HP=new A.ah(B.jW,!1,!0,!1,!1,B.q)
 B.hB=new A.ah(B.hd,!1,!1,!1,!1,B.q)
@@ -94121,207 +94124,207 @@ B.pf=new A.h5()
 B.pm=new A.qu()
 B.pn=new A.qT()
 B.kl=new A.TN(0,"line")
-B.aaU=new A.ez(B.bQ,B.kl)
-B.aaT=new A.ez(B.bY,B.kl)
-B.aaW=new A.ez(B.bE,B.kl)
-B.aaV=new A.ez(B.df,B.kl)
+B.aaX=new A.ez(B.bQ,B.kl)
+B.aaW=new A.ez(B.bY,B.kl)
+B.aaZ=new A.ez(B.bE,B.kl)
+B.aaY=new A.ez(B.df,B.kl)
 B.nA=new A.ez(B.bQ,B.hv)
-B.a5S=new A.dJ([B.kw,B.L9,B.kz,B.pd,B.ack,B.pd,B.nU,B.pf,B.I_,B.pm,B.HP,B.pn,B.kC,B.aaU,B.kD,B.aaT,B.kA,B.aaW,B.kB,B.aaV,B.hB,B.nA,B.hE,B.km],t.Fp)
-B.a7Z={Abort:0,Again:1,AltLeft:2,AltRight:3,ArrowDown:4,ArrowLeft:5,ArrowRight:6,ArrowUp:7,AudioVolumeDown:8,AudioVolumeMute:9,AudioVolumeUp:10,Backquote:11,Backslash:12,Backspace:13,BracketLeft:14,BracketRight:15,BrightnessDown:16,BrightnessUp:17,BrowserBack:18,BrowserFavorites:19,BrowserForward:20,BrowserHome:21,BrowserRefresh:22,BrowserSearch:23,BrowserStop:24,CapsLock:25,Comma:26,ContextMenu:27,ControlLeft:28,ControlRight:29,Convert:30,Copy:31,Cut:32,Delete:33,Digit0:34,Digit1:35,Digit2:36,Digit3:37,Digit4:38,Digit5:39,Digit6:40,Digit7:41,Digit8:42,Digit9:43,DisplayToggleIntExt:44,Eject:45,End:46,Enter:47,Equal:48,Esc:49,Escape:50,F1:51,F10:52,F11:53,F12:54,F13:55,F14:56,F15:57,F16:58,F17:59,F18:60,F19:61,F2:62,F20:63,F21:64,F22:65,F23:66,F24:67,F3:68,F4:69,F5:70,F6:71,F7:72,F8:73,F9:74,Find:75,Fn:76,FnLock:77,GameButton1:78,GameButton10:79,GameButton11:80,GameButton12:81,GameButton13:82,GameButton14:83,GameButton15:84,GameButton16:85,GameButton2:86,GameButton3:87,GameButton4:88,GameButton5:89,GameButton6:90,GameButton7:91,GameButton8:92,GameButton9:93,GameButtonA:94,GameButtonB:95,GameButtonC:96,GameButtonLeft1:97,GameButtonLeft2:98,GameButtonMode:99,GameButtonRight1:100,GameButtonRight2:101,GameButtonSelect:102,GameButtonStart:103,GameButtonThumbLeft:104,GameButtonThumbRight:105,GameButtonX:106,GameButtonY:107,GameButtonZ:108,Help:109,Home:110,Hyper:111,Insert:112,IntlBackslash:113,IntlRo:114,IntlYen:115,KanaMode:116,KeyA:117,KeyB:118,KeyC:119,KeyD:120,KeyE:121,KeyF:122,KeyG:123,KeyH:124,KeyI:125,KeyJ:126,KeyK:127,KeyL:128,KeyM:129,KeyN:130,KeyO:131,KeyP:132,KeyQ:133,KeyR:134,KeyS:135,KeyT:136,KeyU:137,KeyV:138,KeyW:139,KeyX:140,KeyY:141,KeyZ:142,KeyboardLayoutSelect:143,Lang1:144,Lang2:145,Lang3:146,Lang4:147,Lang5:148,LaunchApp1:149,LaunchApp2:150,LaunchAssistant:151,LaunchControlPanel:152,LaunchMail:153,LaunchScreenSaver:154,MailForward:155,MailReply:156,MailSend:157,MediaFastForward:158,MediaPause:159,MediaPlay:160,MediaPlayPause:161,MediaRecord:162,MediaRewind:163,MediaSelect:164,MediaStop:165,MediaTrackNext:166,MediaTrackPrevious:167,MetaLeft:168,MetaRight:169,MicrophoneMuteToggle:170,Minus:171,NonConvert:172,NumLock:173,Numpad0:174,Numpad1:175,Numpad2:176,Numpad3:177,Numpad4:178,Numpad5:179,Numpad6:180,Numpad7:181,Numpad8:182,Numpad9:183,NumpadAdd:184,NumpadBackspace:185,NumpadClear:186,NumpadClearEntry:187,NumpadComma:188,NumpadDecimal:189,NumpadDivide:190,NumpadEnter:191,NumpadEqual:192,NumpadMemoryAdd:193,NumpadMemoryClear:194,NumpadMemoryRecall:195,NumpadMemoryStore:196,NumpadMemorySubtract:197,NumpadMultiply:198,NumpadParenLeft:199,NumpadParenRight:200,NumpadSubtract:201,Open:202,PageDown:203,PageUp:204,Paste:205,Pause:206,Period:207,Power:208,PrintScreen:209,PrivacyScreenToggle:210,Props:211,Quote:212,Resume:213,ScrollLock:214,Select:215,SelectTask:216,Semicolon:217,ShiftLeft:218,ShiftRight:219,ShowAllWindows:220,Slash:221,Sleep:222,Space:223,Super:224,Suspend:225,Tab:226,Turbo:227,Undo:228,WakeUp:229,ZoomToggle:230}
-B.a5T=new A.a2(B.a7Z,[458907,458873,458978,458982,458833,458832,458831,458834,458881,458879,458880,458805,458801,458794,458799,458800,786544,786543,786980,786986,786981,786979,786983,786977,786982,458809,458806,458853,458976,458980,458890,458876,458875,458828,458791,458782,458783,458784,458785,458786,458787,458788,458789,458790,65717,786616,458829,458792,458798,458793,458793,458810,458819,458820,458821,458856,458857,458858,458859,458860,458861,458862,458811,458863,458864,458865,458866,458867,458812,458813,458814,458815,458816,458817,458818,458878,18,19,392961,392970,392971,392972,392973,392974,392975,392976,392962,392963,392964,392965,392966,392967,392968,392969,392977,392978,392979,392980,392981,392982,392983,392984,392985,392986,392987,392988,392989,392990,392991,458869,458826,16,458825,458852,458887,458889,458888,458756,458757,458758,458759,458760,458761,458762,458763,458764,458765,458766,458767,458768,458769,458770,458771,458772,458773,458774,458775,458776,458777,458778,458779,458780,458781,787101,458896,458897,458898,458899,458900,786836,786834,786891,786847,786826,786865,787083,787081,787084,786611,786609,786608,786637,786610,786612,786819,786615,786613,786614,458979,458983,24,458797,458891,458835,458850,458841,458842,458843,458844,458845,458846,458847,458848,458849,458839,458939,458968,458969,458885,458851,458836,458840,458855,458963,458962,458961,458960,458964,458837,458934,458935,458838,458868,458830,458827,458877,458824,458807,458854,458822,23,458915,458804,21,458823,458871,786850,458803,458977,458981,787103,458808,65666,458796,17,20,458795,22,458874,65667,786994],t.eL)
-B.a5U=new A.dJ([0,"FontWeight.w100",1,"FontWeight.w200",2,"FontWeight.w300",3,"FontWeight.w400",4,"FontWeight.w500",5,"FontWeight.w600",6,"FontWeight.w700",7,"FontWeight.w800",8,"FontWeight.w900"],A.a4("dJ<t,k>"))
+B.a5V=new A.dJ([B.kw,B.L9,B.kz,B.pd,B.acn,B.pd,B.nU,B.pf,B.I_,B.pm,B.HP,B.pn,B.kC,B.aaX,B.kD,B.aaW,B.kA,B.aaZ,B.kB,B.aaY,B.hB,B.nA,B.hE,B.km],t.Fp)
+B.a81={Abort:0,Again:1,AltLeft:2,AltRight:3,ArrowDown:4,ArrowLeft:5,ArrowRight:6,ArrowUp:7,AudioVolumeDown:8,AudioVolumeMute:9,AudioVolumeUp:10,Backquote:11,Backslash:12,Backspace:13,BracketLeft:14,BracketRight:15,BrightnessDown:16,BrightnessUp:17,BrowserBack:18,BrowserFavorites:19,BrowserForward:20,BrowserHome:21,BrowserRefresh:22,BrowserSearch:23,BrowserStop:24,CapsLock:25,Comma:26,ContextMenu:27,ControlLeft:28,ControlRight:29,Convert:30,Copy:31,Cut:32,Delete:33,Digit0:34,Digit1:35,Digit2:36,Digit3:37,Digit4:38,Digit5:39,Digit6:40,Digit7:41,Digit8:42,Digit9:43,DisplayToggleIntExt:44,Eject:45,End:46,Enter:47,Equal:48,Esc:49,Escape:50,F1:51,F10:52,F11:53,F12:54,F13:55,F14:56,F15:57,F16:58,F17:59,F18:60,F19:61,F2:62,F20:63,F21:64,F22:65,F23:66,F24:67,F3:68,F4:69,F5:70,F6:71,F7:72,F8:73,F9:74,Find:75,Fn:76,FnLock:77,GameButton1:78,GameButton10:79,GameButton11:80,GameButton12:81,GameButton13:82,GameButton14:83,GameButton15:84,GameButton16:85,GameButton2:86,GameButton3:87,GameButton4:88,GameButton5:89,GameButton6:90,GameButton7:91,GameButton8:92,GameButton9:93,GameButtonA:94,GameButtonB:95,GameButtonC:96,GameButtonLeft1:97,GameButtonLeft2:98,GameButtonMode:99,GameButtonRight1:100,GameButtonRight2:101,GameButtonSelect:102,GameButtonStart:103,GameButtonThumbLeft:104,GameButtonThumbRight:105,GameButtonX:106,GameButtonY:107,GameButtonZ:108,Help:109,Home:110,Hyper:111,Insert:112,IntlBackslash:113,IntlRo:114,IntlYen:115,KanaMode:116,KeyA:117,KeyB:118,KeyC:119,KeyD:120,KeyE:121,KeyF:122,KeyG:123,KeyH:124,KeyI:125,KeyJ:126,KeyK:127,KeyL:128,KeyM:129,KeyN:130,KeyO:131,KeyP:132,KeyQ:133,KeyR:134,KeyS:135,KeyT:136,KeyU:137,KeyV:138,KeyW:139,KeyX:140,KeyY:141,KeyZ:142,KeyboardLayoutSelect:143,Lang1:144,Lang2:145,Lang3:146,Lang4:147,Lang5:148,LaunchApp1:149,LaunchApp2:150,LaunchAssistant:151,LaunchControlPanel:152,LaunchMail:153,LaunchScreenSaver:154,MailForward:155,MailReply:156,MailSend:157,MediaFastForward:158,MediaPause:159,MediaPlay:160,MediaPlayPause:161,MediaRecord:162,MediaRewind:163,MediaSelect:164,MediaStop:165,MediaTrackNext:166,MediaTrackPrevious:167,MetaLeft:168,MetaRight:169,MicrophoneMuteToggle:170,Minus:171,NonConvert:172,NumLock:173,Numpad0:174,Numpad1:175,Numpad2:176,Numpad3:177,Numpad4:178,Numpad5:179,Numpad6:180,Numpad7:181,Numpad8:182,Numpad9:183,NumpadAdd:184,NumpadBackspace:185,NumpadClear:186,NumpadClearEntry:187,NumpadComma:188,NumpadDecimal:189,NumpadDivide:190,NumpadEnter:191,NumpadEqual:192,NumpadMemoryAdd:193,NumpadMemoryClear:194,NumpadMemoryRecall:195,NumpadMemoryStore:196,NumpadMemorySubtract:197,NumpadMultiply:198,NumpadParenLeft:199,NumpadParenRight:200,NumpadSubtract:201,Open:202,PageDown:203,PageUp:204,Paste:205,Pause:206,Period:207,Power:208,PrintScreen:209,PrivacyScreenToggle:210,Props:211,Quote:212,Resume:213,ScrollLock:214,Select:215,SelectTask:216,Semicolon:217,ShiftLeft:218,ShiftRight:219,ShowAllWindows:220,Slash:221,Sleep:222,Space:223,Super:224,Suspend:225,Tab:226,Turbo:227,Undo:228,WakeUp:229,ZoomToggle:230}
+B.a5W=new A.a2(B.a81,[458907,458873,458978,458982,458833,458832,458831,458834,458881,458879,458880,458805,458801,458794,458799,458800,786544,786543,786980,786986,786981,786979,786983,786977,786982,458809,458806,458853,458976,458980,458890,458876,458875,458828,458791,458782,458783,458784,458785,458786,458787,458788,458789,458790,65717,786616,458829,458792,458798,458793,458793,458810,458819,458820,458821,458856,458857,458858,458859,458860,458861,458862,458811,458863,458864,458865,458866,458867,458812,458813,458814,458815,458816,458817,458818,458878,18,19,392961,392970,392971,392972,392973,392974,392975,392976,392962,392963,392964,392965,392966,392967,392968,392969,392977,392978,392979,392980,392981,392982,392983,392984,392985,392986,392987,392988,392989,392990,392991,458869,458826,16,458825,458852,458887,458889,458888,458756,458757,458758,458759,458760,458761,458762,458763,458764,458765,458766,458767,458768,458769,458770,458771,458772,458773,458774,458775,458776,458777,458778,458779,458780,458781,787101,458896,458897,458898,458899,458900,786836,786834,786891,786847,786826,786865,787083,787081,787084,786611,786609,786608,786637,786610,786612,786819,786615,786613,786614,458979,458983,24,458797,458891,458835,458850,458841,458842,458843,458844,458845,458846,458847,458848,458849,458839,458939,458968,458969,458885,458851,458836,458840,458855,458963,458962,458961,458960,458964,458837,458934,458935,458838,458868,458830,458827,458877,458824,458807,458854,458822,23,458915,458804,21,458823,458871,786850,458803,458977,458981,787103,458808,65666,458796,17,20,458795,22,458874,65667,786994],t.eL)
+B.a5X=new A.dJ([0,"FontWeight.w100",1,"FontWeight.w200",2,"FontWeight.w300",3,"FontWeight.w400",4,"FontWeight.w500",5,"FontWeight.w600",6,"FontWeight.w700",7,"FontWeight.w800",8,"FontWeight.w900"],A.a4("dJ<t,k>"))
 B.Di={AVRInput:0,AVRPower:1,Accel:2,Accept:3,Again:4,AllCandidates:5,Alphanumeric:6,AltGraph:7,AppSwitch:8,ArrowDown:9,ArrowLeft:10,ArrowRight:11,ArrowUp:12,Attn:13,AudioBalanceLeft:14,AudioBalanceRight:15,AudioBassBoostDown:16,AudioBassBoostToggle:17,AudioBassBoostUp:18,AudioFaderFront:19,AudioFaderRear:20,AudioSurroundModeNext:21,AudioTrebleDown:22,AudioTrebleUp:23,AudioVolumeDown:24,AudioVolumeMute:25,AudioVolumeUp:26,Backspace:27,BrightnessDown:28,BrightnessUp:29,BrowserBack:30,BrowserFavorites:31,BrowserForward:32,BrowserHome:33,BrowserRefresh:34,BrowserSearch:35,BrowserStop:36,Call:37,Camera:38,CameraFocus:39,Cancel:40,CapsLock:41,ChannelDown:42,ChannelUp:43,Clear:44,Close:45,ClosedCaptionToggle:46,CodeInput:47,ColorF0Red:48,ColorF1Green:49,ColorF2Yellow:50,ColorF3Blue:51,ColorF4Grey:52,ColorF5Brown:53,Compose:54,ContextMenu:55,Convert:56,Copy:57,CrSel:58,Cut:59,DVR:60,Delete:61,Dimmer:62,DisplaySwap:63,Eisu:64,Eject:65,End:66,EndCall:67,Enter:68,EraseEof:69,Esc:70,Escape:71,ExSel:72,Execute:73,Exit:74,F1:75,F10:76,F11:77,F12:78,F13:79,F14:80,F15:81,F16:82,F17:83,F18:84,F19:85,F2:86,F20:87,F21:88,F22:89,F23:90,F24:91,F3:92,F4:93,F5:94,F6:95,F7:96,F8:97,F9:98,FavoriteClear0:99,FavoriteClear1:100,FavoriteClear2:101,FavoriteClear3:102,FavoriteRecall0:103,FavoriteRecall1:104,FavoriteRecall2:105,FavoriteRecall3:106,FavoriteStore0:107,FavoriteStore1:108,FavoriteStore2:109,FavoriteStore3:110,FinalMode:111,Find:112,Fn:113,FnLock:114,GoBack:115,GoHome:116,GroupFirst:117,GroupLast:118,GroupNext:119,GroupPrevious:120,Guide:121,GuideNextDay:122,GuidePreviousDay:123,HangulMode:124,HanjaMode:125,Hankaku:126,HeadsetHook:127,Help:128,Hibernate:129,Hiragana:130,HiraganaKatakana:131,Home:132,Hyper:133,Info:134,Insert:135,InstantReplay:136,JunjaMode:137,KanaMode:138,KanjiMode:139,Katakana:140,Key11:141,Key12:142,LastNumberRedial:143,LaunchApplication1:144,LaunchApplication2:145,LaunchAssistant:146,LaunchCalendar:147,LaunchContacts:148,LaunchControlPanel:149,LaunchMail:150,LaunchMediaPlayer:151,LaunchMusicPlayer:152,LaunchPhone:153,LaunchScreenSaver:154,LaunchSpreadsheet:155,LaunchWebBrowser:156,LaunchWebCam:157,LaunchWordProcessor:158,Link:159,ListProgram:160,LiveContent:161,Lock:162,LogOff:163,MailForward:164,MailReply:165,MailSend:166,MannerMode:167,MediaApps:168,MediaAudioTrack:169,MediaClose:170,MediaFastForward:171,MediaLast:172,MediaPause:173,MediaPlay:174,MediaPlayPause:175,MediaRecord:176,MediaRewind:177,MediaSkip:178,MediaSkipBackward:179,MediaSkipForward:180,MediaStepBackward:181,MediaStepForward:182,MediaStop:183,MediaTopMenu:184,MediaTrackNext:185,MediaTrackPrevious:186,MicrophoneToggle:187,MicrophoneVolumeDown:188,MicrophoneVolumeMute:189,MicrophoneVolumeUp:190,ModeChange:191,NavigateIn:192,NavigateNext:193,NavigateOut:194,NavigatePrevious:195,New:196,NextCandidate:197,NextFavoriteChannel:198,NextUserProfile:199,NonConvert:200,Notification:201,NumLock:202,OnDemand:203,Open:204,PageDown:205,PageUp:206,Pairing:207,Paste:208,Pause:209,PinPDown:210,PinPMove:211,PinPToggle:212,PinPUp:213,Play:214,PlaySpeedDown:215,PlaySpeedReset:216,PlaySpeedUp:217,Power:218,PowerOff:219,PreviousCandidate:220,Print:221,PrintScreen:222,Process:223,Props:224,RandomToggle:225,RcLowBattery:226,RecordSpeedNext:227,Redo:228,RfBypass:229,Romaji:230,STBInput:231,STBPower:232,Save:233,ScanChannelsToggle:234,ScreenModeNext:235,ScrollLock:236,Select:237,Settings:238,ShiftLevel5:239,SingleCandidate:240,Soft1:241,Soft2:242,Soft3:243,Soft4:244,Soft5:245,Soft6:246,Soft7:247,Soft8:248,SpeechCorrectionList:249,SpeechInputToggle:250,SpellCheck:251,SplitScreenToggle:252,Standby:253,Subtitle:254,Super:255,Symbol:256,SymbolLock:257,TV:258,TV3DMode:259,TVAntennaCable:260,TVAudioDescription:261,TVAudioDescriptionMixDown:262,TVAudioDescriptionMixUp:263,TVContentsMenu:264,TVDataService:265,TVInput:266,TVInputComponent1:267,TVInputComponent2:268,TVInputComposite1:269,TVInputComposite2:270,TVInputHDMI1:271,TVInputHDMI2:272,TVInputHDMI3:273,TVInputHDMI4:274,TVInputVGA1:275,TVMediaContext:276,TVNetwork:277,TVNumberEntry:278,TVPower:279,TVRadioService:280,TVSatellite:281,TVSatelliteBS:282,TVSatelliteCS:283,TVSatelliteToggle:284,TVTerrestrialAnalog:285,TVTerrestrialDigital:286,TVTimer:287,Tab:288,Teletext:289,Undo:290,Unidentified:291,VideoModeNext:292,VoiceDial:293,WakeUp:294,Wink:295,Zenkaku:296,ZenkakuHankaku:297,ZoomIn:298,ZoomOut:299,ZoomToggle:300}
-B.a5V=new A.a2(B.Di,[B.Ax,B.Ay,B.yd,B.ys,B.yt,B.yR,B.yS,B.jY,B.C0,B.cy,B.cj,B.ck,B.cz,B.yu,B.Aq,B.Ar,B.As,B.BS,B.At,B.Au,B.Av,B.Aw,B.BT,B.BU,B.A1,B.A3,B.A2,B.bg,B.yG,B.yH,B.Aj,B.Ak,B.Al,B.Am,B.An,B.Ao,B.Ap,B.C1,B.yI,B.C2,B.yv,B.hb,B.Az,B.AA,B.n2,B.zP,B.AH,B.yT,B.AB,B.AC,B.AD,B.AE,B.AF,B.AG,B.yU,B.yw,B.yV,B.yk,B.yl,B.ym,B.BF,B.bh,B.AI,B.AJ,B.z9,B.yJ,B.e0,B.C3,B.jX,B.yn,B.ha,B.ha,B.yo,B.yx,B.AK,B.zj,B.zs,B.zt,B.zu,B.zv,B.zw,B.zx,B.zy,B.zz,B.zA,B.zB,B.zk,B.zC,B.zD,B.zE,B.zF,B.zG,B.zl,B.zm,B.zn,B.zo,B.zp,B.zq,B.zr,B.AL,B.AM,B.AN,B.AO,B.AP,B.AQ,B.AR,B.AS,B.AT,B.AU,B.AV,B.AW,B.yW,B.yy,B.n1,B.ye,B.C4,B.C5,B.yX,B.yY,B.yZ,B.z_,B.AX,B.AY,B.AZ,B.z6,B.z7,B.za,B.C6,B.yz,B.yO,B.zb,B.zc,B.e1,B.yf,B.B_,B.he,B.B0,B.z8,B.zd,B.ze,B.zf,B.CC,B.CD,B.C7,B.A9,B.A4,B.Ah,B.A5,B.Af,B.Ai,B.A6,B.A7,B.A8,B.Ag,B.Aa,B.Ab,B.Ac,B.Ad,B.Ae,B.B1,B.B2,B.B3,B.B4,B.yK,B.zQ,B.zR,B.zS,B.C9,B.B5,B.BG,B.BR,B.B6,B.B7,B.B8,B.B9,B.zT,B.Ba,B.Bb,B.Bc,B.BH,B.BI,B.BJ,B.BK,B.zU,B.BL,B.zV,B.zW,B.BV,B.BW,B.BY,B.BX,B.z0,B.BM,B.BN,B.BO,B.BP,B.zX,B.z1,B.Bd,B.Be,B.z2,B.C8,B.jZ,B.Bf,B.zY,B.hc,B.hd,B.BQ,B.yp,B.yA,B.Bg,B.Bh,B.Bi,B.Bj,B.yB,B.Bk,B.Bl,B.Bm,B.yL,B.yM,B.z3,B.zZ,B.yN,B.z4,B.yC,B.Bn,B.Bo,B.Bp,B.yq,B.Bq,B.zg,B.Bv,B.Bw,B.A_,B.Br,B.Bs,B.k_,B.yD,B.Bt,B.yj,B.z5,B.zH,B.zI,B.zJ,B.zK,B.zL,B.zM,B.zN,B.zO,B.BZ,B.C_,B.A0,B.Bu,B.yP,B.Bx,B.yg,B.yh,B.yi,B.Bz,B.Cb,B.Cc,B.Cd,B.Ce,B.Cf,B.Cg,B.Ch,B.BA,B.Ci,B.Cj,B.Ck,B.Cl,B.Cm,B.Cn,B.Co,B.Cp,B.Cq,B.Cr,B.Cs,B.Ct,B.BB,B.Cu,B.Cv,B.Cw,B.Cx,B.Cy,B.Cz,B.CA,B.CB,B.jW,B.By,B.yr,B.yc,B.BC,B.Ca,B.yQ,B.BD,B.zh,B.zi,B.yE,B.yF,B.BE],A.a4("a2<k,h>"))
-B.a5W=new A.a2(B.Di,[4294970632,4294970633,4294967553,4294968577,4294968578,4294969089,4294969090,4294967555,4294971393,4294968065,4294968066,4294968067,4294968068,4294968579,4294970625,4294970626,4294970627,4294970882,4294970628,4294970629,4294970630,4294970631,4294970884,4294970885,4294969871,4294969873,4294969872,4294967304,4294968833,4294968834,4294970369,4294970370,4294970371,4294970372,4294970373,4294970374,4294970375,4294971394,4294968835,4294971395,4294968580,4294967556,4294970634,4294970635,4294968321,4294969857,4294970642,4294969091,4294970636,4294970637,4294970638,4294970639,4294970640,4294970641,4294969092,4294968581,4294969093,4294968322,4294968323,4294968324,4294970703,4294967423,4294970643,4294970644,4294969108,4294968836,4294968069,4294971396,4294967309,4294968325,4294967323,4294967323,4294968326,4294968582,4294970645,4294969345,4294969354,4294969355,4294969356,4294969357,4294969358,4294969359,4294969360,4294969361,4294969362,4294969363,4294969346,4294969364,4294969365,4294969366,4294969367,4294969368,4294969347,4294969348,4294969349,4294969350,4294969351,4294969352,4294969353,4294970646,4294970647,4294970648,4294970649,4294970650,4294970651,4294970652,4294970653,4294970654,4294970655,4294970656,4294970657,4294969094,4294968583,4294967558,4294967559,4294971397,4294971398,4294969095,4294969096,4294969097,4294969098,4294970658,4294970659,4294970660,4294969105,4294969106,4294969109,4294971399,4294968584,4294968841,4294969110,4294969111,4294968070,4294967560,4294970661,4294968327,4294970662,4294969107,4294969112,4294969113,4294969114,4294971905,4294971906,4294971400,4294970118,4294970113,4294970126,4294970114,4294970124,4294970127,4294970115,4294970116,4294970117,4294970125,4294970119,4294970120,4294970121,4294970122,4294970123,4294970663,4294970664,4294970665,4294970666,4294968837,4294969858,4294969859,4294969860,4294971402,4294970667,4294970704,4294970715,4294970668,4294970669,4294970670,4294970671,4294969861,4294970672,4294970673,4294970674,4294970705,4294970706,4294970707,4294970708,4294969863,4294970709,4294969864,4294969865,4294970886,4294970887,4294970889,4294970888,4294969099,4294970710,4294970711,4294970712,4294970713,4294969866,4294969100,4294970675,4294970676,4294969101,4294971401,4294967562,4294970677,4294969867,4294968071,4294968072,4294970714,4294968328,4294968585,4294970678,4294970679,4294970680,4294970681,4294968586,4294970682,4294970683,4294970684,4294968838,4294968839,4294969102,4294969868,4294968840,4294969103,4294968587,4294970685,4294970686,4294970687,4294968329,4294970688,4294969115,4294970693,4294970694,4294969869,4294970689,4294970690,4294967564,4294968588,4294970691,4294967569,4294969104,4294969601,4294969602,4294969603,4294969604,4294969605,4294969606,4294969607,4294969608,4294971137,4294971138,4294969870,4294970692,4294968842,4294970695,4294967566,4294967567,4294967568,4294970697,4294971649,4294971650,4294971651,4294971652,4294971653,4294971654,4294971655,4294970698,4294971656,4294971657,4294971658,4294971659,4294971660,4294971661,4294971662,4294971663,4294971664,4294971665,4294971666,4294971667,4294970699,4294971668,4294971669,4294971670,4294971671,4294971672,4294971673,4294971674,4294971675,4294967305,4294970696,4294968330,4294967297,4294970700,4294971403,4294968843,4294970701,4294969116,4294969117,4294968589,4294968590,4294970702],t.eL)
-B.a85={alias:0,allScroll:1,basic:2,cell:3,click:4,contextMenu:5,copy:6,forbidden:7,grab:8,grabbing:9,help:10,move:11,none:12,noDrop:13,precise:14,progress:15,text:16,resizeColumn:17,resizeDown:18,resizeDownLeft:19,resizeDownRight:20,resizeLeft:21,resizeLeftRight:22,resizeRight:23,resizeRow:24,resizeUp:25,resizeUpDown:26,resizeUpLeft:27,resizeUpRight:28,resizeUpLeftDownRight:29,resizeUpRightDownLeft:30,verticalText:31,wait:32,zoomIn:33,zoomOut:34}
-B.a5X=new A.a2(B.a85,["alias","all-scroll","default","cell","pointer","context-menu","copy","not-allowed","grab","grabbing","help","move","none","no-drop","crosshair","progress","text","col-resize","s-resize","sw-resize","se-resize","w-resize","ew-resize","e-resize","row-resize","n-resize","ns-resize","nw-resize","ne-resize","nwse-resize","nesw-resize","vertical-text","wait","zoom-in","zoom-out"],t.w)
-B.acz=new A.ah(B.bg,!1,!1,!1,!1,B.q)
-B.ac5=new A.ah(B.bg,!1,!0,!1,!1,B.q)
+B.a5Y=new A.a2(B.Di,[B.Ax,B.Ay,B.yd,B.ys,B.yt,B.yR,B.yS,B.jY,B.C0,B.cy,B.cj,B.ck,B.cz,B.yu,B.Aq,B.Ar,B.As,B.BS,B.At,B.Au,B.Av,B.Aw,B.BT,B.BU,B.A1,B.A3,B.A2,B.bg,B.yG,B.yH,B.Aj,B.Ak,B.Al,B.Am,B.An,B.Ao,B.Ap,B.C1,B.yI,B.C2,B.yv,B.hb,B.Az,B.AA,B.n2,B.zP,B.AH,B.yT,B.AB,B.AC,B.AD,B.AE,B.AF,B.AG,B.yU,B.yw,B.yV,B.yk,B.yl,B.ym,B.BF,B.bh,B.AI,B.AJ,B.z9,B.yJ,B.e0,B.C3,B.jX,B.yn,B.ha,B.ha,B.yo,B.yx,B.AK,B.zj,B.zs,B.zt,B.zu,B.zv,B.zw,B.zx,B.zy,B.zz,B.zA,B.zB,B.zk,B.zC,B.zD,B.zE,B.zF,B.zG,B.zl,B.zm,B.zn,B.zo,B.zp,B.zq,B.zr,B.AL,B.AM,B.AN,B.AO,B.AP,B.AQ,B.AR,B.AS,B.AT,B.AU,B.AV,B.AW,B.yW,B.yy,B.n1,B.ye,B.C4,B.C5,B.yX,B.yY,B.yZ,B.z_,B.AX,B.AY,B.AZ,B.z6,B.z7,B.za,B.C6,B.yz,B.yO,B.zb,B.zc,B.e1,B.yf,B.B_,B.he,B.B0,B.z8,B.zd,B.ze,B.zf,B.CC,B.CD,B.C7,B.A9,B.A4,B.Ah,B.A5,B.Af,B.Ai,B.A6,B.A7,B.A8,B.Ag,B.Aa,B.Ab,B.Ac,B.Ad,B.Ae,B.B1,B.B2,B.B3,B.B4,B.yK,B.zQ,B.zR,B.zS,B.C9,B.B5,B.BG,B.BR,B.B6,B.B7,B.B8,B.B9,B.zT,B.Ba,B.Bb,B.Bc,B.BH,B.BI,B.BJ,B.BK,B.zU,B.BL,B.zV,B.zW,B.BV,B.BW,B.BY,B.BX,B.z0,B.BM,B.BN,B.BO,B.BP,B.zX,B.z1,B.Bd,B.Be,B.z2,B.C8,B.jZ,B.Bf,B.zY,B.hc,B.hd,B.BQ,B.yp,B.yA,B.Bg,B.Bh,B.Bi,B.Bj,B.yB,B.Bk,B.Bl,B.Bm,B.yL,B.yM,B.z3,B.zZ,B.yN,B.z4,B.yC,B.Bn,B.Bo,B.Bp,B.yq,B.Bq,B.zg,B.Bv,B.Bw,B.A_,B.Br,B.Bs,B.k_,B.yD,B.Bt,B.yj,B.z5,B.zH,B.zI,B.zJ,B.zK,B.zL,B.zM,B.zN,B.zO,B.BZ,B.C_,B.A0,B.Bu,B.yP,B.Bx,B.yg,B.yh,B.yi,B.Bz,B.Cb,B.Cc,B.Cd,B.Ce,B.Cf,B.Cg,B.Ch,B.BA,B.Ci,B.Cj,B.Ck,B.Cl,B.Cm,B.Cn,B.Co,B.Cp,B.Cq,B.Cr,B.Cs,B.Ct,B.BB,B.Cu,B.Cv,B.Cw,B.Cx,B.Cy,B.Cz,B.CA,B.CB,B.jW,B.By,B.yr,B.yc,B.BC,B.Ca,B.yQ,B.BD,B.zh,B.zi,B.yE,B.yF,B.BE],A.a4("a2<k,h>"))
+B.a5Z=new A.a2(B.Di,[4294970632,4294970633,4294967553,4294968577,4294968578,4294969089,4294969090,4294967555,4294971393,4294968065,4294968066,4294968067,4294968068,4294968579,4294970625,4294970626,4294970627,4294970882,4294970628,4294970629,4294970630,4294970631,4294970884,4294970885,4294969871,4294969873,4294969872,4294967304,4294968833,4294968834,4294970369,4294970370,4294970371,4294970372,4294970373,4294970374,4294970375,4294971394,4294968835,4294971395,4294968580,4294967556,4294970634,4294970635,4294968321,4294969857,4294970642,4294969091,4294970636,4294970637,4294970638,4294970639,4294970640,4294970641,4294969092,4294968581,4294969093,4294968322,4294968323,4294968324,4294970703,4294967423,4294970643,4294970644,4294969108,4294968836,4294968069,4294971396,4294967309,4294968325,4294967323,4294967323,4294968326,4294968582,4294970645,4294969345,4294969354,4294969355,4294969356,4294969357,4294969358,4294969359,4294969360,4294969361,4294969362,4294969363,4294969346,4294969364,4294969365,4294969366,4294969367,4294969368,4294969347,4294969348,4294969349,4294969350,4294969351,4294969352,4294969353,4294970646,4294970647,4294970648,4294970649,4294970650,4294970651,4294970652,4294970653,4294970654,4294970655,4294970656,4294970657,4294969094,4294968583,4294967558,4294967559,4294971397,4294971398,4294969095,4294969096,4294969097,4294969098,4294970658,4294970659,4294970660,4294969105,4294969106,4294969109,4294971399,4294968584,4294968841,4294969110,4294969111,4294968070,4294967560,4294970661,4294968327,4294970662,4294969107,4294969112,4294969113,4294969114,4294971905,4294971906,4294971400,4294970118,4294970113,4294970126,4294970114,4294970124,4294970127,4294970115,4294970116,4294970117,4294970125,4294970119,4294970120,4294970121,4294970122,4294970123,4294970663,4294970664,4294970665,4294970666,4294968837,4294969858,4294969859,4294969860,4294971402,4294970667,4294970704,4294970715,4294970668,4294970669,4294970670,4294970671,4294969861,4294970672,4294970673,4294970674,4294970705,4294970706,4294970707,4294970708,4294969863,4294970709,4294969864,4294969865,4294970886,4294970887,4294970889,4294970888,4294969099,4294970710,4294970711,4294970712,4294970713,4294969866,4294969100,4294970675,4294970676,4294969101,4294971401,4294967562,4294970677,4294969867,4294968071,4294968072,4294970714,4294968328,4294968585,4294970678,4294970679,4294970680,4294970681,4294968586,4294970682,4294970683,4294970684,4294968838,4294968839,4294969102,4294969868,4294968840,4294969103,4294968587,4294970685,4294970686,4294970687,4294968329,4294970688,4294969115,4294970693,4294970694,4294969869,4294970689,4294970690,4294967564,4294968588,4294970691,4294967569,4294969104,4294969601,4294969602,4294969603,4294969604,4294969605,4294969606,4294969607,4294969608,4294971137,4294971138,4294969870,4294970692,4294968842,4294970695,4294967566,4294967567,4294967568,4294970697,4294971649,4294971650,4294971651,4294971652,4294971653,4294971654,4294971655,4294970698,4294971656,4294971657,4294971658,4294971659,4294971660,4294971661,4294971662,4294971663,4294971664,4294971665,4294971666,4294971667,4294970699,4294971668,4294971669,4294971670,4294971671,4294971672,4294971673,4294971674,4294971675,4294967305,4294970696,4294968330,4294967297,4294970700,4294971403,4294968843,4294970701,4294969116,4294969117,4294968589,4294968590,4294970702],t.eL)
+B.a88={alias:0,allScroll:1,basic:2,cell:3,click:4,contextMenu:5,copy:6,forbidden:7,grab:8,grabbing:9,help:10,move:11,none:12,noDrop:13,precise:14,progress:15,text:16,resizeColumn:17,resizeDown:18,resizeDownLeft:19,resizeDownRight:20,resizeLeft:21,resizeLeftRight:22,resizeRight:23,resizeRow:24,resizeUp:25,resizeUpDown:26,resizeUpLeft:27,resizeUpRight:28,resizeUpLeftDownRight:29,resizeUpRightDownLeft:30,verticalText:31,wait:32,zoomIn:33,zoomOut:34}
+B.a6_=new A.a2(B.a88,["alias","all-scroll","default","cell","pointer","context-menu","copy","not-allowed","grab","grabbing","help","move","none","no-drop","crosshair","progress","text","col-resize","s-resize","sw-resize","se-resize","w-resize","ew-resize","e-resize","row-resize","n-resize","ns-resize","nw-resize","ne-resize","nwse-resize","nesw-resize","vertical-text","wait","zoom-in","zoom-out"],t.w)
+B.acC=new A.ah(B.bg,!1,!1,!1,!1,B.q)
+B.ac8=new A.ah(B.bg,!1,!0,!1,!1,B.q)
 B.HO=new A.ah(B.bh,!1,!1,!1,!1,B.q)
 B.HL=new A.ah(B.bh,!1,!0,!1,!1,B.q)
-B.acq=new A.ah(B.bg,!1,!0,!0,!1,B.q)
-B.ach=new A.ah(B.bg,!1,!1,!0,!1,B.q)
-B.acE=new A.ah(B.bh,!1,!0,!0,!1,B.q)
-B.acu=new A.ah(B.bh,!1,!1,!0,!1,B.q)
-B.CZ=new A.dJ([B.acz,B.x,B.ac5,B.x,B.HO,B.x,B.HL,B.x,B.acq,B.x,B.ach,B.x,B.acE,B.x,B.acu,B.x],t.Fp)
-B.a89={af:0,am:1,ar:2,as:3,az:4,be:5,bg:6,bn:7,bs:8,ca:9,cs:10,cy:11,da:12,de:13,de_CH:14,el:15,en:16,en_AU:17,en_CA:18,en_GB:19,en_IE:20,en_IN:21,en_NZ:22,en_SG:23,en_US:24,en_ZA:25,es:26,es_419:27,es_MX:28,es_US:29,et:30,eu:31,fa:32,fi:33,fil:34,fr:35,fr_CA:36,ga:37,gl:38,gsw:39,gu:40,he:41,hi:42,hr:43,hu:44,hy:45,id:46,is:47,it:48,ja:49,ka:50,kk:51,km:52,kn:53,ko:54,ky:55,lo:56,lt:57,lv:58,mk:59,ml:60,mn:61,mr:62,ms:63,my:64,nb:65,ne:66,nl:67,no:68,or:69,pa:70,pl:71,ps:72,pt:73,pt_PT:74,ro:75,ru:76,si:77,sk:78,sl:79,sq:80,sr:81,sr_Latn:82,sv:83,sw:84,ta:85,te:86,th:87,tl:88,tr:89,uk:90,ur:91,uz:92,vi:93,zh:94,zh_HK:95,zh_TW:96,zu:97}
+B.act=new A.ah(B.bg,!1,!0,!0,!1,B.q)
+B.ack=new A.ah(B.bg,!1,!1,!0,!1,B.q)
+B.acH=new A.ah(B.bh,!1,!0,!0,!1,B.q)
+B.acx=new A.ah(B.bh,!1,!1,!0,!1,B.q)
+B.CZ=new A.dJ([B.acC,B.x,B.ac8,B.x,B.HO,B.x,B.HL,B.x,B.act,B.x,B.ack,B.x,B.acH,B.x,B.acx,B.x],t.Fp)
+B.a8c={af:0,am:1,ar:2,as:3,az:4,be:5,bg:6,bn:7,bs:8,ca:9,cs:10,cy:11,da:12,de:13,de_CH:14,el:15,en:16,en_AU:17,en_CA:18,en_GB:19,en_IE:20,en_IN:21,en_NZ:22,en_SG:23,en_US:24,en_ZA:25,es:26,es_419:27,es_MX:28,es_US:29,et:30,eu:31,fa:32,fi:33,fil:34,fr:35,fr_CA:36,ga:37,gl:38,gsw:39,gu:40,he:41,hi:42,hr:43,hu:44,hy:45,id:46,is:47,it:48,ja:49,ka:50,kk:51,km:52,kn:53,ko:54,ky:55,lo:56,lt:57,lv:58,mk:59,ml:60,mn:61,mr:62,ms:63,my:64,nb:65,ne:66,nl:67,no:68,or:69,pa:70,pl:71,ps:72,pt:73,pt_PT:74,ro:75,ru:76,si:77,sk:78,sl:79,sq:80,sr:81,sr_Latn:82,sv:83,sw:84,ta:85,te:86,th:87,tl:88,tr:89,uk:90,ur:91,uz:92,vi:93,zh:94,zh_HK:95,zh_TW:96,zu:97}
 B.n={d:0,E:1,EEEE:2,LLL:3,LLLL:4,M:5,Md:6,MEd:7,MMM:8,MMMd:9,MMMEd:10,MMMM:11,MMMMd:12,MMMMEEEEd:13,QQQ:14,QQQQ:15,y:16,yM:17,yMd:18,yMEd:19,yMMM:20,yMMMd:21,yMMMEd:22,yMMMM:23,yMMMMd:24,yMMMMEEEEd:25,yQQQ:26,yQQQQ:27,H:28,Hm:29,Hms:30,j:31,jm:32,jms:33,jmv:34,jmz:35,jz:36,m:37,ms:38,s:39,v:40,z:41,zzzz:42,ZZZZ:43}
-B.a6o=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","dd-MM","EEE d/M","LLL","d MMM","EEE d MMM","LLLL","d MMMM","EEEE d MMMM","QQQ","QQQQ","y","MM-y","y-MM-dd","EEE y-MM-dd","MMM y","d MMM y","EEE d MMM y","MMMM y","d MMMM y","EEEE d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a7e=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","M/d","EEE\u1363 M/d","LLL","MMM d","EEE\u1363 MMM d","LLLL","MMMM d","EEEE\u1363 MMMM d","QQQ","QQQQ","y","M/y","d/M/y","EEE\u1363 d/M/y","MMM y","d MMM y","EEE\u1363 MMM d y","MMMM y","d MMMM y","y MMMM d, EEEE","QQQ y","QQQQ y","H","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6n=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/\u200fM","EEE\u060c d/\u200fM","LLL","d MMM","EEE\u060c d MMM","LLLL","d MMMM","EEEE\u060c d MMMM","QQQ","QQQQ","y","M\u200f/y","d\u200f/M\u200f/y","EEE\u060c d/\u200fM/\u200fy","MMM y","d MMM y","EEE\u060c d MMM y","MMMM y","d MMMM y","EEEE\u060c d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a69=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","dd-MM","EEE, dd-MM","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","MM-y","dd-MM-y","EEE, dd-MM-y","MMM y","d MMM y","EEE, d MMM y","MMMM y","d MMMM, y","EEEE, d MMMM, y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","a h","a h:mm","a h:mm:ss","a h:mm v","a h:mm z","a h z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a7d=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","dd.MM","dd.MM, EEE","LLL","d MMM","d MMM, EEE","LLLL","d MMMM","d MMMM, EEEE","QQQ","QQQQ","y","MM.y","dd.MM.y","dd.MM.y, EEE","MMM y","d MMM y","d MMM y, EEE","MMMM y","d MMMM y","d MMMM y, EEEE","y QQQ","y QQQQ","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a63=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d.M","EEE, d.M","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","M.y","d.M.y","EEE, d.M.y","LLL y","d MMM y","EEE, d MMM y","LLLL y","d MMMM y '\u0433'.","EEEE, d MMMM y '\u0433'.","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm.ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a67=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d.MM","EEE, d.MM","MM","d.MM","EEE, d.MM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y '\u0433'.","MM.y '\u0433'.","d.MM.y '\u0433'.","EEE, d.MM.y '\u0433'.","MM.y '\u0433'.","d.MM.y '\u0433'.","EEE, d.MM.y '\u0433'.","MMMM y '\u0433'.","d MMMM y '\u0433'.","EEEE, d MMMM y '\u0433'.","QQQ y '\u0433'.","QQQQ y '\u0433'.","HH '\u0447'.","HH:mm '\u0447'.","HH:mm:ss '\u0447'.","HH '\u0447'.","HH:mm '\u0447'.","HH:mm:ss '\u0447'.","HH:mm '\u0447'. v","HH:mm '\u0447'. z","HH '\u0447'. z","m","m:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a7g=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, d-M","LLL","d MMM","EEE d MMM","LLLL","d MMMM","EEEE d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE, d/M/y","MMM y","d MMM, y","EEE, d MMM, y","MMMM y","d MMMM, y","EEEE, d MMMM, y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6W=new A.a2(B.n,["d.","ccc","cccc","LLL","LLLL","L","d.M.","EEE, d.M.","LLL","d. MMM","EEE, d. MMM","LLLL","d. MMMM","EEEE, d. MMMM","QQQ","QQQQ","y.","MM/y","d.M.y.","EEE, d.M.y.","MMM y.","d. MMM y.","EEE, d. MMM y.","LLLL y.","d. MMMM y.","EEEE, d. MMMM y.","QQQ y.","QQQQ y.","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm (v)","HH:mm (z)","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6M=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE d/M","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE, d/M/y","LLL 'de' y","d MMM 'de' y","EEE, d MMM y","LLLL 'de' y","d MMMM 'de' y","EEEE, d MMMM 'de' y","QQQ y","QQQQ y","H","H:mm","H:mm:ss","H","H:mm","H:mm:ss","H:mm v","H:mm z","H z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a7m=new A.a2(B.n,["d.","ccc","cccc","LLL","LLLL","L","d. M.","EEE d. M.","LLL","d. M.","EEE d. M.","LLLL","d. MMMM","EEEE d. MMMM","QQQ","QQQQ","y","M/y","d. M. y","EEE d. M. y","LLLL y","d. M. y","EEE d. M. y","LLLL y","d. MMMM y","EEEE d. MMMM y","QQQ y","QQQQ y","H","H:mm","H:mm:ss","H","H:mm","H:mm:ss","H:mm v","H:mm z","H z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6m=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, d/M","LLL","d MMM","EEE, d MMM","LLLL","MMMM d","EEEE, d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE, d/M/y","MMM y","d MMM y","EEE, d MMM y","MMMM y","d MMMM y","EEEE, d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a74=new A.a2(B.n,["d.","ccc","cccc","MMM","MMMM","M","d.M","EEE d.M","MMM","d. MMM","EEE d. MMM","MMMM","d. MMMM","EEEE d. MMMM","QQQ","QQQQ","y","M.y","d.M.y","EEE d.M.y","MMM y","d. MMM y","EEE d. MMM y","MMMM y","d. MMMM y","EEEE 'den' d. MMMM y","QQQ y","QQQQ y","HH","HH.mm","HH.mm.ss","HH","HH.mm","HH.mm.ss","HH.mm v","HH.mm z","HH z","m","mm.ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6r=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","dd-MM","EEE d/M","LLL","d MMM","EEE d MMM","LLLL","d MMMM","EEEE d MMMM","QQQ","QQQQ","y","MM-y","y-MM-dd","EEE y-MM-dd","MMM y","d MMM y","EEE d MMM y","MMMM y","d MMMM y","EEEE d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a7h=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","M/d","EEE\u1363 M/d","LLL","MMM d","EEE\u1363 MMM d","LLLL","MMMM d","EEEE\u1363 MMMM d","QQQ","QQQQ","y","M/y","d/M/y","EEE\u1363 d/M/y","MMM y","d MMM y","EEE\u1363 MMM d y","MMMM y","d MMMM y","y MMMM d, EEEE","QQQ y","QQQQ y","H","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6q=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/\u200fM","EEE\u060c d/\u200fM","LLL","d MMM","EEE\u060c d MMM","LLLL","d MMMM","EEEE\u060c d MMMM","QQQ","QQQQ","y","M\u200f/y","d\u200f/M\u200f/y","EEE\u060c d/\u200fM/\u200fy","MMM y","d MMM y","EEE\u060c d MMM y","MMMM y","d MMMM y","EEEE\u060c d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6c=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","dd-MM","EEE, dd-MM","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","MM-y","dd-MM-y","EEE, dd-MM-y","MMM y","d MMM y","EEE, d MMM y","MMMM y","d MMMM, y","EEEE, d MMMM, y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","a h","a h:mm","a h:mm:ss","a h:mm v","a h:mm z","a h z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a7g=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","dd.MM","dd.MM, EEE","LLL","d MMM","d MMM, EEE","LLLL","d MMMM","d MMMM, EEEE","QQQ","QQQQ","y","MM.y","dd.MM.y","dd.MM.y, EEE","MMM y","d MMM y","d MMM y, EEE","MMMM y","d MMMM y","d MMMM y, EEEE","y QQQ","y QQQQ","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a66=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d.M","EEE, d.M","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","M.y","d.M.y","EEE, d.M.y","LLL y","d MMM y","EEE, d MMM y","LLLL y","d MMMM y '\u0433'.","EEEE, d MMMM y '\u0433'.","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm.ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6a=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d.MM","EEE, d.MM","MM","d.MM","EEE, d.MM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y '\u0433'.","MM.y '\u0433'.","d.MM.y '\u0433'.","EEE, d.MM.y '\u0433'.","MM.y '\u0433'.","d.MM.y '\u0433'.","EEE, d.MM.y '\u0433'.","MMMM y '\u0433'.","d MMMM y '\u0433'.","EEEE, d MMMM y '\u0433'.","QQQ y '\u0433'.","QQQQ y '\u0433'.","HH '\u0447'.","HH:mm '\u0447'.","HH:mm:ss '\u0447'.","HH '\u0447'.","HH:mm '\u0447'.","HH:mm:ss '\u0447'.","HH:mm '\u0447'. v","HH:mm '\u0447'. z","HH '\u0447'. z","m","m:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a7j=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, d-M","LLL","d MMM","EEE d MMM","LLLL","d MMMM","EEEE d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE, d/M/y","MMM y","d MMM, y","EEE, d MMM, y","MMMM y","d MMMM, y","EEEE, d MMMM, y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6Z=new A.a2(B.n,["d.","ccc","cccc","LLL","LLLL","L","d.M.","EEE, d.M.","LLL","d. MMM","EEE, d. MMM","LLLL","d. MMMM","EEEE, d. MMMM","QQQ","QQQQ","y.","MM/y","d.M.y.","EEE, d.M.y.","MMM y.","d. MMM y.","EEE, d. MMM y.","LLLL y.","d. MMMM y.","EEEE, d. MMMM y.","QQQ y.","QQQQ y.","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm (v)","HH:mm (z)","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6P=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE d/M","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE, d/M/y","LLL 'de' y","d MMM 'de' y","EEE, d MMM y","LLLL 'de' y","d MMMM 'de' y","EEEE, d MMMM 'de' y","QQQ y","QQQQ y","H","H:mm","H:mm:ss","H","H:mm","H:mm:ss","H:mm v","H:mm z","H z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a7p=new A.a2(B.n,["d.","ccc","cccc","LLL","LLLL","L","d. M.","EEE d. M.","LLL","d. M.","EEE d. M.","LLLL","d. MMMM","EEEE d. MMMM","QQQ","QQQQ","y","M/y","d. M. y","EEE d. M. y","LLLL y","d. M. y","EEE d. M. y","LLLL y","d. MMMM y","EEEE d. MMMM y","QQQ y","QQQQ y","H","H:mm","H:mm:ss","H","H:mm","H:mm:ss","H:mm v","H:mm z","H z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6p=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, d/M","LLL","d MMM","EEE, d MMM","LLLL","MMMM d","EEEE, d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE, d/M/y","MMM y","d MMM y","EEE, d MMM y","MMMM y","d MMMM y","EEEE, d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a77=new A.a2(B.n,["d.","ccc","cccc","MMM","MMMM","M","d.M","EEE d.M","MMM","d. MMM","EEE d. MMM","MMMM","d. MMMM","EEEE d. MMMM","QQQ","QQQQ","y","M.y","d.M.y","EEE d.M.y","MMM y","d. MMM y","EEE d. MMM y","MMMM y","d. MMMM y","EEEE 'den' d. MMMM y","QQQ y","QQQQ y","HH","HH.mm","HH.mm.ss","HH","HH.mm","HH.mm.ss","HH.mm v","HH.mm z","HH z","m","mm.ss","s","v","z","zzzz","ZZZZ"],t.w)
 B.D_=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d.M.","EEE, d.M.","LLL","d. MMM","EEE, d. MMM","LLLL","d. MMMM","EEEE, d. MMMM","QQQ","QQQQ","y","M.y","d.M.y","EEE, d.M.y","MMM y","d. MMM y","EEE, d. MMM y","MMMM y","d. MMMM y","EEEE, d. MMMM y","QQQ y","QQQQ y","HH 'Uhr'","HH:mm","HH:mm:ss","HH 'Uhr'","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH 'Uhr' z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6d=new A.a2(B.n,["d","ccc","cccc","MMM","MMMM","L","d/M","EEE d/M","MMM","d MMM","EEE d MMM","MMMM","d MMMM","EEEE d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE d/M/y","MMM y","d MMM y","EEE d MMM y","LLLL y","d MMMM y","EEEE d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6g=new A.a2(B.n,["d","ccc","cccc","MMM","MMMM","L","d/M","EEE d/M","MMM","d MMM","EEE d MMM","MMMM","d MMMM","EEEE d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE d/M/y","MMM y","d MMM y","EEE d MMM y","LLLL y","d MMMM y","EEEE d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
 B.hm=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","M/d","EEE, M/d","LLL","MMM d","EEE, MMM d","LLLL","MMMM d","EEEE, MMMM d","QQQ","QQQQ","y","M/y","M/d/y","EEE, M/d/y","MMM y","MMM d, y","EEE, MMM d, y","MMMM y","MMMM d, y","EEEE, MMMM d, y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6z=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, d/M","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","MM/y","dd/MM/y","EEE, dd/MM/y","MMM y","d MMM y","EEE, d MMM y","MMMM y","d MMMM y","EEEE, d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a76=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","MM-dd","EEE, MM-dd","LLL","MMM d","EEE, MMM d","LLLL","MMMM d","EEEE, MMMM d","QQQ","QQQQ","y","MM/y","y-MM-dd","EEE, y-MM-dd","MMM y","MMM d, y","EEE, MMM d, y","MMMM y","MMMM d, y","EEEE, MMMM d, y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6j=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","dd/MM","EEE, dd/MM","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","MM/y","dd/MM/y","EEE, dd/MM/y","MMM y","d MMM y","EEE, d MMM y","MMMM y","d MMMM y","EEEE, d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a7_=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, d/M","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","MM/y","d/M/y","EEE, d/M/y","MMM y","d MMM y","EEE d MMM y","MMMM y","d MMMM y","EEEE d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a79=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","dd/MM","EEE, dd/MM","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","MM/y","d/M/y","EEE, d/M/y","MMM y","d MMM y","EEE, d MMM, y","MMMM y","d MMMM y","EEEE, d MMMM, y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a77=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, dd/MM","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","MM/y","d/MM/y","EEE, dd/MM/y","MMM y","d MMM y","EEE, d MMM y","MMMM y","d MMMM y","EEEE, d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6O=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","dd/MM","EEE, dd/MM","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","MM/y","dd/MM/y","EEE, dd/MM/y","MMM y","d MMM y","EEE, d MMM y","MMMM y","d MMMM y","EEEE, d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6L=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","MM/dd","EEE, MM/dd","LLL","dd MMM","EEE, dd MMM","LLLL","d MMMM","EEEE, dd MMMM","QQQ","QQQQ","y","MM/y","y/MM/dd","EEE, y/MM/dd","MMM y","dd MMM y","EEE, dd MMM y","MMMM y","d MMMM y","EEEE, d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a7n=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, d/M","LLL","d MMM","EEE, d MMM","LLLL","d 'de' MMMM","EEEE, d 'de' MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE, d/M/y","MMM y","d MMM y","EEE, d MMM y","MMMM 'de' y","d 'de' MMMM 'de' y","EEEE, d 'de' MMMM 'de' y","QQQ y","QQQQ 'de' y","H","H:mm","H:mm:ss","H","H:mm","H:mm:ss","H:mm v","H:mm z","H z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6Z=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, d/M","LLL","d MMM","EEE, d MMM","LLLL","d 'de' MMMM","EEEE, d 'de' MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE d/M/y","MMM y","d MMM y","EEE, d MMM y","MMMM 'de' y","d 'de' MMMM 'de' y","EEEE, d 'de' MMMM 'de' y","QQQ 'de' y","QQQQ 'de' y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a7i=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, d/M","LLL","d MMM","EEE d 'de' MMM","LLLL","d 'de' MMMM","EEEE, d 'de' MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE, d/M/y","MMM y","d MMM y","EEE, d 'de' MMM 'de' y","MMMM 'de' y","d 'de' MMMM 'de' y","EEEE, d 'de' MMMM 'de' y","QQQ y","QQQQ 'de' y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6l=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, d/M","LLL","d MMM","EEE, d 'de' MMM","LLLL","d 'de' MMMM","EEEE, d 'de' MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE, d/M/y","MMM y","d MMM y","EEE, d 'de' MMM 'de' y","MMMM 'de' y","d 'de' MMMM 'de' y","EEEE, d 'de' MMMM 'de' y","QQQ y","QQQQ 'de' y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6P=new A.a2(B.n,["d","ccc","cccc","MMMM","MMMM","M","d.M","EEE, d.M","MMMM","d. MMM","EEE, d. MMM","MMMM","d. MMMM","EEEE, d. MMMM","QQQ","QQQQ","y","M.y","d.M.y","EEE, d.M.y","MMM y","d. MMM y","EEE, d. MMMM y","MMMM y","d. MMMM y","EEEE, d. MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a70=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","M/d","M/d, EEE","LLL","MMM d","MMM d, EEE","LLLL","MMMM d","MMMM d, EEEE","QQQ","QQQQ","y","y/M","y/M/d","y/M/d, EEE","y MMM","y MMM d","y MMM d, EEE","y('e')'ko' MMMM","y('e')'ko' MMMM'ren' d","y('e')'ko' MMMM'ren' d('a'), EEEE","y('e')'ko' QQQ","y('e')'ko' QQQQ","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH (z)","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a60=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","M/d","EEE M/d","LLL","d LLL","EEE d LLL","LLLL","d LLLL","EEEE d LLLL","QQQ","QQQQ","y","y/M","y/M/d","EEE y/M/d","MMM y","d MMM y","EEE d MMM y","MMMM y","d MMMM y","EEEE d MMMM y","QQQQ y","QQQQ y","H","H:mm","H:mm:ss","H","H:mm","H:mm:ss","H:mm v","HH:mm (z)","H (z)","m","m:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6A=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d.M.","EEE d.M.","LLL","d. MMM","ccc d. MMM","LLLL","d. MMMM","cccc d. MMMM","QQQ","QQQQ","y","L.y","d.M.y","EEE d.M.y","LLL y","d. MMM y","EEE d. MMM y","LLLL y","d. MMMM y","EEEE d. MMMM y","QQQ y","QQQQ y","H","H.mm","H.mm.ss","H","H.mm","H.mm.ss","H.mm v","H.mm z","H z","m","m.ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6Y=new A.a2(B.n,["d","EEE","EEEE","LLL","LLLL","L","dd/MM","EEE dd/MM","LLL","d MMM","EEE d MMM","LLLL","d MMMM","EEEE d MMMM","QQQ","QQQQ","y","MM/y","dd/MM/y","EEE dd/MM/y","MMM y","d MMM y","EEE d MMM y","MMMM y","d MMMM y","EEEE d MMMM y","QQQ y","QQQQ y","HH 'h'","HH:mm","HH:mm:ss","HH 'h'","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH 'h' z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a7c=new A.a2(B.n,["d","EEE","EEEE","LLL","LLLL","L","M-d","EEE M-d","LLL","d MMM","EEE d MMM","LLLL","d MMMM","EEEE d MMMM","QQQ","QQQQ","y","y-MM","y-MM-dd","EEE y-MM-dd","MMM y","d MMM y","EEE d MMM y","MMMM y","d MMMM y","EEEE d MMMM y","QQQ y","QQQQ y","HH 'h'","HH 'h' mm","HH 'h' mm 'min' ss 's'","HH 'h'","HH 'h' mm","HH 'h' mm 'min' ss 's'","HH 'h' mm v","HH 'h' mm z","HH 'h' z","m","mm 'min' ss 's'","s","v","z","zzzz","ZZZZ"],t.w)
-B.a7j=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","LL","dd/MM","EEE dd/MM","LLL","d MMM","EEE d MMM","LLLL","d MMMM","EEEE d MMMM","QQQ","QQQQ","y","MM/y","dd/MM/y","EEE dd/MM/y","MMM y","d MMM y","EEE d MMM y","MMMM y","d MMMM y","EEEE d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6r=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, d/M","LLL","d 'de' MMM","EEE, d 'de' MMM","LLLL","d 'de' MMMM","EEEE, d 'de' MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE, d/M/y","MMM 'de' y","d 'de' MMM 'de' y","EEE, d 'de' MMM 'de' y","MMMM 'de' y","d 'de' MMMM 'de' y","EEEE, d 'de' MMMM 'de' y","QQQ y","QQQQ 'de' y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a7a=new A.a2(B.n,["d","EEE","EEEE","LLL","LLLL","L","d.M.","EEE, d.M.","LLL","d. MMM","EEE d. MMM","LLLL","d. MMMM","EEEE d. MMMM","QQQ","QQQQ","y","y-M","d.M.y","EEE, y-M-d","MMM y","y MMM d","EEE, d. MMM y","MMMM y","d. MMMM y","EEEE, d. MMMM y","QQQ y","QQQQ y","H","HH:mm","HH:mm:ss","H","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","H z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6a=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, d/M","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE, d/M/y","MMM y","d MMM, y","EEE, d MMM, y","MMMM y","d MMMM, y","EEEE, d MMMM, y","y QQQ","y QQQQ","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6s=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d.M","EEE, d.M","LLL","d \u05d1MMM","EEE, d \u05d1MMM","LLLL","d \u05d1MMMM","EEEE, d \u05d1MMMM","QQQ","QQQQ","y","M.y","d.M.y","EEE, d.M.y","MMM y","d \u05d1MMM y","EEE, d \u05d1MMM y","MMMM y","d \u05d1MMMM y","EEEE, d \u05d1MMMM y","QQQ y","QQQQ y","H","H:mm","H:mm:ss","H","H:mm","H:mm:ss","HH:mm v","HH:mm z","H z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6v=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, d/M","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE, d/M/y","MMM y","d MMM y","EEE, d MMM y","MMMM y","d MMMM y","EEEE, d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6f=new A.a2(B.n,["d.","ccc","cccc","LLL","LLLL","L.","dd. MM.","EEE, dd. MM.","LLL","d. MMM","EEE, d. MMM","LLLL","d. MMMM","EEEE, d. MMMM","QQQ","QQQQ","y.","MM. y.","dd. MM. y.","EEE, dd. MM. y.","LLL y.","d. MMM y.","EEE, d. MMM y.","LLLL y.","d. MMMM y.","EEEE, d. MMMM y.","QQQ y.","QQQQ y.","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH (z)","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6F=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","M. d.","M. d., EEE","LLL","MMM d.","MMM d., EEE","LLLL","MMMM d.","MMMM d., EEEE","QQQ","QQQQ","y.","y. M.","y. MM. dd.","y. MM. dd., EEE","y. MMM","y. MMM d.","y. MMM d., EEE","y. MMMM","y. MMMM d.","y. MMMM d., EEEE","y. QQQ","y. QQQQ","H","H:mm","H:mm:ss","H","H:mm","H:mm:ss","HH:mm v","HH:mm z","H z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6C=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","dd.MM","dd.MM, EEE","LLL","d MMM","d MMM, EEE","LLLL","MMMM d","d MMMM, EEEE","QQQ","QQQQ","y","MM.y","dd.MM.y","d.MM.y \u0569., EEE","y \u0569. LLL","d MMM, y \u0569.","y \u0569. MMM d, EEE","y \u0569\u2024 LLLL","d MMMM, y \u0569.","y \u0569. MMMM d, EEEE","y \u0569. QQQ","y \u0569. QQQQ","H","H:mm","H:mm:ss","H","H:mm","H:mm:ss","HH:mm v","HH:mm z","H z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6H=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, d/M","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE, d/M/y","MMM y","d MMM y","EEE, d MMM y","MMMM y","d MMMM y","EEEE, d MMMM y","QQQ y","QQQQ y","HH","HH.mm","HH.mm.ss","HH","HH.mm","HH.mm.ss","HH.mm v","HH.mm z","HH z","m","mm.ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6X=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d.M.","EEE, d.M.","LLL","d. MMM","EEE, d. MMM","LLLL","d. MMMM","EEEE, d. MMMM","QQQ","QQQQ","y","M. y","d.M.y","EEE, d.M.y","MMM y","d. MMM y","EEE, d. MMM y","MMMM y","d. MMMM y","EEEE, d. MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","v \u2013 HH:mm","z \u2013 HH:mm","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6G=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE d/M","LLL","d MMM","EEE d MMM","LLLL","d MMMM","EEEE d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE d/M/y","MMM y","d MMM y","EEE d MMM y","MMMM y","d MMMM y","EEEE d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6S=new A.a2(B.n,["d\u65e5","ccc","cccc","M\u6708","M\u6708","M\u6708","M/d","M/d(EEE)","M\u6708","M\u6708d\u65e5","M\u6708d\u65e5(EEE)","M\u6708","M\u6708d\u65e5","M\u6708d\u65e5EEEE","QQQ","QQQQ","y\u5e74","y/M","y/M/d","y/M/d(EEE)","y\u5e74M\u6708","y\u5e74M\u6708d\u65e5","y\u5e74M\u6708d\u65e5(EEE)","y\u5e74M\u6708","y\u5e74M\u6708d\u65e5","y\u5e74M\u6708d\u65e5EEEE","y/QQQ","y\u5e74QQQQ","H\u6642","H:mm","H:mm:ss","H\u6642","H:mm","H:mm:ss","H:mm v","H:mm z","H\u6642 z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6t=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d.M","EEE, d.M","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","M.y","d.M.y","EEE, d.M.y","MMM. y","d MMM. y","EEE, d MMM. y","MMMM, y","d MMMM, y","EEEE, d MMMM, y","QQQ, y","QQQQ, y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6T=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","dd.MM","dd.MM, EEE","LLL","d MMM","d MMM, EEE","LLLL","d MMMM","d MMMM, EEEE","QQQ","QQQQ","y","MM.y","dd.MM.y","dd.MM.y, EEE","y '\u0436'. MMM","y '\u0436'. d MMM","y '\u0436'. d MMM, EEE","y '\u0436'. MMMM","y '\u0436'. d MMMM","y '\u0436'. d MMMM, EEEE","y '\u0436'. QQQ","y '\u0436'. QQQQ","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6y=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE d/M","LLL","d MMM","EEE d MMM","LLLL","MMMM d","EEEE d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE d/M/y","MMM y","d MMM y","EEE d MMM y","MMMM y","d MMMM y","EEEE d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a7l=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","d/M, EEE","LLL","MMM d","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE, M/d/y","MMM y","MMM d,y","EEE, MMM d, y","MMMM y","MMMM d, y","EEEE, MMMM d, y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6Q=new A.a2(B.n,["d\uc77c","ccc","cccc","LLL","LLLL","M\uc6d4","M. d.","M. d. (EEE)","LLL","MMM d\uc77c","MMM d\uc77c (EEE)","LLLL","MMMM d\uc77c","MMMM d\uc77c EEEE","QQQ","QQQQ","y\ub144","y. M.","y. M. d.","y. M. d. (EEE)","y\ub144 MMM","y\ub144 MMM d\uc77c","y\ub144 MMM d\uc77c (EEE)","y\ub144 MMMM","y\ub144 MMMM d\uc77c","y\ub144 MMMM d\uc77c EEEE","y\ub144 QQQ","y\ub144 QQQQ","H\uc2dc","HH:mm","H\uc2dc m\ubd84 s\ucd08","a h\uc2dc","a h:mm","a h:mm:ss","a h:mm v","a h:mm z","a h\uc2dc z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a7h=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","dd-MM","dd-MM, EEE","LLL","d-MMM","d-MMM, EEE","LLLL","d-MMMM","d-MMMM, EEEE","QQQ","QQQQ","y","y-MM","y-dd-MM","y-dd-MM, EEE","y-'\u0436'. MMM","y-'\u0436'. d-MMM","y-'\u0436'. d-MMM, EEE","y-'\u0436'., MMMM","y-'\u0436'., d-MMMM","y-'\u0436'., d-MMMM, EEEE","y-'\u0436'., QQQ","y-'\u0436'., QQQQ","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a73=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, d/M","LLL","d MMM","EEE d MMM","LLLL","MMMM d","EEEE d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE, d/M/y","MMM y","d MMM y","EEE, d MMM y","MMMM y","d MMMM y","EEEE, d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a7f=new A.a2(B.n,["dd","ccc","cccc","LLL","LLLL","MM","MM-d","MM-dd, EEE","MM","MM-dd","MM-dd, EEE","LLLL","MMMM d 'd'.","MMMM d 'd'., EEEE","QQQ","QQQQ","y","y-MM","y-MM-dd","y-MM-dd, EEE","y-MM","y-MM-dd","y-MM-dd, EEE","y 'm'. LLLL","y 'm'. MMMM d 'd'.","y 'm'. MMMM d 'd'., EEEE","y QQQ","y QQQQ","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm; v","HH:mm; z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6i=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","dd.MM.","EEE, dd.MM.","LLL","d. MMM","EEE, d. MMM","LLLL","d. MMMM","EEEE, d. MMMM","QQQ","QQQQ","y. 'g'.","MM.y.","d.MM.y.","EEE, d.M.y.","y. 'g'. MMM","y. 'g'. d. MMM","EEE, y. 'g'. d. MMM","y. 'g'. MMMM","y. 'gada' d. MMMM","EEEE, y. 'gada' d. MMMM","y. 'g'. QQQ","y. 'g'. QQQQ","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a71=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d.M","EEE, d.M","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","M.y","d.M.y","EEE, d.M.y","MMM y '\u0433'.","d MMM y '\u0433'.","EEE, d MMM y '\u0433'.","MMMM y '\u0433'.","d MMMM y","EEEE, d MMMM y","QQQ y '\u0433'.","QQQQ y '\u0433'.","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6K=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","d/M, EEE","LLL","MMM d","MMM d, EEE","LLLL","MMMM d","MMMM d, EEEE","QQQ","QQQQ","y","y-MM","d/M/y","d-M-y, EEE","y MMM","y MMM d","y MMM d, EEE","y MMMM","y, MMMM d","y, MMMM d, EEEE","y QQQ","y QQQQ","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a65=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","LLLLL","MMMMM/dd","MMMMM/dd. EEE","LLL","MMM'\u044b\u043d' d","MMM'\u044b\u043d' d. EEE","LLLL","MMMM'\u044b\u043d' d","MMMM'\u044b\u043d' d. EEEE","QQQ","QQQQ","y","y MMMMM","y.MM.dd","y.MM.dd. EEE","y '\u043e\u043d\u044b' MMM","y '\u043e\u043d\u044b' MMM'\u044b\u043d' d","y '\u043e\u043d\u044b' MMM'\u044b\u043d' d. EEE","y '\u043e\u043d\u044b' MMMM","y '\u043e\u043d\u044b' MMMM'\u044b\u043d' d","y '\u043e\u043d\u044b' MMMM'\u044b\u043d' d, EEEE '\u0433\u0430\u0440\u0430\u0433'","y '\u043e\u043d\u044b' QQQ","y '\u043e\u043d\u044b' QQQQ","HH '\u0446'","HH:mm","HH:mm:ss","HH '\u0446'","HH:mm","HH:mm:ss","HH:mm (v)","HH:mm (z)","HH '\u0446' (z)","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a62=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, d/M","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE, d/M/y","MMM y","d MMM, y","EEE, d, MMM y","MMMM y","d MMMM, y","EEEE, d MMMM, y","QQQ y","QQQQ y","HH","H:mm","H:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6_=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d-M","EEE, d-M","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","M-y","d/M/y","EEE, d/M/y","MMM y","d MMM y","EEE, d MMM y","MMMM y","d MMMM y","EEEE, d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a64=new A.a2(B.n,["d","ccc\u1014\u1031\u1037","cccc\u1014\u1031\u1037","LLL","LLLL","L","d/M","d-M- EEE","LLL","d MMM","MMM d- EEE","LLLL","MMMM d","MMMM d \u101b\u1000\u103a EEEE\u1014\u1031\u1037","QQQ","QQQQ","y","M/y","dd-MM-y","d/M/y- EEE","MMM y","y- MMM d","y- MMM d- EEE","y MMMM","y- MMMM d","y- MMMM d- EEEE","y QQQ","y QQQQ","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","v HH:mm","z HH:mm","z HH","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6C=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, d/M","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","MM/y","dd/MM/y","EEE, dd/MM/y","MMM y","d MMM y","EEE, d MMM y","MMMM y","d MMMM y","EEEE, d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a79=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","MM-dd","EEE, MM-dd","LLL","MMM d","EEE, MMM d","LLLL","MMMM d","EEEE, MMMM d","QQQ","QQQQ","y","MM/y","y-MM-dd","EEE, y-MM-dd","MMM y","MMM d, y","EEE, MMM d, y","MMMM y","MMMM d, y","EEEE, MMMM d, y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6m=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","dd/MM","EEE, dd/MM","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","MM/y","dd/MM/y","EEE, dd/MM/y","MMM y","d MMM y","EEE, d MMM y","MMMM y","d MMMM y","EEEE, d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a72=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, d/M","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","MM/y","d/M/y","EEE, d/M/y","MMM y","d MMM y","EEE d MMM y","MMMM y","d MMMM y","EEEE d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a7c=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","dd/MM","EEE, dd/MM","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","MM/y","d/M/y","EEE, d/M/y","MMM y","d MMM y","EEE, d MMM, y","MMMM y","d MMMM y","EEEE, d MMMM, y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a7a=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, dd/MM","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","MM/y","d/MM/y","EEE, dd/MM/y","MMM y","d MMM y","EEE, d MMM y","MMMM y","d MMMM y","EEEE, d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6R=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","dd/MM","EEE, dd/MM","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","MM/y","dd/MM/y","EEE, dd/MM/y","MMM y","d MMM y","EEE, d MMM y","MMMM y","d MMMM y","EEEE, d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6O=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","MM/dd","EEE, MM/dd","LLL","dd MMM","EEE, dd MMM","LLLL","d MMMM","EEEE, dd MMMM","QQQ","QQQQ","y","MM/y","y/MM/dd","EEE, y/MM/dd","MMM y","dd MMM y","EEE, dd MMM y","MMMM y","d MMMM y","EEEE, d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a7q=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, d/M","LLL","d MMM","EEE, d MMM","LLLL","d 'de' MMMM","EEEE, d 'de' MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE, d/M/y","MMM y","d MMM y","EEE, d MMM y","MMMM 'de' y","d 'de' MMMM 'de' y","EEEE, d 'de' MMMM 'de' y","QQQ y","QQQQ 'de' y","H","H:mm","H:mm:ss","H","H:mm","H:mm:ss","H:mm v","H:mm z","H z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a71=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, d/M","LLL","d MMM","EEE, d MMM","LLLL","d 'de' MMMM","EEEE, d 'de' MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE d/M/y","MMM y","d MMM y","EEE, d MMM y","MMMM 'de' y","d 'de' MMMM 'de' y","EEEE, d 'de' MMMM 'de' y","QQQ 'de' y","QQQQ 'de' y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a7l=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, d/M","LLL","d MMM","EEE d 'de' MMM","LLLL","d 'de' MMMM","EEEE, d 'de' MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE, d/M/y","MMM y","d MMM y","EEE, d 'de' MMM 'de' y","MMMM 'de' y","d 'de' MMMM 'de' y","EEEE, d 'de' MMMM 'de' y","QQQ y","QQQQ 'de' y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6o=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, d/M","LLL","d MMM","EEE, d 'de' MMM","LLLL","d 'de' MMMM","EEEE, d 'de' MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE, d/M/y","MMM y","d MMM y","EEE, d 'de' MMM 'de' y","MMMM 'de' y","d 'de' MMMM 'de' y","EEEE, d 'de' MMMM 'de' y","QQQ y","QQQQ 'de' y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6S=new A.a2(B.n,["d","ccc","cccc","MMMM","MMMM","M","d.M","EEE, d.M","MMMM","d. MMM","EEE, d. MMM","MMMM","d. MMMM","EEEE, d. MMMM","QQQ","QQQQ","y","M.y","d.M.y","EEE, d.M.y","MMM y","d. MMM y","EEE, d. MMMM y","MMMM y","d. MMMM y","EEEE, d. MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a73=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","M/d","M/d, EEE","LLL","MMM d","MMM d, EEE","LLLL","MMMM d","MMMM d, EEEE","QQQ","QQQQ","y","y/M","y/M/d","y/M/d, EEE","y MMM","y MMM d","y MMM d, EEE","y('e')'ko' MMMM","y('e')'ko' MMMM'ren' d","y('e')'ko' MMMM'ren' d('a'), EEEE","y('e')'ko' QQQ","y('e')'ko' QQQQ","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH (z)","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a63=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","M/d","EEE M/d","LLL","d LLL","EEE d LLL","LLLL","d LLLL","EEEE d LLLL","QQQ","QQQQ","y","y/M","y/M/d","EEE y/M/d","MMM y","d MMM y","EEE d MMM y","MMMM y","d MMMM y","EEEE d MMMM y","QQQQ y","QQQQ y","H","H:mm","H:mm:ss","H","H:mm","H:mm:ss","H:mm v","HH:mm (z)","H (z)","m","m:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6D=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d.M.","EEE d.M.","LLL","d. MMM","ccc d. MMM","LLLL","d. MMMM","cccc d. MMMM","QQQ","QQQQ","y","L.y","d.M.y","EEE d.M.y","LLL y","d. MMM y","EEE d. MMM y","LLLL y","d. MMMM y","EEEE d. MMMM y","QQQ y","QQQQ y","H","H.mm","H.mm.ss","H","H.mm","H.mm.ss","H.mm v","H.mm z","H z","m","m.ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a70=new A.a2(B.n,["d","EEE","EEEE","LLL","LLLL","L","dd/MM","EEE dd/MM","LLL","d MMM","EEE d MMM","LLLL","d MMMM","EEEE d MMMM","QQQ","QQQQ","y","MM/y","dd/MM/y","EEE dd/MM/y","MMM y","d MMM y","EEE d MMM y","MMMM y","d MMMM y","EEEE d MMMM y","QQQ y","QQQQ y","HH 'h'","HH:mm","HH:mm:ss","HH 'h'","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH 'h' z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a7f=new A.a2(B.n,["d","EEE","EEEE","LLL","LLLL","L","M-d","EEE M-d","LLL","d MMM","EEE d MMM","LLLL","d MMMM","EEEE d MMMM","QQQ","QQQQ","y","y-MM","y-MM-dd","EEE y-MM-dd","MMM y","d MMM y","EEE d MMM y","MMMM y","d MMMM y","EEEE d MMMM y","QQQ y","QQQQ y","HH 'h'","HH 'h' mm","HH 'h' mm 'min' ss 's'","HH 'h'","HH 'h' mm","HH 'h' mm 'min' ss 's'","HH 'h' mm v","HH 'h' mm z","HH 'h' z","m","mm 'min' ss 's'","s","v","z","zzzz","ZZZZ"],t.w)
+B.a7m=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","LL","dd/MM","EEE dd/MM","LLL","d MMM","EEE d MMM","LLLL","d MMMM","EEEE d MMMM","QQQ","QQQQ","y","MM/y","dd/MM/y","EEE dd/MM/y","MMM y","d MMM y","EEE d MMM y","MMMM y","d MMMM y","EEEE d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6u=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, d/M","LLL","d 'de' MMM","EEE, d 'de' MMM","LLLL","d 'de' MMMM","EEEE, d 'de' MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE, d/M/y","MMM 'de' y","d 'de' MMM 'de' y","EEE, d 'de' MMM 'de' y","MMMM 'de' y","d 'de' MMMM 'de' y","EEEE, d 'de' MMMM 'de' y","QQQ y","QQQQ 'de' y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a7d=new A.a2(B.n,["d","EEE","EEEE","LLL","LLLL","L","d.M.","EEE, d.M.","LLL","d. MMM","EEE d. MMM","LLLL","d. MMMM","EEEE d. MMMM","QQQ","QQQQ","y","y-M","d.M.y","EEE, y-M-d","MMM y","y MMM d","EEE, d. MMM y","MMMM y","d. MMMM y","EEEE, d. MMMM y","QQQ y","QQQQ y","H","HH:mm","HH:mm:ss","H","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","H z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6d=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, d/M","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE, d/M/y","MMM y","d MMM, y","EEE, d MMM, y","MMMM y","d MMMM, y","EEEE, d MMMM, y","y QQQ","y QQQQ","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6v=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d.M","EEE, d.M","LLL","d \u05d1MMM","EEE, d \u05d1MMM","LLLL","d \u05d1MMMM","EEEE, d \u05d1MMMM","QQQ","QQQQ","y","M.y","d.M.y","EEE, d.M.y","MMM y","d \u05d1MMM y","EEE, d \u05d1MMM y","MMMM y","d \u05d1MMMM y","EEEE, d \u05d1MMMM y","QQQ y","QQQQ y","H","H:mm","H:mm:ss","H","H:mm","H:mm:ss","HH:mm v","HH:mm z","H z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6y=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, d/M","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE, d/M/y","MMM y","d MMM y","EEE, d MMM y","MMMM y","d MMMM y","EEEE, d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6i=new A.a2(B.n,["d.","ccc","cccc","LLL","LLLL","L.","dd. MM.","EEE, dd. MM.","LLL","d. MMM","EEE, d. MMM","LLLL","d. MMMM","EEEE, d. MMMM","QQQ","QQQQ","y.","MM. y.","dd. MM. y.","EEE, dd. MM. y.","LLL y.","d. MMM y.","EEE, d. MMM y.","LLLL y.","d. MMMM y.","EEEE, d. MMMM y.","QQQ y.","QQQQ y.","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH (z)","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6I=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","M. d.","M. d., EEE","LLL","MMM d.","MMM d., EEE","LLLL","MMMM d.","MMMM d., EEEE","QQQ","QQQQ","y.","y. M.","y. MM. dd.","y. MM. dd., EEE","y. MMM","y. MMM d.","y. MMM d., EEE","y. MMMM","y. MMMM d.","y. MMMM d., EEEE","y. QQQ","y. QQQQ","H","H:mm","H:mm:ss","H","H:mm","H:mm:ss","HH:mm v","HH:mm z","H z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6F=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","dd.MM","dd.MM, EEE","LLL","d MMM","d MMM, EEE","LLLL","MMMM d","d MMMM, EEEE","QQQ","QQQQ","y","MM.y","dd.MM.y","d.MM.y \u0569., EEE","y \u0569. LLL","d MMM, y \u0569.","y \u0569. MMM d, EEE","y \u0569\u2024 LLLL","d MMMM, y \u0569.","y \u0569. MMMM d, EEEE","y \u0569. QQQ","y \u0569. QQQQ","H","H:mm","H:mm:ss","H","H:mm","H:mm:ss","HH:mm v","HH:mm z","H z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6K=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, d/M","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE, d/M/y","MMM y","d MMM y","EEE, d MMM y","MMMM y","d MMMM y","EEEE, d MMMM y","QQQ y","QQQQ y","HH","HH.mm","HH.mm.ss","HH","HH.mm","HH.mm.ss","HH.mm v","HH.mm z","HH z","m","mm.ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a7_=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d.M.","EEE, d.M.","LLL","d. MMM","EEE, d. MMM","LLLL","d. MMMM","EEEE, d. MMMM","QQQ","QQQQ","y","M. y","d.M.y","EEE, d.M.y","MMM y","d. MMM y","EEE, d. MMM y","MMMM y","d. MMMM y","EEEE, d. MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","v \u2013 HH:mm","z \u2013 HH:mm","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6J=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE d/M","LLL","d MMM","EEE d MMM","LLLL","d MMMM","EEEE d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE d/M/y","MMM y","d MMM y","EEE d MMM y","MMMM y","d MMMM y","EEEE d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6V=new A.a2(B.n,["d\u65e5","ccc","cccc","M\u6708","M\u6708","M\u6708","M/d","M/d(EEE)","M\u6708","M\u6708d\u65e5","M\u6708d\u65e5(EEE)","M\u6708","M\u6708d\u65e5","M\u6708d\u65e5EEEE","QQQ","QQQQ","y\u5e74","y/M","y/M/d","y/M/d(EEE)","y\u5e74M\u6708","y\u5e74M\u6708d\u65e5","y\u5e74M\u6708d\u65e5(EEE)","y\u5e74M\u6708","y\u5e74M\u6708d\u65e5","y\u5e74M\u6708d\u65e5EEEE","y/QQQ","y\u5e74QQQQ","H\u6642","H:mm","H:mm:ss","H\u6642","H:mm","H:mm:ss","H:mm v","H:mm z","H\u6642 z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6w=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d.M","EEE, d.M","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","M.y","d.M.y","EEE, d.M.y","MMM. y","d MMM. y","EEE, d MMM. y","MMMM, y","d MMMM, y","EEEE, d MMMM, y","QQQ, y","QQQQ, y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6W=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","dd.MM","dd.MM, EEE","LLL","d MMM","d MMM, EEE","LLLL","d MMMM","d MMMM, EEEE","QQQ","QQQQ","y","MM.y","dd.MM.y","dd.MM.y, EEE","y '\u0436'. MMM","y '\u0436'. d MMM","y '\u0436'. d MMM, EEE","y '\u0436'. MMMM","y '\u0436'. d MMMM","y '\u0436'. d MMMM, EEEE","y '\u0436'. QQQ","y '\u0436'. QQQQ","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6B=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE d/M","LLL","d MMM","EEE d MMM","LLLL","MMMM d","EEEE d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE d/M/y","MMM y","d MMM y","EEE d MMM y","MMMM y","d MMMM y","EEEE d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a7o=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","d/M, EEE","LLL","MMM d","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE, M/d/y","MMM y","MMM d,y","EEE, MMM d, y","MMMM y","MMMM d, y","EEEE, MMMM d, y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6T=new A.a2(B.n,["d\uc77c","ccc","cccc","LLL","LLLL","M\uc6d4","M. d.","M. d. (EEE)","LLL","MMM d\uc77c","MMM d\uc77c (EEE)","LLLL","MMMM d\uc77c","MMMM d\uc77c EEEE","QQQ","QQQQ","y\ub144","y. M.","y. M. d.","y. M. d. (EEE)","y\ub144 MMM","y\ub144 MMM d\uc77c","y\ub144 MMM d\uc77c (EEE)","y\ub144 MMMM","y\ub144 MMMM d\uc77c","y\ub144 MMMM d\uc77c EEEE","y\ub144 QQQ","y\ub144 QQQQ","H\uc2dc","HH:mm","H\uc2dc m\ubd84 s\ucd08","a h\uc2dc","a h:mm","a h:mm:ss","a h:mm v","a h:mm z","a h\uc2dc z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a7k=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","dd-MM","dd-MM, EEE","LLL","d-MMM","d-MMM, EEE","LLLL","d-MMMM","d-MMMM, EEEE","QQQ","QQQQ","y","y-MM","y-dd-MM","y-dd-MM, EEE","y-'\u0436'. MMM","y-'\u0436'. d-MMM","y-'\u0436'. d-MMM, EEE","y-'\u0436'., MMMM","y-'\u0436'., d-MMMM","y-'\u0436'., d-MMMM, EEEE","y-'\u0436'., QQQ","y-'\u0436'., QQQQ","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a76=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, d/M","LLL","d MMM","EEE d MMM","LLLL","MMMM d","EEEE d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE, d/M/y","MMM y","d MMM y","EEE, d MMM y","MMMM y","d MMMM y","EEEE, d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a7i=new A.a2(B.n,["dd","ccc","cccc","LLL","LLLL","MM","MM-d","MM-dd, EEE","MM","MM-dd","MM-dd, EEE","LLLL","MMMM d 'd'.","MMMM d 'd'., EEEE","QQQ","QQQQ","y","y-MM","y-MM-dd","y-MM-dd, EEE","y-MM","y-MM-dd","y-MM-dd, EEE","y 'm'. LLLL","y 'm'. MMMM d 'd'.","y 'm'. MMMM d 'd'., EEEE","y QQQ","y QQQQ","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm; v","HH:mm; z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6l=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","dd.MM.","EEE, dd.MM.","LLL","d. MMM","EEE, d. MMM","LLLL","d. MMMM","EEEE, d. MMMM","QQQ","QQQQ","y. 'g'.","MM.y.","d.MM.y.","EEE, d.M.y.","y. 'g'. MMM","y. 'g'. d. MMM","EEE, y. 'g'. d. MMM","y. 'g'. MMMM","y. 'gada' d. MMMM","EEEE, y. 'gada' d. MMMM","y. 'g'. QQQ","y. 'g'. QQQQ","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a74=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d.M","EEE, d.M","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","M.y","d.M.y","EEE, d.M.y","MMM y '\u0433'.","d MMM y '\u0433'.","EEE, d MMM y '\u0433'.","MMMM y '\u0433'.","d MMMM y","EEEE, d MMMM y","QQQ y '\u0433'.","QQQQ y '\u0433'.","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6N=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","d/M, EEE","LLL","MMM d","MMM d, EEE","LLLL","MMMM d","MMMM d, EEEE","QQQ","QQQQ","y","y-MM","d/M/y","d-M-y, EEE","y MMM","y MMM d","y MMM d, EEE","y MMMM","y, MMMM d","y, MMMM d, EEEE","y QQQ","y QQQQ","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a68=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","LLLLL","MMMMM/dd","MMMMM/dd. EEE","LLL","MMM'\u044b\u043d' d","MMM'\u044b\u043d' d. EEE","LLLL","MMMM'\u044b\u043d' d","MMMM'\u044b\u043d' d. EEEE","QQQ","QQQQ","y","y MMMMM","y.MM.dd","y.MM.dd. EEE","y '\u043e\u043d\u044b' MMM","y '\u043e\u043d\u044b' MMM'\u044b\u043d' d","y '\u043e\u043d\u044b' MMM'\u044b\u043d' d. EEE","y '\u043e\u043d\u044b' MMMM","y '\u043e\u043d\u044b' MMMM'\u044b\u043d' d","y '\u043e\u043d\u044b' MMMM'\u044b\u043d' d, EEEE '\u0433\u0430\u0440\u0430\u0433'","y '\u043e\u043d\u044b' QQQ","y '\u043e\u043d\u044b' QQQQ","HH '\u0446'","HH:mm","HH:mm:ss","HH '\u0446'","HH:mm","HH:mm:ss","HH:mm (v)","HH:mm (z)","HH '\u0446' (z)","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a65=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, d/M","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE, d/M/y","MMM y","d MMM, y","EEE, d, MMM y","MMMM y","d MMMM, y","EEEE, d MMMM, y","QQQ y","QQQQ y","HH","H:mm","H:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a62=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d-M","EEE, d-M","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","M-y","d/M/y","EEE, d/M/y","MMM y","d MMM y","EEE, d MMM y","MMMM y","d MMMM y","EEEE, d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a67=new A.a2(B.n,["d","ccc\u1014\u1031\u1037","cccc\u1014\u1031\u1037","LLL","LLLL","L","d/M","d-M- EEE","LLL","d MMM","MMM d- EEE","LLLL","MMMM d","MMMM d \u101b\u1000\u103a EEEE\u1014\u1031\u1037","QQQ","QQQQ","y","M/y","dd-MM-y","d/M/y- EEE","MMM y","y- MMM d","y- MMM d- EEE","y MMMM","y- MMMM d","y- MMMM d- EEEE","y QQQ","y QQQQ","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","v HH:mm","z HH:mm","z HH","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
 B.D1=new A.a2(B.n,["d.","ccc","cccc","LLL","LLLL","L.","d.M.","EEE d.M.","LLL","d. MMM","EEE d. MMM","LLLL","d. MMMM","EEEE d. MMMM","QQQ","QQQQ","y","M.y","d.M.y","EEE d.M.y","MMM y","d. MMM y","EEE d. MMM y","MMMM y","d. MMMM y","EEEE d. MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a61=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","MM-dd","MM-dd, EEE","LLL","MMM d","MMM d, EEE","LLLL","MMMM d","MMMM d, EEEE","QQQ","QQQQ","y","y-MM","y-MM-dd","y-MM-dd, EEE","y MMM","y MMM d","y MMM d, EEE","y MMMM","y MMMM d","y MMMM d, EEEE","y QQQ","y QQQQ","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6U=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d-M","EEE d-M","LLL","d MMM","EEE d MMM","LLLL","d MMMM","EEEE d MMMM","QQQ","QQQQ","y","M-y","d-M-y","EEE d-M-y","MMM y","d MMM y","EEE d MMM y","MMMM y","d MMMM y","EEEE d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6N=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, dd-MM.","LLL","d MMM","EEE, d MMM","LLLL","MMMM d","EEEE, d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE, d/M/y","MMM y","d MMM y","EEE, d MMM y","MMMM y","d MMMM y","EEEE, d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6e=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d.MM","EEE, d.MM","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","MM.y","d.MM.y","EEE, d.MM.y","LLL y","d MMM y","EEE, d MMM y","LLLL y","d MMMM y","EEEE, d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6B=new A.a2(B.n,["d","EEE","EEEE","LLL","LLLL","L","MM-dd","MM-dd, EEE","LLL","MMM d","EEE, MMM d","LLLL","MMMM d","EEEE, MMMM d","QQQ","QQQQ","y","y-MM","y-MM-dd","y-MM-dd, EEE","y MMM","y MMM d","y MMM d, EEE","y MMMM","\u062f y \u062f MMMM d","EEEE \u062f y \u062f MMMM d","y QQQ","y QQQQ","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH (z)","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a78=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, dd/MM","LLL","d 'de' MMM","EEE, d 'de' MMM","LLLL","d 'de' MMMM","EEEE, d 'de' MMMM","QQQ","QQQQ","y","MM/y","dd/MM/y","EEE, dd/MM/y","MMM 'de' y","d 'de' MMM 'de' y","EEE, d 'de' MMM 'de' y","MMMM 'de' y","d 'de' MMMM 'de' y","EEEE, d 'de' MMMM 'de' y","QQQ 'de' y","QQQQ 'de' y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6R=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","dd/MM","EEE, dd/MM","LLL","d/MM","EEE, d/MM","LLLL","d 'de' MMMM","cccc, d 'de' MMMM","QQQ","QQQQ","y","MM/y","dd/MM/y","EEE, dd/MM/y","MM/y","d/MM/y","EEE, d/MM/y","MMMM 'de' y","d 'de' MMMM 'de' y","EEEE, d 'de' MMMM 'de' y","QQQQ 'de' y","QQQQ 'de' y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6D=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","dd.MM","EEE, dd.MM","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","MM.y","dd.MM.y","EEE, dd.MM.y","MMM y","d MMM y","EEE, d MMM y","MMMM y","d MMMM y","EEEE, d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a66=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","dd.MM","EEE, dd.MM","LLL","d MMM","ccc, d MMM","LLLL","d MMMM","cccc, d MMMM","QQQ","QQQQ","y","MM.y","dd.MM.y","ccc, dd.MM.y '\u0433'.","LLL y '\u0433'.","d MMM y '\u0433'.","EEE, d MMM y '\u0433'.","LLLL y '\u0433'.","d MMMM y '\u0433'.","EEEE, d MMMM y '\u0433'.","QQQ y '\u0433'.","QQQQ y '\u0433'.","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6E=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","M-d","M-d, EEE","LLL","MMM d","MMM d EEE","LLLL","MMMM d","MMMM d EEEE","QQQ","QQQQ","y","y-M","y-M-d","y-M-d, EEE","y MMM","y MMM d","y MMM d, EEE","y MMMM","y MMMM d","y MMMM d, EEEE","y QQQ","y QQQQ","HH","HH.mm","HH.mm.ss","HH","HH.mm","HH.mm.ss","HH.mm v","HH.mm z","HH z","m","mm.ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a7k=new A.a2(B.n,["d.","ccc","cccc","LLL","LLLL","L.","d. M.","EEE d. M.","LLL","d. M.","EEE d. M.","LLLL","d. MMMM","EEEE d. MMMM","QQQ","QQQQ","y","M/y","d. M. y","EEE d. M. y","M/y","d. M. y","EEE d. M. y","LLLL y","d. MMMM y","EEEE d. MMMM y","QQQ y","QQQQ y","H","H:mm","H:mm:ss","H","H:mm","H:mm:ss","H:mm v","H:mm z","H z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a75=new A.a2(B.n,["d.","ccc","cccc","LLL","LLLL","L","d. M.","EEE, d. M.","LLL","d. MMM","EEE, d. MMM","LLLL","d. MMMM","EEEE, d. MMMM","QQQ","QQQQ","y","M/y","d. M. y","EEE, d. M. y","MMM y","d. MMM y","EEE, d. MMM y","MMMM y","d. MMMM y","EEEE, d. MMMM y","QQQ y","QQQQ y","HH'h'","HH:mm","HH:mm:ss","HH'h'","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH'h' z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a68=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d.M","EEE, d.M","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","M.y","d.M.y","EEE, d.M.y","MMM y","d MMM y","EEE, d MMM y","MMMM y","d MMMM y","EEEE, d MMMM y","QQQ, y","QQQQ, y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a, v","h:mm a, z","h a, z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a64=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","MM-dd","MM-dd, EEE","LLL","MMM d","MMM d, EEE","LLLL","MMMM d","MMMM d, EEEE","QQQ","QQQQ","y","y-MM","y-MM-dd","y-MM-dd, EEE","y MMM","y MMM d","y MMM d, EEE","y MMMM","y MMMM d","y MMMM d, EEEE","y QQQ","y QQQQ","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6X=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d-M","EEE d-M","LLL","d MMM","EEE d MMM","LLLL","d MMMM","EEEE d MMMM","QQQ","QQQQ","y","M-y","d-M-y","EEE d-M-y","MMM y","d MMM y","EEE d MMM y","MMMM y","d MMMM y","EEEE d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6Q=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, dd-MM.","LLL","d MMM","EEE, d MMM","LLLL","MMMM d","EEEE, d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE, d/M/y","MMM y","d MMM y","EEE, d MMM y","MMMM y","d MMMM y","EEEE, d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6h=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d.MM","EEE, d.MM","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","MM.y","d.MM.y","EEE, d.MM.y","LLL y","d MMM y","EEE, d MMM y","LLLL y","d MMMM y","EEEE, d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6E=new A.a2(B.n,["d","EEE","EEEE","LLL","LLLL","L","MM-dd","MM-dd, EEE","LLL","MMM d","EEE, MMM d","LLLL","MMMM d","EEEE, MMMM d","QQQ","QQQQ","y","y-MM","y-MM-dd","y-MM-dd, EEE","y MMM","y MMM d","y MMM d, EEE","y MMMM","\u062f y \u062f MMMM d","EEEE \u062f y \u062f MMMM d","y QQQ","y QQQQ","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH (z)","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a7b=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, dd/MM","LLL","d 'de' MMM","EEE, d 'de' MMM","LLLL","d 'de' MMMM","EEEE, d 'de' MMMM","QQQ","QQQQ","y","MM/y","dd/MM/y","EEE, dd/MM/y","MMM 'de' y","d 'de' MMM 'de' y","EEE, d 'de' MMM 'de' y","MMMM 'de' y","d 'de' MMMM 'de' y","EEEE, d 'de' MMMM 'de' y","QQQ 'de' y","QQQQ 'de' y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6U=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","dd/MM","EEE, dd/MM","LLL","d/MM","EEE, d/MM","LLLL","d 'de' MMMM","cccc, d 'de' MMMM","QQQ","QQQQ","y","MM/y","dd/MM/y","EEE, dd/MM/y","MM/y","d/MM/y","EEE, d/MM/y","MMMM 'de' y","d 'de' MMMM 'de' y","EEEE, d 'de' MMMM 'de' y","QQQQ 'de' y","QQQQ 'de' y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6G=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","dd.MM","EEE, dd.MM","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","MM.y","dd.MM.y","EEE, dd.MM.y","MMM y","d MMM y","EEE, d MMM y","MMMM y","d MMMM y","EEEE, d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a69=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","dd.MM","EEE, dd.MM","LLL","d MMM","ccc, d MMM","LLLL","d MMMM","cccc, d MMMM","QQQ","QQQQ","y","MM.y","dd.MM.y","ccc, dd.MM.y '\u0433'.","LLL y '\u0433'.","d MMM y '\u0433'.","EEE, d MMM y '\u0433'.","LLLL y '\u0433'.","d MMMM y '\u0433'.","EEEE, d MMMM y '\u0433'.","QQQ y '\u0433'.","QQQQ y '\u0433'.","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6H=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","M-d","M-d, EEE","LLL","MMM d","MMM d EEE","LLLL","MMMM d","MMMM d EEEE","QQQ","QQQQ","y","y-M","y-M-d","y-M-d, EEE","y MMM","y MMM d","y MMM d, EEE","y MMMM","y MMMM d","y MMMM d, EEEE","y QQQ","y QQQQ","HH","HH.mm","HH.mm.ss","HH","HH.mm","HH.mm.ss","HH.mm v","HH.mm z","HH z","m","mm.ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a7n=new A.a2(B.n,["d.","ccc","cccc","LLL","LLLL","L.","d. M.","EEE d. M.","LLL","d. M.","EEE d. M.","LLLL","d. MMMM","EEEE d. MMMM","QQQ","QQQQ","y","M/y","d. M. y","EEE d. M. y","M/y","d. M. y","EEE d. M. y","LLLL y","d. MMMM y","EEEE d. MMMM y","QQQ y","QQQQ y","H","H:mm","H:mm:ss","H","H:mm","H:mm:ss","H:mm v","H:mm z","H z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a78=new A.a2(B.n,["d.","ccc","cccc","LLL","LLLL","L","d. M.","EEE, d. M.","LLL","d. MMM","EEE, d. MMM","LLLL","d. MMMM","EEEE, d. MMMM","QQQ","QQQQ","y","M/y","d. M. y","EEE, d. M. y","MMM y","d. MMM y","EEE, d. MMM y","MMMM y","d. MMMM y","EEEE, d. MMMM y","QQQ y","QQQQ y","HH'h'","HH:mm","HH:mm:ss","HH'h'","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH'h' z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6b=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d.M","EEE, d.M","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","M.y","d.M.y","EEE, d.M.y","MMM y","d MMM y","EEE, d MMM y","MMMM y","d MMMM y","EEEE, d MMMM y","QQQ, y","QQQQ, y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a, v","h:mm a, z","h a, z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
 B.D0=new A.a2(B.n,["d","EEE","EEEE","LLL","LLLL","L","d.M.","EEE, d.M.","LLL","d. MMM","EEE d. MMM","LLLL","d. MMMM","EEEE, d. MMMM","QQQ","QQQQ","y.","M.y.","d.M.y.","EEE, d.M.y.","MMM y.","d. MMM y.","EEE, d. MMM y.","MMMM y.","d. MMMM y.","EEEE, d. MMMM y.","QQQ y.","QQQQ y.","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a72=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE d/M","LLL","d MMM","EEE d MMM","LLLL","d MMMM","EEEE d MMMM","QQQ","QQQQ","y","y-MM","y-MM-dd","EEE, y-MM-dd","MMM y","d MMM y","EEE d MMM y","MMMM y","d MMMM y","EEEE d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6J=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, d/M","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE, d/M/y","MMM y","d MMM y","EEE, d MMM y","MMMM y","d MMMM y","EEEE, d MMMM y","y QQQ","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a7b=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","dd-MM, EEE","LLL","MMM d","MMM d, EEE","LLLL","d MMMM","MMMM d, EEEE","QQQ","QQQQ","y","M/y","d/M/y","EEE, d/M/y","MMM y","d MMM, y","EEE, d MMM, y","MMMM y","d MMMM, y","EEEE, d MMMM, y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","a h","a h:mm","a h:mm:ss","a h:mm v","a h:mm z","a h z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6I=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","d/M, EEE","LLL","d MMM","d MMM, EEE","LLLL","d MMMM","d MMMM, EEEE","QQQ","QQQQ","y","M/y","d/M/y","d/M/y, EEE","MMM y","d, MMM y","d MMM, y, EEE","MMMM y","d MMMM, y","d, MMMM y, EEEE","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6c=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE d/M","LLL","d MMM","EEE d MMM","LLLL","d MMMM","EEEE\u0e17\u0e35\u0e48 d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE d/M/y","MMM y","d MMM y","EEE d MMM y","MMMM G y","d MMMM G y","EEEE\u0e17\u0e35\u0e48 d MMMM G y","QQQ y","QQQQ G y","HH","HH:mm \u0e19.","HH:mm:ss","HH","HH:mm \u0e19.","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6b=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","d/MM EEE","LLL","d MMM","d MMMM EEE","LLLL","d MMMM","d MMMM EEEE","QQQ","QQQQ","y","MM/y","dd.MM.y","d.M.y EEE","MMM y","d MMM y","d MMM y EEE","MMMM y","d MMMM y","d MMMM y EEEE","y QQQ","y QQQQ","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6p=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","LL","dd.MM","EEE, dd.MM","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","MM.y","dd.MM.y","EEE, dd.MM.y","LLL y '\u0440'.","d MMM y '\u0440'.","EEE, d MMM y '\u0440'.","LLLL y '\u0440'.","d MMMM y '\u0440'.","EEEE, d MMMM y '\u0440'.","QQQ y","QQQQ y '\u0440'.","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6h=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE\u060c d/M","LLL","d MMM","EEE\u060c d MMM","LLLL","d MMMM","EEEE\u060c d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE\u060c d/M/y","MMM y","d MMM\u060c y","EEE\u060c d MMM\u060c y","MMMM y","d MMMM\u060c y","EEEE\u060c d MMMM\u060c y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6g=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","LL","dd/MM","EEE, dd/MM","LLL","d-MMM","EEE, d-MMM","LLLL","d-MMMM","EEEE, d-MMMM","QQQ","QQQQ","y","MM.y","dd/MM/y","EEE, dd/MM/y","MMM, y","d-MMM, y","EEE, d-MMM, y","MMMM, y","d-MMMM, y","EEEE, d-MMMM, y","y, QQQ","y, QQQQ","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm (v)","HH:mm (z)","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6q=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","dd/M","EEE, dd/M","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE, dd/M/y","MMM y","d MMM, y","EEE, d MMM, y","MMMM 'n\u0103m' y","d MMMM, y","EEEE, d MMMM, y","QQQ y","QQQQ 'n\u0103m' y","HH","H:mm","HH:mm:ss","HH","H:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6w=new A.a2(B.n,["d\u65e5","ccc","cccc","LLL","LLLL","M\u6708","M/d","M/dEEE","LLL","M\u6708d\u65e5","M\u6708d\u65e5EEE","LLLL","M\u6708d\u65e5","M\u6708d\u65e5EEEE","QQQ","QQQQ","y\u5e74","y\u5e74M\u6708","y/M/d","y/M/dEEE","y\u5e74M\u6708","y\u5e74M\u6708d\u65e5","y\u5e74M\u6708d\u65e5EEE","y\u5e74M\u6708","y\u5e74M\u6708d\u65e5","y\u5e74M\u6708d\u65e5EEEE","y\u5e74\u7b2cQ\u5b63\u5ea6","y\u5e74\u7b2cQ\u5b63\u5ea6","H\u65f6","HH:mm","HH:mm:ss","H\u65f6","HH:mm","HH:mm:ss","v HH:mm","z HH:mm","zH\u65f6","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6V=new A.a2(B.n,["d\u65e5","ccc","cccc","LLL","LLLL","M\u6708","d/M","d/M\uff08EEE\uff09","LLL","M\u6708d\u65e5","M\u6708d\u65e5EEE","LLLL","M\u6708d\u65e5","M\u6708d\u65e5EEEE","QQQ","QQQQ","y\u5e74","M/y","d/M/y","d/M/y\uff08EEE\uff09","y\u5e74M\u6708","y\u5e74M\u6708d\u65e5","y\u5e74M\u6708d\u65e5EEE","y\u5e74M\u6708","y\u5e74M\u6708d\u65e5","y\u5e74M\u6708d\u65e5EEEE","y\u5e74QQQ","y\u5e74QQQQ","H\u6642","HH:mm","HH:mm:ss","ah\u6642","ah:mm","ah:mm:ss","ah:mm [v]","ah:mm [z]","ah\u6642 z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6x=new A.a2(B.n,["d\u65e5","ccc","cccc","LLL","LLLL","M\u6708","M/d","M/d\uff08EEE\uff09","LLL","M\u6708d\u65e5","M\u6708d\u65e5 EEE","LLLL","M\u6708d\u65e5","M\u6708d\u65e5 EEEE","QQQ","QQQQ","y\u5e74","y/M","y/M/d","y/M/d\uff08EEE\uff09","y\u5e74M\u6708","y\u5e74M\u6708d\u65e5","y\u5e74M\u6708d\u65e5 EEE","y\u5e74M\u6708","y\u5e74M\u6708d\u65e5","y\u5e74M\u6708d\u65e5 EEEE","y\u5e74QQQ","y\u5e74QQQQ","H\u6642","HH:mm","HH:mm:ss","ah\u6642","ah:mm","ah:mm:ss","ah:mm [v]","ah:mm [z]","ah\u6642 z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a6k=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","MM-dd","MM-dd, EEE","LLL","MMM d","EEE, MMM d","LLLL","MMMM d","EEEE, MMMM d","QQQ","QQQQ","y","y-MM","y-MM-dd","y-MM-dd, EEE","MMM y","MMM d, y","EEE, MMM d, y","MMMM y","MMMM d, y","EEEE, MMMM d, y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a5Z=new A.a2(B.a89,[B.a6o,B.a7e,B.a6n,B.a69,B.a7d,B.a63,B.a67,B.a7g,B.a6W,B.a6M,B.a7m,B.a6m,B.a74,B.D_,B.D_,B.a6d,B.hm,B.a6z,B.a76,B.a6j,B.a7_,B.a79,B.a77,B.a6O,B.hm,B.a6L,B.a7n,B.a6Z,B.a7i,B.a6l,B.a6P,B.a70,B.a60,B.a6A,B.hm,B.a6Y,B.a7c,B.a7j,B.a6r,B.a7a,B.a6a,B.a6s,B.a6v,B.a6f,B.a6F,B.a6C,B.a6H,B.a6X,B.a6G,B.a6S,B.a6t,B.a6T,B.a6y,B.a7l,B.a6Q,B.a7h,B.a73,B.a7f,B.a6i,B.a71,B.a6K,B.a65,B.a62,B.a6_,B.a64,B.D1,B.a61,B.a6U,B.D1,B.hm,B.a6N,B.a6e,B.a6B,B.a78,B.a6R,B.a6D,B.a66,B.a6E,B.a7k,B.a75,B.a68,B.D0,B.D0,B.a72,B.a6J,B.a7b,B.a6I,B.a6c,B.hm,B.a6b,B.a6p,B.a6h,B.a6g,B.a6q,B.a6w,B.a6V,B.a6x,B.a6k],A.a4("a2<k,bd<k,k>>"))
-B.a6u=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","M/d","EEE, M/d","LLL","MMM d","EEE, MMM d","LLLL","MMMM d","EEEE, MMMM d","QQQ","QQQQ","y","M/y","M/d/y","EEE, M/d/y","MMM y","MMM d, y","EEE, MMM d, y","MMMM y","MMMM d, y","EEEE, MMMM d, y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","h\u202fa","h:mm\u202fa","h:mm:ss\u202fa","h:mm\u202fa v","h:mm\u202fa z","h\u202fa z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
-B.a86={"iso_8859-1:1987":0,"iso-ir-100":1,"iso_8859-1":2,"iso-8859-1":3,latin1:4,l1:5,ibm819:6,cp819:7,csisolatin1:8,"iso-ir-6":9,"ansi_x3.4-1968":10,"ansi_x3.4-1986":11,"iso_646.irv:1991":12,"iso646-us":13,"us-ascii":14,us:15,ibm367:16,cp367:17,csascii:18,ascii:19,csutf8:20,"utf-8":21}
+B.a75=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE d/M","LLL","d MMM","EEE d MMM","LLLL","d MMMM","EEEE d MMMM","QQQ","QQQQ","y","y-MM","y-MM-dd","EEE, y-MM-dd","MMM y","d MMM y","EEE d MMM y","MMMM y","d MMMM y","EEEE d MMMM y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6M=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE, d/M","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE, d/M/y","MMM y","d MMM y","EEE, d MMM y","MMMM y","d MMMM y","EEEE, d MMMM y","y QQQ","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a7e=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","dd-MM, EEE","LLL","MMM d","MMM d, EEE","LLLL","d MMMM","MMMM d, EEEE","QQQ","QQQQ","y","M/y","d/M/y","EEE, d/M/y","MMM y","d MMM, y","EEE, d MMM, y","MMMM y","d MMMM, y","EEEE, d MMMM, y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","a h","a h:mm","a h:mm:ss","a h:mm v","a h:mm z","a h z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6L=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","d/M, EEE","LLL","d MMM","d MMM, EEE","LLLL","d MMMM","d MMMM, EEEE","QQQ","QQQQ","y","M/y","d/M/y","d/M/y, EEE","MMM y","d, MMM y","d MMM, y, EEE","MMMM y","d MMMM, y","d, MMMM y, EEEE","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6f=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE d/M","LLL","d MMM","EEE d MMM","LLLL","d MMMM","EEEE\u0e17\u0e35\u0e48 d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE d/M/y","MMM y","d MMM y","EEE d MMM y","MMMM G y","d MMMM G y","EEEE\u0e17\u0e35\u0e48 d MMMM G y","QQQ y","QQQQ G y","HH","HH:mm \u0e19.","HH:mm:ss","HH","HH:mm \u0e19.","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6e=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","d/MM EEE","LLL","d MMM","d MMMM EEE","LLLL","d MMMM","d MMMM EEEE","QQQ","QQQQ","y","MM/y","dd.MM.y","d.M.y EEE","MMM y","d MMM y","d MMM y EEE","MMMM y","d MMMM y","d MMMM y EEEE","y QQQ","y QQQQ","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6s=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","LL","dd.MM","EEE, dd.MM","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","MM.y","dd.MM.y","EEE, dd.MM.y","LLL y '\u0440'.","d MMM y '\u0440'.","EEE, d MMM y '\u0440'.","LLLL y '\u0440'.","d MMMM y '\u0440'.","EEEE, d MMMM y '\u0440'.","QQQ y","QQQQ y '\u0440'.","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6k=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","d/M","EEE\u060c d/M","LLL","d MMM","EEE\u060c d MMM","LLLL","d MMMM","EEEE\u060c d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE\u060c d/M/y","MMM y","d MMM\u060c y","EEE\u060c d MMM\u060c y","MMMM y","d MMMM\u060c y","EEEE\u060c d MMMM\u060c y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","h a","h:mm a","h:mm:ss a","h:mm a v","h:mm a z","h a z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6j=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","LL","dd/MM","EEE, dd/MM","LLL","d-MMM","EEE, d-MMM","LLLL","d-MMMM","EEEE, d-MMMM","QQQ","QQQQ","y","MM.y","dd/MM/y","EEE, dd/MM/y","MMM, y","d-MMM, y","EEE, d-MMM, y","MMMM, y","d-MMMM, y","EEEE, d-MMMM, y","y, QQQ","y, QQQQ","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm (v)","HH:mm (z)","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6t=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","dd/M","EEE, dd/M","LLL","d MMM","EEE, d MMM","LLLL","d MMMM","EEEE, d MMMM","QQQ","QQQQ","y","M/y","d/M/y","EEE, dd/M/y","MMM y","d MMM, y","EEE, d MMM, y","MMMM 'n\u0103m' y","d MMMM, y","EEEE, d MMMM, y","QQQ y","QQQQ 'n\u0103m' y","HH","H:mm","HH:mm:ss","HH","H:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6z=new A.a2(B.n,["d\u65e5","ccc","cccc","LLL","LLLL","M\u6708","M/d","M/dEEE","LLL","M\u6708d\u65e5","M\u6708d\u65e5EEE","LLLL","M\u6708d\u65e5","M\u6708d\u65e5EEEE","QQQ","QQQQ","y\u5e74","y\u5e74M\u6708","y/M/d","y/M/dEEE","y\u5e74M\u6708","y\u5e74M\u6708d\u65e5","y\u5e74M\u6708d\u65e5EEE","y\u5e74M\u6708","y\u5e74M\u6708d\u65e5","y\u5e74M\u6708d\u65e5EEEE","y\u5e74\u7b2cQ\u5b63\u5ea6","y\u5e74\u7b2cQ\u5b63\u5ea6","H\u65f6","HH:mm","HH:mm:ss","H\u65f6","HH:mm","HH:mm:ss","v HH:mm","z HH:mm","zH\u65f6","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6Y=new A.a2(B.n,["d\u65e5","ccc","cccc","LLL","LLLL","M\u6708","d/M","d/M\uff08EEE\uff09","LLL","M\u6708d\u65e5","M\u6708d\u65e5EEE","LLLL","M\u6708d\u65e5","M\u6708d\u65e5EEEE","QQQ","QQQQ","y\u5e74","M/y","d/M/y","d/M/y\uff08EEE\uff09","y\u5e74M\u6708","y\u5e74M\u6708d\u65e5","y\u5e74M\u6708d\u65e5EEE","y\u5e74M\u6708","y\u5e74M\u6708d\u65e5","y\u5e74M\u6708d\u65e5EEEE","y\u5e74QQQ","y\u5e74QQQQ","H\u6642","HH:mm","HH:mm:ss","ah\u6642","ah:mm","ah:mm:ss","ah:mm [v]","ah:mm [z]","ah\u6642 z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6A=new A.a2(B.n,["d\u65e5","ccc","cccc","LLL","LLLL","M\u6708","M/d","M/d\uff08EEE\uff09","LLL","M\u6708d\u65e5","M\u6708d\u65e5 EEE","LLLL","M\u6708d\u65e5","M\u6708d\u65e5 EEEE","QQQ","QQQQ","y\u5e74","y/M","y/M/d","y/M/d\uff08EEE\uff09","y\u5e74M\u6708","y\u5e74M\u6708d\u65e5","y\u5e74M\u6708d\u65e5 EEE","y\u5e74M\u6708","y\u5e74M\u6708d\u65e5","y\u5e74M\u6708d\u65e5 EEEE","y\u5e74QQQ","y\u5e74QQQQ","H\u6642","HH:mm","HH:mm:ss","ah\u6642","ah:mm","ah:mm:ss","ah:mm [v]","ah:mm [z]","ah\u6642 z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a6n=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","MM-dd","MM-dd, EEE","LLL","MMM d","EEE, MMM d","LLLL","MMMM d","EEEE, MMMM d","QQQ","QQQQ","y","y-MM","y-MM-dd","y-MM-dd, EEE","MMM y","MMM d, y","EEE, MMM d, y","MMMM y","MMMM d, y","EEEE, MMMM d, y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","HH","HH:mm","HH:mm:ss","HH:mm v","HH:mm z","HH z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a61=new A.a2(B.a8c,[B.a6r,B.a7h,B.a6q,B.a6c,B.a7g,B.a66,B.a6a,B.a7j,B.a6Z,B.a6P,B.a7p,B.a6p,B.a77,B.D_,B.D_,B.a6g,B.hm,B.a6C,B.a79,B.a6m,B.a72,B.a7c,B.a7a,B.a6R,B.hm,B.a6O,B.a7q,B.a71,B.a7l,B.a6o,B.a6S,B.a73,B.a63,B.a6D,B.hm,B.a70,B.a7f,B.a7m,B.a6u,B.a7d,B.a6d,B.a6v,B.a6y,B.a6i,B.a6I,B.a6F,B.a6K,B.a7_,B.a6J,B.a6V,B.a6w,B.a6W,B.a6B,B.a7o,B.a6T,B.a7k,B.a76,B.a7i,B.a6l,B.a74,B.a6N,B.a68,B.a65,B.a62,B.a67,B.D1,B.a64,B.a6X,B.D1,B.hm,B.a6Q,B.a6h,B.a6E,B.a7b,B.a6U,B.a6G,B.a69,B.a6H,B.a7n,B.a78,B.a6b,B.D0,B.D0,B.a75,B.a6M,B.a7e,B.a6L,B.a6f,B.hm,B.a6e,B.a6s,B.a6k,B.a6j,B.a6t,B.a6z,B.a6Y,B.a6A,B.a6n],A.a4("a2<k,bd<k,k>>"))
+B.a6x=new A.a2(B.n,["d","ccc","cccc","LLL","LLLL","L","M/d","EEE, M/d","LLL","MMM d","EEE, MMM d","LLLL","MMMM d","EEEE, MMMM d","QQQ","QQQQ","y","M/y","M/d/y","EEE, M/d/y","MMM y","MMM d, y","EEE, MMM d, y","MMMM y","MMMM d, y","EEEE, MMMM d, y","QQQ y","QQQQ y","HH","HH:mm","HH:mm:ss","h\u202fa","h:mm\u202fa","h:mm:ss\u202fa","h:mm\u202fa v","h:mm\u202fa z","h\u202fa z","m","mm:ss","s","v","z","zzzz","ZZZZ"],t.w)
+B.a89={"iso_8859-1:1987":0,"iso-ir-100":1,"iso_8859-1":2,"iso-8859-1":3,latin1:4,l1:5,ibm819:6,cp819:7,csisolatin1:8,"iso-ir-6":9,"ansi_x3.4-1968":10,"ansi_x3.4-1986":11,"iso_646.irv:1991":12,"iso646-us":13,"us-ascii":14,us:15,ibm367:16,cp367:17,csascii:18,ascii:19,csutf8:20,"utf-8":21}
 B.ca=new A.KA()
-B.a7o=new A.a2(B.a86,[B.cb,B.cb,B.cb,B.cb,B.cb,B.cb,B.cb,B.cb,B.cb,B.ca,B.ca,B.ca,B.ca,B.ca,B.ca,B.ca,B.ca,B.ca,B.ca,B.ca,B.ah,B.ah],A.a4("a2<k,pz>"))
-B.a88={type:0}
-B.a7p=new A.a2(B.a88,["line"],t.w)
-B.a7s=new A.a2(B.bL,[],A.a4("a2<j3,G>"))
+B.a7r=new A.a2(B.a89,[B.cb,B.cb,B.cb,B.cb,B.cb,B.cb,B.cb,B.cb,B.cb,B.ca,B.ca,B.ca,B.ca,B.ca,B.ca,B.ca,B.ca,B.ca,B.ca,B.ca,B.ah,B.ah],A.a4("a2<k,pz>"))
+B.a8b={type:0}
+B.a7s=new A.a2(B.a8b,["line"],t.w)
+B.a7v=new A.a2(B.bL,[],A.a4("a2<j3,G>"))
 B.D3=new A.a2(B.bL,[],A.a4("a2<K,wN>"))
 B.k4=new A.a2(B.bL,[],A.a4("a2<vI,aT>"))
-B.a7q=new A.a2(B.bL,[],A.a4("a2<k,e(I)>"))
+B.a7t=new A.a2(B.bL,[],A.a4("a2<k,e(I)>"))
 B.D2=new A.a2(B.bL,[],A.a4("a2<k,V<k>>"))
 B.nc=new A.a2(B.bL,[],A.a4("a2<k,@>"))
 B.D4=new A.a2(B.bL,[],A.a4("a2<E1,@>"))
-B.a7r=new A.a2(B.bL,[],A.a4("a2<fz,cH>"))
+B.a7u=new A.a2(B.bL,[],A.a4("a2<fz,cH>"))
 B.D6=new A.a2(B.bL,[],A.a4("a2<fz,n9<cH>>"))
-B.VC=s([42,null,null,8589935146],t.Z)
-B.VD=s([43,null,null,8589935147],t.Z)
-B.VE=s([45,null,null,8589935149],t.Z)
-B.VG=s([46,null,null,8589935150],t.Z)
-B.VH=s([47,null,null,8589935151],t.Z)
-B.VI=s([48,null,null,8589935152],t.Z)
-B.VJ=s([49,null,null,8589935153],t.Z)
-B.VV=s([50,null,null,8589935154],t.Z)
-B.VX=s([51,null,null,8589935155],t.Z)
-B.VZ=s([52,null,null,8589935156],t.Z)
-B.W_=s([53,null,null,8589935157],t.Z)
-B.W0=s([54,null,null,8589935158],t.Z)
-B.W1=s([55,null,null,8589935159],t.Z)
-B.W2=s([56,null,null,8589935160],t.Z)
-B.W4=s([57,null,null,8589935161],t.Z)
-B.a_u=s([8589934852,8589934852,8589934853,null],t.Z)
-B.Vr=s([4294967555,null,4294967555,null],t.Z)
-B.Vs=s([4294968065,null,null,8589935154],t.Z)
-B.Vt=s([4294968066,null,null,8589935156],t.Z)
-B.Vu=s([4294968067,null,null,8589935158],t.Z)
-B.Vv=s([4294968068,null,null,8589935160],t.Z)
-B.VA=s([4294968321,null,null,8589935157],t.Z)
-B.a_v=s([8589934848,8589934848,8589934849,null],t.Z)
-B.Vq=s([4294967423,null,null,8589935150],t.Z)
-B.Vw=s([4294968069,null,null,8589935153],t.Z)
-B.Vp=s([4294967309,null,null,8589935117],t.Z)
-B.Vx=s([4294968070,null,null,8589935159],t.Z)
-B.VB=s([4294968327,null,null,8589935152],t.Z)
-B.a_w=s([8589934854,8589934854,8589934855,null],t.Z)
-B.Vy=s([4294968071,null,null,8589935155],t.Z)
-B.Vz=s([4294968072,null,null,8589935161],t.Z)
-B.a_x=s([8589934850,8589934850,8589934851,null],t.Z)
-B.D7=new A.dJ(["*",B.VC,"+",B.VD,"-",B.VE,".",B.VG,"/",B.VH,"0",B.VI,"1",B.VJ,"2",B.VV,"3",B.VX,"4",B.VZ,"5",B.W_,"6",B.W0,"7",B.W1,"8",B.W2,"9",B.W4,"Alt",B.a_u,"AltGraph",B.Vr,"ArrowDown",B.Vs,"ArrowLeft",B.Vt,"ArrowRight",B.Vu,"ArrowUp",B.Vv,"Clear",B.VA,"Control",B.a_v,"Delete",B.Vq,"End",B.Vw,"Enter",B.Vp,"Home",B.Vx,"Insert",B.VB,"Meta",B.a_w,"PageDown",B.Vy,"PageUp",B.Vz,"Shift",B.a_x],A.a4("dJ<k,V<t?>>"))
-B.W3=s([B.yb,null,null,B.CS],t.L)
+B.VG=s([42,null,null,8589935146],t.Z)
+B.VH=s([43,null,null,8589935147],t.Z)
+B.VI=s([45,null,null,8589935149],t.Z)
+B.VK=s([46,null,null,8589935150],t.Z)
+B.VL=s([47,null,null,8589935151],t.Z)
+B.VM=s([48,null,null,8589935152],t.Z)
+B.VN=s([49,null,null,8589935153],t.Z)
+B.VY=s([50,null,null,8589935154],t.Z)
+B.W_=s([51,null,null,8589935155],t.Z)
+B.W1=s([52,null,null,8589935156],t.Z)
+B.W2=s([53,null,null,8589935157],t.Z)
+B.W3=s([54,null,null,8589935158],t.Z)
+B.W4=s([55,null,null,8589935159],t.Z)
+B.W5=s([56,null,null,8589935160],t.Z)
+B.W7=s([57,null,null,8589935161],t.Z)
+B.a_v=s([8589934852,8589934852,8589934853,null],t.Z)
+B.Vv=s([4294967555,null,4294967555,null],t.Z)
+B.Vw=s([4294968065,null,null,8589935154],t.Z)
+B.Vx=s([4294968066,null,null,8589935156],t.Z)
+B.Vy=s([4294968067,null,null,8589935158],t.Z)
+B.Vz=s([4294968068,null,null,8589935160],t.Z)
+B.VE=s([4294968321,null,null,8589935157],t.Z)
+B.a_w=s([8589934848,8589934848,8589934849,null],t.Z)
+B.Vu=s([4294967423,null,null,8589935150],t.Z)
+B.VA=s([4294968069,null,null,8589935153],t.Z)
+B.Vt=s([4294967309,null,null,8589935117],t.Z)
+B.VB=s([4294968070,null,null,8589935159],t.Z)
+B.VF=s([4294968327,null,null,8589935152],t.Z)
+B.a_x=s([8589934854,8589934854,8589934855,null],t.Z)
+B.VC=s([4294968071,null,null,8589935155],t.Z)
+B.VD=s([4294968072,null,null,8589935161],t.Z)
+B.a_y=s([8589934850,8589934850,8589934851,null],t.Z)
+B.D7=new A.dJ(["*",B.VG,"+",B.VH,"-",B.VI,".",B.VK,"/",B.VL,"0",B.VM,"1",B.VN,"2",B.VY,"3",B.W_,"4",B.W1,"5",B.W2,"6",B.W3,"7",B.W4,"8",B.W5,"9",B.W7,"Alt",B.a_v,"AltGraph",B.Vv,"ArrowDown",B.Vw,"ArrowLeft",B.Vx,"ArrowRight",B.Vy,"ArrowUp",B.Vz,"Clear",B.VE,"Control",B.a_w,"Delete",B.Vu,"End",B.VA,"Enter",B.Vt,"Home",B.VB,"Insert",B.VF,"Meta",B.a_x,"PageDown",B.VC,"PageUp",B.VD,"Shift",B.a_y],A.a4("dJ<k,V<t?>>"))
+B.W6=s([B.yb,null,null,B.CS],t.L)
 B.a1s=s([B.CE,null,null,B.CT],t.L)
-B.Yf=s([B.CF,null,null,B.CU],t.L)
-B.a_G=s([B.CG,null,null,B.e2],t.L)
-B.UU=s([B.CH,null,null,B.CV],t.L)
-B.a37=s([B.CI,null,null,B.n8],t.L)
+B.Ym=s([B.CF,null,null,B.CU],t.L)
+B.a_H=s([B.CG,null,null,B.e2],t.L)
+B.UX=s([B.CH,null,null,B.CV],t.L)
+B.a38=s([B.CI,null,null,B.n8],t.L)
 B.a2h=s([B.CJ,null,null,B.hi],t.L)
-B.Wn=s([B.CK,null,null,B.e3],t.L)
-B.a3u=s([B.CL,null,null,B.hj],t.L)
+B.Ws=s([B.CK,null,null,B.e3],t.L)
+B.a3v=s([B.CL,null,null,B.hj],t.L)
 B.a2f=s([B.CM,null,null,B.e4],t.L)
-B.Wk=s([B.CN,null,null,B.n9],t.L)
-B.Vb=s([B.CO,null,null,B.e5],t.L)
-B.X1=s([B.CP,null,null,B.hk],t.L)
+B.Wo=s([B.CN,null,null,B.n9],t.L)
+B.Vf=s([B.CO,null,null,B.e5],t.L)
+B.X9=s([B.CP,null,null,B.hk],t.L)
 B.a1x=s([B.CQ,null,null,B.e6],t.L)
 B.a1K=s([B.CR,null,null,B.hl],t.L)
-B.WA=s([B.hg,B.hg,B.k1,null],t.L)
-B.a38=s([B.jY,null,B.jY,null],t.L)
-B.Zh=s([B.cy,null,null,B.e3],t.L)
-B.Zi=s([B.cj,null,null,B.e4],t.L)
-B.Zj=s([B.ck,null,null,B.e5],t.L)
-B.a3k=s([B.cz,null,null,B.e6],t.L)
+B.WG=s([B.hg,B.hg,B.k1,null],t.L)
+B.a39=s([B.jY,null,B.jY,null],t.L)
+B.Zk=s([B.cy,null,null,B.e3],t.L)
+B.Zl=s([B.cj,null,null,B.e4],t.L)
+B.Zm=s([B.ck,null,null,B.e5],t.L)
+B.a3l=s([B.cz,null,null,B.e6],t.L)
 B.a2c=s([B.n2,null,null,B.n9],t.L)
-B.WB=s([B.hf,B.hf,B.k0,null],t.L)
+B.WH=s([B.hf,B.hf,B.k0,null],t.L)
 B.a0t=s([B.bh,null,null,B.e2],t.L)
-B.Zk=s([B.e0,null,null,B.hi],t.L)
-B.W9=s([B.jX,null,null,B.n7],t.L)
-B.Zl=s([B.e1,null,null,B.hk],t.L)
+B.Zn=s([B.e0,null,null,B.hi],t.L)
+B.Wc=s([B.jX,null,null,B.n7],t.L)
+B.Zo=s([B.e1,null,null,B.hk],t.L)
 B.a2d=s([B.he,null,null,B.n8],t.L)
-B.WC=s([B.hh,B.hh,B.k2,null],t.L)
-B.Zm=s([B.hc,null,null,B.hj],t.L)
+B.WI=s([B.hh,B.hh,B.k2,null],t.L)
+B.Zp=s([B.hc,null,null,B.hj],t.L)
 B.a0X=s([B.hd,null,null,B.hl],t.L)
-B.WD=s([B.cT,B.cT,B.dv,null],t.L)
-B.a7t=new A.dJ(["*",B.W3,"+",B.a1s,"-",B.Yf,".",B.a_G,"/",B.UU,"0",B.a37,"1",B.a2h,"2",B.Wn,"3",B.a3u,"4",B.a2f,"5",B.Wk,"6",B.Vb,"7",B.X1,"8",B.a1x,"9",B.a1K,"Alt",B.WA,"AltGraph",B.a38,"ArrowDown",B.Zh,"ArrowLeft",B.Zi,"ArrowRight",B.Zj,"ArrowUp",B.a3k,"Clear",B.a2c,"Control",B.WB,"Delete",B.a0t,"End",B.Zk,"Enter",B.W9,"Home",B.Zl,"Insert",B.a2d,"Meta",B.WC,"PageDown",B.Zm,"PageUp",B.a0X,"Shift",B.WD],A.a4("dJ<k,V<h?>>"))
-B.a81={KeyA:0,KeyB:1,KeyC:2,KeyD:3,KeyE:4,KeyF:5,KeyG:6,KeyH:7,KeyI:8,KeyJ:9,KeyK:10,KeyL:11,KeyM:12,KeyN:13,KeyO:14,KeyP:15,KeyQ:16,KeyR:17,KeyS:18,KeyT:19,KeyU:20,KeyV:21,KeyW:22,KeyX:23,KeyY:24,KeyZ:25,Digit1:26,Digit2:27,Digit3:28,Digit4:29,Digit5:30,Digit6:31,Digit7:32,Digit8:33,Digit9:34,Digit0:35,Minus:36,Equal:37,BracketLeft:38,BracketRight:39,Backslash:40,Semicolon:41,Quote:42,Backquote:43,Comma:44,Period:45,Slash:46}
-B.D8=new A.a2(B.a81,["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","1","2","3","4","5","6","7","8","9","0","-","=","[","]","\\",";","'","`",",",".","/"],t.w)
-B.a7Y={Abort:0,Again:1,AltLeft:2,AltRight:3,ArrowDown:4,ArrowLeft:5,ArrowRight:6,ArrowUp:7,AudioVolumeDown:8,AudioVolumeMute:9,AudioVolumeUp:10,Backquote:11,Backslash:12,Backspace:13,BracketLeft:14,BracketRight:15,BrightnessDown:16,BrightnessUp:17,BrowserBack:18,BrowserFavorites:19,BrowserForward:20,BrowserHome:21,BrowserRefresh:22,BrowserSearch:23,BrowserStop:24,CapsLock:25,Comma:26,ContextMenu:27,ControlLeft:28,ControlRight:29,Convert:30,Copy:31,Cut:32,Delete:33,Digit0:34,Digit1:35,Digit2:36,Digit3:37,Digit4:38,Digit5:39,Digit6:40,Digit7:41,Digit8:42,Digit9:43,DisplayToggleIntExt:44,Eject:45,End:46,Enter:47,Equal:48,Escape:49,Esc:50,F1:51,F10:52,F11:53,F12:54,F13:55,F14:56,F15:57,F16:58,F17:59,F18:60,F19:61,F2:62,F20:63,F21:64,F22:65,F23:66,F24:67,F3:68,F4:69,F5:70,F6:71,F7:72,F8:73,F9:74,Find:75,Fn:76,FnLock:77,GameButton1:78,GameButton10:79,GameButton11:80,GameButton12:81,GameButton13:82,GameButton14:83,GameButton15:84,GameButton16:85,GameButton2:86,GameButton3:87,GameButton4:88,GameButton5:89,GameButton6:90,GameButton7:91,GameButton8:92,GameButton9:93,GameButtonA:94,GameButtonB:95,GameButtonC:96,GameButtonLeft1:97,GameButtonLeft2:98,GameButtonMode:99,GameButtonRight1:100,GameButtonRight2:101,GameButtonSelect:102,GameButtonStart:103,GameButtonThumbLeft:104,GameButtonThumbRight:105,GameButtonX:106,GameButtonY:107,GameButtonZ:108,Help:109,Home:110,Hyper:111,Insert:112,IntlBackslash:113,IntlRo:114,IntlYen:115,KanaMode:116,KeyA:117,KeyB:118,KeyC:119,KeyD:120,KeyE:121,KeyF:122,KeyG:123,KeyH:124,KeyI:125,KeyJ:126,KeyK:127,KeyL:128,KeyM:129,KeyN:130,KeyO:131,KeyP:132,KeyQ:133,KeyR:134,KeyS:135,KeyT:136,KeyU:137,KeyV:138,KeyW:139,KeyX:140,KeyY:141,KeyZ:142,KeyboardLayoutSelect:143,Lang1:144,Lang2:145,Lang3:146,Lang4:147,Lang5:148,LaunchApp1:149,LaunchApp2:150,LaunchAssistant:151,LaunchControlPanel:152,LaunchMail:153,LaunchScreenSaver:154,MailForward:155,MailReply:156,MailSend:157,MediaFastForward:158,MediaPause:159,MediaPlay:160,MediaPlayPause:161,MediaRecord:162,MediaRewind:163,MediaSelect:164,MediaStop:165,MediaTrackNext:166,MediaTrackPrevious:167,MetaLeft:168,MetaRight:169,MicrophoneMuteToggle:170,Minus:171,NonConvert:172,NumLock:173,Numpad0:174,Numpad1:175,Numpad2:176,Numpad3:177,Numpad4:178,Numpad5:179,Numpad6:180,Numpad7:181,Numpad8:182,Numpad9:183,NumpadAdd:184,NumpadBackspace:185,NumpadClear:186,NumpadClearEntry:187,NumpadComma:188,NumpadDecimal:189,NumpadDivide:190,NumpadEnter:191,NumpadEqual:192,NumpadMemoryAdd:193,NumpadMemoryClear:194,NumpadMemoryRecall:195,NumpadMemoryStore:196,NumpadMemorySubtract:197,NumpadMultiply:198,NumpadParenLeft:199,NumpadParenRight:200,NumpadSubtract:201,Open:202,PageDown:203,PageUp:204,Paste:205,Pause:206,Period:207,Power:208,PrintScreen:209,PrivacyScreenToggle:210,Props:211,Quote:212,Resume:213,ScrollLock:214,Select:215,SelectTask:216,Semicolon:217,ShiftLeft:218,ShiftRight:219,ShowAllWindows:220,Slash:221,Sleep:222,Space:223,Super:224,Suspend:225,Tab:226,Turbo:227,Undo:228,WakeUp:229,ZoomToggle:230}
+B.WJ=s([B.cT,B.cT,B.dv,null],t.L)
+B.a7w=new A.dJ(["*",B.W6,"+",B.a1s,"-",B.Ym,".",B.a_H,"/",B.UX,"0",B.a38,"1",B.a2h,"2",B.Ws,"3",B.a3v,"4",B.a2f,"5",B.Wo,"6",B.Vf,"7",B.X9,"8",B.a1x,"9",B.a1K,"Alt",B.WG,"AltGraph",B.a39,"ArrowDown",B.Zk,"ArrowLeft",B.Zl,"ArrowRight",B.Zm,"ArrowUp",B.a3l,"Clear",B.a2c,"Control",B.WH,"Delete",B.a0t,"End",B.Zn,"Enter",B.Wc,"Home",B.Zo,"Insert",B.a2d,"Meta",B.WI,"PageDown",B.Zp,"PageUp",B.a0X,"Shift",B.WJ],A.a4("dJ<k,V<h?>>"))
+B.a84={KeyA:0,KeyB:1,KeyC:2,KeyD:3,KeyE:4,KeyF:5,KeyG:6,KeyH:7,KeyI:8,KeyJ:9,KeyK:10,KeyL:11,KeyM:12,KeyN:13,KeyO:14,KeyP:15,KeyQ:16,KeyR:17,KeyS:18,KeyT:19,KeyU:20,KeyV:21,KeyW:22,KeyX:23,KeyY:24,KeyZ:25,Digit1:26,Digit2:27,Digit3:28,Digit4:29,Digit5:30,Digit6:31,Digit7:32,Digit8:33,Digit9:34,Digit0:35,Minus:36,Equal:37,BracketLeft:38,BracketRight:39,Backslash:40,Semicolon:41,Quote:42,Backquote:43,Comma:44,Period:45,Slash:46}
+B.D8=new A.a2(B.a84,["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","1","2","3","4","5","6","7","8","9","0","-","=","[","]","\\",";","'","`",",",".","/"],t.w)
+B.a80={Abort:0,Again:1,AltLeft:2,AltRight:3,ArrowDown:4,ArrowLeft:5,ArrowRight:6,ArrowUp:7,AudioVolumeDown:8,AudioVolumeMute:9,AudioVolumeUp:10,Backquote:11,Backslash:12,Backspace:13,BracketLeft:14,BracketRight:15,BrightnessDown:16,BrightnessUp:17,BrowserBack:18,BrowserFavorites:19,BrowserForward:20,BrowserHome:21,BrowserRefresh:22,BrowserSearch:23,BrowserStop:24,CapsLock:25,Comma:26,ContextMenu:27,ControlLeft:28,ControlRight:29,Convert:30,Copy:31,Cut:32,Delete:33,Digit0:34,Digit1:35,Digit2:36,Digit3:37,Digit4:38,Digit5:39,Digit6:40,Digit7:41,Digit8:42,Digit9:43,DisplayToggleIntExt:44,Eject:45,End:46,Enter:47,Equal:48,Escape:49,Esc:50,F1:51,F10:52,F11:53,F12:54,F13:55,F14:56,F15:57,F16:58,F17:59,F18:60,F19:61,F2:62,F20:63,F21:64,F22:65,F23:66,F24:67,F3:68,F4:69,F5:70,F6:71,F7:72,F8:73,F9:74,Find:75,Fn:76,FnLock:77,GameButton1:78,GameButton10:79,GameButton11:80,GameButton12:81,GameButton13:82,GameButton14:83,GameButton15:84,GameButton16:85,GameButton2:86,GameButton3:87,GameButton4:88,GameButton5:89,GameButton6:90,GameButton7:91,GameButton8:92,GameButton9:93,GameButtonA:94,GameButtonB:95,GameButtonC:96,GameButtonLeft1:97,GameButtonLeft2:98,GameButtonMode:99,GameButtonRight1:100,GameButtonRight2:101,GameButtonSelect:102,GameButtonStart:103,GameButtonThumbLeft:104,GameButtonThumbRight:105,GameButtonX:106,GameButtonY:107,GameButtonZ:108,Help:109,Home:110,Hyper:111,Insert:112,IntlBackslash:113,IntlRo:114,IntlYen:115,KanaMode:116,KeyA:117,KeyB:118,KeyC:119,KeyD:120,KeyE:121,KeyF:122,KeyG:123,KeyH:124,KeyI:125,KeyJ:126,KeyK:127,KeyL:128,KeyM:129,KeyN:130,KeyO:131,KeyP:132,KeyQ:133,KeyR:134,KeyS:135,KeyT:136,KeyU:137,KeyV:138,KeyW:139,KeyX:140,KeyY:141,KeyZ:142,KeyboardLayoutSelect:143,Lang1:144,Lang2:145,Lang3:146,Lang4:147,Lang5:148,LaunchApp1:149,LaunchApp2:150,LaunchAssistant:151,LaunchControlPanel:152,LaunchMail:153,LaunchScreenSaver:154,MailForward:155,MailReply:156,MailSend:157,MediaFastForward:158,MediaPause:159,MediaPlay:160,MediaPlayPause:161,MediaRecord:162,MediaRewind:163,MediaSelect:164,MediaStop:165,MediaTrackNext:166,MediaTrackPrevious:167,MetaLeft:168,MetaRight:169,MicrophoneMuteToggle:170,Minus:171,NonConvert:172,NumLock:173,Numpad0:174,Numpad1:175,Numpad2:176,Numpad3:177,Numpad4:178,Numpad5:179,Numpad6:180,Numpad7:181,Numpad8:182,Numpad9:183,NumpadAdd:184,NumpadBackspace:185,NumpadClear:186,NumpadClearEntry:187,NumpadComma:188,NumpadDecimal:189,NumpadDivide:190,NumpadEnter:191,NumpadEqual:192,NumpadMemoryAdd:193,NumpadMemoryClear:194,NumpadMemoryRecall:195,NumpadMemoryStore:196,NumpadMemorySubtract:197,NumpadMultiply:198,NumpadParenLeft:199,NumpadParenRight:200,NumpadSubtract:201,Open:202,PageDown:203,PageUp:204,Paste:205,Pause:206,Period:207,Power:208,PrintScreen:209,PrivacyScreenToggle:210,Props:211,Quote:212,Resume:213,ScrollLock:214,Select:215,SelectTask:216,Semicolon:217,ShiftLeft:218,ShiftRight:219,ShowAllWindows:220,Slash:221,Sleep:222,Space:223,Super:224,Suspend:225,Tab:226,Turbo:227,Undo:228,WakeUp:229,ZoomToggle:230}
 B.Ge=new A.o(458907)
 B.FV=new A.o(458873)
 B.f9=new A.o(458978)
@@ -94552,120 +94555,120 @@ B.DD=new A.o(22)
 B.FW=new A.o(458874)
 B.Gr=new A.o(65667)
 B.GU=new A.o(786994)
-B.D9=new A.a2(B.a7Y,[B.Ge,B.FV,B.f9,B.fb,B.Fk,B.Fj,B.Fi,B.Fl,B.G2,B.G0,B.G1,B.EV,B.ES,B.EL,B.EQ,B.ER,B.Gu,B.Gt,B.GP,B.GT,B.GQ,B.GO,B.GS,B.GN,B.GR,B.ea,B.EW,B.FD,B.f7,B.hr,B.G7,B.FY,B.FX,B.Ff,B.EJ,B.EA,B.EB,B.EC,B.ED,B.EE,B.EF,B.EG,B.EH,B.EI,B.Gs,B.GD,B.Fg,B.EK,B.EP,B.np,B.np,B.EZ,B.F7,B.F8,B.F9,B.FG,B.FH,B.FI,B.FJ,B.FK,B.FL,B.FM,B.F_,B.FN,B.FO,B.FP,B.FQ,B.FR,B.F0,B.F1,B.F2,B.F3,B.F4,B.F5,B.F6,B.G_,B.hq,B.DA,B.DG,B.DP,B.DQ,B.DR,B.DS,B.DT,B.DU,B.DV,B.DH,B.DI,B.DJ,B.DK,B.DL,B.DM,B.DN,B.DO,B.DW,B.DX,B.DY,B.DZ,B.E_,B.E0,B.E1,B.E2,B.E3,B.E4,B.E5,B.E6,B.E7,B.E8,B.E9,B.FT,B.Fd,B.Dy,B.Fc,B.FC,B.G4,B.G6,B.G5,B.Ea,B.Eb,B.Ec,B.Ed,B.Ee,B.Ef,B.Eg,B.Eh,B.Ei,B.Ej,B.Ek,B.El,B.Em,B.En,B.Eo,B.Ep,B.Eq,B.Er,B.Es,B.Et,B.Eu,B.Ev,B.Ew,B.Ex,B.Ey,B.Ez,B.GY,B.G9,B.Ga,B.Gb,B.Gc,B.Gd,B.GI,B.GH,B.GM,B.GJ,B.GG,B.GL,B.GW,B.GV,B.GX,B.Gy,B.Gw,B.Gv,B.GE,B.Gx,B.Gz,B.GF,B.GC,B.GA,B.GB,B.fa,B.ht,B.DF,B.EO,B.G8,B.kb,B.FA,B.Fr,B.Fs,B.Ft,B.Fu,B.Fv,B.Fw,B.Fx,B.Fy,B.Fz,B.Fp,B.Gi,B.Go,B.Gp,B.G3,B.FB,B.Fm,B.Fq,B.FF,B.Gm,B.Gl,B.Gk,B.Gj,B.Gn,B.Fn,B.Gg,B.Gh,B.Fo,B.FS,B.Fh,B.Fe,B.FZ,B.Fb,B.EX,B.FE,B.Fa,B.DE,B.Gf,B.EU,B.DC,B.ka,B.FU,B.GK,B.ET,B.f8,B.hs,B.GZ,B.EY,B.Gq,B.EN,B.Dz,B.DB,B.EM,B.DD,B.FW,B.Gr,B.GU],A.a4("a2<k,o>"))
+B.D9=new A.a2(B.a80,[B.Ge,B.FV,B.f9,B.fb,B.Fk,B.Fj,B.Fi,B.Fl,B.G2,B.G0,B.G1,B.EV,B.ES,B.EL,B.EQ,B.ER,B.Gu,B.Gt,B.GP,B.GT,B.GQ,B.GO,B.GS,B.GN,B.GR,B.ea,B.EW,B.FD,B.f7,B.hr,B.G7,B.FY,B.FX,B.Ff,B.EJ,B.EA,B.EB,B.EC,B.ED,B.EE,B.EF,B.EG,B.EH,B.EI,B.Gs,B.GD,B.Fg,B.EK,B.EP,B.np,B.np,B.EZ,B.F7,B.F8,B.F9,B.FG,B.FH,B.FI,B.FJ,B.FK,B.FL,B.FM,B.F_,B.FN,B.FO,B.FP,B.FQ,B.FR,B.F0,B.F1,B.F2,B.F3,B.F4,B.F5,B.F6,B.G_,B.hq,B.DA,B.DG,B.DP,B.DQ,B.DR,B.DS,B.DT,B.DU,B.DV,B.DH,B.DI,B.DJ,B.DK,B.DL,B.DM,B.DN,B.DO,B.DW,B.DX,B.DY,B.DZ,B.E_,B.E0,B.E1,B.E2,B.E3,B.E4,B.E5,B.E6,B.E7,B.E8,B.E9,B.FT,B.Fd,B.Dy,B.Fc,B.FC,B.G4,B.G6,B.G5,B.Ea,B.Eb,B.Ec,B.Ed,B.Ee,B.Ef,B.Eg,B.Eh,B.Ei,B.Ej,B.Ek,B.El,B.Em,B.En,B.Eo,B.Ep,B.Eq,B.Er,B.Es,B.Et,B.Eu,B.Ev,B.Ew,B.Ex,B.Ey,B.Ez,B.GY,B.G9,B.Ga,B.Gb,B.Gc,B.Gd,B.GI,B.GH,B.GM,B.GJ,B.GG,B.GL,B.GW,B.GV,B.GX,B.Gy,B.Gw,B.Gv,B.GE,B.Gx,B.Gz,B.GF,B.GC,B.GA,B.GB,B.fa,B.ht,B.DF,B.EO,B.G8,B.kb,B.FA,B.Fr,B.Fs,B.Ft,B.Fu,B.Fv,B.Fw,B.Fx,B.Fy,B.Fz,B.Fp,B.Gi,B.Go,B.Gp,B.G3,B.FB,B.Fm,B.Fq,B.FF,B.Gm,B.Gl,B.Gk,B.Gj,B.Gn,B.Fn,B.Gg,B.Gh,B.Fo,B.FS,B.Fh,B.Fe,B.FZ,B.Fb,B.EX,B.FE,B.Fa,B.DE,B.Gf,B.EU,B.DC,B.ka,B.FU,B.GK,B.ET,B.f8,B.hs,B.GZ,B.EY,B.Gq,B.EN,B.Dz,B.DB,B.EM,B.DD,B.FW,B.Gr,B.GU],A.a4("a2<k,o>"))
 B.Hp=new A.lW(!1)
 B.Hq=new A.lW(!0)
-B.a83={BU:0,DD:1,FX:2,TP:3,YD:4,ZR:5}
-B.cU=new A.a2(B.a83,["MM","DE","FR","TL","YE","CD"],t.w)
-B.a9k=new A.o(458752)
-B.a9l=new A.o(458753)
-B.a9m=new A.o(458754)
-B.a9n=new A.o(458755)
-B.a9o=new A.o(458967)
-B.a9p=new A.o(786528)
-B.a9q=new A.o(786529)
-B.a9r=new A.o(786546)
-B.a9s=new A.o(786547)
-B.a9t=new A.o(786548)
-B.a9u=new A.o(786549)
-B.a9v=new A.o(786553)
-B.a9w=new A.o(786554)
-B.a9x=new A.o(786563)
-B.a9y=new A.o(786572)
-B.a9z=new A.o(786573)
-B.a9A=new A.o(786580)
-B.a9B=new A.o(786588)
-B.a9C=new A.o(786589)
-B.a9D=new A.o(786639)
-B.a9E=new A.o(786661)
-B.a9F=new A.o(786820)
-B.a9G=new A.o(786822)
-B.a9H=new A.o(786829)
-B.a9I=new A.o(786830)
-B.a9J=new A.o(786838)
-B.a9K=new A.o(786844)
-B.a9L=new A.o(786846)
-B.a9M=new A.o(786855)
-B.a9N=new A.o(786859)
-B.a9O=new A.o(786862)
-B.a9P=new A.o(786871)
-B.a9Q=new A.o(786945)
-B.a9R=new A.o(786947)
-B.a9S=new A.o(786951)
-B.a9T=new A.o(786952)
-B.a9U=new A.o(786989)
-B.a9V=new A.o(786990)
-B.a9W=new A.o(787065)
-B.a7w=new A.dJ([16,B.Dy,17,B.Dz,18,B.hq,19,B.DA,20,B.DB,21,B.DC,22,B.DD,23,B.DE,24,B.DF,65666,B.Gq,65667,B.Gr,65717,B.Gs,392961,B.DG,392962,B.DH,392963,B.DI,392964,B.DJ,392965,B.DK,392966,B.DL,392967,B.DM,392968,B.DN,392969,B.DO,392970,B.DP,392971,B.DQ,392972,B.DR,392973,B.DS,392974,B.DT,392975,B.DU,392976,B.DV,392977,B.DW,392978,B.DX,392979,B.DY,392980,B.DZ,392981,B.E_,392982,B.E0,392983,B.E1,392984,B.E2,392985,B.E3,392986,B.E4,392987,B.E5,392988,B.E6,392989,B.E7,392990,B.E8,392991,B.E9,458752,B.a9k,458753,B.a9l,458754,B.a9m,458755,B.a9n,458756,B.Ea,458757,B.Eb,458758,B.Ec,458759,B.Ed,458760,B.Ee,458761,B.Ef,458762,B.Eg,458763,B.Eh,458764,B.Ei,458765,B.Ej,458766,B.Ek,458767,B.El,458768,B.Em,458769,B.En,458770,B.Eo,458771,B.Ep,458772,B.Eq,458773,B.Er,458774,B.Es,458775,B.Et,458776,B.Eu,458777,B.Ev,458778,B.Ew,458779,B.Ex,458780,B.Ey,458781,B.Ez,458782,B.EA,458783,B.EB,458784,B.EC,458785,B.ED,458786,B.EE,458787,B.EF,458788,B.EG,458789,B.EH,458790,B.EI,458791,B.EJ,458792,B.EK,458793,B.np,458794,B.EL,458795,B.EM,458796,B.EN,458797,B.EO,458798,B.EP,458799,B.EQ,458800,B.ER,458801,B.ES,458803,B.ET,458804,B.EU,458805,B.EV,458806,B.EW,458807,B.EX,458808,B.EY,458809,B.ea,458810,B.EZ,458811,B.F_,458812,B.F0,458813,B.F1,458814,B.F2,458815,B.F3,458816,B.F4,458817,B.F5,458818,B.F6,458819,B.F7,458820,B.F8,458821,B.F9,458822,B.Fa,458823,B.ka,458824,B.Fb,458825,B.Fc,458826,B.Fd,458827,B.Fe,458828,B.Ff,458829,B.Fg,458830,B.Fh,458831,B.Fi,458832,B.Fj,458833,B.Fk,458834,B.Fl,458835,B.kb,458836,B.Fm,458837,B.Fn,458838,B.Fo,458839,B.Fp,458840,B.Fq,458841,B.Fr,458842,B.Fs,458843,B.Ft,458844,B.Fu,458845,B.Fv,458846,B.Fw,458847,B.Fx,458848,B.Fy,458849,B.Fz,458850,B.FA,458851,B.FB,458852,B.FC,458853,B.FD,458854,B.FE,458855,B.FF,458856,B.FG,458857,B.FH,458858,B.FI,458859,B.FJ,458860,B.FK,458861,B.FL,458862,B.FM,458863,B.FN,458864,B.FO,458865,B.FP,458866,B.FQ,458867,B.FR,458868,B.FS,458869,B.FT,458871,B.FU,458873,B.FV,458874,B.FW,458875,B.FX,458876,B.FY,458877,B.FZ,458878,B.G_,458879,B.G0,458880,B.G1,458881,B.G2,458885,B.G3,458887,B.G4,458888,B.G5,458889,B.G6,458890,B.G7,458891,B.G8,458896,B.G9,458897,B.Ga,458898,B.Gb,458899,B.Gc,458900,B.Gd,458907,B.Ge,458915,B.Gf,458934,B.Gg,458935,B.Gh,458939,B.Gi,458960,B.Gj,458961,B.Gk,458962,B.Gl,458963,B.Gm,458964,B.Gn,458967,B.a9o,458968,B.Go,458969,B.Gp,458976,B.f7,458977,B.f8,458978,B.f9,458979,B.fa,458980,B.hr,458981,B.hs,458982,B.fb,458983,B.ht,786528,B.a9p,786529,B.a9q,786543,B.Gt,786544,B.Gu,786546,B.a9r,786547,B.a9s,786548,B.a9t,786549,B.a9u,786553,B.a9v,786554,B.a9w,786563,B.a9x,786572,B.a9y,786573,B.a9z,786580,B.a9A,786588,B.a9B,786589,B.a9C,786608,B.Gv,786609,B.Gw,786610,B.Gx,786611,B.Gy,786612,B.Gz,786613,B.GA,786614,B.GB,786615,B.GC,786616,B.GD,786637,B.GE,786639,B.a9D,786661,B.a9E,786819,B.GF,786820,B.a9F,786822,B.a9G,786826,B.GG,786829,B.a9H,786830,B.a9I,786834,B.GH,786836,B.GI,786838,B.a9J,786844,B.a9K,786846,B.a9L,786847,B.GJ,786850,B.GK,786855,B.a9M,786859,B.a9N,786862,B.a9O,786865,B.GL,786871,B.a9P,786891,B.GM,786945,B.a9Q,786947,B.a9R,786951,B.a9S,786952,B.a9T,786977,B.GN,786979,B.GO,786980,B.GP,786981,B.GQ,786982,B.GR,786983,B.GS,786986,B.GT,786989,B.a9U,786990,B.a9V,786994,B.GU,787065,B.a9W,787081,B.GV,787083,B.GW,787084,B.GX,787101,B.GY,787103,B.GZ],A.a4("dJ<t,o>"))
-B.a7x=new A.Bf(null,null,null,null,null,null,null,null)
+B.a86={BU:0,DD:1,FX:2,TP:3,YD:4,ZR:5}
+B.cU=new A.a2(B.a86,["MM","DE","FR","TL","YE","CD"],t.w)
+B.a9n=new A.o(458752)
+B.a9o=new A.o(458753)
+B.a9p=new A.o(458754)
+B.a9q=new A.o(458755)
+B.a9r=new A.o(458967)
+B.a9s=new A.o(786528)
+B.a9t=new A.o(786529)
+B.a9u=new A.o(786546)
+B.a9v=new A.o(786547)
+B.a9w=new A.o(786548)
+B.a9x=new A.o(786549)
+B.a9y=new A.o(786553)
+B.a9z=new A.o(786554)
+B.a9A=new A.o(786563)
+B.a9B=new A.o(786572)
+B.a9C=new A.o(786573)
+B.a9D=new A.o(786580)
+B.a9E=new A.o(786588)
+B.a9F=new A.o(786589)
+B.a9G=new A.o(786639)
+B.a9H=new A.o(786661)
+B.a9I=new A.o(786820)
+B.a9J=new A.o(786822)
+B.a9K=new A.o(786829)
+B.a9L=new A.o(786830)
+B.a9M=new A.o(786838)
+B.a9N=new A.o(786844)
+B.a9O=new A.o(786846)
+B.a9P=new A.o(786855)
+B.a9Q=new A.o(786859)
+B.a9R=new A.o(786862)
+B.a9S=new A.o(786871)
+B.a9T=new A.o(786945)
+B.a9U=new A.o(786947)
+B.a9V=new A.o(786951)
+B.a9W=new A.o(786952)
+B.a9X=new A.o(786989)
+B.a9Y=new A.o(786990)
+B.a9Z=new A.o(787065)
+B.a7z=new A.dJ([16,B.Dy,17,B.Dz,18,B.hq,19,B.DA,20,B.DB,21,B.DC,22,B.DD,23,B.DE,24,B.DF,65666,B.Gq,65667,B.Gr,65717,B.Gs,392961,B.DG,392962,B.DH,392963,B.DI,392964,B.DJ,392965,B.DK,392966,B.DL,392967,B.DM,392968,B.DN,392969,B.DO,392970,B.DP,392971,B.DQ,392972,B.DR,392973,B.DS,392974,B.DT,392975,B.DU,392976,B.DV,392977,B.DW,392978,B.DX,392979,B.DY,392980,B.DZ,392981,B.E_,392982,B.E0,392983,B.E1,392984,B.E2,392985,B.E3,392986,B.E4,392987,B.E5,392988,B.E6,392989,B.E7,392990,B.E8,392991,B.E9,458752,B.a9n,458753,B.a9o,458754,B.a9p,458755,B.a9q,458756,B.Ea,458757,B.Eb,458758,B.Ec,458759,B.Ed,458760,B.Ee,458761,B.Ef,458762,B.Eg,458763,B.Eh,458764,B.Ei,458765,B.Ej,458766,B.Ek,458767,B.El,458768,B.Em,458769,B.En,458770,B.Eo,458771,B.Ep,458772,B.Eq,458773,B.Er,458774,B.Es,458775,B.Et,458776,B.Eu,458777,B.Ev,458778,B.Ew,458779,B.Ex,458780,B.Ey,458781,B.Ez,458782,B.EA,458783,B.EB,458784,B.EC,458785,B.ED,458786,B.EE,458787,B.EF,458788,B.EG,458789,B.EH,458790,B.EI,458791,B.EJ,458792,B.EK,458793,B.np,458794,B.EL,458795,B.EM,458796,B.EN,458797,B.EO,458798,B.EP,458799,B.EQ,458800,B.ER,458801,B.ES,458803,B.ET,458804,B.EU,458805,B.EV,458806,B.EW,458807,B.EX,458808,B.EY,458809,B.ea,458810,B.EZ,458811,B.F_,458812,B.F0,458813,B.F1,458814,B.F2,458815,B.F3,458816,B.F4,458817,B.F5,458818,B.F6,458819,B.F7,458820,B.F8,458821,B.F9,458822,B.Fa,458823,B.ka,458824,B.Fb,458825,B.Fc,458826,B.Fd,458827,B.Fe,458828,B.Ff,458829,B.Fg,458830,B.Fh,458831,B.Fi,458832,B.Fj,458833,B.Fk,458834,B.Fl,458835,B.kb,458836,B.Fm,458837,B.Fn,458838,B.Fo,458839,B.Fp,458840,B.Fq,458841,B.Fr,458842,B.Fs,458843,B.Ft,458844,B.Fu,458845,B.Fv,458846,B.Fw,458847,B.Fx,458848,B.Fy,458849,B.Fz,458850,B.FA,458851,B.FB,458852,B.FC,458853,B.FD,458854,B.FE,458855,B.FF,458856,B.FG,458857,B.FH,458858,B.FI,458859,B.FJ,458860,B.FK,458861,B.FL,458862,B.FM,458863,B.FN,458864,B.FO,458865,B.FP,458866,B.FQ,458867,B.FR,458868,B.FS,458869,B.FT,458871,B.FU,458873,B.FV,458874,B.FW,458875,B.FX,458876,B.FY,458877,B.FZ,458878,B.G_,458879,B.G0,458880,B.G1,458881,B.G2,458885,B.G3,458887,B.G4,458888,B.G5,458889,B.G6,458890,B.G7,458891,B.G8,458896,B.G9,458897,B.Ga,458898,B.Gb,458899,B.Gc,458900,B.Gd,458907,B.Ge,458915,B.Gf,458934,B.Gg,458935,B.Gh,458939,B.Gi,458960,B.Gj,458961,B.Gk,458962,B.Gl,458963,B.Gm,458964,B.Gn,458967,B.a9r,458968,B.Go,458969,B.Gp,458976,B.f7,458977,B.f8,458978,B.f9,458979,B.fa,458980,B.hr,458981,B.hs,458982,B.fb,458983,B.ht,786528,B.a9s,786529,B.a9t,786543,B.Gt,786544,B.Gu,786546,B.a9u,786547,B.a9v,786548,B.a9w,786549,B.a9x,786553,B.a9y,786554,B.a9z,786563,B.a9A,786572,B.a9B,786573,B.a9C,786580,B.a9D,786588,B.a9E,786589,B.a9F,786608,B.Gv,786609,B.Gw,786610,B.Gx,786611,B.Gy,786612,B.Gz,786613,B.GA,786614,B.GB,786615,B.GC,786616,B.GD,786637,B.GE,786639,B.a9G,786661,B.a9H,786819,B.GF,786820,B.a9I,786822,B.a9J,786826,B.GG,786829,B.a9K,786830,B.a9L,786834,B.GH,786836,B.GI,786838,B.a9M,786844,B.a9N,786846,B.a9O,786847,B.GJ,786850,B.GK,786855,B.a9P,786859,B.a9Q,786862,B.a9R,786865,B.GL,786871,B.a9S,786891,B.GM,786945,B.a9T,786947,B.a9U,786951,B.a9V,786952,B.a9W,786977,B.GN,786979,B.GO,786980,B.GP,786981,B.GQ,786982,B.GR,786983,B.GS,786986,B.GT,786989,B.a9X,786990,B.a9Y,786994,B.GU,787065,B.a9Z,787081,B.GV,787083,B.GW,787084,B.GX,787101,B.GY,787103,B.GZ],A.a4("dJ<t,o>"))
+B.a7A=new A.Bf(null,null,null,null,null,null,null,null)
 B.ME=new A.r(1,0.39215686274509803,0.7098039215686275,0.9647058823529412,B.e)
 B.MO=new A.r(1,0.25882352941176473,0.6470588235294118,0.9607843137254902,B.e)
 B.Nz=new A.r(1,0.08235294117647059,0.396078431372549,0.7529411764705882,B.e)
 B.N2=new A.r(1,0.050980392156862744,0.2784313725490196,0.6313725490196078,B.e)
-B.a7u=new A.dJ([50,B.py,100,B.pT,200,B.pK,300,B.ME,400,B.MO,500,B.pF,600,B.pP,700,B.pW,800,B.Nz,900,B.N2],A.a4("dJ<t,r>"))
-B.k5=new A.PT(B.a7u,1,0.12941176470588237,0.5882352941176471,0.9529411764705882,B.e)
-B.a7y=new A.qh(0,"padded")
+B.a7x=new A.dJ([50,B.py,100,B.pT,200,B.pK,300,B.ME,400,B.MO,500,B.pF,600,B.pP,700,B.pW,800,B.Nz,900,B.N2],A.a4("dJ<t,r>"))
+B.k5=new A.PT(B.a7x,1,0.12941176470588237,0.5882352941176471,0.9529411764705882,B.e)
+B.a7B=new A.qh(0,"padded")
 B.hn=new A.qh(1,"shrinkWrap")
 B.bT=new A.qi(0,"canvas")
 B.e8=new A.qi(1,"card")
 B.Da=new A.qi(2,"circle")
 B.nd=new A.qi(3,"button")
 B.ho=new A.qi(4,"transparency")
-B.a7B=new A.RK(null,null)
-B.a7C=new A.Bt(null)
-B.a7D=new A.uX(null,null)
-B.a7H=new A.Bv(0.55,null)
+B.a7E=new A.RK(null,null)
+B.a7F=new A.Bt(null)
+B.a7G=new A.uX(null,null)
+B.a7K=new A.Bv(0.55,null)
 B.ne=new A.RN(null)
-B.a7J=new A.iq("popRoute",null)
+B.a7M=new A.iq("popRoute",null)
 B.cJ=new A.aoZ()
-B.a7K=new A.qm("plugins.flutter.io/url_launcher",B.cJ)
+B.a7N=new A.qm("plugins.flutter.io/url_launcher",B.cJ)
 B.Db=new A.qm("flutter/platform_views",B.cJ)
-B.a7L=new A.qm("flutter/service_worker",B.cJ)
+B.a7O=new A.qm("flutter/service_worker",B.cJ)
 B.f5=new A.RQ(0,"latestPointer")
 B.nj=new A.RQ(1,"averageBoundaryPointers")
 B.Dd=new A.qp(0,"clipRect")
 B.De=new A.qp(1,"clipRRect")
 B.Df=new A.qp(2,"clipPath")
-B.a7M=new A.qp(3,"transform")
-B.a7N=new A.qp(4,"opacity")
+B.a7P=new A.qp(3,"transform")
+B.a7Q=new A.qp(4,"opacity")
 B.Dh=new A.qs(null,null,null,null,null,null,null,null,null,null,null,null)
-B.a7R=new A.aiw(0,"alwaysShow")
-B.a7S=new A.BM(null,null,null,null,null,null,null,null,null,null)
+B.a7U=new A.aiw(0,"alwaysShow")
+B.a7V=new A.BM(null,null,null,null,null,null,null,null,null,null)
 B.f6=new A.RX(0,"traditional")
 B.k7=new A.RX(1,"directional")
-B.a7T=new A.nz(!0)
-B.a7U=new A.BN(null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.a7W=new A.nz(!0)
+B.a7X=new A.BN(null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.Dj=new A.ey(B.f,B.f)
-B.a8c=new A.f(0,1)
-B.a8d=new A.f(0,10)
-B.a8f=new A.f(0,16)
-B.a8h=new A.f(0,20)
-B.a8i=new A.f(0,26)
+B.a8f=new A.f(0,1)
+B.a8g=new A.f(0,10)
+B.a8i=new A.f(0,16)
+B.a8k=new A.f(0,20)
+B.a8l=new A.f(0,26)
 B.Dk=new A.f(0,4)
-B.a8j=new A.f(0,6)
+B.a8m=new A.f(0,6)
 B.Dl=new A.f(0,8)
-B.a8k=new A.f(11,-4)
+B.a8n=new A.f(11,-4)
 B.nk=new A.f(1,0)
-B.a8l=new A.f(1,3)
-B.a8m=new A.f(22,0)
-B.a8n=new A.f(3,0)
-B.a8o=new A.f(3,-3)
-B.a8r=new A.f(6,6)
-B.a8w=new A.f(0,-1.5)
-B.a8x=new A.f(-0.3333333333333333,0)
-B.a8A=new A.f(0,0.08)
-B.a8B=new A.f(5,10.5)
-B.a8D=new A.f(1/0,0)
-B.a8F=new A.f(-0.8,-2.2)
+B.a8o=new A.f(1,3)
+B.a8p=new A.f(22,0)
+B.a8q=new A.f(3,0)
+B.a8r=new A.f(3,-3)
+B.a8u=new A.f(6,6)
+B.a8z=new A.f(0,-1.5)
+B.a8A=new A.f(-0.3333333333333333,0)
+B.a8D=new A.f(0,0.08)
+B.a8E=new A.f(5,10.5)
+B.a8G=new A.f(1/0,0)
+B.a8I=new A.f(-0.8,-2.2)
 B.Do=new A.f(-0.25,0)
-B.a8H=new A.f(17976931348623157e292,0)
-B.a8M=new A.f(-3,0)
-B.a8N=new A.f(-3,3)
-B.a8O=new A.f(-3,-3)
+B.a8K=new A.f(17976931348623157e292,0)
+B.a8P=new A.f(-3,0)
+B.a8Q=new A.f(-3,3)
+B.a8R=new A.f(-3,-3)
 B.Dp=new A.f(0,0.06)
 B.e9=new A.f(0,-0.005)
 B.Dq=new A.f(0.25,0)
-B.a8U=new A.f(1/0,1/0)
+B.a8X=new A.f(1/0,1/0)
 B.bt=new A.lE(0,"iOs")
 B.hp=new A.lE(1,"android")
 B.k8=new A.lE(2,"linux")
@@ -94676,119 +94679,119 @@ B.nm=new A.he("flutter/restoration",B.cJ)
 B.er=new A.aeC()
 B.nn=new A.he("flutter/textinput",B.er)
 B.Dt=new A.he("flutter/menu",B.cJ)
-B.a8V=new A.he("flutter/mousecursor",B.cJ)
-B.a8W=new A.he("flutter/processtext",B.cJ)
+B.a8Y=new A.he("flutter/mousecursor",B.cJ)
+B.a8Z=new A.he("flutter/processtext",B.cJ)
 B.b4=new A.he("flutter/platform",B.er)
-B.a8X=new A.he("flutter/backgesture",B.cJ)
+B.a9_=new A.he("flutter/backgesture",B.cJ)
 B.no=new A.he("flutter/navigation",B.er)
-B.a8Z=new A.he("flutter/status_bar",B.er)
-B.a9_=new A.he("flutter/keyboard",B.cJ)
-B.a90=new A.qA(0,null)
-B.a91=new A.qA(1,null)
-B.a92=new A.Se(0,"portrait")
-B.a93=new A.Se(1,"landscape")
-B.a95=new A.BV(null)
-B.a96=new A.Sg(0,"nearestOverlay")
-B.a97=new A.Sg(1,"rootOverlay")
+B.a91=new A.he("flutter/status_bar",B.er)
+B.a92=new A.he("flutter/keyboard",B.cJ)
+B.a93=new A.qA(0,null)
+B.a94=new A.qA(1,null)
+B.a95=new A.Se(0,"portrait")
+B.a96=new A.Se(1,"landscape")
+B.a98=new A.BV(null)
+B.a99=new A.Sg(0,"nearestOverlay")
+B.a9a=new A.Sg(1,"rootOverlay")
 B.bu=new A.Sl(0,"fill")
 B.bi=new A.Sl(1,"stroke")
-B.anL=new A.ajd(3,"free")
-B.a98=new A.nE(1/0)
+B.anO=new A.ajd(3,"free")
+B.a9b=new A.nE(1/0)
 B.k9=new A.So(0,"nonZero")
-B.a99=new A.So(1,"evenOdd")
-B.a9a=new A.Sp(null)
-B.a9b=new A.Sq(null)
-B.a9c=new A.qE("/perfectgest-i-exclusao-dados",null)
-B.a9d=new A.qE("/perfectgest-i-termos",null)
-B.a9e=new A.qE("/perfectgest-i-faq",null)
-B.a9f=new A.qE("/perfectgest-i-politica-privacidade",null)
+B.a9c=new A.So(1,"evenOdd")
+B.a9d=new A.Sp(null)
+B.a9e=new A.Sq(null)
+B.a9f=new A.qE("/perfectgest-i-exclusao-dados",null)
+B.a9g=new A.qE("/perfectgest-i-termos",null)
+B.a9h=new A.qE("/perfectgest-i-faq",null)
+B.a9i=new A.qE("/perfectgest-i-politica-privacidade",null)
 B.Du=new A.nF(0,"privacy")
 B.Dv=new A.nF(1,"terms")
 B.Dw=new A.nF(2,"deletion")
 B.Dx=new A.nF(3,"faq")
-B.a9g=new A.Sr(null)
-B.a9h=new A.Ss(null)
-B.a9i=new A.C1(null)
-B.a9j=new A.C2(null)
+B.a9j=new A.Sr(null)
+B.a9k=new A.Ss(null)
+B.a9l=new A.C1(null)
+B.a9m=new A.C2(null)
 B.H_=new A.nG(0,"baseline")
 B.H0=new A.nG(1,"aboveBaseline")
 B.H1=new A.nG(2,"belowBaseline")
 B.H2=new A.nG(3,"top")
 B.fc=new A.nG(4,"bottom")
 B.H3=new A.nG(5,"middle")
-B.a9X=new A.v9(B.G,B.fc,null,null)
+B.aa_=new A.v9(B.G,B.fc,null,null)
 B.H5=new A.SA(0,"opaque")
 B.H6=new A.SA(2,"transparent")
 B.H7=new A.lI(0,"cancel")
 B.nq=new A.lI(1,"add")
-B.a9Y=new A.lI(2,"remove")
+B.aa0=new A.lI(2,"remove")
 B.eb=new A.lI(3,"hover")
-B.a9Z=new A.lI(4,"down")
+B.aa1=new A.lI(4,"down")
 B.kc=new A.lI(5,"move")
 B.H8=new A.lI(6,"up")
 B.kd=new A.vb(0,"none")
-B.aa_=new A.vb(1,"scroll")
-B.aa0=new A.vb(3,"scale")
-B.aa1=new A.vb(4,"unknown")
-B.aa2=new A.vd(16,null)
+B.aa2=new A.vb(1,"scroll")
+B.aa3=new A.vb(3,"scale")
+B.aa4=new A.vb(4,"unknown")
+B.aa5=new A.vd(16,null)
 B.H9=new A.vd(1,null)
-B.aa3=new A.nO(null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.aa4=new A.Ce(null)
-B.amf=new A.ZK(null)
-B.aa5=new A.jm(0,0,0,0,null,null,B.amf,null)
-B.am6=new A.Yr(null)
-B.aa6=new A.jm(0,0,0,0,null,null,B.am6,null)
-B.a7I=new A.Bv(1.1,null)
-B.aa7=new A.jm(0,0,0,0,null,null,B.a7I,null)
+B.aa6=new A.nO(null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.aa7=new A.Ce(null)
+B.ami=new A.ZK(null)
+B.aa8=new A.jm(0,0,0,0,null,null,B.ami,null)
+B.am9=new A.Yr(null)
+B.aa9=new A.jm(0,0,0,0,null,null,B.am9,null)
+B.a7L=new A.Bv(1.1,null)
+B.aaa=new A.jm(0,0,0,0,null,null,B.a7L,null)
 B.PQ=new A.OQ("Browser__WebContextMenuViewType__",null,B.H5,null)
-B.aa8=new A.jm(0,0,0,0,null,null,B.PQ,null)
+B.aab=new A.jm(0,0,0,0,null,null,B.PQ,null)
 B.nr=new A.qS(0,"platformDefault")
 B.Ha=new A.qS(1,"inAppWebView")
 B.Hb=new A.qS(2,"inAppBrowserView")
-B.aa9=new A.qS(3,"externalApplication")
+B.aac=new A.qS(3,"externalApplication")
 B.Hc=new A.qS(4,"externalNonBrowserApplication")
-B.aaa=new A.vg(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.aac=new A.Cj(null,null,null,null,null,null,null,null,null)
+B.aad=new A.vg(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.aaf=new A.Cj(null,null,null,null,null,null,null,null,null)
 B.Hd=new A.aF(1,1)
 B.fd=new A.aF(2,2)
-B.aad=new A.aF(-1/0,-1/0)
-B.aae=new A.aF(1.5,1.5)
-B.aaf=new A.aF(1/0,1/0)
-B.aag=new A.at(0,0)
-B.aah=new A.at(0,!0)
+B.aag=new A.aF(-1/0,-1/0)
+B.aah=new A.aF(1.5,1.5)
+B.aai=new A.aF(1/0,1/0)
+B.aaj=new A.at(0,0)
+B.aak=new A.at(0,!0)
 B.cn=new A.El(2,"collapsed")
-B.aak=new A.at(B.cn,B.cn)
+B.aan=new A.at(B.cn,B.cn)
 B.hO=new A.El(0,"left")
 B.hP=new A.El(1,"right")
-B.aar=new A.at(B.hO,B.hP)
+B.aau=new A.at(B.hO,B.hP)
 B.kq=new A.cL(4,"scrollLeft")
 B.kr=new A.cL(8,"scrollRight")
-B.aat=new A.at(B.kq,B.kr)
-B.aau=new A.at(B.kr,B.kq)
-B.aav=new A.at(!1,!1)
-B.aaw=new A.at(!1,null)
-B.aax=new A.at(!1,!0)
+B.aaw=new A.at(B.kq,B.kr)
+B.aax=new A.at(B.kr,B.kq)
+B.aay=new A.at(!1,!1)
+B.aaz=new A.at(!1,null)
+B.aaA=new A.at(!1,!0)
 B.kn=new A.cL(16,"scrollUp")
 B.ko=new A.cL(32,"scrollDown")
-B.aaA=new A.at(B.kn,B.ko)
-B.aaE=new A.at(B.ko,B.kn)
-B.aaG=new A.at(!0,!1)
-B.aaH=new A.at(!0,!0)
-B.aaI=new A.at(B.hP,B.hO)
-B.aaJ=new A.n(-1/0,-1/0,1/0,1/0)
+B.aaD=new A.at(B.kn,B.ko)
+B.aaH=new A.at(B.ko,B.kn)
+B.aaJ=new A.at(!0,!1)
+B.aaK=new A.at(!0,!0)
+B.aaL=new A.at(B.hP,B.hO)
+B.aaM=new A.n(-1/0,-1/0,1/0,1/0)
 B.ed=new A.n(-1e9,-1e9,1e9,1e9)
 B.He=new A.vo(0,"start")
 B.nt=new A.vo(1,"stable")
-B.aaK=new A.vo(2,"changed")
-B.aaL=new A.vo(3,"unstable")
+B.aaN=new A.vo(2,"changed")
+B.aaO=new A.vo(3,"unstable")
 B.cV=new A.Cu(0,"identical")
-B.aaM=new A.Cu(2,"paint")
+B.aaP=new A.Cu(2,"paint")
 B.bN=new A.Cu(3,"layout")
 B.nu=new A.alr(0,"exact")
 B.Hf=new A.df(B.ls,B.v)
 B.kg=new A.aF(28,28)
 B.K_=new A.cN(B.kg,B.kg,B.kg,B.kg)
-B.aaN=new A.df(B.K_,B.v)
+B.aaQ=new A.df(B.K_,B.v)
 B.JZ=new A.cN(B.fd,B.fd,B.fd,B.fd)
 B.nv=new A.df(B.JZ,B.v)
 B.Hg=new A.df(B.fA,B.v)
@@ -94797,12 +94800,12 @@ B.kk=new A.vq(0,"pop")
 B.ff=new A.vq(1,"doNotPop")
 B.Hi=new A.vq(2,"bubble")
 B.nw=new A.fv(null,null)
-B.aaP=new A.D1(1333)
+B.aaS=new A.D1(1333)
 B.nx=new A.D1(2222)
-B.aaQ=new A.Tz(null,null)
-B.aiN=new A.rB("Erro ao carregar a p\xe1gina.",null,null,null,null,null,null,null,null)
-B.M3=new A.le(B.T,null,null,B.aiN,null)
-B.aaR=new A.vs(null,B.M3,null,null,null)
+B.aaT=new A.Tz(null,null)
+B.aiQ=new A.rB("Erro ao carregar a p\xe1gina.",null,null,null,null,null,null,null,null)
+B.M3=new A.le(B.T,null,null,B.aiQ,null)
+B.aaU=new A.vs(null,B.M3,null,null,null)
 B.ee=new A.r9(0,"idle")
 B.Hj=new A.r9(1,"transientCallbacks")
 B.Hk=new A.r9(2,"midFrameMicrotasks")
@@ -94819,22 +94822,22 @@ B.cW=new A.rd(1,"keepVisibleAtEnd")
 B.cX=new A.rd(2,"keepVisibleAtStart")
 B.Hr=new A.vx(0,"left")
 B.Hs=new A.vx(1,"right")
-B.aaX=new A.vx(2,"top")
+B.ab_=new A.vx(2,"top")
 B.Ht=new A.vx(3,"bottom")
-B.aaY=new A.Dh(null,null,null,null,null,null,null,null,null,null,null)
-B.aaZ=new A.Di(null,null,null,null,null,null,null,null,null,null,null,null)
-B.ab_=new A.Dj(null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.ab0=new A.Dk(null,null)
-B.ab4=new A.kH(3,"selectAll")
-B.ab1=new A.TS(B.ab4)
+B.ab0=new A.Dh(null,null,null,null,null,null,null,null,null,null,null)
+B.ab1=new A.Di(null,null,null,null,null,null,null,null,null,null,null,null)
+B.ab2=new A.Dj(null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.ab3=new A.Dk(null,null)
+B.ab7=new A.kH(3,"selectAll")
+B.ab4=new A.TS(B.ab7)
 B.al=new A.TU(0,"changing")
 B.Hu=new A.TU(1,"finalized")
 B.ap=new A.iB(5,"toolbar")
-B.ab2=new A.kH(0,"startEdgeUpdate")
+B.ab5=new A.kH(0,"startEdgeUpdate")
 B.dx=new A.kH(1,"endEdgeUpdate")
 B.nB=new A.kH(4,"selectWord")
 B.hy=new A.kH(5,"selectParagraph")
-B.ab5=new A.kH(6,"granularlyExtendSelection")
+B.ab8=new A.kH(6,"granularlyExtendSelection")
 B.Hw=new A.kH(7,"directionallyExtendSelection")
 B.Hx=new A.vC(0,"previousLine")
 B.nC=new A.vC(1,"nextLine")
@@ -94850,147 +94853,147 @@ B.hz=new A.o1(3,"pending")
 B.fh=new A.o1(4,"none")
 B.hA=new A.Dq(0,"uncollapsed")
 B.HA=new A.Dq(1,"collapsed")
-B.ab6=new A.cL(1048576,"moveCursorBackwardByWord")
+B.ab9=new A.cL(1048576,"moveCursorBackwardByWord")
 B.HB=new A.cL(128,"decrease")
-B.ab7=new A.cL(16384,"paste")
-B.ab8=new A.cL(16777216,"expand")
+B.aba=new A.cL(16384,"paste")
+B.abb=new A.cL(16777216,"expand")
 B.nF=new A.cL(1,"tap")
-B.ab9=new A.cL(1024,"moveCursorBackwardByCharacter")
-B.aba=new A.cL(2048,"setSelection")
-B.abb=new A.cL(2097152,"setText")
-B.abc=new A.cL(256,"showOnScreen")
-B.abd=new A.cL(262144,"dismiss")
+B.abc=new A.cL(1024,"moveCursorBackwardByCharacter")
+B.abd=new A.cL(2048,"setSelection")
+B.abe=new A.cL(2097152,"setText")
+B.abf=new A.cL(256,"showOnScreen")
+B.abg=new A.cL(262144,"dismiss")
 B.HC=new A.cL(2,"longPress")
-B.abe=new A.cL(32768,"didGainAccessibilityFocus")
-B.abf=new A.cL(33554432,"collapse")
-B.abg=new A.cL(4096,"copy")
+B.abh=new A.cL(32768,"didGainAccessibilityFocus")
+B.abi=new A.cL(33554432,"collapse")
+B.abj=new A.cL(4096,"copy")
 B.kp=new A.cL(4194304,"focus")
-B.abh=new A.cL(512,"moveCursorForwardByCharacter")
-B.abi=new A.cL(524288,"moveCursorForwardByWord")
+B.abk=new A.cL(512,"moveCursorForwardByCharacter")
+B.abl=new A.cL(524288,"moveCursorForwardByWord")
 B.HD=new A.cL(64,"increase")
-B.abj=new A.cL(65536,"didLoseAccessibilityFocus")
-B.abk=new A.cL(8192,"cut")
+B.abm=new A.cL(65536,"didLoseAccessibilityFocus")
+B.abn=new A.cL(8192,"cut")
 B.HE=new A.cL(8388608,"scrollToOffset")
 B.R=new A.EJ(0,0,"none")
 B.ks=new A.Dv(B.ev,B.R,B.R,B.R,B.R,B.R,B.R,!1,!1,!1,!1,!1,!1,!1,!1,!1,!1,!1,!1,!1,!1,!1,!1,!1)
 B.cZ=new A.Dw(0,"defer")
-B.abl=new A.Dw(1,"opaque")
+B.abo=new A.Dw(1,"opaque")
 B.nG=new A.Dw(2,"transparent")
 B.nH=new A.rl(0,"none")
-B.abm=new A.rl(2,"url")
-B.abn=new A.rl(3,"phone")
-B.abo=new A.rl(5,"email")
+B.abp=new A.rl(2,"url")
+B.abq=new A.rl(3,"phone")
+B.abr=new A.rl(5,"email")
 B.kt=new A.hi(0,"none")
 B.HG=new A.hi(1,"tab")
-B.abp=new A.hi(14,"menu")
+B.abs=new A.hi(14,"menu")
 B.nI=new A.hi(15,"menuItem")
 B.nJ=new A.hi(16,"menuItemCheckbox")
 B.HH=new A.hi(17,"menuItemRadio")
-B.abq=new A.hi(2,"tabBar")
-B.abr=new A.hi(20,"form")
-B.abs=new A.hi(22,"loadingSpinner")
-B.abt=new A.hi(4,"dialog")
-B.abv=new A.dh("RenderViewport.twoPane")
-B.abx=new A.dh("RenderViewport.excludeFromScrolling")
+B.abt=new A.hi(2,"tabBar")
+B.abu=new A.hi(20,"form")
+B.abv=new A.hi(22,"loadingSpinner")
+B.abw=new A.hi(4,"dialog")
+B.aby=new A.dh("RenderViewport.twoPane")
+B.abA=new A.dh("RenderViewport.excludeFromScrolling")
 B.t=new A.Dz(0,"none")
 B.nK=new A.Dz(1,"valid")
 B.nL=new A.Dz(2,"invalid")
-B.a80={mailto:0,tel:1,sms:2}
-B.abB=new A.e9(B.a80,3,t.fF)
+B.a83={mailto:0,tel:1,sms:2}
+B.abE=new A.e9(B.a83,3,t.fF)
 B.nM=new A.dZ([B.cB,B.k8,B.nl],A.a4("dZ<lE>"))
-B.a82={pt:0,en:1,es:2}
-B.nN=new A.e9(B.a82,3,t.fF)
-B.abC=new A.dZ([10,11,12,13,133,8232,8233],t.Ih)
-B.a7W={serif:0,"sans-serif":1,monospace:2,cursive:3,fantasy:4,"system-ui":5,math:6,emoji:7,fangsong:8}
-B.abD=new A.e9(B.a7W,9,t.fF)
-B.a7V={"canvaskit.js":0}
-B.abE=new A.e9(B.a7V,1,t.fF)
+B.a85={pt:0,en:1,es:2}
+B.nN=new A.e9(B.a85,3,t.fF)
+B.abF=new A.dZ([10,11,12,13,133,8232,8233],t.Ih)
+B.a7Z={serif:0,"sans-serif":1,monospace:2,cursive:3,fantasy:4,"system-ui":5,math:6,emoji:7,fangsong:8}
+B.abG=new A.e9(B.a7Z,9,t.fF)
+B.a7Y={"canvaskit.js":0}
+B.abH=new A.e9(B.a7Y,1,t.fF)
 B.B=new A.c0(6,"disabled")
 B.ku=new A.dZ([B.B],t.El)
 B.HI=new A.dZ([B.c4,B.b5,B.ao,B.bM,B.bc],t.Lu)
-B.a84={javascript:0}
-B.abF=new A.e9(B.a84,1,t.fF)
-B.abG=new A.dZ([B.ao,B.b5,B.c4],t.Lu)
-B.a87={click:0,keyup:1,keydown:2,mouseup:3,mousedown:4,pointerdown:5,pointerup:6}
-B.abH=new A.e9(B.a87,7,t.fF)
-B.abI=new A.dZ([B.a7,B.L,B.bO],A.a4("dZ<fx>"))
-B.abK=new A.e9(B.bL,0,A.a4("e9<abK<cx>>"))
-B.abL=new A.e9(B.bL,0,A.a4("e9<dh>"))
-B.abJ=new A.e9(B.bL,0,A.a4("e9<fx>"))
+B.a87={javascript:0}
+B.abI=new A.e9(B.a87,1,t.fF)
+B.abJ=new A.dZ([B.ao,B.b5,B.c4],t.Lu)
+B.a8a={click:0,keyup:1,keydown:2,mouseup:3,mousedown:4,pointerdown:5,pointerup:6}
+B.abK=new A.e9(B.a8a,7,t.fF)
+B.abL=new A.dZ([B.a7,B.L,B.bO],A.a4("dZ<fx>"))
+B.abN=new A.e9(B.bL,0,A.a4("e9<abK<cx>>"))
+B.abO=new A.e9(B.bL,0,A.a4("e9<dh>"))
+B.abM=new A.e9(B.bL,0,A.a4("e9<fx>"))
 B.bl=new A.e9(B.bL,0,A.a4("e9<c0>"))
-B.abM=new A.dZ([32,8203],t.Ih)
+B.abP=new A.dZ([32,8203],t.Ih)
 B.M=new A.c0(1,"focused")
 B.H=new A.c0(0,"hovered")
 B.X=new A.c0(2,"pressed")
-B.abN=new A.dZ([B.M,B.H,B.X],t.El)
-B.a7X={click:0,touchstart:1,touchend:2,pointerdown:3,pointermove:4,pointerup:5}
-B.abO=new A.e9(B.a7X,6,t.fF)
-B.abu=new A.hi(8,"row")
-B.abP=new A.dZ([B.abu,B.HG],A.a4("dZ<hi>"))
+B.abQ=new A.dZ([B.M,B.H,B.X],t.El)
+B.a8_={click:0,touchstart:1,touchend:2,pointerdown:3,pointermove:4,pointerup:5}
+B.abR=new A.e9(B.a8_,6,t.fF)
+B.abx=new A.hi(8,"row")
+B.abS=new A.dZ([B.abx,B.HG],A.a4("dZ<hi>"))
 B.HJ=new A.dZ([B.ao,B.b5,B.c4,B.bc,B.bM],t.Lu)
 B.Y=new A.c0(4,"selected")
 B.kv=new A.dZ([B.Y],t.El)
 B.Ng=new A.r(0.23529411764705882,0,0,0,B.e)
 B.Kl=new A.cs(0.5,B.b0,B.Ng,B.Dk,10)
 B.a0x=s([B.Kl],t.sq)
-B.aaO=new A.kC(B.ls,B.v)
-B.abQ=new A.hj(null,null,null,B.a0x,B.aaO)
-B.abR=new A.ah(B.he,!1,!0,!1,!1,B.q)
+B.aaR=new A.kC(B.ls,B.v)
+B.abT=new A.hj(null,null,null,B.a0x,B.aaR)
+B.abU=new A.ah(B.he,!1,!0,!1,!1,B.q)
 B.HK=new A.ah(B.n0,!1,!1,!1,!0,B.q)
-B.abS=new A.ah(B.y6,!0,!1,!1,!1,B.q)
+B.abV=new A.ah(B.y6,!0,!1,!1,!1,B.q)
 B.bJ=new A.Bb(1,"locked")
-B.abT=new A.ah(B.e6,!1,!0,!1,!1,B.bJ)
-B.abU=new A.ah(B.hl,!1,!0,!1,!1,B.bJ)
+B.abW=new A.ah(B.e6,!1,!0,!1,!1,B.bJ)
+B.abX=new A.ah(B.hl,!1,!0,!1,!1,B.bJ)
 B.HM=new A.ah(B.n_,!1,!1,!1,!0,B.q)
-B.abV=new A.ah(B.CW,!0,!1,!1,!1,B.q)
-B.abW=new A.ah(B.nb,!0,!1,!1,!1,B.q)
-B.abX=new A.ah(B.n0,!0,!1,!1,!1,B.q)
-B.abY=new A.ah(B.e2,!0,!0,!1,!1,B.bJ)
+B.abY=new A.ah(B.CW,!0,!1,!1,!1,B.q)
+B.abZ=new A.ah(B.nb,!0,!1,!1,!1,B.q)
+B.ac_=new A.ah(B.n0,!0,!1,!1,!1,B.q)
+B.ac0=new A.ah(B.e2,!0,!0,!1,!1,B.bJ)
 B.HN=new A.ah(B.nb,!1,!1,!1,!0,B.q)
-B.abZ=new A.ah(B.he,!0,!1,!1,!1,B.q)
+B.ac1=new A.ah(B.he,!0,!1,!1,!1,B.q)
 B.bK=new A.Bb(2,"unlocked")
-B.ac4=new A.ah(B.hi,!1,!1,!1,!1,B.bK)
-B.ac1=new A.ah(B.e3,!1,!1,!1,!1,B.bK)
-B.ac2=new A.ah(B.hj,!1,!1,!1,!1,B.bK)
-B.ac0=new A.ah(B.e4,!1,!1,!1,!1,B.bK)
-B.ac_=new A.ah(B.e5,!1,!1,!1,!1,B.bK)
-B.ac3=new A.ah(B.hk,!1,!1,!1,!1,B.bK)
-B.ac6=new A.ah(B.n_,!0,!1,!1,!1,B.q)
-B.acc=new A.ah(B.hi,!1,!0,!1,!1,B.bJ)
-B.ac9=new A.ah(B.e3,!1,!0,!1,!1,B.bJ)
-B.aca=new A.ah(B.hj,!1,!0,!1,!1,B.bJ)
-B.ac8=new A.ah(B.e4,!1,!0,!1,!1,B.bJ)
-B.ac7=new A.ah(B.e5,!1,!0,!1,!1,B.bJ)
-B.acb=new A.ah(B.hk,!1,!0,!1,!1,B.bJ)
-B.acd=new A.ah(B.e2,!1,!1,!1,!1,B.bK)
-B.acg=new A.ah(B.e3,!0,!1,!1,!1,B.bK)
-B.acf=new A.ah(B.e4,!0,!1,!1,!1,B.bK)
-B.ace=new A.ah(B.e5,!0,!1,!1,!1,B.bK)
-B.aci=new A.ah(B.y7,!0,!1,!1,!1,B.q)
-B.acj=new A.ah(B.y9,!0,!1,!1,!1,B.q)
+B.ac7=new A.ah(B.hi,!1,!1,!1,!1,B.bK)
+B.ac4=new A.ah(B.e3,!1,!1,!1,!1,B.bK)
+B.ac5=new A.ah(B.hj,!1,!1,!1,!1,B.bK)
+B.ac3=new A.ah(B.e4,!1,!1,!1,!1,B.bK)
+B.ac2=new A.ah(B.e5,!1,!1,!1,!1,B.bK)
+B.ac6=new A.ah(B.hk,!1,!1,!1,!1,B.bK)
+B.ac9=new A.ah(B.n_,!0,!1,!1,!1,B.q)
+B.acf=new A.ah(B.hi,!1,!0,!1,!1,B.bJ)
+B.acc=new A.ah(B.e3,!1,!0,!1,!1,B.bJ)
+B.acd=new A.ah(B.hj,!1,!0,!1,!1,B.bJ)
+B.acb=new A.ah(B.e4,!1,!0,!1,!1,B.bJ)
+B.aca=new A.ah(B.e5,!1,!0,!1,!1,B.bJ)
+B.ace=new A.ah(B.hk,!1,!0,!1,!1,B.bJ)
+B.acg=new A.ah(B.e2,!1,!1,!1,!1,B.bK)
+B.acj=new A.ah(B.e3,!0,!1,!1,!1,B.bK)
+B.aci=new A.ah(B.e4,!0,!1,!1,!1,B.bK)
+B.ach=new A.ah(B.e5,!0,!1,!1,!1,B.bK)
+B.acl=new A.ah(B.y7,!0,!1,!1,!1,B.q)
+B.acm=new A.ah(B.y9,!0,!1,!1,!1,B.q)
 B.ky=new A.ah(B.e0,!0,!1,!1,!1,B.q)
 B.kx=new A.ah(B.e1,!0,!1,!1,!1,B.q)
-B.acl=new A.ah(B.h9,!0,!1,!1,!1,B.q)
-B.acm=new A.ah(B.h9,!1,!0,!1,!0,B.q)
-B.aco=new A.ah(B.cy,!1,!0,!1,!0,B.q)
+B.aco=new A.ah(B.h9,!0,!1,!1,!1,B.q)
+B.acp=new A.ah(B.h9,!1,!0,!1,!0,B.q)
+B.acr=new A.ah(B.cy,!1,!0,!1,!0,B.q)
 B.HW=new A.ah(B.cj,!1,!0,!1,!0,B.q)
 B.HX=new A.ah(B.ck,!1,!0,!1,!0,B.q)
-B.acn=new A.ah(B.cz,!1,!0,!1,!0,B.q)
-B.acp=new A.ah(B.e6,!0,!1,!1,!1,B.bK)
-B.acr=new A.ah(B.e6,!1,!1,!1,!1,B.bK)
-B.acs=new A.ah(B.hl,!1,!1,!1,!1,B.bK)
-B.act=new A.ah(B.y8,!0,!1,!1,!1,B.q)
-B.acv=new A.ah(B.e2,!1,!0,!1,!1,B.bJ)
-B.acw=new A.ah(B.h9,!0,!0,!1,!1,B.q)
-B.acy=new A.ah(B.cy,!0,!0,!1,!1,B.q)
-B.acx=new A.ah(B.cz,!0,!0,!1,!1,B.q)
+B.acq=new A.ah(B.cz,!1,!0,!1,!0,B.q)
+B.acs=new A.ah(B.e6,!0,!1,!1,!1,B.bK)
+B.acu=new A.ah(B.e6,!1,!1,!1,!1,B.bK)
+B.acv=new A.ah(B.hl,!1,!1,!1,!1,B.bK)
+B.acw=new A.ah(B.y8,!0,!1,!1,!1,B.q)
+B.acy=new A.ah(B.e2,!1,!0,!1,!1,B.bJ)
+B.acz=new A.ah(B.h9,!0,!0,!1,!1,B.q)
+B.acB=new A.ah(B.cy,!0,!0,!1,!1,B.q)
+B.acA=new A.ah(B.cz,!0,!0,!1,!1,B.q)
 B.nT=new A.ah(B.e0,!0,!0,!1,!1,B.q)
 B.nS=new A.ah(B.e1,!0,!0,!1,!1,B.q)
 B.nV=new A.ah(B.na,!0,!1,!1,!1,B.q)
-B.acA=new A.ah(B.y5,!0,!1,!1,!1,B.q)
-B.acD=new A.ah(B.e3,!0,!0,!1,!1,B.bJ)
-B.acC=new A.ah(B.e4,!0,!0,!1,!1,B.bJ)
-B.acB=new A.ah(B.e5,!0,!0,!1,!1,B.bJ)
+B.acD=new A.ah(B.y5,!0,!1,!1,!1,B.q)
+B.acG=new A.ah(B.e3,!0,!0,!1,!1,B.bJ)
+B.acF=new A.ah(B.e4,!0,!0,!1,!1,B.bJ)
+B.acE=new A.ah(B.e5,!0,!0,!1,!1,B.bJ)
 B.I1=new A.ah(B.cy,!1,!0,!1,!1,B.q)
 B.nW=new A.ah(B.cj,!1,!0,!1,!1,B.q)
 B.nX=new A.ah(B.ck,!1,!0,!1,!1,B.q)
@@ -95006,23 +95009,23 @@ B.nZ=new A.ah(B.cj,!1,!0,!0,!1,B.q)
 B.o_=new A.ah(B.ck,!1,!0,!0,!1,B.q)
 B.o0=new A.ah(B.cz,!1,!0,!0,!1,B.q)
 B.o2=new A.ah(B.hd,!1,!0,!1,!1,B.q)
-B.acF=new A.ah(B.e6,!0,!0,!1,!1,B.bJ)
-B.acG=new A.ah(B.h9,!1,!1,!1,!0,B.q)
-B.acH=new A.ah(B.e2,!0,!1,!1,!1,B.bK)
+B.acI=new A.ah(B.e6,!0,!0,!1,!1,B.bJ)
+B.acJ=new A.ah(B.h9,!1,!1,!1,!0,B.q)
+B.acK=new A.ah(B.e2,!0,!1,!1,!1,B.bK)
 B.o3=new A.Uh(null)
-B.acI=new A.z(1e5,1e5)
+B.acL=new A.z(1e5,1e5)
 B.I3=new A.z(10,10)
 B.kE=new A.z(1,1)
 B.I4=new A.z(1,-1)
-B.acL=new A.z(22,22)
+B.acO=new A.z(22,22)
 B.I5=new A.z(40,40)
-B.acM=new A.z(48,36)
+B.acP=new A.z(48,36)
 B.I6=new A.z(48,48)
-B.acO=new A.z(80,47.5)
+B.acR=new A.z(80,47.5)
 B.I7=new A.z(-1,1)
 B.I8=new A.z(-1,-1)
 B.I9=new A.z(1/0,56)
-B.acP=new A.z(77.37,37.9)
+B.acS=new A.z(77.37,37.9)
 B.hH=new A.z(1/0,1/0)
 B.aT=new A.d5(0,0,null,null)
 B.o4=new A.d5(12,null,null,null)
@@ -95042,402 +95045,402 @@ B.Id=new A.d5(null,32,null,null)
 B.o6=new A.d5(null,4,null,null)
 B.eg=new A.d5(null,6,null,null)
 B.bV=new A.d5(null,8,null,null)
-B.acS=new A.DJ(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.acV=new A.DJ(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.Ig=new A.Us(0,"fixed")
 B.hK=new A.Us(1,"floating")
-B.acT=new A.kJ(1,"dismiss")
-B.acU=new A.kJ(2,"swipe")
-B.acV=new A.kJ(3,"hide")
-B.anM=new A.kJ(4,"remove")
-B.acW=new A.kJ(5,"timeout")
-B.acX=new A.vN(null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.acW=new A.kJ(1,"dismiss")
+B.acX=new A.kJ(2,"swipe")
+B.acY=new A.kJ(3,"hide")
+B.anP=new A.kJ(4,"remove")
+B.acZ=new A.kJ(5,"timeout")
+B.ad_=new A.vN(null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.Ih=new A.DM(0,"permissive")
-B.acY=new A.DM(1,"normal")
-B.acZ=new A.DM(2,"forced")
-B.ad_=new A.vO(null)
-B.ad0=new A.UC(null)
-B.ad1=new A.DP(0,"criticallyDamped")
-B.ad2=new A.DP(1,"underDamped")
-B.ad3=new A.DP(2,"overDamped")
+B.ad0=new A.DM(1,"normal")
+B.ad1=new A.DM(2,"forced")
+B.ad2=new A.vO(null)
+B.ad3=new A.UC(null)
+B.ad4=new A.DP(0,"criticallyDamped")
+B.ad5=new A.DP(1,"underDamped")
+B.ad6=new A.DP(2,"overDamped")
 B.bW=new A.DQ(0,"loose")
 B.o8=new A.DQ(1,"expand")
-B.ad4=new A.DQ(2,"passthrough")
-B.ad5=new A.jt("<asynchronous suspension>",-1,"","","",-1,-1,"","asynchronous suspension")
-B.ad6=new A.jt("...",-1,"","","",-1,-1,"","...")
+B.ad7=new A.DQ(2,"passthrough")
+B.ad8=new A.jt("<asynchronous suspension>",-1,"","","",-1,-1,"","asynchronous suspension")
+B.ad9=new A.jt("...",-1,"","","",-1,-1,"","...")
 B.o9=new A.fO(B.v)
-B.ad7=new A.DS(0,"backButton")
+B.ada=new A.DS(0,"backButton")
 B.Ii=new A.DS(2,"moreButton")
 B.d0=new A.fa("")
 B.cC=new A.DZ(0,"butt")
 B.oa=new A.DZ(1,"round")
-B.ad8=new A.DZ(2,"square")
+B.adb=new A.DZ(2,"square")
 B.d1=new A.UN(0,"miter")
 B.Ij=new A.UN(1,"round")
-B.ad9=new A.vV(null,null,null,null,0,null,null,null,0,null,null)
-B.ada=new A.vW(0,"background")
-B.adb=new A.vW(1,"shadows")
-B.adc=new A.vW(2,"decorations")
-B.add=new A.vW(3,"text")
-B.adf=new A.E0(null,null,null,null,null,null,null,null,null,null)
-B.adg=new A.fb("_count=")
-B.adh=new A.fb("_reentrantlyRemovedListeners=")
-B.adi=new A.fb("_notificationCallStackDepth=")
-B.adj=new A.fb("_count")
-B.adk=new A.fb("_listeners")
-B.adl=new A.fb("_notificationCallStackDepth")
-B.adm=new A.fb("_reentrantlyRemovedListeners")
-B.adn=new A.fb("_removeAt")
-B.ado=new A.fb("_listeners=")
+B.adc=new A.vV(null,null,null,null,0,null,null,null,0,null,null)
+B.add=new A.vW(0,"background")
+B.ade=new A.vW(1,"shadows")
+B.adf=new A.vW(2,"decorations")
+B.adg=new A.vW(3,"text")
+B.adi=new A.E0(null,null,null,null,null,null,null,null,null,null)
+B.adj=new A.fb("_count=")
+B.adk=new A.fb("_reentrantlyRemovedListeners=")
+B.adl=new A.fb("_notificationCallStackDepth=")
+B.adm=new A.fb("_count")
+B.adn=new A.fb("_listeners")
+B.ado=new A.fb("_notificationCallStackDepth")
+B.adp=new A.fb("_reentrantlyRemovedListeners")
+B.adq=new A.fb("_removeAt")
+B.adr=new A.fb("_listeners=")
 B.dy=new A.o7("basic")
 B.kH=new A.o7("click")
 B.Im=new A.o7("text")
 B.In=new A.UO(0,"click")
-B.adp=new A.UO(2,"alert")
+B.ads=new A.UO(2,"alert")
 B.Io=new A.kK(B.m,null,B.ag,null,null,B.ag,B.J,null)
 B.Ip=new A.kK(B.m,null,B.ag,null,null,B.J,B.ag,null)
-B.adq=new A.E4(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.adt=new A.E4(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.ob=new A.aps("tap")
-B.anN=new A.apu(0,"dontCare")
+B.anQ=new A.apu(0,"dontCare")
 B.w=new A.kL(0,"alphabetic")
 B.a3=new A.kL(1,"ideographic")
-B.ae9=new A.rC(null)
+B.aec=new A.rC(null)
 B.oc=new A.w0(3,"none")
 B.Is=new A.Ea(B.oc)
 B.It=new A.w0(0,"words")
 B.Iu=new A.w0(1,"sentences")
 B.Iv=new A.w0(2,"characters")
-B.aeb=new A.w1(2,"dotted")
+B.aee=new A.w1(2,"dotted")
 B.i=new A.m2(0)
 B.fk=new A.m2(1)
-B.aec=new A.m2(2)
-B.aed=new A.m2(4)
-B.aee=new A.cE("_",B.kK,B.bm)
+B.aef=new A.m2(2)
+B.aeg=new A.m2(4)
+B.aeh=new A.cE("_",B.kK,B.bm)
 B.oe=new A.rE(0,"character")
 B.fl=new A.rE(1,"word")
 B.of=new A.rE(2,"paragraph")
 B.Ix=new A.rE(3,"line")
 B.Iy=new A.rE(4,"document")
 B.og=new A.V1(0,"proportional")
-B.aef=new A.fR(0,"none")
-B.aeg=new A.fR(1,"unspecified")
-B.aeh=new A.fR(10,"route")
-B.aei=new A.fR(11,"emergencyCall")
+B.aei=new A.fR(0,"none")
+B.aej=new A.fR(1,"unspecified")
+B.aek=new A.fR(10,"route")
+B.ael=new A.fR(11,"emergencyCall")
 B.IA=new A.fR(12,"newline")
 B.IB=new A.fR(2,"done")
-B.aej=new A.fR(3,"go")
-B.aek=new A.fR(4,"search")
-B.ael=new A.fR(5,"send")
-B.aem=new A.fR(6,"next")
-B.aen=new A.fR(7,"previous")
-B.aeo=new A.fR(8,"continueAction")
-B.aep=new A.fR(9,"join")
-B.aer=new A.kM(10,null,null)
+B.aem=new A.fR(3,"go")
+B.aen=new A.fR(4,"search")
+B.aeo=new A.fR(5,"send")
+B.aep=new A.fR(6,"next")
+B.aeq=new A.fR(7,"previous")
+B.aer=new A.fR(8,"continueAction")
+B.aes=new A.fR(9,"join")
+B.aeu=new A.kM(10,null,null)
 B.kJ=new A.kM(1,null,null)
 B.E=new A.V1(1,"even")
-B.anO=new A.V3(null,!0)
-B.aev=new A.w5(1,"fade")
+B.anR=new A.V3(null,!0)
+B.aey=new A.w5(1,"fade")
 B.b_=new A.w5(2,"ellipsis")
-B.aew=new A.w5(3,"visible")
+B.aez=new A.w5(3,"visible")
 B.fm=new A.ai(0,B.l)
-B.aex=new A.bl(0,0)
-B.aey=new A.Em(null,null,null)
-B.aez=new A.w6(B.f,null)
-B.aeA=new A.fc(1,1,B.l,!1,1,1)
-B.aeB=new A.fc(0,1,B.l,!1,0,1)
+B.aeA=new A.bl(0,0)
+B.aeB=new A.Em(null,null,null)
+B.aeC=new A.w6(B.f,null)
+B.aeD=new A.fc(1,1,B.l,!1,1,1)
+B.aeE=new A.fc(0,1,B.l,!1,0,1)
 B.oi=new A.l(!0,null,null,null,null,null,null,B.aQ,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.af8=new A.l(!1,B.iC,null,"CupertinoSystemText",null,null,17,null,null,-0.41,null,null,null,null,null,null,null,B.i,null,null,null,null,null,null,null,null)
+B.afb=new A.l(!1,B.iC,null,"CupertinoSystemText",null,null,17,null,null,-0.41,null,null,null,null,null,null,null,B.i,null,null,null,null,null,null,null,null)
 B.ID=new A.l(!0,null,null,null,null,null,12.5,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.afN=new A.l(!1,null,null,null,null,null,15,B.r,null,-0.15,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.afQ=new A.l(!1,null,null,null,null,null,15,B.r,null,-0.15,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.Nh=new A.r(0.8156862745098039,1,0,0,B.e)
 B.MZ=new A.r(1,1,1,0,B.e)
-B.aea=new A.w1(1,"double")
-B.agI=new A.l(!0,B.Nh,null,"monospace",null,null,48,B.dU,null,null,null,null,null,null,null,null,null,B.fk,B.MZ,B.aea,null,"fallback style; consider putting your text in a Material",null,null,null,null)
-B.ahw=new A.l(!0,null,null,null,null,null,null,B.r,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.aed=new A.w1(1,"double")
+B.agL=new A.l(!0,B.Nh,null,"monospace",null,null,48,B.dU,null,null,null,null,null,null,null,null,null,B.fk,B.MZ,B.aed,null,"fallback style; consider putting your text in a Material",null,null,null,null)
+B.ahz=new A.l(!0,null,null,null,null,null,null,B.r,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.IF=new A.l(!1,null,null,null,null,null,14,B.r,null,-0.15,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.ai0=new A.l(!0,null,null,null,null,null,22,B.aR,null,null,null,null,1.15,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.aih=new A.l(!0,null,null,null,null,null,15.5,B.aQ,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.aim=new A.l(!0,null,null,null,null,null,12,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.ahC=new A.l(!1,null,null,null,null,null,57,B.r,null,-0.25,null,B.w,1.12,B.E,null,null,null,null,null,null,null,"englishLike displayLarge 2021",null,null,null,null)
-B.afU=new A.l(!1,null,null,null,null,null,45,B.r,null,0,null,B.w,1.16,B.E,null,null,null,null,null,null,null,"englishLike displayMedium 2021",null,null,null,null)
-B.aiv=new A.l(!1,null,null,null,null,null,36,B.r,null,0,null,B.w,1.22,B.E,null,null,null,null,null,null,null,"englishLike displaySmall 2021",null,null,null,null)
-B.ahc=new A.l(!1,null,null,null,null,null,32,B.r,null,0,null,B.w,1.25,B.E,null,null,null,null,null,null,null,"englishLike headlineLarge 2021",null,null,null,null)
-B.ahq=new A.l(!1,null,null,null,null,null,28,B.r,null,0,null,B.w,1.29,B.E,null,null,null,null,null,null,null,"englishLike headlineMedium 2021",null,null,null,null)
-B.afT=new A.l(!1,null,null,null,null,null,24,B.r,null,0,null,B.w,1.33,B.E,null,null,null,null,null,null,null,"englishLike headlineSmall 2021",null,null,null,null)
-B.af_=new A.l(!1,null,null,null,null,null,22,B.r,null,0,null,B.w,1.27,B.E,null,null,null,null,null,null,null,"englishLike titleLarge 2021",null,null,null,null)
-B.afb=new A.l(!1,null,null,null,null,null,16,B.ab,null,0.15,null,B.w,1.5,B.E,null,null,null,null,null,null,null,"englishLike titleMedium 2021",null,null,null,null)
-B.afc=new A.l(!1,null,null,null,null,null,14,B.ab,null,0.1,null,B.w,1.43,B.E,null,null,null,null,null,null,null,"englishLike titleSmall 2021",null,null,null,null)
-B.agh=new A.l(!1,null,null,null,null,null,16,B.r,null,0.5,null,B.w,1.5,B.E,null,null,null,null,null,null,null,"englishLike bodyLarge 2021",null,null,null,null)
-B.aeO=new A.l(!1,null,null,null,null,null,14,B.r,null,0.25,null,B.w,1.43,B.E,null,null,null,null,null,null,null,"englishLike bodyMedium 2021",null,null,null,null)
-B.agm=new A.l(!1,null,null,null,null,null,12,B.r,null,0.4,null,B.w,1.33,B.E,null,null,null,null,null,null,null,"englishLike bodySmall 2021",null,null,null,null)
-B.ag3=new A.l(!1,null,null,null,null,null,14,B.ab,null,0.1,null,B.w,1.43,B.E,null,null,null,null,null,null,null,"englishLike labelLarge 2021",null,null,null,null)
-B.agq=new A.l(!1,null,null,null,null,null,12,B.ab,null,0.5,null,B.w,1.33,B.E,null,null,null,null,null,null,null,"englishLike labelMedium 2021",null,null,null,null)
-B.ags=new A.l(!1,null,null,null,null,null,11,B.ab,null,0.5,null,B.w,1.45,B.E,null,null,null,null,null,null,null,"englishLike labelSmall 2021",null,null,null,null)
-B.aix=new A.e3(B.ahC,B.afU,B.aiv,B.ahc,B.ahq,B.afT,B.af_,B.afb,B.afc,B.agh,B.aeO,B.agm,B.ag3,B.agq,B.ags)
-B.aeR=new A.l(!0,B.a4,null,"CupertinoSystemDisplay",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackCupertino displayLarge",null,null,null,null)
-B.agD=new A.l(!0,B.a4,null,"CupertinoSystemDisplay",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackCupertino displayMedium",null,null,null,null)
-B.agZ=new A.l(!0,B.a4,null,"CupertinoSystemDisplay",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackCupertino displaySmall",null,null,null,null)
-B.afO=new A.l(!0,B.a4,null,"CupertinoSystemDisplay",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackCupertino headlineLarge",null,null,null,null)
-B.aeT=new A.l(!0,B.a4,null,"CupertinoSystemDisplay",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackCupertino headlineMedium",null,null,null,null)
-B.ahl=new A.l(!0,B.a5,null,"CupertinoSystemDisplay",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackCupertino headlineSmall",null,null,null,null)
-B.aeS=new A.l(!0,B.a5,null,"CupertinoSystemDisplay",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackCupertino titleLarge",null,null,null,null)
-B.ahI=new A.l(!0,B.a5,null,"CupertinoSystemText",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackCupertino titleMedium",null,null,null,null)
-B.agv=new A.l(!0,B.m,null,"CupertinoSystemText",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackCupertino titleSmall",null,null,null,null)
-B.aiu=new A.l(!0,B.a5,null,"CupertinoSystemText",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackCupertino bodyLarge",null,null,null,null)
-B.aeI=new A.l(!0,B.a5,null,"CupertinoSystemText",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackCupertino bodyMedium",null,null,null,null)
-B.agB=new A.l(!0,B.a4,null,"CupertinoSystemText",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackCupertino bodySmall",null,null,null,null)
-B.agn=new A.l(!0,B.a5,null,"CupertinoSystemText",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackCupertino labelLarge",null,null,null,null)
-B.agx=new A.l(!0,B.m,null,"CupertinoSystemText",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackCupertino labelMedium",null,null,null,null)
-B.aeE=new A.l(!0,B.m,null,"CupertinoSystemText",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackCupertino labelSmall",null,null,null,null)
-B.aiy=new A.e3(B.aeR,B.agD,B.agZ,B.afO,B.aeT,B.ahl,B.aeS,B.ahI,B.agv,B.aiu,B.aeI,B.agB,B.agn,B.agx,B.aeE)
+B.ai3=new A.l(!0,null,null,null,null,null,22,B.aR,null,null,null,null,1.15,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.aik=new A.l(!0,null,null,null,null,null,15.5,B.aQ,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.aip=new A.l(!0,null,null,null,null,null,12,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.ahF=new A.l(!1,null,null,null,null,null,57,B.r,null,-0.25,null,B.w,1.12,B.E,null,null,null,null,null,null,null,"englishLike displayLarge 2021",null,null,null,null)
+B.afX=new A.l(!1,null,null,null,null,null,45,B.r,null,0,null,B.w,1.16,B.E,null,null,null,null,null,null,null,"englishLike displayMedium 2021",null,null,null,null)
+B.aiy=new A.l(!1,null,null,null,null,null,36,B.r,null,0,null,B.w,1.22,B.E,null,null,null,null,null,null,null,"englishLike displaySmall 2021",null,null,null,null)
+B.ahf=new A.l(!1,null,null,null,null,null,32,B.r,null,0,null,B.w,1.25,B.E,null,null,null,null,null,null,null,"englishLike headlineLarge 2021",null,null,null,null)
+B.aht=new A.l(!1,null,null,null,null,null,28,B.r,null,0,null,B.w,1.29,B.E,null,null,null,null,null,null,null,"englishLike headlineMedium 2021",null,null,null,null)
+B.afW=new A.l(!1,null,null,null,null,null,24,B.r,null,0,null,B.w,1.33,B.E,null,null,null,null,null,null,null,"englishLike headlineSmall 2021",null,null,null,null)
+B.af2=new A.l(!1,null,null,null,null,null,22,B.r,null,0,null,B.w,1.27,B.E,null,null,null,null,null,null,null,"englishLike titleLarge 2021",null,null,null,null)
+B.afe=new A.l(!1,null,null,null,null,null,16,B.ab,null,0.15,null,B.w,1.5,B.E,null,null,null,null,null,null,null,"englishLike titleMedium 2021",null,null,null,null)
+B.aff=new A.l(!1,null,null,null,null,null,14,B.ab,null,0.1,null,B.w,1.43,B.E,null,null,null,null,null,null,null,"englishLike titleSmall 2021",null,null,null,null)
+B.agk=new A.l(!1,null,null,null,null,null,16,B.r,null,0.5,null,B.w,1.5,B.E,null,null,null,null,null,null,null,"englishLike bodyLarge 2021",null,null,null,null)
+B.aeR=new A.l(!1,null,null,null,null,null,14,B.r,null,0.25,null,B.w,1.43,B.E,null,null,null,null,null,null,null,"englishLike bodyMedium 2021",null,null,null,null)
+B.agp=new A.l(!1,null,null,null,null,null,12,B.r,null,0.4,null,B.w,1.33,B.E,null,null,null,null,null,null,null,"englishLike bodySmall 2021",null,null,null,null)
+B.ag6=new A.l(!1,null,null,null,null,null,14,B.ab,null,0.1,null,B.w,1.43,B.E,null,null,null,null,null,null,null,"englishLike labelLarge 2021",null,null,null,null)
+B.agt=new A.l(!1,null,null,null,null,null,12,B.ab,null,0.5,null,B.w,1.33,B.E,null,null,null,null,null,null,null,"englishLike labelMedium 2021",null,null,null,null)
+B.agv=new A.l(!1,null,null,null,null,null,11,B.ab,null,0.5,null,B.w,1.45,B.E,null,null,null,null,null,null,null,"englishLike labelSmall 2021",null,null,null,null)
+B.aiA=new A.e3(B.ahF,B.afX,B.aiy,B.ahf,B.aht,B.afW,B.af2,B.afe,B.aff,B.agk,B.aeR,B.agp,B.ag6,B.agt,B.agv)
+B.aeU=new A.l(!0,B.a4,null,"CupertinoSystemDisplay",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackCupertino displayLarge",null,null,null,null)
+B.agG=new A.l(!0,B.a4,null,"CupertinoSystemDisplay",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackCupertino displayMedium",null,null,null,null)
+B.ah1=new A.l(!0,B.a4,null,"CupertinoSystemDisplay",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackCupertino displaySmall",null,null,null,null)
+B.afR=new A.l(!0,B.a4,null,"CupertinoSystemDisplay",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackCupertino headlineLarge",null,null,null,null)
+B.aeW=new A.l(!0,B.a4,null,"CupertinoSystemDisplay",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackCupertino headlineMedium",null,null,null,null)
+B.aho=new A.l(!0,B.a5,null,"CupertinoSystemDisplay",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackCupertino headlineSmall",null,null,null,null)
+B.aeV=new A.l(!0,B.a5,null,"CupertinoSystemDisplay",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackCupertino titleLarge",null,null,null,null)
+B.ahL=new A.l(!0,B.a5,null,"CupertinoSystemText",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackCupertino titleMedium",null,null,null,null)
+B.agy=new A.l(!0,B.m,null,"CupertinoSystemText",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackCupertino titleSmall",null,null,null,null)
+B.aix=new A.l(!0,B.a5,null,"CupertinoSystemText",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackCupertino bodyLarge",null,null,null,null)
+B.aeL=new A.l(!0,B.a5,null,"CupertinoSystemText",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackCupertino bodyMedium",null,null,null,null)
+B.agE=new A.l(!0,B.a4,null,"CupertinoSystemText",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackCupertino bodySmall",null,null,null,null)
+B.agq=new A.l(!0,B.a5,null,"CupertinoSystemText",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackCupertino labelLarge",null,null,null,null)
+B.agA=new A.l(!0,B.m,null,"CupertinoSystemText",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackCupertino labelMedium",null,null,null,null)
+B.aeH=new A.l(!0,B.m,null,"CupertinoSystemText",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackCupertino labelSmall",null,null,null,null)
+B.aiB=new A.e3(B.aeU,B.agG,B.ah1,B.afR,B.aeW,B.aho,B.aeV,B.ahL,B.agy,B.aix,B.aeL,B.agE,B.agq,B.agA,B.aeH)
 B.ac=s(["Ubuntu","Adwaita Sans","Cantarell","DejaVu Sans","Liberation Sans","Arial"],t.s)
-B.ahO=new A.l(!0,B.a4,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackHelsinki displayLarge",null,null,null,null)
-B.agK=new A.l(!0,B.a4,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackHelsinki displayMedium",null,null,null,null)
-B.ahz=new A.l(!0,B.a4,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackHelsinki displaySmall",null,null,null,null)
-B.aha=new A.l(!0,B.a4,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackHelsinki headlineLarge",null,null,null,null)
-B.afL=new A.l(!0,B.a4,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackHelsinki headlineMedium",null,null,null,null)
-B.aeW=new A.l(!0,B.a5,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackHelsinki headlineSmall",null,null,null,null)
-B.af5=new A.l(!0,B.a5,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackHelsinki titleLarge",null,null,null,null)
-B.agR=new A.l(!0,B.a5,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackHelsinki titleMedium",null,null,null,null)
-B.ahF=new A.l(!0,B.m,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackHelsinki titleSmall",null,null,null,null)
-B.ahP=new A.l(!0,B.a5,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackHelsinki bodyLarge",null,null,null,null)
-B.afB=new A.l(!0,B.a5,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackHelsinki bodyMedium",null,null,null,null)
-B.ahp=new A.l(!0,B.a4,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackHelsinki bodySmall",null,null,null,null)
-B.afV=new A.l(!0,B.a5,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackHelsinki labelLarge",null,null,null,null)
-B.agd=new A.l(!0,B.m,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackHelsinki labelMedium",null,null,null,null)
-B.aia=new A.l(!0,B.m,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackHelsinki labelSmall",null,null,null,null)
-B.aiz=new A.e3(B.ahO,B.agK,B.ahz,B.aha,B.afL,B.aeW,B.af5,B.agR,B.ahF,B.ahP,B.afB,B.ahp,B.afV,B.agd,B.aia)
-B.ahR=new A.l(!0,B.a8,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedwoodCity displayLarge",null,null,null,null)
-B.af7=new A.l(!0,B.a8,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedwoodCity displayMedium",null,null,null,null)
-B.ahS=new A.l(!0,B.a8,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedwoodCity displaySmall",null,null,null,null)
-B.ai8=new A.l(!0,B.a8,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedwoodCity headlineLarge",null,null,null,null)
-B.afd=new A.l(!0,B.a8,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedwoodCity headlineMedium",null,null,null,null)
-B.ag6=new A.l(!0,B.h,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedwoodCity headlineSmall",null,null,null,null)
-B.afp=new A.l(!0,B.h,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedwoodCity titleLarge",null,null,null,null)
-B.ah1=new A.l(!0,B.h,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedwoodCity titleMedium",null,null,null,null)
-B.ah4=new A.l(!0,B.h,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedwoodCity titleSmall",null,null,null,null)
-B.ahg=new A.l(!0,B.h,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedwoodCity bodyLarge",null,null,null,null)
-B.agN=new A.l(!0,B.h,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedwoodCity bodyMedium",null,null,null,null)
-B.agJ=new A.l(!0,B.a8,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedwoodCity bodySmall",null,null,null,null)
-B.afH=new A.l(!0,B.h,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedwoodCity labelLarge",null,null,null,null)
-B.agL=new A.l(!0,B.h,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedwoodCity labelMedium",null,null,null,null)
-B.afk=new A.l(!0,B.h,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedwoodCity labelSmall",null,null,null,null)
-B.aiA=new A.e3(B.ahR,B.af7,B.ahS,B.ai8,B.afd,B.ag6,B.afp,B.ah1,B.ah4,B.ahg,B.agN,B.agJ,B.afH,B.agL,B.afk)
-B.aik=new A.l(!1,null,null,null,null,null,112,B.eN,null,null,null,B.a3,null,null,null,null,null,null,null,null,null,"dense displayLarge 2014",null,null,null,null)
-B.aie=new A.l(!1,null,null,null,null,null,56,B.r,null,null,null,B.a3,null,null,null,null,null,null,null,null,null,"dense displayMedium 2014",null,null,null,null)
-B.ah7=new A.l(!1,null,null,null,null,null,45,B.r,null,null,null,B.a3,null,null,null,null,null,null,null,null,null,"dense displaySmall 2014",null,null,null,null)
-B.afs=new A.l(!1,null,null,null,null,null,40,B.r,null,null,null,B.a3,null,null,null,null,null,null,null,null,null,"dense headlineLarge 2014",null,null,null,null)
-B.ahn=new A.l(!1,null,null,null,null,null,34,B.r,null,null,null,B.a3,null,null,null,null,null,null,null,null,null,"dense headlineMedium 2014",null,null,null,null)
-B.aeU=new A.l(!1,null,null,null,null,null,24,B.r,null,null,null,B.a3,null,null,null,null,null,null,null,null,null,"dense headlineSmall 2014",null,null,null,null)
-B.ahK=new A.l(!1,null,null,null,null,null,21,B.ab,null,null,null,B.a3,null,null,null,null,null,null,null,null,null,"dense titleLarge 2014",null,null,null,null)
-B.agU=new A.l(!1,null,null,null,null,null,17,B.r,null,null,null,B.a3,null,null,null,null,null,null,null,null,null,"dense titleMedium 2014",null,null,null,null)
-B.agP=new A.l(!1,null,null,null,null,null,15,B.ab,null,null,null,B.a3,null,null,null,null,null,null,null,null,null,"dense titleSmall 2014",null,null,null,null)
-B.aeV=new A.l(!1,null,null,null,null,null,15,B.ab,null,null,null,B.a3,null,null,null,null,null,null,null,null,null,"dense bodyLarge 2014",null,null,null,null)
-B.ah5=new A.l(!1,null,null,null,null,null,15,B.r,null,null,null,B.a3,null,null,null,null,null,null,null,null,null,"dense bodyMedium 2014",null,null,null,null)
-B.agb=new A.l(!1,null,null,null,null,null,13,B.r,null,null,null,B.a3,null,null,null,null,null,null,null,null,null,"dense bodySmall 2014",null,null,null,null)
-B.ahG=new A.l(!1,null,null,null,null,null,15,B.ab,null,null,null,B.a3,null,null,null,null,null,null,null,null,null,"dense labelLarge 2014",null,null,null,null)
-B.ahs=new A.l(!1,null,null,null,null,null,12,B.r,null,null,null,B.a3,null,null,null,null,null,null,null,null,null,"dense labelMedium 2014",null,null,null,null)
-B.ahT=new A.l(!1,null,null,null,null,null,11,B.r,null,null,null,B.a3,null,null,null,null,null,null,null,null,null,"dense labelSmall 2014",null,null,null,null)
-B.aiB=new A.e3(B.aik,B.aie,B.ah7,B.afs,B.ahn,B.aeU,B.ahK,B.agU,B.agP,B.aeV,B.ah5,B.agb,B.ahG,B.ahs,B.ahT)
-B.agt=new A.l(!0,B.a8,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedmond displayLarge",null,null,null,null)
-B.aeP=new A.l(!0,B.a8,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedmond displayMedium",null,null,null,null)
-B.ahZ=new A.l(!0,B.a8,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedmond displaySmall",null,null,null,null)
-B.af3=new A.l(!0,B.a8,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedmond headlineLarge",null,null,null,null)
-B.ahh=new A.l(!0,B.a8,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedmond headlineMedium",null,null,null,null)
-B.agF=new A.l(!0,B.h,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedmond headlineSmall",null,null,null,null)
-B.ahW=new A.l(!0,B.h,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedmond titleLarge",null,null,null,null)
-B.afr=new A.l(!0,B.h,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedmond titleMedium",null,null,null,null)
-B.afi=new A.l(!0,B.h,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedmond titleSmall",null,null,null,null)
-B.aic=new A.l(!0,B.h,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedmond bodyLarge",null,null,null,null)
-B.ahx=new A.l(!0,B.h,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedmond bodyMedium",null,null,null,null)
-B.ah3=new A.l(!0,B.a8,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedmond bodySmall",null,null,null,null)
-B.af4=new A.l(!0,B.h,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedmond labelLarge",null,null,null,null)
-B.ag_=new A.l(!0,B.h,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedmond labelMedium",null,null,null,null)
-B.aeC=new A.l(!0,B.h,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedmond labelSmall",null,null,null,null)
-B.aiC=new A.e3(B.agt,B.aeP,B.ahZ,B.af3,B.ahh,B.agF,B.ahW,B.afr,B.afi,B.aic,B.ahx,B.ah3,B.af4,B.ag_,B.aeC)
-B.ag8=new A.l(!1,null,null,null,null,null,112,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"tall displayLarge 2014",null,null,null,null)
-B.ahH=new A.l(!1,null,null,null,null,null,56,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"tall displayMedium 2014",null,null,null,null)
-B.agp=new A.l(!1,null,null,null,null,null,45,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"tall displaySmall 2014",null,null,null,null)
-B.ago=new A.l(!1,null,null,null,null,null,40,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"tall headlineLarge 2014",null,null,null,null)
-B.ahv=new A.l(!1,null,null,null,null,null,34,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"tall headlineMedium 2014",null,null,null,null)
-B.agY=new A.l(!1,null,null,null,null,null,24,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"tall headlineSmall 2014",null,null,null,null)
-B.ag5=new A.l(!1,null,null,null,null,null,21,B.aQ,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"tall titleLarge 2014",null,null,null,null)
-B.aeX=new A.l(!1,null,null,null,null,null,17,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"tall titleMedium 2014",null,null,null,null)
-B.ahQ=new A.l(!1,null,null,null,null,null,15,B.ab,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"tall titleSmall 2014",null,null,null,null)
-B.af6=new A.l(!1,null,null,null,null,null,15,B.aQ,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"tall bodyLarge 2014",null,null,null,null)
-B.afX=new A.l(!1,null,null,null,null,null,15,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"tall bodyMedium 2014",null,null,null,null)
-B.agu=new A.l(!1,null,null,null,null,null,13,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"tall bodySmall 2014",null,null,null,null)
-B.afj=new A.l(!1,null,null,null,null,null,15,B.aQ,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"tall labelLarge 2014",null,null,null,null)
-B.afF=new A.l(!1,null,null,null,null,null,12,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"tall labelMedium 2014",null,null,null,null)
-B.ahX=new A.l(!1,null,null,null,null,null,11,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"tall labelSmall 2014",null,null,null,null)
-B.aiD=new A.e3(B.ag8,B.ahH,B.agp,B.ago,B.ahv,B.agY,B.ag5,B.aeX,B.ahQ,B.af6,B.afX,B.agu,B.afj,B.afF,B.ahX)
-B.afE=new A.l(!0,B.a8,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteMountainView displayLarge",null,null,null,null)
-B.afK=new A.l(!0,B.a8,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteMountainView displayMedium",null,null,null,null)
-B.afh=new A.l(!0,B.a8,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteMountainView displaySmall",null,null,null,null)
-B.aeD=new A.l(!0,B.a8,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteMountainView headlineLarge",null,null,null,null)
-B.age=new A.l(!0,B.a8,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteMountainView headlineMedium",null,null,null,null)
-B.aib=new A.l(!0,B.h,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteMountainView headlineSmall",null,null,null,null)
-B.aff=new A.l(!0,B.h,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteMountainView titleLarge",null,null,null,null)
-B.afv=new A.l(!0,B.h,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteMountainView titleMedium",null,null,null,null)
-B.ah2=new A.l(!0,B.h,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteMountainView titleSmall",null,null,null,null)
-B.agg=new A.l(!0,B.h,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteMountainView bodyLarge",null,null,null,null)
-B.aii=new A.l(!0,B.h,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteMountainView bodyMedium",null,null,null,null)
-B.aig=new A.l(!0,B.a8,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteMountainView bodySmall",null,null,null,null)
-B.afJ=new A.l(!0,B.h,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteMountainView labelLarge",null,null,null,null)
-B.ah8=new A.l(!0,B.h,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteMountainView labelMedium",null,null,null,null)
-B.ai2=new A.l(!0,B.h,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteMountainView labelSmall",null,null,null,null)
-B.aiE=new A.e3(B.afE,B.afK,B.afh,B.aeD,B.age,B.aib,B.aff,B.afv,B.ah2,B.agg,B.aii,B.aig,B.afJ,B.ah8,B.ai2)
-B.aho=new A.l(!1,null,null,null,null,null,57,B.r,null,-0.25,null,B.a3,1.12,B.E,null,null,null,null,null,null,null,"dense displayLarge 2021",null,null,null,null)
-B.ah6=new A.l(!1,null,null,null,null,null,45,B.r,null,0,null,B.a3,1.16,B.E,null,null,null,null,null,null,null,"dense displayMedium 2021",null,null,null,null)
-B.ahd=new A.l(!1,null,null,null,null,null,36,B.r,null,0,null,B.a3,1.22,B.E,null,null,null,null,null,null,null,"dense displaySmall 2021",null,null,null,null)
-B.afw=new A.l(!1,null,null,null,null,null,32,B.r,null,0,null,B.a3,1.25,B.E,null,null,null,null,null,null,null,"dense headlineLarge 2021",null,null,null,null)
-B.aga=new A.l(!1,null,null,null,null,null,28,B.r,null,0,null,B.a3,1.29,B.E,null,null,null,null,null,null,null,"dense headlineMedium 2021",null,null,null,null)
-B.aiq=new A.l(!1,null,null,null,null,null,24,B.r,null,0,null,B.a3,1.33,B.E,null,null,null,null,null,null,null,"dense headlineSmall 2021",null,null,null,null)
-B.agE=new A.l(!1,null,null,null,null,null,22,B.r,null,0,null,B.a3,1.27,B.E,null,null,null,null,null,null,null,"dense titleLarge 2021",null,null,null,null)
-B.afC=new A.l(!1,null,null,null,null,null,16,B.ab,null,0.15,null,B.a3,1.5,B.E,null,null,null,null,null,null,null,"dense titleMedium 2021",null,null,null,null)
-B.ahy=new A.l(!1,null,null,null,null,null,14,B.ab,null,0.1,null,B.a3,1.43,B.E,null,null,null,null,null,null,null,"dense titleSmall 2021",null,null,null,null)
-B.ahN=new A.l(!1,null,null,null,null,null,16,B.r,null,0.5,null,B.a3,1.5,B.E,null,null,null,null,null,null,null,"dense bodyLarge 2021",null,null,null,null)
-B.afA=new A.l(!1,null,null,null,null,null,14,B.r,null,0.25,null,B.a3,1.43,B.E,null,null,null,null,null,null,null,"dense bodyMedium 2021",null,null,null,null)
-B.aeY=new A.l(!1,null,null,null,null,null,12,B.r,null,0.4,null,B.a3,1.33,B.E,null,null,null,null,null,null,null,"dense bodySmall 2021",null,null,null,null)
-B.agw=new A.l(!1,null,null,null,null,null,14,B.ab,null,0.1,null,B.a3,1.43,B.E,null,null,null,null,null,null,null,"dense labelLarge 2021",null,null,null,null)
-B.ahD=new A.l(!1,null,null,null,null,null,12,B.ab,null,0.5,null,B.a3,1.33,B.E,null,null,null,null,null,null,null,"dense labelMedium 2021",null,null,null,null)
-B.ait=new A.l(!1,null,null,null,null,null,11,B.ab,null,0.5,null,B.a3,1.45,B.E,null,null,null,null,null,null,null,"dense labelSmall 2021",null,null,null,null)
-B.aiF=new A.e3(B.aho,B.ah6,B.ahd,B.afw,B.aga,B.aiq,B.agE,B.afC,B.ahy,B.ahN,B.afA,B.aeY,B.agw,B.ahD,B.ait)
-B.air=new A.l(!0,B.a8,null,"CupertinoSystemDisplay",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteCupertino displayLarge",null,null,null,null)
-B.ahY=new A.l(!0,B.a8,null,"CupertinoSystemDisplay",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteCupertino displayMedium",null,null,null,null)
-B.ahb=new A.l(!0,B.a8,null,"CupertinoSystemDisplay",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteCupertino displaySmall",null,null,null,null)
-B.ag7=new A.l(!0,B.a8,null,"CupertinoSystemDisplay",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteCupertino headlineLarge",null,null,null,null)
-B.ahA=new A.l(!0,B.a8,null,"CupertinoSystemDisplay",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteCupertino headlineMedium",null,null,null,null)
-B.ag0=new A.l(!0,B.h,null,"CupertinoSystemDisplay",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteCupertino headlineSmall",null,null,null,null)
-B.ah_=new A.l(!0,B.h,null,"CupertinoSystemDisplay",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteCupertino titleLarge",null,null,null,null)
-B.aht=new A.l(!0,B.h,null,"CupertinoSystemText",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteCupertino titleMedium",null,null,null,null)
-B.agX=new A.l(!0,B.h,null,"CupertinoSystemText",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteCupertino titleSmall",null,null,null,null)
-B.ai4=new A.l(!0,B.h,null,"CupertinoSystemText",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteCupertino bodyLarge",null,null,null,null)
-B.afS=new A.l(!0,B.h,null,"CupertinoSystemText",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteCupertino bodyMedium",null,null,null,null)
-B.agr=new A.l(!0,B.a8,null,"CupertinoSystemText",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteCupertino bodySmall",null,null,null,null)
-B.ag2=new A.l(!0,B.h,null,"CupertinoSystemText",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteCupertino labelLarge",null,null,null,null)
-B.aeN=new A.l(!0,B.h,null,"CupertinoSystemText",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteCupertino labelMedium",null,null,null,null)
-B.aeM=new A.l(!0,B.h,null,"CupertinoSystemText",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteCupertino labelSmall",null,null,null,null)
-B.aiG=new A.e3(B.air,B.ahY,B.ahb,B.ag7,B.ahA,B.ag0,B.ah_,B.aht,B.agX,B.ai4,B.afS,B.agr,B.ag2,B.aeN,B.aeM)
-B.aiw=new A.l(!1,null,null,null,null,null,57,B.r,null,-0.25,null,B.w,1.12,B.E,null,null,null,null,null,null,null,"tall displayLarge 2021",null,null,null,null)
-B.afI=new A.l(!1,null,null,null,null,null,45,B.r,null,0,null,B.w,1.16,B.E,null,null,null,null,null,null,null,"tall displayMedium 2021",null,null,null,null)
-B.ag4=new A.l(!1,null,null,null,null,null,36,B.r,null,0,null,B.w,1.22,B.E,null,null,null,null,null,null,null,"tall displaySmall 2021",null,null,null,null)
-B.afu=new A.l(!1,null,null,null,null,null,32,B.r,null,0,null,B.w,1.25,B.E,null,null,null,null,null,null,null,"tall headlineLarge 2021",null,null,null,null)
-B.afP=new A.l(!1,null,null,null,null,null,28,B.r,null,0,null,B.w,1.29,B.E,null,null,null,null,null,null,null,"tall headlineMedium 2021",null,null,null,null)
-B.afg=new A.l(!1,null,null,null,null,null,24,B.r,null,0,null,B.w,1.33,B.E,null,null,null,null,null,null,null,"tall headlineSmall 2021",null,null,null,null)
-B.agG=new A.l(!1,null,null,null,null,null,22,B.r,null,0,null,B.w,1.27,B.E,null,null,null,null,null,null,null,"tall titleLarge 2021",null,null,null,null)
-B.agj=new A.l(!1,null,null,null,null,null,16,B.ab,null,0.15,null,B.w,1.5,B.E,null,null,null,null,null,null,null,"tall titleMedium 2021",null,null,null,null)
-B.aif=new A.l(!1,null,null,null,null,null,14,B.ab,null,0.1,null,B.w,1.43,B.E,null,null,null,null,null,null,null,"tall titleSmall 2021",null,null,null,null)
-B.ahM=new A.l(!1,null,null,null,null,null,16,B.r,null,0.5,null,B.w,1.5,B.E,null,null,null,null,null,null,null,"tall bodyLarge 2021",null,null,null,null)
-B.ai1=new A.l(!1,null,null,null,null,null,14,B.r,null,0.25,null,B.w,1.43,B.E,null,null,null,null,null,null,null,"tall bodyMedium 2021",null,null,null,null)
-B.ai7=new A.l(!1,null,null,null,null,null,12,B.r,null,0.4,null,B.w,1.33,B.E,null,null,null,null,null,null,null,"tall bodySmall 2021",null,null,null,null)
-B.ahJ=new A.l(!1,null,null,null,null,null,14,B.ab,null,0.1,null,B.w,1.43,B.E,null,null,null,null,null,null,null,"tall labelLarge 2021",null,null,null,null)
-B.ail=new A.l(!1,null,null,null,null,null,12,B.ab,null,0.5,null,B.w,1.33,B.E,null,null,null,null,null,null,null,"tall labelMedium 2021",null,null,null,null)
-B.ahi=new A.l(!1,null,null,null,null,null,11,B.ab,null,0.5,null,B.w,1.45,B.E,null,null,null,null,null,null,null,"tall labelSmall 2021",null,null,null,null)
-B.aiH=new A.e3(B.aiw,B.afI,B.ag4,B.afu,B.afP,B.afg,B.agG,B.agj,B.aif,B.ahM,B.ai1,B.ai7,B.ahJ,B.ail,B.ahi)
-B.ai6=new A.l(!1,null,null,null,null,null,112,B.eN,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"englishLike displayLarge 2014",null,null,null,null)
-B.agV=new A.l(!1,null,null,null,null,null,56,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"englishLike displayMedium 2014",null,null,null,null)
-B.ahL=new A.l(!1,null,null,null,null,null,45,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"englishLike displaySmall 2014",null,null,null,null)
-B.agk=new A.l(!1,null,null,null,null,null,40,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"englishLike headlineLarge 2014",null,null,null,null)
-B.ah9=new A.l(!1,null,null,null,null,null,34,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"englishLike headlineMedium 2014",null,null,null,null)
-B.af9=new A.l(!1,null,null,null,null,null,24,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"englishLike headlineSmall 2014",null,null,null,null)
-B.agy=new A.l(!1,null,null,null,null,null,20,B.ab,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"englishLike titleLarge 2014",null,null,null,null)
-B.afR=new A.l(!1,null,null,null,null,null,16,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"englishLike titleMedium 2014",null,null,null,null)
-B.af1=new A.l(!1,null,null,null,null,null,14,B.ab,null,0.1,null,B.w,null,null,null,null,null,null,null,null,null,"englishLike titleSmall 2014",null,null,null,null)
-B.afy=new A.l(!1,null,null,null,null,null,14,B.ab,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"englishLike bodyLarge 2014",null,null,null,null)
-B.ahV=new A.l(!1,null,null,null,null,null,14,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"englishLike bodyMedium 2014",null,null,null,null)
-B.aeH=new A.l(!1,null,null,null,null,null,12,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"englishLike bodySmall 2014",null,null,null,null)
-B.ai5=new A.l(!1,null,null,null,null,null,14,B.ab,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"englishLike labelLarge 2014",null,null,null,null)
-B.aft=new A.l(!1,null,null,null,null,null,12,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"englishLike labelMedium 2014",null,null,null,null)
-B.agM=new A.l(!1,null,null,null,null,null,10,B.r,null,1.5,null,B.w,null,null,null,null,null,null,null,null,null,"englishLike labelSmall 2014",null,null,null,null)
-B.aiI=new A.e3(B.ai6,B.agV,B.ahL,B.agk,B.ah9,B.af9,B.agy,B.afR,B.af1,B.afy,B.ahV,B.aeH,B.ai5,B.aft,B.agM)
-B.afn=new A.l(!0,B.a4,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedmond displayLarge",null,null,null,null)
-B.agc=new A.l(!0,B.a4,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedmond displayMedium",null,null,null,null)
-B.aio=new A.l(!0,B.a4,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedmond displaySmall",null,null,null,null)
-B.afW=new A.l(!0,B.a4,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedmond headlineLarge",null,null,null,null)
-B.agi=new A.l(!0,B.a4,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedmond headlineMedium",null,null,null,null)
-B.ahB=new A.l(!0,B.a5,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedmond headlineSmall",null,null,null,null)
-B.agC=new A.l(!0,B.a5,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedmond titleLarge",null,null,null,null)
-B.ahe=new A.l(!0,B.a5,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedmond titleMedium",null,null,null,null)
-B.ai3=new A.l(!0,B.m,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedmond titleSmall",null,null,null,null)
-B.afZ=new A.l(!0,B.a5,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedmond bodyLarge",null,null,null,null)
-B.afD=new A.l(!0,B.a5,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedmond bodyMedium",null,null,null,null)
-B.aeG=new A.l(!0,B.a4,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedmond bodySmall",null,null,null,null)
-B.afq=new A.l(!0,B.a5,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedmond labelLarge",null,null,null,null)
-B.aip=new A.l(!0,B.m,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedmond labelMedium",null,null,null,null)
-B.aij=new A.l(!0,B.m,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedmond labelSmall",null,null,null,null)
-B.aiJ=new A.e3(B.afn,B.agc,B.aio,B.afW,B.agi,B.ahB,B.agC,B.ahe,B.ai3,B.afZ,B.afD,B.aeG,B.afq,B.aip,B.aij)
-B.afl=new A.l(!0,B.a8,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteHelsinki displayLarge",null,null,null,null)
-B.ahr=new A.l(!0,B.a8,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteHelsinki displayMedium",null,null,null,null)
-B.afY=new A.l(!0,B.a8,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteHelsinki displaySmall",null,null,null,null)
-B.aid=new A.l(!0,B.a8,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteHelsinki headlineLarge",null,null,null,null)
-B.agl=new A.l(!0,B.a8,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteHelsinki headlineMedium",null,null,null,null)
-B.af2=new A.l(!0,B.h,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteHelsinki headlineSmall",null,null,null,null)
-B.aeF=new A.l(!0,B.h,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteHelsinki titleLarge",null,null,null,null)
-B.ai_=new A.l(!0,B.h,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteHelsinki titleMedium",null,null,null,null)
-B.afM=new A.l(!0,B.h,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteHelsinki titleSmall",null,null,null,null)
-B.ai9=new A.l(!0,B.h,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteHelsinki bodyLarge",null,null,null,null)
-B.agS=new A.l(!0,B.h,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteHelsinki bodyMedium",null,null,null,null)
-B.ain=new A.l(!0,B.a8,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteHelsinki bodySmall",null,null,null,null)
-B.agQ=new A.l(!0,B.h,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteHelsinki labelLarge",null,null,null,null)
-B.ahU=new A.l(!0,B.h,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteHelsinki labelMedium",null,null,null,null)
-B.afa=new A.l(!0,B.h,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteHelsinki labelSmall",null,null,null,null)
-B.aiK=new A.e3(B.afl,B.ahr,B.afY,B.aid,B.agl,B.af2,B.aeF,B.ai_,B.afM,B.ai9,B.agS,B.ain,B.agQ,B.ahU,B.afa)
-B.ahk=new A.l(!0,B.a4,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackMountainView displayLarge",null,null,null,null)
-B.aeK=new A.l(!0,B.a4,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackMountainView displayMedium",null,null,null,null)
-B.agO=new A.l(!0,B.a4,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackMountainView displaySmall",null,null,null,null)
-B.agH=new A.l(!0,B.a4,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackMountainView headlineLarge",null,null,null,null)
-B.afG=new A.l(!0,B.a4,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackMountainView headlineMedium",null,null,null,null)
-B.ahf=new A.l(!0,B.a5,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackMountainView headlineSmall",null,null,null,null)
-B.aeL=new A.l(!0,B.a5,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackMountainView titleLarge",null,null,null,null)
-B.ahu=new A.l(!0,B.a5,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackMountainView titleMedium",null,null,null,null)
-B.ag9=new A.l(!0,B.m,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackMountainView titleSmall",null,null,null,null)
-B.aeZ=new A.l(!0,B.a5,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackMountainView bodyLarge",null,null,null,null)
-B.afz=new A.l(!0,B.a5,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackMountainView bodyMedium",null,null,null,null)
-B.ais=new A.l(!0,B.a4,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackMountainView bodySmall",null,null,null,null)
-B.agT=new A.l(!0,B.a5,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackMountainView labelLarge",null,null,null,null)
-B.agf=new A.l(!0,B.m,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackMountainView labelMedium",null,null,null,null)
-B.afo=new A.l(!0,B.m,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackMountainView labelSmall",null,null,null,null)
-B.aiL=new A.e3(B.ahk,B.aeK,B.agO,B.agH,B.afG,B.ahf,B.aeL,B.ahu,B.ag9,B.aeZ,B.afz,B.ais,B.agT,B.agf,B.afo)
-B.agz=new A.l(!0,B.a4,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedwoodCity displayLarge",null,null,null,null)
-B.afx=new A.l(!0,B.a4,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedwoodCity displayMedium",null,null,null,null)
-B.agA=new A.l(!0,B.a4,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedwoodCity displaySmall",null,null,null,null)
-B.ah0=new A.l(!0,B.a4,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedwoodCity headlineLarge",null,null,null,null)
-B.afe=new A.l(!0,B.a4,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedwoodCity headlineMedium",null,null,null,null)
-B.afm=new A.l(!0,B.a5,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedwoodCity headlineSmall",null,null,null,null)
-B.afQ=new A.l(!0,B.a5,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedwoodCity titleLarge",null,null,null,null)
-B.agW=new A.l(!0,B.a5,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedwoodCity titleMedium",null,null,null,null)
-B.ag1=new A.l(!0,B.m,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedwoodCity titleSmall",null,null,null,null)
-B.ahm=new A.l(!0,B.a5,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedwoodCity bodyLarge",null,null,null,null)
-B.aeJ=new A.l(!0,B.a5,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedwoodCity bodyMedium",null,null,null,null)
-B.af0=new A.l(!0,B.a4,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedwoodCity bodySmall",null,null,null,null)
-B.ahj=new A.l(!0,B.a5,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedwoodCity labelLarge",null,null,null,null)
-B.ahE=new A.l(!0,B.m,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedwoodCity labelMedium",null,null,null,null)
-B.aeQ=new A.l(!0,B.m,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedwoodCity labelSmall",null,null,null,null)
-B.aiM=new A.e3(B.agz,B.afx,B.agA,B.ah0,B.afe,B.afm,B.afQ,B.agW,B.ag1,B.ahm,B.aeJ,B.af0,B.ahj,B.ahE,B.aeQ)
-B.aiO=new A.rB("+55 51 989045442",null,null,null,null,null,null,null,null)
-B.aiP=new A.Eo(0,"system")
+B.ahR=new A.l(!0,B.a4,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackHelsinki displayLarge",null,null,null,null)
+B.agN=new A.l(!0,B.a4,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackHelsinki displayMedium",null,null,null,null)
+B.ahC=new A.l(!0,B.a4,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackHelsinki displaySmall",null,null,null,null)
+B.ahd=new A.l(!0,B.a4,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackHelsinki headlineLarge",null,null,null,null)
+B.afO=new A.l(!0,B.a4,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackHelsinki headlineMedium",null,null,null,null)
+B.aeZ=new A.l(!0,B.a5,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackHelsinki headlineSmall",null,null,null,null)
+B.af8=new A.l(!0,B.a5,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackHelsinki titleLarge",null,null,null,null)
+B.agU=new A.l(!0,B.a5,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackHelsinki titleMedium",null,null,null,null)
+B.ahI=new A.l(!0,B.m,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackHelsinki titleSmall",null,null,null,null)
+B.ahS=new A.l(!0,B.a5,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackHelsinki bodyLarge",null,null,null,null)
+B.afE=new A.l(!0,B.a5,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackHelsinki bodyMedium",null,null,null,null)
+B.ahs=new A.l(!0,B.a4,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackHelsinki bodySmall",null,null,null,null)
+B.afY=new A.l(!0,B.a5,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackHelsinki labelLarge",null,null,null,null)
+B.agg=new A.l(!0,B.m,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackHelsinki labelMedium",null,null,null,null)
+B.aid=new A.l(!0,B.m,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackHelsinki labelSmall",null,null,null,null)
+B.aiC=new A.e3(B.ahR,B.agN,B.ahC,B.ahd,B.afO,B.aeZ,B.af8,B.agU,B.ahI,B.ahS,B.afE,B.ahs,B.afY,B.agg,B.aid)
+B.ahU=new A.l(!0,B.a8,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedwoodCity displayLarge",null,null,null,null)
+B.afa=new A.l(!0,B.a8,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedwoodCity displayMedium",null,null,null,null)
+B.ahV=new A.l(!0,B.a8,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedwoodCity displaySmall",null,null,null,null)
+B.aib=new A.l(!0,B.a8,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedwoodCity headlineLarge",null,null,null,null)
+B.afg=new A.l(!0,B.a8,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedwoodCity headlineMedium",null,null,null,null)
+B.ag9=new A.l(!0,B.h,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedwoodCity headlineSmall",null,null,null,null)
+B.afs=new A.l(!0,B.h,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedwoodCity titleLarge",null,null,null,null)
+B.ah4=new A.l(!0,B.h,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedwoodCity titleMedium",null,null,null,null)
+B.ah7=new A.l(!0,B.h,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedwoodCity titleSmall",null,null,null,null)
+B.ahj=new A.l(!0,B.h,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedwoodCity bodyLarge",null,null,null,null)
+B.agQ=new A.l(!0,B.h,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedwoodCity bodyMedium",null,null,null,null)
+B.agM=new A.l(!0,B.a8,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedwoodCity bodySmall",null,null,null,null)
+B.afK=new A.l(!0,B.h,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedwoodCity labelLarge",null,null,null,null)
+B.agO=new A.l(!0,B.h,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedwoodCity labelMedium",null,null,null,null)
+B.afn=new A.l(!0,B.h,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedwoodCity labelSmall",null,null,null,null)
+B.aiD=new A.e3(B.ahU,B.afa,B.ahV,B.aib,B.afg,B.ag9,B.afs,B.ah4,B.ah7,B.ahj,B.agQ,B.agM,B.afK,B.agO,B.afn)
+B.ain=new A.l(!1,null,null,null,null,null,112,B.eN,null,null,null,B.a3,null,null,null,null,null,null,null,null,null,"dense displayLarge 2014",null,null,null,null)
+B.aih=new A.l(!1,null,null,null,null,null,56,B.r,null,null,null,B.a3,null,null,null,null,null,null,null,null,null,"dense displayMedium 2014",null,null,null,null)
+B.aha=new A.l(!1,null,null,null,null,null,45,B.r,null,null,null,B.a3,null,null,null,null,null,null,null,null,null,"dense displaySmall 2014",null,null,null,null)
+B.afv=new A.l(!1,null,null,null,null,null,40,B.r,null,null,null,B.a3,null,null,null,null,null,null,null,null,null,"dense headlineLarge 2014",null,null,null,null)
+B.ahq=new A.l(!1,null,null,null,null,null,34,B.r,null,null,null,B.a3,null,null,null,null,null,null,null,null,null,"dense headlineMedium 2014",null,null,null,null)
+B.aeX=new A.l(!1,null,null,null,null,null,24,B.r,null,null,null,B.a3,null,null,null,null,null,null,null,null,null,"dense headlineSmall 2014",null,null,null,null)
+B.ahN=new A.l(!1,null,null,null,null,null,21,B.ab,null,null,null,B.a3,null,null,null,null,null,null,null,null,null,"dense titleLarge 2014",null,null,null,null)
+B.agX=new A.l(!1,null,null,null,null,null,17,B.r,null,null,null,B.a3,null,null,null,null,null,null,null,null,null,"dense titleMedium 2014",null,null,null,null)
+B.agS=new A.l(!1,null,null,null,null,null,15,B.ab,null,null,null,B.a3,null,null,null,null,null,null,null,null,null,"dense titleSmall 2014",null,null,null,null)
+B.aeY=new A.l(!1,null,null,null,null,null,15,B.ab,null,null,null,B.a3,null,null,null,null,null,null,null,null,null,"dense bodyLarge 2014",null,null,null,null)
+B.ah8=new A.l(!1,null,null,null,null,null,15,B.r,null,null,null,B.a3,null,null,null,null,null,null,null,null,null,"dense bodyMedium 2014",null,null,null,null)
+B.age=new A.l(!1,null,null,null,null,null,13,B.r,null,null,null,B.a3,null,null,null,null,null,null,null,null,null,"dense bodySmall 2014",null,null,null,null)
+B.ahJ=new A.l(!1,null,null,null,null,null,15,B.ab,null,null,null,B.a3,null,null,null,null,null,null,null,null,null,"dense labelLarge 2014",null,null,null,null)
+B.ahv=new A.l(!1,null,null,null,null,null,12,B.r,null,null,null,B.a3,null,null,null,null,null,null,null,null,null,"dense labelMedium 2014",null,null,null,null)
+B.ahW=new A.l(!1,null,null,null,null,null,11,B.r,null,null,null,B.a3,null,null,null,null,null,null,null,null,null,"dense labelSmall 2014",null,null,null,null)
+B.aiE=new A.e3(B.ain,B.aih,B.aha,B.afv,B.ahq,B.aeX,B.ahN,B.agX,B.agS,B.aeY,B.ah8,B.age,B.ahJ,B.ahv,B.ahW)
+B.agw=new A.l(!0,B.a8,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedmond displayLarge",null,null,null,null)
+B.aeS=new A.l(!0,B.a8,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedmond displayMedium",null,null,null,null)
+B.ai1=new A.l(!0,B.a8,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedmond displaySmall",null,null,null,null)
+B.af6=new A.l(!0,B.a8,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedmond headlineLarge",null,null,null,null)
+B.ahk=new A.l(!0,B.a8,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedmond headlineMedium",null,null,null,null)
+B.agI=new A.l(!0,B.h,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedmond headlineSmall",null,null,null,null)
+B.ahZ=new A.l(!0,B.h,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedmond titleLarge",null,null,null,null)
+B.afu=new A.l(!0,B.h,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedmond titleMedium",null,null,null,null)
+B.afl=new A.l(!0,B.h,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedmond titleSmall",null,null,null,null)
+B.aif=new A.l(!0,B.h,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedmond bodyLarge",null,null,null,null)
+B.ahA=new A.l(!0,B.h,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedmond bodyMedium",null,null,null,null)
+B.ah6=new A.l(!0,B.a8,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedmond bodySmall",null,null,null,null)
+B.af7=new A.l(!0,B.h,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedmond labelLarge",null,null,null,null)
+B.ag2=new A.l(!0,B.h,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedmond labelMedium",null,null,null,null)
+B.aeF=new A.l(!0,B.h,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteRedmond labelSmall",null,null,null,null)
+B.aiF=new A.e3(B.agw,B.aeS,B.ai1,B.af6,B.ahk,B.agI,B.ahZ,B.afu,B.afl,B.aif,B.ahA,B.ah6,B.af7,B.ag2,B.aeF)
+B.agb=new A.l(!1,null,null,null,null,null,112,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"tall displayLarge 2014",null,null,null,null)
+B.ahK=new A.l(!1,null,null,null,null,null,56,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"tall displayMedium 2014",null,null,null,null)
+B.ags=new A.l(!1,null,null,null,null,null,45,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"tall displaySmall 2014",null,null,null,null)
+B.agr=new A.l(!1,null,null,null,null,null,40,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"tall headlineLarge 2014",null,null,null,null)
+B.ahy=new A.l(!1,null,null,null,null,null,34,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"tall headlineMedium 2014",null,null,null,null)
+B.ah0=new A.l(!1,null,null,null,null,null,24,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"tall headlineSmall 2014",null,null,null,null)
+B.ag8=new A.l(!1,null,null,null,null,null,21,B.aQ,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"tall titleLarge 2014",null,null,null,null)
+B.af_=new A.l(!1,null,null,null,null,null,17,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"tall titleMedium 2014",null,null,null,null)
+B.ahT=new A.l(!1,null,null,null,null,null,15,B.ab,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"tall titleSmall 2014",null,null,null,null)
+B.af9=new A.l(!1,null,null,null,null,null,15,B.aQ,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"tall bodyLarge 2014",null,null,null,null)
+B.ag_=new A.l(!1,null,null,null,null,null,15,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"tall bodyMedium 2014",null,null,null,null)
+B.agx=new A.l(!1,null,null,null,null,null,13,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"tall bodySmall 2014",null,null,null,null)
+B.afm=new A.l(!1,null,null,null,null,null,15,B.aQ,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"tall labelLarge 2014",null,null,null,null)
+B.afI=new A.l(!1,null,null,null,null,null,12,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"tall labelMedium 2014",null,null,null,null)
+B.ai_=new A.l(!1,null,null,null,null,null,11,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"tall labelSmall 2014",null,null,null,null)
+B.aiG=new A.e3(B.agb,B.ahK,B.ags,B.agr,B.ahy,B.ah0,B.ag8,B.af_,B.ahT,B.af9,B.ag_,B.agx,B.afm,B.afI,B.ai_)
+B.afH=new A.l(!0,B.a8,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteMountainView displayLarge",null,null,null,null)
+B.afN=new A.l(!0,B.a8,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteMountainView displayMedium",null,null,null,null)
+B.afk=new A.l(!0,B.a8,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteMountainView displaySmall",null,null,null,null)
+B.aeG=new A.l(!0,B.a8,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteMountainView headlineLarge",null,null,null,null)
+B.agh=new A.l(!0,B.a8,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteMountainView headlineMedium",null,null,null,null)
+B.aie=new A.l(!0,B.h,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteMountainView headlineSmall",null,null,null,null)
+B.afi=new A.l(!0,B.h,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteMountainView titleLarge",null,null,null,null)
+B.afy=new A.l(!0,B.h,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteMountainView titleMedium",null,null,null,null)
+B.ah5=new A.l(!0,B.h,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteMountainView titleSmall",null,null,null,null)
+B.agj=new A.l(!0,B.h,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteMountainView bodyLarge",null,null,null,null)
+B.ail=new A.l(!0,B.h,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteMountainView bodyMedium",null,null,null,null)
+B.aij=new A.l(!0,B.a8,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteMountainView bodySmall",null,null,null,null)
+B.afM=new A.l(!0,B.h,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteMountainView labelLarge",null,null,null,null)
+B.ahb=new A.l(!0,B.h,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteMountainView labelMedium",null,null,null,null)
+B.ai5=new A.l(!0,B.h,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteMountainView labelSmall",null,null,null,null)
+B.aiH=new A.e3(B.afH,B.afN,B.afk,B.aeG,B.agh,B.aie,B.afi,B.afy,B.ah5,B.agj,B.ail,B.aij,B.afM,B.ahb,B.ai5)
+B.ahr=new A.l(!1,null,null,null,null,null,57,B.r,null,-0.25,null,B.a3,1.12,B.E,null,null,null,null,null,null,null,"dense displayLarge 2021",null,null,null,null)
+B.ah9=new A.l(!1,null,null,null,null,null,45,B.r,null,0,null,B.a3,1.16,B.E,null,null,null,null,null,null,null,"dense displayMedium 2021",null,null,null,null)
+B.ahg=new A.l(!1,null,null,null,null,null,36,B.r,null,0,null,B.a3,1.22,B.E,null,null,null,null,null,null,null,"dense displaySmall 2021",null,null,null,null)
+B.afz=new A.l(!1,null,null,null,null,null,32,B.r,null,0,null,B.a3,1.25,B.E,null,null,null,null,null,null,null,"dense headlineLarge 2021",null,null,null,null)
+B.agd=new A.l(!1,null,null,null,null,null,28,B.r,null,0,null,B.a3,1.29,B.E,null,null,null,null,null,null,null,"dense headlineMedium 2021",null,null,null,null)
+B.ait=new A.l(!1,null,null,null,null,null,24,B.r,null,0,null,B.a3,1.33,B.E,null,null,null,null,null,null,null,"dense headlineSmall 2021",null,null,null,null)
+B.agH=new A.l(!1,null,null,null,null,null,22,B.r,null,0,null,B.a3,1.27,B.E,null,null,null,null,null,null,null,"dense titleLarge 2021",null,null,null,null)
+B.afF=new A.l(!1,null,null,null,null,null,16,B.ab,null,0.15,null,B.a3,1.5,B.E,null,null,null,null,null,null,null,"dense titleMedium 2021",null,null,null,null)
+B.ahB=new A.l(!1,null,null,null,null,null,14,B.ab,null,0.1,null,B.a3,1.43,B.E,null,null,null,null,null,null,null,"dense titleSmall 2021",null,null,null,null)
+B.ahQ=new A.l(!1,null,null,null,null,null,16,B.r,null,0.5,null,B.a3,1.5,B.E,null,null,null,null,null,null,null,"dense bodyLarge 2021",null,null,null,null)
+B.afD=new A.l(!1,null,null,null,null,null,14,B.r,null,0.25,null,B.a3,1.43,B.E,null,null,null,null,null,null,null,"dense bodyMedium 2021",null,null,null,null)
+B.af0=new A.l(!1,null,null,null,null,null,12,B.r,null,0.4,null,B.a3,1.33,B.E,null,null,null,null,null,null,null,"dense bodySmall 2021",null,null,null,null)
+B.agz=new A.l(!1,null,null,null,null,null,14,B.ab,null,0.1,null,B.a3,1.43,B.E,null,null,null,null,null,null,null,"dense labelLarge 2021",null,null,null,null)
+B.ahG=new A.l(!1,null,null,null,null,null,12,B.ab,null,0.5,null,B.a3,1.33,B.E,null,null,null,null,null,null,null,"dense labelMedium 2021",null,null,null,null)
+B.aiw=new A.l(!1,null,null,null,null,null,11,B.ab,null,0.5,null,B.a3,1.45,B.E,null,null,null,null,null,null,null,"dense labelSmall 2021",null,null,null,null)
+B.aiI=new A.e3(B.ahr,B.ah9,B.ahg,B.afz,B.agd,B.ait,B.agH,B.afF,B.ahB,B.ahQ,B.afD,B.af0,B.agz,B.ahG,B.aiw)
+B.aiu=new A.l(!0,B.a8,null,"CupertinoSystemDisplay",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteCupertino displayLarge",null,null,null,null)
+B.ai0=new A.l(!0,B.a8,null,"CupertinoSystemDisplay",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteCupertino displayMedium",null,null,null,null)
+B.ahe=new A.l(!0,B.a8,null,"CupertinoSystemDisplay",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteCupertino displaySmall",null,null,null,null)
+B.aga=new A.l(!0,B.a8,null,"CupertinoSystemDisplay",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteCupertino headlineLarge",null,null,null,null)
+B.ahD=new A.l(!0,B.a8,null,"CupertinoSystemDisplay",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteCupertino headlineMedium",null,null,null,null)
+B.ag3=new A.l(!0,B.h,null,"CupertinoSystemDisplay",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteCupertino headlineSmall",null,null,null,null)
+B.ah2=new A.l(!0,B.h,null,"CupertinoSystemDisplay",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteCupertino titleLarge",null,null,null,null)
+B.ahw=new A.l(!0,B.h,null,"CupertinoSystemText",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteCupertino titleMedium",null,null,null,null)
+B.ah_=new A.l(!0,B.h,null,"CupertinoSystemText",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteCupertino titleSmall",null,null,null,null)
+B.ai7=new A.l(!0,B.h,null,"CupertinoSystemText",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteCupertino bodyLarge",null,null,null,null)
+B.afV=new A.l(!0,B.h,null,"CupertinoSystemText",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteCupertino bodyMedium",null,null,null,null)
+B.agu=new A.l(!0,B.a8,null,"CupertinoSystemText",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteCupertino bodySmall",null,null,null,null)
+B.ag5=new A.l(!0,B.h,null,"CupertinoSystemText",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteCupertino labelLarge",null,null,null,null)
+B.aeQ=new A.l(!0,B.h,null,"CupertinoSystemText",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteCupertino labelMedium",null,null,null,null)
+B.aeP=new A.l(!0,B.h,null,"CupertinoSystemText",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteCupertino labelSmall",null,null,null,null)
+B.aiJ=new A.e3(B.aiu,B.ai0,B.ahe,B.aga,B.ahD,B.ag3,B.ah2,B.ahw,B.ah_,B.ai7,B.afV,B.agu,B.ag5,B.aeQ,B.aeP)
+B.aiz=new A.l(!1,null,null,null,null,null,57,B.r,null,-0.25,null,B.w,1.12,B.E,null,null,null,null,null,null,null,"tall displayLarge 2021",null,null,null,null)
+B.afL=new A.l(!1,null,null,null,null,null,45,B.r,null,0,null,B.w,1.16,B.E,null,null,null,null,null,null,null,"tall displayMedium 2021",null,null,null,null)
+B.ag7=new A.l(!1,null,null,null,null,null,36,B.r,null,0,null,B.w,1.22,B.E,null,null,null,null,null,null,null,"tall displaySmall 2021",null,null,null,null)
+B.afx=new A.l(!1,null,null,null,null,null,32,B.r,null,0,null,B.w,1.25,B.E,null,null,null,null,null,null,null,"tall headlineLarge 2021",null,null,null,null)
+B.afS=new A.l(!1,null,null,null,null,null,28,B.r,null,0,null,B.w,1.29,B.E,null,null,null,null,null,null,null,"tall headlineMedium 2021",null,null,null,null)
+B.afj=new A.l(!1,null,null,null,null,null,24,B.r,null,0,null,B.w,1.33,B.E,null,null,null,null,null,null,null,"tall headlineSmall 2021",null,null,null,null)
+B.agJ=new A.l(!1,null,null,null,null,null,22,B.r,null,0,null,B.w,1.27,B.E,null,null,null,null,null,null,null,"tall titleLarge 2021",null,null,null,null)
+B.agm=new A.l(!1,null,null,null,null,null,16,B.ab,null,0.15,null,B.w,1.5,B.E,null,null,null,null,null,null,null,"tall titleMedium 2021",null,null,null,null)
+B.aii=new A.l(!1,null,null,null,null,null,14,B.ab,null,0.1,null,B.w,1.43,B.E,null,null,null,null,null,null,null,"tall titleSmall 2021",null,null,null,null)
+B.ahP=new A.l(!1,null,null,null,null,null,16,B.r,null,0.5,null,B.w,1.5,B.E,null,null,null,null,null,null,null,"tall bodyLarge 2021",null,null,null,null)
+B.ai4=new A.l(!1,null,null,null,null,null,14,B.r,null,0.25,null,B.w,1.43,B.E,null,null,null,null,null,null,null,"tall bodyMedium 2021",null,null,null,null)
+B.aia=new A.l(!1,null,null,null,null,null,12,B.r,null,0.4,null,B.w,1.33,B.E,null,null,null,null,null,null,null,"tall bodySmall 2021",null,null,null,null)
+B.ahM=new A.l(!1,null,null,null,null,null,14,B.ab,null,0.1,null,B.w,1.43,B.E,null,null,null,null,null,null,null,"tall labelLarge 2021",null,null,null,null)
+B.aio=new A.l(!1,null,null,null,null,null,12,B.ab,null,0.5,null,B.w,1.33,B.E,null,null,null,null,null,null,null,"tall labelMedium 2021",null,null,null,null)
+B.ahl=new A.l(!1,null,null,null,null,null,11,B.ab,null,0.5,null,B.w,1.45,B.E,null,null,null,null,null,null,null,"tall labelSmall 2021",null,null,null,null)
+B.aiK=new A.e3(B.aiz,B.afL,B.ag7,B.afx,B.afS,B.afj,B.agJ,B.agm,B.aii,B.ahP,B.ai4,B.aia,B.ahM,B.aio,B.ahl)
+B.ai9=new A.l(!1,null,null,null,null,null,112,B.eN,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"englishLike displayLarge 2014",null,null,null,null)
+B.agY=new A.l(!1,null,null,null,null,null,56,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"englishLike displayMedium 2014",null,null,null,null)
+B.ahO=new A.l(!1,null,null,null,null,null,45,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"englishLike displaySmall 2014",null,null,null,null)
+B.agn=new A.l(!1,null,null,null,null,null,40,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"englishLike headlineLarge 2014",null,null,null,null)
+B.ahc=new A.l(!1,null,null,null,null,null,34,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"englishLike headlineMedium 2014",null,null,null,null)
+B.afc=new A.l(!1,null,null,null,null,null,24,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"englishLike headlineSmall 2014",null,null,null,null)
+B.agB=new A.l(!1,null,null,null,null,null,20,B.ab,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"englishLike titleLarge 2014",null,null,null,null)
+B.afU=new A.l(!1,null,null,null,null,null,16,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"englishLike titleMedium 2014",null,null,null,null)
+B.af4=new A.l(!1,null,null,null,null,null,14,B.ab,null,0.1,null,B.w,null,null,null,null,null,null,null,null,null,"englishLike titleSmall 2014",null,null,null,null)
+B.afB=new A.l(!1,null,null,null,null,null,14,B.ab,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"englishLike bodyLarge 2014",null,null,null,null)
+B.ahY=new A.l(!1,null,null,null,null,null,14,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"englishLike bodyMedium 2014",null,null,null,null)
+B.aeK=new A.l(!1,null,null,null,null,null,12,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"englishLike bodySmall 2014",null,null,null,null)
+B.ai8=new A.l(!1,null,null,null,null,null,14,B.ab,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"englishLike labelLarge 2014",null,null,null,null)
+B.afw=new A.l(!1,null,null,null,null,null,12,B.r,null,null,null,B.w,null,null,null,null,null,null,null,null,null,"englishLike labelMedium 2014",null,null,null,null)
+B.agP=new A.l(!1,null,null,null,null,null,10,B.r,null,1.5,null,B.w,null,null,null,null,null,null,null,null,null,"englishLike labelSmall 2014",null,null,null,null)
+B.aiL=new A.e3(B.ai9,B.agY,B.ahO,B.agn,B.ahc,B.afc,B.agB,B.afU,B.af4,B.afB,B.ahY,B.aeK,B.ai8,B.afw,B.agP)
+B.afq=new A.l(!0,B.a4,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedmond displayLarge",null,null,null,null)
+B.agf=new A.l(!0,B.a4,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedmond displayMedium",null,null,null,null)
+B.air=new A.l(!0,B.a4,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedmond displaySmall",null,null,null,null)
+B.afZ=new A.l(!0,B.a4,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedmond headlineLarge",null,null,null,null)
+B.agl=new A.l(!0,B.a4,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedmond headlineMedium",null,null,null,null)
+B.ahE=new A.l(!0,B.a5,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedmond headlineSmall",null,null,null,null)
+B.agF=new A.l(!0,B.a5,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedmond titleLarge",null,null,null,null)
+B.ahh=new A.l(!0,B.a5,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedmond titleMedium",null,null,null,null)
+B.ai6=new A.l(!0,B.m,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedmond titleSmall",null,null,null,null)
+B.ag1=new A.l(!0,B.a5,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedmond bodyLarge",null,null,null,null)
+B.afG=new A.l(!0,B.a5,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedmond bodyMedium",null,null,null,null)
+B.aeJ=new A.l(!0,B.a4,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedmond bodySmall",null,null,null,null)
+B.aft=new A.l(!0,B.a5,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedmond labelLarge",null,null,null,null)
+B.ais=new A.l(!0,B.m,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedmond labelMedium",null,null,null,null)
+B.aim=new A.l(!0,B.m,null,"Segoe UI",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedmond labelSmall",null,null,null,null)
+B.aiM=new A.e3(B.afq,B.agf,B.air,B.afZ,B.agl,B.ahE,B.agF,B.ahh,B.ai6,B.ag1,B.afG,B.aeJ,B.aft,B.ais,B.aim)
+B.afo=new A.l(!0,B.a8,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteHelsinki displayLarge",null,null,null,null)
+B.ahu=new A.l(!0,B.a8,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteHelsinki displayMedium",null,null,null,null)
+B.ag0=new A.l(!0,B.a8,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteHelsinki displaySmall",null,null,null,null)
+B.aig=new A.l(!0,B.a8,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteHelsinki headlineLarge",null,null,null,null)
+B.ago=new A.l(!0,B.a8,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteHelsinki headlineMedium",null,null,null,null)
+B.af5=new A.l(!0,B.h,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteHelsinki headlineSmall",null,null,null,null)
+B.aeI=new A.l(!0,B.h,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteHelsinki titleLarge",null,null,null,null)
+B.ai2=new A.l(!0,B.h,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteHelsinki titleMedium",null,null,null,null)
+B.afP=new A.l(!0,B.h,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteHelsinki titleSmall",null,null,null,null)
+B.aic=new A.l(!0,B.h,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteHelsinki bodyLarge",null,null,null,null)
+B.agV=new A.l(!0,B.h,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteHelsinki bodyMedium",null,null,null,null)
+B.aiq=new A.l(!0,B.a8,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteHelsinki bodySmall",null,null,null,null)
+B.agT=new A.l(!0,B.h,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteHelsinki labelLarge",null,null,null,null)
+B.ahX=new A.l(!0,B.h,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteHelsinki labelMedium",null,null,null,null)
+B.afd=new A.l(!0,B.h,null,"Roboto",B.ac,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"whiteHelsinki labelSmall",null,null,null,null)
+B.aiN=new A.e3(B.afo,B.ahu,B.ag0,B.aig,B.ago,B.af5,B.aeI,B.ai2,B.afP,B.aic,B.agV,B.aiq,B.agT,B.ahX,B.afd)
+B.ahn=new A.l(!0,B.a4,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackMountainView displayLarge",null,null,null,null)
+B.aeN=new A.l(!0,B.a4,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackMountainView displayMedium",null,null,null,null)
+B.agR=new A.l(!0,B.a4,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackMountainView displaySmall",null,null,null,null)
+B.agK=new A.l(!0,B.a4,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackMountainView headlineLarge",null,null,null,null)
+B.afJ=new A.l(!0,B.a4,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackMountainView headlineMedium",null,null,null,null)
+B.ahi=new A.l(!0,B.a5,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackMountainView headlineSmall",null,null,null,null)
+B.aeO=new A.l(!0,B.a5,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackMountainView titleLarge",null,null,null,null)
+B.ahx=new A.l(!0,B.a5,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackMountainView titleMedium",null,null,null,null)
+B.agc=new A.l(!0,B.m,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackMountainView titleSmall",null,null,null,null)
+B.af1=new A.l(!0,B.a5,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackMountainView bodyLarge",null,null,null,null)
+B.afC=new A.l(!0,B.a5,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackMountainView bodyMedium",null,null,null,null)
+B.aiv=new A.l(!0,B.a4,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackMountainView bodySmall",null,null,null,null)
+B.agW=new A.l(!0,B.a5,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackMountainView labelLarge",null,null,null,null)
+B.agi=new A.l(!0,B.m,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackMountainView labelMedium",null,null,null,null)
+B.afr=new A.l(!0,B.m,null,"Roboto",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackMountainView labelSmall",null,null,null,null)
+B.aiO=new A.e3(B.ahn,B.aeN,B.agR,B.agK,B.afJ,B.ahi,B.aeO,B.ahx,B.agc,B.af1,B.afC,B.aiv,B.agW,B.agi,B.afr)
+B.agC=new A.l(!0,B.a4,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedwoodCity displayLarge",null,null,null,null)
+B.afA=new A.l(!0,B.a4,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedwoodCity displayMedium",null,null,null,null)
+B.agD=new A.l(!0,B.a4,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedwoodCity displaySmall",null,null,null,null)
+B.ah3=new A.l(!0,B.a4,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedwoodCity headlineLarge",null,null,null,null)
+B.afh=new A.l(!0,B.a4,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedwoodCity headlineMedium",null,null,null,null)
+B.afp=new A.l(!0,B.a5,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedwoodCity headlineSmall",null,null,null,null)
+B.afT=new A.l(!0,B.a5,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedwoodCity titleLarge",null,null,null,null)
+B.agZ=new A.l(!0,B.a5,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedwoodCity titleMedium",null,null,null,null)
+B.ag4=new A.l(!0,B.m,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedwoodCity titleSmall",null,null,null,null)
+B.ahp=new A.l(!0,B.a5,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedwoodCity bodyLarge",null,null,null,null)
+B.aeM=new A.l(!0,B.a5,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedwoodCity bodyMedium",null,null,null,null)
+B.af3=new A.l(!0,B.a4,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedwoodCity bodySmall",null,null,null,null)
+B.ahm=new A.l(!0,B.a5,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedwoodCity labelLarge",null,null,null,null)
+B.ahH=new A.l(!0,B.m,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedwoodCity labelMedium",null,null,null,null)
+B.aeT=new A.l(!0,B.m,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.i,null,null,null,"blackRedwoodCity labelSmall",null,null,null,null)
+B.aiP=new A.e3(B.agC,B.afA,B.agD,B.ah3,B.afh,B.afp,B.afT,B.agZ,B.ag4,B.ahp,B.aeM,B.af3,B.ahm,B.ahH,B.aeT)
+B.aiR=new A.rB("+55 51 989045442",null,null,null,null,null,null,null,null)
+B.aiS=new A.Eo(0,"system")
 B.oj=new A.Eo(1,"light")
 B.kL=new A.Eo(2,"dark")
-B.a8z=new A.f(0.056,0.024)
-B.a8T=new A.f(0.108,0.3085)
-B.a8u=new A.f(0.198,0.541)
-B.a8J=new A.f(0.3655,1)
-B.a8S=new A.f(0.5465,0.989)
-B.kM=new A.Ep(B.a8z,B.a8T,B.a8u,B.a8J,B.a8S)
+B.a8C=new A.f(0.056,0.024)
+B.a8W=new A.f(0.108,0.3085)
+B.a8x=new A.f(0.198,0.541)
+B.a8M=new A.f(0.3655,1)
+B.a8V=new A.f(0.5465,0.989)
+B.kM=new A.Ep(B.a8C,B.a8W,B.a8x,B.a8M,B.a8V)
 B.IG=new A.Eq(0)
-B.aiQ=new A.Eq(0.5)
-B.aiR=new A.Er(null)
+B.aiT=new A.Eq(0.5)
+B.aiU=new A.Er(null)
 B.II=new A.Eu(2,"mirror")
 B.ok=new A.Eu(3,"decal")
-B.aiS=new A.Ev(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.aiT=new A.Ex(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.aiU=new A.EA(0.01,1/0)
+B.aiV=new A.Ev(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.aiW=new A.Ex(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.aiX=new A.EA(0.01,1/0)
 B.c5=new A.EA(0.001,0.001)
-B.aiV=new A.EB(0,"darker")
+B.aiY=new A.EB(0,"darker")
 B.ei=new A.EB(1,"lighter")
 B.d4=new A.EB(2,"nearer")
-B.aiY=new A.EF(null,null,null,null,null,null,null,null,null,null)
-B.aiZ=new A.aqo(1,"longPress")
+B.aj0=new A.EF(null,null,null,null,null,null,null,null,null,null)
+B.aj1=new A.aqo(1,"longPress")
 B.IK=new A.EH(0,"identity")
 B.IL=new A.EH(1,"transform2d")
 B.IM=new A.EH(2,"complex")
@@ -95446,252 +95449,252 @@ B.d6=new A.og(1,"right")
 B.d7=new A.og(2,"down")
 B.d8=new A.og(3,"left")
 B.ol=new A.EI(0,"closedLoop")
-B.aj_=new A.EI(1,"leaveFlutterView")
+B.aj2=new A.EI(1,"leaveFlutterView")
 B.IN=new A.EI(3,"stop")
 B.aM=new A.EJ(1,1,"isTrue")
 B.hQ=new A.EJ(2,2,"isFalse")
-B.aj0=A.aH("aWq")
+B.aj3=A.aH("aWq")
 B.IO=A.aH("n1")
 B.IP=A.aH("n0")
 B.kN=A.aH("l6")
 B.ax=A.aH("fH")
-B.aj3=A.aH("tM")
-B.aj4=A.aH("k0")
-B.aj5=A.aH("cU")
-B.aj6=A.aH("dz")
-B.aj7=A.aH("lh")
+B.aj6=A.aH("tM")
+B.aj7=A.aH("k0")
+B.aj8=A.aH("cU")
+B.aj9=A.aH("dz")
+B.aja=A.aH("lh")
 B.IQ=A.aH("h1")
-B.aj8=A.aH("a5")
+B.ajb=A.aH("a5")
 B.IR=A.aH("aGe")
 B.om=A.aH("h5")
-B.ajb=A.aH("aWr")
-B.ajc=A.aH("j4")
+B.aje=A.aH("aWr")
+B.ajf=A.aH("j4")
 B.fn=A.aH("py")
-B.ajf=A.aH("abS")
-B.ajg=A.aH("abT")
-B.ajh=A.aH("j8")
-B.aji=A.aH("aeu")
-B.ajj=A.aH("aev")
-B.ajk=A.aH("aew")
+B.aji=A.aH("abS")
+B.ajj=A.aH("abT")
+B.ajk=A.aH("j8")
+B.ajl=A.aH("aeu")
+B.ajm=A.aH("aev")
+B.ajn=A.aH("aew")
 B.IS=A.aH("kb")
-B.ajl=A.aH("aJ")
-B.ajm=A.aH("b5<Y<U>>")
-B.ajn=A.aH("uR")
+B.ajo=A.aH("aJ")
+B.ajp=A.aH("b5<Y<U>>")
+B.ajq=A.aH("uR")
 B.kO=A.aH("ip")
-B.ajo=A.aH("aMc")
+B.ajr=A.aH("aMc")
 B.d9=A.aH("a3")
-B.ajp=A.aH("qu")
-B.ajq=A.aH("K")
-B.ajr=A.aH("v4")
+B.ajs=A.aH("qu")
+B.ajt=A.aH("K")
+B.aju=A.aH("v4")
 B.kP=A.aH("jl")
-B.ajt=A.aH("qT")
-B.aju=A.aH("lO")
-B.ajy=A.aH("aH9")
-B.ajz=A.aH("jq")
+B.ajw=A.aH("qT")
+B.ajx=A.aH("lO")
+B.ajB=A.aH("aH9")
+B.ajC=A.aH("jq")
 B.on=A.aH("ez")
 B.IT=A.aH("hQ")
 B.kQ=A.aH("vA")
-B.ajA=A.aH("o5")
-B.ajB=A.aH("ro")
-B.ajC=A.aH("k")
+B.ajD=A.aH("o5")
+B.ajE=A.aH("ro")
+B.ajF=A.aH("k")
 B.IU=A.aH("jv")
 B.hR=A.aH("fQ")
 B.IV=A.aH("eO")
 B.IW=A.aH("lp")
-B.ajF=A.aH("aqx")
-B.ajG=A.aH("wd")
-B.ajH=A.aH("aqy")
-B.ajI=A.aH("m7")
-B.ajL=A.aH("oK")
-B.ajM=A.aH("aHv")
+B.ajI=A.aH("aqx")
+B.ajJ=A.aH("wd")
+B.ajK=A.aH("aqy")
+B.ajL=A.aH("m7")
+B.ajO=A.aH("oK")
+B.ajP=A.aH("aHv")
 B.IX=A.aH("a6")
-B.ajN=A.aH("wt")
-B.ajO=A.aH("mq<@>")
-B.ajP=A.aH("kZ")
+B.ajQ=A.aH("wt")
+B.ajR=A.aH("mq<@>")
+B.ajS=A.aH("kZ")
 B.IZ=A.aH("kc")
 B.IY=A.aH("kd")
 B.oo=A.aH("hF")
-B.ajR=A.aH("lH")
-B.ajT=A.aH("os")
+B.ajU=A.aH("lH")
+B.ajW=A.aH("os")
 B.J_=A.aH("n2")
 B.J0=A.aH("h6")
 B.J1=A.aH("ju")
 B.op=A.aH("hY")
-B.ajZ=new A.Vh(0,"scope")
+B.ak1=new A.Vh(0,"scope")
 B.oq=new A.Vh(1,"previouslyFocusedChild")
 B.fo=new A.aqI(!1)
-B.ak_=new A.fA("footer",A.a4("fA<k>"))
+B.ak2=new A.fA("footer",A.a4("fA<k>"))
 B.ay=new A.jy(0,"monochrome")
-B.ak0=new A.jy(1,"neutral")
-B.ak1=new A.jy(2,"tonalSpot")
-B.ak2=new A.jy(3,"vibrant")
-B.ak3=new A.jy(4,"expressive")
+B.ak3=new A.jy(1,"neutral")
+B.ak4=new A.jy(2,"tonalSpot")
+B.ak5=new A.jy(3,"vibrant")
+B.ak6=new A.jy(4,"expressive")
 B.ej=new A.jy(5,"content")
 B.ek=new A.jy(6,"fidelity")
-B.ak4=new A.jy(7,"rainbow")
-B.ak5=new A.jy(8,"fruitSalad")
+B.ak7=new A.jy(7,"rainbow")
+B.ak8=new A.jy(8,"fruitSalad")
 B.J2=new A.oi(B.f,0,B.P,B.f)
 B.os=new A.oi(B.f,1,B.P,B.f)
 B.cD=new A.fT(B.f)
 B.hS=new A.aqN(1,"down")
-B.ak6=new A.ER(0,"undefined")
+B.ak9=new A.ER(0,"undefined")
 B.J3=new A.ER(1,"forward")
-B.ak7=new A.ER(2,"backward")
-B.ak8=new A.Vq(0,"unfocused")
+B.aka=new A.ER(2,"backward")
+B.akb=new A.Vq(0,"unfocused")
 B.ot=new A.Vq(1,"focused")
 B.fq=new A.mb(0,0)
-B.ak9=new A.mb(-2,-2)
+B.akc=new A.mb(-2,-2)
 B.fr=new A.bE(0,t.XR)
 B.ou=new A.bE(18,t.XR)
 B.kR=new A.bE(24,t.XR)
 B.bx=new A.bE(B.p,t.De)
-B.aka=new A.bE(B.p,t.rc)
+B.akd=new A.bE(B.p,t.rc)
 B.el=new A.bE(B.hH,t.W7)
 B.kS=new A.bE(B.fW,t.mD)
 B.kT=new A.bE(B.I5,t.W7)
-B.acN=new A.z(64,40)
-B.ov=new A.bE(B.acN,t.W7)
+B.acQ=new A.z(64,40)
+B.ov=new A.bE(B.acQ,t.W7)
 B.em=new A.bE(B.o9,t.li)
 B.J4=new A.c0(3,"dragged")
 B.ow=new A.c0(5,"scrolledUnder")
-B.akb=new A.VC(B.j)
-B.akc=new A.VD(B.j)
-B.akd=new A.VE(B.am)
-B.ake=new A.VF(B.j)
-B.akf=new A.VG(B.j)
-B.akg=new A.VH(B.j)
-B.akh=new A.VI(B.j)
-B.aki=new A.VJ(B.j)
-B.akj=new A.VK(B.j)
-B.akk=new A.VL(B.j)
-B.akl=new A.VM(B.j)
-B.akm=new A.VN(B.j)
-B.akn=new A.VO(B.j)
-B.ako=new A.VP(B.j)
-B.akp=new A.EW(B.j)
-B.akq=new A.VQ(B.j)
-B.akr=new A.VR(B.j)
-B.aks=new A.VS(B.j)
-B.akt=new A.VT(B.j)
-B.aku=new A.VU(B.j)
-B.akv=new A.VV(B.j)
-B.akw=new A.VW(B.j)
-B.akx=new A.VX(B.j)
-B.aky=new A.VY(B.j)
-B.akz=new A.EX(B.j)
-B.akA=new A.VZ(B.j)
-B.akB=new A.W_(B.j)
-B.akC=new A.W0(B.j)
-B.akD=new A.W1(B.j)
-B.akE=new A.W2(B.j)
-B.akF=new A.W3(B.j)
-B.akG=new A.W4(B.j)
-B.akH=new A.W5(B.j)
-B.akI=new A.W6(B.j)
-B.akJ=new A.W7(B.j)
-B.akK=new A.W8(B.j)
-B.akL=new A.W9(B.j)
-B.akM=new A.Wa(B.j)
-B.akN=new A.Wb(B.j)
-B.akO=new A.Wc(B.j)
-B.akP=new A.Wd(B.j)
-B.akQ=new A.We(B.j)
-B.akR=new A.Wf(B.j)
-B.akS=new A.Wg(B.j)
-B.akT=new A.Wh(B.j)
-B.akU=new A.EY(B.j)
-B.akV=new A.Wi(B.j)
-B.akW=new A.Wj(B.j)
-B.akX=new A.Wk(B.am)
-B.akY=new A.Wl(B.j)
-B.akZ=new A.Wm(B.j)
-B.al_=new A.Wn(B.j)
-B.al0=new A.EZ(B.j)
-B.al1=new A.Wo(B.j)
-B.al2=new A.Wp(B.j)
-B.al3=new A.Wq(B.j)
-B.al4=new A.Wr(B.am)
-B.al5=new A.Ws(B.j)
-B.al6=new A.Wt(B.j)
-B.al7=new A.Wu(B.j)
-B.al8=new A.Wv(B.j)
-B.al9=new A.Ww(B.j)
-B.ala=new A.Wx(B.j)
-B.alb=new A.Wy(B.j)
-B.alc=new A.Wz(B.j)
-B.ald=new A.WA(B.j)
-B.ale=new A.WB(B.j)
-B.alf=new A.WC(B.j)
-B.alg=new A.WD(B.j)
-B.alh=new A.WE(B.j)
-B.ali=new A.WF(B.j)
-B.alj=new A.WG(B.j)
-B.alk=new A.WH(B.j)
-B.all=new A.WI(B.j)
-B.alm=new A.WJ(B.j)
-B.aln=new A.WK(B.j)
-B.alo=new A.WL(B.j)
-B.alp=new A.WM(B.j)
-B.alq=new A.WN(B.j)
-B.alr=new A.WO(B.j)
-B.als=new A.WP(B.j)
-B.alt=new A.WQ(B.j)
-B.alu=new A.WR(B.j)
-B.alv=new A.WS(B.j)
-B.alw=new A.WT(B.j)
-B.alx=new A.WU(B.j)
-B.aly=new A.WV(B.j)
-B.alz=new A.WW(B.am)
-B.alA=new A.WX(B.j)
-B.alB=new A.F_(B.j)
-B.alC=new A.WY(B.j)
-B.alD=new A.WZ(B.j)
-B.alE=new A.X_(B.j)
-B.alF=new A.X0(B.j)
-B.alG=new A.X1(B.j)
-B.alH=new A.X2(B.j)
-B.alI=new A.X3(B.j)
-B.alJ=new A.X4(B.j)
-B.alK=new A.F0(B.j)
-B.alL=new A.X5(B.j)
-B.alM=new A.X6(B.j)
-B.alN=new A.X7(B.j)
-B.alO=new A.X8(B.j)
-B.alP=new A.X9(B.j)
-B.alQ=new A.Xa(B.j)
-B.alR=new A.Xb(B.j)
-B.alS=new A.Xc(B.j)
-B.alT=new A.Xd(B.am)
-B.alU=new A.Xe(B.j)
-B.alV=new A.Xf(B.j)
-B.alW=new A.Xg(B.j)
+B.ake=new A.VC(B.j)
+B.akf=new A.VD(B.j)
+B.akg=new A.VE(B.am)
+B.akh=new A.VF(B.j)
+B.aki=new A.VG(B.j)
+B.akj=new A.VH(B.j)
+B.akk=new A.VI(B.j)
+B.akl=new A.VJ(B.j)
+B.akm=new A.VK(B.j)
+B.akn=new A.VL(B.j)
+B.ako=new A.VM(B.j)
+B.akp=new A.VN(B.j)
+B.akq=new A.VO(B.j)
+B.akr=new A.VP(B.j)
+B.aks=new A.EW(B.j)
+B.akt=new A.VQ(B.j)
+B.aku=new A.VR(B.j)
+B.akv=new A.VS(B.j)
+B.akw=new A.VT(B.j)
+B.akx=new A.VU(B.j)
+B.aky=new A.VV(B.j)
+B.akz=new A.VW(B.j)
+B.akA=new A.VX(B.j)
+B.akB=new A.VY(B.j)
+B.akC=new A.EX(B.j)
+B.akD=new A.VZ(B.j)
+B.akE=new A.W_(B.j)
+B.akF=new A.W0(B.j)
+B.akG=new A.W1(B.j)
+B.akH=new A.W2(B.j)
+B.akI=new A.W3(B.j)
+B.akJ=new A.W4(B.j)
+B.akK=new A.W5(B.j)
+B.akL=new A.W6(B.j)
+B.akM=new A.W7(B.j)
+B.akN=new A.W8(B.j)
+B.akO=new A.W9(B.j)
+B.akP=new A.Wa(B.j)
+B.akQ=new A.Wb(B.j)
+B.akR=new A.Wc(B.j)
+B.akS=new A.Wd(B.j)
+B.akT=new A.We(B.j)
+B.akU=new A.Wf(B.j)
+B.akV=new A.Wg(B.j)
+B.akW=new A.Wh(B.j)
+B.akX=new A.EY(B.j)
+B.akY=new A.Wi(B.j)
+B.akZ=new A.Wj(B.j)
+B.al_=new A.Wk(B.am)
+B.al0=new A.Wl(B.j)
+B.al1=new A.Wm(B.j)
+B.al2=new A.Wn(B.j)
+B.al3=new A.EZ(B.j)
+B.al4=new A.Wo(B.j)
+B.al5=new A.Wp(B.j)
+B.al6=new A.Wq(B.j)
+B.al7=new A.Wr(B.am)
+B.al8=new A.Ws(B.j)
+B.al9=new A.Wt(B.j)
+B.ala=new A.Wu(B.j)
+B.alb=new A.Wv(B.j)
+B.alc=new A.Ww(B.j)
+B.ald=new A.Wx(B.j)
+B.ale=new A.Wy(B.j)
+B.alf=new A.Wz(B.j)
+B.alg=new A.WA(B.j)
+B.alh=new A.WB(B.j)
+B.ali=new A.WC(B.j)
+B.alj=new A.WD(B.j)
+B.alk=new A.WE(B.j)
+B.all=new A.WF(B.j)
+B.alm=new A.WG(B.j)
+B.aln=new A.WH(B.j)
+B.alo=new A.WI(B.j)
+B.alp=new A.WJ(B.j)
+B.alq=new A.WK(B.j)
+B.alr=new A.WL(B.j)
+B.als=new A.WM(B.j)
+B.alt=new A.WN(B.j)
+B.alu=new A.WO(B.j)
+B.alv=new A.WP(B.j)
+B.alw=new A.WQ(B.j)
+B.alx=new A.WR(B.j)
+B.aly=new A.WS(B.j)
+B.alz=new A.WT(B.j)
+B.alA=new A.WU(B.j)
+B.alB=new A.WV(B.j)
+B.alC=new A.WW(B.am)
+B.alD=new A.WX(B.j)
+B.alE=new A.F_(B.j)
+B.alF=new A.WY(B.j)
+B.alG=new A.WZ(B.j)
+B.alH=new A.X_(B.j)
+B.alI=new A.X0(B.j)
+B.alJ=new A.X1(B.j)
+B.alK=new A.X2(B.j)
+B.alL=new A.X3(B.j)
+B.alM=new A.X4(B.j)
+B.alN=new A.F0(B.j)
+B.alO=new A.X5(B.j)
+B.alP=new A.X6(B.j)
+B.alQ=new A.X7(B.j)
+B.alR=new A.X8(B.j)
+B.alS=new A.X9(B.j)
+B.alT=new A.Xa(B.j)
+B.alU=new A.Xb(B.j)
+B.alV=new A.Xc(B.j)
+B.alW=new A.Xd(B.am)
+B.alX=new A.Xe(B.j)
+B.alY=new A.Xf(B.j)
+B.alZ=new A.Xg(B.j)
 B.J5=new A.Xh(B.j)
 B.J6=new A.Xi(B.j)
-B.alX=new A.F2(B.j)
-B.alY=new A.F1(B.j)
-B.alZ=new A.Xj(B.j)
+B.am_=new A.F2(B.j)
+B.am0=new A.F1(B.j)
+B.am1=new A.Xj(B.j)
 B.by=new A.ok(0,"start")
 B.J7=new A.ok(1,"end")
 B.kU=new A.ok(2,"center")
-B.am_=new A.ok(3,"spaceBetween")
-B.am0=new A.ok(4,"spaceAround")
-B.am1=new A.ok(5,"spaceEvenly")
+B.am2=new A.ok(3,"spaceBetween")
+B.am3=new A.ok(4,"spaceAround")
+B.am4=new A.ok(5,"spaceEvenly")
 B.cE=new A.F4(0,"start")
-B.am2=new A.F4(1,"end")
+B.am5=new A.F4(1,"end")
 B.kV=new A.F4(2,"center")
-B.anP=new A.arg(0,"material")
+B.anS=new A.arg(0,"material")
 B.b7=new A.ws(0,"forward")
 B.hT=new A.ws(1,"reverse")
-B.am3=new A.Fm(0,"checkbox")
-B.am4=new A.Fm(1,"radio")
-B.am5=new A.Fm(2,"toggle")
+B.am6=new A.Fm(0,"checkbox")
+B.am7=new A.Fm(1,"radio")
+B.am8=new A.Fm(2,"toggle")
 B.fs=new A.asV(0,"flat")
-B.am7=new A.Yy(null)
-B.anR=new A.att(0,"plain")
+B.ama=new A.Yy(null)
+B.anU=new A.att(0,"plain")
 B.NA=new A.r(0.01568627450980392,0,0,0,B.e)
-B.UY=s([B.NA,B.p],t.W)
-B.am8=new A.jH(B.UY)
-B.am9=new A.jH(null)
+B.V0=s([B.NA,B.p],t.W)
+B.amb=new A.jH(B.V0)
+B.amc=new A.jH(null)
 B.ox=new A.rU(0,"backButton")
 B.oy=new A.rU(1,"nextButton")
 B.ft=new A.ZC(0,"horizontal")
@@ -95705,28 +95708,28 @@ B.fv=new A.FS(2,"accepted")
 B.aD=new A.rY(0,"initial")
 B.hW=new A.rY(1,"active")
 B.Jd=new A.rY(2,"inactive")
-B.amg=new A.rY(3,"failed")
+B.amj=new A.rY(3,"failed")
 B.Je=new A.rY(4,"defunct")
-B.anS=new A.aun(0,"filled")
+B.anV=new A.aun(0,"filled")
 B.oB=new A.G_(0,"none")
-B.amn=new A.G_(1,"forward")
-B.amo=new A.G_(2,"reverse")
+B.amq=new A.G_(1,"forward")
+B.amr=new A.G_(2,"reverse")
 B.oC=new A.rZ(0,"ready")
 B.kW=new A.rZ(1,"possible")
 B.Jf=new A.rZ(2,"accepted")
 B.kX=new A.rZ(3,"started")
-B.amp=new A.rZ(4,"peaked")
+B.ams=new A.rZ(4,"peaked")
 B.hX=new A.G8(0,"pan")
 B.kY=new A.G8(1,"scale")
-B.amq=new A.G8(2,"rotate")
+B.amt=new A.G8(2,"rotate")
 B.kZ=new A.wL(0,"idle")
-B.amr=new A.wL(1,"absorb")
+B.amu=new A.wL(1,"absorb")
 B.l_=new A.wL(2,"pull")
 B.Jg=new A.wL(3,"recede")
 B.en=new A.or(0,"pressed")
 B.fw=new A.or(1,"hover")
 B.Jh=new A.or(2,"focus")
-B.ams=new A.avF(0,"standard")
+B.amv=new A.avF(0,"standard")
 B.aJ=new A.t2(0,"minWidth")
 B.ad=new A.t2(1,"maxWidth")
 B.aK=new A.t2(2,"minHeight")
@@ -95734,9 +95737,9 @@ B.bf=new A.t2(3,"maxHeight")
 B.aN=new A.iQ(1)
 B.aL=new A.d7(0,"size")
 B.oD=new A.d7(1,"width")
-B.amE=new A.d7(11,"viewPadding")
+B.amH=new A.d7(11,"viewPadding")
 B.oE=new A.d7(13,"accessibleNavigation")
-B.amF=new A.d7(14,"invertColors")
+B.amI=new A.d7(14,"invertColors")
 B.Ji=new A.d7(15,"highContrast")
 B.oF=new A.d7(17,"disableAnimations")
 B.oG=new A.d7(18,"boldText")
@@ -95744,7 +95747,7 @@ B.Jj=new A.d7(19,"supportsAnnounce")
 B.Jk=new A.d7(2,"height")
 B.hY=new A.d7(20,"navigationMode")
 B.oH=new A.d7(21,"gestureSettings")
-B.amG=new A.d7(23,"supportsShowingSystemContextMenu")
+B.amJ=new A.d7(23,"supportsShowingSystemContextMenu")
 B.l0=new A.d7(24,"lineHeightScaleFactorOverride")
 B.oI=new A.d7(25,"letterSpacingOverride")
 B.oJ=new A.d7(26,"wordSpacingOverride")
@@ -95754,55 +95757,55 @@ B.bC=new A.d7(6,"textScaler")
 B.l1=new A.d7(7,"platformBrightness")
 B.c8=new A.d7(8,"padding")
 B.l2=new A.d7(9,"viewInsets")
-B.amH=new A.a0s(null)
+B.amK=new A.a0s(null)
 B.Jm=new A.ow(1/0,1/0,1/0,1/0,1/0,1/0)
-B.amI=new A.ox(0,"isCurrent")
-B.amJ=new A.ox(5,"opaque")
-B.amK=new A.di(B.f1,B.eR)
+B.amL=new A.ox(0,"isCurrent")
+B.amM=new A.ox(5,"opaque")
+B.amN=new A.di(B.f1,B.eR)
 B.j8=new A.q3(1,"left")
-B.amL=new A.di(B.f1,B.j8)
+B.amO=new A.di(B.f1,B.j8)
 B.j9=new A.q3(2,"right")
-B.amM=new A.di(B.f1,B.j9)
-B.amN=new A.di(B.f1,B.cS)
-B.amO=new A.di(B.f2,B.eR)
-B.amP=new A.di(B.f2,B.j8)
-B.amQ=new A.di(B.f2,B.j9)
-B.amR=new A.di(B.f2,B.cS)
-B.amS=new A.di(B.f3,B.eR)
-B.amT=new A.di(B.f3,B.j8)
-B.amU=new A.di(B.f3,B.j9)
-B.amV=new A.di(B.f3,B.cS)
-B.amW=new A.di(B.f4,B.eR)
-B.amX=new A.di(B.f4,B.j8)
-B.amY=new A.di(B.f4,B.j9)
-B.amZ=new A.di(B.f4,B.cS)
-B.an_=new A.di(B.nf,B.cS)
-B.an0=new A.di(B.ng,B.cS)
-B.an1=new A.di(B.nh,B.cS)
-B.an2=new A.di(B.ni,B.cS)
-B.an5=new A.a0M(null)
-B.an4=new A.a0O(null)
-B.an8=new A.a14(null)
+B.amP=new A.di(B.f1,B.j9)
+B.amQ=new A.di(B.f1,B.cS)
+B.amR=new A.di(B.f2,B.eR)
+B.amS=new A.di(B.f2,B.j8)
+B.amT=new A.di(B.f2,B.j9)
+B.amU=new A.di(B.f2,B.cS)
+B.amV=new A.di(B.f3,B.eR)
+B.amW=new A.di(B.f3,B.j8)
+B.amX=new A.di(B.f3,B.j9)
+B.amY=new A.di(B.f3,B.cS)
+B.amZ=new A.di(B.f4,B.eR)
+B.an_=new A.di(B.f4,B.j8)
+B.an0=new A.di(B.f4,B.j9)
+B.an1=new A.di(B.f4,B.cS)
+B.an2=new A.di(B.nf,B.cS)
+B.an3=new A.di(B.ng,B.cS)
+B.an4=new A.di(B.nh,B.cS)
+B.an5=new A.di(B.ni,B.cS)
+B.an8=new A.a0M(null)
+B.an7=new A.a0O(null)
+B.anb=new A.a14(null)
 B.Jn=new A.ms(0,"idle")
-B.an9=new A.ms(1,"start")
-B.ana=new A.ms(2,"update")
+B.anc=new A.ms(1,"start")
+B.and=new A.ms(2,"update")
 B.eo=new A.ms(3,"commit")
-B.anb=new A.ms(4,"cancel")
+B.ane=new A.ms(4,"cancel")
 B.oK=new A.fd(1,"add")
-B.anc=new A.fd(10,"remove")
-B.and=new A.fd(11,"popping")
-B.ane=new A.fd(12,"removing")
+B.anf=new A.fd(10,"remove")
+B.ang=new A.fd(11,"popping")
+B.anh=new A.fd(12,"removing")
 B.l3=new A.fd(13,"dispose")
-B.anf=new A.fd(14,"disposing")
+B.ani=new A.fd(14,"disposing")
 B.l4=new A.fd(15,"disposed")
-B.ang=new A.fd(2,"adding")
+B.anj=new A.fd(2,"adding")
 B.Jo=new A.fd(3,"push")
 B.oL=new A.fd(4,"pushReplace")
 B.Jp=new A.fd(5,"pushing")
-B.anh=new A.fd(6,"replace")
+B.ank=new A.fd(6,"replace")
 B.hZ=new A.fd(7,"idle")
 B.Jq=new A.fd(8,"pop")
-B.ani=new A.fd(9,"complete")
+B.anl=new A.fd(9,"complete")
 B.l5=new A.hq(0,"body")
 B.l6=new A.hq(1,"appBar")
 B.oN=new A.hq(10,"endDrawer")
@@ -95819,17 +95822,17 @@ B.i_=new A.xl(0,"ready")
 B.i0=new A.xl(1,"possible")
 B.Js=new A.xl(2,"accepted")
 B.ld=new A.xl(3,"started")
-B.anl=new A.a3z(null)
+B.ano=new A.a3z(null)
 B.Jt=new A.xt(0,"first")
-B.anm=new A.xt(1,"middle")
+B.anp=new A.xt(1,"middle")
 B.Ju=new A.xt(2,"last")
 B.oQ=new A.xt(3,"only")
-B.ann=new A.Is(B.q7,B.fQ)
+B.anq=new A.Is(B.q7,B.fQ)
 B.le=new A.Iv(0,"leading")
 B.lf=new A.Iv(1,"middle")
 B.lg=new A.Iv(2,"trailing")
-B.ano=new A.a4s(0,"minimize")
-B.anp=new A.a4s(1,"maximize")
+B.anr=new A.a4s(0,"minimize")
+B.ans=new A.a4s(1,"maximize")
 B.dE=new A.IT(A.b6O(),"WidgetStateMouseCursor(adaptiveClickable)")})();(function staticFields(){$.aI1=null
 $.aDa=null
 $.aW=A.jG("canvasKit")
@@ -95976,7 +95979,7 @@ return A.b([A.E(A.E(A.ap(),q),"Baseline"),A.E(A.E(A.ap(),q),"AboveBaseline"),A.E
 r($,"baQ","aTV",()=>A.dx().ga_p()+"roboto/v32/KFOmCnqEu92Fr1Me4GZLCzYlKw.woff2")
 r($,"baa","aTr",()=>A.b2b(A.JJ(A.JJ(A.mD(),"window"),"FinalizationRegistry"),A.jO(new A.aDp())))
 r($,"bbK","aUo",()=>new A.ait())
-s($,"bah","aTv",()=>A.aYw(B.ZY))
+s($,"bah","aTv",()=>A.aYw(B.a__))
 s($,"bag","aFC",()=>A.aft(A.aVm($.aTv())))
 s($,"b7k","da",()=>{var q,p=A.E(A.E(A.mD(),"window"),"screen")
 p=p==null?null:A.E(p,"width")
@@ -96033,7 +96036,7 @@ return new A.a2c(A.aGQ(20,q,p),n,o)})
 s($,"baf","aTu",()=>A.aA([B.re,A.aQJ("grapheme"),B.rf,A.aQJ("word")],A.a4("AP"),t.m))
 s($,"bbg","aUe",()=>{var q="v8BreakIterator"
 if(A.E(A.E(A.mD(),"Intl"),q)==null)A.a1(A.eE("v8BreakIterator is not supported."))
-return A.b2c(A.JJ(A.JJ(A.mD(),"Intl"),q),A.aY_([]),A.aMy(B.a7p))})
+return A.b2c(A.JJ(A.JJ(A.mD(),"Intl"),q),A.aY_([]),A.aMy(B.a7s))})
 s($,"bbd","aUc",()=>A.aGX(4))
 s($,"bbb","aJv",()=>A.aGX(16))
 s($,"bbc","aUb",()=>A.aYj($.aJv()))
@@ -96090,10 +96093,10 @@ r($,"b9g","aSP",()=>A.aGY(0))
 s($,"b9N","a6H",()=>A.b2_())
 s($,"b9I","aT7",()=>A.cK("^[\\-\\.0-9A-Z_a-z~]*$",!0,!1))
 s($,"b9J","aT8",()=>typeof URLSearchParams=="function")
-s($,"bad","en",()=>A.oU(B.ajq))
+s($,"bad","en",()=>A.oU(B.ajt))
 s($,"b8N","Kc",()=>{A.aZk()
 return $.ak5})
-s($,"b7j","dR",()=>A.aV6(B.a7Q.gcl(A.aYC(A.iU(A.b([1],t.t))))).getInt8(0)===1?B.b1:B.pi)
+s($,"b7j","dR",()=>A.aV6(B.a7T.gcl(A.aYC(A.iU(A.b([1],t.t))))).getInt8(0)===1?B.b1:B.pi)
 s($,"bbm","a6L",()=>new A.a8p(A.u(t.N,A.a4("me"))))
 s($,"b9H","aT6",()=>new A.aCa())
 s($,"b9z","aT1",()=>new A.ayA(50,A.u(A.a4("H6"),t.ke)))
@@ -96107,8 +96110,8 @@ s($,"b9p","aSV",()=>A.b0u(new A.atm(),t.Pb))
 s($,"bbz","aUn",()=>A.aA([B.NS,A.dm(40),B.NT,A.dm(40),B.q6,A.dm(12)],A.a4("ub"),t.m_))
 s($,"bbp","aJy",()=>new A.Z_())
 s($,"baD","aTM",()=>A.eD(B.nk,B.f,t.o))
-s($,"baw","aJs",()=>A.eD(B.f,B.a8x,t.o))
-r($,"b9q","aSW",()=>new A.ND(B.am9,B.am8))
+s($,"baw","aJs",()=>A.eD(B.f,B.a8A,t.o))
+r($,"b9q","aSW",()=>new A.ND(B.amc,B.amb))
 s($,"bbq","aJz",()=>new A.Nw())
 r($,"bby","aUm",()=>$.aUj().q(0,"windowing"))
 s($,"bbs","aUj",()=>A.dq(A.b("".split(","),t.s),t.N))
@@ -96125,7 +96128,7 @@ s($,"bbC","aJC",()=>A.bf(4294967295))
 s($,"bbB","aJB",()=>A.bf(3707764736))
 s($,"bbu","aFG",()=>new A.Zs())
 s($,"b9B","aT3",()=>A.eD(0.75,1,t.i))
-s($,"b9C","aT4",()=>A.ea(B.aiQ))
+s($,"b9C","aT4",()=>A.ea(B.aiT))
 s($,"b7v","aRM",()=>A.ea(B.bZ))
 s($,"b7w","aRN",()=>A.ea(B.R9))
 r($,"b8U","aJc",()=>new A.V3(new A.aq0(),A.al()===B.L))
@@ -96148,7 +96151,7 @@ s($,"b7n","aJ2",()=>A.eD(1,0,t.i).fi(A.ea(B.Rg)))
 s($,"b9l","aSS",()=>A.ea(B.Rm).fi(A.ea(B.nx)))
 s($,"b9m","aST",()=>A.ea(B.Rl).fi(A.ea(B.nx)))
 s($,"b9j","aSQ",()=>A.ea(B.nx))
-s($,"b9k","aSR",()=>A.ea(B.aaP))
+s($,"b9k","aSR",()=>A.ea(B.aaS))
 s($,"b9t","aSZ",()=>A.eD(0.875,1,t.i).fi(A.ea(B.fP)))
 s($,"bbI","aJI",()=>new A.RG())
 s($,"b8W","aSx",()=>A.b04())
@@ -96178,7 +96181,7 @@ return A.aA([B.n4,A.cd([B.cT,B.dv],q),B.n6,A.cd([B.hh,B.k2],q),B.n5,A.cd([B.hg,B
 s($,"bbQ","aUr",()=>new A.ajL())
 s($,"b8z","aJ9",()=>new A.akc(A.b([],A.a4("q<~(lP)>")),A.u(t.v3,t.G)))
 s($,"b8y","aSm",()=>{var q=t.v3
-return A.aA([B.amT,A.cd([B.f9],q),B.amU,A.cd([B.fb],q),B.amV,A.cd([B.f9,B.fb],q),B.amS,A.cd([B.f9],q),B.amP,A.cd([B.f8],q),B.amQ,A.cd([B.hs],q),B.amR,A.cd([B.f8,B.hs],q),B.amO,A.cd([B.f8],q),B.amL,A.cd([B.f7],q),B.amM,A.cd([B.hr],q),B.amN,A.cd([B.f7,B.hr],q),B.amK,A.cd([B.f7],q),B.amX,A.cd([B.fa],q),B.amY,A.cd([B.ht],q),B.amZ,A.cd([B.fa,B.ht],q),B.amW,A.cd([B.fa],q),B.an_,A.cd([B.ea],q),B.an0,A.cd([B.kb],q),B.an1,A.cd([B.ka],q),B.an2,A.cd([B.hq],q)],A.a4("di"),A.a4("bh<o>"))})
+return A.aA([B.amW,A.cd([B.f9],q),B.amX,A.cd([B.fb],q),B.amY,A.cd([B.f9,B.fb],q),B.amV,A.cd([B.f9],q),B.amS,A.cd([B.f8],q),B.amT,A.cd([B.hs],q),B.amU,A.cd([B.f8,B.hs],q),B.amR,A.cd([B.f8],q),B.amO,A.cd([B.f7],q),B.amP,A.cd([B.hr],q),B.amQ,A.cd([B.f7,B.hr],q),B.amN,A.cd([B.f7],q),B.an_,A.cd([B.fa],q),B.an0,A.cd([B.ht],q),B.an1,A.cd([B.fa,B.ht],q),B.amZ,A.cd([B.fa],q),B.an2,A.cd([B.ea],q),B.an3,A.cd([B.kb],q),B.an4,A.cd([B.ka],q),B.an5,A.cd([B.hq],q)],A.a4("di"),A.a4("bh<o>"))})
 s($,"b8x","aJ8",()=>A.aA([B.f9,B.hg,B.fb,B.k1,B.f8,B.cT,B.hs,B.dv,B.f7,B.hf,B.hr,B.k0,B.fa,B.hh,B.ht,B.k2,B.ea,B.hb,B.kb,B.jZ,B.ka,B.k_],t.v3,t.G))
 s($,"b8w","aSl",()=>{var q=A.u(t.v3,t.G)
 q.m(0,B.hq,B.n1)
@@ -96191,7 +96194,7 @@ q.ga9T().mw(q.gahC())
 return q})
 s($,"b9y","aFA",()=>new A.a17())
 r($,"b9c","aSM",()=>{var q=A.a4("~(aN<aT>)")
-return A.aA([B.ajb,A.aL1(!0),B.aj0,A.aL1(!1),B.ajy,new A.Tn(A.BQ(q)),B.ajp,new A.RZ(A.BQ(q)),B.ajt,new A.SI(A.BQ(q)),B.IR,new A.zD(!1,A.BQ(q)),B.on,A.aZW(),B.aju,new A.SL(A.BQ(q)),B.ajM,new A.Vs(A.BQ(q))],t.u,t.od)})
+return A.aA([B.aje,A.aL1(!0),B.aj3,A.aL1(!1),B.ajB,new A.Tn(A.BQ(q)),B.ajs,new A.RZ(A.BQ(q)),B.ajw,new A.SI(A.BQ(q)),B.IR,new A.zD(!1,A.BQ(q)),B.on,A.aZW(),B.ajx,new A.SL(A.BQ(q)),B.ajP,new A.Vs(A.BQ(q))],t.u,t.od)})
 s($,"b77","aFu",()=>{var q,p,o,n=t.v,m=A.u(t.Vz,n)
 for(q=A.a4("ah"),p=0;p<2;++p){o=B.mY[p]
 m.a0(0,A.aA([A.eM(B.bg,!1,!1,!1,o),B.lS,A.eM(B.bg,!1,!0,!1,o),B.lV,A.eM(B.bg,!0,!1,!1,o),B.lT,A.eM(B.bh,!1,!0,!1,o),B.fS,A.eM(B.bh,!0,!1,!1,o),B.lU],q,n))}m.m(0,B.HO,B.fR)
@@ -96215,14 +96218,14 @@ m.m(0,B.HU,B.iO)
 m.m(0,B.HV,B.iP)
 m.m(0,B.HY,B.qL)
 m.m(0,B.HZ,B.qM)
-m.m(0,B.acx,B.qH)
-m.m(0,B.acy,B.qI)
+m.m(0,B.acA,B.qH)
+m.m(0,B.acB,B.qI)
 m.m(0,B.hB,B.mB)
 m.m(0,B.hE,B.mC)
 m.m(0,B.o2,B.iQ)
 m.m(0,B.nY,B.iR)
 return m})
-s($,"b76","a6A",()=>A.aA([B.abX,B.lQ,B.abW,B.lP,B.ac6,B.lt,B.HL,B.lQ,B.abZ,B.lP,B.abR,B.lt,B.nV,B.pp,B.acl,B.pr,B.acw,B.po,B.kw,B.x,B.kz,B.x],t.Vz,t.v))
+s($,"b76","a6A",()=>A.aA([B.ac_,B.lQ,B.abZ,B.lP,B.ac9,B.lt,B.HL,B.lQ,B.ac1,B.lP,B.abU,B.lt,B.nV,B.pp,B.aco,B.pr,B.acz,B.po,B.kw,B.x,B.kz,B.x],t.Vz,t.v))
 s($,"b75","aIY",()=>{var q=A.lz($.aFu(),t.Vz,t.v)
 q.a0(0,$.a6A())
 q.m(0,B.hF,B.qF)
@@ -96235,7 +96238,7 @@ q.m(0,B.nS,B.iM)
 q.m(0,B.nT,B.iN)
 return q})
 s($,"b78","aRC",()=>$.aIY())
-s($,"b7a","aIZ",()=>A.aA([B.ac7,B.iL,B.ac8,B.iK,B.abT,B.fY,B.ac9,B.fZ,B.acB,B.qM,B.acC,B.qL,B.acF,B.qH,B.acD,B.qI,B.abU,B.iQ,B.aca,B.iR,B.acb,B.fY,B.acc,B.fZ,B.acv,B.fR,B.abY,B.fS,B.ac_,B.eH,B.ac0,B.eG,B.acr,B.eK,B.ac1,B.eL,B.ace,B.iP,B.acf,B.iO,B.acp,B.Pw,B.acg,B.Px,B.acs,B.mB,B.ac2,B.mC,B.ac3,B.eK,B.ac4,B.eL,B.acd,B.fR,B.acH,B.fS],t.Vz,t.v))
+s($,"b7a","aIZ",()=>A.aA([B.aca,B.iL,B.acb,B.iK,B.abW,B.fY,B.acc,B.fZ,B.acE,B.qM,B.acF,B.qL,B.acI,B.qH,B.acG,B.qI,B.abX,B.iQ,B.acd,B.iR,B.ace,B.fY,B.acf,B.fZ,B.acy,B.fR,B.ac0,B.fS,B.ac2,B.eH,B.ac3,B.eG,B.acu,B.eK,B.ac4,B.eL,B.ach,B.iP,B.aci,B.iO,B.acs,B.Pw,B.acj,B.Px,B.acv,B.mB,B.ac5,B.mC,B.ac6,B.eK,B.ac7,B.eL,B.acg,B.fR,B.acK,B.fS],t.Vz,t.v))
 s($,"b7b","aRE",()=>{var q=A.lz($.aFu(),t.Vz,t.v)
 q.a0(0,$.a6A())
 q.a0(0,$.aIZ())
@@ -96272,9 +96275,9 @@ m.m(0,B.HS,B.eI)
 m.m(0,B.HT,B.eJ)
 m.m(0,B.HW,B.qz)
 m.m(0,B.HX,B.qA)
-m.m(0,B.acn,B.mz)
-m.m(0,B.aco,B.mA)
-m.m(0,B.acj,B.pq)
+m.m(0,B.acq,B.mz)
+m.m(0,B.acr,B.mA)
+m.m(0,B.acm,B.pq)
 m.m(0,B.hF,B.Hp)
 m.m(0,B.hG,B.Hq)
 m.m(0,B.hC,B.mz)
@@ -96287,14 +96290,14 @@ m.m(0,B.HK,B.lQ)
 m.m(0,B.HN,B.lP)
 m.m(0,B.HM,B.lt)
 m.m(0,B.I2,B.pp)
-m.m(0,B.acG,B.pr)
-m.m(0,B.acm,B.po)
-m.m(0,B.acA,B.dT)
+m.m(0,B.acJ,B.pr)
+m.m(0,B.acp,B.po)
+m.m(0,B.acD,B.dT)
 m.m(0,B.nV,B.dS)
-m.m(0,B.abS,B.eH)
-m.m(0,B.abV,B.eG)
-m.m(0,B.aci,B.eL)
-m.m(0,B.act,B.eK)
+m.m(0,B.abV,B.eH)
+m.m(0,B.abY,B.eG)
+m.m(0,B.acl,B.eL)
+m.m(0,B.acw,B.eK)
 m.m(0,B.kw,B.x)
 m.m(0,B.kz,B.x)
 return m})
@@ -96346,7 +96349,7 @@ q.m(0,B.hC,B.x)
 q.m(0,B.ky,B.x)
 q.m(0,B.kx,B.x)
 return q})
-r($,"b9x","aJg",()=>new A.a0L(B.an4,B.aD))
+r($,"b9x","aJg",()=>new A.a0L(B.an7,B.aD))
 s($,"b9v","aT0",()=>A.eD(1,0,t.i))
 s($,"b8n","jS",()=>A.aLf())
 s($,"b9u","aT_",()=>A.dI(16667,0))
@@ -96357,11 +96360,11 @@ s($,"ba1","aTo",()=>A.afk(A.cd([B.n3],t.G)))
 s($,"baT","aTX",()=>A.afk(A.cd([B.n4],t.G)))
 s($,"b9X","aTk",()=>A.afk(A.cd([B.n5],t.G)))
 s($,"baL","aTS",()=>A.afk(A.cd([B.n6],t.G)))
-s($,"bbA","aJA",()=>A.aGx(B.XF,t.N))
+s($,"bbA","aJA",()=>A.aGx(B.XM,t.N))
 s($,"bbr","aUi",()=>{var q=null
-return A.aA(["af",A.au(B.Zu,B.a0I,B.a1,B.xa,B.ZV,6,5,B.xn,"af",B.C,B.uC,B.ZS,B.t1,B.dY,B.x6,B.xn,B.C,B.uC,B.t1,B.x6,B.vj,B.O,B.vj,B.o,q),"am",A.au(B.ZZ,B.YE,B.a1,B.V7,B.a1t,6,5,B.xk,"am",B.wv,B.rJ,B.WJ,B.wO,B.YS,B.wz,B.xk,B.wv,B.rJ,B.wO,B.wz,B.rF,B.aB,B.rF,B.o,q),"ar",A.au(B.ZG,B.a0F,B.a_6,B.Z_,B.a_Z,5,4,B.jR,"ar",B.wd,B.t9,B.rv,B.jR,B.rv,B.js,B.jR,B.wd,B.t9,B.jR,B.js,B.js,B.aB,B.js,B.rQ,"\u0660"),"as",A.au(B.a1X,B.a1G,B.a1,B.a0w,B.a1L,6,5,B.tt,"as",B.rt,B.vt,B.a4e,B.w1,B.a3s,B.v2,B.tt,B.rt,B.vt,B.w1,B.v2,B.vN,B.VN,B.vN,B.cg,"\u09e6"),"az",A.au(B.a2,B.a2i,B.a1,B.a3p,B.a3T,0,6,B.up,"az",B.aX,B.ws,B.a07,B.wK,B.Zw,B.Xf,B.up,B.aX,B.ws,B.wK,B.a3Y,B.ww,B.O,B.ww,B.o,q),"be",A.au(B.a2,B.a1j,B.Z0,B.Yq,B.YI,0,6,B.a3S,"be",B.xt,B.t0,B.ZC,B.a_E,B.a2l,B.tA,B.a01,B.xt,B.t0,B.Wt,B.tA,B.vy,B.Z2,B.vy,B.o,q),"bg",A.au(B.Xr,B.a3y,B.cf,B.a3m,B.a0r,0,3,B.tT,"bg",B.wp,B.jH,B.a2p,B.vR,B.YP,B.jM,B.tT,B.wp,B.jH,B.vR,B.jM,B.vM,B.Vi,B.vM,B.o,q),"bn",A.au(B.a2,B.jD,B.a1,B.UV,B.Vk,6,5,B.mW,"bn",B.wr,B.tQ,B.xH,B.a0A,B.xH,B.tH,B.mW,B.wr,B.tQ,B.mW,B.tH,B.wq,B.aB,B.wq,B.o,"\u09e6"),"bs",A.au(B.a31,B.a0G,B.ud,B.WQ,B.tq,0,6,B.xS,"bs",B.dl,B.rr,B.a44,B.wD,B.YG,B.jc,B.xS,B.dl,B.jm,B.wD,B.jc,B.jn,B.O,B.jn,B.o,q),"ca",A.au(B.h6,B.XS,B.a2G,B.a2j,B.a0k,0,3,B.Ws,"ca",B.vJ,B.tM,B.a1S,B.UT,B.a1r,B.u9,B.a27,B.vJ,B.tM,B.Xz,B.u9,B.wc,B.wh,B.wc,B.o,q),"cs",A.au(B.a1u,B.ZP,B.a1,B.Yn,B.a2g,0,3,B.a36,"cs",B.aX,B.x2,B.Y6,B.xo,B.av,B.ry,B.WT,B.aX,B.x2,B.xo,B.ry,B.w8,B.jQ,B.w8,B.o,q),"cy",A.au(B.a47,B.a_g,B.Y2,B.a26,B.Xt,0,3,B.ux,"cy",B.wo,B.wR,B.a1w,B.W8,B.Xy,B.a03,B.ux,B.wo,B.wR,B.Y4,B.a0O,B.rS,B.O,B.rS,B.o,q),"da",A.au(B.a2,B.XD,B.a1k,B.eS,B.eS,0,3,B.t_,"da",B.C,B.dm,B.h4,B.vh,B.a0f,B.h5,B.t_,B.C,B.dm,B.vh,B.a_A,B.eT,B.mV,B.eT,B.o,q),"de",A.au(B.a2,B.mP,B.vH,B.eY,B.eY,0,3,B.jf,"de",B.C,B.eX,B.mX,B.wG,B.av,B.rC,B.jf,B.C,B.eX,B.jh,B.wi,B.jL,B.O,B.jL,B.o,q),"de_CH",A.au(B.a2,B.mP,B.vH,B.eY,B.eY,0,3,B.jf,"de_CH",B.C,B.eX,B.mX,B.wG,B.av,B.rC,B.jf,B.C,B.eX,B.jh,B.wi,B.jL,B.O,B.jL,B.o,q),"el",A.au(B.a0j,B.uG,B.a1o,B.a30,B.a_y,0,3,B.a0g,"el",B.xY,B.w5,B.a1y,B.Vf,B.a3F,B.td,B.a2K,B.xY,B.w5,B.a_L,B.td,B.rM,B.aB,B.rM,B.o,q),"en",A.au(B.a2,B.e_,B.cw,B.bR,B.bb,6,5,B.aG,"en",B.C,B.ak,B.ci,B.dW,B.av,B.aI,B.aG,B.C,B.ak,B.dW,B.aI,B.aH,B.aB,B.aH,B.o,q),"en_AU",A.au(B.dZ,B.jV,B.cw,B.bR,B.bb,0,6,B.aG,"en_AU",B.C,B.vE,B.ci,B.YX,B.av,B.aI,B.aG,B.C,B.vE,B.dW,B.aI,B.aH,B.aB,B.aH,B.o,q),"en_CA",A.au(B.dp,B.ZU,B.cw,B.bR,B.bb,6,5,B.aG,"en_CA",B.C,B.ak,B.ci,B.bH,B.av,B.aI,B.aG,B.C,B.ak,B.bH,B.aI,B.aH,B.aB,B.aH,B.o,q),"en_GB",A.au(B.dZ,B.uZ,B.cw,B.bR,B.bb,0,3,B.aG,"en_GB",B.C,B.ak,B.ci,B.bH,B.av,B.aI,B.aG,B.C,B.ak,B.bH,B.aI,B.aH,B.O,B.aH,B.o,q),"en_IE",A.au(B.dp,B.mR,B.cw,B.bR,B.bb,0,3,B.aG,"en_IE",B.C,B.ak,B.ci,B.bH,B.av,B.aI,B.aG,B.C,B.ak,B.bH,B.aI,B.aH,B.O,B.aH,B.o,q),"en_IN",A.au(B.dZ,B.XA,B.cw,B.bR,B.bb,6,5,B.aG,"en_IN",B.C,B.ak,B.ci,B.bH,B.av,B.aI,B.aG,B.C,B.ak,B.bH,B.aI,B.aH,B.aB,B.aH,B.cg,q),"en_NZ",A.au(B.dZ,B.Zs,B.cw,B.bR,B.bb,0,6,B.aG,"en_NZ",B.C,B.ak,B.ci,B.bH,B.av,B.aI,B.aG,B.C,B.ak,B.bH,B.aI,B.aH,B.aB,B.aH,B.o,q),"en_SG",A.au(B.dZ,B.jV,B.cw,B.bR,B.bb,6,5,B.aG,"en_SG",B.C,B.ak,B.ci,B.bH,B.av,B.aI,B.aG,B.C,B.ak,B.bH,B.aI,B.aH,B.aB,B.aH,B.o,q),"en_US",A.au(B.a2,B.e_,B.cw,B.bR,B.bb,6,5,B.aG,"en_US",B.C,B.ak,B.ci,B.dW,B.av,B.aI,B.aG,B.C,B.ak,B.dW,B.aI,B.aH,B.aB,B.aH,B.o,q),"en_ZA",A.au(B.dZ,B.Y8,B.cw,B.bR,B.bb,6,5,B.aG,"en_ZA",B.C,B.ak,B.ci,B.bH,B.av,B.aI,B.aG,B.C,B.ak,B.bH,B.aI,B.aH,B.O,B.aH,B.o,q),"es",A.au(B.h6,B.vr,B.cf,B.jN,B.jy,0,3,B.du,"es",B.dn,B.wT,B.u4,B.dr,B.cx,B.ds,B.du,B.dn,B.wT,B.dr,B.ds,B.dt,B.wh,B.dt,B.o,q),"es_419",A.au(B.h6,B.vr,B.w0,B.jN,B.jy,0,3,B.du,"es_419",B.dn,B.XV,B.jk,B.dr,B.cx,B.ds,B.du,B.dn,B.ch,B.dr,B.ds,B.dt,B.O,B.dt,B.o,q),"es_MX",A.au(B.h6,B.XO,B.w0,B.jN,B.jy,6,5,B.du,"es_MX",B.dn,B.ch,B.u4,B.dr,B.cx,B.ds,B.du,B.dn,B.ch,B.dr,B.ds,B.dt,B.O,B.dt,B.o,q),"es_US",A.au(B.h6,B.a0T,B.cf,B.jN,B.jy,6,5,B.du,"es_US",B.dn,B.ch,B.jk,B.dr,B.cx,B.ds,B.du,B.dn,B.ch,B.dr,B.ds,B.dt,B.aB,B.dt,B.o,q),"et",A.au(B.a2,B.a0W,B.a1,B.a0z,B.a0S,0,3,B.tD,"et",B.v5,B.jT,B.h4,B.y0,B.dY,B.jT,B.tD,B.v5,B.jT,B.y0,B.jT,B.xB,B.O,B.xB,B.o,q),"eu",A.au(B.a2,B.V3,B.a1,B.a_e,B.Yx,0,3,B.Yi,"eu",B.uT,B.xV,B.XH,B.tV,B.YH,B.uc,B.Xc,B.uT,B.xV,B.tV,B.uc,B.vm,B.vd,B.vm,B.o,q),"fa",A.au(B.a1N,B.a2S,B.Yl,B.WL,B.a_z,5,4,B.ZE,"fa",B.vI,B.rq,B.a1J,B.mL,B.a3H,B.jA,B.mL,B.vI,B.rq,B.mL,B.jA,B.jA,B.xb,B.jA,B.VS,"\u06f0"),"fi",A.au(B.XE,B.a3r,B.a3a,B.a3Z,B.a0D,0,3,B.Yr,"fi",B.rE,B.x5,B.ZT,B.a1P,B.a_D,B.rL,B.Xn,B.rE,B.x5,B.Vn,B.rL,B.a0U,B.Ya,B.a2B,B.o,q),"fil",A.au(B.a2,B.e_,B.tm,B.bR,B.bb,6,5,B.jU,"fil",B.eU,B.dq,B.u_,B.eU,B.av,B.dq,B.jU,B.xv,B.dq,B.eU,B.dq,B.jr,B.aB,B.jr,B.o,q),"fr",A.au(B.a2,B.mR,B.rp,B.wf,B.uy,0,3,B.jg,"fr",B.C,B.ch,B.xd,B.tZ,B.cx,B.jF,B.jg,B.C,B.ch,B.tZ,B.jF,B.jj,B.O,B.jj,B.o,q),"fr_CA",A.au(B.dp,B.wk,B.rp,B.wf,B.uy,6,5,B.jg,"fr_CA",B.C,B.ch,B.xd,B.tC,B.cx,B.jF,B.jg,B.C,B.ch,B.tC,B.jF,B.jj,B.VR,B.jj,B.o,q),"ga",A.au(B.ZD,B.mR,B.a1,B.a2P,B.a_3,0,3,B.u3,"ga",B.xZ,B.xR,B.VM,B.tl,B.a_1,B.y1,B.u3,B.xZ,B.xR,B.tl,B.y1,B.x0,B.O,B.x0,B.o,q),"gl",A.au(B.dp,B.Wq,B.a4a,B.Zy,B.jp,0,3,B.VO,"gl",B.a0_,B.a3w,B.jk,B.Zf,B.cx,B.a_R,B.a3d,B.Yo,B.ZL,B.a0C,B.Zb,B.Zq,B.O,B.a32,B.o,q),"gsw",A.au(B.V_,B.mP,B.a1,B.eY,B.eY,0,3,B.wg,"gsw",B.C,B.eX,B.mX,B.jh,B.av,B.t2,B.wg,B.C,B.eX,B.jh,B.t2,B.wI,B.O,B.wI,B.o,q),"gu",A.au(B.a2,B.jD,B.Wu,B.a_i,B.a0a,6,5,B.u0,"gu",B.ug,B.x8,B.Yy,B.wW,B.av,B.wu,B.u0,B.ug,B.x8,B.wW,B.wu,B.tz,B.vO,B.tz,B.cg,q),"he",A.au(B.XI,B.a29,B.Ze,B.Y_,B.ZQ,6,5,B.w4,"he",B.aX,B.tw,B.Wp,B.uq,B.av,B.wF,B.w4,B.aX,B.tw,B.uq,B.wF,B.vU,B.jQ,B.vU,B.rQ,q),"hi",A.au(B.dZ,B.jV,B.a3l,B.a2T,B.Wf,6,5,B.tb,"hi",B.v_,B.jz,B.a28,B.xD,B.a1Z,B.tF,B.tb,B.v_,B.jz,B.xD,B.tF,B.ue,B.aB,B.ue,B.cg,q),"hr",A.au(B.a2,B.Xg,B.ud,B.VU,B.a02,0,6,B.a2x,"hr",B.t5,B.rr,B.h4,B.xj,B.a3z,B.jc,B.a2_,B.t5,B.jm,B.xj,B.jc,B.jn,B.a0u,B.jn,B.o,q),"hu",A.au(B.YA,B.a_7,B.a1,B.a2N,B.YB,0,3,B.rA,"hu",B.vL,B.rD,B.Vo,B.uo,B.W5,B.v7,B.rA,B.vL,B.rD,B.uo,B.v7,B.xL,B.jQ,B.xL,B.o,q),"hy",A.au(B.a2,B.a23,B.cf,B.ZB,B.Zo,0,6,B.Xw,"hy",B.uO,B.tL,B.Wv,B.vg,B.ZN,B.vs,B.a1H,B.uO,B.tL,B.vg,B.vs,B.tP,B.O,B.tP,B.o,q),"id",A.au(B.a2,B.a2Q,B.a1,B.a3R,B.a_d,6,5,B.wM,"id",B.C,B.u7,B.a_T,B.tc,B.dY,B.xF,B.wM,B.C,B.u7,B.tc,B.xF,B.vv,B.mV,B.vv,B.o,q),"is",A.au(B.Yh,B.a2a,B.mQ,B.ZX,B.eS,0,3,B.wP,"is",B.vc,B.w9,B.a40,B.y4,B.XQ,B.wj,B.wP,B.vc,B.w9,B.y4,B.wj,B.ui,B.O,B.ui,B.o,q),"it",A.au(B.a2,B.Zn,B.f_,B.XC,B.jp,0,3,B.xM,"it",B.uk,B.x1,B.xJ,B.tr,B.cx,B.t4,B.xM,B.uk,B.x1,B.tr,B.t4,B.vA,B.O,B.vA,B.o,q),"ja",A.au(B.V0,B.a1F,B.a1,B.uf,B.uf,6,5,B.bI,"ja",B.aX,B.jB,B.a_M,B.bI,B.av,B.jB,B.bI,B.aX,B.jB,B.bI,B.jB,B.u5,B.a0v,B.u5,B.o,q),"ka",A.au(B.a2,B.a_4,B.cf,B.a2w,B.a1D,0,6,B.tn,"ka",B.vW,B.rN,B.WP,B.uX,B.Y0,B.wV,B.tn,B.vW,B.rN,B.uX,B.wV,B.xU,B.O,B.xU,B.o,q),"kk",A.au(B.a2,B.a3j,B.cf,B.Xa,B.Vm,0,6,B.YV,"kk",B.x9,B.ro,B.a2o,B.rB,B.a1h,B.tO,B.V6,B.x9,B.ro,B.rB,B.tO,B.ua,B.O,B.ua,B.o,q),"km",A.au(B.a2,B.uG,B.X_,B.WZ,B.a_F,6,5,B.ji,"km",B.y_,B.tJ,B.rH,B.ji,B.rH,B.ul,B.ji,B.y_,B.tJ,B.ji,B.ul,B.Yj,B.aB,B.a1Q,B.o,q),"kn",A.au(B.a2t,B.a2A,B.a1,B.a3t,B.Yu,6,5,B.vC,"kn",B.t8,B.tj,B.Y1,B.a2E,B.Ym,B.wt,B.vC,B.t8,B.tj,B.a1i,B.wt,B.uB,B.vO,B.uB,B.cg,q),"ko",A.au(B.WR,B.a2H,B.a1,B.a22,B.bb,6,5,B.eZ,"ko",B.eZ,B.jO,B.Wh,B.eZ,B.a3I,B.jO,B.eZ,B.eZ,B.jO,B.eZ,B.jO,B.uM,B.a_Y,B.uM,B.o,q),"ky",A.au(B.a0h,B.a1v,B.a1,B.a1W,B.Z5,0,6,B.u6,"ky",B.jv,B.ta,B.a25,B.XN,B.a_r,B.xN,B.a2M,B.jv,B.ta,B.YO,B.xN,B.va,B.O,B.va,B.o,q),"lo",A.au(B.YT,B.Xh,B.cf,B.a1C,B.XM,6,5,B.rT,"lo",B.aX,B.tx,B.a3L,B.ru,B.a_5,B.ub,B.rT,B.aX,B.tx,B.ru,B.ub,B.rW,B.a1R,B.rW,B.o,q),"lt",A.au(B.Yw,B.Vd,B.a1,B.Xj,B.th,0,3,B.a33,"lt",B.xm,B.rX,B.XT,B.wN,B.a1z,B.y2,B.ZJ,B.xm,B.rX,B.wN,B.y2,B.wl,B.O,B.wl,B.o,q),"lv",A.au(B.X4,B.Z3,B.a1,B.a1m,B.a2z,0,6,B.rP,"lv",B.C,B.v3,B.Xp,B.x_,B.a3O,B.Z4,B.rP,B.C,B.v3,B.x_,B.XX,B.a20,B.O,B.Xd,B.o,q),"mk",A.au(B.a2k,B.a2y,B.a04,B.X8,B.a_h,0,6,B.vo,"mk",B.jw,B.jH,B.a0V,B.rO,B.a3P,B.u8,B.vo,B.jw,B.jH,B.rO,B.u8,B.vb,B.O,B.vb,B.o,q),"ml",A.au(B.a2,B.a2q,B.a1,B.a0y,B.a2X,6,5,B.xl,"ml",B.w_,B.YR,B.wQ,B.uR,B.wQ,B.uu,B.xl,B.w_,B.XK,B.uR,B.uu,B.a0o,B.aB,B.a49,B.cg,q),"mn",A.au(B.a2D,B.Zd,B.a1,B.a0m,B.Ww,6,5,B.Yb,"mn",B.tg,B.jq,B.Yc,B.tW,B.Xi,B.jq,B.a2s,B.tg,B.jq,B.tW,B.jq,B.a45,B.vd,B.a3_,B.o,q),"mr",A.au(B.a2,B.jD,B.Wo,B.a3E,B.a2O,6,5,B.xG,"mr",B.v8,B.jz,B.a1A,B.wE,B.Vc,B.we,B.xG,B.v8,B.jz,B.wE,B.we,B.vi,B.aB,B.vi,B.cg,"\u0966"),"ms",A.au(B.ZI,B.a09,B.f_,B.xO,B.xO,0,6,B.vB,"ms",B.tu,B.xK,B.Y5,B.tI,B.a_a,B.w7,B.vB,B.tu,B.xK,B.tI,B.w7,B.uh,B.aB,B.uh,B.o,q),"my",A.au(B.a_m,B.X5,B.a1,B.Wy,B.a2v,6,5,B.uj,"my",B.vq,B.uY,B.uW,B.te,B.uW,B.jI,B.uj,B.vq,B.uY,B.te,B.jI,B.jI,B.VY,B.jI,B.o,"\u1040"),"nb",A.au(B.dp,B.rx,B.mQ,B.uN,B.eS,0,3,B.jt,"nb",B.C,B.dm,B.h4,B.xq,B.dY,B.h5,B.jt,B.C,B.dm,B.rV,B.h5,B.eT,B.O,B.eT,B.o,q),"ne",A.au(B.a4f,B.VQ,B.f_,B.vV,B.vV,6,5,B.jS,"ne",B.a_O,B.xP,B.wS,B.jS,B.wS,B.rs,B.jS,B.Wj,B.xP,B.jS,B.rs,B.rK,B.O,B.rK,B.o,"\u0966"),"nl",A.au(B.dp,B.ZR,B.Y3,B.xa,B.WW,0,3,B.xy,"nl",B.C,B.vK,B.Yz,B.xQ,B.dY,B.tN,B.xy,B.C,B.vK,B.xQ,B.tN,B.vx,B.O,B.vx,B.o,q),"no",A.au(B.dp,B.rx,B.mQ,B.uN,B.eS,0,3,B.jt,"no",B.C,B.dm,B.h4,B.xq,B.dY,B.h5,B.jt,B.C,B.dm,B.rV,B.h5,B.eT,B.O,B.eT,B.o,q),"or",A.au(B.a2,B.e_,B.a3C,B.a0P,B.bb,6,5,B.jE,"or",B.u2,B.t6,B.ur,B.jE,B.ur,B.w2,B.jE,B.u2,B.t6,B.jE,B.w2,B.xc,B.aB,B.xc,B.cg,q),"pa",A.au(B.a2L,B.jV,B.f_,B.WI,B.a0q,6,5,B.vu,"pa",B.wB,B.uE,B.Zr,B.vw,B.a3B,B.uv,B.vu,B.wB,B.uE,B.vw,B.uv,B.rz,B.aB,B.rz,B.cg,q),"pl",A.au(B.a2,B.a0H,B.f_,B.a1g,B.a1B,0,3,B.WU,"pl",B.a21,B.a3G,B.a1U,B.v1,B.a_K,B.wZ,B.a_V,B.Xv,B.ZM,B.v1,B.wZ,B.tB,B.O,B.tB,B.o,q),"ps",A.au(B.a2W,B.a2n,B.a1,B.a08,B.a_J,5,4,B.rY,"ps",B.WS,B.ak,B.vT,B.rY,B.vT,B.jb,B.a_8,B.aX,B.ak,B.WM,B.jb,B.jb,B.xb,B.jb,B.Vj,"\u06f0"),"pt",A.au(B.a2,B.W7,B.a1,B.xp,B.jp,6,5,B.ju,"pt",B.C,B.jx,B.xJ,B.jK,B.cx,B.x3,B.ju,B.C,B.jx,B.jK,B.x3,B.jP,B.O,B.jP,B.o,q),"pt_PT",A.au(B.X2,B.a3V,B.a0B,B.xp,B.jp,6,2,B.ju,"pt_PT",B.C,B.jx,B.jk,B.jK,B.cx,B.vG,B.ju,B.C,B.jx,B.jK,B.vG,B.jP,B.O,B.jP,B.o,q),"ro",A.au(B.dp,B.a_q,B.cf,B.YJ,B.X3,0,6,B.wJ,"ro",B.uI,B.ch,B.a2m,B.tk,B.a3f,B.uV,B.wJ,B.uI,B.ch,B.tk,B.uV,B.vP,B.O,B.vP,B.o,q),"ru",A.au(B.a2,B.Y7,B.cf,B.a3Q,B.UW,0,3,B.a41,"ru",B.jv,B.vZ,B.uz,B.a3A,B.xA,B.vz,B.u6,B.jv,B.vZ,B.a3X,B.vz,B.x7,B.O,B.x7,B.o,q),"si",A.au(B.a3o,B.a3c,B.a1,B.UX,B.a2R,0,6,B.xT,"si",B.uD,B.xw,B.a2r,B.a48,B.a_t,B.tR,B.xT,B.uD,B.xw,B.a2e,B.tR,B.vl,B.mV,B.vl,B.o,q),"sk",A.au(B.a2,B.a0i,B.XJ,B.XL,B.Xl,0,3,B.a2Y,"sk",B.dl,B.tp,B.a3x,B.xW,B.av,B.xe,B.Xe,B.dl,B.tp,B.xW,B.xe,B.w6,B.jQ,B.w6,B.o,q),"sl",A.au(B.a_C,B.We,B.f_,B.a1O,B.th,0,6,B.y3,"sl",B.dl,B.x4,B.XR,B.u1,B.Z9,B.wX,B.y3,B.dl,B.x4,B.u1,B.wX,B.vF,B.O,B.vF,B.o,q),"sq",A.au(B.a1e,B.a1M,B.Wa,B.ZH,B.Zg,0,6,B.xE,"sq",B.wy,B.rG,B.Zp,B.xx,B.a00,B.a0l,B.xE,B.wy,B.rG,B.xx,B.a1f,B.tU,B.Wb,B.tU,B.o,q),"sr",A.au(B.a2,B.to,B.a1,B.a4b,B.a1n,0,6,B.wm,"sr",B.jw,B.xi,B.XG,B.xf,B.WH,B.xC,B.wm,B.jw,B.xi,B.xf,B.xC,B.wn,B.O,B.wn,B.o,q),"sr_Latn",A.au(B.a2,B.to,B.a1,B.Z7,B.tq,0,6,B.tK,"sr_Latn",B.dl,B.jm,B.a1T,B.ti,B.a_p,B.t3,B.tK,B.dl,B.jm,B.ti,B.t3,B.vn,B.O,B.vn,B.o,q),"sv",A.au(B.a1p,B.wk,B.a1,B.a2Z,B.eS,0,3,B.vX,"sv",B.C,B.dm,B.XU,B.wY,B.dY,B.un,B.vX,B.C,B.dm,B.wY,B.un,B.xX,B.O,B.xX,B.o,q),"sw",A.au(B.a2,B.uZ,B.a1,B.a3n,B.YF,0,6,B.uw,"sw",B.C,B.ak,B.uK,B.uH,B.uK,B.jd,B.uw,B.C,B.ak,B.uH,B.jd,B.jd,B.O,B.jd,B.o,q),"ta",A.au(B.a_S,B.jD,B.VF,B.V5,B.WY,6,5,B.um,"ta",B.vk,B.t7,B.Wg,B.tG,B.a0b,B.wL,B.um,B.vk,B.t7,B.tG,B.wL,B.uJ,B.ZF,B.uJ,B.cg,q),"te",A.au(B.a2,B.V2,B.Vh,B.X6,B.V4,6,5,B.wx,"te",B.ve,B.xh,B.YY,B.xs,B.Zv,B.uP,B.wx,B.ve,B.xh,B.xs,B.uP,B.v6,B.aB,B.v6,B.cg,q),"th",A.au(B.WX,B.Yv,B.a1,B.Ye,B.a3q,6,5,B.tY,"th",B.jJ,B.uS,B.ty,B.jJ,B.ty,B.uQ,B.tY,B.jJ,B.uS,B.jJ,B.uQ,B.tE,B.a1d,B.tE,B.o,q),"tl",A.au(B.a2,B.e_,B.tm,B.bR,B.bb,6,5,B.jU,"tl",B.eU,B.dq,B.u_,B.eU,B.av,B.dq,B.jU,B.xv,B.dq,B.eU,B.dq,B.jr,B.aB,B.jr,B.o,q),"tr",A.au(B.Yt,B.ZO,B.a1,B.Ve,B.a_H,0,6,B.xr,"tr",B.vQ,B.v0,B.Wd,B.tX,B.Xx,B.rU,B.xr,B.vQ,B.v0,B.tX,B.rU,B.vY,B.O,B.vY,B.o,q),"uk",A.au(B.a0s,B.a_c,B.Z1,B.a2u,B.Xq,0,6,B.XW,"uk",B.a05,B.wU,B.uz,B.YM,B.xA,B.jM,B.Wc,B.Zc,B.wU,B.a0e,B.jM,B.wA,B.O,B.wA,B.o,q),"ur",A.au(B.a2,B.WV,B.a1,B.v4,B.v4,6,5,B.je,"ur",B.C,B.ak,B.vD,B.je,B.vD,B.jo,B.je,B.C,B.ak,B.je,B.jo,B.jo,B.aB,B.jo,B.o,q),"uz",A.au(B.a_j,B.a_P,B.cf,B.a34,B.YN,0,6,B.a1I,"uz",B.uL,B.w3,B.Yd,B.a3U,B.a3W,B.uA,B.a3g,B.uL,B.w3,B.a_U,B.uA,B.xI,B.a0R,B.xI,B.o,q),"vi",A.au(B.a_b,B.Wr,B.a1l,B.a_B,B.a_9,0,6,B.Zz,"vi",B.aX,B.uU,B.a43,B.Z6,B.av,B.tv,B.a46,B.aX,B.uU,B.Ys,B.tv,B.tf,B.O,B.tf,B.o,q),"zh",A.au(B.mZ,B.UZ,B.a1,B.jG,B.jG,6,5,B.xg,"zh",B.aX,B.f0,B.a0M,B.bI,B.Vg,B.vf,B.xg,B.aX,B.f0,B.bI,B.vf,B.eW,B.Za,B.eW,B.o,q),"zh_HK",A.au(B.mZ,B.Zx,B.a1,B.jG,B.jG,6,5,B.bI,"zh_HK",B.aX,B.f0,B.mM,B.bI,B.av,B.jl,B.bI,B.aX,B.f0,B.bI,B.jl,B.eW,B.a42,B.eW,B.o,q),"zh_TW",A.au(B.mZ,B.a2U,B.a1,B.v9,B.v9,6,5,B.bI,"zh_TW",B.aX,B.f0,B.mM,B.bI,B.mM,B.jl,B.bI,B.aX,B.f0,B.bI,B.jl,B.eW,B.a_X,B.eW,B.o,q),"zu",A.au(B.a2,B.e_,B.a1,B.bb,B.bb,6,5,B.rR,"zu",B.ZA,B.xz,B.Yp,B.rI,B.av,B.wC,B.rR,B.C,B.xz,B.rI,B.wC,B.vp,B.O,B.vp,B.o,q)],t.N,t.fs)})
+return A.aA(["af",A.au(B.Zw,B.a0I,B.a1,B.xa,B.ZX,6,5,B.xn,"af",B.C,B.uC,B.ZU,B.t1,B.dY,B.x6,B.xn,B.C,B.uC,B.t1,B.x6,B.vj,B.O,B.vj,B.o,q),"am",A.au(B.a_0,B.YJ,B.a1,B.Vb,B.a1t,6,5,B.xk,"am",B.wv,B.rJ,B.WQ,B.wO,B.YW,B.wz,B.xk,B.wv,B.rJ,B.wO,B.wz,B.rF,B.aB,B.rF,B.o,q),"ar",A.au(B.ZI,B.a0F,B.a_8,B.Z2,B.a0_,5,4,B.jR,"ar",B.wd,B.t9,B.rv,B.jR,B.rv,B.js,B.jR,B.wd,B.t9,B.jR,B.js,B.js,B.aB,B.js,B.rQ,"\u0660"),"as",A.au(B.a1X,B.a1G,B.a1,B.a0w,B.a1L,6,5,B.tt,"as",B.rt,B.vt,B.a4h,B.w1,B.a3t,B.v2,B.tt,B.rt,B.vt,B.w1,B.v2,B.vN,B.VR,B.vN,B.cg,"\u09e6"),"az",A.au(B.a2,B.a2i,B.a1,B.a3q,B.a3V,0,6,B.up,"az",B.aX,B.ws,B.a08,B.wK,B.Zy,B.Xm,B.up,B.aX,B.ws,B.wK,B.a40,B.ww,B.O,B.ww,B.o,q),"be",A.au(B.a2,B.a1j,B.Z3,B.Yv,B.YN,0,6,B.a3U,"be",B.xt,B.t0,B.ZE,B.a_F,B.a2l,B.tA,B.a02,B.xt,B.t0,B.Wy,B.tA,B.vy,B.Z5,B.vy,B.o,q),"bg",A.au(B.Xy,B.a3z,B.cf,B.a3n,B.a0r,0,3,B.tT,"bg",B.wp,B.jH,B.a2p,B.vR,B.YT,B.jM,B.tT,B.wp,B.jH,B.vR,B.jM,B.vM,B.Vm,B.vM,B.o,q),"bn",A.au(B.a2,B.jD,B.a1,B.UY,B.Vo,6,5,B.mW,"bn",B.wr,B.tQ,B.xH,B.a0A,B.xH,B.tH,B.mW,B.wr,B.tQ,B.mW,B.tH,B.wq,B.aB,B.wq,B.o,"\u09e6"),"bs",A.au(B.a32,B.a0G,B.ud,B.WX,B.tq,0,6,B.xS,"bs",B.dl,B.rr,B.a47,B.wD,B.YL,B.jc,B.xS,B.dl,B.jm,B.wD,B.jc,B.jn,B.O,B.jn,B.o,q),"ca",A.au(B.h6,B.XZ,B.a2G,B.a2j,B.a0k,0,3,B.Wx,"ca",B.vJ,B.tM,B.a1S,B.UW,B.a1r,B.u9,B.a27,B.vJ,B.tM,B.XG,B.u9,B.wc,B.wh,B.wc,B.o,q),"cs",A.au(B.a1u,B.ZR,B.a1,B.Ys,B.a2g,0,3,B.a37,"cs",B.aX,B.x2,B.Yd,B.xo,B.av,B.ry,B.X_,B.aX,B.x2,B.xo,B.ry,B.w8,B.jQ,B.w8,B.o,q),"cy",A.au(B.a4a,B.a_i,B.Y9,B.a26,B.XA,0,3,B.ux,"cy",B.wo,B.wR,B.a1w,B.Wb,B.XF,B.a04,B.ux,B.wo,B.wR,B.Yb,B.a0O,B.rS,B.O,B.rS,B.o,q),"da",A.au(B.a2,B.XK,B.a1k,B.eS,B.eS,0,3,B.t_,"da",B.C,B.dm,B.h4,B.vh,B.a0f,B.h5,B.t_,B.C,B.dm,B.vh,B.a_B,B.eT,B.mV,B.eT,B.o,q),"de",A.au(B.a2,B.mP,B.vH,B.eY,B.eY,0,3,B.jf,"de",B.C,B.eX,B.mX,B.wG,B.av,B.rC,B.jf,B.C,B.eX,B.jh,B.wi,B.jL,B.O,B.jL,B.o,q),"de_CH",A.au(B.a2,B.mP,B.vH,B.eY,B.eY,0,3,B.jf,"de_CH",B.C,B.eX,B.mX,B.wG,B.av,B.rC,B.jf,B.C,B.eX,B.jh,B.wi,B.jL,B.O,B.jL,B.o,q),"el",A.au(B.a0j,B.uG,B.a1o,B.a31,B.a_z,0,3,B.a0g,"el",B.xY,B.w5,B.a1y,B.Vj,B.a3H,B.td,B.a2L,B.xY,B.w5,B.a_M,B.td,B.rM,B.aB,B.rM,B.o,q),"en",A.au(B.a2,B.e_,B.cw,B.bR,B.bb,6,5,B.aG,"en",B.C,B.ak,B.ci,B.dW,B.av,B.aI,B.aG,B.C,B.ak,B.dW,B.aI,B.aH,B.aB,B.aH,B.o,q),"en_AU",A.au(B.dZ,B.jV,B.cw,B.bR,B.bb,0,6,B.aG,"en_AU",B.C,B.vE,B.ci,B.Z0,B.av,B.aI,B.aG,B.C,B.vE,B.dW,B.aI,B.aH,B.aB,B.aH,B.o,q),"en_CA",A.au(B.dp,B.ZW,B.cw,B.bR,B.bb,6,5,B.aG,"en_CA",B.C,B.ak,B.ci,B.bH,B.av,B.aI,B.aG,B.C,B.ak,B.bH,B.aI,B.aH,B.aB,B.aH,B.o,q),"en_GB",A.au(B.dZ,B.uZ,B.cw,B.bR,B.bb,0,3,B.aG,"en_GB",B.C,B.ak,B.ci,B.bH,B.av,B.aI,B.aG,B.C,B.ak,B.bH,B.aI,B.aH,B.O,B.aH,B.o,q),"en_IE",A.au(B.dp,B.mR,B.cw,B.bR,B.bb,0,3,B.aG,"en_IE",B.C,B.ak,B.ci,B.bH,B.av,B.aI,B.aG,B.C,B.ak,B.bH,B.aI,B.aH,B.O,B.aH,B.o,q),"en_IN",A.au(B.dZ,B.XH,B.cw,B.bR,B.bb,6,5,B.aG,"en_IN",B.C,B.ak,B.ci,B.bH,B.av,B.aI,B.aG,B.C,B.ak,B.bH,B.aI,B.aH,B.aB,B.aH,B.cg,q),"en_NZ",A.au(B.dZ,B.Zv,B.cw,B.bR,B.bb,0,6,B.aG,"en_NZ",B.C,B.ak,B.ci,B.bH,B.av,B.aI,B.aG,B.C,B.ak,B.bH,B.aI,B.aH,B.aB,B.aH,B.o,q),"en_SG",A.au(B.dZ,B.jV,B.cw,B.bR,B.bb,6,5,B.aG,"en_SG",B.C,B.ak,B.ci,B.bH,B.av,B.aI,B.aG,B.C,B.ak,B.bH,B.aI,B.aH,B.aB,B.aH,B.o,q),"en_US",A.au(B.a2,B.e_,B.cw,B.bR,B.bb,6,5,B.aG,"en_US",B.C,B.ak,B.ci,B.dW,B.av,B.aI,B.aG,B.C,B.ak,B.dW,B.aI,B.aH,B.aB,B.aH,B.o,q),"en_ZA",A.au(B.dZ,B.Yf,B.cw,B.bR,B.bb,6,5,B.aG,"en_ZA",B.C,B.ak,B.ci,B.bH,B.av,B.aI,B.aG,B.C,B.ak,B.bH,B.aI,B.aH,B.O,B.aH,B.o,q),"es",A.au(B.h6,B.vr,B.cf,B.jN,B.jy,0,3,B.du,"es",B.dn,B.wT,B.u4,B.dr,B.cx,B.ds,B.du,B.dn,B.wT,B.dr,B.ds,B.dt,B.wh,B.dt,B.o,q),"es_419",A.au(B.h6,B.vr,B.w0,B.jN,B.jy,0,3,B.du,"es_419",B.dn,B.Y1,B.jk,B.dr,B.cx,B.ds,B.du,B.dn,B.ch,B.dr,B.ds,B.dt,B.O,B.dt,B.o,q),"es_MX",A.au(B.h6,B.XV,B.w0,B.jN,B.jy,6,5,B.du,"es_MX",B.dn,B.ch,B.u4,B.dr,B.cx,B.ds,B.du,B.dn,B.ch,B.dr,B.ds,B.dt,B.O,B.dt,B.o,q),"es_US",A.au(B.h6,B.a0T,B.cf,B.jN,B.jy,6,5,B.du,"es_US",B.dn,B.ch,B.jk,B.dr,B.cx,B.ds,B.du,B.dn,B.ch,B.dr,B.ds,B.dt,B.aB,B.dt,B.o,q),"et",A.au(B.a2,B.a0W,B.a1,B.a0z,B.a0S,0,3,B.tD,"et",B.v5,B.jT,B.h4,B.y0,B.dY,B.jT,B.tD,B.v5,B.jT,B.y0,B.jT,B.xB,B.O,B.xB,B.o,q),"eu",A.au(B.a2,B.V6,B.a1,B.a_g,B.YC,0,3,B.Yo,"eu",B.uT,B.xV,B.XO,B.tV,B.YM,B.uc,B.Xj,B.uT,B.xV,B.tV,B.uc,B.vm,B.vd,B.vm,B.o,q),"fa",A.au(B.a1N,B.a2T,B.Yq,B.WS,B.a_A,5,4,B.ZG,"fa",B.vI,B.rq,B.a1J,B.mL,B.a3J,B.jA,B.mL,B.vI,B.rq,B.mL,B.jA,B.jA,B.xb,B.jA,B.VV,"\u06f0"),"fi",A.au(B.XL,B.a3s,B.a3b,B.a41,B.a0D,0,3,B.Yw,"fi",B.rE,B.x5,B.ZV,B.a1P,B.a_E,B.rL,B.Xu,B.rE,B.x5,B.Vr,B.rL,B.a0U,B.Yh,B.a2B,B.o,q),"fil",A.au(B.a2,B.e_,B.tm,B.bR,B.bb,6,5,B.jU,"fil",B.eU,B.dq,B.u_,B.eU,B.av,B.dq,B.jU,B.xv,B.dq,B.eU,B.dq,B.jr,B.aB,B.jr,B.o,q),"fr",A.au(B.a2,B.mR,B.rp,B.wf,B.uy,0,3,B.jg,"fr",B.C,B.ch,B.xd,B.tZ,B.cx,B.jF,B.jg,B.C,B.ch,B.tZ,B.jF,B.jj,B.O,B.jj,B.o,q),"fr_CA",A.au(B.dp,B.wk,B.rp,B.wf,B.uy,6,5,B.jg,"fr_CA",B.C,B.ch,B.xd,B.tC,B.cx,B.jF,B.jg,B.C,B.ch,B.tC,B.jF,B.jj,B.VU,B.jj,B.o,q),"ga",A.au(B.ZF,B.mR,B.a1,B.a2Q,B.a_5,0,3,B.u3,"ga",B.xZ,B.xR,B.VQ,B.tl,B.a_3,B.y1,B.u3,B.xZ,B.xR,B.tl,B.y1,B.x0,B.O,B.x0,B.o,q),"gl",A.au(B.dp,B.Wv,B.a4d,B.ZA,B.jp,0,3,B.VS,"gl",B.a00,B.a3x,B.jk,B.Zi,B.cx,B.a_S,B.a3e,B.Yt,B.ZN,B.a0C,B.Ze,B.Zt,B.O,B.a33,B.o,q),"gsw",A.au(B.V2,B.mP,B.a1,B.eY,B.eY,0,3,B.wg,"gsw",B.C,B.eX,B.mX,B.jh,B.av,B.t2,B.wg,B.C,B.eX,B.jh,B.t2,B.wI,B.O,B.wI,B.o,q),"gu",A.au(B.a2,B.jD,B.Wz,B.a_k,B.a0b,6,5,B.u0,"gu",B.ug,B.x8,B.YD,B.wW,B.av,B.wu,B.u0,B.ug,B.x8,B.wW,B.wu,B.tz,B.vO,B.tz,B.cg,q),"he",A.au(B.XP,B.a29,B.Zh,B.Y6,B.ZS,6,5,B.w4,"he",B.aX,B.tw,B.Wu,B.uq,B.av,B.wF,B.w4,B.aX,B.tw,B.uq,B.wF,B.vU,B.jQ,B.vU,B.rQ,q),"hi",A.au(B.dZ,B.jV,B.a3m,B.a2U,B.Wj,6,5,B.tb,"hi",B.v_,B.jz,B.a28,B.xD,B.a1Z,B.tF,B.tb,B.v_,B.jz,B.xD,B.tF,B.ue,B.aB,B.ue,B.cg,q),"hr",A.au(B.a2,B.Xn,B.ud,B.VX,B.a03,0,6,B.a2x,"hr",B.t5,B.rr,B.h4,B.xj,B.a3A,B.jc,B.a2_,B.t5,B.jm,B.xj,B.jc,B.jn,B.a0u,B.jn,B.o,q),"hu",A.au(B.YF,B.a_9,B.a1,B.a2O,B.YG,0,3,B.rA,"hu",B.vL,B.rD,B.Vs,B.uo,B.W8,B.v7,B.rA,B.vL,B.rD,B.uo,B.v7,B.xL,B.jQ,B.xL,B.o,q),"hy",A.au(B.a2,B.a23,B.cf,B.ZD,B.Zr,0,6,B.XD,"hy",B.uO,B.tL,B.WA,B.vg,B.ZP,B.vs,B.a1H,B.uO,B.tL,B.vg,B.vs,B.tP,B.O,B.tP,B.o,q),"id",A.au(B.a2,B.a2R,B.a1,B.a3T,B.a_f,6,5,B.wM,"id",B.C,B.u7,B.a_U,B.tc,B.dY,B.xF,B.wM,B.C,B.u7,B.tc,B.xF,B.vv,B.mV,B.vv,B.o,q),"is",A.au(B.Yn,B.a2a,B.mQ,B.ZZ,B.eS,0,3,B.wP,"is",B.vc,B.w9,B.a43,B.y4,B.XX,B.wj,B.wP,B.vc,B.w9,B.y4,B.wj,B.ui,B.O,B.ui,B.o,q),"it",A.au(B.a2,B.Zq,B.f_,B.XJ,B.jp,0,3,B.xM,"it",B.uk,B.x1,B.xJ,B.tr,B.cx,B.t4,B.xM,B.uk,B.x1,B.tr,B.t4,B.vA,B.O,B.vA,B.o,q),"ja",A.au(B.V3,B.a1F,B.a1,B.uf,B.uf,6,5,B.bI,"ja",B.aX,B.jB,B.a_N,B.bI,B.av,B.jB,B.bI,B.aX,B.jB,B.bI,B.jB,B.u5,B.a0v,B.u5,B.o,q),"ka",A.au(B.a2,B.a_6,B.cf,B.a2w,B.a1D,0,6,B.tn,"ka",B.vW,B.rN,B.WW,B.uX,B.Y7,B.wV,B.tn,B.vW,B.rN,B.uX,B.wV,B.xU,B.O,B.xU,B.o,q),"kk",A.au(B.a2,B.a3k,B.cf,B.Xh,B.Vq,0,6,B.YZ,"kk",B.x9,B.ro,B.a2o,B.rB,B.a1h,B.tO,B.V9,B.x9,B.ro,B.rB,B.tO,B.ua,B.O,B.ua,B.o,q),"km",A.au(B.a2,B.uG,B.X6,B.X5,B.a_G,6,5,B.ji,"km",B.y_,B.tJ,B.rH,B.ji,B.rH,B.ul,B.ji,B.y_,B.tJ,B.ji,B.ul,B.Yp,B.aB,B.a1Q,B.o,q),"kn",A.au(B.a2t,B.a2A,B.a1,B.a3u,B.Yz,6,5,B.vC,"kn",B.t8,B.tj,B.Y8,B.a2E,B.Yr,B.wt,B.vC,B.t8,B.tj,B.a1i,B.wt,B.uB,B.vO,B.uB,B.cg,q),"ko",A.au(B.WY,B.a2H,B.a1,B.a22,B.bb,6,5,B.eZ,"ko",B.eZ,B.jO,B.Wl,B.eZ,B.a3K,B.jO,B.eZ,B.eZ,B.jO,B.eZ,B.jO,B.uM,B.a_Z,B.uM,B.o,q),"ky",A.au(B.a0h,B.a1v,B.a1,B.a1W,B.Z8,0,6,B.u6,"ky",B.jv,B.ta,B.a25,B.XU,B.a_s,B.xN,B.a2N,B.jv,B.ta,B.YS,B.xN,B.va,B.O,B.va,B.o,q),"lo",A.au(B.YX,B.Xo,B.cf,B.a1C,B.XT,6,5,B.rT,"lo",B.aX,B.tx,B.a3N,B.ru,B.a_7,B.ub,B.rT,B.aX,B.tx,B.ru,B.ub,B.rW,B.a1R,B.rW,B.o,q),"lt",A.au(B.YB,B.Vh,B.a1,B.Xq,B.th,0,3,B.a34,"lt",B.xm,B.rX,B.Y_,B.wN,B.a1z,B.y2,B.ZL,B.xm,B.rX,B.wN,B.y2,B.wl,B.O,B.wl,B.o,q),"lv",A.au(B.Xc,B.Z6,B.a1,B.a1m,B.a2z,0,6,B.rP,"lv",B.C,B.v3,B.Xw,B.x_,B.a3Q,B.Z7,B.rP,B.C,B.v3,B.x_,B.Y3,B.a20,B.O,B.Xk,B.o,q),"mk",A.au(B.a2k,B.a2y,B.a05,B.Xf,B.a_j,0,6,B.vo,"mk",B.jw,B.jH,B.a0V,B.rO,B.a3R,B.u8,B.vo,B.jw,B.jH,B.rO,B.u8,B.vb,B.O,B.vb,B.o,q),"ml",A.au(B.a2,B.a2q,B.a1,B.a0y,B.a2Y,6,5,B.xl,"ml",B.w_,B.YV,B.wQ,B.uR,B.wQ,B.uu,B.xl,B.w_,B.XR,B.uR,B.uu,B.a0o,B.aB,B.a4c,B.cg,q),"mn",A.au(B.a2D,B.Zg,B.a1,B.a0m,B.WB,6,5,B.Yi,"mn",B.tg,B.jq,B.Yj,B.tW,B.Xp,B.jq,B.a2s,B.tg,B.jq,B.tW,B.jq,B.a48,B.vd,B.a30,B.o,q),"mr",A.au(B.a2,B.jD,B.Wt,B.a3G,B.a2P,6,5,B.xG,"mr",B.v8,B.jz,B.a1A,B.wE,B.Vg,B.we,B.xG,B.v8,B.jz,B.wE,B.we,B.vi,B.aB,B.vi,B.cg,"\u0966"),"ms",A.au(B.ZK,B.a0a,B.f_,B.xO,B.xO,0,6,B.vB,"ms",B.tu,B.xK,B.Yc,B.tI,B.a_c,B.w7,B.vB,B.tu,B.xK,B.tI,B.w7,B.uh,B.aB,B.uh,B.o,q),"my",A.au(B.a_o,B.Xd,B.a1,B.WE,B.a2v,6,5,B.uj,"my",B.vq,B.uY,B.uW,B.te,B.uW,B.jI,B.uj,B.vq,B.uY,B.te,B.jI,B.jI,B.W0,B.jI,B.o,"\u1040"),"nb",A.au(B.dp,B.rx,B.mQ,B.uN,B.eS,0,3,B.jt,"nb",B.C,B.dm,B.h4,B.xq,B.dY,B.h5,B.jt,B.C,B.dm,B.rV,B.h5,B.eT,B.O,B.eT,B.o,q),"ne",A.au(B.a4i,B.VT,B.f_,B.vV,B.vV,6,5,B.jS,"ne",B.a_P,B.xP,B.wS,B.jS,B.wS,B.rs,B.jS,B.Wn,B.xP,B.jS,B.rs,B.rK,B.O,B.rK,B.o,"\u0966"),"nl",A.au(B.dp,B.ZT,B.Ya,B.xa,B.X2,0,3,B.xy,"nl",B.C,B.vK,B.YE,B.xQ,B.dY,B.tN,B.xy,B.C,B.vK,B.xQ,B.tN,B.vx,B.O,B.vx,B.o,q),"no",A.au(B.dp,B.rx,B.mQ,B.uN,B.eS,0,3,B.jt,"no",B.C,B.dm,B.h4,B.xq,B.dY,B.h5,B.jt,B.C,B.dm,B.rV,B.h5,B.eT,B.O,B.eT,B.o,q),"or",A.au(B.a2,B.e_,B.a3D,B.a0P,B.bb,6,5,B.jE,"or",B.u2,B.t6,B.ur,B.jE,B.ur,B.w2,B.jE,B.u2,B.t6,B.jE,B.w2,B.xc,B.aB,B.xc,B.cg,q),"pa",A.au(B.a2M,B.jV,B.f_,B.WP,B.a0q,6,5,B.vu,"pa",B.wB,B.uE,B.Zu,B.vw,B.a3C,B.uv,B.vu,B.wB,B.uE,B.vw,B.uv,B.rz,B.aB,B.rz,B.cg,q),"pl",A.au(B.a2,B.a0H,B.f_,B.a1g,B.a1B,0,3,B.X0,"pl",B.a21,B.a3I,B.a1U,B.v1,B.a_L,B.wZ,B.a_W,B.XC,B.ZO,B.v1,B.wZ,B.tB,B.O,B.tB,B.o,q),"ps",A.au(B.a2X,B.a2n,B.a1,B.a09,B.a_K,5,4,B.rY,"ps",B.WZ,B.ak,B.vT,B.rY,B.vT,B.jb,B.a_a,B.aX,B.ak,B.WT,B.jb,B.jb,B.xb,B.jb,B.Vn,"\u06f0"),"pt",A.au(B.a2,B.Wa,B.a1,B.xp,B.jp,6,5,B.ju,"pt",B.C,B.jx,B.xJ,B.jK,B.cx,B.x3,B.ju,B.C,B.jx,B.jK,B.x3,B.jP,B.O,B.jP,B.o,q),"pt_PT",A.au(B.Xa,B.a3X,B.a0B,B.xp,B.jp,6,2,B.ju,"pt_PT",B.C,B.jx,B.jk,B.jK,B.cx,B.vG,B.ju,B.C,B.jx,B.jK,B.vG,B.jP,B.O,B.jP,B.o,q),"ro",A.au(B.dp,B.a_r,B.cf,B.YO,B.Xb,0,6,B.wJ,"ro",B.uI,B.ch,B.a2m,B.tk,B.a3g,B.uV,B.wJ,B.uI,B.ch,B.tk,B.uV,B.vP,B.O,B.vP,B.o,q),"ru",A.au(B.a2,B.Ye,B.cf,B.a3S,B.UZ,0,3,B.a44,"ru",B.jv,B.vZ,B.uz,B.a3B,B.xA,B.vz,B.u6,B.jv,B.vZ,B.a3Z,B.vz,B.x7,B.O,B.x7,B.o,q),"si",A.au(B.a3p,B.a3d,B.a1,B.V_,B.a2S,0,6,B.xT,"si",B.uD,B.xw,B.a2r,B.a4b,B.a_u,B.tR,B.xT,B.uD,B.xw,B.a2e,B.tR,B.vl,B.mV,B.vl,B.o,q),"sk",A.au(B.a2,B.a0i,B.XQ,B.XS,B.Xs,0,3,B.a2Z,"sk",B.dl,B.tp,B.a3y,B.xW,B.av,B.xe,B.Xl,B.dl,B.tp,B.xW,B.xe,B.w6,B.jQ,B.w6,B.o,q),"sl",A.au(B.a_D,B.Wi,B.f_,B.a1O,B.th,0,6,B.y3,"sl",B.dl,B.x4,B.XY,B.u1,B.Zc,B.wX,B.y3,B.dl,B.x4,B.u1,B.wX,B.vF,B.O,B.vF,B.o,q),"sq",A.au(B.a1e,B.a1M,B.Wd,B.ZJ,B.Zj,0,6,B.xE,"sq",B.wy,B.rG,B.Zs,B.xx,B.a01,B.a0l,B.xE,B.wy,B.rG,B.xx,B.a1f,B.tU,B.We,B.tU,B.o,q),"sr",A.au(B.a2,B.to,B.a1,B.a4e,B.a1n,0,6,B.wm,"sr",B.jw,B.xi,B.XN,B.xf,B.WO,B.xC,B.wm,B.jw,B.xi,B.xf,B.xC,B.wn,B.O,B.wn,B.o,q),"sr_Latn",A.au(B.a2,B.to,B.a1,B.Za,B.tq,0,6,B.tK,"sr_Latn",B.dl,B.jm,B.a1T,B.ti,B.a_q,B.t3,B.tK,B.dl,B.jm,B.ti,B.t3,B.vn,B.O,B.vn,B.o,q),"sv",A.au(B.a1p,B.wk,B.a1,B.a3_,B.eS,0,3,B.vX,"sv",B.C,B.dm,B.Y0,B.wY,B.dY,B.un,B.vX,B.C,B.dm,B.wY,B.un,B.xX,B.O,B.xX,B.o,q),"sw",A.au(B.a2,B.uZ,B.a1,B.a3o,B.YK,0,6,B.uw,"sw",B.C,B.ak,B.uK,B.uH,B.uK,B.jd,B.uw,B.C,B.ak,B.uH,B.jd,B.jd,B.O,B.jd,B.o,q),"ta",A.au(B.a_T,B.jD,B.VJ,B.V8,B.X4,6,5,B.um,"ta",B.vk,B.t7,B.Wk,B.tG,B.a0c,B.wL,B.um,B.vk,B.t7,B.tG,B.wL,B.uJ,B.ZH,B.uJ,B.cg,q),"te",A.au(B.a2,B.V5,B.Vl,B.Xe,B.V7,6,5,B.wx,"te",B.ve,B.xh,B.Z1,B.xs,B.Zx,B.uP,B.wx,B.ve,B.xh,B.xs,B.uP,B.v6,B.aB,B.v6,B.cg,q),"th",A.au(B.X3,B.YA,B.a1,B.Yl,B.a3r,6,5,B.tY,"th",B.jJ,B.uS,B.ty,B.jJ,B.ty,B.uQ,B.tY,B.jJ,B.uS,B.jJ,B.uQ,B.tE,B.a1d,B.tE,B.o,q),"tl",A.au(B.a2,B.e_,B.tm,B.bR,B.bb,6,5,B.jU,"tl",B.eU,B.dq,B.u_,B.eU,B.av,B.dq,B.jU,B.xv,B.dq,B.eU,B.dq,B.jr,B.aB,B.jr,B.o,q),"tr",A.au(B.Yy,B.ZQ,B.a1,B.Vi,B.a_I,0,6,B.xr,"tr",B.vQ,B.v0,B.Wg,B.tX,B.XE,B.rU,B.xr,B.vQ,B.v0,B.tX,B.rU,B.vY,B.O,B.vY,B.o,q),"uk",A.au(B.a0s,B.a_e,B.Z4,B.a2u,B.Xx,0,6,B.Y2,"uk",B.a06,B.wU,B.uz,B.YQ,B.xA,B.jM,B.Wf,B.Zf,B.wU,B.a0e,B.jM,B.wA,B.O,B.wA,B.o,q),"ur",A.au(B.a2,B.X1,B.a1,B.v4,B.v4,6,5,B.je,"ur",B.C,B.ak,B.vD,B.je,B.vD,B.jo,B.je,B.C,B.ak,B.je,B.jo,B.jo,B.aB,B.jo,B.o,q),"uz",A.au(B.a_l,B.a_Q,B.cf,B.a35,B.YR,0,6,B.a1I,"uz",B.uL,B.w3,B.Yk,B.a3W,B.a3Y,B.uA,B.a3h,B.uL,B.w3,B.a_V,B.uA,B.xI,B.a0R,B.xI,B.o,q),"vi",A.au(B.a_d,B.Ww,B.a1l,B.a_C,B.a_b,0,6,B.ZB,"vi",B.aX,B.uU,B.a46,B.Z9,B.av,B.tv,B.a49,B.aX,B.uU,B.Yx,B.tv,B.tf,B.O,B.tf,B.o,q),"zh",A.au(B.mZ,B.V1,B.a1,B.jG,B.jG,6,5,B.xg,"zh",B.aX,B.f0,B.a0M,B.bI,B.Vk,B.vf,B.xg,B.aX,B.f0,B.bI,B.vf,B.eW,B.Zd,B.eW,B.o,q),"zh_HK",A.au(B.mZ,B.Zz,B.a1,B.jG,B.jG,6,5,B.bI,"zh_HK",B.aX,B.f0,B.mM,B.bI,B.av,B.jl,B.bI,B.aX,B.f0,B.bI,B.jl,B.eW,B.a45,B.eW,B.o,q),"zh_TW",A.au(B.mZ,B.a2V,B.a1,B.v9,B.v9,6,5,B.bI,"zh_TW",B.aX,B.f0,B.mM,B.bI,B.mM,B.jl,B.bI,B.aX,B.f0,B.bI,B.jl,B.eW,B.a_Y,B.eW,B.o,q),"zu",A.au(B.a2,B.e_,B.a1,B.bb,B.bb,6,5,B.rR,"zu",B.ZC,B.xz,B.Yu,B.rI,B.av,B.wC,B.rR,B.C,B.xz,B.rI,B.wC,B.vp,B.O,B.vp,B.o,q)],t.N,t.fs)})
 s($,"bbD","aJD",()=>A.aGx(B.a0N,t.N))
-s($,"bbG","aJG",()=>A.aGx(B.XB,t.N))
+s($,"bbG","aJG",()=>A.aGx(B.XI,t.N))
 s($,"bbY","aUv",()=>new A.ajM(A.u(t.N,A.a4("am<cU?>?(cU?)"))))
 s($,"b7t","aJ3",()=>new A.a8Z())
 r($,"bbx","aUl",()=>A.aVp())
@@ -96374,11 +96377,11 @@ s($,"baN","aTU",()=>A.cK('"(?:[^"\\x00-\\x1F\\x7F\\\\]|\\\\.)*"',!0,!1))
 s($,"baM","aTT",()=>A.cK("\\\\(.)",!0,!1))
 s($,"bbL","aUp",()=>A.cK('[()<>@,;:"\\\\/\\[\\]?={} \\t\\x00-\\x1F\\x7F]',!0,!1))
 s($,"bbZ","aUw",()=>A.cK("(?:"+$.aTR().a+")*",!0,!1))
-s($,"bbv","aUk",()=>A.au(B.a2,B.e_,B.cf,B.bR,B.bb,6,5,B.aG,"en_US",B.C,B.ak,B.ci,B.dW,B.av,B.aI,B.aG,B.C,B.ak,B.dW,B.aI,B.aH,B.a_n,B.aH,B.o,null))
+s($,"bbv","aUk",()=>A.au(B.a2,B.e_,B.cf,B.bR,B.bb,6,5,B.aG,"en_US",B.C,B.ak,B.ci,B.dW,B.av,B.aI,B.aG,B.C,B.ak,B.dW,B.aI,B.aH,B.a_p,B.aH,B.o,null))
 r($,"bbN","aJJ",()=>{var q=",",p="\xa0",o="%",n="0",m="+",l="-",k="E",j="\u2030",i="\u221e",h="NaN",g="#,##0.###",f="#E0",e="#,##0%",d="\xa4#,##0.00",c=".",b="\u200e+",a="\u200e-",a0="\u0644\u064a\u0633\xa0\u0631\u0642\u0645\u064b\u0627",a1="\u200f#,##0.00\xa0\xa4;\u200f-#,##0.00\xa0\xa4",a2="#,##,##0.###",a3="#,##,##0%",a4="\xa4\xa0#,##,##0.00",a5="INR",a6="#,##0.00\xa0\xa4",a7="#,##0\xa0%",a8="EUR",a9="USD",b0="\xa4\xa0#,##0.00",b1="\xa4\xa0#,##0.00;\xa4-#,##0.00",b2="CHF",b3="\xa4#,##,##0.00",b4="\u2212",b5="\xd710^",b6="[#E0]",b7="\u200f#,##0.00\xa0\u200f\xa4;\u200f-#,##0.00\xa0\u200f\xa4",b8="#,##0.00\xa0\xa4;-#,##0.00\xa0\xa4"
 return A.aA(["af",A.ad(d,g,q,"ZAR",k,p,i,l,"af",h,o,e,j,m,f,n),"am",A.ad(d,g,c,"ETB",k,q,i,l,"am","\u1260\u1241\u1325\u122d\xa0\u120a\u1308\u1208\u133d\xa0\u12e8\u121b\u12ed\u127d\u120d",o,e,j,m,f,n),"ar",A.ad(a1,g,c,"EGP",k,q,i,a,"ar",a0,"\u200e%\u200e",e,j,b,f,n),"ar_DZ",A.ad(a1,g,q,"DZD",k,c,i,a,"ar_DZ",a0,"\u200e%\u200e",e,j,b,f,n),"ar_EG",A.ad("\u200f#,##0.00\xa0\xa4",g,"\u066b","EGP","\u0623\u0633","\u066c",i,"\u061c-","ar_EG",a0,"\u066a\u061c",e,"\u0609","\u061c+",f,"\u0660"),"as",A.ad(a4,a2,c,a5,k,q,i,l,"as",h,o,a3,j,m,f,"\u09e6"),"az",A.ad(a6,g,q,"AZN",k,c,i,l,"az",h,o,e,j,m,f,n),"be",A.ad(a6,g,q,"BYN",k,p,i,l,"be",h,o,a7,j,m,f,n),"bg",A.ad(a6,g,q,"BGN",k,p,i,l,"bg",h,o,e,j,m,f,n),"bm",A.ad(d,g,c,"XOF",k,q,i,l,"bm",h,o,e,j,m,f,n),"bn",A.ad("#,##,##0.00\xa4",a2,c,"BDT",k,q,i,l,"bn",h,o,e,j,m,f,"\u09e6"),"br",A.ad(a6,g,q,a8,k,p,i,l,"br",h,o,a7,j,m,f,n),"bs",A.ad(a6,g,q,"BAM",k,c,i,l,"bs",h,o,e,j,m,f,n),"ca",A.ad(a6,g,q,a8,k,c,i,l,"ca",h,o,a7,j,m,f,n),"chr",A.ad(d,g,c,a9,k,q,i,l,"chr",h,o,e,j,m,f,n),"cs",A.ad(a6,g,q,"CZK",k,p,i,l,"cs",h,o,a7,j,m,f,n),"cy",A.ad(d,g,c,"GBP",k,q,i,l,"cy",h,o,e,j,m,f,n),"da",A.ad(a6,g,q,"DKK",k,c,i,l,"da",h,o,a7,j,m,f,n),"de",A.ad(a6,g,q,a8,k,c,i,l,"de",h,o,a7,j,m,f,n),"de_AT",A.ad(b0,g,q,a8,k,p,i,l,"de_AT",h,o,a7,j,m,f,n),"de_CH",A.ad(b1,g,c,b2,k,"\u2019",i,l,"de_CH",h,o,e,j,m,f,n),"el",A.ad(a6,g,q,a8,"e",c,i,l,"el",h,o,e,j,m,f,n),"en",A.ad(d,g,c,a9,k,q,i,l,"en",h,o,e,j,m,f,n),"en_AU",A.ad(d,g,c,"AUD","e",q,i,l,"en_AU",h,o,e,j,m,f,n),"en_CA",A.ad(d,g,c,"CAD",k,q,i,l,"en_CA",h,o,e,j,m,f,n),"en_GB",A.ad(d,g,c,"GBP",k,q,i,l,"en_GB",h,o,e,j,m,f,n),"en_IE",A.ad(d,g,c,a8,k,q,i,l,"en_IE",h,o,e,j,m,f,n),"en_IN",A.ad(b3,a2,c,a5,k,q,i,l,"en_IN",h,o,a3,j,m,f,n),"en_MY",A.ad(d,g,c,"MYR",k,q,i,l,"en_MY",h,o,e,j,m,f,n),"en_NZ",A.ad(d,g,c,"NZD",k,q,i,l,"en_NZ",h,o,e,j,m,f,n),"en_SG",A.ad(d,g,c,"SGD",k,q,i,l,"en_SG",h,o,e,j,m,f,n),"en_US",A.ad(d,g,c,a9,k,q,i,l,"en_US",h,o,e,j,m,f,n),"en_ZA",A.ad(d,g,q,"ZAR",k,p,i,l,"en_ZA",h,o,e,j,m,f,n),"es",A.ad(a6,g,q,a8,k,c,i,l,"es",h,o,a7,j,m,f,n),"es_419",A.ad(d,g,c,"MXN",k,q,i,l,"es_419",h,o,e,j,m,f,n),"es_ES",A.ad(a6,g,q,a8,k,c,i,l,"es_ES",h,o,a7,j,m,f,n),"es_MX",A.ad(d,g,c,"MXN",k,q,i,l,"es_MX",h,o,e,j,m,f,n),"es_US",A.ad(d,g,c,a9,k,q,i,l,"es_US",h,o,e,j,m,f,n),"et",A.ad(a6,g,q,a8,b5,p,i,b4,"et",h,o,e,j,m,f,n),"eu",A.ad(a6,g,q,a8,k,c,i,b4,"eu",h,o,"%\xa0#,##0",j,m,f,n),"fa",A.ad("\u200e\xa4#,##0.00",g,"\u066b","IRR","\xd7\u06f1\u06f0^","\u066c",i,"\u200e\u2212","fa","\u0646\u0627\u0639\u062f\u062f","\u066a",e,"\u0609",b,f,"\u06f0"),"fi",A.ad(a6,g,q,a8,k,p,i,b4,"fi","ep\xe4luku",o,a7,j,m,f,n),"fil",A.ad(d,g,c,"PHP",k,q,i,l,"fil",h,o,e,j,m,f,n),"fr",A.ad(a6,g,q,a8,k,"\u202f",i,l,"fr",h,o,a7,j,m,f,n),"fr_CA",A.ad(a6,g,q,"CAD",k,p,i,l,"fr_CA",h,o,a7,j,m,f,n),"fr_CH",A.ad(a6,g,q,b2,k,"\u202f",i,l,"fr_CH",h,o,e,j,m,f,n),"fur",A.ad(b0,g,q,a8,k,c,i,l,"fur",h,o,e,j,m,f,n),"ga",A.ad(d,g,c,a8,k,q,i,l,"ga","Nuimh",o,e,j,m,f,n),"gl",A.ad(a6,g,q,a8,k,c,i,l,"gl",h,o,a7,j,m,f,n),"gsw",A.ad(a6,g,c,b2,k,"\u2019",i,b4,"gsw",h,o,a7,j,m,f,n),"gu",A.ad(b3,a2,c,a5,k,q,i,l,"gu",h,o,a3,j,m,b6,n),"haw",A.ad(d,g,c,a9,k,q,i,l,"haw",h,o,e,j,m,f,n),"he",A.ad(b7,g,c,"ILS",k,q,i,a,"he",h,o,e,j,b,f,n),"hi",A.ad(b3,a2,c,a5,k,q,i,l,"hi",h,o,a3,j,m,b6,n),"hr",A.ad(a6,g,q,a8,k,c,i,b4,"hr",h,o,a7,j,m,f,n),"hu",A.ad(a6,g,q,"HUF",k,p,i,l,"hu",h,o,e,j,m,f,n),"hy",A.ad(a6,g,q,"AMD",k,p,i,l,"hy","\u0548\u0579\u0539",o,e,j,m,f,n),"id",A.ad(d,g,q,"IDR",k,c,i,l,"id",h,o,e,j,m,f,n),"in",A.ad(d,g,q,"IDR",k,c,i,l,"in",h,o,e,j,m,f,n),"is",A.ad(a6,g,q,"ISK",k,c,i,l,"is",h,o,e,j,m,f,n),"it",A.ad(a6,g,q,a8,k,c,i,l,"it",h,o,e,j,m,f,n),"it_CH",A.ad(b1,g,c,b2,k,"\u2019",i,l,"it_CH",h,o,e,j,m,f,n),"iw",A.ad(b7,g,c,"ILS",k,q,i,a,"iw",h,o,e,j,b,f,n),"ja",A.ad(d,g,c,"JPY",k,q,i,l,"ja",h,o,e,j,m,f,n),"ka",A.ad(a6,g,q,"GEL",k,p,i,l,"ka","\u10d0\u10e0\xa0\u10d0\u10e0\u10d8\u10e1\xa0\u10e0\u10d8\u10ea\u10ee\u10d5\u10d8",o,e,j,m,f,n),"kk",A.ad(a6,g,q,"KZT",k,p,i,l,"kk","\u0441\u0430\u043d\xa0\u0435\u043c\u0435\u0441",o,e,j,m,f,n),"km",A.ad("#,##0.00\xa4",g,c,"KHR",k,q,i,l,"km",h,o,e,j,m,f,n),"kn",A.ad(d,g,c,a5,k,q,i,l,"kn",h,o,e,j,m,f,n),"ko",A.ad(d,g,c,"KRW",k,q,i,l,"ko",h,o,e,j,m,f,n),"ky",A.ad(a6,g,q,"KGS",k,p,i,l,"ky","\u0441\u0430\u043d\xa0\u044d\u043c\u0435\u0441",o,e,j,m,f,n),"ln",A.ad(a6,g,q,"CDF",k,c,i,l,"ln",h,o,e,j,m,f,n),"lo",A.ad("\xa4#,##0.00;\xa4-#,##0.00",g,q,"LAK",k,c,i,l,"lo","\u0e9a\u0ecd\u0ec8\u200b\u0ec1\u0ea1\u0ec8\u0e99\u200b\u0ec2\u0e95\u200b\u0ec0\u0ea5\u0e81",o,e,j,m,"#",n),"lt",A.ad(a6,g,q,a8,b5,p,i,b4,"lt",h,o,a7,j,m,f,n),"lv",A.ad(a6,g,q,a8,k,p,i,l,"lv","NS",o,e,j,m,f,n),"mg",A.ad(d,g,c,"MGA",k,q,i,l,"mg",h,o,e,j,m,f,n),"mk",A.ad(a6,g,q,"MKD",k,c,i,l,"mk",h,o,a7,j,m,f,n),"ml",A.ad(d,a2,c,a5,k,q,i,l,"ml",h,o,e,j,m,f,n),"mn",A.ad(b0,g,c,"MNT",k,q,i,l,"mn",h,o,e,j,m,f,n),"mr",A.ad(d,a2,c,a5,k,q,i,l,"mr",h,o,e,j,m,b6,"\u0966"),"ms",A.ad(d,g,c,"MYR",k,q,i,l,"ms",h,o,e,j,m,f,n),"mt",A.ad(d,g,c,a8,k,q,i,l,"mt",h,o,e,j,m,f,n),"my",A.ad(a6,g,c,"MMK",k,q,i,l,"my","\u1002\u100f\u1014\u103a\u1038\u1019\u101f\u102f\u1010\u103a\u101e\u1031\u102c",o,e,j,m,f,"\u1040"),"nb",A.ad(b8,g,q,"NOK",k,p,i,b4,"nb",h,o,a7,j,m,f,n),"ne",A.ad(a4,a2,c,"NPR",k,q,i,l,"ne",h,o,a3,j,m,f,"\u0966"),"nl",A.ad("\xa4\xa0#,##0.00;\xa4\xa0-#,##0.00",g,q,a8,k,c,i,l,"nl",h,o,e,j,m,f,n),"no",A.ad(b8,g,q,"NOK",k,p,i,b4,"no",h,o,a7,j,m,f,n),"no_NO",A.ad(b8,g,q,"NOK",k,p,i,b4,"no_NO",h,o,a7,j,m,f,n),"nyn",A.ad(d,g,c,"UGX",k,q,i,l,"nyn",h,o,e,j,m,f,n),"or",A.ad(d,a2,c,a5,k,q,i,l,"or",h,o,e,j,m,f,n),"pa",A.ad(b3,a2,c,a5,k,q,i,l,"pa",h,o,a3,j,m,b6,n),"pl",A.ad(a6,g,q,"PLN",k,p,i,l,"pl",h,o,e,j,m,f,n),"ps",A.ad("\xa4#,##0.00;(\xa4#,##0.00)",g,"\u066b","AFN","\xd7\u06f1\u06f0^","\u066c",i,"\u200e-\u200e","ps",h,"\u066a",e,"\u0609","\u200e+\u200e",f,"\u06f0"),"pt",A.ad(b0,g,q,"BRL",k,c,i,l,"pt",h,o,e,j,m,f,n),"pt_BR",A.ad(b0,g,q,"BRL",k,c,i,l,"pt_BR",h,o,e,j,m,f,n),"pt_PT",A.ad(a6,g,q,a8,k,p,i,l,"pt_PT",h,o,e,j,m,f,n),"ro",A.ad(a6,g,q,"RON",k,c,i,l,"ro",h,o,a7,j,m,f,n),"ru",A.ad(a6,g,q,"RUB",k,p,i,l,"ru","\u043d\u0435\xa0\u0447\u0438\u0441\u043b\u043e",o,a7,j,m,f,n),"si",A.ad(d,g,c,"LKR",k,q,i,l,"si",h,o,e,j,m,"#",n),"sk",A.ad(a6,g,q,a8,"e",p,i,l,"sk",h,o,a7,j,m,f,n),"sl",A.ad(a6,g,q,a8,"e",c,i,b4,"sl",h,o,a7,j,m,f,n),"sq",A.ad(a6,g,q,"ALL",k,p,i,l,"sq",h,o,e,j,m,f,n),"sr",A.ad(a6,g,q,"RSD",k,c,i,l,"sr",h,o,e,j,m,f,n),"sr_Latn",A.ad(a6,g,q,"RSD",k,c,i,l,"sr_Latn",h,o,e,j,m,f,n),"sv",A.ad(a6,g,q,"SEK",b5,p,i,b4,"sv",h,o,a7,j,m,f,n),"sw",A.ad(b0,g,c,"TZS",k,q,i,l,"sw",h,o,e,j,m,f,n),"ta",A.ad(b3,a2,c,a5,k,q,i,l,"ta",h,o,a3,j,m,f,n),"te",A.ad(b3,a2,c,a5,k,q,i,l,"te",h,o,e,j,m,f,n),"th",A.ad(d,g,c,"THB",k,q,i,l,"th",h,o,e,j,m,f,n),"tl",A.ad(d,g,c,"PHP",k,q,i,l,"tl",h,o,e,j,m,f,n),"tr",A.ad(d,g,q,"TRY",k,c,i,l,"tr",h,o,"%#,##0",j,m,f,n),"uk",A.ad(a6,g,q,"UAH","\u0415",p,i,l,"uk",h,o,e,j,m,f,n),"ur",A.ad(d,g,c,"PKR",k,q,i,a,"ur",h,o,e,j,b,f,n),"uz",A.ad(a6,g,q,"UZS",k,p,i,l,"uz","son\xa0emas",o,e,j,m,f,n),"vi",A.ad(a6,g,q,"VND",k,c,i,l,"vi",h,o,e,j,m,f,n),"zh",A.ad(d,g,c,"CNY",k,q,i,l,"zh",h,o,e,j,m,f,n),"zh_CN",A.ad(d,g,c,"CNY",k,q,i,l,"zh_CN",h,o,e,j,m,f,n),"zh_HK",A.ad(d,g,c,"HKD",k,q,i,l,"zh_HK","\u975e\u6578\u503c",o,e,j,m,f,n),"zh_TW",A.ad(d,g,c,"TWD",k,q,i,l,"zh_TW","\u975e\u6578\u503c",o,e,j,m,f,n),"zu",A.ad(d,g,c,"ZAR",k,q,i,l,"zu",h,o,e,j,m,f,n)],t.N,A.a4("nA"))})
 r($,"b2A","aJj",()=>A.aOd("initializeDateFormatting(<locale>)",$.aUk()))
-r($,"b4W","a6M",()=>A.aOd("initializeDateFormatting(<locale>)",B.a6u))
+r($,"b4W","a6M",()=>A.aOd("initializeDateFormatting(<locale>)",B.a6x))
 s($,"bbi","aUf",()=>48)
 s($,"baI","aTQ",()=>A.aIK(10))
 s($,"b7A","aJ4",()=>{var q=null

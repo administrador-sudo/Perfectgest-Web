@@ -106,10 +106,9 @@ Os contactos da aba Empresa (telefone, e-mail, WhatsApp, etc.) servem também o 
 Tudo permanece no dispositivo até partilhar ou mostrar o QR por acção explícita. Não publicamos nem alojamos o cartão num site PerfectGest; não enviamos o conteúdo do cartão para Firestore nem outros servidores por iniciativa da app.
 
 O que nunca entra no cartão: cadastro de clientes, orçamentos, lançamentos de caixa, valores financeiros, contratos ou backups.'''),
-  LegalSectionText(heading: 'Modelo de acesso — período de teste e Plano Pro', body: '''- Período de teste (7 dias): desde a primeira abertura da app, pode criar até 5 clientes, 5 orçamentos e 5 lançamentos de caixa, incluindo PDF, sem subscrição paga durante esse período.
-- Limites durante o teste: ao guardar o 4.º registo de cada tipo, a app informa que é o último daquele tipo no teste. O 6.º (ou acima dos limites) exige Plano Pro, mesmo dentro dos 7 dias.
-- Após 7 dias sem Plano Pro: a app continua utilizável para consultar e editar dados locais, mas não permite criar novos clientes, orçamentos ou lançamentos de caixa.
-- Plano Pro: uso ilimitado, restauro de backup encriptado e cartão de visita interactivo na app (edição após o primeiro cartão, vCard, QR, preview com toques), via assinatura mensal ou anual na Google Play.
+  LegalSectionText(heading: 'Modelo de acesso — período de teste e Plano Pro', body: '''- Período de teste (7 dias): desde a primeira abertura, uso ilimitado (clientes, orçamentos, caixa, PDF, OS, contratos) sem subscrição paga e sem cartão na app.
+- Após 7 dias sem Plano Pro: pode consultar e editar dados locais; não permite criar novos registos nem gerar novos PDF.
+- Plano Pro: uso ilimitado, restauro de backup encriptado e cartão interactivo — assinatura mensal (R\$ 9,90) ou anual (R\$ 99,90) na Google Play.
 
 A data de início do teste é guardada de forma anónima por aparelho (serviço Firebase) para coerência do período — sem dados de clientes, orçamentos ou caixa.'''),
   LegalSectionText(heading: 'Coleta de dados e serviços de terceiros', body: '''- Google Analytics (Firebase): eventos genéricos de uso; sem Crashlytics; sem nomes ou valores financeiros.
@@ -133,10 +132,10 @@ Dados de clientes e financeiros permanecem no aparelho e não são transmitidos 
 
 Editor: Marcos Leandro dos Santos.'''),
   LegalSectionText(heading: '2. Elegibilidade', body: 'Utilizadores maiores de 18 anos.'),
-  LegalSectionText(heading: '3. Plano Inicial, período de teste e assinaturas', body: '''- Período de teste: 7 dias a contar da primeira abertura da app no aparelho (data registada de forma anónima para evitar reinício indevido do teste).
-- Durante o teste: até 5 clientes, 5 orçamentos e 5 lançamentos de caixa, incluindo PDF. Ao guardar o 4.º registo de cada tipo, a app avisa que falta apenas 1. O 6.º registo (ou acima dos limites) exige Plano Pro, mesmo antes de terminarem os 7 dias.
-- Após 7 dias sem Plano Pro: não é possível criar novos clientes, orçamentos ou lançamentos de caixa; pode consultar e editar os dados já guardados no aparelho.
-- Plano Pro: uso ilimitado, restauro de backup encriptado e cartão de visita interactivo na app — assinatura mensal ou anual via Google Play (preço e condições na loja).
+  LegalSectionText(heading: '3. Período de teste e assinaturas', body: '''- Período de teste: 7 dias a contar da primeira abertura da app (marca anónima no dispositivo para evitar reinício indevido).
+- Durante o teste: uso ilimitado — clientes, orçamentos, lançamentos de caixa, PDF, ordens de serviço e contratos, sem subscrição paga e sem cartão na app.
+- Após 7 dias sem Plano Pro: não é possível criar novos registos nem gerar novos PDF; pode consultar e editar dados já guardados.
+- Plano Pro: uso ilimitado, restauro de backup encriptado e cartão de visita interactivo — assinatura mensal (R\$ 9,90) ou anual (R\$ 99,90, 2 meses grátis) via Google Play (preço final na loja).
 - Renovação automática até cancelar na Play Store: Pagamentos e subscrições → Subscrições.'''),
   LegalSectionText(heading: '4. Cancelamento', body: 'Google Play Store → Pagamentos e subscrições → Subscrições.'),
   LegalSectionText(heading: '5. Direito de arrependimento (Brasil — CDC)', body: '7 dias corridos quando aplicável, sem prejuízo das regras Google Play. Reembolsos via canais Google.'),
@@ -172,8 +171,11 @@ E-mail: suporte@perfectgestdev.com — Assunto: Solicitação de Exclusão de Da
 const List<LegalSectionText> _kFaqPt = <LegalSectionText>[
   LegalSectionText(heading: 'O que é o PerfectGest I?', body: 'Aplicação de gestão no telemóvel, com dados guardados localmente (SQLite). Não há «conta na nuvem» PerfectGest para clientes, orçamentos ou caixa.'),
   LegalSectionText(heading: 'A app funciona sem internet?', body: 'Sim, o uso diário é offline-first. Serviços Google opcionais (Analytics, Remote Config, Firestore mínimo para o Plano Inicial) podem usar rede quando activos.'),
-  LegalSectionText(heading: 'Como funciona o período de teste?', body: '7 dias desde a primeira abertura. Durante esse tempo: até 5 clientes, 5 orçamentos e 5 lançamentos de caixa (com PDF), sem subscrição paga. Ao guardar o 4.º de cada tipo, a app avisa que falta 1. O 6.º ou o fim dos 7 dias sem Plano Pro impede novos registos; pode continuar a consultar e editar o que já está no telemóvel. Subscrição: Configurações → Assinatura Google Play.'),
-  LegalSectionText(heading: 'Como funciona o Plano Inicial?', body: 'É o conjunto de limites 5+5+5 aplicado durante os 7 dias de teste (ver acima). Fora do teste ou acima dos limites, é necessário o Plano Pro (mensal ou anual na Google Play).'),
+  LegalSectionText(heading: 'Como funciona o período de teste?', body: '''7 dias desde a primeira abertura, com uso ilimitado: clientes, orçamentos, lançamentos de caixa, PDF, ordens de serviço e contratos — sem subscrição paga e sem cartão na app durante esse período.
+
+Após os 7 dias sem Plano Pro: pode consultar e editar o que já está no telemóvel, mas não cria novos registos nem gera novos PDF. Assinatura: Configurações → Ver planos e preços (Google Play).'''),
+  LegalSectionText(heading: 'Quanto custa o Plano Pro?', body: 'Na Google Play (Brasil): R\$ 9,90/mês ou R\$ 99,90/ano (equivalente a cerca de R\$ 8,33/mês — 2 meses grátis no anual). Preços podem variar por país; a loja mostra o valor final.'),
+  LegalSectionText(heading: 'O que aconteceu ao «Plano Inicial 5+5+5»?', body: 'Modelo anterior, substituído em 2026. O modelo actual é 7 dias ilimitados + assinatura Pro. Textos antigos em capturas ou reviews podem referir limites que já não se aplicam.'),
   LegalSectionText(heading: 'Onde compro ou gerencio a subscrição?', body: 'Configurações → Assinatura Google Play. Pagamentos pelo Google. Cancelamento: Play Store → Pagamentos e subscrições → Subscrições.'),
   LegalSectionText(heading: 'O que é o cartão de visita digital?', body: '''Na aba Empresa edita os dados profissionais da empresa (não inclui clientes nem caixa). O cartão mostra logótipo, nome, slogan, CNPJ, nome do profissional e contactos com rótulos no rodapé (até 2 por linha). Temas: branco, cinza ou preto.
 
@@ -196,7 +198,9 @@ Só saem do telemóvel se você decidir:
   LegalSectionText(heading: 'A app tem anúncios?', body: 'Não.'),
   LegalSectionText(heading: 'Há Firebase Crashlytics?', body: 'Não. Analytics regista eventos genéricos; não envia crash reports automáticos.'),
   LegalSectionText(heading: 'Em que idiomas está a app?', body: 'Português (Brasil), inglês (EUA), espanhol (Espanha).'),
-  LegalSectionText(heading: 'Como posso dar sugestões?', body: 'Aba Empresa → Dê sua contribuição → e-mail suporte@perfectgestdev.com.'),
+  LegalSectionText(heading: 'Como posso dar sugestões?', body: '''Aba Empresa → Dê sua contribuição → e-mail suporte@perfectgestdev.com.
+
+Visite a página do Desenvolvedor para mais informações e ferramentas: perfectgestdev.com'''),
 ];
 
 const List<LegalSectionText> _kPrivacyEn = <LegalSectionText>[
@@ -238,10 +242,9 @@ The Company tab feeds the digital business card with your business contact info 
 Everything stays on the device until you share or show the QR. We do not publish or host your card on a PerfectGest website or upload card content to Firestore.
 
 Never included in the card: clients, estimates, cash entries, financial amounts, contracts, or backups.'''),
-  LegalSectionText(heading: 'Trial period and Pro Plan', body: '''- Trial period (7 days): from the first time you open the app, you may create up to 5 clients, 5 estimates, and 5 cash entries, including PDF, with no paid subscription during that period.
-- Limits during the trial: when saving the 4th record of each type, the app warns it is the last of that type in the trial. A 6th record (or exceeding limits) requires Pro Plan, even within the 7 days.
-- After 7 days without Pro Plan: the app remains usable to view and edit local data, but you cannot create new clients, estimates, or cash entries.
-- Pro Plan: unlimited use, encrypted backup restore, and interactive business card in the app (edit after first card, vCard, QR, tappable preview), monthly or annual via Google Play.
+  LegalSectionText(heading: 'Trial period and Pro Plan', body: '''- Trial period (7 days): from first open, unlimited use (clients, estimates, cash, PDF, work orders, contracts) with no paid subscription and no card in the app.
+- After 7 days without Pro Plan: view and edit local data; cannot create new records or new PDFs.
+- Pro Plan: unlimited use, encrypted backup restore, interactive business card — monthly (R\$ 9.90) or annual (R\$ 99.90) via Google Play.
 
 The trial start date is stored anonymously per device (Firebase service) for period consistency — not client, estimate, or cash data.'''),
   LegalSectionText(heading: 'Third-party services', body: 'Firebase Analytics (generic events, no Crashlytics), Remote Config, Firestore (minimal anonymous device metadata for the Initial Plan — installation identifier, trial start timestamp, freemium eligibility, and first business-card save — not clients, estimates, or cash data), Google Play Billing. No in-app ads.'),
@@ -259,11 +262,11 @@ Client and financial data stay on the device and are not transmitted automatical
 
 Publisher: Marcos Leandro dos Santos.'''),
   LegalSectionText(heading: '2. Eligibility', body: 'Users aged 18 or over.'),
-  LegalSectionText(heading: '3. Initial Plan, trial period, and subscriptions', body: '''- Trial period: 7 days from the first time you open the app on the device (anonymous timestamp stored to prevent improper trial resets).
-- During the trial: up to 5 clients, 5 estimates, and 5 cash entries, including PDF. When saving the 4th record of each type, the app warns that only 1 remains. A 6th record (or exceeding limits) requires Pro Plan, even before the 7 days end.
-- After 7 days without Pro Plan: you cannot create new clients, estimates, or cash entries; you may view and edit data already stored on the device.
-- Pro Plan: unlimited use, encrypted backup restore, and interactive business card in the app — monthly or annual subscription via Google Play (price and terms in the store).
-- Auto-renewal until cancelled in the Play Store: Payments & subscriptions → Subscriptions.'''),
+  LegalSectionText(heading: '3. Trial period and subscriptions', body: '''- Trial period: 7 days from first app open (anonymous device timestamp to prevent improper resets).
+- During trial: unlimited use — clients, estimates, cash entries, PDF, work orders and contracts, no paid subscription and no card required in the app.
+- After 7 days without Pro Plan: cannot create new records or new PDFs; may view and edit saved data.
+- Pro Plan: unlimited use, encrypted backup restore, interactive business card — monthly (R\$ 9.90) or annual (R\$ 99.90, 2 months free) via Google Play (final price in store).
+- Auto-renewal until cancelled in Play Store: Payments & subscriptions → Subscriptions.'''),
   LegalSectionText(heading: '4. Cancellation', body: 'Google Play Store → Payments & subscriptions.'),
   LegalSectionText(heading: '5. Statutory rights (Brazil)', body: 'Consumer Code may apply (7-day withdrawal where applicable). Refunds via Google.'),
   LegalSectionText(heading: '6. Fiscal reminders', body: 'Informational only; not tax advice.'),
@@ -298,8 +301,11 @@ Email: suporte@perfectgestdev.com — Subject: Technical Data Deletion Request''
 const List<LegalSectionText> _kFaqEn = <LegalSectionText>[
   LegalSectionText(heading: 'What is PerfectGest I?', body: 'A mobile business management app. Data is stored locally (SQLite). No PerfectGest cloud account for clients, estimates, or cash.'),
   LegalSectionText(heading: 'Does it work offline?', body: 'Offline-first for daily use. Optional Google services may need a network when active.'),
-  LegalSectionText(heading: 'How does the trial period work?', body: '7 days from first open. During that time: up to 5 clients, 5 estimates, and 5 cash entries (including PDF) with no paid subscription. When saving the 4th of each type, the app warns that 1 remains. A 6th record or the end of 7 days without Pro Plan blocks new records; you can still view and edit existing data on the device. Subscribe in Settings → Google Play subscription.'),
-  LegalSectionText(heading: 'How does the Initial Plan work?', body: 'The 5+5+5 limits apply during the 7-day trial (see above). After the trial or above limits, Pro Plan is required (monthly or annual on Google Play).'),
+  LegalSectionText(heading: 'How does the trial period work?', body: '''7 days from first open with unlimited use: clients, estimates, cash entries, PDF, work orders and contracts — no paid subscription and no card required in the app during the trial.
+
+After 7 days without Pro Plan: you can view and edit saved data but cannot create new records or new PDFs. Subscribe in Settings → View plans and pricing (Google Play).'''),
+  LegalSectionText(heading: 'How much does Pro Plan cost?', body: 'On Google Play (Brazil): R\$ 9.90/month or R\$ 99.90/year (~R\$ 8.33/month — 2 months free on annual). Prices may vary by country; the store shows the final amount.'),
+  LegalSectionText(heading: 'What happened to the «5+5+5 Initial Plan»?', body: 'Legacy model replaced in 2026. Current model: 7 unlimited days + Pro subscription.'),
   LegalSectionText(heading: 'Where do I manage the subscription?', body: 'Settings → Google Play subscription. Cancel via Play Store → Payments & subscriptions.'),
   LegalSectionText(heading: 'What is the digital business card?', body: '''In Company, edit professional business details only (not clients or cash). Share card generates a PNG via the system share sheet. After your first card, without Pro Plan the card is static (you can still share the snapshot PNG); with Pro, edit and use advanced features in the app only (vCard, QR, interactive preview) — no PerfectGest-hosted web page.
 
@@ -349,10 +355,9 @@ La pestaña Empresa alimenta la tarjeta con contactos profesionales; no expone C
 Todo permanece en el dispositivo hasta que comparta o muestre el QR. No publicamos ni alojamos la tarjeta en un sitio PerfectGest ni enviamos su contenido a Firestore.
 
 Nunca incluidos en la tarjeta: clientes, presupuestos, caja, importes financieros, contratos ni backups.'''),
-  LegalSectionText(heading: 'Período de prueba y Plan Pro', body: '''- Período de prueba (7 días): desde la primera apertura de la app, puede crear hasta 5 clientes, 5 presupuestos y 5 movimientos de caja, con PDF, sin suscripción de pago durante ese período.
-- Límites durante la prueba: al guardar el 4.º registro de cada tipo, la app avisa que es el último de ese tipo en la prueba. El 6.º registro (o por encima de los límites) requiere Plan Pro, incluso dentro de los 7 días.
-- Tras 7 días sin Plan Pro: la app sigue siendo utilizable para consultar y editar datos locales, pero no permite crear nuevos clientes, presupuestos ni movimientos de caja.
-- Plan Pro: uso ilimitado, restauración de backup cifrado y tarjeta interactiva en la app (editar tras la primera tarjeta, vCard, QR, vista previa con toques), mensual o anual vía Google Play.
+  LegalSectionText(heading: 'Período de prueba y Plan Pro', body: '''- Período de prueba (7 días): desde la primera apertura, uso ilimitado (clientes, presupuestos, caja, PDF, órdenes, contratos) sin suscripción de pago y sin tarjeta en la app.
+- Tras 7 días sin Plan Pro: puede consultar y editar datos locales; no puede crear registros nuevos ni PDF nuevos.
+- Plan Pro: uso ilimitado, restauración de backup cifrado, tarjeta interactiva — mensual (R\$ 9,90) o anual (R\$ 99,90) vía Google Play.
 
 La fecha de inicio de la prueba se guarda de forma anónima por dispositivo (servicio Firebase) para coherencia del período — sin datos de clientes, presupuestos ni caja.'''),
   LegalSectionText(heading: 'Servicios de terceros', body: 'Firebase Analytics (eventos genéricos, sin Crashlytics), Remote Config, Firestore (metadatos anónimos mínimos del Plan Inicial por dispositivo: identificador de instalación, inicio del período de prueba, elegibilidad freemium y primer guardado de tarjeta — sin clientes, presupuestos ni caja), Google Play Billing. Sin publicidad en la app.'),
@@ -368,10 +373,10 @@ Datos de clientes y financieros permanecen en el dispositivo y no se transmiten 
 
 Editor: Marcos Leandro dos Santos.'''),
   LegalSectionText(heading: '2. Elegibilidad', body: 'Usuarios mayores de 18 años.'),
-  LegalSectionText(heading: '3. Plan Inicial, período de prueba y suscripciones', body: '''- Período de prueba: 7 días desde la primera apertura de la app en el dispositivo (marca de tiempo anónima para evitar reinicios indebidos de la prueba).
-- Durante la prueba: hasta 5 clientes, 5 presupuestos y 5 movimientos de caja, con PDF. Al guardar el 4.º registro de cada tipo, la app avisa que solo queda 1. El 6.º registro (o por encima de los límites) requiere Plan Pro, incluso antes de que terminen los 7 días.
-- Tras 7 días sin Plan Pro: no puede crear nuevos clientes, presupuestos ni movimientos de caja; puede consultar y editar los datos ya guardados en el dispositivo.
-- Plan Pro: uso ilimitado, restauración de backup cifrado y tarjeta de visita interactiva en la app — suscripción mensual o anual vía Google Play (precio y condiciones en la tienda).
+  LegalSectionText(heading: '3. Período de prueba y suscripciones', body: '''- Período de prueba: 7 días desde la primera apertura (marca anónima en el dispositivo).
+- Durante la prueba: uso ilimitado — clientes, presupuestos, caja, PDF, órdenes y contratos, sin suscripción de pago y sin tarjeta en la app.
+- Tras 7 días sin Plan Pro: no puede crear registros nuevos ni PDF nuevos; puede consultar y editar lo guardado.
+- Plan Pro: uso ilimitado, restauración de backup cifrado, tarjeta interactiva — mensual (R\$ 9,90) o anual (R\$ 99,90, 2 meses gratis) vía Google Play.
 - Renovación automática hasta cancelar en Play Store: Pagos y suscripciones → Suscripciones.'''),
   LegalSectionText(heading: '4. Cancelación', body: 'Google Play Store → Pagos y suscripciones.'),
   LegalSectionText(heading: '5. Desistimiento (Brasil — CDC)', body: '7 días naturales cuando corresponda. Reembolsos vía Google.'),
@@ -407,8 +412,11 @@ Correo: suporte@perfectgestdev.com — Asunto: Solicitud de Eliminación de Dato
 const List<LegalSectionText> _kFaqEs = <LegalSectionText>[
   LegalSectionText(heading: '¿Qué es PerfectGest I?', body: 'App de gestión móvil con datos en el dispositivo (SQLite). Sin «cuenta en la nube» para clientes, presupuestos o caja.'),
   LegalSectionText(heading: '¿Funciona sin internet?', body: 'Uso diario offline-first. Servicios Google opcionales pueden usar red.'),
-  LegalSectionText(heading: '¿Cómo funciona el período de prueba?', body: '7 días desde la primera apertura. Durante ese tiempo: hasta 5 clientes, 5 presupuestos y 5 movimientos de caja (con PDF), sin suscripción de pago. Al guardar el 4.º de cada tipo, la app avisa que queda 1. El 6.º registro o el fin de los 7 días sin Plan Pro impide nuevos registros; puede seguir consultando y editando lo ya guardado. Suscripción: Ajustes → Suscripción de Google Play.'),
-  LegalSectionText(heading: '¿Cómo funciona el Plan Inicial?', body: 'Son los límites 5+5+5 aplicados durante los 7 días de prueba (véase arriba). Fuera de la prueba o por encima de los límites, se requiere Plan Pro (mensual o anual en Google Play).'),
+  LegalSectionText(heading: '¿Cómo funciona el período de prueba?', body: '''7 días desde la primera apertura con uso ilimitado: clientes, presupuestos, caja, PDF, órdenes de servicio y contratos — sin suscripción de pago y sin tarjeta en la app durante la prueba.
+
+Tras 7 días sin Plan Pro: puede consultar y editar lo guardado, pero no crear registros nuevos ni PDF nuevos. Suscripción: Ajustes → Ver planes y precios (Google Play).'''),
+  LegalSectionText(heading: '¿Cuánto cuesta el Plan Pro?', body: 'En Google Play (Brasil): R\$ 9,90/mes o R\$ 99,90/año (~R\$ 8,33/mes — 2 meses gratis en el anual). Los precios pueden variar por país.'),
+  LegalSectionText(heading: '¿Qué pasó con el «Plan Inicial 5+5+5»?', body: 'Modelo anterior, sustituido en 2026. Modelo actual: 7 días ilimitados + suscripción Pro.'),
   LegalSectionText(heading: '¿Dónde gestiono la suscripción?', body: 'Ajustes → Suscripción de Google Play. Cancelar en Play Store.'),
   LegalSectionText(heading: '¿Qué es la tarjeta de visita digital?', body: '''En Empresa, edita datos profesionales (no clientes ni caja). Compartir tarjeta genera PNG en la hoja de compartir. Tras la primera tarjeta, sin Plan Pro queda en modo estático (puede compartir el PNG); con Pro, edita y usa funciones avanzadas solo en la app (vCard, QR, vista previa interactiva) — sin página web alojada por PerfectGest.
 

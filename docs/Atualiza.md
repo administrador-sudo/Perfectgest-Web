@@ -1813,3 +1813,41 @@ FROM site_leads ORDER BY created_at DESC;
 - [ ] `flutter analyze`
 - [ ] `node scripts/perfectgest-i-static-html.cjs` após `flutter build web`
 
+## [2026-06-21] Políticas PerfectGest-Contabil I — sync mobile → site
+
+### Contexto
+- Pedido: actualizar textos legais publicados no domínio a partir de `apps/Contabilidade_Clientes/mobile/docs/politicas/*.md`, conservando formato HTML estático trílingue (PT/EN/ES).
+
+### Alterações
+- `node scripts/contabil-i-sync-legal-from-md.cjs` — PT regenerado (privacidade com IA Gemini, AES-256-CBC, NF emitidas; FAQ com planos Básico/Com Contador/Anual+A1 e módulos IR/Assistente IA).
+- `scripts/contabil-i-legal-en-es.cjs` — EN/ES alinhados ao PT actualizado.
+- `scripts/contabil-i-legal-data.cjs` — gerado; data «Última atualização: 20/06/2026».
+- Preview: `exports/contabil-i-legal-preview/contabil-i-*.html` (4 páginas).
+
+### URLs (Google Play)
+- `https://perfectgestdev.com/contabil-i-politica-privacidade`
+- `https://perfectgestdev.com/contabil-i-termos`
+- `https://perfectgestdev.com/contabil-i-exclusao-dados`
+- `https://perfectgestdev.com/contabil-i-faq`
+
+### Pendências (operador)
+- [ ] `npm run publish-web` para publicar em produção (integra sync + HTML em `build/web` via `spa-legal-paths.cjs`)
+
+### Validação
+- [x] Sync PT: privacy=11, terms=16, deletion=9, faq=28 secções
+- [x] Preview HTML com Gemini, AES-256, planos FAQ actualizados (PT/EN/ES)
+
+## [2026-06-21] Republicação páginas legais Contabil I (build/web)
+
+### Alterações
+- Termos PT: 17 secções (4 planos, IR/Assistente IA, AES-256); EN/ES actualizados em `contabil-i-legal-en-es.cjs`.
+- Data unificada: **21/06/2026** (PT/EN/ES).
+- `node scripts/contabil-i-sync-legal-from-md.cjs` + `spa-legal-paths.cjs` → `build/web/contabil-i-*.html` (4 páginas).
+- Preview: `exports/contabil-i-legal-preview/contabil-i-*.html`.
+
+### Pendências (operador)
+- [ ] `npm run publish-web -- --msg="docs(contabil-i): republicar políticas legais 21/06/2026"` para commit + push Render
+
+### Validação
+- [x] `contabil-i-termos.html`: Básico Mensal, `contabil_i_basico_anual`, secção IR com IA (PT/EN/ES)
+
