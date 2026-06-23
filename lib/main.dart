@@ -19,6 +19,7 @@ import 'web_site_root_stub.dart' if (dart.library.html) 'web_site_root_web.dart'
 import 'company_legal_strip.dart';
 import 'site_layout.dart';
 import 'solution_screenshot_preview.dart';
+import 'solutions_product_showcase.dart';
 import 'metallic_site_shell.dart';
 import 'site_deferred_pages.dart';
 import 'metallic_style.dart';
@@ -1602,7 +1603,8 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
         _buildProductBlock(
           context,
           l10n,
-          title: l10n.solAppsTitle,
+          appName: l10n.solAppsTitle,
+          tagline: l10n.solAppsTagline,
           body: l10n.solAppsBody,
           mockupStartIndex: 0,
           phoneFrame: DeviceFrame(
@@ -1643,11 +1645,12 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
           fadeBegin: 0.0,
           fadeEnd: 0.4,
         ),
-        const SizedBox(height: 28),
+        const SizedBox(height: 32),
         _buildProductBlock(
           context,
           l10n,
-          title: l10n.solContabilAppsTitle,
+          appName: l10n.solContabilAppsTitle,
+          tagline: l10n.solContabilAppsTagline,
           body: l10n.solContabilAppsBody,
           mockupStartIndex: 2,
           phoneFrame: DeviceFrame(
@@ -1704,7 +1707,8 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
   Widget _buildProductBlock(
     BuildContext context,
     AppLocalizations l10n, {
-    required String title,
+    required String appName,
+    required String tagline,
     required String body,
     required int mockupStartIndex,
     required DeviceFrame phoneFrame,
@@ -1713,50 +1717,35 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
     required double fadeBegin,
     required double fadeEnd,
   }) {
-    final actionsFadeBegin = fadeBegin + 0.12;
-    final actionsFadeEnd = fadeEnd + 0.15;
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        FadeTransition(
-          opacity: _fadeIn(fadeBegin, fadeEnd - 0.12),
-          child: SlideTransition(
-            position: _slideIn(fadeBegin, fadeEnd - 0.12),
-            child: SectionText(title: title, body: body),
+    return FadeTransition(
+      opacity: _fadeIn(fadeBegin, fadeEnd),
+      child: SlideTransition(
+        position: _slideIn(fadeBegin, fadeEnd),
+        child: SolutionsProductShowcase(
+          appName: appName,
+          platformLabel: l10n.solAppsPlatformLabel,
+          tagline: tagline,
+          description: body,
+          actions: actions,
+          devices: AnimatedBuilder(
+            animation: Listenable.merge([_floatCtrl, widget.scrollListenable]),
+            builder: (context, _) {
+              return Semantics(
+                label: l10n.solShowcaseSemantics,
+                child: Wrap(
+                  spacing: 16,
+                  runSpacing: 16,
+                  alignment: WrapAlignment.center,
+                  children: [
+                    _floatedDevice(mockupStartIndex, phoneFrame),
+                    _floatedDevice(mockupStartIndex + 1, tabletFrame),
+                  ],
+                ),
+              );
+            },
           ),
         ),
-        const SizedBox(height: 16),
-        FadeTransition(
-          opacity: _fadeIn(fadeBegin + 0.04, fadeEnd),
-          child: SlideTransition(
-            position: _slideIn(fadeBegin + 0.04, fadeEnd),
-            child: AnimatedBuilder(
-              animation: Listenable.merge([_floatCtrl, widget.scrollListenable]),
-              builder: (context, _) {
-                return Semantics(
-                  label: l10n.solShowcaseSemantics,
-                  child: Wrap(
-                    spacing: 16,
-                    runSpacing: 16,
-                    children: [
-                      _floatedDevice(mockupStartIndex, phoneFrame),
-                      _floatedDevice(mockupStartIndex + 1, tabletFrame),
-                    ],
-                  ),
-                );
-              },
-            ),
-          ),
-        ),
-        const SizedBox(height: 16),
-        FadeTransition(
-          opacity: _fadeIn(actionsFadeBegin, actionsFadeEnd),
-          child: SlideTransition(
-            position: _slideIn(actionsFadeBegin, actionsFadeEnd),
-            child: actions,
-          ),
-        ),
-      ],
+      ),
     );
   }
 
@@ -2261,32 +2250,39 @@ class SolutionsAppActionsBlock extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          FilledButton.icon(
-            onPressed: () => launchUrl(
-              Uri.parse(productUrl),
-              mode: LaunchMode.externalApplication,
-              webOnlyWindowName: kIsWeb ? '_blank' : null,
-            ),
-            icon: const Icon(Icons.download_rounded, size: 20),
-            label: Text(getAppLabel),
-          ),
-          const SizedBox(height: 10),
-          OutlinedButton.icon(
-            onPressed: () => launchUrl(
-              Uri.parse(supportUrl),
-              mode: LaunchMode.externalApplication,
-              webOnlyWindowName: kIsWeb ? '_blank' : null,
-            ),
-            icon: const Icon(Icons.support_agent_outlined, size: 20),
-            label: Text(supportPortalLabel),
+          Wrap(
+            spacing: 12,
+            runSpacing: 10,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              FilledButton.icon(
+                onPressed: () => launchUrl(
+                  Uri.parse(productUrl),
+                  mode: LaunchMode.externalApplication,
+                  webOnlyWindowName: kIsWeb ? '_blank' : null,
+                ),
+                icon: const Icon(Icons.download_rounded, size: 20),
+                label: Text(getAppLabel),
+              ),
+              OutlinedButton.icon(
+                onPressed: () => launchUrl(
+                  Uri.parse(supportUrl),
+                  mode: LaunchMode.externalApplication,
+                  webOnlyWindowName: kIsWeb ? '_blank' : null,
+                ),
+                icon: const Icon(Icons.support_agent_outlined, size: 20),
+                label: Text(supportPortalLabel),
+              ),
+            ],
           ),
           if (hashtags != null) ...[
-            const SizedBox(height: 12),
+            const SizedBox(height: 14),
             Text(
               hashtags!,
-              style: siteBodyTextStyle(context).copyWith(
-                fontSize: 13,
-                color: cs.onSurfaceVariant,
+              style: GoogleFonts.inter(
+                fontSize: 12,
+                height: 1.4,
+                color: cs.onSurfaceVariant.withValues(alpha: 0.85),
               ),
             ),
           ],

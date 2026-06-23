@@ -63,11 +63,14 @@ abstract class AppLocalizations {
 
   // ---- Secoes Solucoes / Portfolio / Contato (Fase 2c) ----
   String get solAppsTitle;
+  String get solAppsPlatformLabel;
+  String get solAppsTagline;
   String get solAppsBody;
   String get solAppsGetAppLabel;
   String get solAppsSupportPortalLabel;
   String get solAppsHashtags;
   String get solContabilAppsTitle;
+  String get solContabilAppsTagline;
   String get solContabilAppsBody;
   String get solContabilAppsSupportPortalLabel;
   String get solWebTitle;
@@ -246,11 +249,14 @@ class _AppLocalizationsPt extends AppLocalizations {
   String get footerComplianceTitle => 'Ética e Compliance';
 
   @override
-  String get solAppsTitle =>
-      'Conheça o PerfectGest I — o app de gestão para ME, MEI e Autônomo!';
+  String get solAppsTitle => 'PerfectGest I';
+  @override
+  String get solAppsPlatformLabel => 'Aplicativos para Android';
+  @override
+  String get solAppsTagline => 'Gestão para ME, MEI e autônomos';
   @override
   String get solAppsBody =>
-      'Cadastre clientes, crie orçamentos profissionais em PDF, controle seu caixa e receba lembretes fiscais com alarme.\n\nTudo no seu celular, funciona offline.';
+      'Cadastre clientes, crie orçamentos em PDF, controle o caixa e receba lembretes fiscais com alarme. Funciona offline no seu celular.';
   @override
   String get solAppsGetAppLabel => 'Obter o aplicativo';
   @override
@@ -259,11 +265,12 @@ class _AppLocalizationsPt extends AppLocalizations {
   String get solAppsHashtags =>
       '#MEI #gestão #empreendedor #autônomo #microempresa #controleFinanceiro #orçamento #caixa #PerfectGest';
   @override
-  String get solContabilAppsTitle =>
-      'Conheça o PerfectGest-Contabil I — livro caixa e IR para ME e MEI';
+  String get solContabilAppsTitle => 'PerfectGest-Contabil I';
+  @override
+  String get solContabilAppsTagline => 'Livro caixa, IR com IA e conferência contábil';
   @override
   String get solContabilAppsBody =>
-      'Configure a empresa e o contador CRC, lance movimentos pelo chat com IA, prepare o IR e envie para conferência do escritório.\n\nCriptografia AES-256 no dispositivo. Planos Básico, Com Contador e Anual + A1.';
+      'Configure a empresa, lance movimentos com chat e IA, prepare o IR e envie o mês para conferência do escritório. Criptografia AES-256 no dispositivo.';
   @override
   String get solContabilAppsSupportPortalLabel => 'FAQ e políticas do app';
   @override
@@ -304,7 +311,7 @@ class _AppLocalizationsPt extends AppLocalizations {
   @override
   String get footerComplianceBody =>
       'O nosso compromisso é com o utilizador: transparência, respeito e contacto directo connosco. '
-      'Este site é vitrine institucional; documentação do produto PerfectGest I encontra-se na secção Soluções.';
+      'Este site é vitrine institucional; a documentação dos produtos apresentados neste site encontra-se na própria secção Soluções.';
   @override
   String get footerLinkPrivacyPolicy => 'Políticas de Privacidade';
   @override
@@ -508,11 +515,14 @@ class _AppLocalizationsEn extends AppLocalizations {
   String get footerComplianceTitle => 'Ethics & Compliance';
 
   @override
-  String get solAppsTitle =>
-      'Meet PerfectGest I — the management app for LLCs, MEI, and solo professionals!';
+  String get solAppsTitle => 'PerfectGest I';
+  @override
+  String get solAppsPlatformLabel => 'Android apps';
+  @override
+  String get solAppsTagline => 'Management for LLCs, MEI, and solo professionals';
   @override
   String get solAppsBody =>
-      'Register clients, create professional PDF quotes, manage cash flow, and get tax reminders with alerts.\n\nEverything on your phone, works offline.';
+      'Register clients, create PDF quotes, manage cash flow, and get tax reminders with alerts. Works offline on your phone.';
   @override
   String get solAppsGetAppLabel => 'Get the app';
   @override
@@ -521,11 +531,12 @@ class _AppLocalizationsEn extends AppLocalizations {
   String get solAppsHashtags =>
       '#MEI #management #entrepreneur #freelancer #smallBusiness #cashFlow #quotes #PerfectGest';
   @override
-  String get solContabilAppsTitle =>
-      'Meet PerfectGest-Contabil I — cash book and income tax for small businesses';
+  String get solContabilAppsTitle => 'PerfectGest-Contabil I';
+  @override
+  String get solContabilAppsTagline => 'Cash book, AI tax prep, and accounting review';
   @override
   String get solContabilAppsBody =>
-      'Set up your company and CRC accountant, record entries via AI chat, prepare your tax return, and send for office review.\n\nAES-256 encryption on device. Basic, With Accountant, and Annual + A1 plans.';
+      'Set up your company, record entries via AI chat, prepare your tax return, and send closed months for office review. AES-256 encryption on device.';
   @override
   String get solContabilAppsSupportPortalLabel => 'App FAQ and policies';
   @override
@@ -566,7 +577,7 @@ class _AppLocalizationsEn extends AppLocalizations {
   @override
   String get footerComplianceBody =>
       'Our commitment is to you: transparency, respect and direct contact with us. '
-      'This site is an institutional showcase; PerfectGest I documentation is in the Solutions section.';
+      'This site is an institutional showcase; documentation for the products featured on this site is in the Solutions section itself.';
   @override
   String get footerLinkPrivacyPolicy => 'Privacy policies';
   @override
@@ -770,11 +781,14 @@ class _AppLocalizationsEs extends AppLocalizations {
   String get footerComplianceTitle => 'Ética y cumplimiento';
 
   @override
-  String get solAppsTitle =>
-      'Conozca PerfectGest I — la app de gestión para ME, MEI y autónomos';
+  String get solAppsTitle => 'PerfectGest I';
+  @override
+  String get solAppsPlatformLabel => 'Aplicativos para Android';
+  @override
+  String get solAppsTagline => 'Gestión para ME, MEI y autónomos';
   @override
   String get solAppsBody =>
-      'Registre clientes, cree presupuestos profesionales en PDF, controle su caja y reciba recordatorios fiscales con alarma.\n\nTodo en su móvil, funciona sin conexión.';
+      'Registre clientes, cree presupuestos en PDF, controle la caja y reciba recordatorios fiscales con alarma. Funciona sin conexión en su móvil.';
   @override
   String get solAppsGetAppLabel => 'Obtener la aplicación';
   @override
@@ -783,11 +797,12 @@ class _AppLocalizationsEs extends AppLocalizations {
   String get solAppsHashtags =>
       '#MEI #gestión #emprendedor #autónomo #microempresa #controlFinanciero #presupuesto #caja #PerfectGest';
   @override
-  String get solContabilAppsTitle =>
-      'Conozca PerfectGest-Contabil I — libro de caja e IR para ME y MEI';
+  String get solContabilAppsTitle => 'PerfectGest-Contabil I';
+  @override
+  String get solContabilAppsTagline => 'Libro de caja, IR con IA y revisión contable';
   @override
   String get solContabilAppsBody =>
-      'Configure la empresa y el contador CRC, registre movimientos con chat e IA, prepare el IR y envíe a conferencia de la oficina.\n\nCifrado AES-256 en el dispositivo. Planes Básico, Con Contador y Anual + A1.';
+      'Configure la empresa, registre movimientos con chat e IA, prepare el IR y envíe el mes cerrado a revisión de la oficina. Cifrado AES-256 en el dispositivo.';
   @override
   String get solContabilAppsSupportPortalLabel => 'FAQ y políticas de la app';
   @override
@@ -828,7 +843,7 @@ class _AppLocalizationsEs extends AppLocalizations {
   @override
   String get footerComplianceBody =>
       'Nuestro compromiso es con el usuario: transparencia, respeto y contacto directo con nosotros. '
-      'Este sitio es vitrina institucional; la documentación de PerfectGest I está en la sección Soluciones.';
+      'Este sitio es vitrina institucional; la documentación de los productos presentados en este sitio se encuentra en la propia sección Soluciones.';
   @override
   String get footerLinkPrivacyPolicy => 'Políticas de privacidad';
   @override

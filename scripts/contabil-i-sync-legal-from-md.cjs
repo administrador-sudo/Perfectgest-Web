@@ -218,9 +218,9 @@ const header = {
 };
 
 const lastUpdated = {
-  pt: 'Última atualização: 21/06/2026',
-  en: 'Last updated: 21 June 2026',
-  es: 'Última actualización: 21/06/2026',
+  pt: 'Última atualização: 22/06/2026',
+  en: 'Last updated: 22 June 2026',
+  es: 'Última actualización: 22/06/2026',
 };
 
 const labels = {

@@ -1,104 +1,38 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
-$__dart_deferred_initializers__.current=function(a,b,c,$){var J,A,B,C={
-aNH(d,e,f){var x,w,v,u,t,s
-if(d==e)return d
-if(d==null)return e.aO(f)
-if(e==null)return d.aO(1-f)
-x=A.aId(d.a,d.lH(),e.a,e.lH(),f)
-w=A.l8(d.d,e.d,f)
-w.toString
-v=A.X(d.e,e.e,f)
-v.toString
-v=Math.max(0,v)
-u=A.X(d.f,e.f,f)
-u.toString
-u=Math.max(0,u)
-t=f<0.5
-s=t?d.r:e.r
-t=t?d.c:e.c
-return new C.rs(w,v,u,s,x.a,x.b,t)},
-rs:function rs(d,e,f,g,h,i,j){var _=this
-_.d=d
-_.e=e
-_.f=f
-_.r=g
-_.a=h
-_.b=i
-_.c=j},
-apa:function apa(d){this.a=d},
-aYo(){return new C.ql(null)},
-ql:function ql(d){this.a=d},
-ahV:function ahV(){},
-ahW:function ahW(){},
-aR9(d){var x=null,w=A.b([new A.cs(0,B.b0,B.h.an(0.5),B.f,6)],y.c)
-return A.fj(A.cI(D.Qj,B.h,x,d*0.72),B.z,new A.bP(x,x,x,x,w,D.adh,B.i9),d,x,x,d)}},D
+$__dart_deferred_initializers__.current=function(a,b,c,$){var J,A,B,C,D={
+ab3(){var x=0,w=A.R(y.f),v=1,u=[],t,s,r,q,p,o,n
+var $async$ab3=A.N(function(d,e){if(d===1){u.push(e)
+x=v}for(;;)switch(x){case 0:v=3
+A.jR().$1("Acordando o servidor Render... aguarde.")
+r=A.ej("https://onrender.com",0,null)
+q=y.g
+p=A.aA(["Content-Type","application/json"],q,q)
+x=6
+return A.S(C.aRj(r,B.dh.Lf(A.aA(["mensagem","Teste de iniciante com sucesso!","usuario","PerfectProAdmin","data_envio",new A.eI(Date.now(),0,!1).ay0()],q,q),null),p),$async$ab3)
+case 6:t=e
+if(t.b===200){A.jR().$1("Sucesso: o dado chegou no Elastic.")
+r=t
+A.jR().$1("ID do registro: "+A.j(J.jU(B.dh.Zu(A.aQS(A.aPD(r.e)).fJ(r.w),null),"id")))}else A.jR().$1("Erro do servidor: "+t.b)
+v=1
+x=5
+break
+case 3:v=2
+n=u.pop()
+s=A.aq(n)
+A.jR().$1("Erro de conexao: verifique internet e endpoint.")
+A.jR().$1("Detalhe do erro: "+A.j(s))
+x=5
+break
+case 2:x=1
+break
+case 5:return A.P(null,w)
+case 1:return A.O(u.at(-1),w)}})
+return A.Q($async$ab3,w)}}
 J=c[1]
 A=c[0]
 B=c[2]
-C=a.updateHolder(c[6],C)
-D=c[13]
-C.rs.prototype={
-rq(d,e){var x=this,w=x.d.X(e).xl(d),v=x.a,u=x.lH(),t=x.I2(d,e)
-$.a0()
-t=t!=null?A.mE(t):null
-t=new A.Lc(w,v,u,x.r,x.e,x.f,t)
-t.yf()
-if(v.length!==u.length)A.a1(A.bF('"colors" and "colorStops" arguments must have equal length.',null))
-return t},
-aO(d){var x=this,w=x.a,v=A.a7(w).i("ag<1,r>")
-w=A.ac(new A.ag(w,new C.apa(d),v),v.i("aw.E"))
-return new C.rs(x.d,x.e,x.f,x.r,w,x.b,x.c)},
-d_(d,e){if(y.j.b(d))return C.aNH(d,this,e)
-return this.F2(d,e)},
-d0(d,e){if(y.j.b(d))return C.aNH(this,d,e)
-return this.F3(d,e)},
-j(d,e){var x=this
-if(e==null)return!1
-if(x===e)return!0
-if(J.T(e)!==A.p(x))return!1
-return e instanceof C.rs&&e.d.j(0,x.d)&&e.e===x.e&&e.f===x.f&&e.r===x.r&&J.d(e.c,x.c)&&A.cg(e.a,x.a)&&A.cg(e.b,x.b)},
-gB(d){var x=this,w=A.bq(x.a),v=x.b
-v=v==null?null:A.bq(v)
-return A.M(x.d,x.e,x.f,x.r,x.c,w,v,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a)},
-k(d){var x=this,w=A.b(["center: "+x.d.k(0),"startAngle: "+A.ff(x.e),"endAngle: "+A.ff(x.f),"colors: "+A.j(x.a)],y.h),v=x.b
-if(v!=null)w.push("stops: "+A.j(v))
-w.push("tileMode: "+x.r.k(0))
-v=x.c
-if(v!=null)w.push("transform: "+v.k(0))
-return"SweepGradient("+B.b.bH(w,", ")+")"}}
-C.ql.prototype={
-G(d){var x=null,w=A.b([new A.cs(4,B.b0,B.cr.an(0.55),B.f,42),new A.cs(0,B.b0,B.h.an(0.2),D.a8S,18),new A.cs(0,B.b0,B.m.an(0.7),D.a8h,28)],y.c),v=y.e
-return A.kE(x,B.cO,A.fw(B.bD,A.b([B.ne,A.kD(!0,A.dV(A.iD(new A.dn(D.Kc,A.c2(A.b([A.dV(A.fj(A.aLB("imagens/logo_play_dev_ref.png",B.T,x,x,x,B.eM,B.p6,x,240),B.z,new A.bP(x,x,x,x,w,x,B.U),x,x,x,x),x,x),B.bV,A.Z("Refer\xeancia (render 3D)",x,x,x,A.bc().$2$color$fontSize(B.io,11),x,x),B.hK,new A.Bw(A.c2(A.b([A.eK(A.b([A.hB(A.c2(A.b([A.a6s("Perfect Gest Dev",30,4),A.eK(A.b([A.aR7("DEV",22,3.5),D.acT,C.aR9(24)],v),B.eA,B.y,B.D,0)],v),B.a_,B.y,B.D),1),A.eJ(!1,x,x,x,A.cI(B.r4,B.h.an(0.95),x,x),x,x,new C.ahV(),x,x,x,"Voltar ao site")],v),B.at,B.y,B.D,0),B.eg,A.Z("Amostra v3 \u2014 UI com o mesmo brilho",x,x,x,A.bc().$4$color$fontSize$letterSpacing$shadows(B.cN,12,0.5,A.aF8(1)),x,x),B.d_,A.eK(A.b([A.a6s("PLAY",20,3),B.o5,C.aR9(20),B.o4,A.hB(A.a6s("Codificando o Amanh\xe3",20,3),1)],v),B.at,B.y,B.D,0),B.cm,A.Z("Cromado com bandas de luz, cobre polido, ouro ambiente e verniz \u2014 mais perto da vividez do badge acima.",x,x,x,A.bc().$5$color$fontSize$fontWeight$height$shadows(B.cN.an(0.95),14,B.ab,1.55,A.aF8(1.2)),x,x),B.hJ,A.aR8("Bot\xe3o cromado envernizado",new C.ahW()),B.ef,A.Z("Teste local (8080). Aprovar antes de aplicar ao site completo.",x,x,x,A.bc().$3$color$fontSize$fontStyle(B.io,11,B.ct),x,x)],v),B.bq,B.y,B.D),22,B.Pg,x)],v),B.at,B.y,B.D),x),x,D.Pa,B.af),x,x),!1,B.aA,!0)],v),B.Z,B.o8),x)}}
+C=c[10]
+D=a.updateHolder(c[8],D)
 var z=a.updateTypes([])
-C.apa.prototype={
-$1(d){var x=A.v(null,d,this.a)
-x.toString
-return x},
-$S:53}
-C.ahV.prototype={
-$0(){return A.aIO()},
-$S:0}
-C.ahW.prototype={
-$0(){},
-$S:0};(function inheritance(){var x=a.inherit,w=a.inheritMany
-x(C.rs,A.As)
-x(C.apa,A.ib)
-x(C.ql,A.a9)
-w(A.k2,[C.ahV,C.ahW])})()
-A.ID(b.typeUniverse,JSON.parse('{"ql":{"a9":[],"e":[]}}'))
-var y={c:A.a4("q<cs>"),h:A.a4("q<k>"),e:A.a4("q<e>"),j:A.a4("rs?")};(function constants(){var x=a.makeConstList
-D.Kc=new A.ab(0,560,0,1/0)
-D.Pa=new A.af(20,24,20,24)
-D.Qj=new A.bI(983200,"MaterialIcons",!1)
-D.a8h=new A.f(0,14)
-D.a8S=new A.f(-3,-4)
-D.acT=new A.d5(10,null,null,null)
-D.ND=new A.r(1,1,0.3215686274509804,0.3215686274509804,B.e)
-D.NC=new A.r(1,1,0.6705882352941176,0.25098039215686274,B.e)
-D.NH=new A.r(1,1,0.9333333333333333,0.34509803921568627,B.e)
-D.Nf=new A.r(1,0.4117647058823529,0.9411764705882353,0.6823529411764706,B.e)
-D.Mx=new A.r(1,0.25098039215686274,0.7686274509803922,1,B.e)
-D.Mz=new A.r(1,0.48627450980392156,0.30196078431372547,1,B.e)
-D.ZM=x([D.ND,D.NC,D.NH,D.Nf,D.Mx,D.Mz],A.a4("q<r>"))
-D.adh=new C.rs(B.T,0,6.283185307179586,B.an,D.ZM,null,null)})()};
-(a=>{a["AY3/2eJmWM2/zGoxc8egQ/oTXPg="]=a.current})($__dart_deferred_initializers__);
+var y={g:A.a4("k"),f:A.a4("~")}};
+(a=>{a["ix1NaiWpbFhYqABbFpGrH1WgIVM="]=a.current})($__dart_deferred_initializers__);

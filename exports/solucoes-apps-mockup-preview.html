@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mockup — Soluções (App/Web) · 2 produtos</title>
+  <style>
+    :root {
+      --bg: #0f1114;
+      --card: #1a1d22;
+      --border: #2a3038;
+      --text: #e8eaed;
+      --muted: #9aa3ad;
+      --accent: #5eead4;
+      --warn: #fbbf24;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 24px 20px 48px; }
+    h1 { font-size: 1.35rem; font-weight: 600; margin: 0 0 8px; }
+    .lead { color: var(--muted); margin: 0 0 24px; font-size: 0.95rem; }
+    .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--warn);
+      margin-bottom: 12px;
+    }
+    .section-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px 20px 24px;
+      margin-bottom: 20px;
+    }
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 0 0 6px;
+      color: var(--accent);
+    }
+    .section-body { color: var(--muted); font-size: 0.9rem; margin: 0 0 18px; max-width: 72ch; }
+    .devices {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: flex-end;
+      justify-content: flex-start;
+    }
+    .device { text-align: center; }
+    .device-label { font-size: 0.75rem; color: var(--muted); margin-top: 8px; max-width: 200px; }
+    /* Phone frame */
+    .phone {
+      width: 190px;
+      height: 390px;
+      border-radius: 34px;
+      border: 3px solid #3d4450;
+      background: #111;
+      padding: 14px 10px 18px;
+      position: relative;
+    }
+    .phone::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 56px;
+      height: 5px;
+      border-radius: 3px;
+      background: #2a3038;
+    }
+    .phone img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 22px;
+      display: block;
+    }
+    /* Tablet frame */
+    .tablet {
+      width: 280px;
+      height: 380px;
+      border-radius: 22px;
+      border: 3px solid #3d4450;
+      background: #111;
+      padding: 12px 10px 16px;
+    }
+    .tablet img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 12px;
+      display: block;
+    }
+    .actions { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn {
+      font-size: 0.85rem;
+      padding: 10px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #232830;
+      color: var(--text);
+    }
+    .btn-primary { background: var(--accent); color: #0f1114; border-color: var(--accent); font-weight: 600; }
+    .divider {
+      border: 0;
+      border-top: 1px dashed var(--border);
+      margin: 28px 0;
+    }
+    .note {
+      font-size: 0.85rem;
+      color: var(--muted);
+      background: #14181d;
+      border-left: 3px solid var(--accent);
+      padding: 12px 14px;
+      border-radius: 0 8px 8px 0;
+      margin-top: 24px;
+    }
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
+    @media (max-width: 720px) { .compare { grid-template-columns: 1fr; } }
+    .compare h2 { font-size: 0.95rem; margin: 0 0 8px; }
+    .compare p { font-size: 0.82rem; color: var(--muted); margin: 0; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <span class="badge">Pré-visualização — não publicado</span>
+    <h1>Soluções (App/Web) — montagem proposta</h1>
+    <p class="lead">Dividir o bloco actual (4 mockups só PerfectGest I) em <strong>duas metades</strong>, cada uma com <strong>1 celular + 1 tablet</strong>. As imagens do Contabil I são as que anexou.</p>
+
+    <div class="compare">
+      <div>
+        <h2>Hoje</h2>
+        <p>1 título PerfectGest I · 4 mockups (2 phones + 2 tablets) · botões Obter app + FAQ · texto Web no fim.</p>
+      </div>
+      <div>
+        <h2>Proposta</h2>
+        <p>2 sub-blocos (PerfectGest I + Contabil I), cada um com título, texto, 1 phone + 1 tablet, botões próprios · texto Web mantém-se no fim.</p>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <p class="section-title">Soluções (App/Web)</p>
+      <p class="section-body">Título da secção do site (inalterado no card principal).</p>
+
+      <hr class="divider">
+
+      <!-- BLOCO 1 -->
+      <p class="section-title">1ª metade — PerfectGest I</p>
+      <p class="section-body">Texto actual (<em>Conheça o PerfectGest I — gestão para ME, MEI e Autônomo</em>). Mockups: par <strong>Início</strong> (mantemos phone + tablet já usados no marketing).</p>
+      <div class="devices">
+        <div class="device">
+          <div class="phone"><img src="mockup-assets/pgi-phone-inicio.png" alt="PerfectGest I celular"></div>
+          <div class="device-label">Celular · Início<br><code>phone_03_inicio.png</code></div>
+        </div>
+        <div class="device">
+          <div class="tablet"><img src="mockup-assets/pgi-tablet-inicio.jpg" alt="PerfectGest I tablet"></div>
+          <div class="device-label">Tablet · Início<br><code>tablet_01_inicio.jpg</code></div>
+        </div>
+      </div>
+      <div class="actions">
+        <span class="btn btn-primary">Obter o aplicativo</span>
+        <span class="btn">FAQ e políticas do app (Google Sites)</span>
+      </div>
+
+      <hr class="divider">
+
+      <!-- BLOCO 2 -->
+      <p class="section-title">2ª metade — PerfectGest-Contabil I</p>
+      <p class="section-body">Novo título + texto (livro caixa, IR com IA, conferência CRC). Mockups: as imagens que anexou.</p>
+      <div class="devices">
+        <div class="device">
+          <div class="phone"><img src="mockup-assets/contabil-phone-empresa.png" alt="Contabil I celular"></div>
+          <div class="device-label">Celular · Configurar empresa / Contador CRC<br><code>Screenshot_20260620-220631…</code></div>
+        </div>
+        <div class="device">
+          <div class="tablet"><img src="mockup-assets/contabil-tablet-lancar.jpg" alt="Contabil I tablet"></div>
+          <div class="device-label">Tablet · Lançar (chat + painel)<br><code>TABLET/Screenshot_20260620-110221.jpg</code></div>
+        </div>
+      </div>
+      <div class="actions">
+        <span class="btn btn-primary">Obter o aplicativo (Play)</span>
+        <span class="btn">FAQ e políticas (perfectgestdev.com/contabil-i-*)</span>
+      </div>
+
+      <hr class="divider">
+
+      <p class="section-title">Web (mantém-se)</p>
+      <p class="section-body">Bloco textual actual sobre Core Web Vitals / sites institucionais — sem mockups.</p>
+    </div>
+
+    <div class="note">
+      <strong>Confirme antes de aplicar:</strong><br>
+      1) PerfectGest I — OK manter par <em>Início</em> (em vez de Orçamentos)?<br>
+      2) Contabil I — OK estas duas capturas (empresa + lançar tablet)?<br>
+      3) Botões do Contabil I — link Play + políticas no domínio (<code>contabil-i-faq</code>, etc.)?<br>
+      4) Copiar imagens Contabil para <code>IMAGENS_APP/Screenshot/</code> no site (recomendado para deploy) — posso fazer na implementação.
+    </div>
+  </div>
+</body>
+</html>
