@@ -5,7 +5,8 @@
     "server:leads": "node scripts/leads-api-server.js",
     "export:leads": "node scripts/export-leads.cjs",
     "start": "node scripts/leads-api-server.js",
-    "build:web:sync": "flutter build web --release --pwa-strategy=none",
+    "generate:brand-icons": "dart run tool/generate_brand_icons.dart",
+    "build:web:sync": "dart run tool/generate_brand_icons.dart && flutter build web --release --pwa-strategy=none && node scripts/sync-brand-assets-to-build.cjs && node scripts/spa-legal-paths.cjs",
     "serve:web:sync": "node scripts/serve-build-web.cjs",
     "local:web:sync": "npm run build:web:sync && npm run serve:web:sync",
     "publish-web": "node scripts/publish-web.cjs"
