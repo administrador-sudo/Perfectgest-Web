@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://perfectgestdev.com/sitemap.xml
