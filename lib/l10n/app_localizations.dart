@@ -265,7 +265,7 @@ class _AppLocalizationsPt extends AppLocalizations {
   String get solAppsHashtags =>
       '#MEI #gestão #empreendedor #autônomo #microempresa #controleFinanceiro #orçamento #caixa #PerfectGest';
   @override
-  String get solContabilAppsTitle => 'PerfectGest-Contabil I';
+  String get solContabilAppsTitle => 'PerfectGest ContábilSigilo';
   @override
   String get solContabilAppsTagline => 'Livro caixa, IR com IA e conferência contábil';
   @override
@@ -353,9 +353,9 @@ class _AppLocalizationsPt extends AppLocalizations {
   String get solPreviewTabletOrcamentos => 'PerfectGest I — Orcamentos (tablet)';
   @override
   String get solPreviewContabilPhoneEmpresa =>
-      'PerfectGest-Contabil I — Empresa e contador CRC (celular)';
+      'PerfectGest ContábilSigilo — Empresa e contador CRC (celular)';
   @override
-  String get solPreviewContabilTabletLancar => 'PerfectGest-Contabil I — Lancar (tablet)';
+  String get solPreviewContabilTabletLancar => 'PerfectGest ContábilSigilo — Lancar (tablet)';
   @override
   String get solPreviewClose => 'Fechar';
   @override
@@ -531,7 +531,7 @@ class _AppLocalizationsEn extends AppLocalizations {
   String get solAppsHashtags =>
       '#MEI #management #entrepreneur #freelancer #smallBusiness #cashFlow #quotes #PerfectGest';
   @override
-  String get solContabilAppsTitle => 'PerfectGest-Contabil I';
+  String get solContabilAppsTitle => 'PerfectGest ContábilSigilo';
   @override
   String get solContabilAppsTagline => 'Cash book, AI tax prep, and accounting review';
   @override
@@ -619,9 +619,9 @@ class _AppLocalizationsEn extends AppLocalizations {
   String get solPreviewTabletOrcamentos => 'PerfectGest I — Quotes (tablet)';
   @override
   String get solPreviewContabilPhoneEmpresa =>
-      'PerfectGest-Contabil I — Company and CRC accountant (phone)';
+      'PerfectGest ContábilSigilo — Company and CRC accountant (phone)';
   @override
-  String get solPreviewContabilTabletLancar => 'PerfectGest-Contabil I — Record entry (tablet)';
+  String get solPreviewContabilTabletLancar => 'PerfectGest ContábilSigilo — Record entry (tablet)';
   @override
   String get solPreviewClose => 'Close';
   @override
@@ -797,7 +797,7 @@ class _AppLocalizationsEs extends AppLocalizations {
   String get solAppsHashtags =>
       '#MEI #gestión #emprendedor #autónomo #microempresa #controlFinanciero #presupuesto #caja #PerfectGest';
   @override
-  String get solContabilAppsTitle => 'PerfectGest-Contabil I';
+  String get solContabilAppsTitle => 'PerfectGest ContábilSigilo';
   @override
   String get solContabilAppsTagline => 'Libro de caja, IR con IA y revisión contable';
   @override
@@ -885,9 +885,9 @@ class _AppLocalizationsEs extends AppLocalizations {
   String get solPreviewTabletOrcamentos => 'PerfectGest I — Presupuestos (tablet)';
   @override
   String get solPreviewContabilPhoneEmpresa =>
-      'PerfectGest-Contabil I — Empresa y contador CRC (movil)';
+      'PerfectGest ContábilSigilo — Empresa y contador CRC (movil)';
   @override
-  String get solPreviewContabilTabletLancar => 'PerfectGest-Contabil I — Registrar (tablet)';
+  String get solPreviewContabilTabletLancar => 'PerfectGest ContábilSigilo — Registrar (tablet)';
   @override
   String get solPreviewClose => 'Cerrar';
   @override

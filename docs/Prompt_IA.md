@@ -1,5 +1,10 @@
 # Prompt para nova IA — Site PerfectGest (Flutter Web)
 
+## Regras para o Agente de IA:
+
+A.  **Registro de Atualizações de Código:** Sempre que o código for atualizado, registre as alterações feitas em um arquivo `Evolução.md` no diretório relevante do projeto.
+B.  **Caminhos Absolutos para Edições:** Ao ler o conteúdo de um arquivo para identificar o local correto para inserir declarações ou fazer edições, sempre especifique o caminho absoluto do arquivo.
+
 Use este ficheiro no início de um chat novo. O utilizador prefere **respostas curtas** e pouco texto.
 
 ## 1) Contexto do repositório

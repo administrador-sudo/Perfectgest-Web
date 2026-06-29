@@ -1,0 +1,29 @@
+# Ignorar pastas de build e cache do Flutter (as que mais gastam tokens)
+build/
+.dart_tool/
+.fvm/
+
+# Ignorar caches e arquivos gerados do Android
+.gradle/
+.idea/
+android/app/build/
+android/.gradle/
+*.keystore
+*.jks
+
+# Ignorar caches e arquivos gerados do iOS / Mac
+.gradle/
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.podspec
+ios/Flutter/Generated.xcconfig
+
+# Ignorar logs e arquivos do sistema
+*.log
+.DS_Store
+.history/
+
+# Ignorar arquivos pesados de documentação ou assets que não contêm código
+assets/
+images/
+docs/*.pdf

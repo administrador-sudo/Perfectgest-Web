@@ -1,0 +1,36 @@
+# Pastas de dependências e builds (as que mais gastam tokens)
+node_modules/
+bower_components/
+.npm/
+vendor/
+
+# Pastas de build, caches e saídas
+dist/
+build/
+out/
+.next/
+.nuxt/
+.cache/
+.sass-cache/
+
+# Arquivos de log e relatórios (geralmente gigantescos)
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+coverage/
+.nyc_output/
+
+# Arquivos de ambiente e chaves (segurança e economia)
+.env
+.env.*
+*.pem
+*.key
+
+# Pastas ocultas do sistema e do próprio VS Code
+.git/
+.svn/
+.hg/
+.vscode/
+.idea/

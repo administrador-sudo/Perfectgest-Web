@@ -11,8 +11,8 @@ const String kProductPerfectGestIName = 'PerfectGest I';
 /// Produto desktop PerfectGest-Clinica III (Microsoft Store).
 const String kProductPerfectGestClinicaIIIName = 'PerfectGest-Clinica III';
 
-/// Produto mobile PerfectGest-Contabil I (Google Play).
-const String kProductPerfectGestContabilIName = 'PerfectGest-Contabil I';
+/// Produto mobile PerfectGest ContábilSigilo (Google Play).
+const String kProductPerfectGestContabilIName = 'PerfectGest ContábilSigilo';
 
 const String kPerfectGestContabilIPackageId = 'br.perfectgestcontabil.dev';
 
@@ -28,7 +28,7 @@ const String kPerfectGestContabilIDeletionUrl =
 const String kPerfectGestContabilIFaqUrl =
     'https://perfectgestdev.com/contabil-i-faq';
 
-/// Google Play — PerfectGest-Contabil I.
+/// Google Play — PerfectGest ContábilSigilo.
 const String kPerfectGestContabilIProductUrl =
     'https://play.google.com/store/apps/details?id=br.perfectgestcontabil.dev';
 

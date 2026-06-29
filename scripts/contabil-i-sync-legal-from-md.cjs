@@ -21,7 +21,7 @@ const MD_DIR = path.join(
 const OUT_CJS = path.join(__dirname, 'contabil-i-legal-data.cjs');
 const EN_ES = require('./contabil-i-legal-en-es.cjs');
 
-const PRODUCT = 'PerfectGest-Contabil I';
+const PRODUCT = 'PerfectGest ContábilSigilo';
 const PACKAGE_ID = 'br.perfectgestcontabil.dev';
 const FANTASY = 'Perfect Gest Dev';
 const LEGAL_NAME = 'PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA';
@@ -78,6 +78,7 @@ function isSkipLine(line) {
   const t = line.trim();
   if (!t) return false;
   if (t.startsWith('# ') && !t.startsWith('## ')) return true;
+  if (/^\*\*PerfectGest ContábilSigilo\*\*/.test(t)) return true;
   if (/^\*\*PerfectGest-Contabil I\*\*/.test(t)) return true;
   if (/^Última atualização:/i.test(t)) return true;
   if (t === '---') return true;
@@ -200,7 +201,7 @@ function buildCjs(pt) {
       EMAIL + '.',
   };
 
-  return `/** PerfectGest-Contabil I — documentos legais no domínio perfectgestdev.com
+  return `/** PerfectGest ContábilSigilo — documentos legais no domínio perfectgestdev.com
  * Gerado por scripts/contabil-i-sync-legal-from-md.cjs — não editar manualmente.
  * Fonte PT: apps/Contabilidade_Clientes/mobile/docs/politicas/*.md */
 const PRODUCT = ${jsString(PRODUCT)};
@@ -218,9 +219,9 @@ const header = {
 };
 
 const lastUpdated = {
-  pt: 'Última atualização: 22/06/2026',
-  en: 'Last updated: 22 June 2026',
-  es: 'Última actualización: 22/06/2026',
+  pt: 'Última atualização: 28/06/2026',
+  en: 'Last updated: 28 June 2026',
+  es: 'Última actualización: 28/06/2026',
 };
 
 const labels = {
