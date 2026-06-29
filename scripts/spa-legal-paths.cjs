@@ -27,10 +27,22 @@ if (!fs.existsSync(indexPath)) {
 
 const indexHtml = fs.readFileSync(indexPath);
 const { writeAll: writeClinicaIiiStaticHtml } = require('./clinica-iii-static-html.cjs');
-const { writeAll: writePerfectGestIStaticHtml } = require('./perfectgest-i-static-html.cjs');
-const { writeAll: writeContabilIStaticHtml } = require('./contabil-i-static-html.cjs');
 const { sync: syncPerfectGestILegalFromMd } = require('./perfectgest-i-sync-legal-from-md.cjs');
 const { sync: syncContabilILegalFromMd } = require('./contabil-i-sync-legal-from-md.cjs');
+
+/** Recarrega legal-data.cjs após sync MD (evita cache do require). */
+function writeStaticHtmlAfterSync(staticHtmlCjs, buildWeb) {
+  const staticPath = path.join(__dirname, staticHtmlCjs);
+  const dataPath = staticPath.replace('-static-html.cjs', '-legal-data.cjs');
+  delete require.cache[require.resolve(staticPath)];
+  try {
+    delete require.cache[require.resolve(dataPath)];
+  } catch (_) {
+    /* sem legal-data associado */
+  }
+  const { writeAll } = require(staticPath);
+  writeAll(buildWeb);
+}
 
 function removeBare(segment) {
   const barePath = path.join(buildWeb, segment);
@@ -74,8 +86,8 @@ for (const segment of contabilIStaticSlugs) {
 writeClinicaIiiStaticHtml(buildWeb);
 syncPerfectGestILegalFromMd();
 syncContabilILegalFromMd();
-writePerfectGestIStaticHtml(buildWeb);
-writeContabilIStaticHtml(buildWeb);
+writeStaticHtmlAfterSync('perfectgest-i-static-html.cjs', buildWeb);
+writeStaticHtmlAfterSync('contabil-i-static-html.cjs', buildWeb);
 
 for (const [segment, targetUrl] of Object.entries(legacyAppRedirects)) {
   removeBare(segment);
