@@ -8,6 +8,7 @@
   <title>Termos de Uso — PerfectGest ContábilSigilo</title>
   <meta name="description" content="Termos de Uso — PerfectGest ContábilSigilo">
   <link rel="canonical" href="https://perfectgestdev.com/contabil-i-termos">
+  <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/icons/Icon-192.png">
   <link rel="apple-touch-icon" href="/icons/Icon-192.png">
@@ -41,6 +42,22 @@
     .block { margin-bottom: 24px; }
     .block h2 { font-size: 16px; font-weight: 600; margin: 0 0 8px; color: #000; }
     .block .body { color: #000; }
+    table.compare-table {
+      width: 100%; border-collapse: collapse; margin: 12px 0 16px;
+      font-size: 13px; line-height: 1.45;
+    }
+    table.compare-table th,
+    table.compare-table td {
+      border: 1px solid #ccc; padding: 8px 10px; text-align: left; vertical-align: top;
+    }
+    table.compare-table thead th {
+      background: #f3f3f3; font-weight: 600;
+    }
+    table.compare-table tbody tr:nth-child(even) td { background: #fafafa; }
+    table.compare-table td:not(:first-child),
+    table.compare-table th:not(:first-child) { text-align: center; white-space: nowrap; }
+    table.compare-table td:first-child,
+    table.compare-table th:first-child { min-width: 9rem; }
     footer {
       border-top: 1px solid #e1e1e1; padding-top: 16px; margin-top: 32px;
       text-align: center; font-size: 13px; line-height: 1.8;
@@ -89,21 +106,12 @@ Se não concordar, não utilize o App e desinstale-o do seu dispositivo.</div></
 - Não garante conformidade fiscal automática perante a Receita Federal, municípios ou outros órgãos — a responsabilidade pelos lançamentos e declarações é do titular da empresa e dos profissionais que a assessoram.</div></section>
 <section class="block"><h2>4. Planos e subscrições (Google Play)</h2><div class="body">O App é gratuito para instalar. O acesso completo requer subscrição activa gerida pela Google Play. A app valida o pagamento junto à Play antes de activar funcionalidades premium; não existe atalho de «acesso de desenvolvimento» em versões publicadas.<br>
 <br>
-4.1 Tabela de planos (preços de referência)<br>
+4.1 Planos disponíveis (preços de referência)<br>
 <br>
-Plano · Product ID · Preço ref. · Resumo<br>
-Básico Mensal · contabil_i_mensal · R$ 9,90/mês · Livro caixa, IR, NF, carnê-leão, folha (sem contador CRC)<br>
-Básico Anual · contabil_i_basico_anual · R$ 99,90/ano · Igual ao mensal; pague 9 meses, use 12<br>
-Com Contador (Essencial / Standard / Avançado) · contabil_i_contabil_plus · R$ 69,90–119,90/mês · Básico + conferência CRC + abertura de empresa<br>
-Anual + A1 (3 faixas) · contabil_i_anual · R$ 838,80–1.438,80/ano · Com Contador + certificado e-CNPJ A1<br>
-Com Contador Anual 12× Essencial · contador_anual_parcelado_essencial_f · 12× R$ 69,90 · Anual contábil parcelado + A1<br>
-Com Contador Anual 12× Standard · contador_anual_parcelado_standard_f · 12× R$ 89,90 · Idem faixa Standard<br>
-Com Contador Anual 12× Avançado · contador_anual_parcelado_avancado_f · 12× R$ 119,90 · Idem faixa Avançado<br>
+<table class="compare-table"><thead><tr><th>Plano</th><th>Preço de referência</th><th>O que inclui</th></tr></thead><tbody><tr><td>Básico Mensal</td><td>R$ 9,90/mês</td><td>Livro caixa, imposto de renda, notas fiscais, folha — sem contador</td></tr><tr><td>Básico Anual</td><td>R$ 99,90/ano</td><td>Igual ao mensal; pague 9 meses, use 12</td></tr><tr><td>Com Contador (Essencial / Standard / Avançado)</td><td>R$ 69,90–119,90/mês</td><td>Básico + revisão pelo contador + abertura de empresa</td></tr><tr><td>Anual contábil com certificado (3 faixas)</td><td>R$ 838,80–1.438,80/ano</td><td>Com Contador + certificado digital e-CNPJ</td></tr><tr><td>Com Contador Anual em 12 parcelas</td><td>12× R$ 69,90–119,90</td><td>Anual contábil parcelado + certificado digital</td></tr></tbody></table><br>
 <br>
 - Pagamento, renovação e cancelamento seguem as regras da Google Play.<br>
-- Preços na loja prevalecem sobre valores de referência acima.<br>
-- Detalhe do que cada grupo acede: PlanoBasico-OqueAcessa.md · PlanoAnualContabil-OqueAcessa.md<br>
-- Especificação comercial: Planos_de_assinaturas.md</div></section>
+- Preços na loja prevalecem sobre valores de referência acima.</div></section>
 <section class="block"><h2>5. Serviço de abertura de empresa</h2><div class="body">Os planos Com Contador (mensal), Anual + A1 e Com Contador Anual (12×) podem incluir serviço de abertura de empresa (constituição/registo empresarial), prestado pela PerfectGest ou parceiros, mediante contrato ou aceite específico quando aplicável.<br>
 <br>
 5.1 O que não está incluído<br>
@@ -122,18 +130,18 @@ Este prazo refere-se ao processo administrativo de abertura, incluindo, conforme
 - Demais etapas legais necessárias à regularização da empresa.<br>
 <br>
 Não inclui atrasos causados por documentação incompleta, pendências do cliente, indisponibilidade de sistemas públicos ou força maior.</div></section>
-<section class="block"><h2>6. Conferência contábil (Com Contador / Anual)</h2><div class="body">Com plano Com Contador, Anual + A1 ou Com Contador Anual (12×), o cliente pode enviar o mês fechado à PerfectGest para conferência contábil, mediante consentimento explícito para tratamento na nuvem (Firebase).<br>
+<section class="block"><h2>6. Conferência contábil (Com Contador / Anual)</h2><div class="body">Com plano Com Contador, Anual contábil ou Com Contador Anual (12×), o cliente pode enviar o mês fechado à PerfectGest para revisão contábil, mediante consentimento explícito na app.<br>
 <br>
 - A PerfectGest analisa o pacote enviado e responde na app (em análise, pendências, conferido).<br>
-- Informes legais e obrigações perante o Fisco podem exigir contrato de prestação de serviços contábeis separado e profissional com CRC.<br>
+- Declarações oficiais podem exigir contrato com contador separado.<br>
 - O envio não substitui a entrega de declarações nos portais oficiais, salvo acordo expresso em contrato de serviço.</div></section>
-<section class="block"><h2>7. Certificado digital A1 (Anual + A1 / Com Contador Anual)</h2><div class="body">Os planos Anual + A1 (contabil_i_anual) e Com Contador Anual (12×) incluem bónus promocional de certificado e-CNPJ A1 via parceiro certificadora (Quality Cert).<br>
+<section class="block"><h2>7. Certificado digital da empresa (Plano Anual contábil)</h2><div class="body">Os planos Anual contábil com certificado e Com Contador Anual (12×) incluem certificado e-CNPJ via parceiro certificadora (Quality Cert).<br>
 <br>
-- Elegibilidade exige subscrição activa validada na Google Play.<br>
-- Após pagamento confirmado, o utilizador pode cadastrar dados na app (formulário interno) e receber código/link Quality quando atribuído pelo Firebase.<br>
+- Elegibilidade exige plano activo confirmado na Google Play.<br>
+- Após pagamento confirmado, o utilizador pode cadastrar dados na app e receber código ou link da certificadora.<br>
 - A emissão do certificado segue validação de identidade da certificadora, independente da PerfectGest.<br>
 <br>
-Planos Básico e Com Contador mensal não incluem certificado A1.</div></section>
+Planos Básico e Com Contador mensal não incluem certificado digital.</div></section>
 <section class="block"><h2>8. Uso permitido</h2><div class="body">Você pode utilizar o App para:<br>
 <br>
 - Registar movimentos financeiros da sua atividade empresarial<br>
@@ -149,7 +157,7 @@ Planos Básico e Com Contador mensal não incluem certificado A1.</div></section
 <section class="block"><h2>9. Dados e responsabilidade</h2><div class="body">- Os dados inseridos são de sua responsabilidade quanto à exatidão e legalidade.<br>
 - O armazenamento principal é local no dispositivo; perda, roubo ou dano do aparelho pode implicar perda de dados se não houver backup.<br>
 - Recomendamos exportar backups periodicamente (menu Relatórios e backup).<br>
-- Envios à nuvem (conferência, validação de compra, bónus A1) ocorrem só com consentimento.<br>
+- Envios pela internet (revisão pelo contador, confirmação de compra, certificado digital) ocorrem só com consentimento.<br>
 - Consulte a Política de Privacidade e Exclusão de Dados.</div></section>
 <section class="block"><h2>10. Ligações externas</h2><div class="body">O App pode abrir sites oficiais (Receita Federal, portais MEI, ISS municipal, Quality Cert, Google Play, etc.) no seu browser. A PerfectGest não controla o conteúdo nem as políticas desses sites.</div></section>
 <section class="block"><h2>11. Disponibilidade e atualizações</h2><div class="body">- O App é fornecido “como está”, sem garantia de disponibilidade ininterrupta.<br>

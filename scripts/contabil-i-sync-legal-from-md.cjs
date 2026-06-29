@@ -44,15 +44,37 @@ function readMd(name) {
   return fs.readFileSync(p, 'utf8').replace(/\r\n/g, '\n');
 }
 
-function formatTableLine(line) {
+function htmlEscape(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function parseTableLine(line) {
   const t = line.trim();
-  if (!t.startsWith('|')) return line;
-  if (/^\|[\s\-:|]+\|$/.test(t)) return null;
-  const cells = t
-    .split('|')
-    .map((c) => c.trim())
-    .filter(Boolean);
-  return cells.join(' · ');
+  if (!t.startsWith('|')) return null;
+  if (/^\|[\s\-:|]+\|$/.test(t)) return 'separator';
+  return t.split('|').slice(1, -1).map((c) => c.trim());
+}
+
+function tableRowsToHtml(rows) {
+  if (!rows || rows.length < 1) return '';
+  const [header, ...body] = rows;
+  const rowHtml = (cells, tag) => {
+    const inner = cells
+      .map((c) => `<${tag}>${htmlEscape(cleanInline(c))}</${tag}>`)
+      .join('');
+    return `<tr>${inner}</tr>`;
+  };
+  return (
+    '<table class="compare-table"><thead>' +
+    rowHtml(header, 'th') +
+    '</thead><tbody>' +
+    body.map((row) => rowHtml(row, 'td')).join('') +
+    '</tbody></table>'
+  );
 }
 
 function cleanInline(text) {
@@ -94,7 +116,22 @@ function parseMd(content, mode) {
   let current = null;
   let intro = [];
 
+  let tableRows = null;
+
+  function flushTable() {
+    if (!tableRows || tableRows.length === 0) return;
+    const html = tableRowsToHtml(tableRows);
+    tableRows = null;
+    if (!html) return;
+    if (current) {
+      current.body.push(html);
+    } else {
+      intro.push(html);
+    }
+  }
+
   function flush() {
+    flushTable();
     if (!current) return;
     const body = cleanBlock(current.body.join('\n'));
     if (current.heading && body) {
@@ -106,8 +143,14 @@ function parseMd(content, mode) {
   for (const line of lines) {
     if (isSkipLine(line)) continue;
 
-    const formatted = formatTableLine(line);
-    if (formatted === null) continue;
+    const tableLine = parseTableLine(line);
+    if (tableLine === 'separator') continue;
+    if (Array.isArray(tableLine)) {
+      if (!tableRows) tableRows = [];
+      tableRows.push(tableLine);
+      continue;
+    }
+    flushTable();
 
     const h2 = line.match(/^## (.+)$/);
     const h3 = line.match(/^### (.+)$/);
@@ -130,11 +173,12 @@ function parseMd(content, mode) {
       continue;
     }
 
+    const text = line.trim();
     if (!current) {
-      if (formatted.trim()) intro.push(formatted);
+      if (text) intro.push(line);
       continue;
     }
-    current.body.push(formatted);
+    current.body.push(line);
   }
   flush();
 

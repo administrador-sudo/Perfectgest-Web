@@ -25,6 +25,8 @@ import 'metallic_site_shell.dart';
 import 'site_brand_logo.dart';
 import 'site_deferred_pages.dart';
 import 'site_surface.dart';
+import 'site_hero_wordmark.dart';
+import 'site_web_image.dart';
 import 'site_fonts.dart';
 import 'site_language_menu.dart';
 import 'site_public_urls.dart';
@@ -1142,7 +1144,7 @@ class SiteHeader extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
-                  child: SiteBrandLogo(height: 44, width: 44),
+                  child: SiteBrandLogo(height: 52, width: 46),
                 ),
               ),
             ),
@@ -1303,6 +1305,19 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (kIsWeb) {
+      precacheImage(
+        NetworkImage(siteWebRootUrl(kSiteHeroWordmarkWebPath)),
+        context,
+      );
+    } else {
+      precacheImage(const AssetImage(kSiteHeroWordmarkAsset), context);
+    }
+  }
+
+  @override
   void dispose() {
     _ambient.dispose();
     super.dispose();
@@ -1339,43 +1354,19 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
                     lift: 1.0 + (beat * 0.12),
                     goldIntensity: 0.88 + (beat * 0.22),
                     borderColor: borderColor,
-                    child: LayoutBuilder(
-                      builder: (context, innerConstraints) {
-                        final wordmarkWidth = innerConstraints.maxWidth * 0.5;
-                        return Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            Center(
-                              child: Semantics(
-                                header: true,
-                                image: true,
-                                label: l10n.heroBrandLinkSemantics,
-                                child: MouseRegion(
-                                  cursor: SystemMouseCursors.click,
-                                  child: Material(
-                                    type: MaterialType.transparency,
-                                    child: InkWell(
-                                      onTap: () => _openSiteUrl(),
-                                      borderRadius: BorderRadius.circular(8),
-                                      child: Padding(
-                                        padding: const EdgeInsets.symmetric(vertical: 4),
-                                        child: Image.asset(
-                                          kSiteHeroWordmarkAsset,
-                                          width: wordmarkWidth,
-                                          fit: BoxFit.contain,
-                                          filterQuality: FilterQuality.high,
-                                          errorBuilder: (context, error, stackTrace) => SiteBrandLogo(
-                                            height: wordmarkWidth * 0.45,
-                                            fullLogo: true,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(height: 18),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Semantics(
+                          header: true,
+                          image: true,
+                          label: l10n.heroBrandLinkSemantics,
+                          child: MouseRegion(
+                            cursor: SystemMouseCursors.click,
+                            child: SiteHeroWordmark(onTap: _openSiteUrl),
+                          ),
+                        ),
+                        const SizedBox(height: 18),
                         Semantics(
                           header: true,
                           label: l10n.heroHeadline1,
@@ -1462,8 +1453,6 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
                                 ),
                               ),
                       ],
-                        );
-                      },
                     ),
                   );
                 },

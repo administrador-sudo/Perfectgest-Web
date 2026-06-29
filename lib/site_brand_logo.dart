@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'company_legal.dart';
 import 'l10n/app_localizations.dart';
+import 'site_web_image.dart';
 
 /// Brasão PerfectGestDev — emblema (pequeno) ou logo completo (grande).
 class SiteBrandLogo extends StatelessWidget {
@@ -21,7 +22,9 @@ class SiteBrandLogo extends StatelessWidget {
     final cs = Theme.of(context).colorScheme;
     final l10n = AppLocalizations.of(context);
     final asset = fullLogo ? kSiteBrandLogoAsset : kSiteBrandEmblemAsset;
-    final fallback = fullLogo ? kSiteBrandEmblemAsset : kSiteBrandLogoAsset;
+    final webPath = fullLogo ? kSiteBrandLogoWebPath : kSiteBrandEmblemWebPath;
+    final fallbackAsset = fullLogo ? kSiteBrandEmblemAsset : kSiteBrandLogoAsset;
+    final fallbackWeb = fullLogo ? kSiteBrandEmblemWebPath : kSiteBrandLogoWebPath;
 
     return Semantics(
       image: true,
@@ -29,18 +32,20 @@ class SiteBrandLogo extends StatelessWidget {
       child: SizedBox(
         height: height,
         width: width ?? (fullLogo ? null : height),
-        child: Image.asset(
-          asset,
+        child: siteWebOrAssetImage(
+          assetPath: asset,
+          webPath: webPath,
           height: height,
           width: width,
           fit: BoxFit.contain,
           alignment: Alignment.centerLeft,
-          filterQuality: FilterQuality.medium,
-          errorBuilder: (context, error, stackTrace) => Image.asset(
-            fallback,
+          errorBuilder: (context, error, stackTrace) => siteWebOrAssetImage(
+            assetPath: fallbackAsset,
+            webPath: fallbackWeb,
             height: height,
             width: width,
             fit: BoxFit.contain,
+            alignment: Alignment.centerLeft,
             errorBuilder: (context, error, stackTrace) =>
                 Icon(Icons.shield_rounded, color: cs.primary, size: height * 0.72),
           ),

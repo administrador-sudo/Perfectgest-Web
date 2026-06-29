@@ -4,17 +4,30 @@ const String kCompanyFantasyName = 'Perfect Gest Dev';
 /// Wordmark hero — PERFECTGESTDEV (primeiro bloco da home).
 const String kSiteHeroWordmarkAsset = 'imagens/PERFECTGESTDEV.png';
 
+/// Proporção nativa do wordmark (951×262 px).
+const double kSiteHeroWordmarkAspectRatio = 951 / 262;
+
 /// Logo principal da empresa (hero e vitrine — PNG gerado do JPG canónico).
 const String kSiteBrandLogoAsset = 'imagens/brasao_perfectgestdev.png';
 
-/// Brasão (escudo) recortado — header, ícones pequenos.
+/// Brasão (escudo) — fonte canónica transparente (PERFECT_BRASAO2).
+const String kSiteBrandEmblemSourceAsset = 'imagens/perfect_brasao2_emblem.png';
+
+/// Brasão (escudo) gerado — header, ícones pequenos.
 const String kSiteBrandEmblemAsset = 'imagens/brasao_emblema.png';
 
 /// URL estática do brasão no shell HTML (antes do Flutter).
 const String kSiteBrandLogoWebPath = 'brasao-perfectgestdev.png';
 
-/// Favicon / aba do browser (gerado do brasão).
-const String kSiteBrandFaviconWebPath = 'favicon.png';
+/// Emblema pequeno (header) — cópia em web/ para carregamento directo.
+const String kSiteBrandEmblemWebPath = 'brasao-emblema.png';
+
+/// Wordmark hero — cópia em web/ (PERFECTGESTDEV.png).
+const String kSiteHeroWordmarkWebPath = 'perfectgestdev-wordmark.png';
+
+/// Favicon / aba do browser (ICO fornecido + PNG gerado).
+const String kSiteBrandFaviconWebPath = 'favicon.ico';
+const String kSiteBrandFaviconPngWebPath = 'favicon.png';
 
 /// Razão social (cadastro empresarial / site institucional).
 const String kCompanyLegalName =

@@ -8,6 +8,7 @@
   <title>Perguntas frequentes — PerfectGest ContábilSigilo</title>
   <meta name="description" content="Perguntas frequentes — PerfectGest ContábilSigilo">
   <link rel="canonical" href="https://perfectgestdev.com/contabil-i-faq">
+  <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/icons/Icon-192.png">
   <link rel="apple-touch-icon" href="/icons/Icon-192.png">
@@ -41,6 +42,22 @@
     .block { margin-bottom: 24px; }
     .block h2 { font-size: 16px; font-weight: 600; margin: 0 0 8px; color: #000; }
     .block .body { color: #000; }
+    table.compare-table {
+      width: 100%; border-collapse: collapse; margin: 12px 0 16px;
+      font-size: 13px; line-height: 1.45;
+    }
+    table.compare-table th,
+    table.compare-table td {
+      border: 1px solid #ccc; padding: 8px 10px; text-align: left; vertical-align: top;
+    }
+    table.compare-table thead th {
+      background: #f3f3f3; font-weight: 600;
+    }
+    table.compare-table tbody tr:nth-child(even) td { background: #fafafa; }
+    table.compare-table td:not(:first-child),
+    table.compare-table th:not(:first-child) { text-align: center; white-space: nowrap; }
+    table.compare-table td:first-child,
+    table.compare-table th:first-child { min-width: 9rem; }
     footer {
       border-top: 1px solid #e1e1e1; padding-top: 16px; margin-top: 32px;
       text-align: center; font-size: 13px; line-height: 1.8;
@@ -75,29 +92,23 @@ Papéis no tratamento (LGPD)<br>
 • Direitos do titular: aceder, corrigir, exportar e eliminar no próprio app, ou contactar suporte@perfectgestdev.com.</div>
   <section class="block"><h2>O que é o PerfectGest ContábilSigilo?</h2><div class="body">É um app de livro caixa e obrigações fiscais para ME e MEI, com subscrições via Google Play e serviços opcionais de conferência contábil, abertura de empresa e certificado A1 nos planos elegíveis.</div></section>
 <section class="block"><h2>Preciso de internet para usar?</h2><div class="body">- Dia a dia (lançamentos, fecho): não — funciona offline.<br>
-- Subscrição, envio CRC, cadastro/bónus A1: sim — requer internet e consentimento de nuvem.<br>
-- Portais fiscais e Play Store: internet quando você abre links externos.</div></section>
-<section class="block"><h2>O app substitui meu contador?</h2><div class="body">Não. É ferramenta de registo e apoio. Planos Com Contador e Anual incluem serviços PerfectGest (conferência e, conforme plano, abertura de empresa e A1), mas declarações oficiais e pareceres podem exigir contrato contábil com profissional CRC.</div></section>
+- Subscrição, envio para o contador, pedido de certificado digital: sim — requer internet e o seu consentimento.<br>
+- Portais fiscais e Google Play: internet quando você abre links externos.</div></section>
+<section class="block"><h2>O app substitui meu contador?</h2><div class="body">Não. É ferramenta de registo e apoio. Planos Com Contador e Anual incluem serviços PerfectGest (revisão pelo contador e, conforme plano, abertura de empresa e certificado digital), mas declarações oficiais podem exigir contrato com contador habilitado.</div></section>
 <section class="block"><h2>O app movimenta dinheiro ou conecta ao banco?</h2><div class="body">Não. Lançamentos manuais; saldo de extrato informado no fecho do mês.</div></section>
-<section class="block"><h2>Planos e preços (Google Play)</h2><div class="body">Preços de referência — valor cobrado na loja prevalece. Fonte: lib/config/assinatura_config.dart.<br>
+<section class="block"><h2>Planos e preços (Google Play)</h2><div class="body">Os valores abaixo são referência — o preço cobrado na loja do seu telemóvel é o que vale.<br>
 <br>
-Plano · Product ID · Preço ref.<br>
-Básico Mensal · contabil_i_mensal · R$ 9,90/mês<br>
-Básico Anual · contabil_i_basico_anual · R$ 99,90/ano<br>
-Com Contador (3 faixas) · contabil_i_contabil_plus · R$ 69,90–119,90/mês<br>
-Anual + A1 (3 faixas) · contabil_i_anual · R$ 838,80–1.438,80/ano<br>
-Com Contador Anual 12× Essencial · contador_anual_parcelado_essencial_f · 12× R$ 69,90<br>
-Com Contador Anual 12× Standard · contador_anual_parcelado_standard_f · 12× R$ 89,90<br>
-Com Contador Anual 12× Avançado · contador_anual_parcelado_avancado_f · 12× R$ 119,90<br>
+<table class="compare-table"><thead><tr><th>Plano</th><th>Preço de referência</th></tr></thead><tbody><tr><td>Básico Mensal</td><td>R$ 9,90 por mês</td></tr><tr><td>Básico Anual</td><td>R$ 99,90 por ano (pague 9 meses, use 12)</td></tr><tr><td>Com Contador (Essencial, Standard ou Avançado)</td><td>R$ 69,90 a R$ 119,90 por mês</td></tr><tr><td>Anual contábil com certificado digital</td><td>R$ 838,80 a R$ 1.438,80 por ano</td></tr><tr><td>Com Contador Anual em 12 parcelas</td><td>12× de R$ 69,90 a R$ 119,90</td></tr></tbody></table><br>
 <br>
-- Instalação gratuita; subscrição obrigatória para uso completo.<br>
-- Pagamento e cancelamento na Google Play.<br>
-- O que cada grupo acede: PlanoBasico-OqueAcessa.md · PlanoAnualContabil-OqueAcessa.md</div></section>
-<section class="block"><h2>Qual a diferença entre Básico e Anual contábil?</h2><div class="body">Básico (Mensal/Anual) · Com Contador mensal · Anual contábil (+ A1)<br>
-Livro caixa, IR, folha, DRE · ✅ · ✅ · ✅<br>
-Conferência CRC · ❌ · ✅ · ✅<br>
-Abertura de empresa · ❌ · ✅ · ✅<br>
-Certificado A1 · ❌ · ❌ · ✅</div></section>
+- A instalação é gratuita; para usar tudo, é preciso activar um plano na Google Play.<br>
+- Pagamento, renovação e cancelamento são feitos na Google Play.</div></section>
+<section class="block"><h2>Qual a diferença entre os planos?</h2><div class="body"><table class="compare-table"><thead><tr><th>O que está incluído</th><th>Plano Básico (mensal ou anual)</th><th>Plano Com Contador (mensal)</th><th>Plano Anual contábil (com certificado)</th></tr></thead><tbody><tr><td>Livro caixa, imposto de renda, folha de pagamento e resumo do mês</td><td>Sim</td><td>Sim</td><td>Sim</td></tr><tr><td>Envio do mês para revisão do contador</td><td>Não</td><td>Sim</td><td>Sim</td></tr><tr><td>Abertura de empresa (ME)</td><td>Não</td><td>Sim</td><td>Sim</td></tr><tr><td>Certificado digital da empresa (e-CNPJ)</td><td>Não</td><td>Não</td><td>Sim</td></tr></tbody></table><br>
+<br>
+Em resumo:<br>
+<br>
+- Básico: você regista tudo no app, sem serviço do contador.<br>
+- Com Contador: inclui revisão mensal pelo contador e ajuda na abertura de empresa.<br>
+- Anual contábil: tudo do Com Contador, pago uma vez no ano, mais certificado digital da empresa.</div></section>
 <section class="block"><h2>O que significa “abertura de empresa” nos planos Com Contador?</h2><div class="body">Serviço de apoio à constituição/registo da sua empresa (ME, MEI ou forma aplicável), conduzido pela PerfectGest ou parceiros, após contratação do plano elegível e entrega de documentos.</div></section>
 <section class="block"><h2>As taxas da Junta Comercial e prefeitura estão incluídas?</h2><div class="body">Não. Taxas, emolumentos e custas pagos à Junta Comercial, prefeitura, Receita Federal, cartório e outros órgãos são por conta do cliente, pagos directamente aos entes competentes.</div></section>
 <section class="block"><h2>Quanto tempo demora a abertura?</h2><div class="body">O serviço de abertura de empresa pode demorar até 14 (catorze) dias, contados após entrega da documentação completa e pagamento das taxas oficiais pelo cliente.<br>
@@ -117,42 +128,28 @@ Atrasos por documentação incompleta, pendências do cliente ou indisponibilida
 <br>
 Requer plano Com Contador, Anual + A1 ou Com Contador Anual (12×).</div></section>
 <section class="block"><h2>Quanto tempo demora a conferência?</h2><div class="body">Meta operacional: resposta em até 5 dias úteis após envio completo (sujeito a volume e pendências). Prazo distinto do processo de abertura de empresa (até 14 dias).</div></section>
-<section class="block"><h2>Certificado A1 (Anual + A1 / Com Contador Anual)</h2><div class="body">Inclui bónus promocional e-CNPJ A1 via Quality Cert nos planos:<br>
-<br>
-- contabil_i_anual<br>
-- contador_anual_parcelado_essencial_f<br>
-- contador_anual_parcelado_standard_f<br>
-- contador_anual_parcelado_avancado_f<br>
+<section class="block"><h2>Certificado digital da empresa (Plano Anual contábil)</h2><div class="body">Inclui certificado e-CNPJ via parceiro Quality Cert nos planos anuais com certificado.<br>
 <br>
 Como usar:<br>
 <br>
-1. Subscrição activa validada na Play<br>
-2. Menu Certificado A1 → Cadastrar dados do certificado A1<br>
-3. Código promocional / link Quality quando atribuído pelo Firebase<br>
+1. Plano activo confirmado na Google Play<br>
+2. Menu Certificado digital → Cadastrar dados<br>
+3. Siga as instruções quando receber o código ou link da certificadora<br>
 <br>
-Planos Básico e Com Contador mensal não incluem A1.</div></section>
-<section class="block"><h2>Meus dados vão para a nuvem?</h2><div class="body">Só com seu consentimento — para conferência CRC, validação de compra, cadastro A1 ou bónus A1. Livro caixa permanece local por defeito.</div></section>
+Planos Básico e Com Contador mensal não incluem certificado digital.</div></section>
+<section class="block"><h2>Meus dados vão para a nuvem?</h2><div class="body">Só com seu consentimento — para revisão pelo contador, validação da compra na loja ou pedido de certificado digital. Livro caixa permanece no telemóvel por defeito.</div></section>
 <section class="block"><h2>O app tem anúncios?</h2><div class="body">Não.</div></section>
-<section class="block"><h2>Preciso de login?</h2><div class="body">Não há conta com e-mail/senha. Subscrição vincula-se à conta Google Play do dispositivo. Firebase usa identificador anónimo para serviços na nuvem.</div></section>
+<section class="block"><h2>Preciso de login?</h2><div class="body">Não há conta com e-mail e senha. O plano fica ligado à conta Google Play do telemóvel.</div></section>
 <section class="block"><h2>Como faço backup?</h2><div class="body">Menu → Relatórios e backup → Exportar backup (.json).</div></section>
 <section class="block"><h2>Como apago tudo?</h2><div class="body">Menu → Eliminar todos os dados. Ver Exclusão de Dados.</div></section>
-<section class="block"><h2>URLs públicas (Play Store)</h2><div class="body">Documento · URL<br>
-Política de privacidade · https://perfectgestdev.com/contabil-i-politica-privacidade<br>
-Termos de uso · https://perfectgestdev.com/contabil-i-termos<br>
-Exclusão de dados · https://perfectgestdev.com/contabil-i-exclusao-dados<br>
-FAQ · https://perfectgestdev.com/contabil-i-faq</div></section>
-<section class="block"><h2>O que são “obrigações” no app?</h2><div class="body">Checklist PGDAS, DAS, ISS, etc., com links para portais oficiais.</div></section>
+<section class="block"><h2>URLs públicas (Play Store)</h2><div class="body"><table class="compare-table"><thead><tr><th>Documento</th><th>URL</th></tr></thead><tbody><tr><td>Política de privacidade</td><td>https://perfectgestdev.com/contabil-i-politica-privacidade</td></tr><tr><td>Termos de uso</td><td>https://perfectgestdev.com/contabil-i-termos</td></tr><tr><td>Exclusão de dados</td><td>https://perfectgestdev.com/contabil-i-exclusao-dados</td></tr><tr><td>FAQ</td><td>https://perfectgestdev.com/contabil-i-faq</td></tr></tbody></table></div></section>
+<section class="block"><h2>O que são “obrigações” no app?</h2><div class="body">Checklist de impostos e obrigações (DAS, ISS, etc.), com links para portais oficiais.</div></section>
 <section class="block"><h2>Posso gerar PDF do livro caixa?</h2><div class="body">Sim — Relatórios e backup → Gerar e partilhar PDF.</div></section>
-<section class="block"><h2>Pacote Android</h2><div class="body">br.perfectgestcontabil.dev</div></section>
-<section class="block"><h2>Por que “recursos financeiros” na Play?</h2><div class="body">Classificação correta para apps que tratam dados financeiros/contábeis — não somos banco.</div></section>
+<section class="block"><h2>Nome do app na loja</h2><div class="body">PerfectGest ContábilSigilo</div></section>
+<section class="block"><h2>Por que aparece “recursos financeiros” na Play?</h2><div class="body">Classificação correta para apps que tratam dados financeiros e contábeis — não somos banco.</div></section>
 <section class="block"><h2>Perdi o telefone. Recupero os dados?</h2><div class="body">Só com backup JSON exportado. Sem recuperação remota dos dados locais.</div></section>
 <section class="block"><h2>Como contacto o suporte?</h2><div class="body">suporte@perfectgestdev.com</div></section>
-<section class="block"><h2>Documentos relacionados</h2><div class="body">Documento · Link<br>
-Política de Privacidade · politica-privacidade.md<br>
-Termos de Uso · termos-de-uso.md<br>
-Exclusão de Dados · exclusao-de-dados.md<br>
-Plano Básico — o que acede · PlanoBasico-OqueAcessa.md<br>
-Plano Anual Contábil — o que acede · PlanoAnualContabil-OqueAcessa.md</div></section>
+<section class="block"><h2>Documentos relacionados</h2><div class="body"><table class="compare-table"><thead><tr><th>Documento</th><th>Link</th></tr></thead><tbody><tr><td>Política de Privacidade</td><td>politica-privacidade.md</td></tr><tr><td>Termos de Uso</td><td>termos-de-uso.md</td></tr><tr><td>Exclusão de Dados</td><td>exclusao-de-dados.md</td></tr></tbody></table></div></section>
 </div>
 <div class="lang-panel" data-lang="en" hidden>
   <h1 class="page-title">FAQ — PerfectGest ContábilSigilo</h1>
@@ -173,23 +170,14 @@ Roles in processing (LGPD)<br>
 - Tax portals and Play Store: internet when you open external links.</div></section>
 <section class="block"><h2>Does the app replace my accountant?</h2><div class="body">No. It is a recording and support tool. Com Contador and Anual + A1 plans include PerfectGest services (review and, per plan, company opening), but official filings and opinions may require an accounting contract with a CRC professional.</div></section>
 <section class="block"><h2>Does the app move money or connect to the bank?</h2><div class="body">No. Manual entries; bank statement balance entered at month-end closing.</div></section>
-<section class="block"><h2>Plans and prices (Google Play)</h2><div class="body">Reference prices — store price prevails. Source: assinatura_config.dart.<br>
+<section class="block"><h2>Plans and prices (Google Play)</h2><div class="body">Reference prices — the store price on your phone prevails.<br>
 <br>
-Plan · Product ID · Ref. price<br>
-Basic Monthly · contabil_i_mensal · R$ 9.90/month<br>
-Basic Annual · contabil_i_basico_anual · R$ 99.90/year<br>
-Com Contador (3 tiers) · contabil_i_contabil_plus · R$ 69.90–119.90/month<br>
-Anual + A1 (3 tiers) · contabil_i_anual · R$ 838.80–1,438.80/year<br>
-Com Contador Annual 12× Essential · contador_anual_parcelado_essencial_f · 12× R$ 69.90<br>
-Com Contador Annual 12× Standard · contador_anual_parcelado_standard_f · 12× R$ 89.90<br>
-Com Contador Annual 12× Advanced · contador_anual_parcelado_avancado_f · 12× R$ 119.90<br>
+<table class="compare-table"><thead><tr><th>Plan</th><th>Reference price</th></tr></thead><tbody><tr><td>Basic Monthly</td><td>R$ 9.90/month</td></tr><tr><td>Basic Annual</td><td>R$ 99.90/year</td></tr><tr><td>Com Contador (Essential / Standard / Advanced)</td><td>R$ 69.90–119.90/month</td></tr><tr><td>Annual accounting with digital certificate</td><td>R$ 838.80–1,438.80/year</td></tr><tr><td>Com Contador Annual in 12 installments</td><td>12× R$ 69.90–119.90</td></tr></tbody></table><br>
 <br>
-Free install; subscription required for full access. Payment and cancellation on Google Play.<br>
+Free install; subscription required for full access. Payment and cancellation on Google Play.</div></section>
+<section class="block"><h2>What is the difference between plans?</h2><div class="body"><table class="compare-table"><thead><tr><th>Included</th><th>Basic (monthly or annual)</th><th>Com Contador (monthly)</th><th>Annual accounting (with certificate)</th></tr></thead><tbody><tr><td>Cash book, income tax, payroll and monthly summary</td><td>Yes</td><td>Yes</td><td>Yes</td></tr><tr><td>Send closed month for accountant review</td><td>No</td><td>Yes</td><td>Yes</td></tr><tr><td>Company opening (ME)</td><td>No</td><td>Yes</td><td>Yes</td></tr><tr><td>Company digital certificate (e-CNPJ)</td><td>No</td><td>No</td><td>Yes</td></tr></tbody></table><br>
 <br>
-Difference Basic vs annual accounting:<br>
-Basic: cash book, IR, payroll, DRE — no CRC, opening or A1.<br>
-Com Contador monthly: + CRC review and company opening.<br>
-Annual accounting (+ A1): + e-CNPJ A1 certificate and in-app registration.</div></section>
+In short: Basic = app only; Com Contador = + accountant review and opening; Annual = paid once per year + digital certificate.</div></section>
 <section class="block"><h2>How do Com Contador and Anual + A1 tiers work?</h2><div class="body">1. In company setup, indicate activity type and estimated volume (entries and invoices/month).<br>
 2. The app recommends Essential, Standard or Advanced.<br>
 3. Exact price appears in Google Play checkout.<br>
@@ -269,18 +257,14 @@ Roles en el tratamiento (LGPD)<br>
 - Portales fiscales y Play Store: internet al abrir enlaces externos.</div></section>
 <section class="block"><h2>¿La app sustituye a mi contador?</h2><div class="body">No. Es herramienta de registro y apoyo. Planes Com Contador y Anual + A1 incluyen servicios PerfectGest (revisión y, según plan, apertura de empresa), pero declaraciones oficiales y dictámenes pueden exigir contrato contable con profesional CRC.</div></section>
 <section class="block"><h2>¿Mueve dinero o conecta al banco?</h2><div class="body">No. Movimientos manuales; saldo de extracto informado en el cierre del mes.</div></section>
-<section class="block"><h2>Planes y precios (Google Play)</h2><div class="body">Precios de referencia — prevalece la tienda. Fuente: assinatura_config.dart.<br>
+<section class="block"><h2>Planes y precios (Google Play)</h2><div class="body">Precios de referencia — prevalece la tienda en su teléfono.<br>
 <br>
-Plan · ID producto · Precio ref.<br>
-Básico Mensual · contabil_i_mensal · R$ 9,90/mes<br>
-Básico Anual · contabil_i_basico_anual · R$ 99,90/año<br>
-Com Contador (3 faixas) · contabil_i_contabil_plus · R$ 69,90–119,90/mes<br>
-Anual + A1 (3 faixas) · contabil_i_anual · R$ 838,80–1.438,80/año<br>
-Com Contador Anual 12× Essencial · contador_anual_parcelado_essencial_f · 12× R$ 69,90<br>
-Com Contador Anual 12× Standard · contador_anual_parcelado_standard_f · 12× R$ 89,90<br>
-Com Contador Anual 12× Avanzado · contador_anual_parcelado_avancado_f · 12× R$ 119,90<br>
+<table class="compare-table"><thead><tr><th>Plan</th><th>Precio ref.</th></tr></thead><tbody><tr><td>Básico Mensual</td><td>R$ 9,90/mes</td></tr><tr><td>Básico Anual</td><td>R$ 99,90/año</td></tr><tr><td>Com Contador (Essencial / Standard / Avanzado)</td><td>R$ 69,90–119,90/mes</td></tr><tr><td>Anual contable con certificado digital</td><td>R$ 838,80–1.438,80/año</td></tr><tr><td>Com Contador Anual en 12 cuotas</td><td>12× R$ 69,90–119,90</td></tr></tbody></table><br>
 <br>
 Instalación gratuita; suscripción obligatoria. Pago y cancelación en Google Play.</div></section>
+<section class="block"><h2>¿Cuál es la diferencia entre los planes?</h2><div class="body"><table class="compare-table"><thead><tr><th>Incluido</th><th>Básico (mensual o anual)</th><th>Com Contador (mensual)</th><th>Anual contable (con certificado)</th></tr></thead><tbody><tr><td>Libro de caja, IR, nómina y resumen del mes</td><td>Sí</td><td>Sí</td><td>Sí</td></tr><tr><td>Envío del mes para revisión del contador</td><td>No</td><td>Sí</td><td>Sí</td></tr><tr><td>Apertura de empresa (ME)</td><td>No</td><td>Sí</td><td>Sí</td></tr><tr><td>Certificado digital de la empresa (e-CNPJ)</td><td>No</td><td>No</td><td>Sí</td></tr></tbody></table><br>
+<br>
+Resumen: Básico = solo app; Com Contador = + revisión y apertura; Anual = pago anual + certificado digital.</div></section>
 <section class="block"><h2>¿Cómo funcionan las faixas Com Contador y Anual + A1?</h2><div class="body">1. En el registro de la empresa, indique tipo de actividad y volumen estimado (movimientos y NF/mes).<br>
 2. La app recomienda Essencial, Standard o Avanzado.<br>
 3. El precio exacto aparece en Google Play.<br>

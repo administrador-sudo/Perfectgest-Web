@@ -301,7 +301,30 @@ module.exports = {
       { heading: 'Do I need internet?', body: '- Day to day (entries, closing): no — works offline.\n- PerfectGest AI Assistant / IR with AI: yes — uses Gemini API (key configured by user).\n- Subscription, review submission, A1 bonus: yes — requires internet and cloud consent.\n- Tax portals and Play Store: internet when you open external links.' },
       { heading: 'Does the app replace my accountant?', body: 'No. It is a recording and support tool. Com Contador and Anual + A1 plans include PerfectGest services (review and, per plan, company opening), but official filings and opinions may require an accounting contract with a CRC professional.' },
       { heading: 'Does the app move money or connect to the bank?', body: 'No. Manual entries; bank statement balance entered at month-end closing.' },
-      { heading: 'Plans and prices (Google Play)', body: 'Reference prices — store price prevails. Source: assinatura_config.dart.\n\nPlan · Product ID · Ref. price\nBasic Monthly · contabil_i_mensal · R$ 9.90/month\nBasic Annual · contabil_i_basico_anual · R$ 99.90/year\nCom Contador (3 tiers) · contabil_i_contabil_plus · R$ 69.90–119.90/month\nAnual + A1 (3 tiers) · contabil_i_anual · R$ 838.80–1,438.80/year\nCom Contador Annual 12× Essential · contador_anual_parcelado_essencial_f · 12× R$ 69.90\nCom Contador Annual 12× Standard · contador_anual_parcelado_standard_f · 12× R$ 89.90\nCom Contador Annual 12× Advanced · contador_anual_parcelado_avancado_f · 12× R$ 119.90\n\nFree install; subscription required for full access. Payment and cancellation on Google Play.\n\nDifference Basic vs annual accounting:\nBasic: cash book, IR, payroll, DRE — no CRC, opening or A1.\nCom Contador monthly: + CRC review and company opening.\nAnnual accounting (+ A1): + e-CNPJ A1 certificate and in-app registration.' },
+      {
+        heading: 'Plans and prices (Google Play)',
+        body:
+          'Reference prices — the store price on your phone prevails.\n\n' +
+          '<table class="compare-table"><thead><tr><th>Plan</th><th>Reference price</th></tr></thead><tbody>' +
+          '<tr><td>Basic Monthly</td><td>R$ 9.90/month</td></tr>' +
+          '<tr><td>Basic Annual</td><td>R$ 99.90/year</td></tr>' +
+          '<tr><td>Com Contador (Essential / Standard / Advanced)</td><td>R$ 69.90–119.90/month</td></tr>' +
+          '<tr><td>Annual accounting with digital certificate</td><td>R$ 838.80–1,438.80/year</td></tr>' +
+          '<tr><td>Com Contador Annual in 12 installments</td><td>12× R$ 69.90–119.90</td></tr>' +
+          '</tbody></table>\n\n' +
+          'Free install; subscription required for full access. Payment and cancellation on Google Play.',
+      },
+      {
+        heading: 'What is the difference between plans?',
+        body:
+          '<table class="compare-table"><thead><tr><th>Included</th><th>Basic (monthly or annual)</th><th>Com Contador (monthly)</th><th>Annual accounting (with certificate)</th></tr></thead><tbody>' +
+          '<tr><td>Cash book, income tax, payroll and monthly summary</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>' +
+          '<tr><td>Send closed month for accountant review</td><td>No</td><td>Yes</td><td>Yes</td></tr>' +
+          '<tr><td>Company opening (ME)</td><td>No</td><td>Yes</td><td>Yes</td></tr>' +
+          '<tr><td>Company digital certificate (e-CNPJ)</td><td>No</td><td>No</td><td>Yes</td></tr>' +
+          '</tbody></table>\n\n' +
+          'In short: Basic = app only; Com Contador = + accountant review and opening; Annual = paid once per year + digital certificate.',
+      },
       { heading: 'How do Com Contador and Anual + A1 tiers work?', body: '1. In company setup, indicate activity type and estimated volume (entries and invoices/month).\n2. The app recommends Essential, Standard or Advanced.\n3. Exact price appears in Google Play checkout.\n4. After closed months, tier may be recalculated from real usage data.\n5. If your operation grows, the app indicates upgrade — price change is made only on Play, never by direct billing.\n\nSee Terms of Use §6.2.' },
       { heading: 'What is "IR with AI"?', body: 'Integrated Personal Income Tax module:\n- Automatic IRPF calculation with progressive table\n- Monthly Carnê-Leão from entries\n- Deductions: cash book, health, education, dependents, pension\n- Gemini AI chat for IR and deduction questions\n- FAQ with the 9 most frequent questions' },
       { heading: 'What is the "PerfectGest AI Assistant"?', body: 'General chat in the side menu, answering about:\n- How to use any app feature\n- IR, Carnê-Leão, tax audit questions\n- MEI/ME obligations (DAS, PGDAS, DASN, NFSe)\n- Plans and available features' },
@@ -332,7 +355,30 @@ module.exports = {
       { heading: '¿Necesito internet?', body: '- Día a día (movimientos, cierre): no — funciona offline.\n- Asistente IA PerfectGest / IR con IA: sí — usa API Gemini (clave configurada por el usuario).\n- Suscripción, envío para revisión, bono A1: sí — requiere internet y consentimiento de nube.\n- Portales fiscales y Play Store: internet al abrir enlaces externos.' },
       { heading: '¿La app sustituye a mi contador?', body: 'No. Es herramienta de registro y apoyo. Planes Com Contador y Anual + A1 incluyen servicios PerfectGest (revisión y, según plan, apertura de empresa), pero declaraciones oficiales y dictámenes pueden exigir contrato contable con profesional CRC.' },
       { heading: '¿Mueve dinero o conecta al banco?', body: 'No. Movimientos manuales; saldo de extracto informado en el cierre del mes.' },
-      { heading: 'Planes y precios (Google Play)', body: 'Precios de referencia — prevalece la tienda. Fuente: assinatura_config.dart.\n\nPlan · ID producto · Precio ref.\nBásico Mensual · contabil_i_mensal · R$ 9,90/mes\nBásico Anual · contabil_i_basico_anual · R$ 99,90/año\nCom Contador (3 faixas) · contabil_i_contabil_plus · R$ 69,90–119,90/mes\nAnual + A1 (3 faixas) · contabil_i_anual · R$ 838,80–1.438,80/año\nCom Contador Anual 12× Essencial · contador_anual_parcelado_essencial_f · 12× R$ 69,90\nCom Contador Anual 12× Standard · contador_anual_parcelado_standard_f · 12× R$ 89,90\nCom Contador Anual 12× Avanzado · contador_anual_parcelado_avancado_f · 12× R$ 119,90\n\nInstalación gratuita; suscripción obligatoria. Pago y cancelación en Google Play.' },
+      {
+        heading: 'Planes y precios (Google Play)',
+        body:
+          'Precios de referencia — prevalece la tienda en su teléfono.\n\n' +
+          '<table class="compare-table"><thead><tr><th>Plan</th><th>Precio ref.</th></tr></thead><tbody>' +
+          '<tr><td>Básico Mensual</td><td>R$ 9,90/mes</td></tr>' +
+          '<tr><td>Básico Anual</td><td>R$ 99,90/año</td></tr>' +
+          '<tr><td>Com Contador (Essencial / Standard / Avanzado)</td><td>R$ 69,90–119,90/mes</td></tr>' +
+          '<tr><td>Anual contable con certificado digital</td><td>R$ 838,80–1.438,80/año</td></tr>' +
+          '<tr><td>Com Contador Anual en 12 cuotas</td><td>12× R$ 69,90–119,90</td></tr>' +
+          '</tbody></table>\n\n' +
+          'Instalación gratuita; suscripción obligatoria. Pago y cancelación en Google Play.',
+      },
+      {
+        heading: '¿Cuál es la diferencia entre los planes?',
+        body:
+          '<table class="compare-table"><thead><tr><th>Incluido</th><th>Básico (mensual o anual)</th><th>Com Contador (mensual)</th><th>Anual contable (con certificado)</th></tr></thead><tbody>' +
+          '<tr><td>Libro de caja, IR, nómina y resumen del mes</td><td>Sí</td><td>Sí</td><td>Sí</td></tr>' +
+          '<tr><td>Envío del mes para revisión del contador</td><td>No</td><td>Sí</td><td>Sí</td></tr>' +
+          '<tr><td>Apertura de empresa (ME)</td><td>No</td><td>Sí</td><td>Sí</td></tr>' +
+          '<tr><td>Certificado digital de la empresa (e-CNPJ)</td><td>No</td><td>No</td><td>Sí</td></tr>' +
+          '</tbody></table>\n\n' +
+          'Resumen: Básico = solo app; Com Contador = + revisión y apertura; Anual = pago anual + certificado digital.',
+      },
       { heading: '¿Cómo funcionan las faixas Com Contador y Anual + A1?', body: '1. En el registro de la empresa, indique tipo de actividad y volumen estimado (movimientos y NF/mes).\n2. La app recomienda Essencial, Standard o Avanzado.\n3. El precio exacto aparece en Google Play.\n4. Tras meses cerrados, la faixa puede recalcularse con datos reales.\n5. Si la operación crece, la app indica upgrade — el cambio de precio se hace solo en Play.\n\nVer Términos de Uso §6.2.' },
       { heading: '¿Qué es el "IR con IA"?', body: 'Módulo de Impuesto sobre la Renta Persona Física integrado:\n- Cálculo automático IRPF con tabla progresiva\n- Carnê-Leão mensual generado a partir de los movimientos\n- Deducciones: libro de caja, salud, educación, dependientes, previsión\n- Chat de dudas con IA Gemini sobre IR y deducciones\n- FAQ con las 9 preguntas más frecuentes' },
       { heading: '¿Qué es el "Asistente IA PerfectGest"?', body: 'Chat general accesible por el menú lateral, que responde sobre:\n- Cómo usar cualquier funcionalidad de la app\n- Dudas sobre IR, Carnê-Leão, malha fina\n- Obligaciones MEI/ME (DAS, PGDAS, DASN, NFSe)\n- Planes y funcionalidades disponibles' },

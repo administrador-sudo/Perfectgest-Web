@@ -8,6 +8,7 @@
   <title>Política de Privacidade — PerfectGest ContábilSigilo</title>
   <meta name="description" content="Política de Privacidade — PerfectGest ContábilSigilo">
   <link rel="canonical" href="https://perfectgestdev.com/contabil-i-politica-privacidade">
+  <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/icons/Icon-192.png">
   <link rel="apple-touch-icon" href="/icons/Icon-192.png">
@@ -41,6 +42,22 @@
     .block { margin-bottom: 24px; }
     .block h2 { font-size: 16px; font-weight: 600; margin: 0 0 8px; color: #000; }
     .block .body { color: #000; }
+    table.compare-table {
+      width: 100%; border-collapse: collapse; margin: 12px 0 16px;
+      font-size: 13px; line-height: 1.45;
+    }
+    table.compare-table th,
+    table.compare-table td {
+      border: 1px solid #ccc; padding: 8px 10px; text-align: left; vertical-align: top;
+    }
+    table.compare-table thead th {
+      background: #f3f3f3; font-weight: 600;
+    }
+    table.compare-table tbody tr:nth-child(even) td { background: #fafafa; }
+    table.compare-table td:not(:first-child),
+    table.compare-table th:not(:first-child) { text-align: center; white-space: nowrap; }
+    table.compare-table td:first-child,
+    table.compare-table th:first-child { min-width: 9rem; }
     footer {
       border-top: 1px solid #e1e1e1; padding-top: 16px; margin-top: 32px;
       text-align: center; font-size: 13px; line-height: 1.8;
@@ -79,23 +96,18 @@ Papéis no tratamento (LGPD)<br>
 - Pacote Android: br.perfectgestcontabil.dev<br>
 - Contacto para privacidade: suporte@perfectgestdev.com<br>
 - Política pública: https://perfectgestdev.com/contabil-i-politica-privacidade</div></section>
-<section class="block"><h2>2. Princípio fundamental: dados no seu dispositivo</h2><div class="body">O App foi concebido para contabilidade operacional offline-first. Por defeito:<br>
+<section class="block"><h2>2. Princípio fundamental: dados no seu dispositivo</h2><div class="body">O App foi concebido para funcionar no seu telemóvel, mesmo sem internet no dia a dia. Por defeito:<br>
 <br>
-- Lançamentos, obrigações fiscais, fechos de mês e dados da empresa ficam no seu dispositivo (armazenamento local).<br>
+- Lançamentos, obrigações fiscais, fechos de mês e dados da empresa ficam no seu dispositivo.<br>
 - Não enviamos os seus dados contábeis para servidores da PerfectGest automaticamente.<br>
-- Não utilizamos rastreamento publicitário nem analytics de conteúdo contábil.<br>
+- Não utilizamos publicidade nem rastreamento do que você regista.<br>
 <br>
-Qualquer saída local ocorre quando você toca em “Gerar e partilhar PDF”, “Exportar backup” ou “Importar backup”.<br>
+Qualquer partilha ocorre quando você toca em “Gerar e partilhar PDF”, “Exportar backup” ou “Importar backup”.<br>
 <br>
-Excepção (com consentimento): envio do mês para conferência contábil, validação de subscrição Google Play (token de compra), cadastro de solicitação certificado A1, bónus certificado A1 e dados necessários ao serviço de abertura de empresa — ver secção 5.</div></section>
+Excepção (com o seu consentimento): envio do mês para revisão do contador, confirmação do plano na Google Play, pedido de certificado digital e dados necessários ao serviço de abertura de empresa — ver secção 5.</div></section>
 <section class="block"><h2>3. Dados que o App pode tratar</h2><div class="body">3.1 Dados que você insere<br>
 <br>
-Tipo · Exemplos · Onde ficam<br>
-Dados da empresa · Razão social, CNPJ/CPF, CNAE, contactos · Dispositivo (local)<br>
-Dados financeiros · Lançamentos, valores, categorias, saldos · Dispositivo (local)<br>
-Obrigações fiscais · Marcações de cumprimento, observações · Dispositivo (local)<br>
-Comprovantes · Nome do ficheiro anexado (opcional) · Dispositivo (local)<br>
-Preferências · Tema, aceites de privacidade e nuvem · Dispositivo (local)<br>
+<table class="compare-table"><thead><tr><th>Tipo</th><th>Exemplos</th><th>Onde ficam</th></tr></thead><tbody><tr><td>Dados da empresa</td><td>Razão social, CNPJ/CPF, CNAE, contactos</td><td>Dispositivo (local)</td></tr><tr><td>Dados financeiros</td><td>Lançamentos, valores, categorias, saldos</td><td>Dispositivo (local)</td></tr><tr><td>Obrigações fiscais</td><td>Marcações de cumprimento, observações</td><td>Dispositivo (local)</td></tr><tr><td>Comprovantes</td><td>Nome do ficheiro anexado (opcional)</td><td>Dispositivo (local)</td></tr><tr><td>Preferências</td><td>Tema, aceites de privacidade e nuvem</td><td>Dispositivo (local)</td></tr></tbody></table><br>
 <br>
 3.2 Dados que o App não recolhe automaticamente<br>
 <br>
@@ -108,33 +120,24 @@ Preferências · Tema, aceites de privacidade e nuvem · Dispositivo (local)<br>
 - Registrar e exibir livro caixa e lançamentos<br>
 - Acompanhar obrigações fiscais e fechos de mês<br>
 - Gerar PDF e backup quando solicitado<br>
-- Validar subscrição e prestar serviços contratados (abertura de empresa, conferência CRC, bónus A1) — com consentimento<br>
+- Validar subscrição e prestar serviços contratados (abertura de empresa, revisão pelo contador, certificado digital) — com consentimento<br>
 <br>
 Base legal (LGPD): execução de contrato e funcionalidades solicitadas; consentimento para envio à nuvem e serviços contábeis adicionais.</div></section>
 <section class="block"><h2>5. Partilha com terceiros</h2><div class="body">O App não vende dados contábeis.<br>
 <br>
 5.1 Ações locais (sempre por sua iniciativa)<br>
 <br>
-Ação · O que acontece<br>
-Partilhar PDF · Enviado ao app que você escolher<br>
-Exportar backup JSON · Partilhado por você<br>
-Abrir portal fiscal · Browser externo — política dos sites governamentais<br>
+<table class="compare-table"><thead><tr><th>Ação</th><th>O que acontece</th></tr></thead><tbody><tr><td>Partilhar PDF</td><td>Enviado ao app que você escolher</td></tr><tr><td>Exportar backup JSON</td><td>Partilhado por você</td></tr><tr><td>Abrir portal fiscal</td><td>Browser externo — política dos sites governamentais</td></tr></tbody></table><br>
 <br>
-5.2 Serviços na nuvem (Firebase/Google) — consentimento<br>
+5.2 Serviços na internet (com o seu consentimento)<br>
 <br>
-Activados apenas com aceite explícito:<br>
+Activados apenas quando você aceita expressamente na app:<br>
 <br>
-Finalidade · Dados tratados · Operador<br>
-Validar subscrição (Google Play) · Token de compra, ID produto, estado da subscrição · Google Play + Firebase<br>
-Envio para conferência CRC · Pacote mensal: empresa, movimentos, conciliação, PDF · Google Firebase (Firestore/Storage)<br>
-Abertura de empresa · Dados cadastrais e documentos necessários ao processo · PerfectGest / parceiros<br>
-Cadastro certificado A1 · Dados do formulário (CNPJ/CPF, contacto, endereço) · Firebase (solicitacoes_a1) + PerfectGest<br>
-Bónus certificado A1 · Estado bónus, código promocional, token Play · Firebase + Quality Cert<br>
-Sessão técnica · Identificador anónimo Firebase · Google Firebase<br>
+<table class="compare-table"><thead><tr><th>Para quê</th><th>O que pode ser enviado</th><th>Quem trata</th></tr></thead><tbody><tr><td>Confirmar plano na Google Play</td><td>Dados da compra na loja</td><td>Google Play e serviços de validação</td></tr><tr><td>Enviar mês para o contador</td><td>Dados do mês fechado (empresa, movimentos, PDF)</td><td>PerfectGest (armazenamento seguro na nuvem)</td></tr><tr><td>Abertura de empresa</td><td>Dados cadastrais e documentos do processo</td><td>PerfectGest e parceiros</td></tr><tr><td>Certificado digital da empresa</td><td>Dados do formulário (CNPJ/CPF, contacto, morada)</td><td>PerfectGest e certificadora parceira</td></tr></tbody></table><br>
 <br>
-A app não activa funcionalidades premium (CRC, A1, abertura) sem subscrição confirmada na Google Play em versões de produção.<br>
+A app não activa revisão pelo contador, certificado digital ou abertura de empresa sem plano confirmado na Google Play.<br>
 <br>
-Pode revogar consentimento de nuvem em Privacidade e segurança. O livro caixa local continua; conferência, bónus A1 e validação na nuvem ficam indisponíveis até novo aceite.<br>
+Pode revogar o consentimento em Privacidade e segurança. O livro caixa no telemóvel continua; serviços na nuvem ficam indisponíveis até novo aceite.<br>
 <br>
 5.3 Serviço de abertura de empresa — prazo e taxas<br>
 <br>

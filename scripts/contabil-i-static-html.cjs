@@ -20,7 +20,13 @@ function esc(s) {
 }
 
 function bodyHtml(text) {
-  return esc(text).replace(/\n/g, '<br>\n');
+  const parts = String(text).split(/(<table[\s\S]*?<\/table>)/g);
+  return parts
+    .map((part) => {
+      if (part.startsWith('<table')) return part;
+      return esc(part).replace(/\n/g, '<br>\n');
+    })
+    .join('');
 }
 
 function sectionsHtml(sections) {
@@ -116,6 +122,22 @@ function buildPage(pageId) {
     .block { margin-bottom: 24px; }
     .block h2 { font-size: 16px; font-weight: 600; margin: 0 0 8px; color: #000; }
     .block .body { color: #000; }
+    table.compare-table {
+      width: 100%; border-collapse: collapse; margin: 12px 0 16px;
+      font-size: 13px; line-height: 1.45;
+    }
+    table.compare-table th,
+    table.compare-table td {
+      border: 1px solid #ccc; padding: 8px 10px; text-align: left; vertical-align: top;
+    }
+    table.compare-table thead th {
+      background: #f3f3f3; font-weight: 600;
+    }
+    table.compare-table tbody tr:nth-child(even) td { background: #fafafa; }
+    table.compare-table td:not(:first-child),
+    table.compare-table th:not(:first-child) { text-align: center; white-space: nowrap; }
+    table.compare-table td:first-child,
+    table.compare-table th:first-child { min-width: 9rem; }
     footer {
       border-top: 1px solid #e1e1e1; padding-top: 16px; margin-top: 32px;
       text-align: center; font-size: 13px; line-height: 1.8;
