@@ -120,24 +120,20 @@ TextStyle siteBodyTextStyle(
   );
 }
 
-/// Título da marca no hero: cromado 3D (escuro) ou destaque teal (claro).
+/// Logo + marca no hero (logo canónico PerfectGestDev).
 Widget siteHeroBrandTitle(
   BuildContext context, {
   required bool compact,
 }) {
-  final fontSize = compact ? 34.0 : 44.0;
-  if (useMetallicPresentation(context)) {
-    return metallicChromeText(kCompanyFantasyName, fontSize: fontSize, lift: 4.2);
-  }
-  final cs = Theme.of(context).colorScheme;
-  return Text(
-    kCompanyFantasyName,
-    style: GoogleFonts.inter(
-      fontSize: fontSize,
-      letterSpacing: 0.5,
-      fontWeight: FontWeight.w800,
-      height: 1.1,
-      color: cs.primary,
+  final logoHeight = compact ? 96.0 : 128.0;
+  return Semantics(
+    label: kCompanyFantasyName,
+    child: Image.asset(
+      kSiteBrandLogoAsset,
+      height: logoHeight,
+      fit: BoxFit.contain,
+      alignment: Alignment.centerLeft,
+      filterQuality: FilterQuality.medium,
     ),
   );
 }

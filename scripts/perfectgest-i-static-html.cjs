@@ -7,6 +7,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const DATA = require('./perfectgest-i-legal-data.cjs');
+const { LEGAL_HEAD_ICONS } = require('./legal-static-head-icons.cjs');
 
 const ORIGIN = 'https://perfectgestdev.com';
 
@@ -84,7 +85,7 @@ function buildPage(pageId) {
   <meta name="robots" content="index, follow">
   <title>${esc(page.titles.pt)}</title>
   <meta name="description" content="${esc(page.titles.pt)}">
-  <link rel="canonical" href="${canonical}">
+  <link rel="canonical" href="${canonical}">${LEGAL_HEAD_ICONS}
   <style>
     :root { color-scheme: light only; }
     * { box-sizing: border-box; }

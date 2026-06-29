@@ -1,6 +1,9 @@
 /// Nome fantasia do site e da marca comercial.
 const String kCompanyFantasyName = 'Perfect Gest Dev';
 
+/// Logo principal da empresa (hero e vitrine).
+const String kSiteBrandLogoAsset = 'imagens/Logo_da_Empreesa_PerfectGestDev.jpg';
+
 /// Razão social (cadastro empresarial / site institucional).
 const String kCompanyLegalName =
     'PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA';

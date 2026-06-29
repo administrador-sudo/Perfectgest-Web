@@ -90,17 +90,15 @@
       margin-bottom: 22px;
     }
     #pp-static-landing .brand-row img {
-      width: 56px;
-      height: 56px;
-      border-radius: 12px;
+      height: auto;
+      max-height: 120px;
+      width: auto;
+      max-width: min(280px, 88vw);
+      object-fit: contain;
       flex-shrink: 0;
     }
     #pp-static-landing .brand {
-      margin: 0;
-      font-size: 22px;
-      font-weight: 800;
-      color: #00b4c8;
-      letter-spacing: 0.02em;
+      display: none;
     }
     #pp-static-landing h1 {
       margin: 0 0 12px;
@@ -200,8 +198,8 @@
   <div id="pp-static-landing" aria-busy="true">
     <main class="wrap" role="main">
       <header class="brand-row" role="banner">
-        <img src="icons/Icon-192.png" width="56" height="56" alt="Perfect Gest Dev" decoding="async">
-        <p class="brand">Perfect Gest Dev</p>
+        <img src="logo-perfectgestdev.jpg" width="280" height="120" alt="Perfect Gest Dev" decoding="async">
+        <p class="brand" aria-hidden="true">Perfect Gest Dev</p>
       </header>
       <h1>Inovacao em Flutter, Java e SDKs</h1>
       <p class="lead">Criamos apps Flutter, sistemas web e integracoes Java/SDK com foco em performance, seguranca e escalabilidade para o seu negocio.</p>
