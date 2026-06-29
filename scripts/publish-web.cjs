@@ -51,6 +51,7 @@ if (!commitMessage) {
   process.exit(1);
 }
 
+run('dart', ['run', 'tool/generate_brand_icons.dart']);
 run('flutter', ['build', 'web', '--release', '--pwa-strategy=none']);
 run('node', [path.join(__dirname, 'spa-legal-paths.cjs')]);
 run('git', [
@@ -67,6 +68,7 @@ run('git', [
   'package-lock.json',
   'render.yaml',
   'scripts',
+  'tool',
   'exports',
   '.gitignore',
   'README.md',

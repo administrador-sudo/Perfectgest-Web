@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'company_legal.dart';
 import 'metallic_style.dart';
+import 'site_brand_logo.dart';
+import 'site_surface.dart';
 
 /// Tema metálico activo apenas no modo escuro.
 bool useMetallicPresentation(BuildContext context) =>
     Theme.of(context).brightness == Brightness.dark;
 
-/// Fundo carvão + ouro (só escuro); no claro devolve o filho directamente.
+/// Fundo cinza escudo + conteúdo.
 class SiteBackgroundShell extends StatelessWidget {
   const SiteBackgroundShell({super.key, required this.child});
 
@@ -16,11 +17,10 @@ class SiteBackgroundShell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (!useMetallicPresentation(context)) return child;
     return Stack(
       fit: StackFit.expand,
       children: [
-        const MetallicVividBackground(),
+        const SiteShieldBackground(),
         child,
       ],
     );
@@ -51,18 +51,10 @@ class SiteSectionPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (useMetallicPresentation(context)) {
-      return MetallicPolishedPanel(radius: radius, padding: padding, child: child);
-    }
-    final cs = Theme.of(context).colorScheme;
     return Container(
       width: double.infinity,
       padding: padding,
-      decoration: BoxDecoration(
-        color: cs.surfaceContainerHighest,
-        borderRadius: BorderRadius.circular(radius),
-        border: Border.all(color: cs.outline.withValues(alpha: 0.65)),
-      ),
+      decoration: siteRaisedPanelDecoration(context, radius: radius),
       child: child,
     );
   }
@@ -120,22 +112,13 @@ TextStyle siteBodyTextStyle(
   );
 }
 
-/// Logo + marca no hero (logo canónico PerfectGestDev).
+/// Logo + marca no hero (brasão canónico PerfectGestDev).
 Widget siteHeroBrandTitle(
   BuildContext context, {
   required bool compact,
 }) {
   final logoHeight = compact ? 96.0 : 128.0;
-  return Semantics(
-    label: kCompanyFantasyName,
-    child: Image.asset(
-      kSiteBrandLogoAsset,
-      height: logoHeight,
-      fit: BoxFit.contain,
-      alignment: Alignment.centerLeft,
-      filterQuality: FilterQuality.medium,
-    ),
-  );
+  return SiteBrandLogo(height: logoHeight, fullLogo: true);
 }
 
 Widget sitePrimaryActionButton({
@@ -172,10 +155,8 @@ Widget sitePrimaryActionButton({
 }
 
 Color siteHeaderBackground(BuildContext context) {
-  if (useMetallicPresentation(context)) {
-    return MetallicPalette.charcoalDeep.withValues(alpha: 0.94);
-  }
-  return Theme.of(context).scaffoldBackgroundColor.withValues(alpha: 0.94);
+  final base = sitePageBackgroundColor(context);
+  return base.withValues(alpha: 0.94);
 }
 
 Color siteHeaderBorderColor(BuildContext context) {
@@ -193,12 +174,9 @@ Color siteHeaderNavLabelColor(BuildContext context) {
 }
 
 Color siteAppBarBackground(BuildContext context) {
-  if (useMetallicPresentation(context)) {
-    return MetallicPalette.charcoalDeep.withValues(alpha: 0.96);
-  }
-  return Theme.of(context).colorScheme.surface.withValues(alpha: 0.96);
+  return sitePageBackgroundColor(context).withValues(alpha: 0.96);
 }
 
 Color? siteScaffoldBackground(BuildContext context) {
-  return useMetallicPresentation(context) ? Colors.transparent : null;
+  return sitePageBackgroundColor(context);
 }

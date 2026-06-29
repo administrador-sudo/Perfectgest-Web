@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'l10n/app_localizations.dart';
 import 'locale_controller.dart';
 import 'metallic_site_shell.dart';
+import 'site_brand_logo.dart';
 import 'web_site_root_stub.dart' if (dart.library.html) 'web_site_root_web.dart' as web_site_root;
 
 /// Selector de idioma (PT/EN/ES) — igual ao da página principal.
@@ -93,9 +94,18 @@ PreferredSizeWidget sitePolicyAppBar(
       tooltip: l10n.navBackHome,
       onPressed: onBack ?? () => sitePolicyNavigateBack(context),
     ),
-    title: Text(
-      title,
-      style: GoogleFonts.inter(fontWeight: FontWeight.w700, color: cs.onSurface),
+    title: Row(
+      children: [
+        const SiteBrandLogo(height: 32, width: 32),
+        const SizedBox(width: 10),
+        Expanded(
+          child: Text(
+            title,
+            style: GoogleFonts.inter(fontWeight: FontWeight.w700, color: cs.onSurface),
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
+      ],
     ),
     actions: sitePolicyAppBarActions(context, onToggleTheme: onToggleTheme),
   );

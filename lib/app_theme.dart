@@ -15,7 +15,7 @@ ThemeData buildPerfectProDarkTheme() {
     useMaterial3: true,
     brightness: Brightness.dark,
     colorScheme: BrandPalette.buildDarkScheme(),
-    scaffoldBackgroundColor: Colors.transparent,
+    scaffoldBackgroundColor: BrandPalette.shieldGray,
   );
 
   return base.copyWith(
@@ -44,7 +44,7 @@ ThemeData buildPerfectProLightTheme() {
     useMaterial3: true,
     brightness: Brightness.light,
     colorScheme: BrandPalette.buildLightScheme(),
-    scaffoldBackgroundColor: BrandPalette.lightScaffold,
+    scaffoldBackgroundColor: BrandPalette.shieldGrayLight,
   );
 
   return base.copyWith(

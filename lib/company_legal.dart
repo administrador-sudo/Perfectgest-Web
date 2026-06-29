@@ -1,8 +1,20 @@
 /// Nome fantasia do site e da marca comercial.
 const String kCompanyFantasyName = 'Perfect Gest Dev';
 
-/// Logo principal da empresa (hero e vitrine).
-const String kSiteBrandLogoAsset = 'imagens/Logo_da_Empreesa_PerfectGestDev.jpg';
+/// Wordmark hero — PERFECTGESTDEV (primeiro bloco da home).
+const String kSiteHeroWordmarkAsset = 'imagens/PERFECTGESTDEV.png';
+
+/// Logo principal da empresa (hero e vitrine — PNG gerado do JPG canónico).
+const String kSiteBrandLogoAsset = 'imagens/brasao_perfectgestdev.png';
+
+/// Brasão (escudo) recortado — header, ícones pequenos.
+const String kSiteBrandEmblemAsset = 'imagens/brasao_emblema.png';
+
+/// URL estática do brasão no shell HTML (antes do Flutter).
+const String kSiteBrandLogoWebPath = 'brasao-perfectgestdev.png';
+
+/// Favicon / aba do browser (gerado do brasão).
+const String kSiteBrandFaviconWebPath = 'favicon.png';
 
 /// Razão social (cadastro empresarial / site institucional).
 const String kCompanyLegalName =

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'brand_palette.dart';
+import 'company_legal.dart';
 
 /// Paleta metálica — alias de [BrandPalette] (compatibilidade interna).
 abstract final class MetallicPalette {
@@ -532,7 +533,7 @@ Widget metallicRainbowPlayIcon({double size = 22}) {
 
 /// Logo de referência com halo dourado (comparar vividez).
 Widget metallicReferenceLogo({
-  String asset = 'imagens/logo_play_dev_ref.png',
+  String asset = kSiteBrandLogoAsset,
   double width = 220,
 }) {
   return Container(

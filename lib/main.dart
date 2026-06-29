@@ -22,8 +22,9 @@ import 'site_layout.dart';
 import 'solution_screenshot_preview.dart';
 import 'solutions_product_showcase.dart';
 import 'metallic_site_shell.dart';
+import 'site_brand_logo.dart';
 import 'site_deferred_pages.dart';
-import 'metallic_style.dart';
+import 'site_surface.dart';
 import 'site_fonts.dart';
 import 'site_language_menu.dart';
 import 'site_public_urls.dart';
@@ -311,10 +312,9 @@ class _SiteHomePageState extends State<SiteHomePage> {
   @override
   Widget build(BuildContext context) {
     final isMobileNav = MediaQuery.sizeOf(context).width < 980;
-    final isDark = Theme.of(context).brightness == Brightness.dark;
     final l10n = AppLocalizations.of(context);
     return Scaffold(
-      backgroundColor: isDark ? Colors.transparent : null,
+      backgroundColor: siteScaffoldBackground(context),
       bottomNavigationBar: isMobileNav
           ? NavigationBar(
               selectedIndex: _mobileNavIndex,
@@ -352,7 +352,7 @@ class _SiteHomePageState extends State<SiteHomePage> {
       body: Stack(
         clipBehavior: Clip.none,
         children: [
-          if (isDark) const MetallicVividBackground(),
+          const SiteShieldBackground(),
           SingleChildScrollView(
             controller: _scrollController,
             child: Semantics(
@@ -481,7 +481,19 @@ class _SobreNosPageState extends State<SobreNosPage> {
             tooltip: l10n.aboutBackTooltip,
             onPressed: () => Navigator.of(context).pop(),
           ),
-          title: Text(l10n.navAbout, style: GoogleFonts.inter(fontWeight: FontWeight.w700, color: cs.onSurface)),
+          title: Row(
+            children: [
+              const SiteBrandLogo(height: 32, width: 32),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Text(
+                  l10n.navAbout,
+                  style: GoogleFonts.inter(fontWeight: FontWeight.w700, color: cs.onSurface),
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+            ],
+          ),
           actions: [
             IconButton(
               tooltip: l10n.tooltipWhatsApp,
@@ -1122,28 +1134,20 @@ class SiteHeader extends StatelessWidget {
         ),
         child: Row(
           children: [
-            if (isCompact)
-              Expanded(
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: TextButton(
-                    onPressed: onHome,
-                    style: TextButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(horizontal: 4),
-                      minimumSize: Size.zero,
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    ),
-                    child: Text(
-                      l10n.navHome,
-                      style: GoogleFonts.inter(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w800,
-                        color: siteHeaderNavLabelColor(context),
-                      ),
-                    ),
-                  ),
+            Semantics(
+              button: true,
+              label: l10n.navHome,
+              child: InkWell(
+                onTap: onHome,
+                borderRadius: BorderRadius.circular(8),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
+                  child: SiteBrandLogo(height: 44, width: 44),
                 ),
               ),
+            ),
+            const SizedBox(width: 8),
+            if (isCompact) const Spacer(),
             if (!isCompact)
               IconButton(
                 tooltip: l10n.tooltipWhatsApp,
@@ -1330,74 +1334,48 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
                   final pulse = accentMotion ? (0.45 + 0.55 * (0.5 + 0.5 * math.sin(_ambient.value * math.pi * 2))) : 0.55;
                   final beat = accentMotion ? (0.5 + 0.5 * math.sin(_ambient.value * math.pi * 6)) : 0.5;
                   final borderColor = Color.lerp(cs.outline, cs.primary, pulse * 0.55)!;
-                  final glowPhase = accentMotion ? _ambient.value : 0.0;
-                  final glowColor = BrandPalette.heroGlowAt(glowPhase);
                   final heroTitleAngle = accentMotion ? _ambient.value * math.pi * 1.25 : 0.0;
-                  return Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.all(26),
-                    decoration: BoxDecoration(
-                      color: cs.surfaceContainerHighest,
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(color: borderColor, width: 1),
-                      boxShadow: accentMotion
-                          ? [
-                              BoxShadow(
-                                color: glowColor.withValues(alpha: 0.28 + (beat * 0.16)),
-                                blurRadius: 28 + (beat * 18),
-                                spreadRadius: 1.2 + (beat * 2.0),
-                              ),
-                              BoxShadow(
-                                color: BrandPalette.gold.withValues(alpha: 0.12 + (beat * 0.12)),
-                                blurRadius: 44 + (beat * 20),
-                                spreadRadius: 0.6 + (beat * 1.4),
-                              ),
-                              BoxShadow(
-                                color: BrandPalette.silverPeak.withValues(alpha: 0.08 + ((1 - beat) * 0.10)),
-                                blurRadius: 38 + ((1 - beat) * 16),
-                                spreadRadius: 0.4 + ((1 - beat) * 1.2),
-                              ),
-                              BoxShadow(
-                                color: BrandPalette.goldWarm.withValues(alpha: 0.22 + (beat * 0.14)),
-                                blurRadius: 56 + (beat * 24),
-                                spreadRadius: 0.8 + (beat * 2.0),
-                                offset: Offset(0, 14 + (beat * 8)),
-                              ),
-                            ]
-                          : [
-                              BoxShadow(
-                                color: cs.primary.withValues(alpha: 0.08),
-                                blurRadius: 22,
-                                spreadRadius: 0,
-                              ),
-                            ],
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Semantics(
-                          header: true,
-                          link: true,
-                          label: l10n.heroBrandLinkSemantics,
-                          child: MouseRegion(
-                            cursor: SystemMouseCursors.click,
-                            child: Material(
-                              type: MaterialType.transparency,
-                              child: InkWell(
-                                onTap: () => _openSiteUrl(),
-                                borderRadius: BorderRadius.circular(6),
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 2),
-                                  child: siteHeroBrandTitle(
-                                    context,
-                                    compact: isCompactHero,
+                  return SiteRaisedBlock(
+                    lift: 1.0 + (beat * 0.12),
+                    goldIntensity: 0.88 + (beat * 0.22),
+                    borderColor: borderColor,
+                    child: LayoutBuilder(
+                      builder: (context, innerConstraints) {
+                        final wordmarkWidth = innerConstraints.maxWidth * 0.5;
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Center(
+                              child: Semantics(
+                                header: true,
+                                image: true,
+                                label: l10n.heroBrandLinkSemantics,
+                                child: MouseRegion(
+                                  cursor: SystemMouseCursors.click,
+                                  child: Material(
+                                    type: MaterialType.transparency,
+                                    child: InkWell(
+                                      onTap: () => _openSiteUrl(),
+                                      borderRadius: BorderRadius.circular(8),
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(vertical: 4),
+                                        child: Image.asset(
+                                          kSiteHeroWordmarkAsset,
+                                          width: wordmarkWidth,
+                                          fit: BoxFit.contain,
+                                          filterQuality: FilterQuality.high,
+                                          errorBuilder: (context, error, stackTrace) => SiteBrandLogo(
+                                            height: wordmarkWidth * 0.45,
+                                            fullLogo: true,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                        ),
-                        const SizedBox(height: 10),
+                            const SizedBox(height: 18),
                         Semantics(
                           header: true,
                           label: l10n.heroHeadline1,
@@ -1484,6 +1462,8 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
                                 ),
                               ),
                       ],
+                        );
+                      },
                     ),
                   );
                 },

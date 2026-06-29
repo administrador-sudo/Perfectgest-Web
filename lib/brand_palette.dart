@@ -8,6 +8,14 @@ abstract final class BrandPalette {
   static const panel = Color(0xFF181818);
   static const panelHighlight = Color(0xFF2C2C2C);
 
+  /// Cinza escovado do escudo / placa metálica (fundo do site).
+  static const shieldGray = Color(0xFF3D3D3D);
+  static const shieldGrayDark = Color(0xFF323232);
+  static const shieldGrayHighlight = Color(0xFF454545);
+  static const shieldGrayPanel = Color(0xFF4A4A4A);
+  static const shieldGrayLight = Color(0xFFE8E8E8);
+  static const shieldGrayPanelLight = Color(0xFFF5F5F5);
+
   // Prata / chrome
   static const silverPeak = Color(0xFFFFFFFF);
   static const silverLight = Color(0xFFF0F0F0);
@@ -101,9 +109,9 @@ abstract final class BrandPalette {
       onPrimary: charcoalDeep,
       secondary: copper,
       onSecondary: silverLight,
-      surface: panel,
+      surface: shieldGrayPanel,
       onSurface: silverLight,
-      surfaceContainerHighest: panelHighlight,
+      surfaceContainerHighest: shieldGrayHighlight,
       outline: Color(0x66FFD54F),
       outlineVariant: Color(0x44B0B0B0),
     );
@@ -115,9 +123,9 @@ abstract final class BrandPalette {
       onPrimary: lightSurface,
       secondary: goldDim,
       onSecondary: lightOnSurface,
-      surface: lightSurface,
+      surface: shieldGrayPanelLight,
       onSurface: lightOnSurface,
-      surfaceContainerHighest: lightSurfaceHigh,
+      surfaceContainerHighest: shieldGrayLight,
       outline: Color(0xFFB8B8B8),
       outlineVariant: Color(0xFFD4D4D4),
     );

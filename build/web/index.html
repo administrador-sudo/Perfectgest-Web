@@ -55,21 +55,22 @@
   <meta name="apple-mobile-web-app-title" content="PerfectGest">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
-  <!-- Favicon -->
+  <!-- Favicon (brasão PerfectGestDev) -->
   <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/Icon-192.png"/>
 
   <title>Codificando o Amanha, Hoje | PerfectGest</title>
   <link rel="manifest" href="manifest.json">
   <!-- Descobre o bootstrap mais cedo (não bloqueia parsing; ajuda o browser a planear a rede) -->
   <link rel="preload" href="flutter_bootstrap.js" as="script">
-  <link rel="preload" href="icons/Icon-192.png" as="image" type="image/png">
+  <link rel="preload" href="brasao-perfectgestdev.png" as="image" type="image/png">
   <style>
     #pp-static-landing {
       position: fixed;
       inset: 0;
       z-index: 9999;
       overflow-y: auto;
-      background: radial-gradient(ellipse 120% 80% at 50% 100%, #6b4e12 0%, #1a1408 28%, #030303 55%, #000 100%);
+      background: radial-gradient(ellipse 120% 80% at 50% 0%, #454545 0%, #3d3d3d 42%, #323232 100%);
       color: #f0f0f0;
       font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       transition: opacity 220ms ease;
@@ -198,7 +199,7 @@
   <div id="pp-static-landing" aria-busy="true">
     <main class="wrap" role="main">
       <header class="brand-row" role="banner">
-        <img src="logo-perfectgestdev.jpg" width="280" height="120" alt="Perfect Gest Dev" decoding="async">
+        <img src="brasao-perfectgestdev.png" width="280" height="120" alt="Perfect Gest Dev" decoding="async" fetchpriority="high">
         <p class="brand" aria-hidden="true">Perfect Gest Dev</p>
       </header>
       <h1>Inovacao em Flutter, Java e SDKs</h1>
