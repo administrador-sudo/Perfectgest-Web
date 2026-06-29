@@ -3,10 +3,19 @@
  * Rotas legais no static host (Render):
  * - Remove ficheiros SEM extensao (causam download no browser).
  * - Publica {rota}.html com index (SPA) ou redirect (URLs legadas da app → Google Sites).
+ * - Cria /{rota}/index.html para URLs limpas quando o CDN suporta.
  * Ver docs/RENDER_SPA_REWRITE.md
  */
 const fs = require('node:fs');
 const path = require('node:path');
+
+const {
+  siteSpaPages,
+  clinicaIiiStaticSlugs,
+  perfectGestIStaticSlugs,
+  contabilIStaticSlugs,
+  legacyAppRedirects,
+} = require('./legal-routes.cjs');
 
 const buildWeb = path.join(__dirname, '..', 'build', 'web');
 const indexPath = path.join(buildWeb, 'index.html');
@@ -22,44 +31,6 @@ const { writeAll: writePerfectGestIStaticHtml } = require('./perfectgest-i-stati
 const { writeAll: writeContabilIStaticHtml } = require('./contabil-i-static-html.cjs');
 const { sync: syncPerfectGestILegalFromMd } = require('./perfectgest-i-sync-legal-from-md.cjs');
 const { sync: syncContabilILegalFromMd } = require('./contabil-i-sync-legal-from-md.cjs');
-
-/** Páginas do site institucional (Flutter SPA). */
-const siteSpaPages = [
-  'politica-devolucao',
-  'politica-privacidade-site',
-  'pre-cadastro',
-];
-
-/** Clinica III: HTML estático (sem Flutter — evita texto invisível com tema escuro). */
-const clinicaIiiStaticSlugs = [
-  'politica-privacidade-clinica-iii',
-  'termos-clinica-iii',
-  'dados-saude-lgpd-clinica-iii',
-];
-
-/** PerfectGest I: HTML estático no domínio (canónico app + site). */
-const perfectGestIStaticSlugs = [
-  'perfectgest-i-politica-privacidade',
-  'perfectgest-i-termos',
-  'perfectgest-i-exclusao-dados',
-  'perfectgest-i-faq',
-];
-
-/** PerfectGest-Contabil I: HTML estático (Google Play). */
-const contabilIStaticSlugs = [
-  'contabil-i-politica-privacidade',
-  'contabil-i-termos',
-  'contabil-i-exclusao-dados',
-  'contabil-i-faq',
-];
-
-/** Rotas antigas da app no domínio do site → portal Google Sites (canónico). */
-const legacyAppRedirects = {
-  'politica-privacidade-perfectgest-i':
-    'https://sites.google.com/view/perfectgest-i-faq-suporte/politica-em-pt',
-  'politica-exclusao-dados-perfectgest-i':
-    'https://sites.google.com/view/perfectgest-exclusao-dados/exclus%C3%A3o-de-dados',
-};
 
 function removeBare(segment) {
   const barePath = path.join(buildWeb, segment);
@@ -110,6 +81,9 @@ for (const [segment, targetUrl] of Object.entries(legacyAppRedirects)) {
   removeBare(segment);
   fs.writeFileSync(path.join(buildWeb, `${segment}.html`), writeRedirectHtml(targetUrl));
 }
+
+require('./sync-legal-html-to-build.cjs');
+require('./generate-render-legal-routes.cjs');
 
 console.log(
   `spa-legal-paths: ${siteSpaPages.length} SPA .html; ${clinicaIiiStaticSlugs.length} Clinica III estatico; ${perfectGestIStaticSlugs.length} PerfectGest I estatico; ${contabilIStaticSlugs.length} Contabil I estatico; ${Object.keys(legacyAppRedirects).length} redirects Google Sites.`,

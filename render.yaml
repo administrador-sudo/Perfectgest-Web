@@ -7,6 +7,62 @@ databases:
     user: perfectgest_leads_user
 
 services:
+  # Site estático — build/web commitado (npm run publish-web).
+  # Rewrites: URLs legais sem .html (ver docs/RENDER_SPA_REWRITE.md).
+  - type: web
+    name: perfectgest-web-desenvolvedor-apps
+    runtime: static
+    staticPublishPath: ./build/web
+    routes:
+      - type: rewrite
+        source: /politica-devolucao
+        destination: /politica-devolucao.html
+      - type: rewrite
+        source: /politica-privacidade-site
+        destination: /politica-privacidade-site.html
+      - type: rewrite
+        source: /pre-cadastro
+        destination: /pre-cadastro.html
+      - type: rewrite
+        source: /politica-privacidade-clinica-iii
+        destination: /politica-privacidade-clinica-iii.html
+      - type: rewrite
+        source: /termos-clinica-iii
+        destination: /termos-clinica-iii.html
+      - type: rewrite
+        source: /dados-saude-lgpd-clinica-iii
+        destination: /dados-saude-lgpd-clinica-iii.html
+      - type: rewrite
+        source: /perfectgest-i-politica-privacidade
+        destination: /perfectgest-i-politica-privacidade.html
+      - type: rewrite
+        source: /perfectgest-i-termos
+        destination: /perfectgest-i-termos.html
+      - type: rewrite
+        source: /perfectgest-i-exclusao-dados
+        destination: /perfectgest-i-exclusao-dados.html
+      - type: rewrite
+        source: /perfectgest-i-faq
+        destination: /perfectgest-i-faq.html
+      - type: rewrite
+        source: /contabil-i-politica-privacidade
+        destination: /contabil-i-politica-privacidade.html
+      - type: rewrite
+        source: /contabil-i-termos
+        destination: /contabil-i-termos.html
+      - type: rewrite
+        source: /contabil-i-exclusao-dados
+        destination: /contabil-i-exclusao-dados.html
+      - type: rewrite
+        source: /contabil-i-faq
+        destination: /contabil-i-faq.html
+      - type: rewrite
+        source: /politica-privacidade-perfectgest-i
+        destination: /politica-privacidade-perfectgest-i.html
+      - type: rewrite
+        source: /politica-exclusao-dados-perfectgest-i
+        destination: /politica-exclusao-dados-perfectgest-i.html
+
   - type: web
     name: perfectgest-leads-api
     runtime: node

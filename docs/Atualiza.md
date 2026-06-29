@@ -1851,3 +1851,27 @@ FROM site_leads ORDER BY created_at DESC;
 ### Validação
 - [x] `contabil-i-termos.html`: Básico Mensal, `contabil_i_basico_anual`, secção IR com IA (PT/EN/ES)
 
+## [2026-06-28] Rebrand visual — paleta logo PerfectGestDev
+
+### Contexto
+- Alinhar vitrine Flutter Web às cores do logo `imagens/Logo_da_Empreesa_PerfectGestDev.jpg` (prata, ouro, carvão).
+
+### Alterações
+- `lib/brand_palette.dart` — tokens canónicos, gradientes hero, `ColorScheme` dark/light.
+- `lib/app_theme.dart` — modo claro suave (sem teal); dark via `BrandPalette`.
+- `lib/metallic_style.dart` — `MetallicPalette` delega a `BrandPalette`.
+- `lib/main.dart` — hero: animação prata/ouro (substitui neon ciano/magenta/verde).
+- `web/index.html` — shell estático carvão/ouro; `theme-color` `#121212`.
+- `web/manifest.json` — `theme_color` `#D4AF37`.
+
+### Fora de escopo
+- Páginas legais HTML estático (`contabil-i-*`, etc.) — mantidas preto/branco.
+
+### Pendências (operador)
+- [ ] `npm run publish-web` para produção
+
+### Validação
+- [x] `flutter analyze` (1 info pré-existente em tool/)
+- [x] `flutter build web --release`
+- [ ] Smoke: home dark/light, hero glow, shell loading (operador)
+
