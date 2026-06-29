@@ -3,51 +3,40 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-/// Paleta alta vividez — logo Play Dev / PerfectGestDev.
+import 'brand_palette.dart';
+
+/// Paleta metálica — alias de [BrandPalette] (compatibilidade interna).
 abstract final class MetallicPalette {
-  static const charcoal = Color(0xFF121212);
-  static const charcoalDeep = Color(0xFF030303);
-  static const panel = Color(0xFF181818);
-  static const panelHighlight = Color(0xFF2C2C2C);
+  static const charcoal = BrandPalette.charcoal;
+  static const charcoalDeep = BrandPalette.charcoalDeep;
+  static const panel = BrandPalette.panel;
+  static const panelHighlight = BrandPalette.panelHighlight;
 
-  static const silverPeak = Color(0xFFFFFFFF);
-  static const silverLight = Color(0xFFF8F8F8);
-  static const silverMid = Color(0xFFA8A8A8);
-  static const silverDark = Color(0xFF454545);
+  static const silverPeak = BrandPalette.silverPeak;
+  static const silverLight = BrandPalette.silverLight;
+  static const silverMid = BrandPalette.silverMid;
+  static const silverDark = BrandPalette.silverDark;
 
-  static const copper = Color(0xFFCD7F32);
-  static const copperBright = Color(0xFFE8A85C);
+  static const copper = BrandPalette.copper;
+  static const copperBright = BrandPalette.copperBright;
   static const copperDeep = Color(0xFF7A4E22);
 
-  static const gold = Color(0xFFFFD54F);
-  static const goldWarm = Color(0xFFD4AF37);
-  static const goldDim = Color(0xFF8B6914);
+  static const gold = BrandPalette.gold;
+  static const goldWarm = BrandPalette.goldWarm;
+  static const goldDim = BrandPalette.goldDim;
 
+  @Deprecated('Use BrandPalette.heroGlowCycle for hero animations')
   static const rainbowPlay = [
-    Color(0xFFFF5252),
-    Color(0xFFFFAB40),
-    Color(0xFFFFEE58),
-    Color(0xFF69F0AE),
-    Color(0xFF40C4FF),
-    Color(0xFF7C4DFF),
+    BrandPalette.silverPeak,
+    BrandPalette.gold,
+    BrandPalette.goldWarm,
+    BrandPalette.silverMid,
   ];
 }
 
 const double kMetallicSilverBorderWidth = 5.2;
 
-const LinearGradient kMetallicRimGradient = LinearGradient(
-  begin: Alignment.topLeft,
-  end: Alignment.bottomRight,
-  colors: [
-    Color(0xFFFFFFFF),
-    Color(0xFFE8E8E8),
-    Color(0xFF707070),
-    Color(0xFF252525),
-    Color(0xFFF0F0F0),
-    Color(0xFFB8B8B8),
-  ],
-  stops: [0.0, 0.12, 0.42, 0.62, 0.82, 1.0],
-);
+const LinearGradient kMetallicRimGradient = BrandPalette.chromeGradient;
 
 /// Fundo escuro + luz dourada (como no render 3D do logo).
 BoxDecoration metallicScaffoldDecoration() {
@@ -69,8 +58,8 @@ class MetallicVividBackground extends StatelessWidget {
               center: Alignment(0.55, 0.95),
               radius: 1.45,
               colors: [
-                Color(0xFF6B4E12),
-                Color(0xFF1A1408),
+                BrandPalette.goldAmbient,
+                BrandPalette.goldAmbientDeep,
                 MetallicPalette.charcoalDeep,
                 Color(0xFF000000),
               ],

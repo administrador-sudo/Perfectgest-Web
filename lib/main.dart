@@ -11,6 +11,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'app_legal_urls.dart';
 import 'app_theme.dart';
 import 'asset_screenshot.dart';
+import 'brand_palette.dart';
 import 'company_legal.dart';
 import 'l10n/app_localizations.dart';
 import 'locale_controller.dart';
@@ -1329,18 +1330,9 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
                   final pulse = accentMotion ? (0.45 + 0.55 * (0.5 + 0.5 * math.sin(_ambient.value * math.pi * 2))) : 0.55;
                   final beat = accentMotion ? (0.5 + 0.5 * math.sin(_ambient.value * math.pi * 6)) : 0.5;
                   final borderColor = Color.lerp(cs.outline, cs.primary, pulse * 0.55)!;
-                  final neonPhase = (_ambient.value * 3) % 1;
-                  final neonIndex = (_ambient.value * 3).floor() % 3;
-                  final neonPalette = <Color>[
-                    const Color(0xFF00F5FF),
-                    const Color(0xFFFF2BD6),
-                    const Color(0xFF39FF14),
-                  ];
-                  final neonColor = Color.lerp(
-                    neonPalette[neonIndex],
-                    neonPalette[(neonIndex + 1) % neonPalette.length],
-                    neonPhase,
-                  )!;
+                  final glowPhase = accentMotion ? _ambient.value : 0.0;
+                  final glowColor = BrandPalette.heroGlowAt(glowPhase);
+                  final heroTitleAngle = accentMotion ? _ambient.value * math.pi * 1.25 : 0.0;
                   return Container(
                     width: double.infinity,
                     padding: const EdgeInsets.all(26),
@@ -1351,22 +1343,22 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
                       boxShadow: accentMotion
                           ? [
                               BoxShadow(
-                                color: neonColor.withValues(alpha: 0.30 + (beat * 0.14)),
+                                color: glowColor.withValues(alpha: 0.28 + (beat * 0.16)),
                                 blurRadius: 28 + (beat * 18),
                                 spreadRadius: 1.2 + (beat * 2.0),
                               ),
                               BoxShadow(
-                                color: const Color(0xFF00E1FF).withValues(alpha: 0.10 + (beat * 0.10)),
+                                color: BrandPalette.gold.withValues(alpha: 0.12 + (beat * 0.12)),
                                 blurRadius: 44 + (beat * 20),
                                 spreadRadius: 0.6 + (beat * 1.4),
                               ),
                               BoxShadow(
-                                color: const Color(0xFFFF2BD6).withValues(alpha: 0.08 + ((1 - beat) * 0.10)),
+                                color: BrandPalette.silverPeak.withValues(alpha: 0.08 + ((1 - beat) * 0.10)),
                                 blurRadius: 38 + ((1 - beat) * 16),
                                 spreadRadius: 0.4 + ((1 - beat) * 1.2),
                               ),
                               BoxShadow(
-                                color: neonColor.withValues(alpha: 0.24 + (beat * 0.16)),
+                                color: BrandPalette.goldWarm.withValues(alpha: 0.22 + (beat * 0.14)),
                                 blurRadius: 56 + (beat * 24),
                                 spreadRadius: 0.8 + (beat * 2.0),
                                 offset: Offset(0, 14 + (beat * 8)),
@@ -1412,18 +1404,8 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
                           child: staticDecor
                               ? ShaderMask(
                                   blendMode: BlendMode.srcIn,
-                                  shaderCallback: (bounds) {
-                                    final angle = accentMotion ? _ambient.value * math.pi * 1.25 : 0.0;
-                                    return LinearGradient(
-                                      colors: [
-                                        const Color(0xFF00F5FF),
-                                        const Color(0xFFFF2BD6),
-                                        const Color(0xFF39FF14),
-                                      ],
-                                      stops: const [0.05, 0.5, 0.95],
-                                      transform: GradientRotation(angle),
-                                    ).createShader(bounds);
-                                  },
+                                  shaderCallback: (bounds) => BrandPalette.heroTitleGradient(angle: heroTitleAngle)
+                                      .createShader(bounds),
                                   child: Text(
                                     l10n.heroHeadline1,
                                     style: TextStyle(
@@ -1448,18 +1430,8 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
                         staticDecor
                             ? ShaderMask(
                                 blendMode: BlendMode.srcIn,
-                                shaderCallback: (bounds) {
-                                  final angle = accentMotion ? _ambient.value * math.pi * 1.25 : 0.0;
-                                  return LinearGradient(
-                                    colors: [
-                                      const Color(0xFF00F5FF),
-                                      const Color(0xFFFF2BD6),
-                                      const Color(0xFF39FF14),
-                                    ],
-                                    stops: const [0.05, 0.5, 0.95],
-                                    transform: GradientRotation(angle),
-                                  ).createShader(bounds);
-                                },
+                                shaderCallback: (bounds) => BrandPalette.heroTitleGradient(angle: heroTitleAngle)
+                                    .createShader(bounds),
                                 child: Text(
                                   l10n.heroHeadline2,
                                   style: GoogleFonts.inter(
@@ -1490,18 +1462,8 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
                         staticDecor
                             ? ShaderMask(
                                 blendMode: BlendMode.srcIn,
-                                shaderCallback: (bounds) {
-                                  final angle = accentMotion ? _ambient.value * math.pi * 1.25 : 0.0;
-                                  return LinearGradient(
-                                    colors: [
-                                      const Color(0xFF00F5FF),
-                                      const Color(0xFFFF2BD6),
-                                      const Color(0xFF39FF14),
-                                    ],
-                                    stops: const [0.05, 0.5, 0.95],
-                                    transform: GradientRotation(angle),
-                                  ).createShader(bounds);
-                                },
+                                shaderCallback: (bounds) => BrandPalette.heroTitleGradient(angle: heroTitleAngle)
+                                    .createShader(bounds),
                                 child: Text(
                                   l10n.heroCloser,
                                   style: TextStyle(
