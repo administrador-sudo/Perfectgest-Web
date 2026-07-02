@@ -20,6 +20,7 @@
       background: #fff; color: #000;
       font-family: "Segoe UI", "Segoe UI Web", "Helvetica Neue", Arial, sans-serif;
       font-size: 14px; line-height: 1.6;
+      overflow-x: hidden;
     }
     .top {
       display: flex; align-items: center; justify-content: space-between;
@@ -32,7 +33,7 @@
       padding: 4px 10px; margin-left: 4px; cursor: pointer; font-size: 13px;
     }
     .lang-nav button.active { border-color: #0067b8; color: #0067b8; font-weight: 600; }
-    main { max-width: 800px; margin: 0 auto; padding: 24px 24px 40px; }
+    main { max-width: 800px; width: 100%; margin: 0 auto; padding: 24px 16px 40px; overflow-x: hidden; }
     .page-title { font-size: 26px; font-weight: 600; margin: 0 0 8px; color: #000; }
     .updated { color: #444; font-size: 13px; margin: 0 0 20px; }
     .legal-header {
@@ -41,23 +42,30 @@
     }
     .block { margin-bottom: 24px; }
     .block h2 { font-size: 16px; font-weight: 600; margin: 0 0 8px; color: #000; }
-    .block .body { color: #000; }
+    .block .body { color: #000; max-width: 100%; overflow-wrap: anywhere; }
+    .table-scroll {
+      max-width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 12px 0 16px;
+    }
     table.compare-table {
-      width: 100%; border-collapse: collapse; margin: 12px 0 16px;
-      font-size: 13px; line-height: 1.45;
+      width: 100%; min-width: 0; border-collapse: collapse;
+      font-size: 13px; line-height: 1.45; table-layout: fixed;
     }
     table.compare-table th,
     table.compare-table td {
       border: 1px solid #ccc; padding: 8px 10px; text-align: left; vertical-align: top;
+      word-break: break-word; overflow-wrap: anywhere; hyphens: auto;
     }
     table.compare-table thead th {
       background: #f3f3f3; font-weight: 600;
     }
     table.compare-table tbody tr:nth-child(even) td { background: #fafafa; }
-    table.compare-table td:not(:first-child),
-    table.compare-table th:not(:first-child) { text-align: center; white-space: nowrap; }
+    table.compare-table td:nth-child(2),
+    table.compare-table th:nth-child(2) { text-align: center; white-space: nowrap; }
     table.compare-table td:first-child,
-    table.compare-table th:first-child { min-width: 9rem; }
+    table.compare-table th:first-child { width: 28%; min-width: 7rem; }
     footer {
       border-top: 1px solid #e1e1e1; padding-top: 16px; margin-top: 32px;
       text-align: center; font-size: 13px; line-height: 1.8;
@@ -90,92 +98,116 @@ Papéis no tratamento (LGPD)<br>
 • Controlador dos dados contábeis e da empresa: o titular da ME/MEI ou o profissional que utiliza o software.<br>
 • Operador do software: Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA) — desenvolve e mantém a ferramenta; não decide sobre o conteúdo inserido pelo utilizador.<br>
 • Direitos do titular: aceder, corrigir, exportar e eliminar no próprio app, ou contactar suporte@perfectgestdev.com.</div>
-  <section class="block"><h2>1. Aceitação</h2><div class="body">Ao instalar, abrir ou utilizar o aplicativo PerfectGest ContábilSigilo (“App”), você concorda com estes Termos de Uso e com a Política de Privacidade.<br>
+  <section class="block"><h2>Introdução</h2><div class="body">O que é este app<br>
+O PerfectGest ContábilSigilo é uma ferramenta para ajudar microempresas e MEI a organizar suas finanças e obrigações fiscais.<br>
 <br>
-Se não concordar, não utilize o App e desinstale-o do seu dispositivo.</div></section>
-<section class="block"><h2>2. O que é o App</h2><div class="body">O PerfectGest ContábilSigilo é uma ferramenta de apoio contábil operacional para microempresas e MEI, incluindo:<br>
+O que o app faz:<br>
+- Livro caixa para registrar entradas e saídas<br>
+- Lembretes de obrigações fiscais (DAS, ISS, etc.)<br>
+- Fechamento mensal e conciliação<br>
+- Folha de pagamento MEI/ME<br>
+- Cálculo de imposto de renda com assistente IA<br>
+- Rastreio de notas fiscais emitidas<br>
+- Carnê-Leão mensal automático<br>
+- Geração de relatórios em PDF<br>
+- Backup dos seus dados<br>
 <br>
-- Livro caixa e lançamentos<br>
-- Obrigações fiscais com lembretes de vencimento<br>
-- Fecho do mês e conciliação<br>
-- Folha MEI/ME, IR com IA, relatórios PDF e backup local<br>
-- Subscrições via Google Play (planos Básico, Com Contador e Anual + A1 — ver secção 4)</div></section>
-<section class="block"><h2>3. O que o App não é</h2><div class="body">- Não é um banco, instituição financeira ou meio de pagamento.<br>
-- Não processa transferências, PIX, cartões ou movimentação bancária real.<br>
-- Não substitui, por si só, um contador, escritório contábil certificado ou assessoria jurídica/tributária.<br>
-- Não garante conformidade fiscal automática perante a Receita Federal, municípios ou outros órgãos — a responsabilidade pelos lançamentos e declarações é do titular da empresa e dos profissionais que a assessoram.</div></section>
-<section class="block"><h2>4. Planos e subscrições (Google Play)</h2><div class="body">O App é gratuito para instalar. O acesso completo requer subscrição activa gerida pela Google Play. A app valida o pagamento junto à Play antes de activar funcionalidades premium; não existe atalho de «acesso de desenvolvimento» em versões publicadas.<br>
+O que o app NÃO é<br>
+- Não é um banco - Não movimenta dinheiro real<br>
+- Não conecta ao seu banco - Você digita os lançamentos manualmente<br>
+- Não substitui um contador - É uma ferramenta de apoio. Para declarações oficiais, você pode precisar de um contador habilitado<br>
+- Não garante conformidade fiscal - A responsabilidade pelos lançamentos é sua<br>
 <br>
-4.1 Planos disponíveis (preços de referência)<br>
+Planos e preços<br>
+O app é gratuito para baixar. Para usar todas as funções, você precisa de um plano ativo na Google Play.<br>
 <br>
-<table class="compare-table"><thead><tr><th>Plano</th><th>Preço de referência</th><th>O que inclui</th></tr></thead><tbody><tr><td>Básico Mensal</td><td>R$ 9,90/mês</td><td>Livro caixa, imposto de renda, notas fiscais, folha — sem contador</td></tr><tr><td>Básico Anual</td><td>R$ 99,90/ano</td><td>Igual ao mensal; pague 10 meses, use 12</td></tr><tr><td>Com Contador (Essencial / Standard / Avançado)</td><td>R$ 69,90–119,90/mês</td><td>Básico + revisão pelo contador + abertura de empresa</td></tr><tr><td>Anual contábil com certificado (3 faixas)</td><td>R$ 838,80–1.438,80/ano</td><td>Com Contador + certificado digital e-CNPJ</td></tr><tr><td>Com Contador Anual em 12 parcelas</td><td>12× R$ 69,90–119,90</td><td>Anual contábil parcelado + certificado digital</td></tr></tbody></table><br>
+#### Planos básicos (sem contador)<br>
 <br>
-- Pagamento, renovação e cancelamento seguem as regras da Google Play.<br>
-- Preços na loja prevalecem sobre valores de referência acima.</div></section>
-<section class="block"><h2>5. Serviço de abertura de empresa</h2><div class="body">Os planos Com Contador (mensal), Anual + A1 e Com Contador Anual (12×) podem incluir serviço de abertura de empresa (constituição/registo empresarial), prestado pela PerfectGest ou parceiros, mediante contrato ou aceite específico quando aplicável.<br>
+<div class="table-scroll"><table class="compare-table"><thead><tr><th>Plano</th><th>Preço</th><th>O que inclui</th></tr></thead><tbody><tr><td>Básico Mensal</td><td>R$ 9,90/mês</td><td>Livro caixa, IR com IA, rastreio NF, Carnê-Leão</td></tr><tr><td>Básico Anual</td><td>R$ 99,90/ano</td><td>Tudo do Mensal + 2 meses grátis (pague 10, use 12)</td></tr></tbody></table></div><br>
 <br>
-5.1 O que não está incluído<br>
+#### Planos com contador (mensal)<br>
 <br>
-- Taxas, emolumentos, custas e tributos cobrados por Junta Comercial, prefeitura, Receita Federal, cartório ou outros órgãos públicos — são de responsabilidade do cliente e pagos directamente aos entes competentes.<br>
+<div class="table-scroll"><table class="compare-table"><thead><tr><th>Plano</th><th>Preço</th><th>Faixa</th><th>O que inclui</th></tr></thead><tbody><tr><td>Com Contador — Essencial</td><td>R$ 69,90/mês</td><td>1-3 funcionários</td><td>Tudo do Básico + Conferência CRC + Envio CRC + Abertura empresa + Suporte contador</td></tr><tr><td>Com Contador — Standard</td><td>R$ 89,90/mês</td><td>4-6 funcionários</td><td>Tudo do Essencial + Faixa maior</td></tr><tr><td>Com Contador — Avançado</td><td>R$ 119,90/mês</td><td>7-8 funcionários</td><td>Tudo do Standard + Faixa maior</td></tr></tbody></table></div><br>
 <br>
-5.2 Prazo do processo<br>
+#### Pacote anual configurável (Monte seu plano)<br>
 <br>
-O serviço de abertura de empresa pode demorar até 14 (catorze) dias, contados a partir da entrega de toda a documentação exigida e do pagamento das taxas oficiais pelo titular.<br>
+Na Google Play existem 24 subscrições (faixa Essencial, Standard ou Avançado × combinações opcionais de Sigilo, Folha e IR). Pagamento em 12 parcelas no cartão; 1 fatura por combinação escolhida.<br>
 <br>
-Este prazo refere-se ao processo administrativo de abertura, incluindo, conforme o caso:<br>
+<div class="table-scroll"><table class="compare-table"><thead><tr><th>Faixa</th><th>Preço ref. (contador + A1)</th><th>12× ref.</th></tr></thead><tbody><tr><td>Essencial</td><td>R$ 838,80/ano</td><td>12× R$ 69,90</td></tr><tr><td>Standard</td><td>R$ 1.078,80/ano</td><td>12× R$ 89,90</td></tr><tr><td>Avançado</td><td>R$ 1.438,80/ano</td><td>12× R$ 119,90</td></tr></tbody></table></div><br>
 <br>
-- Solicitação e protocolo junto à Junta Comercial (ou órgão equivalente);<br>
-- Análises, exigências e aprovações dos órgãos competentes;<br>
-- Registos e alvarás junto à prefeitura e demais entidades;<br>
-- Demais etapas legais necessárias à regularização da empresa.<br>
+Add-ons (Sigilo, Folha, IR) podem ir no pacote (desconto 15%) ou ser contratados depois. Lista completa de IDs: Planos_de_assinaturas.md.<br>
 <br>
-Não inclui atrasos causados por documentação incompleta, pendências do cliente, indisponibilidade de sistemas públicos ou força maior.</div></section>
-<section class="block"><h2>6. Conferência contábil (Com Contador / Anual)</h2><div class="body">Com plano Com Contador, Anual contábil ou Com Contador Anual (12×), o cliente pode enviar o mês fechado à PerfectGest para revisão contábil, mediante consentimento explícito na app.<br>
+#### Certificado A1 Quality — avulso<br>
 <br>
-- A PerfectGest analisa o pacote enviado e responde na app (em análise, pendências, conferido).<br>
-- Declarações oficiais podem exigir contrato com contador separado.<br>
-- O envio não substitui a entrega de declarações nos portais oficiais, salvo acordo expresso em contrato de serviço.</div></section>
-<section class="block"><h2>7. Certificado digital da empresa (Plano Anual contábil)</h2><div class="body">Os planos Anual contábil com certificado e Com Contador Anual (12×) incluem certificado e-CNPJ via parceiro certificadora (Quality Cert).<br>
+<div class="table-scroll"><table class="compare-table"><thead><tr><th>Preço</th><th>O que inclui</th></tr></thead><tbody><tr><td>R$ 119,00</td><td>Emissão e-CNPJ A1 via Quality Cert — sem acesso ao Livro Caixa ou funcionalidades do app</td></tr></tbody></table></div><br>
 <br>
-- Elegibilidade exige plano activo confirmado na Google Play.<br>
-- Após pagamento confirmado, o utilizador pode cadastrar dados na app e receber código ou link da certificadora.<br>
-- A emissão do certificado segue validação de identidade da certificadora, independente da PerfectGest.<br>
+#### Serviços complementares (legado)<br>
 <br>
-Planos Básico e Com Contador mensal não incluem certificado digital.</div></section>
-<section class="block"><h2>8. Uso permitido</h2><div class="body">Você pode utilizar o App para:<br>
+<div class="table-scroll"><table class="compare-table"><thead><tr><th>Serviço</th><th>Estado</th></tr></thead><tbody><tr><td>Contador-Sigilo-Digital</td><td>Desactivado na Play — substituído por add-on ou pacote com Sigilo</td></tr></tbody></table></div><br>
 <br>
-- Registar movimentos financeiros da sua atividade empresarial<br>
-- Organizar obrigações e fechos mensais<br>
-- Exportar dados para arquivo pessoal ou entrega a contador<br>
-- Subscrever planos e, quando elegível, solicitar abertura de empresa e envio para conferência<br>
+#### Add-ons (opcionais)<br>
+<br>
+<div class="table-scroll"><table class="compare-table"><thead><tr><th>Add-on</th><th>Preço</th><th>O que faz</th></tr></thead><tbody><tr><td>Add-on: Contador faz os Lançamentos</td><td>12x R$ 59,90/mês</td><td>Contador lança pelos documentos bancários</td></tr><tr><td>Add-on: Contador Processa a Folha</td><td>12x R$ 79,90/mês</td><td>Contador processa folha de pagamento</td></tr><tr><td>Add-on: Declaração IRPF/MEI</td><td>1x R$ 29,90</td><td>Contador faz declaração anual de IR</td></tr></tbody></table></div><br>
+<br>
+Os preços podem variar. O preço na Google Play é o oficial.<br>
+<br>
+Sistema de faixas operacionais<br>
+Os planos com contador têm 3 faixas baseadas no volume da sua empresa:<br>
+<br>
+- Essencial: Até 3 funcionários, até 50 lançamentos/mês, até 10 NF/mês<br>
+- Standard: 4-6 funcionários, 26-60 lançamentos/mês, 7-20 NF/mês<br>
+- Avançado: 7-8 funcionários, 61-100 lançamentos/mês, 21-50 NF/mês<br>
+<br>
+Se sua empresa crescer, você pode fazer upgrade na Google Play.<br>
+<br>
+Serviço de abertura de empresa<br>
+Planos &quot;Com Contador&quot; e planos anuais incluem ajuda para abrir sua empresa (ME ou MEI).<br>
+<br>
+O que NÃO está incluído:<br>
+- Taxas da Junta Comercial, prefeitura e outros órgãos públicos - você paga diretamente a eles<br>
+<br>
+Prazo:<br>
+- O processo pode levar até 14 dias após você entregar toda a documentação<br>
+- Esse prazo depende dos órgãos públicos e pode variar<br>
+<br>
+Revisão pelo contador<br>
+Com planos que incluem contador, você pode enviar o mês fechado para análise.<br>
+<br>
+- O contador analisa e responde no app<br>
+- Planos anuais incluem assinatura do livro caixa pelo contador no fim de cada mês<br>
+- Para declarações oficiais, pode ser necessário contrato separado<br>
+- O envio não substitui entrega nos portais oficiais<br>
+<br>
+Certificado digital<br>
+O pacote anual configurável inclui certificado e-CNPJ A1. O plano Certificado A1 avulso (R$ 119,00) inclui só a emissão via Quality — sem app.<br>
+<br>
+Requisitos (add-ons avulsos):<br>
+- Ter pacote anual com contador activo na Google Play<br>
+- Aceitar compartilhar dados com o contador<br>
+<br>
+Plano anual com contador sem add-ons<br>
+O cliente pode fazer lançamentos, transmitir meses para conferência CRC e o contador assina o livro caixa sem contratar add-ons, desde que consiga fechamentos com partida dobrada em R$ 0,00. Add-ons (Sigilo, Folha, IR) são opcionais e só funcionam com assinatura anual com contador activa.<br>
+<br>
+Uso permitido<br>
+Você pode usar o app para:<br>
+- Registrar movimentos financeiros do seu negócio<br>
+- Organizar obrigações fiscais<br>
+- Exportar dados para arquivo pessoal ou contador<br>
+- Contratar planos e serviços adicionais<br>
 <br>
 É proibido:<br>
+- Usar para fins ilegais<br>
+- Tentar burlar limitações do app<br>
+- Revender ou redistribuir o app<br>
 <br>
-- Utilizar o App para fins ilegais ou fraudulentos<br>
-- Tentar contornar limitações técnicas ou aceder a dados de terceiros sem autorização<br>
-- Redistribuir ou revender o App sem autorização da PerfectGest</div></section>
-<section class="block"><h2>9. Dados e responsabilidade</h2><div class="body">- Os dados inseridos são de sua responsabilidade quanto à exatidão e legalidade.<br>
-- O armazenamento principal é local no dispositivo; perda, roubo ou dano do aparelho pode implicar perda de dados se não houver backup.<br>
-- Recomendamos exportar backups periodicamente (menu Relatórios e backup).<br>
-- Envios pela internet (revisão pelo contador, confirmação de compra, certificado digital) ocorrem só com consentimento.<br>
-- Consulte a Política de Privacidade e Exclusão de Dados.</div></section>
-<section class="block"><h2>10. Ligações externas</h2><div class="body">O App pode abrir sites oficiais (Receita Federal, portais MEI, ISS municipal, Quality Cert, Google Play, etc.) no seu browser. A PerfectGest não controla o conteúdo nem as políticas desses sites.</div></section>
-<section class="block"><h2>11. Disponibilidade e atualizações</h2><div class="body">- O App é fornecido “como está”, sem garantia de disponibilidade ininterrupta.<br>
-- Podemos lançar atualizações pela Google Play para correções, melhorias ou adequação legal.<br>
-- Funcionalidades podem evoluir entre versões; consulte as notas de versão na loja.</div></section>
-<section class="block"><h2>12. Propriedade intelectual</h2><div class="body">O App, marca PerfectGest, logótipos e código são propriedade da PerfectGest ou dos seus licenciadores. Estes Termos não concedem direitos de propriedade sobre o software.</div></section>
-<section class="block"><h2>13. Limitação de responsabilidade</h2><div class="body">Na máxima extensão permitida pela lei aplicável:<br>
+Sua responsabilidade<br>
+- Você é responsável pela exatidão dos dados que digita<br>
+- Seus dados ficam salvos no celular - se perder o aparelho sem backup, pode perder os dados<br>
+- Recomendamos fazer backup regularmente<br>
+- Decisões fiscais importantes devem ser validadas por profissional habilitado<br>
 <br>
-- A PerfectGest não se responsabiliza por multas, penalidades fiscais, erros de lançamento ou decisões tomadas com base exclusiva no App.<br>
-- Não se responsabiliza por danos indiretos, lucros cessantes ou perda de dados decorrente de uso incorreto, falta de backup ou falha do dispositivo.<br>
-- Não garante prazo inferior a 14 dias para conclusão da abertura de empresa quando dependente de terceiros (Junta Comercial, prefeitura, etc.).<br>
-<br>
-O App é uma auxiliar de registo; decisões tributárias e contábeis devem ser validadas por profissional habilitado quando necessário.</div></section>
-<section class="block"><h2>14. Rescisão</h2><div class="body">Você pode cancelar subscrições na Google Play e deixar de usar o App a qualquer momento, eliminando os dados (ver Exclusão de Dados) e desinstalando-o.</div></section>
-<section class="block"><h2>15. Lei aplicável</h2><div class="body">Estes Termos regem-se pelas leis da República Federativa do Brasil, incluindo o Código de Defesa do Consumidor e a LGPD, quando aplicáveis.<br>
-<br>
-Foro: comarca do domicílio do consumidor, nos termos do CDC, salvo disposição legal em contrário.</div></section>
-<section class="block"><h2>16. Contacto</h2><div class="body">PerfectGest<br>
+Contato<br>
+PerfectGest<br>
 E-mail: suporte@perfectgestdev.com</div></section>
 </div>
 <div class="lang-panel" data-lang="en" hidden>
@@ -202,7 +234,7 @@ If you disagree, do not use the App and uninstall it from your device.</div></se
 - IR with AI module (IRPF, Carnê-Leão, deductions and Gemini chat)<br>
 - PerfectGest AI Assistant (questions about the app, IR and MEI/ME obligations)<br>
 - PDF report export and local backup<br>
-- Google Play subscriptions (Básico Mensal, Básico Anual, Com Contador and Anual + A1 plans)<br>
+- Google Play subscriptions (Basic Monthly/Annual, Com Contador monthly, configurable annual package, standalone A1 certificate)<br>
 <br>
 Day-to-day use (entries and closing) works offline on the device. Internet is required for subscription, cloud services (with consent), Gemini AI and external links.</div></section>
 <section class="block"><h2>3. What the App is not</h2><div class="body">- Not a bank, financial institution or payment method.<br>
@@ -217,13 +249,11 @@ Plan · Product ID · Ref. price · Summary<br>
 Basic Monthly · contabil_i_mensal · R$ 9.90/month · Cash book, IR, invoices, Carnê-Leão, payroll (no CRC)<br>
 Basic Annual · contabil_i_basico_anual · R$ 99.90/year · Same as Basic Monthly; pay 10 months, use 12<br>
 Com Contador (Essential / Standard / Advanced) · contabil_i_contabil_plus · R$ 69.90–119.90/month · Basic + CRC review + company opening<br>
-Anual + A1 (3 tiers) · contabil_i_anual · R$ 838.80–1,438.80/year · Com Contador + e-CNPJ A1 certificate<br>
-Com Contador Annual 12× Essential · contador_anual_parcelado_essencial_f · 12× R$ 69.90 · Annual accounting + A1<br>
-Com Contador Annual 12× Standard · contador_anual_parcelado_standard_f · 12× R$ 89.90 · Standard tier + A1<br>
-Com Contador Annual 12× Advanced · contador_anual_parcelado_avancado_f · 12× R$ 119.90 · Advanced tier + A1<br>
+Configurable annual package (Build your plan) · contabil_i_pacote_* / contabil_i_pac_* · 12× R$ 69.90–119.90 · Accountant + CRC + A1; optional Sigilo, Payroll, IR add-ons (24 subscriptions on Play)<br>
+Standalone A1 certificate · contabil_i_certificado_a1 · R$ 119.00 · Quality e-CNPJ A1 issuance only — no app access<br>
 <br>
 Payment, renewal and cancellation follow Google Play rules. Store prices prevail over reference values above.</div></section>
-<section class="block"><h2>5. Company opening service</h2><div class="body">Com Contador and Anual + A1 plans may include company opening (incorporation/registration) by PerfectGest or partners, subject to specific contract or acceptance when applicable.<br>
+<section class="block"><h2>5. Company opening service</h2><div class="body">Com Contador (monthly) and configurable annual package plans may include company opening (incorporation/registration) by PerfectGest or partners, subject to specific contract or acceptance when applicable.<br>
 <br>
 5.1 Not included<br>
 <br>
@@ -241,12 +271,12 @@ This refers to the administrative opening process, including as applicable:<br>
 - Other legal steps required for business regularization.<br>
 <br>
 Does not include delays from incomplete documentation, client pending items, public system outages or force majeure.</div></section>
-<section class="block"><h2>6. Accounting review (Com Contador and Anual + A1)</h2><div class="body">With Com Contador or Anual + A1, the client may send the closed month to PerfectGest for accounting review, with explicit consent for cloud processing (Firebase). The package is encrypted on the device (AES-256-CBC) before submission.<br>
+<section class="block"><h2>6. Accounting review (Com Contador and annual package)</h2><div class="body">With Com Contador (monthly) or the configurable annual package, the client may send the closed month to PerfectGest for accounting review, with explicit consent for cloud processing (Firebase). The package is encrypted on the device (AES-256-CBC) before submission.<br>
 <br>
 - PerfectGest analyzes the submitted package and responds in the app (under review, pending items, reviewed).<br>
 - Official tax filings may require a separate accounting services contract with a CRC professional.<br>
 - Submission does not replace filing on official portals unless expressly agreed in a service contract.</div></section>
-<section class="block"><h2>7. A1 digital certificate (Anual + A1 / Com Contador Annual)</h2><div class="body">Plans Anual + A1 (contabil_i_anual) and Com Contador Annual 12× (contador_anual_parcelado_*) include a promotional e-CNPJ A1 certificate via partner certifier (Quality Cert).<br>
+<section class="block"><h2>7. A1 digital certificate (annual package / standalone)</h2><div class="body">The configurable annual package includes a promotional e-CNPJ A1 certificate via partner certifier (Quality Cert). Standalone plan contabil_i_certificado_a1 (R$ 119.00) includes issuance only — no app access.<br>
 <br>
 - Eligibility requires active subscription validated on Google Play.<br>
 - After confirmed payment, the user may register data in the app (internal form) and receive Quality code/link when assigned by Firebase.<br>
@@ -316,7 +346,7 @@ Si no está de acuerdo, no utilice la App y desinstálela de su dispositivo.</di
 - Módulo IR con IA (IRPF, Carnê-Leão, deducciones y chat Gemini)<br>
 - Asistente IA PerfectGest (dudas sobre la app, IR y obligaciones MEI/ME)<br>
 - Exportación de informes PDF y backup local<br>
-- Suscripciones Google Play (planes Básico Mensual, Básico Anual, Com Contador y Anual + A1)<br>
+- Suscripciones Google Play (Básico Mensual/Anual, Com Contador mensual, paquete anual configurable, certificado A1 avulso)<br>
 <br>
 El día a día (movimientos y cierre) funciona offline en el dispositivo. Internet es necesaria para suscripción, servicios en la nube (con consentimiento), IA Gemini y enlaces externos.</div></section>
 <section class="block"><h2>3. Qué no es la App</h2><div class="body">- No es banco, institución financiera ni medio de pago.<br>
@@ -331,13 +361,11 @@ Plan · ID producto · Precio ref. · Resumen<br>
 Básico Mensual · contabil_i_mensal · R$ 9,90/mes · Libro de caja, IR, NF, carnê-leão, nómina (sin CRC)<br>
 Básico Anual · contabil_i_basico_anual · R$ 99,90/año · Igual al mensual; pague 10 meses, use 12<br>
 Com Contador (Essencial / Standard / Avanzado) · contabil_i_contabil_plus · R$ 69,90–119,90/mes · Básico + revisión CRC + apertura de empresa<br>
-Anual + A1 (3 faixas) · contabil_i_anual · R$ 838,80–1.438,80/año · Com Contador + certificado e-CNPJ A1<br>
-Com Contador Anual 12× Essencial · contador_anual_parcelado_essencial_f · 12× R$ 69,90 · Anual contable + A1<br>
-Com Contador Anual 12× Standard · contador_anual_parcelado_standard_f · 12× R$ 89,90 · Faixa Standard + A1<br>
-Com Contador Anual 12× Avanzado · contador_anual_parcelado_avancado_f · 12× R$ 119,90 · Faixa Avanzado + A1<br>
+Paquete anual configurable (Monte su plan) · contabil_i_pacote_* / contabil_i_pac_* · 12× R$ 69,90–119,90 · Contador + CRC + A1; add-ons Sigilo, Nómina, IR opcionales (24 suscripciones en Play)<br>
+Certificado A1 avulso · contabil_i_certificado_a1 · R$ 119,00 · Solo emisión Quality e-CNPJ A1 — sin acceso a la app<br>
 <br>
 Pago, renovación y cancelación siguen las reglas de Google Play. Los precios en la tienda prevalecen sobre los valores de referencia.</div></section>
-<section class="block"><h2>5. Servicio de apertura de empresa</h2><div class="body">Los planes Com Contador y Anual + A1 pueden incluir servicio de apertura de empresa (constitución/registro), prestado por PerfectGest o socios, mediante contrato o aceptación específica cuando corresponda.<br>
+<section class="block"><h2>5. Servicio de apertura de empresa</h2><div class="body">Los planes Com Contador (mensual) y paquete anual configurable pueden incluir servicio de apertura de empresa (constitución/registro), prestado por PerfectGest o socios, mediante contrato o aceptación específica cuando corresponda.<br>
 <br>
 5.1 No incluido<br>
 <br>
@@ -355,12 +383,12 @@ Este plazo refiere al proceso administrativo de apertura, incluyendo según el c
 - Demás etapas legales necesarias para la regularización.<br>
 <br>
 No incluye retrasos por documentación incompleta, pendencias del cliente, indisponibilidad de sistemas públicos o fuerza mayor.</div></section>
-<section class="block"><h2>6. Revisión contable (Com Contador y Anual + A1)</h2><div class="body">Con plan Com Contador o Anual + A1, el cliente puede enviar el mes cerrado a PerfectGest para revisión contable, con consentimiento explícito para tratamiento en la nube (Firebase). El paquete se cifra en el dispositivo (AES-256-CBC) antes del envío.<br>
+<section class="block"><h2>6. Revisión contable (Com Contador y paquete anual)</h2><div class="body">Con plan Com Contador (mensual) o paquete anual configurable, el cliente puede enviar el mes cerrado a PerfectGest para revisión contable, con consentimiento explícito para tratamiento en la nube (Firebase). El paquete se cifra en el dispositivo (AES-256-CBC) antes del envío.<br>
 <br>
 - PerfectGest analiza el paquete enviado y responde en la app (en análisis, pendencias, revisado).<br>
 - Informes legales y obligaciones ante el Fisco pueden exigir contrato de prestación de servicios contables separado con profesional CRC.<br>
 - El envío no sustituye la entrega de declaraciones en portales oficiales, salvo acuerdo expreso en contrato de servicio.</div></section>
-<section class="block"><h2>7. Certificado digital A1 (Anual + A1 / Com Contador Anual)</h2><div class="body">Los planes Anual + A1 (contabil_i_anual) y Com Contador Anual 12× (contador_anual_parcelado_*) incluyen bono promocional de certificado e-CNPJ A1 vía certificadora socia (Quality Cert).<br>
+<section class="block"><h2>7. Certificado digital A1 (paquete anual / avulso)</h2><div class="body">El paquete anual configurable incluye bono promocional de certificado e-CNPJ A1 vía certificadora socia (Quality Cert). El plan avulso contabil_i_certificado_a1 (R$ 119,00) incluye solo la emisión — sin acceso a la app.<br>
 <br>
 - Elegibilidad exige suscripción activa validada en Google Play.<br>
 - Tras pago confirmado, el usuario puede registrar datos en la app (formulario interno) y recibir código/enlace Quality cuando Firebase lo asigne.<br>

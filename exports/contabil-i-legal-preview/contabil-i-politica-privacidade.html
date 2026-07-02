@@ -20,6 +20,7 @@
       background: #fff; color: #000;
       font-family: "Segoe UI", "Segoe UI Web", "Helvetica Neue", Arial, sans-serif;
       font-size: 14px; line-height: 1.6;
+      overflow-x: hidden;
     }
     .top {
       display: flex; align-items: center; justify-content: space-between;
@@ -32,7 +33,7 @@
       padding: 4px 10px; margin-left: 4px; cursor: pointer; font-size: 13px;
     }
     .lang-nav button.active { border-color: #0067b8; color: #0067b8; font-weight: 600; }
-    main { max-width: 800px; margin: 0 auto; padding: 24px 24px 40px; }
+    main { max-width: 800px; width: 100%; margin: 0 auto; padding: 24px 16px 40px; overflow-x: hidden; }
     .page-title { font-size: 26px; font-weight: 600; margin: 0 0 8px; color: #000; }
     .updated { color: #444; font-size: 13px; margin: 0 0 20px; }
     .legal-header {
@@ -41,23 +42,30 @@
     }
     .block { margin-bottom: 24px; }
     .block h2 { font-size: 16px; font-weight: 600; margin: 0 0 8px; color: #000; }
-    .block .body { color: #000; }
+    .block .body { color: #000; max-width: 100%; overflow-wrap: anywhere; }
+    .table-scroll {
+      max-width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 12px 0 16px;
+    }
     table.compare-table {
-      width: 100%; border-collapse: collapse; margin: 12px 0 16px;
-      font-size: 13px; line-height: 1.45;
+      width: 100%; min-width: 0; border-collapse: collapse;
+      font-size: 13px; line-height: 1.45; table-layout: fixed;
     }
     table.compare-table th,
     table.compare-table td {
       border: 1px solid #ccc; padding: 8px 10px; text-align: left; vertical-align: top;
+      word-break: break-word; overflow-wrap: anywhere; hyphens: auto;
     }
     table.compare-table thead th {
       background: #f3f3f3; font-weight: 600;
     }
     table.compare-table tbody tr:nth-child(even) td { background: #fafafa; }
-    table.compare-table td:not(:first-child),
-    table.compare-table th:not(:first-child) { text-align: center; white-space: nowrap; }
+    table.compare-table td:nth-child(2),
+    table.compare-table th:nth-child(2) { text-align: center; white-space: nowrap; }
     table.compare-table td:first-child,
-    table.compare-table th:first-child { min-width: 9rem; }
+    table.compare-table th:first-child { width: 28%; min-width: 7rem; }
     footer {
       border-top: 1px solid #e1e1e1; padding-top: 16px; margin-top: 32px;
       text-align: center; font-size: 13px; line-height: 1.8;
@@ -107,7 +115,7 @@ Qualquer partilha ocorre quando você toca em “Gerar e partilhar PDF”, “Ex
 Excepção (com o seu consentimento): envio do mês para revisão do contador, confirmação do plano na Google Play, pedido de certificado digital e dados necessários ao serviço de abertura de empresa — ver secção 5.</div></section>
 <section class="block"><h2>3. Dados que o App pode tratar</h2><div class="body">3.1 Dados que você insere<br>
 <br>
-<table class="compare-table"><thead><tr><th>Tipo</th><th>Exemplos</th><th>Onde ficam</th></tr></thead><tbody><tr><td>Dados da empresa</td><td>Razão social, CNPJ/CPF, CNAE, contactos</td><td>Dispositivo (local)</td></tr><tr><td>Dados financeiros</td><td>Lançamentos, valores, categorias, saldos</td><td>Dispositivo (local)</td></tr><tr><td>Obrigações fiscais</td><td>Marcações de cumprimento, observações</td><td>Dispositivo (local)</td></tr><tr><td>Comprovantes</td><td>Nome do ficheiro anexado (opcional)</td><td>Dispositivo (local)</td></tr><tr><td>Preferências</td><td>Tema, aceites de privacidade e nuvem</td><td>Dispositivo (local)</td></tr></tbody></table><br>
+<div class="table-scroll"><table class="compare-table"><thead><tr><th>Tipo</th><th>Exemplos</th><th>Onde ficam</th></tr></thead><tbody><tr><td>Dados da empresa</td><td>Razão social, CNPJ/CPF, CNAE, contactos</td><td>Dispositivo (local)</td></tr><tr><td>Dados financeiros</td><td>Lançamentos, valores, categorias, saldos</td><td>Dispositivo (local)</td></tr><tr><td>Obrigações fiscais</td><td>Marcações de cumprimento, observações</td><td>Dispositivo (local)</td></tr><tr><td>Comprovantes</td><td>Nome do ficheiro anexado (opcional)</td><td>Dispositivo (local)</td></tr><tr><td>Preferências</td><td>Tema, aceites de privacidade e nuvem</td><td>Dispositivo (local)</td></tr></tbody></table></div><br>
 <br>
 3.2 Dados que o App não recolhe automaticamente<br>
 <br>
@@ -127,13 +135,13 @@ Base legal (LGPD): execução de contrato e funcionalidades solicitadas; consent
 <br>
 5.1 Ações locais (sempre por sua iniciativa)<br>
 <br>
-<table class="compare-table"><thead><tr><th>Ação</th><th>O que acontece</th></tr></thead><tbody><tr><td>Partilhar PDF</td><td>Enviado ao app que você escolher</td></tr><tr><td>Exportar backup JSON</td><td>Partilhado por você</td></tr><tr><td>Abrir portal fiscal</td><td>Browser externo — política dos sites governamentais</td></tr></tbody></table><br>
+<div class="table-scroll"><table class="compare-table"><thead><tr><th>Ação</th><th>O que acontece</th></tr></thead><tbody><tr><td>Partilhar PDF</td><td>Enviado ao app que você escolher</td></tr><tr><td>Exportar backup JSON</td><td>Partilhado por você</td></tr><tr><td>Abrir portal fiscal</td><td>Browser externo — política dos sites governamentais</td></tr></tbody></table></div><br>
 <br>
 5.2 Serviços na internet (com o seu consentimento)<br>
 <br>
 Activados apenas quando você aceita expressamente na app:<br>
 <br>
-<table class="compare-table"><thead><tr><th>Para quê</th><th>O que pode ser enviado</th><th>Quem trata</th></tr></thead><tbody><tr><td>Confirmar plano na Google Play</td><td>Dados da compra na loja</td><td>Google Play e serviços de validação</td></tr><tr><td>Enviar mês para o contador</td><td>Dados do mês fechado (empresa, movimentos, PDF)</td><td>PerfectGest (armazenamento seguro na nuvem)</td></tr><tr><td>Abertura de empresa</td><td>Dados cadastrais e documentos do processo</td><td>PerfectGest e parceiros</td></tr><tr><td>Certificado digital da empresa</td><td>Dados do formulário (CNPJ/CPF, contacto, morada)</td><td>PerfectGest e certificadora parceira</td></tr></tbody></table><br>
+<div class="table-scroll"><table class="compare-table"><thead><tr><th>Para quê</th><th>O que pode ser enviado</th><th>Quem trata</th></tr></thead><tbody><tr><td>Confirmar plano na Google Play</td><td>Dados da compra na loja</td><td>Google Play e serviços de validação</td></tr><tr><td>Enviar mês para o contador</td><td>Dados do mês fechado (empresa, movimentos, PDF)</td><td>PerfectGest (armazenamento seguro na nuvem)</td></tr><tr><td>Abertura de empresa</td><td>Dados cadastrais e documentos do processo</td><td>PerfectGest e parceiros</td></tr><tr><td>Certificado digital da empresa</td><td>Dados do formulário (CNPJ/CPF, contacto, morada)</td><td>PerfectGest e certificadora parceira</td></tr></tbody></table></div><br>
 <br>
 A app não activa revisão pelo contador, certificado digital ou abertura de empresa sem plano confirmado na Google Play.<br>
 <br>
@@ -141,7 +149,7 @@ Pode revogar o consentimento em Privacidade e segurança. O livro caixa no telem
 <br>
 5.3 Serviço de abertura de empresa — prazo e taxas<br>
 <br>
-Quando contratado (planos Com Contador, Anual + A1 ou Com Contador Anual 12×):<br>
+Quando contratado (planos Com Contador mensal ou Pacote anual configurável):<br>
 <br>
 - Taxas oficiais (Junta Comercial, prefeitura, Receita, etc.) não estão incluídas — pagas pelo cliente aos órgãos competentes.<br>
 - O processo de abertura pode demorar até 14 (catorze) dias, após documentação completa, referindo-se às etapas administrativas: solicitação na Junta Comercial, aprovações, registos na prefeitura e demais trâmites legais — sujeito a prazos de terceiros e exigências documentais.<br>
@@ -244,13 +252,13 @@ You may revoke cloud consent in Privacy &amp; security. Local cash book continue
 <br>
 The user acknowledges that accounting data is stored exclusively on the local device.<br>
 <br>
-Sole paragraph: if the user subscribes to the Com Contador or Anual + A1 plan, they authorize sending reports as encrypted files to the PerfectGestDev system for strict analysis and approval by a Certified Accountant. PerfectGestDev is not responsible for permanent storage of those files; the user must keep the original backup on their device.<br>
+Sole paragraph: if the user subscribes to Com Contador (monthly) or the configurable annual package (Build your plan), they authorize sending reports as encrypted files to the PerfectGestDev system for strict analysis and approval by a Certified Accountant. PerfectGestDev is not responsible for permanent storage of those files; the user must keep the original backup on their device.<br>
 <br>
 Technical implementation: the review package (JSON + PDF + receipts) is encrypted on the device with AES-256-CBC before transmission to Firebase Storage/Firestore. Only PerfectGestDev holds the decryption key, shared with the Certified Accountant responsible for analysis.<br>
 <br>
 5.4 Company opening service — timeline and fees<br>
 <br>
-When contracted (Com Contador or Anual + A1 plans):<br>
+When contracted (Com Contador monthly or configurable annual package):<br>
 <br>
 - Official fees (Commercial Registry, city hall, tax authority, etc.) are not included — paid by the client to competent bodies.<br>
 - The opening process may take up to 14 (fourteen) days after complete documentation, referring to administrative steps: Commercial Registry request, approvals, city hall registration and other legal procedures — subject to third-party deadlines.<br>
@@ -353,13 +361,13 @@ Puede revocar el consentimiento de nube en Privacidad y seguridad. El libro de c
 <br>
 El usuario declara estar consciente de que sus datos contables se almacenan exclusivamente en su dispositivo local.<br>
 <br>
-Párrafo único: si contrata el plan Com Contador o Anual + A1, autoriza el envío de informes en formato de archivo cifrado al sistema PerfectGestDev, con la finalidad estricta de análisis y aprobación por un Contador Certificado. PerfectGestDev se exime de responsabilidad por la guarda permanente de esos archivos; corresponde al usuario mantener el backup original en su dispositivo.<br>
+Párrafo único: si contrata Com Contador (mensual) o el paquete anual configurable (Monte su plan), autoriza el envío de informes en formato de archivo cifrado al sistema PerfectGestDev, con la finalidad estricta de análisis y aprobación por un Contador Certificado. PerfectGestDev se exime de responsabilidad por la guarda permanente de esos archivos; corresponde al usuario mantener el backup original en su dispositivo.<br>
 <br>
 Implementación técnica: el paquete de revisión (JSON + PDF + comprobantes) se cifra en el dispositivo con AES-256-CBC antes de transmitirse a Firebase Storage/Firestore. Solo PerfectGestDev posee la clave de descifrado, compartida con el Contador Certificado responsable del análisis.<br>
 <br>
 5.4 Servicio de apertura de empresa — plazo y tasas<br>
 <br>
-Cuando se contrata (planes Com Contador o Anual + A1):<br>
+Cuando se contrata (Com Contador mensual o paquete anual configurable):<br>
 <br>
 - Tasas oficiales (Junta Comercial, prefectura, Receita, etc.) no están incluidas — pagadas por el cliente a los órganos competentes.<br>
 - El proceso de apertura puede demorar hasta 14 (catorce) días, tras documentación completa, refiriéndose a etapas administrativas: solicitud en Junta Comercial, aprobaciones, registros en prefectura y demás trámites legales — sujeto a plazos de terceros.<br>
