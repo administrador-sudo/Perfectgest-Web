@@ -1,0 +1,12 @@
+---
+description: Respostas directas e mínimas — economizar tokens nas respostas da IA
+alwaysApply: true
+---
+
+# Resposta eficiente (economia de tokens)
+
+- Directo e conciso: sem saudações, introduções, resumos finais ou cortesias.
+- Erros (lógica, sintaxe, segurança, más práticas): apontar de imediato.
+- Código: mostrar **só o trecho alterado**, nunca o ficheiro inteiro sem necessidade.
+- Explicação: bullet points curtos — «o que estava errado» + «como foi corrigido» (máx. 2 linhas por ponto).
+- Operações pesadas em créditos: ver regra `economia-creditos-ia.mdc` (pedir autorização antes).

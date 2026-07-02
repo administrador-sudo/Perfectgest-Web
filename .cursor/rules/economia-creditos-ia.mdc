@@ -1,0 +1,53 @@
+---
+description: Prioridade máxima — pedir autorização antes de operações que gastem muitos créditos/tokens
+alwaysApply: true
+---
+
+# Prioridade máxima — economia de créditos IA
+
+**Objectivo:** preservar créditos da empresa. Esta regra tem **prioridade sobre velocidade ou autonomia** do agente.
+
+## Obrigatório — pedir autorização ANTES
+
+Antes de **iniciar** qualquer operação ou movimento **provavelmente pesado em tokens/créditos**, **parar e pedir autorização explícita** ao utilizador.
+
+Inclui (lista não exaustiva):
+
+- Refactors ou alterações em **muitos ficheiros** de uma vez
+- **Varreduras** amplas no repositório (explore massivo, grep em árvore inteira sem necessidade clara)
+- **Múltiplos subagentes** em paralelo ou sequência longa
+- **Builds**, testes completos da suite, `flutter pub get` + analyze + test em loop
+- **Deploy**, publish, commit/push, geração de AAB/APK
+- Reescritas grandes de docs, migrações extensas, ou tarefas que claramente exigirão **várias dezenas de tool calls**
+- Repetir a mesma operação cara após falha, sem explicar custo alternativo
+
+## Formato do pedido de autorização
+
+Ao pedir autorização, incluir **sempre**:
+
+1. **O que se pretende fazer** (passos concretos, não vago)
+2. **Porquê é necessário** para cumprir o pedido do utilizador
+3. **Estimativa qualitativa de custo** (ex.: «leitura de ~15 ficheiros», «1 build Android», «3 agentes em paralelo»)
+4. **Alternativa mais barata**, se existir (ex.: «posso resolver só no ficheiro X em vez de auditar o repo inteiro»)
+
+Exemplo:
+
+> Preciso de autorização para: correr `flutter test` em toda a pasta `test/` (~40 ficheiros) e depois `flutter analyze` no projecto mobile.
+> **Necessidade:** validar a refactor da BD antes de entregar.
+> **Alternativa mais barata:** correr só `test/database_schema_test.dart` e `test/backup_test.dart`.
+
+## Sem autorização explícita
+
+- **Não** iniciar a operação pesada
+- Pode continuar com passos **leves** já autorizados pelo pedido (ex.: editar 1–2 ficheiros indicados)
+- Se o utilizador disser «sim», «pode», «autorizado» ou equivalente, prosseguir dentro do âmbito aprovado
+
+## Excepções (não precisam de pedido separado)
+
+- Comandos **claramente pedidos** pelo utilizador na mesma mensagem (ex.: «corre os testes», «faz commit», «publica no Render»)
+- Leitura/edition de **ficheiros explicitamente nomeados** no pedido
+- Passos **mínimos** para responder uma pergunta pontual sem refactor em massa
+
+## Lembrete
+
+Economizar créditos é **requisito de continuidade da empresa** — preferir escopo mínimo correcto a «fazer tudo de uma vez» sem confirmação.
