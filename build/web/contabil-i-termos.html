@@ -20,6 +20,7 @@
       background: #fff; color: #000;
       font-family: "Segoe UI", "Segoe UI Web", "Helvetica Neue", Arial, sans-serif;
       font-size: 14px; line-height: 1.6;
+      overflow-x: hidden;
     }
     .top {
       display: flex; align-items: center; justify-content: space-between;
@@ -32,7 +33,7 @@
       padding: 4px 10px; margin-left: 4px; cursor: pointer; font-size: 13px;
     }
     .lang-nav button.active { border-color: #0067b8; color: #0067b8; font-weight: 600; }
-    main { max-width: 800px; margin: 0 auto; padding: 24px 24px 40px; }
+    main { max-width: 800px; width: 100%; margin: 0 auto; padding: 24px 16px 40px; overflow-x: hidden; }
     .page-title { font-size: 26px; font-weight: 600; margin: 0 0 8px; color: #000; }
     .updated { color: #444; font-size: 13px; margin: 0 0 20px; }
     .legal-header {
@@ -41,23 +42,30 @@
     }
     .block { margin-bottom: 24px; }
     .block h2 { font-size: 16px; font-weight: 600; margin: 0 0 8px; color: #000; }
-    .block .body { color: #000; }
+    .block .body { color: #000; max-width: 100%; overflow-wrap: anywhere; }
+    .table-scroll {
+      max-width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 12px 0 16px;
+    }
     table.compare-table {
-      width: 100%; border-collapse: collapse; margin: 12px 0 16px;
-      font-size: 13px; line-height: 1.45;
+      width: 100%; min-width: 0; border-collapse: collapse;
+      font-size: 13px; line-height: 1.45; table-layout: fixed;
     }
     table.compare-table th,
     table.compare-table td {
       border: 1px solid #ccc; padding: 8px 10px; text-align: left; vertical-align: top;
+      word-break: break-word; overflow-wrap: anywhere; hyphens: auto;
     }
     table.compare-table thead th {
       background: #f3f3f3; font-weight: 600;
     }
     table.compare-table tbody tr:nth-child(even) td { background: #fafafa; }
-    table.compare-table td:not(:first-child),
-    table.compare-table th:not(:first-child) { text-align: center; white-space: nowrap; }
+    table.compare-table td:nth-child(2),
+    table.compare-table th:nth-child(2) { text-align: center; white-space: nowrap; }
     table.compare-table td:first-child,
-    table.compare-table th:first-child { min-width: 9rem; }
+    table.compare-table th:first-child { width: 28%; min-width: 7rem; }
     footer {
       border-top: 1px solid #e1e1e1; padding-top: 16px; margin-top: 32px;
       text-align: center; font-size: 13px; line-height: 1.8;
@@ -115,23 +123,23 @@ O app é gratuito para baixar. Para usar todas as funções, você precisa de um
 <br>
 #### Planos básicos (sem contador)<br>
 <br>
-<table class="compare-table"><thead><tr><th>Plano</th><th>Preço</th><th>O que inclui</th></tr></thead><tbody><tr><td>Básico Mensal</td><td>R$ 9,90/mês</td><td>Livro caixa, IR com IA, rastreio NF, Carnê-Leão</td></tr><tr><td>Básico Anual</td><td>R$ 99,90/ano</td><td>Tudo do Mensal + 2 meses grátis (pague 10, use 12)</td></tr></tbody></table><br>
+<div class="table-scroll"><table class="compare-table"><thead><tr><th>Plano</th><th>Preço</th><th>O que inclui</th></tr></thead><tbody><tr><td>Básico Mensal</td><td>R$ 9,90/mês</td><td>Livro caixa, IR com IA, rastreio NF, Carnê-Leão</td></tr><tr><td>Básico Anual</td><td>R$ 99,90/ano</td><td>Tudo do Mensal + 2 meses grátis (pague 10, use 12)</td></tr></tbody></table></div><br>
 <br>
 #### Planos com contador (mensal)<br>
 <br>
-<table class="compare-table"><thead><tr><th>Plano</th><th>Preço</th><th>Faixa</th><th>O que inclui</th></tr></thead><tbody><tr><td>Com Contador — Essencial</td><td>R$ 69,90/mês</td><td>1-3 funcionários</td><td>Tudo do Básico + Conferência CRC + Envio CRC + Abertura empresa + Suporte contador</td></tr><tr><td>Com Contador — Standard</td><td>R$ 89,90/mês</td><td>4-6 funcionários</td><td>Tudo do Essencial + Faixa maior</td></tr><tr><td>Com Contador — Avançado</td><td>R$ 119,90/mês</td><td>7-8 funcionários</td><td>Tudo do Standard + Faixa maior</td></tr></tbody></table><br>
+<div class="table-scroll"><table class="compare-table"><thead><tr><th>Plano</th><th>Preço</th><th>Faixa</th><th>O que inclui</th></tr></thead><tbody><tr><td>Com Contador — Essencial</td><td>R$ 69,90/mês</td><td>1-3 funcionários</td><td>Tudo do Básico + Conferência CRC + Envio CRC + Abertura empresa + Suporte contador</td></tr><tr><td>Com Contador — Standard</td><td>R$ 89,90/mês</td><td>4-6 funcionários</td><td>Tudo do Essencial + Faixa maior</td></tr><tr><td>Com Contador — Avançado</td><td>R$ 119,90/mês</td><td>7-8 funcionários</td><td>Tudo do Standard + Faixa maior</td></tr></tbody></table></div><br>
 <br>
 #### Planos anuais com contador<br>
 <br>
-<table class="compare-table"><thead><tr><th>Plano</th><th>Preço</th><th>O que inclui</th></tr></thead><tbody><tr><td>Anual</td><td>R$ 838,80/ano</td><td>Tudo do plano com contador + Certificado digital CNPJ A1</td></tr><tr><td>Com Contador Anual — Essencial</td><td>12x R$ 69,90 (R$ 838,80/ano)</td><td>Tudo do Anual + Sistema de cálculo de imposto + Folha de pagamento + Contador assina livro caixa mensalmente</td></tr><tr><td>Com Contador Anual — Standard</td><td>12x R$ 89,90 (R$ 1.078,80/ano)</td><td>Tudo do Essencial + Faixa maior</td></tr><tr><td>Com Contador Anual — Avançado</td><td>12x R$ 119,90 (R$ 1.438,80/ano)</td><td>Tudo do Standard + Faixa maior</td></tr></tbody></table><br>
+<div class="table-scroll"><table class="compare-table"><thead><tr><th>Plano</th><th>Preço</th><th>O que inclui</th></tr></thead><tbody><tr><td>Anual</td><td>R$ 838,80/ano</td><td>Tudo do plano com contador + Certificado digital CNPJ A1</td></tr><tr><td>Com Contador Anual — Essencial</td><td>12x R$ 69,90 (R$ 838,80/ano)</td><td>Tudo do Anual + Sistema de cálculo de imposto + Folha de pagamento + Contador assina livro caixa mensalmente</td></tr><tr><td>Com Contador Anual — Standard</td><td>12x R$ 89,90 (R$ 1.078,80/ano)</td><td>Tudo do Essencial + Faixa maior</td></tr><tr><td>Com Contador Anual — Avançado</td><td>12x R$ 119,90 (R$ 1.438,80/ano)</td><td>Tudo do Standard + Faixa maior</td></tr></tbody></table></div><br>
 <br>
 #### Serviços complementares (exigem assinatura anual base)<br>
 <br>
-<table class="compare-table"><thead><tr><th>Serviço</th><th>Preço</th><th>Requisito</th><th>O que faz</th></tr></thead><tbody><tr><td>Contador-Sigilo-Digital</td><td>12x R$ 59,90/mês</td><td>Assinatura anual base ativa</td><td>Contador corrige lançamentos para fechar partida dobrada R$ 0,00 e faz lançamentos pelos documentos bancários</td></tr></tbody></table><br>
+<div class="table-scroll"><table class="compare-table"><thead><tr><th>Serviço</th><th>Preço</th><th>Requisito</th><th>O que faz</th></tr></thead><tbody><tr><td>Contador-Sigilo-Digital</td><td>12x R$ 59,90/mês</td><td>Assinatura anual base ativa</td><td>Contador corrige lançamentos para fechar partida dobrada R$ 0,00 e faz lançamentos pelos documentos bancários</td></tr></tbody></table></div><br>
 <br>
 #### Add-ons (opcionais)<br>
 <br>
-<table class="compare-table"><thead><tr><th>Add-on</th><th>Preço</th><th>O que faz</th></tr></thead><tbody><tr><td>Add-on: Contador faz os Lançamentos</td><td>12x R$ 59,90/mês</td><td>Contador lança pelos documentos bancários</td></tr><tr><td>Add-on: Contador Processa a Folha</td><td>12x R$ 79,90/mês</td><td>Contador processa folha de pagamento</td></tr><tr><td>Add-on: Declaração IRPF/MEI</td><td>1x R$ 29,90</td><td>Contador faz declaração anual de IR</td></tr></tbody></table><br>
+<div class="table-scroll"><table class="compare-table"><thead><tr><th>Add-on</th><th>Preço</th><th>O que faz</th></tr></thead><tbody><tr><td>Add-on: Contador faz os Lançamentos</td><td>12x R$ 59,90/mês</td><td>Contador lança pelos documentos bancários</td></tr><tr><td>Add-on: Contador Processa a Folha</td><td>12x R$ 79,90/mês</td><td>Contador processa folha de pagamento</td></tr><tr><td>Add-on: Declaração IRPF/MEI</td><td>1x R$ 29,90</td><td>Contador faz declaração anual de IR</td></tr></tbody></table></div><br>
 <br>
 Os preços podem variar. O preço na Google Play é o oficial.<br>
 <br>

@@ -20,6 +20,7 @@
       background: #fff; color: #000;
       font-family: "Segoe UI", "Segoe UI Web", "Helvetica Neue", Arial, sans-serif;
       font-size: 14px; line-height: 1.6;
+      overflow-x: hidden;
     }
     .top {
       display: flex; align-items: center; justify-content: space-between;
@@ -32,7 +33,7 @@
       padding: 4px 10px; margin-left: 4px; cursor: pointer; font-size: 13px;
     }
     .lang-nav button.active { border-color: #0067b8; color: #0067b8; font-weight: 600; }
-    main { max-width: 800px; margin: 0 auto; padding: 24px 24px 40px; }
+    main { max-width: 800px; width: 100%; margin: 0 auto; padding: 24px 16px 40px; overflow-x: hidden; }
     .page-title { font-size: 26px; font-weight: 600; margin: 0 0 8px; color: #000; }
     .updated { color: #444; font-size: 13px; margin: 0 0 20px; }
     .legal-header {
@@ -41,23 +42,30 @@
     }
     .block { margin-bottom: 24px; }
     .block h2 { font-size: 16px; font-weight: 600; margin: 0 0 8px; color: #000; }
-    .block .body { color: #000; }
+    .block .body { color: #000; max-width: 100%; overflow-wrap: anywhere; }
+    .table-scroll {
+      max-width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 12px 0 16px;
+    }
     table.compare-table {
-      width: 100%; border-collapse: collapse; margin: 12px 0 16px;
-      font-size: 13px; line-height: 1.45;
+      width: 100%; min-width: 0; border-collapse: collapse;
+      font-size: 13px; line-height: 1.45; table-layout: fixed;
     }
     table.compare-table th,
     table.compare-table td {
       border: 1px solid #ccc; padding: 8px 10px; text-align: left; vertical-align: top;
+      word-break: break-word; overflow-wrap: anywhere; hyphens: auto;
     }
     table.compare-table thead th {
       background: #f3f3f3; font-weight: 600;
     }
     table.compare-table tbody tr:nth-child(even) td { background: #fafafa; }
-    table.compare-table td:not(:first-child),
-    table.compare-table th:not(:first-child) { text-align: center; white-space: nowrap; }
+    table.compare-table td:nth-child(2),
+    table.compare-table th:nth-child(2) { text-align: center; white-space: nowrap; }
     table.compare-table td:first-child,
-    table.compare-table th:first-child { min-width: 9rem; }
+    table.compare-table th:first-child { width: 28%; min-width: 7rem; }
     footer {
       border-top: 1px solid #e1e1e1; padding-top: 16px; margin-top: 32px;
       text-align: center; font-size: 13px; line-height: 1.8;
@@ -105,23 +113,23 @@ O app movimenta dinheiro?<br>
 Não. Você registra os lançamentos manualmente (ou o contador faz se usar Contador-Sigilo-Digital). O app não conecta ao banco nem faz transferências.</div></section>
 <section class="block"><h2>Planos e preços</h2><div class="body">#### Planos básicos (sem contador)<br>
 <br>
-<table class="compare-table"><thead><tr><th>Plano</th><th>Preço</th></tr></thead><tbody><tr><td>Básico Mensal</td><td>R$ 9,90/mês</td></tr><tr><td>Básico Anual</td><td>R$ 99,90/ano</td></tr></tbody></table><br>
+<div class="table-scroll"><table class="compare-table"><thead><tr><th>Plano</th><th>Preço</th></tr></thead><tbody><tr><td>Básico Mensal</td><td>R$ 9,90/mês</td></tr><tr><td>Básico Anual</td><td>R$ 99,90/ano</td></tr></tbody></table></div><br>
 <br>
 #### Planos com contador (mensal)<br>
 <br>
-<table class="compare-table"><thead><tr><th>Plano</th><th>Preço</th><th>Faixa</th></tr></thead><tbody><tr><td>Com Contador — Essencial</td><td>R$ 69,90/mês</td><td>1-3 funcionários</td></tr><tr><td>Com Contador — Standard</td><td>R$ 89,90/mês</td><td>4-6 funcionários</td></tr><tr><td>Com Contador — Avançado</td><td>R$ 119,90/mês</td><td>7-8 funcionários</td></tr></tbody></table><br>
+<div class="table-scroll"><table class="compare-table"><thead><tr><th>Plano</th><th>Preço</th><th>Faixa</th></tr></thead><tbody><tr><td>Com Contador — Essencial</td><td>R$ 69,90/mês</td><td>1-3 funcionários</td></tr><tr><td>Com Contador — Standard</td><td>R$ 89,90/mês</td><td>4-6 funcionários</td></tr><tr><td>Com Contador — Avançado</td><td>R$ 119,90/mês</td><td>7-8 funcionários</td></tr></tbody></table></div><br>
 <br>
 #### Planos anuais com contador<br>
 <br>
-<table class="compare-table"><thead><tr><th>Plano</th><th>Preço</th></tr></thead><tbody><tr><td>Anual</td><td>R$ 838,80/ano</td></tr><tr><td>Com Contador Anual — Essencial</td><td>12x R$ 69,90</td></tr><tr><td>Com Contador Anual — Standard</td><td>12x R$ 89,90</td></tr><tr><td>Com Contador Anual — Avançado</td><td>12x R$ 119,90</td></tr></tbody></table><br>
+<div class="table-scroll"><table class="compare-table"><thead><tr><th>Plano</th><th>Preço</th></tr></thead><tbody><tr><td>Anual</td><td>R$ 838,80/ano</td></tr><tr><td>Com Contador Anual — Essencial</td><td>12x R$ 69,90</td></tr><tr><td>Com Contador Anual — Standard</td><td>12x R$ 89,90</td></tr><tr><td>Com Contador Anual — Avançado</td><td>12x R$ 119,90</td></tr></tbody></table></div><br>
 <br>
 #### Serviços complementares (exigem assinatura anual base)<br>
 <br>
-<table class="compare-table"><thead><tr><th>Serviço</th><th>Preço</th><th>O que faz</th></tr></thead><tbody><tr><td>Contador-Sigilo-Digital</td><td>12x R$ 59,90/mês</td><td>Contador corrige lançamentos para fechar partida dobrada e faz lançamentos pelos documentos bancários</td></tr></tbody></table><br>
+<div class="table-scroll"><table class="compare-table"><thead><tr><th>Serviço</th><th>Preço</th><th>O que faz</th></tr></thead><tbody><tr><td>Contador-Sigilo-Digital</td><td>12x R$ 59,90/mês</td><td>Contador corrige lançamentos para fechar partida dobrada e faz lançamentos pelos documentos bancários</td></tr></tbody></table></div><br>
 <br>
 #### Add-ons (opcionais)<br>
 <br>
-<table class="compare-table"><thead><tr><th>Add-on</th><th>Preço</th></tr></thead><tbody><tr><td>Add-on: Contador faz os Lançamentos</td><td>12x R$ 59,90/mês</td></tr><tr><td>Add-on: Contador Processa a Folha</td><td>12x R$ 79,90/mês</td></tr><tr><td>Add-on: Declaração IRPF/MEI</td><td>1x R$ 29,90</td></tr></tbody></table><br>
+<div class="table-scroll"><table class="compare-table"><thead><tr><th>Add-on</th><th>Preço</th></tr></thead><tbody><tr><td>Add-on: Contador faz os Lançamentos</td><td>12x R$ 59,90/mês</td></tr><tr><td>Add-on: Contador Processa a Folha</td><td>12x R$ 79,90/mês</td></tr><tr><td>Add-on: Declaração IRPF/MEI</td><td>1x R$ 29,90</td></tr></tbody></table></div><br>
 <br>
 Diferença entre planos:<br>
 - Básico: Você registra tudo no app, sem serviço de contador<br>
@@ -226,10 +234,10 @@ Roles in processing (LGPD)<br>
 <section class="block"><h2>Does the app move money or connect to the bank?</h2><div class="body">No. Manual entries; bank statement balance entered at month-end closing.</div></section>
 <section class="block"><h2>Plans and prices (Google Play)</h2><div class="body">Reference prices — the store price on your phone prevails.<br>
 <br>
-<table class="compare-table"><thead><tr><th>Plan</th><th>Reference price</th></tr></thead><tbody><tr><td>Basic Monthly</td><td>R$ 9.90/month</td></tr><tr><td>Basic Annual</td><td>R$ 99.90/year</td></tr><tr><td>Com Contador (Essential / Standard / Advanced)</td><td>R$ 69.90–119.90/month</td></tr><tr><td>Annual accounting with digital certificate</td><td>R$ 838.80–1,438.80/year</td></tr><tr><td>Com Contador Annual in 12 installments</td><td>12× R$ 69.90–119.90</td></tr></tbody></table><br>
+<div class="table-scroll"><table class="compare-table"><thead><tr><th>Plan</th><th>Reference price</th></tr></thead><tbody><tr><td>Basic Monthly</td><td>R$ 9.90/month</td></tr><tr><td>Basic Annual</td><td>R$ 99.90/year</td></tr><tr><td>Com Contador (Essential / Standard / Advanced)</td><td>R$ 69.90–119.90/month</td></tr><tr><td>Annual accounting with digital certificate</td><td>R$ 838.80–1,438.80/year</td></tr><tr><td>Com Contador Annual in 12 installments</td><td>12× R$ 69.90–119.90</td></tr></tbody></table></div><br>
 <br>
 Free install; subscription required for full access. Payment and cancellation on Google Play.</div></section>
-<section class="block"><h2>What is the difference between plans?</h2><div class="body"><table class="compare-table"><thead><tr><th>Included</th><th>Basic (monthly or annual)</th><th>Com Contador (monthly)</th><th>Annual accounting (with certificate)</th></tr></thead><tbody><tr><td>Cash book, income tax, payroll and monthly summary</td><td>Yes</td><td>Yes</td><td>Yes</td></tr><tr><td>Send closed month for accountant review</td><td>No</td><td>Yes</td><td>Yes</td></tr><tr><td>Company opening (ME)</td><td>No</td><td>Yes</td><td>Yes</td></tr><tr><td>Company digital certificate (e-CNPJ)</td><td>No</td><td>No</td><td>Yes</td></tr></tbody></table><br>
+<section class="block"><h2>What is the difference between plans?</h2><div class="body"><div class="table-scroll"><table class="compare-table"><thead><tr><th>Included</th><th>Basic (monthly or annual)</th><th>Com Contador (monthly)</th><th>Annual accounting (with certificate)</th></tr></thead><tbody><tr><td>Cash book, income tax, payroll and monthly summary</td><td>Yes</td><td>Yes</td><td>Yes</td></tr><tr><td>Send closed month for accountant review</td><td>No</td><td>Yes</td><td>Yes</td></tr><tr><td>Company opening (ME)</td><td>No</td><td>Yes</td><td>Yes</td></tr><tr><td>Company digital certificate (e-CNPJ)</td><td>No</td><td>No</td><td>Yes</td></tr></tbody></table></div><br>
 <br>
 In short: Basic = app only; Com Contador = + accountant review and opening; Annual = paid once per year + digital certificate.</div></section>
 <section class="block"><h2>How do Com Contador and Anual + A1 tiers work?</h2><div class="body">1. In company setup, indicate activity type and estimated volume (entries and invoices/month).<br>
@@ -313,10 +321,10 @@ Roles en el tratamiento (LGPD)<br>
 <section class="block"><h2>¿Mueve dinero o conecta al banco?</h2><div class="body">No. Movimientos manuales; saldo de extracto informado en el cierre del mes.</div></section>
 <section class="block"><h2>Planes y precios (Google Play)</h2><div class="body">Precios de referencia — prevalece la tienda en su teléfono.<br>
 <br>
-<table class="compare-table"><thead><tr><th>Plan</th><th>Precio ref.</th></tr></thead><tbody><tr><td>Básico Mensual</td><td>R$ 9,90/mes</td></tr><tr><td>Básico Anual</td><td>R$ 99,90/año</td></tr><tr><td>Com Contador (Essencial / Standard / Avanzado)</td><td>R$ 69,90–119,90/mes</td></tr><tr><td>Anual contable con certificado digital</td><td>R$ 838,80–1.438,80/año</td></tr><tr><td>Com Contador Anual en 12 cuotas</td><td>12× R$ 69,90–119,90</td></tr></tbody></table><br>
+<div class="table-scroll"><table class="compare-table"><thead><tr><th>Plan</th><th>Precio ref.</th></tr></thead><tbody><tr><td>Básico Mensual</td><td>R$ 9,90/mes</td></tr><tr><td>Básico Anual</td><td>R$ 99,90/año</td></tr><tr><td>Com Contador (Essencial / Standard / Avanzado)</td><td>R$ 69,90–119,90/mes</td></tr><tr><td>Anual contable con certificado digital</td><td>R$ 838,80–1.438,80/año</td></tr><tr><td>Com Contador Anual en 12 cuotas</td><td>12× R$ 69,90–119,90</td></tr></tbody></table></div><br>
 <br>
 Instalación gratuita; suscripción obligatoria. Pago y cancelación en Google Play.</div></section>
-<section class="block"><h2>¿Cuál es la diferencia entre los planes?</h2><div class="body"><table class="compare-table"><thead><tr><th>Incluido</th><th>Básico (mensual o anual)</th><th>Com Contador (mensual)</th><th>Anual contable (con certificado)</th></tr></thead><tbody><tr><td>Libro de caja, IR, nómina y resumen del mes</td><td>Sí</td><td>Sí</td><td>Sí</td></tr><tr><td>Envío del mes para revisión del contador</td><td>No</td><td>Sí</td><td>Sí</td></tr><tr><td>Apertura de empresa (ME)</td><td>No</td><td>Sí</td><td>Sí</td></tr><tr><td>Certificado digital de la empresa (e-CNPJ)</td><td>No</td><td>No</td><td>Sí</td></tr></tbody></table><br>
+<section class="block"><h2>¿Cuál es la diferencia entre los planes?</h2><div class="body"><div class="table-scroll"><table class="compare-table"><thead><tr><th>Incluido</th><th>Básico (mensual o anual)</th><th>Com Contador (mensual)</th><th>Anual contable (con certificado)</th></tr></thead><tbody><tr><td>Libro de caja, IR, nómina y resumen del mes</td><td>Sí</td><td>Sí</td><td>Sí</td></tr><tr><td>Envío del mes para revisión del contador</td><td>No</td><td>Sí</td><td>Sí</td></tr><tr><td>Apertura de empresa (ME)</td><td>No</td><td>Sí</td><td>Sí</td></tr><tr><td>Certificado digital de la empresa (e-CNPJ)</td><td>No</td><td>No</td><td>Sí</td></tr></tbody></table></div><br>
 <br>
 Resumen: Básico = solo app; Com Contador = + revisión y apertura; Anual = pago anual + certificado digital.</div></section>
 <section class="block"><h2>¿Cómo funcionan las faixas Com Contador y Anual + A1?</h2><div class="body">1. En el registro de la empresa, indique tipo de actividad y volumen estimado (movimientos y NF/mes).<br>

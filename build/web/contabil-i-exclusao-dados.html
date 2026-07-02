@@ -20,6 +20,7 @@
       background: #fff; color: #000;
       font-family: "Segoe UI", "Segoe UI Web", "Helvetica Neue", Arial, sans-serif;
       font-size: 14px; line-height: 1.6;
+      overflow-x: hidden;
     }
     .top {
       display: flex; align-items: center; justify-content: space-between;
@@ -32,7 +33,7 @@
       padding: 4px 10px; margin-left: 4px; cursor: pointer; font-size: 13px;
     }
     .lang-nav button.active { border-color: #0067b8; color: #0067b8; font-weight: 600; }
-    main { max-width: 800px; margin: 0 auto; padding: 24px 24px 40px; }
+    main { max-width: 800px; width: 100%; margin: 0 auto; padding: 24px 16px 40px; overflow-x: hidden; }
     .page-title { font-size: 26px; font-weight: 600; margin: 0 0 8px; color: #000; }
     .updated { color: #444; font-size: 13px; margin: 0 0 20px; }
     .legal-header {
@@ -41,23 +42,30 @@
     }
     .block { margin-bottom: 24px; }
     .block h2 { font-size: 16px; font-weight: 600; margin: 0 0 8px; color: #000; }
-    .block .body { color: #000; }
+    .block .body { color: #000; max-width: 100%; overflow-wrap: anywhere; }
+    .table-scroll {
+      max-width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 12px 0 16px;
+    }
     table.compare-table {
-      width: 100%; border-collapse: collapse; margin: 12px 0 16px;
-      font-size: 13px; line-height: 1.45;
+      width: 100%; min-width: 0; border-collapse: collapse;
+      font-size: 13px; line-height: 1.45; table-layout: fixed;
     }
     table.compare-table th,
     table.compare-table td {
       border: 1px solid #ccc; padding: 8px 10px; text-align: left; vertical-align: top;
+      word-break: break-word; overflow-wrap: anywhere; hyphens: auto;
     }
     table.compare-table thead th {
       background: #f3f3f3; font-weight: 600;
     }
     table.compare-table tbody tr:nth-child(even) td { background: #fafafa; }
-    table.compare-table td:not(:first-child),
-    table.compare-table th:not(:first-child) { text-align: center; white-space: nowrap; }
+    table.compare-table td:nth-child(2),
+    table.compare-table th:nth-child(2) { text-align: center; white-space: nowrap; }
     table.compare-table td:first-child,
-    table.compare-table th:first-child { min-width: 9rem; }
+    table.compare-table th:first-child { width: 28%; min-width: 7rem; }
     footer {
       border-top: 1px solid #e1e1e1; padding-top: 16px; margin-top: 32px;
       text-align: center; font-size: 13px; line-height: 1.8;
