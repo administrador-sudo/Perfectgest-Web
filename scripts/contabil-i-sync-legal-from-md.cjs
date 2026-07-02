@@ -3,6 +3,9 @@
  * Sincroniza contabil-i-legal-data.cjs a partir de
  * apps/Contabilidade_Clientes/mobile/docs/politicas/*.md (PT).
  * EN/ES: contabil-i-legal-en-es.cjs (paralelo ao PT).
+ *
+ * Preferir o orquestrador: node scripts/contabil-i-update-legal-pages.cjs
+ * (ou mobile: scripts/atualizar_politicas_site.ps1)
  */
 const fs = require('node:fs');
 const path = require('node:path');
