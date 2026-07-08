@@ -15,12 +15,6 @@ const header = {
   es: "PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA\nNombre comercial: Perfect Gest Dev · CNPJ 66.889.409/0001-19\nCaxias do Sul — RS — Brasil · suporte@perfectgestdev.com\nApp Android: PerfectGest ContábilSigilo · paquete br.perfectgestcontabil.dev\n\nRoles en el tratamiento (LGPD)\n• Controlador de los datos contables y de la empresa: el titular de la ME/MEI o el profesional que utiliza el software.\n• Operador del software: Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA) — desarrolla y mantiene la herramienta; no decide sobre el contenido introducido por el usuario.\n• Derechos del titular: acceder, corregir, exportar y eliminar en la app, o contactar suporte@perfectgestdev.com.",
 };
 
-const lastUpdated = {
-  pt: 'Última atualização: 28/06/2026',
-  en: 'Last updated: 28 June 2026',
-  es: 'Última actualización: 28/06/2026',
-};
-
 const labels = {
   pt: {
     privacy: 'Política de Privacidade',
@@ -44,6 +38,7 @@ const labels = {
 
 const privacy = {
   pt: [
+    { heading: "Introdução", body: "Última atualização: 7 de julho de 2026" },
     { heading: "Quem somos", body: "O PerfectGest ContábilSigilo é um aplicativo desenvolvido pela PerfectGest Desenvolvimento de Software Ltda, CNPJ 66.889.409/0001-19, com sede em Caxias do Sul - RS.\n\n- Contato para privacidade: suporte@perfectgestdev.com\n- WhatsApp: +55 (51) 98904-5442\n- Política pública: https://perfectgestdev.com/contabil-i-politica-privacidade" },
     { heading: "Sua informação fica no seu celular", body: "O app foi feito para funcionar sem internet no dia a dia. Por padrão:\n\n- Lançamentos, fechamentos e dados da empresa ficam só no seu celular\n- Não enviamos seus dados contábeis para nossos servidores automaticamente\n- Não usamos anúncios nem rastreamos o que você registra\n\nVocê só compartilha algo quando você mesmo toca em \"Exportar backup\", \"Gerar PDF\" ou \"Enviar ao Contador\"." },
     { heading: "O que o app guarda", body: "Dados que você preenche\n\n<table class=\"compare-table\"><thead><tr><th>O que é</th><th>Exemplos</th><th>Onde fica</th></tr></thead><tbody><tr><td>Dados da empresa</td><td>Nome, CNPJ/CPF, ramo de atividade</td><td>Só no celular</td></tr><tr><td>Lançamentos</td><td>Receitas, despesas, valores, categorias</td><td>Só no celular</td></tr><tr><td>Obrigações fiscais</td><td>DAS pago, marcações, observações</td><td>Só no celular</td></tr><tr><td>Preferências</td><td>Tema do app, aceites de privacidade</td><td>Só no celular</td></tr><tr><td>Aceite do contrato</td><td>E-mail, horário do aceite, plano escolhido</td><td>Só no celular</td></tr></tbody></table>\n\nO que o app não coleta\n\n- Sua localização (GPS)\n- Contatos do telefone\n- Histórico de navegação\n- Qualquer dado para mostrar anúncios" },
@@ -130,6 +125,7 @@ const terms = {
 
 const deletion = {
   pt: [
+    { heading: "Introdução", body: "Última atualização: 7 de julho de 2026" },
     { heading: "O que você pode apagar pelo app", body: "Ao apagar os dados, tudo isso é removido permanentemente do seu celular:\n\n- Lançamentos financeiros (receitas, despesas, valores)\n- Dados da empresa (CNPJ, nome, ramo de atividade, contatos)\n- Obrigações fiscais e marcações\n- Fechamentos de mês\n- Dados de funcionários\n- Configurações e preferências do app\n- Registro do aceite do contrato (horário, e-mail, plano)\n- Informações sobre assinaturas (plano, add-ons, serviços contratados)" },
     { heading: "Como apagar tudo", body: "1. Toque em ☰ (menu lateral, canto superior esquerdo)\n2. Toque em \"Configurações\"\n3. Vá até a aba \"Eliminar dados\"\n4. Marque: *\"Li e compreendo que os dados serão apagados permanentemente\"*\n5. Digite a palavra ELIMINAR no campo indicado\n6. Toque \"Eliminar permanentemente\"\n\nApós isso, o app voltará à tela inicial como se fosse a primeira vez. Não é possível recuperar os dados apagados. Se tiver um backup exportado, você pode restaurá-lo." },
     { heading: "Dados na nuvem (envios ao contador)", body: "Se você usou serviços como envio do mês ao contador, abertura de empresa ou certificado digital, pode haver cópias dos dados nos nossos servidores.\n\nApagar no celular não apaga automaticamente esses dados da nuvem.\n\nPara pedir exclusão na nuvem:\n- E-mail: suporte@perfectgestdev.com\n- WhatsApp: +55 (51) 98904-5442\n- Prazo de resposta: até 15 dias" },
@@ -163,6 +159,7 @@ const deletion = {
 
 const faq = {
   pt: [
+    { heading: "Introdução", body: "Última atualização: 7 de julho de 2026" },
     { heading: "O que é o app?", body: "O que o app faz?\nO PerfectGest ContábilSigilo ajuda MEI e pequenos empresários a registrar entradas e saídas de dinheiro (Livro Caixa), acompanhar obrigações fiscais, simular o Imposto de Renda e gerenciar funcionários. Tudo no celular, sem precisar de internet no dia a dia.\n\nPreciso de internet para usar?\n- Para lançar receitas e despesas: não precisa\n- Para fechar o mês e gerar PDF: não precisa\n- Para assinar um plano ou enviar dados ao contador: precisa de internet\n- Para abrir portais do governo (DAS, prefeitura): precisa de internet\n\nO app substitui meu contador?\nNão. Ele é uma ferramenta de apoio. Nos planos que incluem contador, a PerfectGest confere e assina o seu Livro Caixa. Para declarações oficiais complexas, um contador habilitado ainda é recomendado.\n\nO app movimenta dinheiro da minha conta?\nNão. Você registra os valores manualmente (ou o contador faz isso se você contratar o serviço). O app não acessa seu banco nem faz transferências." },
     { heading: "Posso usar de graça?", body: "Sim! Sem assinar nada, você pode usar:\n- 1 lançamento de receita\n- 1 lançamento de despesa\n- 1 orçamento com PDF\n\nEsses limites são permanentes e não têm prazo de expiração. Para usar sem limites, escolha um plano na tela de assinatura.\n\nComo fechar a tela de planos sem assinar?\nToque no X no canto superior direito da tela de planos para fechar. Se o app exibir essa tela ao abrir, você ainda pode sair pelo botão fechar." },
     { heading: "Como lançar uma receita ou despesa?", body: "1. Toque na aba \"Lançar\" (segunda aba da barra inferior)\n2. Digite no campo de chat o que aconteceu — por exemplo:\n   - *\"Recebi R$ 500 de serviço via Pix\"*\n   - *\"Paguei R$ 200 de aluguel no boleto\"*\n3. O assistente vai sugerir o tipo (entrada ou saída), a categoria e o meio de pagamento\n4. Confira os dados e toque \"Confirmar lançamento\"\n5. Se quiser corrigir algo antes de confirmar, toque em \"Editar\"\n\n> Também é possível lançar manualmente: toque no ícone de lápis → \"Formulário\" → preencha os campos → \"Salvar\"" },
@@ -216,7 +213,6 @@ const pageSlugs = {
 
 module.exports = {
   header,
-  lastUpdated,
   labels,
   pageSlugs,
   pages: {

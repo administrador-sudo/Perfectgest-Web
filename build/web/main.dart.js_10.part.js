@@ -8,7 +8,7 @@ r=A.el("https://onrender.com",0,null)
 q=y.g
 p=A.aA(["Content-Type","application/json"],q,q)
 x=6
-return A.S(D.aRU(r,B.dj.Lo(A.aA(["mensagem","Teste de iniciante com sucesso!","usuario","PerfectProAdmin","data_envio",new A.eJ(Date.now(),0,!1).ayg()],q,q),null),p),$async$abi)
+return A.S(D.aRU(r,B.dj.Ln(A.aA(["mensagem","Teste de iniciante com sucesso!","usuario","PerfectProAdmin","data_envio",new A.eJ(Date.now(),0,!1).ayg()],q,q),null),p),$async$abi)
 case 6:t=e
 if(t.b===200){A.jS().$1("Sucesso: o dado chegou no Elastic.")
 r=t
@@ -35,4 +35,4 @@ C=a.updateHolder(c[8],C)
 D=c[10]
 var z=a.updateTypes([])
 var y={g:A.a3("k"),f:A.a3("~")}};
-(a=>{a["fZHBkqY7MuzLX+AIgj6CMeZf0Ps="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["MVIZZgZIUs/1+RkQevQeKckRWnA="]=a.current})($__dart_deferred_initializers__);

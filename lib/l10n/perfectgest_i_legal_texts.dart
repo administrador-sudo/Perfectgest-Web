@@ -24,7 +24,6 @@ abstract class PerfectGestILegalTexts {
   String get termsTitle;
   String get deletionTitle;
   String get faqTitle;
-  String get lastUpdated;
   String get legalHeaderBody;
   String get footerPrivacy;
   String get footerTerms;
@@ -61,361 +60,531 @@ const String _kHeaderEs =
     'Soporte: $kCompanyContactEmail';
 
 const List<LegalSectionText> _kPrivacyPt = <LegalSectionText>[
-  LegalSectionText(heading: 'Introdução', body: 'A PerfectGest I, sob responsabilidade de Marcos Leandro dos Santos, estabelece esta Política de Privacidade em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei 13.709/18) e as políticas para desenvolvedores da Google Play Store.'),
-  LegalSectionText(heading: 'Controlador de Dados e Contato', body: 'O responsável pelo tratamento de dados é Marcos Leandro dos Santos. Para o exercício de direitos de acesso, retificação ou exclusão, entre em contato via e-mail: suporte@perfectgestdev.com.'),
-  LegalSectionText(heading: 'Armazenamento local e natureza dos dados', body: '''O aplicativo opera em modelo local-first. Os dados de gestão comercial são armazenados exclusivamente no dispositivo do usuário via SQLite. A PerfectGest I não coleta, não acede e não transfere automaticamente esses dados para servidores próprios.
+  LegalSectionText(heading: 'Introdução', body: '''Última atualização: 7 de julho de 2026
+Responsável: Marcos Leandro dos Santos · suporte@perfectgestdev.com'''),
+  LegalSectionText(heading: 'Seus dados ficam no seu celular', body: '''O PerfectGest I foi feito para funcionar sem internet no dia a dia. Por padrão:
 
-Dados de clientes e financeiros — protegidos no aparelho
+- Clientes, orçamentos, caixa, ordens de serviço e dados da empresa ficam só no seu celular
+- O app não envia esses dados para os nossos servidores automaticamente
+- O app não tem anúncios e não rastreia o que você registra'''),
+  LegalSectionText(heading: 'O que o app guarda', body: '''Dados que você preenche (ficam no celular)
 
-Permanecem no dispositivo e não saem da app por iniciativa do sistema:
+| O que é | Exemplos |
+|---------|----------|
+| Clientes | Nome, contato, histórico |
+| Orçamentos | Itens, valores, estado |
+| Caixa | Entradas, saídas, categorias |
+| Ordens de serviço | Descrição, valores |
+| Dados da empresa | Nome, CNPJ, logo, contatos |
+| Preferências | Tema, configurações do app |
 
-- Cadastro e histórico de clientes
-- Orçamentos, itens, valores e estados
-- Caixa — entradas, saídas, categorias e saldos
-- Ordens de serviço / produção e projetos
-- Contratos e documentos auxiliares de gestão
-- Qualquer valor, nome de cliente ou movimento financeiro registado na app
+O que o app não coleta
 
-Não enviamos estes dados para Firebase, Firestore, Analytics nem outros servidores por iniciativa da app. O Firebase Analytics regista apenas eventos genéricos de uso (ex.: navegação entre ecrãs), sem nomes de clientes, valores de caixa ou conteúdo de orçamentos.
+- Sua localização (GPS)
+- Contatos do telefone
+- Histórico de navegação
+- Qualquer dado para anúncios'''),
+  LegalSectionText(heading: 'Quando seus dados saem do celular', body: '''Os dados só saem do aparelho quando você mesmo decide compartilhar:
 
-Quando os dados podem sair do aparelho (sempre por acção do utilizador)
+| Ação | O que é enviado |
+|------|-----------------|
+| Compartilhar PDF (orçamento, caixa, relatório) | O PDF gerado naquele momento |
+| Compartilhar cartão de visita (PNG ou vCard) | Só dados profissionais da empresa — nunca clientes ou financeiro |
+| Exportar backup | Arquivo com seus dados (guarde em local seguro) |
 
-A saída ocorre somente se o utilizador decidir explicitamente:
+Recomendamos backup com senha (disponível no Plano Pro) para maior segurança.'''),
+  LegalSectionText(heading: 'Uso gratuito e Plano Pro', body: '''Uso gratuito (freemium): você pode criar 1 cliente, 1 orçamento e 1 lançamento de caixa sem assinar nenhum plano. Esses limites são permanentes — sem prazo para vencer.
 
-- Partilhar ou guardar PDF (orçamento, caixa, relatório, etc.) — o documento gerado naquele momento
-- Partilhar cartão de visita (PNG) — apenas dados profissionais da empresa (nome, contactos, redes, logótipo); nunca a lista de clientes nem dados financeiros
-- Partilhar ficheiro de contactos (vCard) ou mostrar QR com dados profissionais (Plano Pro — ver abaixo)
-- Criar e partilhar backup — ficheiro de backup (simples ou encriptado) que o utilizador escolhe enviar por WhatsApp, e-mail, Drive, etc.; contém a cópia local que exportou
+Plano Pro: uso ilimitado + backup com senha + cartão de visita completo. Assinatura mensal ou anual via Google Play.'''),
+  LegalSectionText(heading: 'Cartão de visita digital', body: '''O cartão usa os dados da aba Empresa (nome, logo, contatos profissionais). Esses dados ficam no celular.
 
-Importante: partilhar um backup é responsabilidade do utilizador quanto ao destino e à segurança do ficheiro. Recomendamos backups encriptados (Plano Pro) e destinatários de confiança.
+- Sem Plano Pro: pode compartilhar a imagem do cartão; edição avançada fica pausada
+- Com Plano Pro: edita, gera vCard, QR Code e preview interativo — tudo dentro do app
 
-Dados da empresa no cartão de visita
+Clientes, orçamentos e caixa nunca entram no cartão.'''),
+  LegalSectionText(heading: 'Serviços do Google usados pelo app', body: '''| Serviço | Para quê | O que é enviado |
+|---------|----------|-----------------|
+| Google Play Billing | Gerenciar assinatura | Dados da compra (pela Google) |
+| Firebase Analytics | Medir uso do app | Eventos genéricos (sem nomes ou valores financeiros) |
+| Firebase Remote Config | Configurações do app | Nenhum dado pessoal |
+| Cloud Firestore | Controle do limite freemium por aparelho | ID anônimo do aparelho — sem clientes, orçamentos ou caixa |
 
-Os contactos da aba Empresa (telefone, e-mail, WhatsApp, etc.) servem também o cartão de visita, mas não misturam nem expõem automaticamente os módulos Clientes, Orçamentos ou Caixa.'''),
-  LegalSectionText(heading: 'Cartão de visita — armazenamento local e modo estático', body: '''O cartão de visita digital (aba Empresa) utiliza os dados da empresa guardados no dispositivo. Ao concluir a criação do primeiro cartão, o aplicativo pode guardar uma cópia congelada (snapshot) local — imagem PNG e dados do layout — para exibição em modo estático quando não houver assinatura Plano Pro activa.
-
-- No dispositivo: snapshot, logótipo e ficheiros temporários de partilha permanecem no aparelho até limpar dados ou desinstalar.
-- Partilha PNG: mesmo em modo estático, pode partilhar a imagem do snapshot (ex.: WhatsApp, e-mail) por acção explícita; não enviamos essa imagem automaticamente a servidores PerfectGest.
-- Edição e funcionalidades avançadas (vCard, QR, preview interactivo com toques em contactos): requerem Plano Pro — sempre dentro da app; não há página web do cartão alojada pela PerfectGest.'''),
-  LegalSectionText(heading: 'Cartão de visita interactivo na app (Plano Pro)', body: '''Com Plano Pro, após o primeiro cartão, pode continuar a editar e usar funções avançadas no telemóvel:
-
-- Preview interactivo (toques abrem WhatsApp, telefone, e-mail, site ou mapa, conforme configurado)
-- Exportar vCard (.vcf) e gerar QR com dados de contacto
-- Partilhar PNG actualizado
-
-Tudo permanece no dispositivo até partilhar ou mostrar o QR por acção explícita. Não publicamos nem alojamos o cartão num site PerfectGest; não enviamos o conteúdo do cartão para Firestore nem outros servidores por iniciativa da app.
-
-O que nunca entra no cartão: cadastro de clientes, orçamentos, lançamentos de caixa, valores financeiros, contratos ou backups.'''),
-  LegalSectionText(heading: 'Modelo de acesso — período de teste e Plano Pro', body: '''- Período de teste (7 dias): desde a primeira abertura da app, pode criar até 5 clientes, 5 orçamentos e 5 lançamentos de caixa, incluindo PDF, sem subscrição paga durante esse período.
-- Limites durante o teste: ao guardar o 4.º registo de cada tipo, a app informa que é o último daquele tipo no teste. O 6.º (ou acima dos limites) exige Plano Pro, mesmo dentro dos 7 dias.
-- Após 7 dias sem Plano Pro: a app continua utilizável para consultar e editar dados locais, mas não permite criar novos clientes, orçamentos ou lançamentos de caixa.
-- Plano Pro: uso ilimitado, restauro de backup encriptado e cartão de visita interactivo na app (edição após o primeiro cartão, vCard, QR, preview com toques), via assinatura mensal ou anual na Google Play.
-
-A data de início do teste é guardada de forma anónima por aparelho (serviço Firebase) para coerência do período — sem dados de clientes, orçamentos ou caixa.'''),
-  LegalSectionText(heading: 'Coleta de dados e serviços de terceiros', body: '''- Google Analytics (Firebase): eventos genéricos de uso; sem Crashlytics; sem nomes ou valores financeiros.
-- Firebase Remote Config: versões mínimas e flags de segurança.
-- Cloud Firestore: metadados anónimos do Plano Inicial — identificador de instalação por aparelho, início do período de teste, elegibilidade freemium e consumo do 1.º cartão (sem dados de clientes, orçamentos ou caixa).
-- Google Play Billing: subscrições.'''),
-  LegalSectionText(heading: 'Notificações locais', body: 'Lembretes fiscais processados no dispositivo; sem envio a servidores externos. Permissão POST_NOTIFICATIONS no Android 13+.'),
-  LegalSectionText(heading: 'Declarações de segurança', body: '''- HTTPS/TLS em telemetria e metadados técnicos.
-- Sem venda de dados para publicidade.
-- Separação cartão vs. gestão: cartão = só informação profissional configurada; clientes e financeiro locais, excepto PDFs ou backups partilhados pelo utilizador.'''),
-  LegalSectionText(heading: 'Retenção e exclusão', body: '''- Dados comerciais locais e snapshot do cartão: eliminados ao limpar dados da app ou desinstalar.
-- Telemetria (Firebase): pedido por e-mail, até 15 dias úteis.'''),
-  LegalSectionText(heading: 'Permissões de sistema', body: 'Importar logótipos; guardar PDFs e backups; notificações locais (Android 13+).'),
-  LegalSectionText(heading: 'Elegibilidade e foro', body: 'Utilizadores maiores de 18 anos. Leis do Brasil; foro de Caxias do Sul/RS.'),
+O Firebase Analytics registra apenas eventos genéricos de navegação — não envia nomes de clientes, valores de caixa nem conteúdo de orçamentos.'''),
+  LegalSectionText(heading: 'Notificações', body: 'Apenas lembretes locais no celular para obrigações fiscais. Nada é enviado para servidores externos.'),
+  LegalSectionText(heading: 'Por quanto tempo guardamos seus dados', body: '''- No celular: até você usar "Eliminar todos os dados" ou desinstalar o app
+- Firebase (técnico): solicite exclusão por e-mail em até 15 dias úteis'''),
+  LegalSectionText(heading: 'Seus direitos', body: '''Você pode a qualquer momento:
+- Ver e editar seus dados diretamente no app
+- Exportar seus dados (backup)
+- Apagar tudo do celular: Configurações → Dados no dispositivo → Eliminar todos os dados
+- Pedir exclusão de dados técnicos (Firebase) por e-mail: suporte@perfectgestdev.com'''),
+  LegalSectionText(heading: 'Crianças', body: 'O app é destinado a adultos (18 anos ou mais) e empreendedores.'),
+  LegalSectionText(heading: 'Atualizações desta política', body: 'Quando houver mudanças relevantes, avisamos no app. A versão mais recente está sempre no link abaixo.'),
+  LegalSectionText(heading: 'Links', body: '''- Política de privacidade
+- FAQ
+- Exclusão de dados
+- Termos e Condições'''),
 ];
 
 const List<LegalSectionText> _kTermsPt = <LegalSectionText>[
-  LegalSectionText(heading: '1. Objeto', body: '''Estes Termos regem a app PerfectGest I, para gestão empresarial (clientes, orçamentos, caixa, ordem de serviço, lembretes fiscais, cartão de visita digital), com dados principalmente no dispositivo.
+  LegalSectionText(heading: 'Introdução', body: 'Última atualização: 7 de julho de 2026'),
+  LegalSectionText(heading: 'O que é o app', body: '''O PerfectGest I é um aplicativo de gestão para autônomos e pequenas empresas. Você gerencia clientes, orçamentos, caixa, ordens de serviço, lembretes fiscais e cartão de visita digital — tudo guardado no seu celular.
 
-Dados de clientes e financeiros permanecem no aparelho e não são transmitidos automaticamente. Podem sair somente por acção do utilizador (partilha de PDF, backup exportado, cartão de visita PNG/vCard/QR). Ver Política de Privacidade.
+Os dados de clientes e financeiros não são enviados automaticamente para servidores. Só saem do aparelho por ação sua (compartilhar PDF, backup exportado ou cartão de visita).
 
-Editor: Marcos Leandro dos Santos.'''),
-  LegalSectionText(heading: '2. Elegibilidade', body: 'Utilizadores maiores de 18 anos.'),
-  LegalSectionText(heading: '3. Plano Inicial, período de teste e assinaturas', body: '''- Período de teste: 7 dias a contar da primeira abertura da app no aparelho (data registada de forma anónima para evitar reinício indevido do teste).
-- Durante o teste: até 5 clientes, 5 orçamentos e 5 lançamentos de caixa, incluindo PDF. Ao guardar o 4.º registo de cada tipo, a app avisa que falta apenas 1. O 6.º registo (ou acima dos limites) exige Plano Pro, mesmo antes de terminarem os 7 dias.
-- Após 7 dias sem Plano Pro: não é possível criar novos clientes, orçamentos ou lançamentos de caixa; pode consultar e editar os dados já guardados no aparelho.
-- Plano Pro: uso ilimitado, restauro de backup encriptado e cartão de visita interactivo na app — assinatura mensal ou anual via Google Play (preço e condições na loja).
-- Renovação automática até cancelar na Play Store: Pagamentos e subscrições → Subscrições.'''),
-  LegalSectionText(heading: '4. Cancelamento', body: 'Google Play Store → Pagamentos e subscrições → Subscrições.'),
-  LegalSectionText(heading: '5. Direito de arrependimento (Brasil — CDC)', body: '7 dias corridos quando aplicável, sem prejuízo das regras Google Play. Reembolsos via canais Google.'),
-  LegalSectionText(heading: '6. Lembretes fiscais', body: 'Meramente informativos; não substituem contabilista. Responsabilidade do utilizador.'),
-  LegalSectionText(heading: '7. Limitação de responsabilidade', body: 'Ferramenta de apoio; não substitui assessoria profissional. Decisões de negócio são do utilizador.'),
-  LegalSectionText(heading: '8. Propriedade intelectual', body: 'Licença revogável, não exclusiva. Proibida engenharia inversa ilícita.'),
-  LegalSectionText(heading: '9. Alterações', body: 'Versão vigente publicada no URL abaixo.'),
-  LegalSectionText(heading: '10. Lei e foro', body: 'Leis do Brasil; foro Caxias do Sul/RS, sem prejuízo do consumidor.'),
-  LegalSectionText(heading: '11. Contacto', body: 'suporte@perfectgestdev.com'),
+Responsável pelo app: Marcos Leandro dos Santos · suporte@perfectgestdev.com'''),
+  LegalSectionText(heading: 'Quem pode usar', body: 'Pessoas com 18 anos ou mais.'),
+  LegalSectionText(heading: 'Uso gratuito e Plano Pro', body: '''Uso gratuito (freemium): sem assinar nada, você pode criar 1 cliente, 1 orçamento e 1 lançamento de caixa. Esses limites são permanentes — não têm prazo de vencimento.
+
+Plano Pro: uso ilimitado (clientes, orçamentos, caixa, PDFs), backup com senha e cartão de visita com edição completa. Assinatura mensal ou anual via Google Play.
+
+A assinatura renova automaticamente até você cancelar na Play Store → Pagamentos e subscrições → Subscrições.'''),
+  LegalSectionText(heading: 'Cancelamento e reembolso', body: 'O cancelamento é feito na Google Play. Reembolsos seguem a política da Google Play Store. Quando aplicável no Brasil (CDC), você tem 7 dias corridos para arrependimento.'),
+  LegalSectionText(heading: 'Lembretes fiscais', body: 'São informativos. Não substituem um contador ou assessor fiscal. A responsabilidade pelas obrigações fiscais é sempre do usuário.'),
+  LegalSectionText(heading: 'Limitação de responsabilidade', body: 'O app é uma ferramenta de apoio. Não substitui assessoria profissional (contábil, jurídica, financeira). As decisões de negócio são de sua responsabilidade.'),
+  LegalSectionText(heading: 'Propriedade intelectual', body: 'Você recebe uma licença de uso, não exclusiva e não transferível. É proibido copiar, modificar ou fazer engenharia reversa do app.'),
+  LegalSectionText(heading: 'Alterações nestes termos', body: 'A versão vigente está sempre publicada no link abaixo. Mudanças relevantes serão comunicadas no app.'),
+  LegalSectionText(heading: 'Foro', body: 'Leis do Brasil. Foro: Caxias do Sul — RS, respeitados os direitos do consumidor.'),
+  LegalSectionText(heading: 'Contato', body: 'suporte@perfectgestdev.com'),
+  LegalSectionText(heading: 'Links', body: '''- Política de privacidade
+- FAQ
+- Exclusão de dados
+- Termos e Condições'''),
 ];
 
 const List<LegalSectionText> _kDeletionPt = <LegalSectionText>[
-  LegalSectionText(heading: 'Introdução', body: 'O PerfectGest I oferece controlo claro dos dados, em conformidade com a Google Play e a LGPD. A app é local-first.'),
-  LegalSectionText(heading: 'Resumo', body: 'Dados de clientes e financeiros não são enviados automaticamente para servidores PerfectGest. Só podem sair do telemóvel se partilhar PDFs, partilhar ficheiros de backup que exportou, partilhar PNG/vCard do cartão de visita ou mostrar um QR com contactos profissionais.'),
-  LegalSectionText(heading: '1. Dados de gestão (local)', body: '''Armazenados em SQLite no dispositivo: clientes, orçamentos, caixa, ordens de serviço, dados da empresa, cópia do cartão de visita, lembretes fiscais.
+  LegalSectionText(heading: 'Introdução', body: '''Última atualização: 7 de julho de 2026
+O PerfectGest I guarda seus dados só no celular. Você tem controle total.'''),
+  LegalSectionText(heading: 'O que pode ser apagado pelo app', body: '''Ao eliminar os dados, tudo isso é removido do seu celular:
 
-Como eliminar
+- Lista de clientes e histórico
+- Orçamentos, valores e itens
+- Lançamentos de caixa (entradas e saídas)
+- Ordens de serviço
+- Dados da empresa (nome, logo, contatos)
+- Cartão de visita digital salvo no app
+- Lembretes fiscais configurados
+- Preferências e configurações'''),
+  LegalSectionText(heading: 'Como apagar tudo no app', body: '''Configurações → Dados no dispositivo → Eliminar todos os dados neste aparelho
 
-- Na app: Configurações → Dados no dispositivo → Eliminar todos os dados neste aparelho
-- Android: Definições → Apps → PerfectGest I → Armazenamento → Limpar dados
-- Desinstalar a app
+Também é possível pelo Android: Configurações do celular → Apps → PerfectGest I → Armazenamento → Limpar dados.
 
-Aviso: sem cópia externa, não há recuperação — não guardamos cópias nos nossos servidores.
+Desinstalar o app também remove os dados locais.
 
-Backups partilhados: elimine manualmente no WhatsApp, e-mail ou nuvem onde os guardou.'''),
-  LegalSectionText(heading: '2. Firebase / telemetria', body: '''Metadados anónimos de instalação e métricas de uso para elegibilidade do Plano Inicial. Não alojamos conteúdo do cartão de visita em servidores.
+Atenção: sem backup exportado, não é possível recuperar os dados. O app não mantém cópias nos nossos servidores.'''),
+  LegalSectionText(heading: 'O que não é apagado automaticamente', body: '''- PDFs que você exportou para outros apps
+- Backups que você enviou por WhatsApp, e-mail ou guardou em nuvem pessoal — apague manualmente nesses locais
+- Registro da compra na Google Play'''),
+  LegalSectionText(heading: 'Dados técnicos (Firebase)', body: '''O app usa Firebase para controlar o limite gratuito por aparelho (ID anônimo — sem seus dados de clientes ou financeiro). Para pedir a exclusão desses dados técnicos:
 
-E-mail: suporte@perfectgestdev.com — Assunto: Solicitação de Exclusão de Dados Técnicos'''),
-  LegalSectionText(heading: '3. Notificações locais', body: 'Canceladas ao desinstalar ou ao apagar os dados na app.'),
-  LegalSectionText(heading: '4. Prazos', body: 'Dados locais: imediato. Telemetria Firebase: até 15 dias úteis após pedido por e-mail.'),
+E-mail: suporte@perfectgestdev.com
+Assunto: Solicitação de Exclusão de Dados Técnicos
+Prazo: até 15 dias úteis'''),
+  LegalSectionText(heading: 'Prazos', body: '''| Ação | Prazo |
+|------|-------|
+| Apagar do celular | Imediato |
+| Exclusão de dados técnicos Firebase | Até 15 dias úteis |'''),
+  LegalSectionText(heading: 'Links', body: '''- Política de privacidade
+- FAQ
+- Exclusão de dados
+- Termos e Condições'''),
 ];
 
 const List<LegalSectionText> _kFaqPt = <LegalSectionText>[
-  LegalSectionText(heading: 'O que é o PerfectGest I?', body: 'Aplicação de gestão no telemóvel, com dados guardados localmente (SQLite). Não há «conta na nuvem» PerfectGest para clientes, orçamentos ou caixa.'),
-  LegalSectionText(heading: 'A app funciona sem internet?', body: 'Sim, o uso diário é offline-first. Serviços Google opcionais (Analytics, Remote Config, Firestore mínimo para o Plano Inicial) podem usar rede quando activos.'),
-  LegalSectionText(heading: 'Como funciona o período de teste?', body: '7 dias desde a primeira abertura. Durante esse tempo: até 5 clientes, 5 orçamentos e 5 lançamentos de caixa (com PDF), sem subscrição paga. Ao guardar o 4.º de cada tipo, a app avisa que falta 1. O 6.º ou o fim dos 7 dias sem Plano Pro impede novos registos; pode continuar a consultar e editar o que já está no telemóvel. Subscrição: Configurações → Assinatura Google Play.'),
-  LegalSectionText(heading: 'Como funciona o Plano Inicial?', body: 'É o conjunto de limites 5+5+5 aplicado durante os 7 dias de teste (ver acima). Fora do teste ou acima dos limites, é necessário o Plano Pro (mensal ou anual na Google Play).'),
-  LegalSectionText(heading: 'Onde compro ou gerencio a subscrição?', body: 'Configurações → Assinatura Google Play. Pagamentos pelo Google. Cancelamento: Play Store → Pagamentos e subscrições → Subscrições.'),
-  LegalSectionText(heading: 'O que é o cartão de visita digital?', body: '''Na aba Empresa edita os dados profissionais da empresa (não inclui clientes nem caixa). O cartão mostra logótipo, nome, slogan, CNPJ, nome do profissional e contactos com rótulos no rodapé (até 2 por linha). Temas: branco, cinza ou preto.
+  LegalSectionText(heading: 'Introdução', body: 'Última atualização: 7 de julho de 2026'),
+  LegalSectionText(heading: 'O que é o PerfectGest I?', body: 'Um app de gestão no celular para autônomos e pequenas empresas. Clientes, orçamentos, caixa, ordens de serviço e lembretes fiscais — tudo guardado só no seu celular, sem conta na nuvem.'),
+  LegalSectionText(heading: 'Preciso de internet para usar?', body: '''No dia a dia, não precisa. O app funciona offline. Só precisam de internet:
+- Assinar ou restaurar um plano (Google Play)
+- Verificar atualizações do app'''),
+  LegalSectionText(heading: 'Posso usar de graça?', body: '''Sim! Sem assinar nada, você pode criar:
+- 1 cliente
+- 1 orçamento (com PDF)
+- 1 lançamento de caixa (com PDF)
 
-Partilhar cartão de visita gera PNG e abre a folha de partilha (WhatsApp, e-mail, etc.). Após o primeiro cartão, sem Plano Pro o cartão fica em modo estático (pode partilhar o PNG do snapshot); com Pro, edita e usa funções avançadas só na app (vCard, QR, preview interactivo) — sem página web alojada pela PerfectGest.
+Esses limites são permanentes — sem prazo para vencer. Para usar sem limites, assine o Plano Pro em Configurações → Assinatura Google Play.'''),
+  LegalSectionText(heading: 'O que é o Plano Pro?', body: '''Com o Plano Pro (mensal ou anual na Google Play) você tem:
+- Clientes, orçamentos e lançamentos ilimitados
+- PDFs ilimitados
+- Backup com proteção por senha
+- Cartão de visita digital com edição, vCard, QR e preview interativo'''),
+  LegalSectionText(heading: 'Como compro ou gerencio minha assinatura?', body: '''Configurações → Assinatura Google Play
 
-Clientes e dados financeiros ficam protegidos: só no telemóvel; não entram no cartão nem são enviados automaticamente para servidores.'''),
-  LegalSectionText(heading: 'Os meus dados de clientes e financeiros estão protegidos?', body: '''Sim. Clientes, orçamentos, caixa e valores ficam na base local. A app não envia esses dados para servidores.
+Para cancelar: Google Play → Pagamentos e subscrições → Subscrições.'''),
+  LegalSectionText(heading: 'O que é o cartão de visita digital?', body: '''Na aba Empresa você configura seus dados profissionais (nome, contatos, logo, slogan). O app gera um cartão digital que você pode compartilhar como imagem (PNG) ou vCard.
 
-Só saem do telemóvel se você decidir:
+- Sem Plano Pro: pode criar o primeiro cartão e compartilhar a imagem; edição e funções avançadas ficam pausadas.
+- Com Plano Pro: edita quando quiser, gera QR Code, exporta vCard e compartilha.
 
-- Partilhar um PDF
-- Partilhar o cartão de visita (PNG, vCard ou QR — contactos profissionais)
-- Partilhar um backup exportado em Configurações (recomendamos backup encriptado no Plano Pro)'''),
-  LegalSectionText(heading: 'O que são os lembretes fiscais?', body: 'Obrigações pré-configuradas (MEI, Autônomo, ME) com alarmes no dispositivo. Meramente informativos — não substituem contabilista.'),
-  LegalSectionText(heading: 'O que é o calendário semanal?', body: 'Na aba Empresa, calendário da semana com indicadores de vencimentos fiscais.'),
-  LegalSectionText(heading: 'O que são os «Últimos lançamentos»?', body: 'Atalhos na página inicial para o último cliente, orçamento, ordem de serviço e lançamento de caixa.'),
-  LegalSectionText(heading: 'A app envia notificações?', body: 'Apenas notificações locais para lembretes fiscais. Sem envio a servidores externos.'),
-  LegalSectionText(heading: 'Onde está a política de privacidade?', body: 'Configurações → Ajuda e suporte — links para Política, Exclusão de dados e Termos. E-mail: suporte@perfectgestdev.com.'),
-  LegalSectionText(heading: 'Como apago todos os dados neste aparelho?', body: 'Configurações → Dados no dispositivo → Eliminar todos os dados neste aparelho. Não apaga PDFs ou backups já exportados. Para dados técnicos Google: página de exclusão de dados.'),
-  LegalSectionText(heading: 'A app tem anúncios?', body: 'Não.'),
-  LegalSectionText(heading: 'Há Firebase Crashlytics?', body: 'Não. Analytics regista eventos genéricos; não envia crash reports automáticos.'),
-  LegalSectionText(heading: 'Em que idiomas está a app?', body: 'Português (Brasil), inglês (EUA), espanhol (Espanha).'),
-  LegalSectionText(heading: 'Como posso dar sugestões?', body: 'Aba Empresa → Dê sua contribuição → e-mail suporte@perfectgestdev.com.'),
+Dados de clientes e financeiros nunca entram no cartão — ficam só no seu celular.'''),
+  LegalSectionText(heading: 'Meus dados de clientes e financeiros estão seguros?', body: '''Sim. Tudo fica guardado localmente no seu celular. Só saem do aparelho se você escolher compartilhar:
+- Um PDF de orçamento, caixa ou relatório
+- A imagem ou vCard do cartão de visita (só dados profissionais)
+- Um arquivo de backup que você mesmo exportou
+
+Recomendamos usar backup com senha (Plano Pro) para maior segurança.'''),
+  LegalSectionText(heading: 'O que são os lembretes fiscais?', body: 'Alertas no celular para obrigações como DAS, declarações e outros vencimentos de MEI, autônomos e ME. São informativos — não substituem um contador.'),
+  LegalSectionText(heading: 'O que são os "Últimos lançamentos" na tela inicial?', body: 'Atalhos rápidos para o último cliente, orçamento, ordem de serviço e lançamento de caixa que você registrou.'),
+  LegalSectionText(heading: 'O app manda notificações?', body: 'Apenas lembretes locais para obrigações fiscais. Nada é enviado para servidores externos.'),
+  LegalSectionText(heading: 'O app tem anúncios?', body: 'Não.'),
+  LegalSectionText(heading: 'Em quais idiomas está disponível?', body: 'Português (Brasil), Inglês e Espanhol.'),
+  LegalSectionText(heading: 'Como apago todos os dados do celular?', body: '''Configurações → Dados no dispositivo → Eliminar todos os dados neste aparelho
+
+PDFs e backups que você já exportou para outros apps ou serviços não são apagados por esse botão — exclua-os manualmente onde os guardou.'''),
+  LegalSectionText(heading: 'Como entro em contato ou dou sugestões?', body: 'Aba Empresa → Dê sua contribuição ou e-mail: suporte@perfectgestdev.com'),
+  LegalSectionText(heading: 'Links', body: '''- Política de privacidade
+- FAQ
+- Exclusão de dados
+- Termos e Condições'''),
 ];
 
 const List<LegalSectionText> _kPrivacyEn = <LegalSectionText>[
-  LegalSectionText(heading: 'Introduction', body: 'PerfectGest I, operated by Marcos Leandro dos Santos, provides this Privacy Policy in compliance with Brazil’s LGPD (Law 13.709/18) and Google Play developer policies.'),
-  LegalSectionText(heading: 'Data controller and contact', body: 'Controller: Marcos Leandro dos Santos. Contact: suporte@perfectgestdev.com.'),
-  LegalSectionText(heading: 'Local storage', body: '''The app is local-first. Business data is stored only on your device (SQLite). PerfectGest I does not automatically collect, access, or transfer that data to its own servers.
+  LegalSectionText(heading: 'Introduction', body: '''Last updated: 7 July 2026
+Developer: Marcos Leandro dos Santos · suporte@perfectgestdev.com'''),
+  LegalSectionText(heading: 'Your data stays on your phone', body: '''PerfectGest I is built to work offline every day. By default:
 
-Client and financial data — protected on the device
+- Clients, estimates, cash, service orders, and company data stay only on your device
+- The app does not send this data to our servers automatically
+- The app has no ads and does not track what you register'''),
+  LegalSectionText(heading: 'What the app stores', body: '''Data you enter (stays on your device)
 
-These stay on the device and do not leave the app unless you choose to:
+| Type | Examples |
+|------|----------|
+| Clients | Name, contact, history |
+| Estimates | Items, amounts, status |
+| Cash | Income, expenses, categories |
+| Service orders | Description, values |
+| Company data | Name, tax ID, logo, contacts |
+| Preferences | Theme, app settings |
 
-- Client records and history
-- Estimates, line items, amounts, and status
-- Cash flow — income, expenses, categories, balances
-- Work orders, projects, contracts, and management documents
-- Any client name, amount, or financial movement in the app
+What the app does not collect
 
-We do not send this data to Firebase, Firestore, Analytics, or other servers. Firebase Analytics logs generic usage events only — not client names, cash amounts, or estimate content.
+- Your location (GPS)
+- Phone contacts
+- Browsing history
+- Any advertising data'''),
+  LegalSectionText(heading: 'When data leaves your device', body: '''Data only leaves your phone when you decide to share:
 
-When data may leave the device (your explicit action only)
+| Action | What is sent |
+|--------|-------------|
+| Share a PDF (estimate, cash, report) | The PDF generated at that moment |
+| Share business card (PNG or vCard) | Professional details only — never clients or financials |
+| Export backup | A file with your data (store it securely) |
 
-- Share or save a PDF (estimate, cash report, etc.)
-- Share business card PNG — professional company contacts only; never your client list or financial data
-- Share vCard or show QR with professional contacts (Pro Plan — see below)
-- Share a backup file you exported (plain or encrypted) via WhatsApp, email, Drive, etc.
+We recommend using a password-protected backup (Pro Plan) for extra security.'''),
+  LegalSectionText(heading: 'Free use and Pro Plan', body: '''Free use (freemium): create 1 client, 1 estimate, and 1 cash entry without subscribing. These limits are permanent — they don't expire.
 
-Important: sharing a backup is your responsibility regarding destination and security. We recommend encrypted backups (Pro Plan).
+Pro Plan: unlimited use + password-protected backup + full business card. Monthly or annual via Google Play.'''),
+  LegalSectionText(heading: 'Digital business card', body: '''The card uses data from the Company tab (name, logo, professional contacts). This data stays on your device.
 
-Business card vs. management data
+- Without Pro Plan: share the card image; advanced editing is paused
+- With Pro Plan: edit anytime, generate vCard, QR Code, and interactive preview — all within the app
 
-The Company tab feeds the digital business card with your business contact info only. It does not expose Clients, Estimates, or Cash modules.'''),
-  LegalSectionText(heading: 'Business card — local storage and static mode', body: 'After your first card is saved, a local snapshot (PNG + layout) may be shown in static mode without Pro. You may still share that snapshot PNG via the system share sheet. Advanced features (edit after freeze, vCard, QR, interactive preview with tappable contacts) require Pro Plan — inside the app only; PerfectGest does not host a public web page for your card.'),
-  LegalSectionText(heading: 'Interactive business card in the app (Pro Plan)', body: '''With Pro Plan, after your first card you can keep editing and use advanced features on your phone:
+Client data, estimates, and cash entries never appear on the card.'''),
+  LegalSectionText(heading: 'Google services used', body: '''| Service | Purpose | What is sent |
+|---------|---------|-------------|
+| Google Play Billing | Manage subscription | Purchase data (handled by Google) |
+| Firebase Analytics | Measure app usage | Generic events (no names or financial values) |
+| Firebase Remote Config | App configuration | No personal data |
+| Cloud Firestore | Freemium limit control per device | Anonymous device ID — no clients, estimates, or cash |
 
-- Interactive preview (taps open WhatsApp, phone, email, website, or maps as configured)
-- Export vCard (.vcf) and generate QR with contact data
-- Share an updated PNG
-
-Everything stays on the device until you share or show the QR. We do not publish or host your card on a PerfectGest website or upload card content to Firestore.
-
-Never included in the card: clients, estimates, cash entries, financial amounts, contracts, or backups.'''),
-  LegalSectionText(heading: 'Trial period and Pro Plan', body: '''- Trial period (7 days): from the first time you open the app, you may create up to 5 clients, 5 estimates, and 5 cash entries, including PDF, with no paid subscription during that period.
-- Limits during the trial: when saving the 4th record of each type, the app warns it is the last of that type in the trial. A 6th record (or exceeding limits) requires Pro Plan, even within the 7 days.
-- After 7 days without Pro Plan: the app remains usable to view and edit local data, but you cannot create new clients, estimates, or cash entries.
-- Pro Plan: unlimited use, encrypted backup restore, and interactive business card in the app (edit after first card, vCard, QR, tappable preview), monthly or annual via Google Play.
-
-The trial start date is stored anonymously per device (Firebase service) for period consistency — not client, estimate, or cash data.'''),
-  LegalSectionText(heading: 'Third-party services', body: 'Firebase Analytics (generic events, no Crashlytics), Remote Config, Firestore (minimal anonymous device metadata for the Initial Plan — installation identifier, trial start timestamp, freemium eligibility, and first business-card save — not clients, estimates, or cash data), Google Play Billing. No in-app ads.'),
-  LegalSectionText(heading: 'Local notifications', body: 'Fiscal reminders on-device only; no external server transfer. POST_NOTIFICATIONS on Android 13+.'),
-  LegalSectionText(heading: 'Security', body: 'HTTPS/TLS for telemetry; no sale of data for ads; business card contains only professional info you configure.'),
-  LegalSectionText(heading: 'Retention and deletion', body: 'Local business data and card snapshot: removed when you clear app data or uninstall. Telemetry (Firebase): email request, up to 15 business days.'),
-  LegalSectionText(heading: 'Permissions', body: 'Import logos; save PDFs and backups; local notifications.'),
-  LegalSectionText(heading: 'Eligibility and law', body: 'Users 18+. Laws of Brazil; venue Caxias do Sul/RS.'),
+Firebase Analytics only records generic navigation events — no client names, financial values, or estimate content.'''),
+  LegalSectionText(heading: 'Notifications', body: 'Local reminders only for fiscal obligations. Nothing is sent to external servers.'),
+  LegalSectionText(heading: 'How long we keep data', body: '''- On your device: until you delete all data or uninstall the app
+- Firebase (technical): request deletion by email within 15 business days'''),
+  LegalSectionText(heading: 'Your rights', body: '''At any time you can:
+- View and edit your data in the app
+- Export your data (backup)
+- Delete everything: Settings → Data on this device → Delete all data
+- Request deletion of technical data (Firebase): suporte@perfectgestdev.com'''),
+  LegalSectionText(heading: 'Children', body: 'The app is for adults (18+) and entrepreneurs only.'),
+  LegalSectionText(heading: 'Updates to this policy', body: 'Significant changes will be communicated in the app. The latest version is always at the link below.'),
+  LegalSectionText(heading: 'Links', body: '''- Privacy policy
+- FAQ
+- Data deletion
+- Terms and Conditions'''),
 ];
 
 const List<LegalSectionText> _kTermsEn = <LegalSectionText>[
-  LegalSectionText(heading: '1. Purpose', body: '''These Terms govern PerfectGest I (customers, budgets, cash, work orders, fiscal reminders, digital business card), with data primarily on your device.
+  LegalSectionText(heading: 'Introduction', body: 'Last updated: 7 July 2026'),
+  LegalSectionText(heading: 'What is the app', body: '''PerfectGest I is a business management app for freelancers and small businesses. Manage clients, estimates, cash, service orders, fiscal reminders, and a digital business card — all stored on your device.
 
-Client and financial data stay on the device and are not transmitted automatically. They may leave only through your actions (share PDF, exported backup, business card PNG/vCard/QR). See Privacy Policy.
+Client and financial data are not sent automatically to servers. They only leave your device if you choose to share a PDF, exported backup, or business card.
 
-Publisher: Marcos Leandro dos Santos.'''),
-  LegalSectionText(heading: '2. Eligibility', body: 'Users aged 18 or over.'),
-  LegalSectionText(heading: '3. Initial Plan, trial period, and subscriptions', body: '''- Trial period: 7 days from the first time you open the app on the device (anonymous timestamp stored to prevent improper trial resets).
-- During the trial: up to 5 clients, 5 estimates, and 5 cash entries, including PDF. When saving the 4th record of each type, the app warns that only 1 remains. A 6th record (or exceeding limits) requires Pro Plan, even before the 7 days end.
-- After 7 days without Pro Plan: you cannot create new clients, estimates, or cash entries; you may view and edit data already stored on the device.
-- Pro Plan: unlimited use, encrypted backup restore, and interactive business card in the app — monthly or annual subscription via Google Play (price and terms in the store).
-- Auto-renewal until cancelled in the Play Store: Payments & subscriptions → Subscriptions.'''),
-  LegalSectionText(heading: '4. Cancellation', body: 'Google Play Store → Payments & subscriptions.'),
-  LegalSectionText(heading: '5. Statutory rights (Brazil)', body: 'Consumer Code may apply (7-day withdrawal where applicable). Refunds via Google.'),
-  LegalSectionText(heading: '6. Fiscal reminders', body: 'Informational only; not tax advice.'),
-  LegalSectionText(heading: '7. Limitation of liability', body: 'Management tool; user responsible for business decisions.'),
-  LegalSectionText(heading: '8. Intellectual property', body: 'Revocable license; no unlawful reverse engineering.'),
-  LegalSectionText(heading: '9. Changes', body: 'Current version at URL below.'),
-  LegalSectionText(heading: '10. Governing law', body: 'Brazil; venue Caxias do Sul/RS.'),
-  LegalSectionText(heading: '11. Contact', body: 'suporte@perfectgestdev.com'),
+Developer: Marcos Leandro dos Santos · suporte@perfectgestdev.com'''),
+  LegalSectionText(heading: 'Who can use it', body: 'Users 18 years or older.'),
+  LegalSectionText(heading: 'Free use and Pro Plan', body: '''Free use (freemium): without subscribing, you can create 1 client, 1 estimate, and 1 cash entry. These limits are permanent — they do not expire.
+
+Pro Plan: unlimited use (clients, estimates, cash, PDFs), password-protected backup, and full business card features. Monthly or annual subscription via Google Play.
+
+Subscriptions renew automatically until you cancel in Google Play → Payments & subscriptions → Subscriptions.'''),
+  LegalSectionText(heading: 'Cancellation and refunds', body: 'Cancel via Google Play. Refunds follow Google Play Store policy. In Brazil, a 7-day right of withdrawal applies when applicable (Consumer Protection Code).'),
+  LegalSectionText(heading: 'Fiscal reminders', body: 'Informational only. They do not replace a qualified accountant. The user is responsible for all fiscal obligations.'),
+  LegalSectionText(heading: 'Limitation of liability', body: '''The app is a support tool. It does not replace professional advice (accounting, legal, financial). Business decisions are the user's responsibility.'''),
+  LegalSectionText(heading: 'Intellectual property', body: 'You receive a non-exclusive, non-transferable license to use the app. Reverse engineering and unauthorized copying are prohibited.'),
+  LegalSectionText(heading: 'Changes to these terms', body: 'The current version is always published at the link below. Significant changes will be communicated in the app.'),
+  LegalSectionText(heading: 'Governing law', body: 'Laws of Brazil. Jurisdiction: Caxias do Sul — RS, without prejudice to consumer rights.'),
+  LegalSectionText(heading: 'Contact', body: 'suporte@perfectgestdev.com'),
+  LegalSectionText(heading: 'Links', body: '''- Privacy policy
+- FAQ
+- Data deletion
+- Terms and Conditions'''),
 ];
 
 const List<LegalSectionText> _kDeletionEn = <LegalSectionText>[
-  LegalSectionText(heading: 'Introduction', body: 'PerfectGest I provides clear data control under Google Play and LGPD. The app is local-first.'),
-  LegalSectionText(heading: 'Summary', body: 'Client and financial data are not sent automatically to PerfectGest servers. They may leave your phone only if you share PDFs, share backup files you exported, share business card PNG/vCard, or show a QR with professional contacts.'),
-  LegalSectionText(heading: '1. Business data (local)', body: '''Stored in SQLite on your device: clients, estimates, cash, work orders, company data, business card snapshot, fiscal reminders.
+  LegalSectionText(heading: 'Introduction', body: '''Last updated: 7 July 2026
+PerfectGest I stores your data only on your device. You have full control.'''),
+  LegalSectionText(heading: 'What can be deleted from the app', body: '''Deleting data removes everything from your phone:
 
-How to delete
+- Client list and history
+- Estimates, amounts, and items
+- Cash entries (income and expenses)
+- Service orders
+- Company data (name, logo, contacts)
+- Digital business card saved in the app
+- Fiscal reminders
+- Preferences and settings'''),
+  LegalSectionText(heading: 'How to delete everything in the app', body: '''Settings → Data on this device → Delete all data on this device
 
-- In app: Settings → Data on this device → Delete all data on this device
-- Android: Settings → Apps → PerfectGest I → Storage → Clear data
-- Uninstall the app
+You can also use Android settings: Phone Settings → Apps → PerfectGest I → Storage → Clear data.
 
-Warning: without an external backup, data cannot be recovered — we do not keep copies on our servers.
+Uninstalling the app also removes all local data.
 
-Shared backups: delete manually from WhatsApp, email, or cloud where you stored them.'''),
-  LegalSectionText(heading: '2. Firebase telemetry', body: '''Anonymous install metadata and usage metrics for Initial Plan eligibility. We do not host business card content on servers.
+Warning: without an exported backup, data cannot be recovered. We do not keep copies on our servers.'''),
+  LegalSectionText(heading: 'What is NOT automatically deleted', body: '''- PDFs you exported to other apps
+- Backups you sent via WhatsApp, email, or personal cloud — delete them manually in those locations
+- Your purchase record on Google Play'''),
+  LegalSectionText(heading: 'Technical data (Firebase)', body: '''The app uses Firebase to control the free usage limit per device (anonymous ID — no client or financial data). To request deletion of this technical data:
 
-Email: suporte@perfectgestdev.com — Subject: Technical Data Deletion Request'''),
-  LegalSectionText(heading: '3. Local notifications', body: 'Cancelled on uninstall or data wipe.'),
-  LegalSectionText(heading: '4. Timelines', body: 'Local data: immediate. Firebase telemetry: up to 15 business days after email request.'),
+Email: suporte@perfectgestdev.com
+Subject: Technical Data Deletion Request
+Response time: up to 15 business days'''),
+  LegalSectionText(heading: 'Timelines', body: '''| Action | Timeline |
+|--------|----------|
+| Delete from device | Immediate |
+| Firebase technical data deletion | Up to 15 business days |'''),
+  LegalSectionText(heading: 'Links', body: '''- Privacy policy
+- FAQ
+- Data deletion
+- Terms and Conditions'''),
 ];
 
 const List<LegalSectionText> _kFaqEn = <LegalSectionText>[
-  LegalSectionText(heading: 'What is PerfectGest I?', body: 'A mobile business management app. Data is stored locally (SQLite). No PerfectGest cloud account for clients, estimates, or cash.'),
-  LegalSectionText(heading: 'Does it work offline?', body: 'Offline-first for daily use. Optional Google services may need a network when active.'),
-  LegalSectionText(heading: 'How does the trial period work?', body: '7 days from first open. During that time: up to 5 clients, 5 estimates, and 5 cash entries (including PDF) with no paid subscription. When saving the 4th of each type, the app warns that 1 remains. A 6th record or the end of 7 days without Pro Plan blocks new records; you can still view and edit existing data on the device. Subscribe in Settings → Google Play subscription.'),
-  LegalSectionText(heading: 'How does the Initial Plan work?', body: 'The 5+5+5 limits apply during the 7-day trial (see above). After the trial or above limits, Pro Plan is required (monthly or annual on Google Play).'),
-  LegalSectionText(heading: 'Where do I manage the subscription?', body: 'Settings → Google Play subscription. Cancel via Play Store → Payments & subscriptions.'),
-  LegalSectionText(heading: 'What is the digital business card?', body: '''In Company, edit professional business details only (not clients or cash). Share card generates a PNG via the system share sheet. After your first card, without Pro Plan the card is static (you can still share the snapshot PNG); with Pro, edit and use advanced features in the app only (vCard, QR, interactive preview) — no PerfectGest-hosted web page.
+  LegalSectionText(heading: 'Introdução', body: 'Last updated: 7 July 2026'),
+  LegalSectionText(heading: 'What is PerfectGest I?', body: 'A mobile business management app for freelancers and small businesses. Manage clients, estimates, cash, service orders, and fiscal reminders — all stored locally on your phone, no cloud account required.'),
+  LegalSectionText(heading: 'Does it work offline?', body: 'Yes. Daily use (clients, estimates, cash) works offline. Internet is only needed to subscribe or restore a plan via Google Play.'),
+  LegalSectionText(heading: 'Can I use it for free?', body: '''Yes! Without subscribing, you can create:
+- 1 client
+- 1 estimate (with PDF)
+- 1 cash entry (with PDF)
 
-Clients and financial data stay protected on the device and are not sent to servers automatically.'''),
-  LegalSectionText(heading: 'Are my client and financial data protected?', body: 'Yes. Stored locally. They leave the device only if you share a PDF, card PNG/vCard/QR, or an exported backup file (encrypted backup recommended on Pro).'),
-  LegalSectionText(heading: 'What are fiscal reminders?', body: 'On-device alerts for MEI, Freelancer, ME obligations. Informational only.'),
-  LegalSectionText(heading: 'Weekly calendar, Latest entries, notifications, ads, Crashlytics, languages?', body: 'Weekly fiscal calendar in Company; home shortcuts to recent records; local notifications only; no ads; no Crashlytics; PT / EN / ES.'),
-  LegalSectionText(heading: 'Privacy, deletion, suggestions?', body: 'Settings → Help and support for legal links. Wipe device: Settings → Data on this device → Delete all data. Feedback: Company tab → email suporte@perfectgestdev.com.'),
+These limits are permanent — they don't expire. For unlimited use, subscribe to the Pro Plan in Settings → Google Play subscription.'''),
+  LegalSectionText(heading: 'What is the Pro Plan?', body: '''With Pro Plan (monthly or annual on Google Play) you get:
+- Unlimited clients, estimates, and cash entries
+- Unlimited PDFs
+- Password-protected backup
+- Full digital business card (edit, vCard, QR, interactive preview)'''),
+  LegalSectionText(heading: 'Where do I manage my subscription?', body: '''Settings → Google Play subscription
+
+To cancel: Google Play → Payments & subscriptions → Subscriptions.'''),
+  LegalSectionText(heading: 'What is the digital business card?', body: '''In the Company tab, set up your professional details (name, contacts, logo, tagline). The app generates a digital card you can share as an image (PNG) or vCard.
+
+- Without Pro Plan: create your first card and share the image; editing and advanced features are paused.
+- With Pro Plan: edit anytime, generate QR Code, export vCard, interactive preview — all inside the app.
+
+Client and financial data never appear on the card — they stay only on your phone.'''),
+  LegalSectionText(heading: 'Are my client and financial data protected?', body: '''Yes. Everything is stored locally. Data only leaves your device when you choose to share:
+- A PDF (estimate, cash report, etc.)
+- A business card image or vCard (professional details only — never clients or financials)
+- An exported backup file
+
+We recommend using a password-protected backup (Pro Plan) for extra security.'''),
+  LegalSectionText(heading: 'What are fiscal reminders?', body: '''On-device alerts for MEI, freelancer, and ME obligations. Informational only — they don't replace an accountant.'''),
+  LegalSectionText(heading: 'Does the app send notifications?', body: 'Only local reminders for fiscal obligations. Nothing is sent to external servers.'),
+  LegalSectionText(heading: 'Does the app have ads?', body: 'No.'),
+  LegalSectionText(heading: 'What languages are supported?', body: 'Portuguese (Brazil), English, and Spanish.'),
+  LegalSectionText(heading: 'How do I delete all my data?', body: '''Settings → Data on this device → Delete all data on this device
+
+PDFs and backups you already exported to other apps are not deleted by this — remove them manually where you saved them.'''),
+  LegalSectionText(heading: 'How do I contact support or send feedback?', body: 'Company tab → Share your feedback, or email: suporte@perfectgestdev.com'),
+  LegalSectionText(heading: 'Links', body: '''- Privacy policy
+- FAQ
+- Data deletion
+- Terms and Conditions'''),
 ];
 
 const List<LegalSectionText> _kPrivacyEs = <LegalSectionText>[
-  LegalSectionText(heading: 'Introducción', body: 'PerfectGest I, bajo responsabilidad de Marcos Leandro dos Santos, establece esta Política de Privacidad conforme a la LGPD de Brasil (Ley 13.709/18) y las políticas de Google Play.'),
-  LegalSectionText(heading: 'Responsable y contacto', body: 'Responsable: Marcos Leandro dos Santos. Contacto: suporte@perfectgestdev.com.'),
-  LegalSectionText(heading: 'Almacenamiento local', body: '''La app es local-first. Los datos de gestión se guardan solo en el dispositivo (SQLite). PerfectGest I no recoge, accede ni transfiere automáticamente esos datos a servidores propios.
+  LegalSectionText(heading: 'Introducción', body: '''Última actualización: 7 de julio de 2026
+Desarrollador: Marcos Leandro dos Santos · suporte@perfectgestdev.com'''),
+  LegalSectionText(heading: 'Sus datos permanecen en su teléfono', body: '''PerfectGest I está diseñado para funcionar sin internet en el día a día. De forma predeterminada:
 
-Datos de clientes y financieros — protegidos en el dispositivo
+- Clientes, presupuestos, caja, órdenes de servicio y datos de la empresa quedan solo en su dispositivo
+- La app no envía estos datos a nuestros servidores automáticamente
+- La app no tiene anuncios y no rastrea lo que usted registra'''),
+  LegalSectionText(heading: 'Qué guarda la app', body: '''Datos que usted introduce (quedan en el dispositivo)
 
-Permanecen en el dispositivo y no salen de la app por iniciativa del sistema:
+| Tipo | Ejemplos |
+|------|----------|
+| Clientes | Nombre, contacto, historial |
+| Presupuestos | Ítems, valores, estado |
+| Caja | Ingresos, gastos, categorías |
+| Órdenes de servicio | Descripción, valores |
+| Datos de la empresa | Nombre, ID fiscal, logo, contactos |
+| Preferencias | Tema, configuración de la app |
 
-- Registro e historial de clientes
-- Presupuestos, ítems, importes y estados
-- Caja — ingresos, gastos, categorías y saldos
-- Órdenes de servicio, proyectos, contratos y documentos de gestión
-- Cualquier nombre de cliente, importe o movimiento financiero
+Qué no recopila la app
 
-No enviamos estos datos a Firebase, Firestore, Analytics u otros servidores. Firebase Analytics registra solo eventos genéricos de uso, sin nombres de clientes ni importes de caja.
+- Su ubicación (GPS)
+- Contactos del teléfono
+- Historial de navegación
+- Ningún dato publicitario'''),
+  LegalSectionText(heading: 'Cuándo los datos salen de su dispositivo', body: '''Los datos solo salen de su teléfono cuando usted decide compartir:
 
-Cuándo pueden salir del dispositivo (solo por su acción)
+| Acción | Qué se envía |
+|--------|-------------|
+| Compartir un PDF (presupuesto, caja, informe) | El PDF generado en ese momento |
+| Compartir tarjeta de visita (PNG o vCard) | Solo datos profesionales — nunca clientes ni finanzas |
+| Exportar backup | Archivo con sus datos (guárdelo en lugar seguro) |
 
-- Compartir o guardar PDF (presupuesto, informe de caja, etc.)
-- Compartir tarjeta de visita (PNG) — solo datos profesionales; nunca lista de clientes ni datos financieros
-- Compartir vCard o mostrar QR con contactos profesionales (Plan Pro — ver abajo)
-- Compartir archivo de backup que exportó (simple o cifrado)
+Recomendamos usar backup con contraseña (Plan Pro) para mayor seguridad.'''),
+  LegalSectionText(heading: 'Uso gratuito y Plan Pro', body: '''Uso gratuito (freemium): cree 1 cliente, 1 presupuesto y 1 movimiento de caja sin suscripción. Estos límites son permanentes — no tienen fecha de vencimiento.
 
-Importante: compartir un backup es responsabilidad del usuario sobre destino y seguridad. Recomendamos copias cifradas (Plan Pro).
+Plan Pro: uso ilimitado + backup con contraseña + tarjeta de visita completa. Suscripción mensual o anual en Google Play.'''),
+  LegalSectionText(heading: 'Tarjeta de visita digital', body: '''La tarjeta usa datos de la pestaña Empresa (nombre, logo, contactos profesionales). Estos datos quedan en el dispositivo.
 
-Tarjeta de visita vs. gestión interna
+- Sin Plan Pro: comparta la imagen de la tarjeta; la edición avanzada queda pausada
+- Con Plan Pro: edite cuando quiera, genere vCard, QR y vista previa interactiva — todo en la app
 
-La pestaña Empresa alimenta la tarjeta con contactos profesionales; no expone Clientes, Presupuestos ni Caja.'''),
-  LegalSectionText(heading: 'Tarjeta de visita — modo estático', body: 'Tras guardar la primera tarjeta, puede mostrarse una copia congelada local sin Pro. Puede seguir compartiendo el PNG por la hoja de compartir del sistema. Funciones avanzadas (editar tras congelar, vCard, QR, vista previa interactiva con toques) requieren Plan Pro — solo en la app; PerfectGest no aloja una página web pública de su tarjeta.'),
-  LegalSectionText(heading: 'Tarjeta interactiva en la app (Plan Pro)', body: '''Con Plan Pro, tras la primera tarjeta puede seguir editando y usar funciones avanzadas en el teléfono:
+Los datos de clientes, presupuestos y caja nunca aparecen en la tarjeta.'''),
+  LegalSectionText(heading: 'Servicios de Google utilizados', body: '''| Servicio | Para qué | Qué se envía |
+|---------|---------|-------------|
+| Google Play Billing | Gestionar suscripción | Datos de compra (gestionados por Google) |
+| Firebase Analytics | Medir uso de la app | Eventos genéricos (sin nombres ni valores financieros) |
+| Firebase Remote Config | Configuración de la app | Ningún dato personal |
+| Cloud Firestore | Control del límite gratuito por dispositivo | ID anónimo del dispositivo — sin clientes, presupuestos ni caja |
 
-- Vista previa interactiva (toques abren WhatsApp, teléfono, correo, web o mapa)
-- Exportar vCard (.vcf) y generar QR con datos de contacto
-- Compartir PNG actualizado
-
-Todo permanece en el dispositivo hasta que comparta o muestre el QR. No publicamos ni alojamos la tarjeta en un sitio PerfectGest ni enviamos su contenido a Firestore.
-
-Nunca incluidos en la tarjeta: clientes, presupuestos, caja, importes financieros, contratos ni backups.'''),
-  LegalSectionText(heading: 'Período de prueba y Plan Pro', body: '''- Período de prueba (7 días): desde la primera apertura de la app, puede crear hasta 5 clientes, 5 presupuestos y 5 movimientos de caja, con PDF, sin suscripción de pago durante ese período.
-- Límites durante la prueba: al guardar el 4.º registro de cada tipo, la app avisa que es el último de ese tipo en la prueba. El 6.º registro (o por encima de los límites) requiere Plan Pro, incluso dentro de los 7 días.
-- Tras 7 días sin Plan Pro: la app sigue siendo utilizable para consultar y editar datos locales, pero no permite crear nuevos clientes, presupuestos ni movimientos de caja.
-- Plan Pro: uso ilimitado, restauración de backup cifrado y tarjeta interactiva en la app (editar tras la primera tarjeta, vCard, QR, vista previa con toques), mensual o anual vía Google Play.
-
-La fecha de inicio de la prueba se guarda de forma anónima por dispositivo (servicio Firebase) para coherencia del período — sin datos de clientes, presupuestos ni caja.'''),
-  LegalSectionText(heading: 'Servicios de terceros', body: 'Firebase Analytics (eventos genéricos, sin Crashlytics), Remote Config, Firestore (metadatos anónimos mínimos del Plan Inicial por dispositivo: identificador de instalación, inicio del período de prueba, elegibilidad freemium y primer guardado de tarjeta — sin clientes, presupuestos ni caja), Google Play Billing. Sin publicidad en la app.'),
-  LegalSectionText(heading: 'Notificaciones locales', body: 'Recordatorios fiscales solo en el dispositivo. Permiso POST_NOTIFICATIONS en Android 13+.'),
-  LegalSectionText(heading: 'Seguridad y retención', body: 'HTTPS/TLS; no venta de datos para anuncios. Datos locales y snapshot de tarjeta: se eliminan al borrar datos o desinstalar. Telemetría (Firebase): solicitud por correo, hasta 15 días hábiles.'),
-  LegalSectionText(heading: 'Permisos, elegibilidad y foro', body: 'Logotipos, PDFs, backups, notificaciones. Usuarios mayores de 18 años. Leyes de Brasil; fuero Caxias do Sul/RS.'),
+Firebase Analytics solo registra eventos genéricos de navegación — sin nombres de clientes, valores financieros ni contenido de presupuestos.'''),
+  LegalSectionText(heading: 'Notificaciones', body: 'Solo recordatorios locales para obligaciones fiscales. Nada se envía a servidores externos.'),
+  LegalSectionText(heading: 'Por cuánto tiempo guardamos sus datos', body: '''- En el dispositivo: hasta que elimine todos los datos o desinstale la app
+- Firebase (técnico): solicite la eliminación por email en un plazo de 15 días hábiles'''),
+  LegalSectionText(heading: 'Sus derechos', body: '''En cualquier momento puede:
+- Ver y editar sus datos en la app
+- Exportar sus datos (backup)
+- Eliminar todo: Ajustes → Datos en el dispositivo → Eliminar todos los datos
+- Solicitar eliminación de datos técnicos (Firebase): suporte@perfectgestdev.com'''),
+  LegalSectionText(heading: 'Menores de edad', body: 'La app es para adultos (18 años o más) y emprendedores.'),
+  LegalSectionText(heading: 'Actualizaciones de esta política', body: 'Los cambios relevantes se comunicarán en la app. La versión más reciente siempre está en el enlace de abajo.'),
+  LegalSectionText(heading: 'Enlaces', body: '''- Política de privacidad
+- FAQ
+- Eliminación de datos
+- Términos y Condiciones'''),
 ];
 
 const List<LegalSectionText> _kTermsEs = <LegalSectionText>[
-  LegalSectionText(heading: '1. Objeto', body: '''Estos Términos regulan PerfectGest I (clientes, presupuestos, caja, órdenes de servicio, recordatorios fiscales, tarjeta de visita digital), con datos principalmente en el dispositivo.
+  LegalSectionText(heading: 'Introducción', body: 'Última actualización: 7 de julio de 2026'),
+  LegalSectionText(heading: '¿Qué es la app?', body: '''PerfectGest I es una app de gestión para autónomos y pequeñas empresas. Gestione clientes, presupuestos, caja, órdenes de servicio, recordatorios fiscales y tarjeta de visita digital — todo guardado en su dispositivo.
 
-Datos de clientes y financieros permanecen en el dispositivo y no se transmiten automáticamente. Solo pueden salir por acción explícita (compartir PDF, backup exportado, PNG/vCard/QR de la tarjeta). Véase Política de Privacidad.
+Los datos de clientes y financieros no se envían automáticamente a servidores. Solo salen del dispositivo si usted elige compartir un PDF, backup exportado o tarjeta de visita.
 
-Editor: Marcos Leandro dos Santos.'''),
-  LegalSectionText(heading: '2. Elegibilidad', body: 'Usuarios mayores de 18 años.'),
-  LegalSectionText(heading: '3. Plan Inicial, período de prueba y suscripciones', body: '''- Período de prueba: 7 días desde la primera apertura de la app en el dispositivo (marca de tiempo anónima para evitar reinicios indebidos de la prueba).
-- Durante la prueba: hasta 5 clientes, 5 presupuestos y 5 movimientos de caja, con PDF. Al guardar el 4.º registro de cada tipo, la app avisa que solo queda 1. El 6.º registro (o por encima de los límites) requiere Plan Pro, incluso antes de que terminen los 7 días.
-- Tras 7 días sin Plan Pro: no puede crear nuevos clientes, presupuestos ni movimientos de caja; puede consultar y editar los datos ya guardados en el dispositivo.
-- Plan Pro: uso ilimitado, restauración de backup cifrado y tarjeta de visita interactiva en la app — suscripción mensual o anual vía Google Play (precio y condiciones en la tienda).
-- Renovación automática hasta cancelar en Play Store: Pagos y suscripciones → Suscripciones.'''),
-  LegalSectionText(heading: '4. Cancelación', body: 'Google Play Store → Pagos y suscripciones.'),
-  LegalSectionText(heading: '5. Desistimiento (Brasil — CDC)', body: '7 días naturales cuando corresponda. Reembolsos vía Google.'),
-  LegalSectionText(heading: '6. Recordatorios fiscales', body: 'Informativos; no asesoramiento fiscal.'),
-  LegalSectionText(heading: '7. Limitación de responsabilidad', body: 'Herramienta de gestión; responsabilidad del usuario.'),
-  LegalSectionText(heading: '8. Propiedad intelectual', body: 'Licencia revocable; sin ingeniería inversa ilícita.'),
-  LegalSectionText(heading: '9. Cambios', body: 'Versión publicada en URL abajo.'),
-  LegalSectionText(heading: '10. Ley y fuero', body: 'Brasil; Caxias do Sul/RS.'),
-  LegalSectionText(heading: '11. Contacto', body: 'suporte@perfectgestdev.com'),
+Desarrollador: Marcos Leandro dos Santos · suporte@perfectgestdev.com'''),
+  LegalSectionText(heading: '¿Quién puede usar la app?', body: 'Personas mayores de 18 años.'),
+  LegalSectionText(heading: 'Uso gratuito y Plan Pro', body: '''Uso gratuito (freemium): sin suscripción, puede crear 1 cliente, 1 presupuesto y 1 movimiento de caja. Estos límites son permanentes — no tienen fecha de vencimiento.
+
+Plan Pro: uso ilimitado (clientes, presupuestos, caja, PDFs), backup con contraseña y tarjeta de visita completa. Suscripción mensual o anual en Google Play.
+
+La suscripción se renueva automáticamente hasta que la cancele en Google Play → Pagos y suscripciones → Suscripciones.'''),
+  LegalSectionText(heading: 'Cancelación y reembolsos', body: 'Cancele en Google Play. Los reembolsos siguen la política de Google Play Store.'),
+  LegalSectionText(heading: 'Recordatorios fiscales', body: 'Son informativos. No reemplazan a un asesor contable. El usuario es responsable de todas sus obligaciones fiscales.'),
+  LegalSectionText(heading: 'Limitación de responsabilidad', body: 'La app es una herramienta de apoyo. No reemplaza asesoramiento profesional (contable, legal, financiero). Las decisiones de negocio son responsabilidad del usuario.'),
+  LegalSectionText(heading: 'Propiedad intelectual', body: 'Usted recibe una licencia de uso no exclusiva e intransferible. Está prohibido copiar, modificar o realizar ingeniería inversa de la app.'),
+  LegalSectionText(heading: 'Cambios en estos términos', body: 'La versión vigente siempre está publicada en el enlace de abajo. Los cambios relevantes se comunicarán en la app.'),
+  LegalSectionText(heading: 'Ley aplicable y jurisdicción', body: 'Leyes de Brasil. Jurisdicción: Caxias do Sul — RS, sin perjuicio de los derechos del consumidor.'),
+  LegalSectionText(heading: 'Contacto', body: 'suporte@perfectgestdev.com'),
+  LegalSectionText(heading: 'Enlaces', body: '''- Política de privacidad
+- FAQ
+- Eliminación de datos
+- Términos y Condiciones'''),
 ];
 
 const List<LegalSectionText> _kDeletionEs = <LegalSectionText>[
-  LegalSectionText(heading: 'Introducción', body: 'PerfectGest I ofrece control claro de datos según Google Play y LGPD. La app es local-first.'),
-  LegalSectionText(heading: 'Resumen', body: 'Datos de clientes y financieros no se envían automáticamente a servidores PerfectGest. Solo pueden salir del teléfono si usted comparte PDFs, comparte backups exportados, comparte PNG/vCard de la tarjeta o muestra un QR con contactos profesionales.'),
-  LegalSectionText(heading: '1. Datos de gestión (local)', body: '''En SQLite en el dispositivo: clientes, presupuestos, caja, órdenes, empresa, snapshot de tarjeta, recordatorios fiscales.
+  LegalSectionText(heading: 'Introducción', body: '''Última actualización: 7 de julio de 2026
+PerfectGest I guarda sus datos solo en su dispositivo. Usted tiene el control total.'''),
+  LegalSectionText(heading: 'Qué puede eliminarse desde la app', body: '''Al eliminar los datos, todo esto se borra de su teléfono:
 
-Cómo eliminar
+- Lista de clientes e historial
+- Presupuestos, valores e ítems
+- Movimientos de caja (ingresos y gastos)
+- Órdenes de servicio
+- Datos de la empresa (nombre, logo, contactos)
+- Tarjeta de visita digital guardada en la app
+- Recordatorios fiscales configurados
+- Preferencias y configuración'''),
+  LegalSectionText(heading: 'Cómo eliminar todo en la app', body: '''Ajustes → Datos en el dispositivo → Eliminar todos los datos en este dispositivo
 
-- En la app: Ajustes → Datos en el dispositivo → Eliminar todos los datos
-- Android: Ajustes → Apps → PerfectGest I → Almacenamiento → Borrar datos
-- Desinstalar
+También puede usar los ajustes de Android: Configuración del teléfono → Aplicaciones → PerfectGest I → Almacenamiento → Borrar datos.
 
-Aviso: sin copia externa, no hay recuperación — no guardamos copias en servidores propios.
+Desinstalar la app también elimina todos los datos locales.
 
-Backups compartidos: elimínelos manualmente donde los guardó.'''),
-  LegalSectionText(heading: '2. Firebase / telemetría', body: '''Metadatos anónimos de instalación. No alojamos contenido de tarjeta en servidores.
+Atención: sin un backup exportado, los datos no se pueden recuperar. No guardamos copias en nuestros servidores.'''),
+  LegalSectionText(heading: 'Qué NO se elimina automáticamente', body: '''- PDFs que exportó a otras apps
+- Backups enviados por WhatsApp, email o guardados en nube personal — elimínelos manualmente en esos lugares
+- El registro de compra en Google Play'''),
+  LegalSectionText(heading: 'Datos técnicos (Firebase)', body: '''La app usa Firebase para controlar el límite gratuito por dispositivo (ID anónimo — sin datos de clientes ni financieros). Para solicitar la eliminación de estos datos técnicos:
 
-Correo: suporte@perfectgestdev.com — Asunto: Solicitud de Eliminación de Datos Técnicos'''),
-  LegalSectionText(heading: '3. Notificaciones locales', body: 'Se cancelan al desinstalar o borrar datos.'),
-  LegalSectionText(heading: '4. Plazos', body: 'Datos locales: inmediato. Telemetría Firebase: hasta 15 días hábiles.'),
+Email: suporte@perfectgestdev.com
+Asunto: Solicitud de Eliminación de Datos Técnicos
+Plazo de respuesta: hasta 15 días hábiles'''),
+  LegalSectionText(heading: 'Plazos', body: '''| Acción | Plazo |
+|--------|-------|
+| Eliminar del dispositivo | Inmediato |
+| Eliminación de datos técnicos Firebase | Hasta 15 días hábiles |'''),
+  LegalSectionText(heading: 'Enlaces', body: '''- Política de privacidad
+- FAQ
+- Eliminación de datos
+- Términos y Condiciones'''),
 ];
 
 const List<LegalSectionText> _kFaqEs = <LegalSectionText>[
-  LegalSectionText(heading: '¿Qué es PerfectGest I?', body: 'App de gestión móvil con datos en el dispositivo (SQLite). Sin «cuenta en la nube» para clientes, presupuestos o caja.'),
-  LegalSectionText(heading: '¿Funciona sin internet?', body: 'Uso diario offline-first. Servicios Google opcionales pueden usar red.'),
-  LegalSectionText(heading: '¿Cómo funciona el período de prueba?', body: '7 días desde la primera apertura. Durante ese tiempo: hasta 5 clientes, 5 presupuestos y 5 movimientos de caja (con PDF), sin suscripción de pago. Al guardar el 4.º de cada tipo, la app avisa que queda 1. El 6.º registro o el fin de los 7 días sin Plan Pro impide nuevos registros; puede seguir consultando y editando lo ya guardado. Suscripción: Ajustes → Suscripción de Google Play.'),
-  LegalSectionText(heading: '¿Cómo funciona el Plan Inicial?', body: 'Son los límites 5+5+5 aplicados durante los 7 días de prueba (véase arriba). Fuera de la prueba o por encima de los límites, se requiere Plan Pro (mensual o anual en Google Play).'),
-  LegalSectionText(heading: '¿Dónde gestiono la suscripción?', body: 'Ajustes → Suscripción de Google Play. Cancelar en Play Store.'),
-  LegalSectionText(heading: '¿Qué es la tarjeta de visita digital?', body: '''En Empresa, edita datos profesionales (no clientes ni caja). Compartir tarjeta genera PNG en la hoja de compartir. Tras la primera tarjeta, sin Plan Pro queda en modo estático (puede compartir el PNG); con Pro, edita y usa funciones avanzadas solo en la app (vCard, QR, vista previa interactiva) — sin página web alojada por PerfectGest.
+  LegalSectionText(heading: 'Introdução', body: 'Última actualización: 7 de julio de 2026'),
+  LegalSectionText(heading: '¿Qué es PerfectGest I?', body: 'Una app de gestión empresarial para autónomos y pequeñas empresas. Gestione clientes, presupuestos, caja, órdenes de servicio y recordatorios fiscales — todo guardado solo en su teléfono, sin cuenta en la nube.'),
+  LegalSectionText(heading: '¿Funciona sin internet?', body: 'Sí. El uso diario (clientes, presupuestos, caja) funciona sin conexión. Solo necesita internet para suscribirse o restaurar un plan en Google Play.'),
+  LegalSectionText(heading: '¿Puedo usarlo gratis?', body: '''¡Sí! Sin suscripción, puede crear:
+- 1 cliente
+- 1 presupuesto (con PDF)
+- 1 movimiento de caja (con PDF)
 
-Clientes y datos financieros protegidos en el teléfono; no se envían automáticamente a servidores.'''),
-  LegalSectionText(heading: '¿Están protegidos mis datos de clientes y financieros?', body: 'Sí. Solo salen si usted comparte PDF, PNG/vCard/QR de la tarjeta o backup exportado (cifrado recomendado en Pro).'),
-  LegalSectionText(heading: 'Recordatorios fiscales, calendario, notificaciones, anuncios, idiomas?', body: 'Recordatorios locales informativos; calendario semanal; sin anuncios; sin Crashlytics; PT / EN / ES.'),
-  LegalSectionText(heading: 'Privacidad, borrado, sugerencias?', body: 'Ajustes → Ayuda y soporte. Borrar todo: Datos en el dispositivo → Eliminar todos los datos. Sugerencias: pestaña Empresa → suporte@perfectgestdev.com.'),
+Estos límites son permanentes — no tienen fecha de vencimiento. Para uso ilimitado, suscríbase al Plan Pro en Ajustes → Suscripción de Google Play.'''),
+  LegalSectionText(heading: '¿Qué es el Plan Pro?', body: '''Con el Plan Pro (mensual o anual en Google Play) tiene:
+- Clientes, presupuestos y movimientos de caja ilimitados
+- PDFs ilimitados
+- Backup con contraseña
+- Tarjeta de visita digital completa (edición, vCard, QR, vista previa interactiva)'''),
+  LegalSectionText(heading: '¿Dónde gestiono mi suscripción?', body: '''Ajustes → Suscripción de Google Play
+
+Para cancelar: Google Play → Pagos y suscripciones → Suscripciones.'''),
+  LegalSectionText(heading: '¿Qué es la tarjeta de visita digital?', body: '''En la pestaña Empresa, configure sus datos profesionales (nombre, contactos, logo, eslogan). La app genera una tarjeta digital que puede compartir como imagen (PNG) o vCard.
+
+- Sin Plan Pro: cree su primera tarjeta y comparta la imagen; la edición y funciones avanzadas quedan pausadas.
+- Con Plan Pro: edite cuando quiera, genere QR, exporte vCard y vista previa interactiva — todo en la app.
+
+Los datos de clientes y financieros nunca aparecen en la tarjeta — quedan solo en su teléfono.'''),
+  LegalSectionText(heading: '¿Están protegidos mis datos de clientes y financieros?', body: '''Sí. Todo se guarda localmente. Los datos solo salen del dispositivo cuando usted elige compartir:
+- Un PDF (presupuesto, caja, informe)
+- La imagen o vCard de la tarjeta (solo datos profesionales — nunca clientes ni finanzas)
+- Un archivo de backup exportado
+
+Recomendamos usar backup con contraseña (Plan Pro) para mayor seguridad.'''),
+  LegalSectionText(heading: '¿Qué son los recordatorios fiscales?', body: 'Alertas locales para obligaciones fiscales de autónomos y pequeñas empresas. Son informativos — no reemplazan a un asesor contable.'),
+  LegalSectionText(heading: '¿La app envía notificaciones?', body: 'Solo recordatorios locales para obligaciones fiscales. Nada se envía a servidores externos.'),
+  LegalSectionText(heading: '¿La app tiene anuncios?', body: 'No.'),
+  LegalSectionText(heading: '¿En qué idiomas está disponible?', body: 'Portugués (Brasil), Inglés y Español.'),
+  LegalSectionText(heading: '¿Cómo elimino todos mis datos?', body: '''Ajustes → Datos en el dispositivo → Eliminar todos los datos en este dispositivo
+
+Los PDFs y backups ya exportados a otras apps no se eliminan con esto — elimínelos manualmente donde los guardó.'''),
+  LegalSectionText(heading: '¿Cómo contacto el soporte o envío sugerencias?', body: 'Pestaña Empresa → Dé su contribución, o por email: suporte@perfectgestdev.com'),
+  LegalSectionText(heading: 'Enlaces', body: '''- Política de privacidad
+- FAQ
+- Eliminación de datos
+- Términos y Condiciones'''),
 ];
 
 class _PerfectGestILegalTextsPt extends PerfectGestILegalTexts {
@@ -429,8 +598,6 @@ class _PerfectGestILegalTextsPt extends PerfectGestILegalTexts {
   String get deletionTitle => 'Exclusão de Dados — $kProductPerfectGestIName';
   @override
   String get faqTitle => 'Perguntas frequentes — $kProductPerfectGestIName';
-  @override
-  String get lastUpdated => 'Última atualização: 16/06/2026';
   @override
   String get legalHeaderBody => _kHeaderPt;
   @override
@@ -463,8 +630,6 @@ class _PerfectGestILegalTextsEn extends PerfectGestILegalTexts {
   @override
   String get faqTitle => 'FAQ — $kProductPerfectGestIName';
   @override
-  String get lastUpdated => 'Last updated: 16 June 2026';
-  @override
   String get legalHeaderBody => _kHeaderEn;
   @override
   String get footerPrivacy => 'Privacy Policy';
@@ -495,8 +660,6 @@ class _PerfectGestILegalTextsEs extends PerfectGestILegalTexts {
   String get deletionTitle => 'Eliminación de Datos — $kProductPerfectGestIName';
   @override
   String get faqTitle => 'Preguntas frecuentes — $kProductPerfectGestIName';
-  @override
-  String get lastUpdated => 'Última actualización: 16/06/2026';
   @override
   String get legalHeaderBody => _kHeaderEs;
   @override

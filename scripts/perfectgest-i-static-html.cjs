@@ -35,11 +35,9 @@ function sectionsHtml(sections) {
 function langBlock(lang, page, visible) {
   const title = page.titles[lang];
   const header = DATA.header[lang];
-  const updated = DATA.lastUpdated[lang];
   return `<div class="lang-panel" data-lang="${lang}"${visible ? '' : ' hidden'}>
   <h1 class="page-title">${esc(title)}</h1>
-  <p class="updated">${esc(updated)}</p>
-  <div class="legal-header">${bodyHtml(header)}</div>
+    <div class="legal-header">${bodyHtml(header)}</div>
   ${sectionsHtml(page.sections[lang])}
 </div>`;
 }

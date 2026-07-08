@@ -105,7 +105,6 @@ function isSkipLine(line) {
   if (t.startsWith('# ') && !t.startsWith('## ')) return true;
   if (/^\*\*PerfectGest ContábilSigilo\*\*/.test(t)) return true;
   if (/^\*\*PerfectGest-Contabil I\*\*/.test(t)) return true;
-  if (/^Última atualização:/i.test(t)) return true;
   if (t === '---') return true;
   if (t.startsWith('*PerfectGest')) return true;
   if (t.startsWith('*Consulte também')) return true;
@@ -187,7 +186,7 @@ function parseMd(content, mode) {
 
   if (intro.length) {
     const body = cleanBlock(intro.join('\n'));
-    if (body && mode !== 'faq') {
+    if (body) {
       sections.unshift({ heading: INTRO_HEADING.pt, body });
     }
   }
@@ -263,12 +262,6 @@ const header = {
   pt: ${jsString(header.pt)},
   en: ${jsString(header.en)},
   es: ${jsString(header.es)},
-};
-
-const lastUpdated = {
-  pt: 'Última atualização: 28/06/2026',
-  en: 'Last updated: 28 June 2026',
-  es: 'Última actualización: 28/06/2026',
 };
 
 const labels = {
@@ -349,7 +342,6 @@ const pageSlugs = {
 
 module.exports = {
   header,
-  lastUpdated,
   labels,
   pageSlugs,
   pages: {

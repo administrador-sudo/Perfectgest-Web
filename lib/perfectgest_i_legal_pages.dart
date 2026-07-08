@@ -287,14 +287,6 @@ class _PerfectGestILegalPageState extends State<_PerfectGestILegalPage> {
                         pageTitle,
                         style: _PgILegalStyle.title(fontSize: w < 400 ? 22 : 26),
                       ),
-                      const SizedBox(height: 8),
-                      Text(
-                        lt.lastUpdated,
-                        style: _PgILegalStyle.body(
-                          fontSize: 13,
-                          color: _PgILegalStyle.textSecondary,
-                        ),
-                      ),
                       const SizedBox(height: 20),
                       Container(
                         width: double.infinity,

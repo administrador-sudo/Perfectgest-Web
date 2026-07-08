@@ -64,9 +64,6 @@ function isSkipLine(line) {
   const t = line.trim();
   if (!t) return false;
   if (t.startsWith('# ')) return true;
-  if (/^\*\*Última atualização/i.test(t)) return true;
-  if (/^\*\*Last updated/i.test(t)) return true;
-  if (/^\*\*Última actualización/i.test(t)) return true;
   if (t === '---') return true;
   return false;
 }
@@ -125,7 +122,7 @@ function parseMd(content, mode) {
     const body = cleanBlock(intro.join('\n'));
     if (body) {
       sections.unshift({
-        heading: mode === 'faq' ? '' : INTRO_HEADING.pt,
+        heading: INTRO_HEADING.pt,
         body,
       });
     }
@@ -219,12 +216,6 @@ const header = {
   es: ${jsString(header.es)},
 };
 
-const lastUpdated = {
-  pt: 'Última atualização: 16/06/2026',
-  en: 'Last updated: 16 June 2026',
-  es: 'Última actualización: 16/06/2026',
-};
-
 const labels = {
   pt: {
     privacy: 'Política de Privacidade',
@@ -303,7 +294,6 @@ const pageSlugs = {
 
 module.exports = {
   header,
-  lastUpdated,
   labels,
   pageSlugs,
   pages: {
@@ -375,7 +365,6 @@ abstract class PerfectGestILegalTexts {
   String get termsTitle;
   String get deletionTitle;
   String get faqTitle;
-  String get lastUpdated;
   String get legalHeaderBody;
   String get footerPrivacy;
   String get footerTerms;
@@ -471,8 +460,6 @@ class _PerfectGestILegalTextsPt extends PerfectGestILegalTexts {
   @override
   String get faqTitle => 'Perguntas frequentes — \$kProductPerfectGestIName';
   @override
-  String get lastUpdated => 'Última atualização: 16/06/2026';
-  @override
   String get legalHeaderBody => _kHeaderPt;
   @override
   String get footerPrivacy => 'Política de Privacidade';
@@ -504,8 +491,6 @@ class _PerfectGestILegalTextsEn extends PerfectGestILegalTexts {
   @override
   String get faqTitle => 'FAQ — \$kProductPerfectGestIName';
   @override
-  String get lastUpdated => 'Last updated: 16 June 2026';
-  @override
   String get legalHeaderBody => _kHeaderEn;
   @override
   String get footerPrivacy => 'Privacy Policy';
@@ -536,8 +521,6 @@ class _PerfectGestILegalTextsEs extends PerfectGestILegalTexts {
   String get deletionTitle => 'Eliminación de Datos — \$kProductPerfectGestIName';
   @override
   String get faqTitle => 'Preguntas frecuentes — \$kProductPerfectGestIName';
-  @override
-  String get lastUpdated => 'Última actualización: 16/06/2026';
   @override
   String get legalHeaderBody => _kHeaderEs;
   @override
