@@ -18,7 +18,7 @@
 | **App PerfectGest I** | Secção **Soluções** | Obter app + FAQ/políticas (portal externo; canónico consolas) |
 | **Rotas legadas no domínio** | `/politica-privacidade-perfectgest-i`, etc. | Redirect HTML estático → Google Sites (`scripts/spa-legal-paths.cjs`) |
 
-URLs legais da app: `apps/PerfectGest-I/docs/google_sites/LINKS_EXTERNOS.md`  
+URLs legais da app: `apps/PerfectGest-I/Politicas-Privacidade/LINKS_EXTERNOS.md`  
 URLs do site: `lib/site_public_urls.dart`  
 URLs da app (helpers): `lib/app_legal_urls.dart`
 

@@ -4,7 +4,7 @@
 **Nome na loja:** PerfectGest I  
 **Código-fonte:** `apps/PerfectGest-I/` (este ficheiro está em `webs/Web_perfectgest/docs/` por conveniência de conformidade conjunta site + app).
 
-**URLs legais canónicas (Google Sites):** ver [`Checklist_critico.md`](Checklist_critico.md) e `apps/PerfectGest-I/docs/google_sites/LINKS_EXTERNOS.md`.
+**URLs legais canónicas:** ver [`Checklist_critico.md`](Checklist_critico.md) e `apps/PerfectGest-I/Politicas-Privacidade/LINKS_EXTERNOS.md`.
 
 **Objetivo:** lista única para publicação e conformidade na Play Console.
 

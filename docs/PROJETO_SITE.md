@@ -25,7 +25,7 @@ Site Flutter Web que funciona como **vitrine da Perfect Gest Dev** (`perfectgest
 
 **Neutro:** o site não nomeia lojas de distribuição. Conformidade para consolas: portal externo + `docs/Checklist_critico.md`.
 
-Fonte canónica das URLs da app: `apps/PerfectGest-I/docs/google_sites/LINKS_EXTERNOS.md`.
+Fonte canónica das URLs da app: `apps/PerfectGest-I/Politicas-Privacidade/LINKS_EXTERNOS.md`.
 
 ## Estrutura da home (scroll)
 

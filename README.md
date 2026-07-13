@@ -21,7 +21,7 @@ Posicionamento: **neutro** face a lojas de distribuição; compromisso com o uti
 | [`docs/Checklist_critico.md`](docs/Checklist_critico.md) | URLs canónicas para consolas (doc interna) |
 | [`docs/Atualiza.md`](docs/Atualiza.md) | Histórico de alterações |
 
-App: `apps/PerfectGest-I/` — URLs legais em `apps/PerfectGest-I/docs/google_sites/LINKS_EXTERNOS.md`.
+App: `apps/PerfectGest-I/` — textos legais oficiais em `apps/PerfectGest-I/Politicas-Privacidade/` (URLs: `LINKS_EXTERNOS.md` nessa pasta).
 
 ## Deploy
 

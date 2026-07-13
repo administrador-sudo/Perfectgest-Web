@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 /**
  * Sincroniza perfectgest-i-legal-data.cjs e lib/l10n/perfectgest_i_legal_texts.dart
- * a partir de apps/PerfectGest-I/docs/google_sites/*.md (textos completos).
+ * a partir de apps/PerfectGest-I/Politicas-Privacidade/*.md (textos completos).
  */
 const fs = require('node:fs');
 const path = require('node:path');
 
 const ROOT = path.join(__dirname, '..');
-const MD_DIR = path.join(ROOT, '..', '..', 'apps', 'PerfectGest-I', 'docs', 'google_sites');
+const MD_DIR = path.join(ROOT, '..', '..', 'apps', 'PerfectGest-I', 'Politicas-Privacidade');
 const OUT_CJS = path.join(__dirname, 'perfectgest-i-legal-data.cjs');
 const OUT_DART = path.join(ROOT, 'lib', 'l10n', 'perfectgest_i_legal_texts.dart');
 
@@ -201,7 +201,7 @@ function buildCjs(sections) {
 
   return `/** PerfectGest I — documentos legais no domínio.
  * Gerado por scripts/perfectgest-i-sync-legal-from-md.cjs a partir de
- * apps/PerfectGest-I/docs/google_sites/*.md — não editar manualmente. */
+ * apps/PerfectGest-I/Politicas-Privacidade/*.md — não editar manualmente. */
 const PRODUCT = ${jsString(PRODUCT)};
 const FANTASY = ${jsString(FANTASY)};
 const LEGAL_NAME = ${jsString(LEGAL_NAME)};

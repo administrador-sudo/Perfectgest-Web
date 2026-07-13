@@ -8,7 +8,7 @@
 
 **Site institucional:** `https://perfectgestdev.com` — vitrine neutra da empresa (sem citar lojas de distribuição).
 
-**App PerfectGest I (legal canónico para consolas):** portal externo — ver `apps/PerfectGest-I/docs/google_sites/LINKS_EXTERNOS.md`. Os nomes das plataformas de distribuição aparecem **só** nesse portal e na documentação interna (`docs/Checklist_critico.md`), não no site público.
+**App PerfectGest I (legal canónico para consolas):** portal externo — ver `apps/PerfectGest-I/Politicas-Privacidade/LINKS_EXTERNOS.md`. Os nomes das plataformas de distribuição aparecem **só** nesse portal e na documentação interna (`docs/Checklist_critico.md`), não no site público.
 
 | Campo / requisito | Google Play Console | Microsoft Partner Center | URL canónica |
 |-------------------|---------------------|--------------------------|--------------|
