@@ -128,22 +128,55 @@ function buildPage(pageId) {
       margin: 12px 0 16px;
     }
     table.compare-table {
-      width: 100%; min-width: 0; border-collapse: collapse;
-      font-size: 13px; line-height: 1.45; table-layout: fixed;
+      width: 100%;
+      min-width: 0;
+      border-collapse: collapse;
+      font-size: 13px;
+      line-height: 1.55;
+      table-layout: auto;
+      height: auto;
     }
     table.compare-table th,
     table.compare-table td {
-      border: 1px solid #ccc; padding: 8px 10px; text-align: left; vertical-align: top;
-      word-break: break-word; overflow-wrap: anywhere; hyphens: auto;
+      border: 1px solid #ccc;
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+      height: auto;
+      min-height: 2.5em;
+      white-space: normal;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+      line-height: 1.55;
+      hyphens: auto;
     }
     table.compare-table thead th {
-      background: #f3f3f3; font-weight: 600;
+      background: #f3f3f3;
+      font-weight: 600;
+    }
+    table.compare-table tbody tr {
+      height: auto;
     }
     table.compare-table tbody tr:nth-child(even) td { background: #fafafa; }
-    table.compare-table td:nth-child(2),
-    table.compare-table th:nth-child(2) { text-align: center; white-space: nowrap; }
     table.compare-table td:first-child,
-    table.compare-table th:first-child { width: 28%; min-width: 7rem; }
+    table.compare-table th:first-child {
+      max-width: 38%;
+    }
+    @media (max-width: 560px) {
+      table.compare-table {
+        font-size: 12px;
+      }
+      table.compare-table th,
+      table.compare-table td {
+        padding: 10px 8px;
+        line-height: 1.6;
+      }
+      table.compare-table td:first-child,
+      table.compare-table th:first-child {
+        max-width: none;
+        width: auto;
+      }
+    }
     footer {
       border-top: 1px solid #e1e1e1; padding-top: 16px; margin-top: 32px;
       text-align: center; font-size: 13px; line-height: 1.8;

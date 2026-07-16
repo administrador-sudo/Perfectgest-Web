@@ -1,17 +1,17 @@
-/** EN/ES — parallel to PT in mobile/docs/politicas (ContábilSigilo). Contract v2.0 — Jul 2026. */
+/** EN/ES — parallel to S-App-ContabilGest/docs/politicas (ContabilGest). Contract v2.5 — Jul 2026. */
 module.exports = {
   privacy: {
     en: [
       {
         heading: '1. Who we are',
         body:
-          'This policy describes how the PerfectGest ContábilSigilo app ("App"), developed by PerfectGest, handles information when you use it on your Android device.\n\n' +
-          '- App name: PerfectGest ContábilSigilo\n' +
+          'This policy describes how the PerfectGest ContabilGest app ("App"), developed by PerfectGest, handles information when you use it on your Android device.\n\n' +
+          '- App name: PerfectGest ContabilGest\n' +
           '- Android package: br.perfectgestcontabil.dev\n' +
           '- Privacy contact: suporte@perfectgestdev.com\n' +
           '- Institutional WhatsApp: +55 (51) 98904-5442\n' +
           '- Public policy: https://perfectgestdev.com/contabil-i-politica-privacidade\n' +
-          '- Terms and contract (v2.0): https://perfectgestdev.com/contabil-i-termos',
+          '- Terms and contract (v2.5): https://perfectgestdev.com/contabil-i-termos',
       },
       {
         heading: '2. Core principle: data on your device',
@@ -118,13 +118,13 @@ module.exports = {
       {
         heading: '1. Quiénes somos',
         body:
-          'Esta política describe cómo la app PerfectGest ContábilSigilo ("App"), desarrollada por PerfectGest, trata la información cuando la utiliza en su dispositivo Android.\n\n' +
-          '- Nombre: PerfectGest ContábilSigilo\n' +
+          'Esta política describe cómo la app PerfectGest ContabilGest ("App"), desarrollada por PerfectGest, trata la información cuando la utiliza en su dispositivo Android.\n\n' +
+          '- Nombre: PerfectGest ContabilGest\n' +
           '- Paquete Android: br.perfectgestcontabil.dev\n' +
           '- Contacto privacidad: suporte@perfectgestdev.com\n' +
           '- WhatsApp institucional: +55 (51) 98904-5442\n' +
           '- Política pública: https://perfectgestdev.com/contabil-i-politica-privacidade\n' +
-          '- Términos y contrato (v2.0): https://perfectgestdev.com/contabil-i-termos',
+          '- Términos y contrato (v2.5): https://perfectgestdev.com/contabil-i-termos',
       },
       {
         heading: '2. Principio fundamental: datos en su dispositivo',
@@ -233,9 +233,9 @@ module.exports = {
       {
         heading: 'Software License (SaaS) and Accounting Services Contract',
         body:
-          'Platform: PerfectGest ContábilSigilo\n' +
-          'Instrument version: 2.0\n' +
-          'Last updated and effective: 4 July 2026\n\n' +
+          'Platform: PerfectGest ContabilGest\n' +
+          'Instrument version: 2.5\n' +
+          'Last updated and effective: 15 July 2026\n\n' +
           'PLEASE READ THIS CONTRACT CAREFULLY BEFORE AGREEING.\n\n' +
           'By checking "I agree to the Terms of Service and Accounting Services Contract" in the app and then completing the subscription on Google Play, you are fully bound by these terms.\n\n' +
           'Contractual adhesion occurs in two steps:\n\n' +
@@ -256,7 +256,7 @@ module.exports = {
         heading: 'Clause 2 – Object',
         body:
           '2.1 This instrument covers:\n\n' +
-          'a) Non-exclusive, non-transferable license to use the financial and tax management SaaS software PerfectGest ContábilSigilo;\n\n' +
+          'a) Non-exclusive, non-transferable license to use the financial and tax management SaaS software PerfectGest ContabilGest;\n\n' +
           'b) Accounting advisory, bookkeeping and technical responsibility services, strictly conditional on the plan or add-on purchased via Google Play.',
       },
       {
@@ -270,12 +270,12 @@ module.exports = {
         heading: 'Clause 4 – Plans, prices and Google Play',
         body:
           '4.1 Billing exclusively via Google Play; store prices prevail.\n\n' +
-          'Basic Monthly R$ 9.90/month · Basic Annual R$ 99.90/year (pay 10, use 12).\n\n' +
-          'Com Contador: Essential R$ 69.90 · Standard R$ 89.90 · Advanced R$ 119.90/month.\n\n' +
-          'Configurable annual package: up to 24 Play subscriptions, 12 installments, optional Sigilo/Payroll/IR add-ons (15% discount when bundled).\n\n' +
-          'Add-ons: Data entry 12× R$ 59.90 · Payroll 12× R$ 79.90 · IR declaration R$ 29.90 one-time.\n\n' +
+          'Basic Monthly R$ 19.90/month · Basic Annual R$ 199.90/year (pay 10, use 12).\n\n' +
+          'Contabil+: Essential R$ 129.90 · Standard R$ 149.90 · Advanced R$ 179.90/month.\n\n' +
+          'Configurable annual package: Contabil+ tiers in 12 installments, optional data-entry/payroll/IR add-ons (15% discount when bundled).\n\n' +
+          'Add-ons: Data entry 12× R$ 69.90 · Payroll 12× R$ 99.90 · IR declaration R$ 49.90 one-time.\n\n' +
           'Standalone A1 certificate R$ 119.00 — issuance only, no app access.\n\n' +
-          '4.7 Play subscriptions: auto-renew until cancelled in Google Play → Payments & subscriptions; refunds per Google policy; no free trial unless stated in Play Console; personal data: see Privacy Policy.',
+          '4.7 Play subscriptions: auto-renew until cancelled at https://play.google.com/store/account/subscriptions or in-app manage subscription; refunds per Google policy; no free trial unless stated in Play Console; personal data: see Privacy Policy.',
       },
       {
         heading: 'Clause 5 – Operational tiers',
@@ -318,16 +318,16 @@ module.exports = {
           '- Free install; full features require active Play subscription.\n' +
           '- Basic = self-service; Com Contador = CRC review and opening; annual package = 24 combinations + A1.\n' +
           '- Contract acceptance in app (email, IP, date/time) + payment on Google Play.\n\n' +
-          'PerfectGest ContábilSigilo · https://perfectgestdev.com · suporte@perfectgestdev.com · WhatsApp +55 (51) 98904-5442',
+          'PerfectGest ContabilGest · https://perfectgestdev.com · suporte@perfectgestdev.com · WhatsApp +55 (51) 98904-5442',
       },
     ],
     es: [
       {
         heading: 'Contrato de Licencia de Software (SaaS) y Prestación de Servicios Contables',
         body:
-          'Plataforma: PerfectGest ContábilSigilo\n' +
-          'Versión del instrumento: 2.0\n' +
-          'Última actualización y vigencia: 4 de julio de 2026\n\n' +
+          'Plataforma: PerfectGest ContabilGest\n' +
+          'Versión del instrumento: 2.5\n' +
+          'Última actualización y vigencia: 15 de julio de 2026\n\n' +
           'POR FAVOR, LEA ESTE CONTRATO ATENTAMENTE ANTES DE ACEPTAR.\n\n' +
           'Al marcar «Acepto los Términos de Servicio y el Contrato de Prestación de Servicios Contables» en la app y completar la suscripción en Google Play, usted queda vinculado integralmente a estos términos.\n\n' +
           'La adhesión contractual ocurre en dos pasos:\n\n' +
@@ -348,7 +348,7 @@ module.exports = {
         heading: 'Cláusula 2 – Objeto',
         body:
           '2.1 Este instrumento tiene por objeto:\n\n' +
-          'a) Licencia de uso no exclusiva e intransferible del software SaaS PerfectGest ContábilSigilo;\n\n' +
+          'a) Licencia de uso no exclusiva e intransferible del software SaaS PerfectGest ContabilGest;\n\n' +
           'b) Servicios de asesoría, escrituración y responsabilidad técnica contable, condicionados al plan o add-on contratado en Google Play.',
       },
       {
@@ -362,12 +362,12 @@ module.exports = {
         heading: 'Cláusula 4 – Planes, precios y Google Play',
         body:
           '4.1 Cobro exclusivamente vía Google Play; prevalecen precios de la tienda.\n\n' +
-          'Básico Mensual R$ 9,90/mes · Básico Anual R$ 99,90/año (pague 10, use 12).\n\n' +
-          'Com Contador: Essencial R$ 69,90 · Standard R$ 89,90 · Avanzado R$ 119,90/mes.\n\n' +
-          'Paquete anual configurable: hasta 24 suscripciones Play, 12 cuotas, add-ons Sigilo/Nómina/IR opcionales (15% de descuento en el paquete).\n\n' +
-          'Add-ons: Digitación 12× R$ 59,90 · Nómina 12× R$ 79,90 · Declaración IR R$ 29,90 único.\n\n' +
+          'Básico Mensual R$ 19,90/mes · Básico Anual R$ 199,90/año (pague 10, use 12).\n\n' +
+          'Contabil+: Essencial R$ 129,90 · Standard R$ 149,90 · Avanzado R$ 179,90/mes.\n\n' +
+          'Paquete anual configurable: faixas Contabil+ en 12 cuotas, add-ons digitación/nómina/IR opcionales (15% de descuento en el paquete).\n\n' +
+          'Add-ons: Digitación 12× R$ 69,90 · Nómina 12× R$ 99,90 · Declaración IR R$ 49,90 único.\n\n' +
           'Certificado A1 avulso R$ 119,00 — solo emisión, sin acceso a la app.\n\n' +
-          '4.7 Suscripciones Play: renovación automática hasta cancelación en Google Play; reembolsos según política Google; sin prueba gratuita salvo campaña en Play Console; datos personales: ver Política de Privacidad.',
+          '4.7 Suscripciones Play: renovación automática hasta cancelación en https://play.google.com/store/account/subscriptions o gestión en la app; reembolsos según política Google; sin prueba gratuita salvo campaña en Play Console; datos personales: ver Política de Privacidad.',
       },
       {
         heading: 'Cláusula 5 – Faixas operacionales',
@@ -410,7 +410,7 @@ module.exports = {
           '- Instalación gratuita; funciones completas requieren suscripción activa en Play.\n' +
           '- Básico = self-service; Com Contador = revisión CRC y apertura; paquete anual = 24 combinaciones + A1.\n' +
           '- Aceptación contractual en la app (e-mail, IP, fecha/hora) + pago en Google Play.\n\n' +
-          'PerfectGest ContábilSigilo · https://perfectgestdev.com · suporte@perfectgestdev.com · WhatsApp +55 (51) 98904-5442',
+          'PerfectGest ContabilGest · https://perfectgestdev.com · suporte@perfectgestdev.com · WhatsApp +55 (51) 98904-5442',
       },
     ],
   },
@@ -419,8 +419,8 @@ module.exports = {
       {
         heading: '1. Purpose',
         body:
-          'This document explains how to permanently delete data processed by PerfectGest ContábilSigilo, in compliance with LGPD and Google Play policies.\n\n' +
-          'Last updated: 4 July 2026\n' +
+          'This document explains how to permanently delete data processed by PerfectGest ContabilGest, in compliance with LGPD and Google Play policies.\n\n' +
+          'Last updated: 15 July 2026\n' +
           'Public URL: https://perfectgestdev.com/contabil-i-exclusao-dados',
       },
       {
@@ -478,8 +478,8 @@ module.exports = {
       {
         heading: '1. Objetivo',
         body:
-          'Este documento explica cómo eliminar permanentemente los datos tratados por PerfectGest ContábilSigilo, conforme LGPD y Google Play.\n\n' +
-          'Última actualización: 4 de julio de 2026\n' +
+          'Este documento explica cómo eliminar permanentemente los datos tratados por PerfectGest ContabilGest, conforme LGPD y Google Play.\n\n' +
+          'Última actualización: 15 de julio de 2026\n' +
           'URL pública: https://perfectgestdev.com/contabil-i-exclusao-dados',
       },
       {
@@ -537,7 +537,7 @@ module.exports = {
   faq: {
     en: [
       {
-        heading: 'Contract and acceptance (v2.0)',
+        heading: 'Contract and acceptance (v2.5)',
         body:
           'Must I accept a contract before buying?\n' +
           'Yes — for accountant plans, annual package and add-ons. The app shows a summary; you check "I agree to the Terms of Service and Accounting Services Contract", then proceed to Google Play.\n\n' +
@@ -548,7 +548,7 @@ module.exports = {
       {
         heading: 'About the app',
         body:
-          'PerfectGest ContábilSigilo helps ME and MEI organize cash book, tax obligations, income tax and payroll. Google Play subscriptions with optional accountant services, company opening and digital certificate.',
+          'PerfectGest ContabilGest helps ME and MEI organize cash book, tax obligations, income tax and payroll. Google Play subscriptions with optional accountant services, company opening and digital certificate.',
       },
       {
         heading: 'Does the app move money?',
@@ -558,7 +558,7 @@ module.exports = {
       {
         heading: 'Plans and prices (reference)',
         body:
-          'Basic Monthly R$ 9.90 · Basic Annual R$ 99.90 · Com Contador R$ 69.90–119.90/month · Annual package 12× R$ 69.90–119.90 · Standalone A1 R$ 119.00 · Add-ons Sigilo/Folha/IR as listed in Terms v2.0. Store prices prevail.',
+          'Basic Monthly R$ 19.90 · Basic Annual R$ 199.90 · Contabil+ R$ 129.90–179.90/month · Annual package 12× R$ 129.90–179.90 · Standalone A1 R$ 119.00 · Add-ons as listed in Terms v2.5. Store prices prevail.',
       },
       {
         heading: 'Operational tiers',
@@ -587,7 +587,7 @@ module.exports = {
     ],
     es: [
       {
-        heading: 'Contrato y aceptación (v2.0)',
+        heading: 'Contrato y aceptación (v2.5)',
         body:
           '¿Debo aceptar contrato antes de comprar?\n' +
           'Sí — para planes con contador, paquete anual y add-ons. La app muestra un resumen; usted marca «Acepto los Términos de Servicio y el Contrato de Prestación de Servicios Contables» y luego va a Google Play.\n\n' +
@@ -598,7 +598,7 @@ module.exports = {
       {
         heading: 'Sobre la app',
         body:
-          'PerfectGest ContábilSigilo ayuda a ME y MEI con libro de caja, obligaciones fiscales, IR y nómina. Suscripciones Google Play con servicios opcionales de contador, apertura de empresa y certificado digital.',
+          'PerfectGest ContabilGest ayuda a ME y MEI con libro de caja, obligaciones fiscales, IR y nómina. Suscripciones Google Play con servicios opcionales de contador, apertura de empresa y certificado digital.',
       },
       {
         heading: '¿Mueve dinero?',
@@ -608,7 +608,7 @@ module.exports = {
       {
         heading: 'Planes y precios (referencia)',
         body:
-          'Básico Mensual R$ 9,90 · Básico Anual R$ 99,90 · Com Contador R$ 69,90–119,90/mes · Paquete anual 12× R$ 69,90–119,90 · A1 avulso R$ 119,00 · Add-ons Sigilo/Nómina/IR según Términos v2.0. Prevalecen precios de la tienda.',
+          'Básico Mensual R$ 19,90 · Básico Anual R$ 199,90 · Contabil+ R$ 129,90–179,90/mes · Paquete anual 12× R$ 129,90–179,90 · A1 avulso R$ 119,00 · Add-ons según Términos v2.5. Prevalecen precios de la tienda.',
       },
       {
         heading: 'Faixas operacionales',

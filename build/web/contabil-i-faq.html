@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light only">
   <meta name="robots" content="index, follow">
-  <title>Perguntas frequentes — PerfectGest ContábilSigilo</title>
-  <meta name="description" content="Perguntas frequentes — PerfectGest ContábilSigilo">
+  <title>Perguntas frequentes — PerfectGest ContabilGest</title>
+  <meta name="description" content="Perguntas frequentes — PerfectGest ContabilGest">
   <link rel="canonical" href="https://perfectgestdev.com/contabil-i-faq">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" href="/favicon.png">
@@ -50,22 +50,55 @@
       margin: 12px 0 16px;
     }
     table.compare-table {
-      width: 100%; min-width: 0; border-collapse: collapse;
-      font-size: 13px; line-height: 1.45; table-layout: fixed;
+      width: 100%;
+      min-width: 0;
+      border-collapse: collapse;
+      font-size: 13px;
+      line-height: 1.55;
+      table-layout: auto;
+      height: auto;
     }
     table.compare-table th,
     table.compare-table td {
-      border: 1px solid #ccc; padding: 8px 10px; text-align: left; vertical-align: top;
-      word-break: break-word; overflow-wrap: anywhere; hyphens: auto;
+      border: 1px solid #ccc;
+      padding: 10px 12px;
+      text-align: left;
+      vertical-align: top;
+      height: auto;
+      min-height: 2.5em;
+      white-space: normal;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+      line-height: 1.55;
+      hyphens: auto;
     }
     table.compare-table thead th {
-      background: #f3f3f3; font-weight: 600;
+      background: #f3f3f3;
+      font-weight: 600;
+    }
+    table.compare-table tbody tr {
+      height: auto;
     }
     table.compare-table tbody tr:nth-child(even) td { background: #fafafa; }
-    table.compare-table td:nth-child(2),
-    table.compare-table th:nth-child(2) { text-align: center; white-space: nowrap; }
     table.compare-table td:first-child,
-    table.compare-table th:first-child { width: 28%; min-width: 7rem; }
+    table.compare-table th:first-child {
+      max-width: 38%;
+    }
+    @media (max-width: 560px) {
+      table.compare-table {
+        font-size: 12px;
+      }
+      table.compare-table th,
+      table.compare-table td {
+        padding: 10px 8px;
+        line-height: 1.6;
+      }
+      table.compare-table td:first-child,
+      table.compare-table th:first-child {
+        max-width: none;
+        width: auto;
+      }
+    }
     footer {
       border-top: 1px solid #e1e1e1; padding-top: 16px; margin-top: 32px;
       text-align: center; font-size: 13px; line-height: 1.8;
@@ -78,7 +111,7 @@
 </head>
 <body>
   <header class="top">
-    <div class="top-title" id="top-title">Perguntas frequentes — PerfectGest ContábilSigilo</div>
+    <div class="top-title" id="top-title">Perguntas frequentes — PerfectGest ContabilGest</div>
     <nav class="lang-nav" aria-label="Idioma">
       <button type="button" data-set-lang="pt" class="active">PT</button>
       <button type="button" data-set-lang="en">EN</button>
@@ -87,19 +120,19 @@
   </header>
   <main>
     <div class="lang-panel" data-lang="pt">
-  <h1 class="page-title">Perguntas frequentes — PerfectGest ContábilSigilo</h1>
+  <h1 class="page-title">Perguntas frequentes — PerfectGest ContabilGest</h1>
    <div class="legal-header">PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA<br>
 Nome fantasia: Perfect Gest Dev · CNPJ 66.889.409/0001-19<br>
 Caxias do Sul — RS — Brasil · suporte@perfectgestdev.com<br>
-App Android: PerfectGest ContábilSigilo · pacote br.perfectgestcontabil.dev<br>
+App Android: PerfectGest ContabilGest · pacote br.perfectgestcontabil.dev<br>
 <br>
 Papéis no tratamento (LGPD)<br>
 • Controlador dos dados contábeis e da empresa: o titular da ME/MEI ou o profissional que utiliza o software.<br>
 • Operador do software: Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA) — desenvolve e mantém a ferramenta; não decide sobre o conteúdo inserido pelo utilizador.<br>
 • Direitos do titular: aceder, corrigir, exportar e eliminar no próprio app, ou contactar suporte@perfectgestdev.com.</div>
-  <section class="block"><h2>Introdução</h2><div class="body">Última atualização: 9 de julho de 2026</div></section>
+  <section class="block"><h2>Introdução</h2><div class="body">Última atualização: 15 de julho de 2026</div></section>
 <section class="block"><h2>O que é o app?</h2><div class="body">O que o app faz?<br>
-O PerfectGest ContábilSigilo ajuda MEI e pequenos empresários a registrar entradas e saídas de dinheiro (Livro Caixa), acompanhar obrigações fiscais, simular o Imposto de Renda e gerenciar funcionários. Tudo no celular, sem precisar de internet no dia a dia.<br>
+O PerfectGest ContabilGest ajuda MEI e pequenos empresários a registrar entradas e saídas de dinheiro (Livro Caixa), acompanhar obrigações fiscais, simular o Imposto de Renda e gerenciar funcionários. Tudo no celular, sem precisar de internet no dia a dia.<br>
 <br>
 Preciso de internet para usar?<br>
 - Para lançar receitas e despesas: não precisa<br>
@@ -117,19 +150,22 @@ Preciso conferir os PDFs e holerites gerados?<br>
 Sim, é sua obrigação verificar se estão corretos antes de imprimir, assinar ou entregar. Se algo estiver errado, corrija os dados no app ou peça apoio pelos canais de suporte.<br>
 <br>
 Para quem o app foi pensado?<br>
-Para MEI e pequenas empresas que querem organizar a própria contabilidade com custo menor — especialmente quem está começando com 1, 2, 4 ou 6 funcionários (faixas Essencial/Standard; até 8 na Avançado), podendo evoluir para planos com contador quando precisar de revisão formal.<br>
+Para MEI e pequenas empresas que querem organizar a própria contabilidade com custo menor — especialmente quem está começando nas faixas Essencial/Standard (até 8 funcionários na Avançado), podendo evoluir para planos com contador quando precisar de revisão formal.<br>
 <br>
 O app movimenta dinheiro da minha conta?<br>
 Não. Você registra os valores manualmente (ou o contador faz isso se você contratar o serviço). O app não acessa seu banco nem faz transferências.</div></section>
-<section class="block"><h2>Posso usar de graça?</h2><div class="body">Sim! Sem assinar nada, você pode usar:<br>
-- 1 lançamento de receita<br>
-- 1 lançamento de despesa<br>
-- 1 orçamento com PDF<br>
-<br>
-Esses limites são permanentes e não têm prazo de expiração. Para usar sem limites, escolha um plano na tela de assinatura.<br>
+<section class="block"><h2>Preciso assinar um plano?</h2><div class="body">Sim. A instalação na Google Play é gratuita, mas o uso contínuo do PerfectGest ContabilGest exige assinatura ativa (Google Play Billing). Sem assinatura, o app mostra a tela de planos.<br>
 <br>
 Como fechar a tela de planos sem assinar?<br>
-Toque no X no canto superior direito da tela de planos para fechar. Se o app exibir essa tela ao abrir, você ainda pode sair pelo botão fechar.</div></section>
+Toque no X / fechar no canto superior direito. Sem assinatura válida, o app não liberta o uso completo das funções.<br>
+<br>
+Como gerir ou cancelar a assinatura?<br>
+- No app: Configurações ou Mais → gestão de assinatura Play<br>
+- Ou: https://play.google.com/store/account/subscriptions<br>
+- Ou: Google Play → Pagamentos e assinaturas → Assinaturas<br>
+<br>
+Há teste gratuito?<br>
+Não, salvo campanha expressa publicada na Play Console.</div></section>
 <section class="block"><h2>Como lançar uma receita ou despesa?</h2><div class="body">1. Toque na aba &quot;Lançar&quot; (segunda aba da barra inferior)<br>
 2. Digite no campo de chat o que aconteceu — por exemplo:<br>
    - *&quot;Recebi R$ 500 de serviço via Pix&quot;*<br>
@@ -225,15 +261,19 @@ Seu e-mail, o horário do aceite e o plano escolhido — armazenados só no seu 
 Onde está o texto completo do contrato?<br>
 https://perfectgestdev.com/contabil-i-termos</div></section>
 <section class="block"><h2>Assinatura e cancelamento</h2><div class="body">Como cancelo minha assinatura?<br>
-Na Google Play → Pagamentos e subscrições → Subscrições → Cancelar.<br>
+Na Google Play → Pagamentos e assinaturas → Assinaturas → PerfectGest ContabilGest → Cancelar.<br>
+Também: https://play.google.com/store/account/subscriptions<br>
 <br>
 Como restauro uma compra já feita?<br>
 ☰ menu lateral → &quot;Minha assinatura&quot; → &quot;Restaurar compra&quot;<br>
 <br>
 Posso pedir reembolso?<br>
-Reembolsos seguem a política da Google Play Store.</div></section>
+Reembolsos seguem a política da Google Play Store.<br>
+<br>
+Apagar dados cancela a assinatura?<br>
+Não. Cancele na Google Play para evitar novas cobranças.</div></section>
 <section class="block"><h2>Privacidade e dados</h2><div class="body">Meus dados vão para a nuvem?<br>
-Só se você aceitar — para envio ao contador, validação de compra ou certificado. Por padrão, tudo fica no celular.<br>
+Só se você aceitar — para envio ao contador, validação de compra ou certificado. Por padrão, tudo fica no celular (Firebase project perfectgest-contabilgest quando activos).<br>
 <br>
 O app tem anúncios?<br>
 Não.<br>
@@ -248,26 +288,26 @@ Como falo com o suporte?<br>
 - WhatsApp: +55 (51) 98904-5442</div></section>
 </div>
 <div class="lang-panel" data-lang="en" hidden>
-  <h1 class="page-title">FAQ — PerfectGest ContábilSigilo</h1>
+  <h1 class="page-title">FAQ — PerfectGest ContabilGest</h1>
    <div class="legal-header">PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA<br>
 Trade name: Perfect Gest Dev · CNPJ 66.889.409/0001-19<br>
 Caxias do Sul — RS — Brasil · suporte@perfectgestdev.com<br>
-Android app: PerfectGest ContábilSigilo · package br.perfectgestcontabil.dev<br>
+Android app: PerfectGest ContabilGest · package br.perfectgestcontabil.dev<br>
 <br>
 Roles in processing (LGPD)<br>
 • Controller of accounting and business data: the ME/MEI owner or professional using the software.<br>
 • Software operator: Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA) — develops and maintains the tool; does not decide on user-entered content.<br>
 • Data subject rights: access, correct, export, and delete in the app, or contact suporte@perfectgestdev.com.</div>
-  <section class="block"><h2>Contract and acceptance (v2.0)</h2><div class="body">Must I accept a contract before buying?<br>
+  <section class="block"><h2>Contract and acceptance (v2.5)</h2><div class="body">Must I accept a contract before buying?<br>
 Yes — for accountant plans, annual package and add-ons. The app shows a summary; you check &quot;I agree to the Terms of Service and Accounting Services Contract&quot;, then proceed to Google Play.<br>
 <br>
 What is recorded?<br>
 Company email, IP, date/time, contract version (2.0) and selected plan — electronic adhesion stored on device. View in Privacy &amp; security → Accountant contract.<br>
 <br>
 Full text: https://perfectgestdev.com/contabil-i-termos</div></section>
-<section class="block"><h2>About the app</h2><div class="body">PerfectGest ContábilSigilo helps ME and MEI organize cash book, tax obligations, income tax and payroll. Google Play subscriptions with optional accountant services, company opening and digital certificate.</div></section>
+<section class="block"><h2>About the app</h2><div class="body">PerfectGest ContabilGest helps ME and MEI organize cash book, tax obligations, income tax and payroll. Google Play subscriptions with optional accountant services, company opening and digital certificate.</div></section>
 <section class="block"><h2>Does the app move money?</h2><div class="body">No. Manual entries (or accountant posts if you purchase the Data Entry add-on). No bank connection.</div></section>
-<section class="block"><h2>Plans and prices (reference)</h2><div class="body">Basic Monthly R$ 9.90 · Basic Annual R$ 99.90 · Com Contador R$ 69.90–119.90/month · Annual package 12× R$ 69.90–119.90 · Standalone A1 R$ 119.00 · Add-ons Sigilo/Folha/IR as listed in Terms v2.0. Store prices prevail.</div></section>
+<section class="block"><h2>Plans and prices (reference)</h2><div class="body">Basic Monthly R$ 19.90 · Basic Annual R$ 199.90 · Contabil+ R$ 129.90–179.90/month · Annual package 12× R$ 129.90–179.90 · Standalone A1 R$ 119.00 · Add-ons as listed in Terms v2.5. Store prices prevail.</div></section>
 <section class="block"><h2>Operational tiers</h2><div class="body">Essential: up to 3 employees, 50 entries, 10 invoices/month.<br>
 Standard: 4–6 employees, 26–60 entries, 7–20 invoices.<br>
 Advanced: 7–8 employees, 61–100 entries, 21–50 invoices.<br>
@@ -284,26 +324,26 @@ Deletion · https://perfectgestdev.com/contabil-i-exclusao-dados<br>
 FAQ · https://perfectgestdev.com/contabil-i-faq</div></section>
 </div>
 <div class="lang-panel" data-lang="es" hidden>
-  <h1 class="page-title">Preguntas frecuentes — PerfectGest ContábilSigilo</h1>
+  <h1 class="page-title">Preguntas frecuentes — PerfectGest ContabilGest</h1>
    <div class="legal-header">PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA<br>
 Nombre comercial: Perfect Gest Dev · CNPJ 66.889.409/0001-19<br>
 Caxias do Sul — RS — Brasil · suporte@perfectgestdev.com<br>
-App Android: PerfectGest ContábilSigilo · paquete br.perfectgestcontabil.dev<br>
+App Android: PerfectGest ContabilGest · paquete br.perfectgestcontabil.dev<br>
 <br>
 Roles en el tratamiento (LGPD)<br>
 • Controlador de los datos contables y de la empresa: el titular de la ME/MEI o el profesional que utiliza el software.<br>
 • Operador del software: Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA) — desarrolla y mantiene la herramienta; no decide sobre el contenido introducido por el usuario.<br>
 • Derechos del titular: acceder, corregir, exportar y eliminar en la app, o contactar suporte@perfectgestdev.com.</div>
-  <section class="block"><h2>Contrato y aceptación (v2.0)</h2><div class="body">¿Debo aceptar contrato antes de comprar?<br>
+  <section class="block"><h2>Contrato y aceptación (v2.5)</h2><div class="body">¿Debo aceptar contrato antes de comprar?<br>
 Sí — para planes con contador, paquete anual y add-ons. La app muestra un resumen; usted marca «Acepto los Términos de Servicio y el Contrato de Prestación de Servicios Contables» y luego va a Google Play.<br>
 <br>
 ¿Qué se registra?<br>
 E-mail de la empresa, IP, fecha/hora, versión del contrato (2.0) y plan seleccionado — adhesión electrónica en el dispositivo. Consulte en Privacidad y seguridad → Contrato del contador.<br>
 <br>
 Texto completo: https://perfectgestdev.com/contabil-i-termos</div></section>
-<section class="block"><h2>Sobre la app</h2><div class="body">PerfectGest ContábilSigilo ayuda a ME y MEI con libro de caja, obligaciones fiscales, IR y nómina. Suscripciones Google Play con servicios opcionales de contador, apertura de empresa y certificado digital.</div></section>
+<section class="block"><h2>Sobre la app</h2><div class="body">PerfectGest ContabilGest ayuda a ME y MEI con libro de caja, obligaciones fiscales, IR y nómina. Suscripciones Google Play con servicios opcionales de contador, apertura de empresa y certificado digital.</div></section>
 <section class="block"><h2>¿Mueve dinero?</h2><div class="body">No. Movimientos manuales (o el contador lanza si contrata el add-on de digitación). Sin conexión bancaria.</div></section>
-<section class="block"><h2>Planes y precios (referencia)</h2><div class="body">Básico Mensual R$ 9,90 · Básico Anual R$ 99,90 · Com Contador R$ 69,90–119,90/mes · Paquete anual 12× R$ 69,90–119,90 · A1 avulso R$ 119,00 · Add-ons Sigilo/Nómina/IR según Términos v2.0. Prevalecen precios de la tienda.</div></section>
+<section class="block"><h2>Planes y precios (referencia)</h2><div class="body">Básico Mensual R$ 19,90 · Básico Anual R$ 199,90 · Contabil+ R$ 129,90–179,90/mes · Paquete anual 12× R$ 129,90–179,90 · A1 avulso R$ 119,00 · Add-ons según Términos v2.5. Prevalecen precios de la tienda.</div></section>
 <section class="block"><h2>Faixas operacionales</h2><div class="body">Essencial: hasta 3 empleados, 50 movimientos, 10 NF/mes.<br>
 Standard: 4–6 empleados, 26–60 movimientos, 7–20 NF.<br>
 Avanzado: 7–8 empleados, 61–100 movimientos, 21–50 NF.<br>
@@ -327,7 +367,7 @@ FAQ · https://perfectgestdev.com/contabil-i-faq</div></section>
   </main>
   <script>
     (function () {
-      var titles = {"pt":"Perguntas frequentes — PerfectGest ContábilSigilo","en":"FAQ — PerfectGest ContábilSigilo","es":"Preguntas frecuentes — PerfectGest ContábilSigilo"};
+      var titles = {"pt":"Perguntas frequentes — PerfectGest ContabilGest","en":"FAQ — PerfectGest ContabilGest","es":"Preguntas frecuentes — PerfectGest ContabilGest"};
       function setLang(lang) {
         document.querySelectorAll('.lang-panel').forEach(function (el) {
           el.hidden = el.getAttribute('data-lang') !== lang;
