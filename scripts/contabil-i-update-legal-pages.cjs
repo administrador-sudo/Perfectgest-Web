@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 /**
- * Actualiza páginas legais ContábilSigilo no site a partir dos .md do mobile.
+ * Actualiza páginas legais ContabilGest no site a partir dos .md.
  *
- * Fonte (PT): apps/Contabilidade_Clientes/mobile/docs/politicas/*.md
+ * Fonte (PT): S-App-ContabilGest/docs/politicas/*.md
  * EN/ES:       scripts/contabil-i-legal-en-es.cjs (editar manualmente se planos/preços mudarem)
  *
  * Uso (pasta webs/Web_perfectgest):
  *   node scripts/contabil-i-update-legal-pages.cjs
  *   node scripts/contabil-i-update-legal-pages.cjs --build-web
  *
- * Uso (pasta mobile):
+ * Uso (pasta mobile_user_app):
  *   .\scripts\atualizar_politicas_site.ps1
  */
 const fs = require('node:fs');
@@ -21,9 +21,7 @@ const MD_DIR = path.join(
   WEB_ROOT,
   '..',
   '..',
-  'apps',
-  'Contabilidade_Clientes',
-  'mobile',
+  'S-App-ContabilGest',
   'docs',
   'politicas',
 );
@@ -128,7 +126,7 @@ Deploy: flutter build web && node scripts/spa-legal-paths.cjs`);
     process.exit(0);
   }
 
-  console.log('=== ContábilSigilo — actualizar páginas legais do site ===\n');
+  console.log('=== ContabilGest — actualizar páginas legais do site ===\n');
 
   verifySources();
 
@@ -139,13 +137,10 @@ Deploy: flutter build web && node scripts/spa-legal-paths.cjs`);
   writeStaticHtml(PREVIEW_DIR);
 
   if (args.buildWeb) {
-    if (!fs.existsSync(BUILD_WEB)) {
-      console.warn('\n--build-web: build/web não existe. Rode: flutter build web');
-    } else {
-      console.log(`\nActualizar ${rel(BUILD_WEB)}:`);
-      writeStaticHtml(BUILD_WEB);
-      publishContabilCleanUrls();
-    }
+    ensureDir(BUILD_WEB);
+    console.log(`\nActualizar ${rel(BUILD_WEB)} (so ContabilGest contabil-i-*):`);
+    writeStaticHtml(BUILD_WEB);
+    publishContabilCleanUrls();
   }
 
   console.log('\nFicheiros para commit (repo webs/Web_perfectgest):');

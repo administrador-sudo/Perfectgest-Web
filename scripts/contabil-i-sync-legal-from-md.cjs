@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 /**
  * Sincroniza contabil-i-legal-data.cjs a partir de
- * apps/Contabilidade_Clientes/mobile/docs/politicas/*.md (PT).
+ * S-App-ContabilGest/docs/politicas/*.md (PT).
  * EN/ES: contabil-i-legal-en-es.cjs (paralelo ao PT).
  *
  * Preferir o orquestrador: node scripts/contabil-i-update-legal-pages.cjs
- * (ou mobile: scripts/atualizar_politicas_site.ps1)
+ * (ou mobile_user_app: scripts/atualizar_politicas_site.ps1)
  */
 const fs = require('node:fs');
 const path = require('node:path');
@@ -15,16 +15,14 @@ const MD_DIR = path.join(
   ROOT,
   '..',
   '..',
-  'apps',
-  'Contabilidade_Clientes',
-  'mobile',
+  'S-App-ContabilGest',
   'docs',
   'politicas',
 );
 const OUT_CJS = path.join(__dirname, 'contabil-i-legal-data.cjs');
 const EN_ES = require('./contabil-i-legal-en-es.cjs');
 
-const PRODUCT = 'PerfectGest ContábilSigilo';
+const PRODUCT = 'PerfectGest ContabilGest';
 const PACKAGE_ID = 'br.perfectgestcontabil.dev';
 const FANTASY = 'Perfect Gest Dev';
 const LEGAL_NAME = 'PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA';
@@ -103,6 +101,7 @@ function isSkipLine(line) {
   const t = line.trim();
   if (!t) return false;
   if (t.startsWith('# ') && !t.startsWith('## ')) return true;
+  if (/^\*\*PerfectGest ContabilGest\*\*/.test(t)) return true;
   if (/^\*\*PerfectGest ContábilSigilo\*\*/.test(t)) return true;
   if (/^\*\*PerfectGest-Contabil I\*\*/.test(t)) return true;
   if (t === '---') return true;
@@ -247,9 +246,9 @@ function buildCjs(pt) {
       EMAIL + '.',
   };
 
-  return `/** PerfectGest ContábilSigilo — documentos legais no domínio perfectgestdev.com
+  return `/** PerfectGest ContabilGest — documentos legais no domínio perfectgestdev.com
  * Gerado por scripts/contabil-i-sync-legal-from-md.cjs — não editar manualmente.
- * Fonte PT: apps/Contabilidade_Clientes/mobile/docs/politicas/*.md */
+ * Fonte PT: S-App-ContabilGest/docs/politicas/*.md */
 const PRODUCT = ${jsString(PRODUCT)};
 const PACKAGE_ID = ${jsString(PACKAGE_ID)};
 const FANTASY = ${jsString(FANTASY)};

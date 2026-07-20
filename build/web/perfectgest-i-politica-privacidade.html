@@ -74,12 +74,13 @@ A PerfectGest I, sob responsabilidade de Marcos Leandro dos Santos, estabelece e
 <section class="block"><h2>Controlador de Dados e Contato</h2><div class="body">O responsável pelo tratamento de dados é Marcos Leandro dos Santos. Para o exercício de direitos de acesso, retificação ou exclusão, entre em contato via e-mail: suporte@perfectgestdev.com.</div></section>
 <section class="block"><h2>Armazenamento local e natureza dos dados</h2><div class="body">O aplicativo opera em modelo local-first. Os dados de gestão comercial são armazenados exclusivamente no dispositivo do usuário via SQLite. A PerfectGest I não coleta, não acede e não transfere automaticamente esses dados para servidores próprios.<br>
 <br>
-Dados de clientes e financeiros — protegidos no aparelho<br>
+Dados de gestão — protegidos no aparelho<br>
 <br>
 Permanecem no dispositivo e não saem da app por iniciativa do sistema:<br>
 <br>
 - Cadastro e histórico de clientes<br>
-- Orçamentos, itens, valores e estados<br>
+- Orçamentos comerciais, itens, valores e estados<br>
+- Orçamentos fiscais (aba Orç/NF-e/NFS-e) e códigos fiscais de consulta/cadastro (ex.: NCM, CFOP, LC 116) — documentos de apoio locais; a app não emite NF-e/NFS-e electrónica junto à SEFAZ/prefeitura<br>
 - Caixa — entradas, saídas, categorias e saldos<br>
 - Ordens de serviço / produção e projetos<br>
 - Contratos e documentos auxiliares de gestão<br>
@@ -91,21 +92,21 @@ Quando os dados podem sair do aparelho (sempre por acção do utilizador)<br>
 <br>
 A saída ocorre somente se o utilizador decidir explicitamente:<br>
 <br>
-- Partilhar ou guardar PDF (orçamento, caixa, relatório, etc.) — o documento gerado naquele momento<br>
+- Partilhar ou guardar PDF (orçamento comercial ou fiscal, caixa, relatório, etc.) — o documento gerado naquele momento<br>
 - Partilhar cartão de visita (PNG) — apenas dados profissionais da empresa (nome, contactos, redes, logótipo); nunca a lista de clientes nem dados financeiros<br>
-- Partilhar ficheiro de contactos (vCard) ou mostrar QR com dados profissionais (Plano Pro — ver abaixo)<br>
-- Criar e partilhar backup — ficheiro de backup (simples ou encriptado) que o utilizador escolhe enviar por WhatsApp, e-mail, Drive, etc.; contém a cópia local que exportou<br>
+- Partilhar ficheiro de contactos (vCard) ou mostrar QR com dados profissionais (funções avançadas do cartão — ver abaixo)<br>
+- Criar e partilhar backup — ficheiro de backup (simples ou encriptado) que o utilizador escolhe enviar por WhatsApp, e-mail, Drive, etc.<br>
 <br>
 Importante: partilhar um backup é responsabilidade do utilizador quanto ao destino e à segurança do ficheiro. Recomendamos backups encriptados (Plano Pro) e destinatários de confiança.<br>
 <br>
 Dados da empresa no cartão de visita<br>
 <br>
-Os contactos da aba Empresa (telefone, e-mail, WhatsApp, etc.) servem também o cartão de visita, mas não misturam nem expõem automaticamente os módulos Clientes, Orçamentos ou Caixa.</div></section>
+Os contactos da aba Empresa (telefone, e-mail, WhatsApp, etc.) servem também o cartão de visita, mas não misturam nem expõem automaticamente os módulos Clientes, Orçamentos, Orç/NF-e/NFS-e ou Caixa.</div></section>
 <section class="block"><h2>Cartão de visita — armazenamento local e modo estático</h2><div class="body">O cartão de visita digital (aba Empresa) utiliza os dados da empresa guardados no dispositivo. Ao concluir a criação do primeiro cartão, o aplicativo pode guardar uma cópia congelada (snapshot) local — imagem PNG e dados do layout — para exibição em modo estático quando não houver assinatura Plano Pro activa.<br>
 <br>
 - No dispositivo: snapshot, logótipo e ficheiros temporários de partilha permanecem no aparelho até limpar dados ou desinstalar.<br>
 - Partilha PNG: mesmo em modo estático, pode partilhar a imagem do snapshot (ex.: WhatsApp, e-mail) por acção explícita; não enviamos essa imagem automaticamente a servidores PerfectGest.<br>
-- Edição e funcionalidades avançadas (vCard, QR, preview interactivo com toques em contactos): requerem Plano Pro — sempre dentro da app; não há página web do cartão alojada pela PerfectGest.</div></section>
+- Edição e funcionalidades avançadas (vCard, QR, preview interactivo com toques em contactos, extras como Pix/agendamento no cartão): requerem Plano Pro após o primeiro cartão válido — sempre dentro da app; não há página web do cartão alojada pela PerfectGest.</div></section>
 <section class="block"><h2>Cartão de visita interactivo na app (Plano Pro)</h2><div class="body">Com Plano Pro, após o primeiro cartão, pode continuar a editar e usar funções avançadas no telemóvel:<br>
 <br>
 - Preview interactivo (toques abrem WhatsApp, telefone, e-mail, site ou mapa, conforme configurado)<br>
@@ -114,20 +115,20 @@ Os contactos da aba Empresa (telefone, e-mail, WhatsApp, etc.) servem também o 
 <br>
 Tudo permanece no dispositivo até partilhar ou mostrar o QR por acção explícita. Não publicamos nem alojamos o cartão num site PerfectGest; não enviamos o conteúdo do cartão para Firestore nem outros servidores por iniciativa da app.<br>
 <br>
-O que nunca entra no cartão: cadastro de clientes, orçamentos, lançamentos de caixa, valores financeiros, contratos ou backups.</div></section>
+O que nunca entra no cartão: cadastro de clientes, orçamentos (comerciais ou fiscais), lançamentos de caixa, valores financeiros, contratos ou backups.</div></section>
 <section class="block"><h2>Modelo de acesso — exploração e Plano Pro</h2><div class="body">- Após o download: pode explorar a app (navegar ecrãs e consultar a interface) sem assinatura.<br>
-- Operações (criar clientes, orçamentos ou lançamentos de caixa; gerar PDFs de gestão; restauro de backup encriptado; e demais acções bloqueadas sem assinatura) exigem Plano Pro. Ao tentar uma operação sem Pro, a app apresenta um aviso com o plano (referência de preço R$ 9,90/mês; o valor cobrado é o da Google Play) e as opções Assinar ou Continuar a explorar recursos do Aplicativo.<br>
-- Plano Pro: uso ilimitado, restauro de backup encriptado e cartão de visita interactivo na app (edição após o primeiro cartão, vCard, QR, preview com toques), via assinatura mensal ou anual na Google Play.<br>
+- Operações (criar clientes, orçamentos comerciais ou fiscais, lançamentos de caixa; gerar PDFs de gestão; restauro de backup encriptado; e demais acções condicionadas) exigem Plano Pro. Ao tentar uma operação sem Pro, a app apresenta um aviso com o plano (referência R$ 9,90/mês; o valor cobrado é o da Google Play) e as opções Assinar ou Continuar a explorar recursos do Aplicativo.<br>
+- Plano Pro: uso ilimitado das funções activas, restauro de backup encriptado e cartão de visita interactivo na app (edição após o primeiro cartão, vCard, QR, preview com toques), via assinatura mensal ou anual na Google Play.<br>
 - Logótipo da empresa: escolhido na aba Empresa, guardado apenas no dispositivo e usado nos cabeçalhos dos PDFs — não é enviado a servidores PerfectGest.<br>
 <br>
-Metadados anónimos por aparelho (serviço Firebase) podem registar instalação / elegibilidade de assinatura e consumo do 1.º cartão — sem dados de clientes, orçamentos ou caixa.</div></section>
+Metadados anónimos por aparelho (Firebase) podem registar instalação / elegibilidade de assinatura (anti-abuso) e consumo do 1.º cartão — sem dados de clientes, orçamentos ou caixa.</div></section>
 <section class="block"><h2>Coleta de dados e serviços de terceiros</h2><div class="body">- Google Analytics (Firebase): eventos genéricos de uso; sem Crashlytics; sem nomes ou valores financeiros.<br>
 - Firebase Remote Config: versões mínimas e flags de segurança.<br>
 - Cloud Firestore: metadados anónimos por aparelho — identificador de instalação, elegibilidade de assinatura / anti-abuso e consumo do 1.º cartão (sem dados de clientes, orçamentos ou caixa).<br>
 - Google Play Billing: subscrições.</div></section>
 <section class="block"><h2>Notificações locais</h2><div class="body">Lembretes fiscais processados no dispositivo; sem envio a servidores externos. Permissão POST_NOTIFICATIONS no Android 13+.</div></section>
 <section class="block"><h2>Declarações de segurança</h2><div class="body">- HTTPS/TLS em telemetria e metadados técnicos.<br>
-- Sem venda de dados para publicidade.<br>
+- Sem venda de dados para publicidade. Sem anúncios dentro da app.<br>
 - Separação cartão vs. gestão: cartão = só informação profissional configurada; clientes e financeiro locais, excepto PDFs ou backups partilhados pelo utilizador.</div></section>
 <section class="block"><h2>Retenção e exclusão</h2><div class="body">- Dados comerciais locais e snapshot do cartão: eliminados ao limpar dados da app ou desinstalar.<br>
 - Telemetria (Firebase): pedido por e-mail, até 15 dias úteis.</div></section>
@@ -146,12 +147,13 @@ PerfectGest I, operated by Marcos Leandro dos Santos, provides this Privacy Poli
 <section class="block"><h2>Data controller and contact</h2><div class="body">Controller: Marcos Leandro dos Santos. Contact: suporte@perfectgestdev.com.</div></section>
 <section class="block"><h2>Local storage</h2><div class="body">The app is local-first. Business data is stored only on your device (SQLite). PerfectGest I does not automatically collect, access, or transfer that data to its own servers.<br>
 <br>
-Client and financial data — protected on the device<br>
+Management data — protected on the device<br>
 <br>
 These stay on the device and do not leave the app unless you choose to:<br>
 <br>
 - Client records and history<br>
-- Estimates, line items, amounts, and status<br>
+- Commercial estimates, line items, amounts, and status<br>
+- Fiscal quotes (Quote/NF-e/NFS-e tab) and fiscal codes for lookup/registration (e.g. NCM, CFOP, LC 116) — local support documents only; the app does not issue electronic NF-e/NFS-e to tax authorities<br>
 - Cash flow — income, expenses, categories, balances<br>
 - Work orders, projects, contracts, and management documents<br>
 - Any client name, amount, or financial movement in the app<br>
@@ -160,17 +162,17 @@ We do not send this data to Firebase, Firestore, Analytics, or other servers. Fi
 <br>
 When data may leave the device (your explicit action only)<br>
 <br>
-- Share or save a PDF (estimate, cash report, etc.)<br>
+- Share or save a PDF (commercial or fiscal quote, cash report, etc.)<br>
 - Share business card PNG — professional company contacts only; never your client list or financial data<br>
-- Share vCard or show QR with professional contacts (Pro Plan — see below)<br>
+- Share vCard or show QR with professional contacts (advanced card features — see below)<br>
 - Share a backup file you exported (plain or encrypted) via WhatsApp, email, Drive, etc.<br>
 <br>
 Important: sharing a backup is your responsibility regarding destination and security. We recommend encrypted backups (Pro Plan).<br>
 <br>
 Business card vs. management data<br>
 <br>
-The Company tab feeds the digital business card with your business contact info only. It does not expose Clients, Estimates, or Cash modules.</div></section>
-<section class="block"><h2>Business card — local storage and static mode</h2><div class="body">After your first card is saved, a local snapshot (PNG + layout) may be shown in static mode without Pro. You may still share that snapshot PNG via the system share sheet. Advanced features (edit after freeze, vCard, QR, interactive preview with tappable contacts) require Pro Plan — inside the app only; PerfectGest does not host a public web page for your card.</div></section>
+The Company tab feeds the digital business card with your business contact info only. It does not expose Clients, Estimates, Quote/NF-e/NFS-e, or Cash modules.</div></section>
+<section class="block"><h2>Business card — local storage and static mode</h2><div class="body">After your first card is saved, a local snapshot (PNG + layout) may be shown in static mode without Pro. You may still share that snapshot PNG via the system share sheet. Advanced features (edit after freeze, vCard, QR, interactive preview with tappable contacts, extras such as Pix/scheduling on the card) require Pro Plan after the first valid card — inside the app only; PerfectGest does not host a public web page for your card.</div></section>
 <section class="block"><h2>Interactive business card in the app (Pro Plan)</h2><div class="body">With Pro Plan, after your first card you can keep editing and use advanced features on your phone:<br>
 <br>
 - Interactive preview (taps open WhatsApp, phone, email, website, or maps as configured)<br>
@@ -179,13 +181,13 @@ The Company tab feeds the digital business card with your business contact info 
 <br>
 Everything stays on the device until you share or show the QR. We do not publish or host your card on a PerfectGest website or upload card content to Firestore.<br>
 <br>
-Never included in the card: clients, estimates, cash entries, financial amounts, contracts, or backups.</div></section>
+Never included in the card: clients, estimates (commercial or fiscal), cash entries, financial amounts, contracts, or backups.</div></section>
 <section class="block"><h2>Access model — explore and Pro Plan</h2><div class="body">- After download: you may explore the app (browse screens and the interface) without a subscription.<br>
-- Operations (creating clients, estimates, or cash entries; generating management PDFs; encrypted backup restore; and other actions gated without a subscription) require Pro Plan. If you try an operation without Pro, the app shows a notice with the plan (reference price R$ 9.90/month; the amount charged is the one on Google Play) and the options Subscribe or Continue exploring app features.<br>
-- Pro Plan: unlimited use, encrypted backup restore, and interactive business card in the app (edit after first card, vCard, QR, tappable preview), monthly or annual via Google Play.<br>
+- Operations (creating clients, commercial or fiscal estimates, cash entries; generating management PDFs; encrypted backup restore; and other gated actions) require Pro Plan. If you try an operation without Pro, the app shows a notice with the plan (reference price R$ 9.90/month; the amount charged is the one on Google Play) and the options Subscribe or Continue exploring app features.<br>
+- Pro Plan: unlimited use of active features, encrypted backup restore, and interactive business card in the app (edit after first card, vCard, QR, tappable preview), monthly or annual via Google Play.<br>
 - Company logo: chosen in the Company tab, stored only on the device, and used in PDF headers — not uploaded to PerfectGest servers.<br>
 <br>
-Anonymous per-device metadata (Firebase) may record installation / subscription eligibility and first-card use — not client, estimate, or cash data.</div></section>
+Anonymous per-device metadata (Firebase) may record installation / subscription eligibility (anti-abuse) and first-card use — not client, estimate, or cash data.</div></section>
 <section class="block"><h2>Third-party services</h2><div class="body">Firebase Analytics (generic events, no Crashlytics), Remote Config, Firestore (minimal anonymous device metadata — installation identifier, subscription eligibility / anti-abuse, and first business-card save — not clients, estimates, or cash data), Google Play Billing. No in-app ads.</div></section>
 <section class="block"><h2>Local notifications</h2><div class="body">Fiscal reminders on-device only; no external server transfer. POST_NOTIFICATIONS on Android 13+.</div></section>
 <section class="block"><h2>Security</h2><div class="body">HTTPS/TLS for telemetry; no sale of data for ads; business card contains only professional info you configure.</div></section>
@@ -205,12 +207,13 @@ PerfectGest I, bajo responsabilidad de Marcos Leandro dos Santos, establece esta
 <section class="block"><h2>Responsable y contacto</h2><div class="body">Responsable: Marcos Leandro dos Santos. Contacto: suporte@perfectgestdev.com.</div></section>
 <section class="block"><h2>Almacenamiento local</h2><div class="body">La app es local-first. Los datos de gestión se guardan solo en el dispositivo (SQLite). PerfectGest I no recoge, accede ni transfiere automáticamente esos datos a servidores propios.<br>
 <br>
-Datos de clientes y financieros — protegidos en el dispositivo<br>
+Datos de gestión — protegidos en el dispositivo<br>
 <br>
 Permanecen en el dispositivo y no salen de la app por iniciativa del sistema:<br>
 <br>
 - Registro e historial de clientes<br>
-- Presupuestos, ítems, importes y estados<br>
+- Presupuestos comerciales, ítems, importes y estados<br>
+- Presupuestos fiscales (pestaña Presup./NF-e/NFS-e) y códigos fiscales de consulta/registro (p. ej. NCM, CFOP, LC 116) — documentos de apoyo locales; la app no emite NF-e/NFS-e electrónica ante la autoridad fiscal<br>
 - Caja — ingresos, gastos, categorías y saldos<br>
 - Órdenes de servicio, proyectos, contratos y documentos de gestión<br>
 - Cualquier nombre de cliente, importe o movimiento financiero<br>
@@ -219,17 +222,17 @@ No enviamos estos datos a Firebase, Firestore, Analytics u otros servidores. Fir
 <br>
 Cuándo pueden salir del dispositivo (solo por su acción)<br>
 <br>
-- Compartir o guardar PDF (presupuesto, informe de caja, etc.)<br>
+- Compartir o guardar PDF (presupuesto comercial o fiscal, informe de caja, etc.)<br>
 - Compartir tarjeta de visita (PNG) — solo datos profesionales; nunca lista de clientes ni datos financieros<br>
-- Compartir vCard o mostrar QR con contactos profesionales (Plan Pro — ver abajo)<br>
+- Compartir vCard o mostrar QR con contactos profesionales (funciones avanzadas de la tarjeta — ver abajo)<br>
 - Compartir archivo de backup que exportó (simple o cifrado)<br>
 <br>
 Importante: compartir un backup es responsabilidad del usuario sobre destino y seguridad. Recomendamos copias cifradas (Plan Pro).<br>
 <br>
 Tarjeta de visita vs. gestión interna<br>
 <br>
-La pestaña Empresa alimenta la tarjeta con contactos profesionales; no expone Clientes, Presupuestos ni Caja.</div></section>
-<section class="block"><h2>Tarjeta de visita — modo estático</h2><div class="body">Tras guardar la primera tarjeta, puede mostrarse una copia congelada local sin Pro. Puede seguir compartiendo el PNG por la hoja de compartir del sistema. Funciones avanzadas (editar tras congelar, vCard, QR, vista previa interactiva con toques) requieren Plan Pro — solo en la app; PerfectGest no aloja una página web pública de su tarjeta.</div></section>
+La pestaña Empresa alimenta la tarjeta con contactos profesionales; no expone Clientes, Presupuestos, Presup./NF-e/NFS-e ni Caja.</div></section>
+<section class="block"><h2>Tarjeta de visita — modo estático</h2><div class="body">Tras guardar la primera tarjeta, puede mostrarse una copia congelada local sin Pro. Puede seguir compartiendo el PNG por la hoja de compartir del sistema. Funciones avanzadas (editar tras congelar, vCard, QR, vista previa interactiva con toques, extras como Pix/agendamiento en la tarjeta) requieren Plan Pro tras la primera tarjeta válida — solo en la app; PerfectGest no aloja una página web pública de su tarjeta.</div></section>
 <section class="block"><h2>Tarjeta interactiva en la app (Plan Pro)</h2><div class="body">Con Plan Pro, tras la primera tarjeta puede seguir editando y usar funciones avanzadas en el teléfono:<br>
 <br>
 - Vista previa interactiva (toques abren WhatsApp, teléfono, correo, web o mapa)<br>
@@ -238,13 +241,13 @@ La pestaña Empresa alimenta la tarjeta con contactos profesionales; no expone C
 <br>
 Todo permanece en el dispositivo hasta que comparta o muestre el QR. No publicamos ni alojamos la tarjeta en un sitio PerfectGest ni enviamos su contenido a Firestore.<br>
 <br>
-Nunca incluidos en la tarjeta: clientes, presupuestos, caja, importes financieros, contratos ni backups.</div></section>
+Nunca incluidos en la tarjeta: clientes, presupuestos (comerciales o fiscales), caja, importes financieros, contratos ni backups.</div></section>
 <section class="block"><h2>Modelo de acceso — exploración y Plan Pro</h2><div class="body">- Tras la descarga: puede explorar la app (navegar pantallas e interfaz) sin suscripción.<br>
-- Operaciones (crear clientes, presupuestos o movimientos de caja; generar PDF de gestión; restaurar backup cifrado; y demás acciones bloqueadas sin suscripción) requieren Plan Pro. Al intentar una operación sin Pro, la app muestra un aviso con el plan (precio de referencia R$ 9,90/mes; el importe cobrado es el de Google Play) y las opciones Suscribirse o Continuar explorando los recursos de la aplicación.<br>
-- Plan Pro: uso ilimitado, restauración de backup cifrado y tarjeta interactiva en la app (editar tras la primera tarjeta, vCard, QR, vista previa con toques), mensual o anual vía Google Play.<br>
+- Operaciones (crear clientes, presupuestos comerciales o fiscales, movimientos de caja; generar PDF de gestión; restaurar backup cifrado; y demás acciones condicionadas) requieren Plan Pro. Al intentar una operación sin Pro, la app muestra un aviso con el plan (precio de referencia R$ 9,90/mes; el importe cobrado es el de Google Play) y las opciones Suscribirse o Continuar explorando los recursos de la aplicación.<br>
+- Plan Pro: uso ilimitado de las funciones activas, restauración de backup cifrado y tarjeta interactiva en la app (editar tras la primera tarjeta, vCard, QR, vista previa con toques), mensual o anual vía Google Play.<br>
 - Logotipo de la empresa: se elige en la pestaña Empresa, se guarda solo en el dispositivo y se usa en los encabezados de PDF — no se envía a servidores PerfectGest.<br>
 <br>
-Metadatos anónimos por dispositivo (Firebase) pueden registrar instalación / elegibilidad de suscripción y el primer uso de tarjeta — sin datos de clientes, presupuestos ni caja.</div></section>
+Metadatos anónimos por dispositivo (Firebase) pueden registrar instalación / elegibilidad de suscripción (antiabuso) y el primer uso de tarjeta — sin datos de clientes, presupuestos ni caja.</div></section>
 <section class="block"><h2>Servicios de terceros</h2><div class="body">Firebase Analytics (eventos genéricos, sin Crashlytics), Remote Config, Firestore (metadatos anónimos mínimos por dispositivo: identificador de instalación, elegibilidad de suscripción / antiabuso y primer guardado de tarjeta — sin clientes, presupuestos ni caja), Google Play Billing. Sin publicidad en la app.</div></section>
 <section class="block"><h2>Notificaciones locales</h2><div class="body">Recordatorios fiscales solo en el dispositivo. Permiso POST_NOTIFICATIONS en Android 13+.</div></section>
 <section class="block"><h2>Seguridad y retención</h2><div class="body">HTTPS/TLS; no venta de datos para anuncios. Datos locales y snapshot de tarjeta: se eliminan al borrar datos o desinstalar. Telemetría (Firebase): solicitud por correo, hasta 15 días hábiles.</div></section>
