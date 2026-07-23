@@ -92,6 +92,53 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 
 ## Registro de evolucao
 
+## [2026-07-23 10:33] Fix pre-cadastro — erro "não foi possível conectar com o servidor"
+
+### Contexto
+- Pedido: formulário de pré-cadastro mostra erro de ligação ao servidor.
+- Causa raiz: `ClientException` → `network_error`; servidor Render possivelmente inactivo/não deployado.
+
+### O que foi feito
+- `lib/lead_capture_service.dart`: health check rápido (12 s) antes do POST; distingue `api_not_deployed` / `api_waking` / `api_unavailable` sem depender do POST de 90 s.
+- `ClientException` no POST mapeado para `api_not_deployed` (mais preciso que `network_error`).
+- `lib/l10n/site_pre_cadastro_texts.dart`: mensagens PT mais claras com e-mail de suporte como fallback.
+- `scripts/diagnostico_leads_api.ps1`: script PS1 para o operador verificar DNS, `/health` e POST ao servidor Render.
+
+### Arquivos alterados
+- lib/lead_capture_service.dart
+- lib/l10n/site_pre_cadastro_texts.dart
+- scripts/diagnostico_leads_api.ps1
+
+### Risco de regressao
+- Baixo: health check adiciona ~12 s de espera extra só em caso de cold start real.
+
+### Validacao executada
+- [ ] Operador deve correr `diagnostico_leads_api.ps1` para confirmar estado do Render
+- [ ] Se Render OK: build + deploy; se não: recriar serviço (ver docs/RENDER_LEADS_POSTGRES.md)
+
+## [2026-07-23 10:28] Rename produto — PerfectGest ContabilSigilo → ContabilGest
+
+### Contexto
+- Pedido: alterar nome visível do app no bloco Soluções (App/Web) da home.
+- Escopo: constante central + localizações PT/EN/ES.
+
+### Arquivos alterados
+- lib/company_legal.dart
+- lib/l10n/app_localizations.dart
+- lib/l10n/app_pt.arb
+- lib/l10n/app_en.arb
+- lib/l10n/app_es.arb
+
+### O que foi feito
+- `kProductPerfectGestContabilIName` → `'PerfectGest ContabilGest'`.
+- `solContabilAppsTitle` e `solPreviewContabilTabletLancar` actualizados nos 3 idiomas (PT/EN/ES) em `app_localizations.dart` e nos ARBs.
+
+### Risco de regressao
+- Baixo: alteração textual sem impacto de fluxo.
+
+### Validacao executada
+- [ ] Build web + validação visual no browser
+
 ## [2026-05-06 08:08] Inicializacao do acompanhamento continuo
 
 ### Contexto

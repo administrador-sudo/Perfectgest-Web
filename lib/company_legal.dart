@@ -40,7 +40,7 @@ const String kProductPerfectGestIName = 'PerfectGest I';
 const String kProductPerfectGestClinicaIIIName = 'PerfectGest-Clinica III';
 
 /// Produto mobile PerfectGest ContábilSigilo (Google Play).
-const String kProductPerfectGestContabilIName = 'PerfectGest ContábilSigilo';
+const String kProductPerfectGestContabilIName = 'PerfectGest ContabilGest';
 
 const String kPerfectGestContabilIPackageId = 'br.perfectgestcontabil.dev';
 

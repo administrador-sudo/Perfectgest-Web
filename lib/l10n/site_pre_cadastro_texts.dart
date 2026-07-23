@@ -115,13 +115,14 @@ class _SitePreCadastroTextsPt extends SitePreCadastroTexts {
         'name_invalid' => 'Informe um nome válido (mínimo 2 caracteres).',
         'email_invalid' => 'Informe um e-mail válido.',
         'network_error' =>
-          'Não foi possível contactar o servidor de registos. Verifique a internet ou tente de novo em instantes.',
+          'Sem ligação à internet. Verifique a sua conexão e tente novamente.',
         'api_waking' =>
-          'O servidor está a iniciar (pode demorar até 1 minuto no plano gratuito). Aguarde e envie novamente.',
+          'O servidor está a iniciar (cold start — pode demorar até 1 min). Aguarde e envie novamente.',
         'api_not_deployed' =>
-          'Serviço de registos ainda não está activo. Contacte $kCompanyContactEmail ou tente mais tarde.',
-        'api_unavailable' => 'Serviço temporariamente indisponível. Tente mais tarde.',
-        'api_unconfigured' => 'API de leads ainda não configurada no ambiente.',
+          'O serviço de registos está temporariamente indisponível. Envie um e-mail para $kCompanyContactEmail e registamos o seu contacto.',
+        'api_unavailable' =>
+          'Serviço temporariamente indisponível. Tente mais tarde ou escreva para $kCompanyContactEmail.',
+        'api_unconfigured' => 'API de registos não configurada. Contacte $kCompanyContactEmail.',
         _ => errorGeneric,
       };
 
