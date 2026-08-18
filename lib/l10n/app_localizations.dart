@@ -89,6 +89,7 @@ abstract class AppLocalizations {
   String get heroContabilPlanActiveTitle;
   String get heroContabilPlanActiveBody;
   String get heroContabilFaqLink;
+  String get heroAppsQualityTitle;
 
   // ---- Secoes Solucoes / Portfolio / Contato (Fase 2c) ----
   String get solAppsTitle;
@@ -289,13 +290,13 @@ class _AppLocalizationsPt extends AppLocalizations {
       'A fiscalização sobre o Microempreendedor Individual será 100% eletrônica e automatizada em tempo real.\nA desorganização vai custar caro.';
   @override
   String get heroContabilBulletPix =>
-      '❌ Fiscalização do PIX e Cartão: A Receita Federal cruza tudo o que você recebe com as notas que você compra. A conta precisa fechar.';
+      '--> Fiscalização do PIX e Cartão: A Receita Federal cruza tudo o que você recebe com as notas que você compra. A conta precisa fechar.';
   @override
   String get heroContabilBulletLimit =>
-      '❌ O Fantasma do Limite: Se você estourar o teto do MEI por R\$ 1,00, a cobrança do imposto é retroativa e vem com juros pesados.';
+      '--> O Fantasma do Limite: Se você estourar o teto do MEI por R\$ 1,00, a cobrança do imposto é retroativa e vem com juros pesados.';
   @override
   String get heroContabilBulletMandatory =>
-      '❌ Obrigatoriedade Geral: Emitir NFS-e e NF-e será a única forma de manter suas portas abertas e vender para empresas ou órgãos públicos.';
+      '--> Obrigatoriedade Geral: Emitir NFS-e e NF-e será a única forma de manter suas portas abertas e vender para empresas ou órgãos públicos.';
   @override
   String get heroContabilFeaturesTitle =>
       'Tudo o que o seu CNPJ precisa na palma da sua mão';
@@ -304,16 +305,16 @@ class _AppLocalizationsPt extends AppLocalizations {
       'Desenvolvemos uma ferramenta intuitiva para quem não tem tempo a perder com burocracia.';
   @override
   String get heroContabilFeatEmit =>
-      '⚡ Emissão Relâmpago em 1 Minuto: Chega de portais do governo lentos e complicados. Emita suas Notas Fiscais de produto ou serviço direto pelo celular.';
+      '--> Emissão Relâmpago em 1 Minuto: Chega de portais do governo lentos e complicados. Emita suas Notas Fiscais de produto ou serviço direto pelo celular.';
   @override
   String get heroContabilFeatThermometer =>
-      '📊 Termômetro do Limite MEI: O app calcula seu faturamento acumulado mês a mês e avisa quando você estiver chegando perto do teto.';
+      '--> Termômetro do Limite MEI: O app calcula seu faturamento acumulado mês a mês e avisa quando você estiver chegando perto do teto.';
   @override
   String get heroContabilFeatRadar =>
-      '📦 Radar de Compras (Notas de Entrada): Saiba na hora quando um fornecedor emitir uma nota contra o seu CNPJ. Monitore suas compras automaticamente.';
+      '--> Radar de Compras (Notas de Entrada): Saiba na hora quando um fornecedor emitir uma nota contra o seu CNPJ. Monitore suas compras automaticamente.';
   @override
   String get heroContabilFeatCashbook =>
-      '📋 Livro Caixa Oficial Automatizado: Tenha um relatório financeiro profissional pronto. Use para comprovar renda no banco e liberar empréstimos mais fáceis.';
+      '--> Livro Caixa Oficial Automatizado: Tenha um relatório financeiro profissional pronto. Use para comprovar renda no banco e liberar empréstimos mais fáceis.';
   @override
   String get heroContabilMoreThanApp => 'Muito mais que um aplicativo.';
   @override
@@ -323,19 +324,19 @@ class _AppLocalizationsPt extends AppLocalizations {
       'Aplicativos comuns te dão uma mensagem de erro e somem. O nosso diferencial é o suporte humano de verdade.';
   @override
   String get heroContabilBulletSupport =>
-      '🤝 Suporte Técnico Integrado: Se alguma nota der erro no sistema da prefeitura ou do governo, nosso time de contadores resolve para você.';
+      '--> Suporte Técnico Integrado: Se alguma nota der erro no sistema da prefeitura ou do governo, nosso time de contadores resolve para você.';
   @override
   String get heroContabilBulletGrowth =>
-      '🚀 Crescimento Sem Medo: O seu negócio cresceu e passou do limite do MEI? Nós cuidamos de toda a transição burocrática para transformar sua empresa em ME (Microempresa) com desconto exclusivo para usuários do app.';
+      '--> Crescimento Sem Medo: O seu negócio cresceu e passou do limite do MEI? Nós cuidamos de toda a transição burocrática para transformar sua empresa em ME (Microempresa) com desconto exclusivo para usuários do app.';
   @override
   String get heroContabilNoRisk => 'Chega de correr riscos com o Leão.';
   @override
   String get heroContabilStartToday => 'Comece a controlar hoje!';
   @override
-  String get heroContabilAndroid => '🟢 Disponível para Android.';
+  String get heroContabilAndroid => '--> Disponível para Android.';
   @override
   String get heroContabilLgpd =>
-      '🔒 Seus dados estão protegidos de acordo com a LGPD.';
+      '--> Seus dados estão protegidos de acordo com a LGPD.';
   @override
   String get heroContabilPlansIntro =>
       'Conheça nossos planos e escolha a modalidade ideal para o momento do seu negócio:';
@@ -353,6 +354,8 @@ class _AppLocalizationsPt extends AppLocalizations {
   @override
   String get heroContabilFaqLink =>
       'Acesse Perguntas e respostas sobre o Aplicativo';
+  @override
+  String get heroAppsQualityTitle => 'Qualidade dos Nossos Aplicativos';
 
   @override
   String get footerComplianceTitle => 'Ética e Compliance';
@@ -374,7 +377,7 @@ class _AppLocalizationsPt extends AppLocalizations {
   String get solAppsHashtags =>
       '#MEI #gestão #empreendedor #autônomo #microempresa #controleFinanceiro #orçamento #caixa #PerfectGest';
   @override
-  String get solContabilAppsTitle => 'PerfectGest ContabilGest';
+  String get solContabilAppsTitle => 'ContabilGest - Gestão Contabil';
   @override
   String get solContabilAppsTagline => 'Livro caixa, IR com IA e conferência contábil';
   @override
@@ -635,13 +638,13 @@ class _AppLocalizationsEn extends AppLocalizations {
       'Enforcement on Individual Microentrepreneurs will be 100% electronic and automated in real time.\nDisorganization will cost you.';
   @override
   String get heroContabilBulletPix =>
-      '❌ PIX and card monitoring: The Federal Revenue Service matches everything you receive against the invoices you buy. The numbers must add up.';
+      '--> PIX and card monitoring: The Federal Revenue Service matches everything you receive against the invoices you buy. The numbers must add up.';
   @override
   String get heroContabilBulletLimit =>
-      '❌ The cap ghost: If you exceed the MEI ceiling by even R\$ 1.00, the tax is charged retroactively with heavy interest.';
+      '--> The cap ghost: If you exceed the MEI ceiling by even R\$ 1.00, the tax is charged retroactively with heavy interest.';
   @override
   String get heroContabilBulletMandatory =>
-      '❌ General mandate: Issuing NFS-e and NF-e will be the only way to keep your doors open and sell to companies or public bodies.';
+      '--> General mandate: Issuing NFS-e and NF-e will be the only way to keep your doors open and sell to companies or public bodies.';
   @override
   String get heroContabilFeaturesTitle =>
       'Everything your CNPJ needs in the palm of your hand';
@@ -650,16 +653,16 @@ class _AppLocalizationsEn extends AppLocalizations {
       'We built an intuitive tool for people who have no time to waste on bureaucracy.';
   @override
   String get heroContabilFeatEmit =>
-      '⚡ Lightning issuance in 1 minute: No more slow, complicated government portals. Issue product or service invoices right from your phone.';
+      '--> Lightning issuance in 1 minute: No more slow, complicated government portals. Issue product or service invoices right from your phone.';
   @override
   String get heroContabilFeatThermometer =>
-      '📊 MEI cap thermometer: The app calculates your accumulated revenue month by month and alerts you when you are approaching the ceiling.';
+      '--> MEI cap thermometer: The app calculates your accumulated revenue month by month and alerts you when you are approaching the ceiling.';
   @override
   String get heroContabilFeatRadar =>
-      '📦 Purchase radar (inbound invoices): Know immediately when a supplier issues an invoice against your CNPJ. Monitor your purchases automatically.';
+      '--> Purchase radar (inbound invoices): Know immediately when a supplier issues an invoice against your CNPJ. Monitor your purchases automatically.';
   @override
   String get heroContabilFeatCashbook =>
-      '📋 Automated official cash book: Get a professional financial report ready. Use it to prove income at the bank and unlock easier loans.';
+      '--> Automated official cash book: Get a professional financial report ready. Use it to prove income at the bank and unlock easier loans.';
   @override
   String get heroContabilMoreThanApp => 'Much more than an app.';
   @override
@@ -669,19 +672,19 @@ class _AppLocalizationsEn extends AppLocalizations {
       'Ordinary apps give you an error message and disappear. Our difference is real human support.';
   @override
   String get heroContabilBulletSupport =>
-      '🤝 Integrated technical support: If an invoice fails in the city hall or government system, our accounting team resolves it for you.';
+      '--> Integrated technical support: If an invoice fails in the city hall or government system, our accounting team resolves it for you.';
   @override
   String get heroContabilBulletGrowth =>
-      '🚀 Growth without fear: Did your business grow past the MEI cap? We handle the entire bureaucratic transition to turn your company into ME (Microempresa) with an exclusive discount for app users.';
+      '--> Growth without fear: Did your business grow past the MEI cap? We handle the entire bureaucratic transition to turn your company into ME (Microempresa) with an exclusive discount for app users.';
   @override
   String get heroContabilNoRisk => 'Stop taking risks with the taxman.';
   @override
   String get heroContabilStartToday => 'Start controlling today!';
   @override
-  String get heroContabilAndroid => '🟢 Available for Android.';
+  String get heroContabilAndroid => '--> Available for Android.';
   @override
   String get heroContabilLgpd =>
-      '🔒 Your data is protected in accordance with the LGPD.';
+      '--> Your data is protected in accordance with the LGPD.';
   @override
   String get heroContabilPlansIntro =>
       'Get to know our plans and choose the option that fits your business right now:';
@@ -698,6 +701,8 @@ class _AppLocalizationsEn extends AppLocalizations {
       'Full platform access plus support from a responsible accountant, ensuring issuance and signing of the accounting books required by law. This option has 3 price bands, and "you get an A1 Certificate", categorized by transaction volume and the number of employees in your company.';
   @override
   String get heroContabilFaqLink => 'Open Questions and answers about the App';
+  @override
+  String get heroAppsQualityTitle => 'Quality of Our Apps';
 
   @override
   String get footerComplianceTitle => 'Ethics & Compliance';
@@ -719,7 +724,7 @@ class _AppLocalizationsEn extends AppLocalizations {
   String get solAppsHashtags =>
       '#MEI #management #entrepreneur #freelancer #smallBusiness #cashFlow #quotes #PerfectGest';
   @override
-  String get solContabilAppsTitle => 'PerfectGest ContabilGest';
+  String get solContabilAppsTitle => 'ContabilGest - Accounting Management';
   @override
   String get solContabilAppsTagline => 'Cash book, AI tax prep, and accounting review';
   @override
@@ -980,13 +985,13 @@ class _AppLocalizationsEs extends AppLocalizations {
       'La fiscalización sobre el Microemprendedor Individual será 100% electrónica y automatizada en tiempo real.\nLa desorganización le costará caro.';
   @override
   String get heroContabilBulletPix =>
-      '❌ Fiscalización de PIX y tarjeta: La Receita Federal cruza todo lo que usted recibe con las notas que compra. La cuenta tiene que cuadrar.';
+      '--> Fiscalización de PIX y tarjeta: La Receita Federal cruza todo lo que usted recibe con las notas que compra. La cuenta tiene que cuadrar.';
   @override
   String get heroContabilBulletLimit =>
-      '❌ El fantasma del límite: Si supera el tope del MEI por R\$ 1,00, el cobro del impuesto es retroactivo y llega con intereses altos.';
+      '--> El fantasma del límite: Si supera el tope del MEI por R\$ 1,00, el cobro del impuesto es retroactivo y llega con intereses altos.';
   @override
   String get heroContabilBulletMandatory =>
-      '❌ Obligatoriedad general: Emitir NFS-e y NF-e será la única forma de mantener las puertas abiertas y vender a empresas u organismos públicos.';
+      '--> Obligatoriedad general: Emitir NFS-e y NF-e será la única forma de mantener las puertas abiertas y vender a empresas u organismos públicos.';
   @override
   String get heroContabilFeaturesTitle =>
       'Todo lo que su CNPJ necesita en la palma de su mano';
@@ -995,16 +1000,16 @@ class _AppLocalizationsEs extends AppLocalizations {
       'Desarrollamos una herramienta intuitiva para quien no tiene tiempo que perder con burocracia.';
   @override
   String get heroContabilFeatEmit =>
-      '⚡ Emisión relámpago en 1 minuto: Basta de portales del gobierno lentos y complicados. Emita sus Notas Fiscales de producto o servicio directo desde el celular.';
+      '--> Emisión relámpago en 1 minuto: Basta de portales del gobierno lentos y complicados. Emita sus Notas Fiscales de producto o servicio directo desde el celular.';
   @override
   String get heroContabilFeatThermometer =>
-      '📊 Termómetro del límite MEI: La app calcula su facturación acumulada mes a mes y avisa cuando se acerque al tope.';
+      '--> Termómetro del límite MEI: La app calcula su facturación acumulada mes a mes y avisa cuando se acerque al tope.';
   @override
   String get heroContabilFeatRadar =>
-      '📦 Radar de compras (notas de entrada): Entérese al momento cuando un proveedor emita una nota contra su CNPJ. Monitore sus compras automáticamente.';
+      '--> Radar de compras (notas de entrada): Entérese al momento cuando un proveedor emita una nota contra su CNPJ. Monitore sus compras automáticamente.';
   @override
   String get heroContabilFeatCashbook =>
-      '📋 Libro de caja oficial automatizado: Tenga un informe financiero profesional listo. Úselo para comprobar ingresos en el banco y facilitar préstamos.';
+      '--> Libro de caja oficial automatizado: Tenga un informe financiero profesional listo. Úselo para comprobar ingresos en el banco y facilitar préstamos.';
   @override
   String get heroContabilMoreThanApp => 'Mucho más que una aplicación.';
   @override
@@ -1014,19 +1019,19 @@ class _AppLocalizationsEs extends AppLocalizations {
       'Las aplicaciones comunes te dan un mensaje de error y desaparecen. Nuestra diferencia es el soporte humano de verdad.';
   @override
   String get heroContabilBulletSupport =>
-      '🤝 Soporte técnico integrado: Si alguna nota falla en el sistema de la prefectura o del gobierno, nuestro equipo de contadores lo resuelve por usted.';
+      '--> Soporte técnico integrado: Si alguna nota falla en el sistema de la prefectura o del gobierno, nuestro equipo de contadores lo resuelve por usted.';
   @override
   String get heroContabilBulletGrowth =>
-      '🚀 Crecimiento sin miedo: ¿Su negocio creció y superó el límite del MEI? Nosotros cuidamos toda la transición burocrática para transformar su empresa en ME (Microempresa) con descuento exclusivo para usuarios de la app.';
+      '--> Crecimiento sin miedo: ¿Su negocio creció y superó el límite del MEI? Nosotros cuidamos toda la transición burocrática para transformar su empresa en ME (Microempresa) con descuento exclusivo para usuarios de la app.';
   @override
   String get heroContabilNoRisk => 'Basta de correr riesgos con el Leão.';
   @override
   String get heroContabilStartToday => '¡Empiece a controlar hoy!';
   @override
-  String get heroContabilAndroid => '🟢 Disponible para Android.';
+  String get heroContabilAndroid => '--> Disponible para Android.';
   @override
   String get heroContabilLgpd =>
-      '🔒 Sus datos están protegidos de acuerdo con la LGPD.';
+      '--> Sus datos están protegidos de acuerdo con la LGPD.';
   @override
   String get heroContabilPlansIntro =>
       'Conozca nuestros planes y elija la modalidad ideal para el momento de su negocio:';
@@ -1044,6 +1049,8 @@ class _AppLocalizationsEs extends AppLocalizations {
   @override
   String get heroContabilFaqLink =>
       'Acceda a Preguntas y respuestas sobre la Aplicación';
+  @override
+  String get heroAppsQualityTitle => 'Calidad de Nuestros Aplicativos';
 
   @override
   String get footerComplianceTitle => 'Ética y cumplimiento';
@@ -1065,7 +1072,7 @@ class _AppLocalizationsEs extends AppLocalizations {
   String get solAppsHashtags =>
       '#MEI #gestión #emprendedor #autónomo #microempresa #controlFinanciero #presupuesto #caja #PerfectGest';
   @override
-  String get solContabilAppsTitle => 'PerfectGest ContabilGest';
+  String get solContabilAppsTitle => 'ContabilGest - Gestión Contable';
   @override
   String get solContabilAppsTagline => 'Libro de caja, IR con IA y revisión contable';
   @override

@@ -1959,7 +1959,14 @@ FROM site_leads ORDER BY created_at DESC;
 ### [2026-08-18] Pagina FAQ ContabilGest (formato vitrine)
 - Nova rota SPA `/faq-contabilgest`: `lib/contabilgest_faq_page.dart` + `lib/l10n/site_contabilgest_faq_texts.dart` (PT/EN/ES).
 - `scripts/legal-routes.cjs`, `web/index.html`, `web/sitemap.xml`, `docs/RENDER_SPA_REWRITE.md`.
-- No Render: adicionar Rewrite `/faq-contabilgest` -> `/faq-contabilgest.html`.
+### [2026-08-18] FAQ ContabilGest: emissao A1 e rodape
+- Blocos NFS-e/NF-e (Básico, Contabil+ e login/senha) passam a exigir certificado A1 e autorizacoes do portal.
+- Rodape da pagina: `CompanyLegalPolicyFooter` + copyright (`aboutFooterCopyright`).
+- Home contabil: titulos em ouro (`BrandPalette.goldWarm`); emojis substituidos por `-->`.
+- Apos o link FAQ: traco + titulo `heroAppsQualityTitle` com o mesmo ShaderMask de `heroHeadline1`.
+- Solucoes (App/Web): PerfectGest ContabilGest em primeiro; PerfectGest I em segundo.
+- Titulo visivel ContabilGest: `ContabilGest - Gestão Contabil` (EN/ES equivalentes).
+
 
 ### [2026-08-18] Script publish site completo Render
 - `scripts/publicar_site_render.ps1` - build web + legais + FAQ SPA + push `origin main`.

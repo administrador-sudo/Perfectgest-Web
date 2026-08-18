@@ -1374,6 +1374,41 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
                         const SizedBox(height: 18),
                         _HeroContabilIntro(l10n: l10n, colorScheme: cs),
                         const SizedBox(height: 22),
+                        Divider(
+                          height: 1,
+                          thickness: 1,
+                          color: BrandPalette.goldWarm.withValues(alpha: 0.55),
+                        ),
+                        const SizedBox(height: 18),
+                        Semantics(
+                          header: true,
+                          label: l10n.heroAppsQualityTitle,
+                          child: staticDecor
+                              ? ShaderMask(
+                                  blendMode: BlendMode.srcIn,
+                                  shaderCallback: (bounds) => BrandPalette.heroTitleGradient(angle: heroTitleAngle)
+                                      .createShader(bounds),
+                                  child: Text(
+                                    l10n.heroAppsQualityTitle,
+                                    style: TextStyle(
+                                      fontSize: heroSubtitleSize,
+                                      fontWeight: FontWeight.w800,
+                                      height: 1.15,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                )
+                              : Text(
+                                  l10n.heroAppsQualityTitle,
+                                  style: TextStyle(
+                                    fontSize: heroSubtitleSize,
+                                    fontWeight: FontWeight.w800,
+                                    height: 1.15,
+                                    color: cs.onSurface,
+                                  ),
+                                ),
+                        ),
+                        const SizedBox(height: 12),
                         Semantics(
                           header: true,
                           label: l10n.heroHeadline1,
@@ -1480,24 +1515,27 @@ class _HeroContabilIntro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final onSurface = colorScheme.onSurface;
+    final gold = Theme.of(context).brightness == Brightness.dark
+        ? BrandPalette.goldWarm
+        : BrandPalette.goldReadableLight;
     final bodyColor = onSurface.withValues(alpha: 0.88);
     final titleStyle = GoogleFonts.inter(
       fontSize: 16,
       fontWeight: FontWeight.w800,
       height: 1.25,
-      color: onSurface,
+      color: gold,
     );
     final largeTitleStyle = GoogleFonts.inter(
       fontSize: 22,
       fontWeight: FontWeight.w800,
       height: 1.2,
-      color: onSurface,
+      color: gold,
     );
     final subtitleStyle = GoogleFonts.inter(
       fontSize: 15,
       fontWeight: FontWeight.w700,
       height: 1.35,
-      color: onSurface,
+      color: gold,
     );
     final bodyStyle = GoogleFonts.inter(
       fontSize: 14,
@@ -1658,56 +1696,10 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
         _buildProductBlock(
           context,
           l10n,
-          appName: l10n.solAppsTitle,
-          tagline: l10n.solAppsTagline,
-          body: l10n.solAppsBody,
-          mockupStartIndex: 0,
-          phoneFrame: DeviceFrame(
-            title: 'Android 14',
-            width: 190,
-            height: 338,
-            radius: 34,
-            imageAsset: 'IMAGENS_APP/Screenshot/phone_03_inicio.png',
-            fallbackImageAsset: 'IMAGENS_APP/Screenshot/PerfectGest (1).png',
-            imageLeft: 27,
-            imageTop: 20,
-            imageWidth: 136,
-            imageHeight: 297,
-            previewCaption: l10n.solPreviewPhoneInicio,
-            loadImage: _loadedMockupCount > 0,
-          ),
-          tabletFrame: DeviceFrame(
-            title: 'Android tablet',
-            width: 228,
-            height: 308,
-            radius: 26,
-            imageAsset: 'IMAGENS_APP/Screenshot/tablet_01_inicio.jpg',
-            fallbackImageAsset: 'IMAGENS_APP/Screenshot/tablet_01_inicio.jpg',
-            imageLeft: 30,
-            imageTop: 16,
-            imageWidth: 168,
-            imageHeight: 276,
-            previewCaption: l10n.solPreviewTabletInicio,
-            loadImage: _loadedMockupCount > 1,
-          ),
-          actions: SolutionsAppActionsBlock(
-            getAppLabel: l10n.solAppsGetAppLabel,
-            supportPortalLabel: l10n.solAppsSupportPortalLabel,
-            productUrl: kPerfectGestIProductUrl,
-            supportUrl: kAppSupportFaqUrl,
-            hashtags: l10n.solAppsHashtags,
-          ),
-          fadeBegin: 0.0,
-          fadeEnd: 0.4,
-        ),
-        const SizedBox(height: 32),
-        _buildProductBlock(
-          context,
-          l10n,
           appName: l10n.solContabilAppsTitle,
           tagline: l10n.solContabilAppsTagline,
           body: l10n.solContabilAppsBody,
-          mockupStartIndex: 2,
+          mockupStartIndex: 0,
           phoneFrame: DeviceFrame(
             title: 'Android 14',
             width: 190,
@@ -1719,7 +1711,7 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
             imageWidth: 136,
             imageHeight: 297,
             previewCaption: l10n.solPreviewContabilPhoneEmpresa,
-            loadImage: _loadedMockupCount > 2,
+            loadImage: _loadedMockupCount > 0,
           ),
           tabletFrame: DeviceFrame(
             title: 'Android tablet',
@@ -1733,13 +1725,59 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
             imageWidth: 168,
             imageHeight: 276,
             previewCaption: l10n.solPreviewContabilTabletLancar,
-            loadImage: _loadedMockupCount > 3,
+            loadImage: _loadedMockupCount > 1,
           ),
           actions: SolutionsAppActionsBlock(
             getAppLabel: l10n.solAppsGetAppLabel,
             supportPortalLabel: l10n.solContabilAppsSupportPortalLabel,
             productUrl: kPerfectGestContabilIProductUrl,
             supportUrl: kPerfectGestContabilIFaqUrl,
+          ),
+          fadeBegin: 0.0,
+          fadeEnd: 0.4,
+        ),
+        const SizedBox(height: 32),
+        _buildProductBlock(
+          context,
+          l10n,
+          appName: l10n.solAppsTitle,
+          tagline: l10n.solAppsTagline,
+          body: l10n.solAppsBody,
+          mockupStartIndex: 2,
+          phoneFrame: DeviceFrame(
+            title: 'Android 14',
+            width: 190,
+            height: 338,
+            radius: 34,
+            imageAsset: 'IMAGENS_APP/Screenshot/phone_03_inicio.png',
+            fallbackImageAsset: 'IMAGENS_APP/Screenshot/PerfectGest (1).png',
+            imageLeft: 27,
+            imageTop: 20,
+            imageWidth: 136,
+            imageHeight: 297,
+            previewCaption: l10n.solPreviewPhoneInicio,
+            loadImage: _loadedMockupCount > 2,
+          ),
+          tabletFrame: DeviceFrame(
+            title: 'Android tablet',
+            width: 228,
+            height: 308,
+            radius: 26,
+            imageAsset: 'IMAGENS_APP/Screenshot/tablet_01_inicio.jpg',
+            fallbackImageAsset: 'IMAGENS_APP/Screenshot/tablet_01_inicio.jpg',
+            imageLeft: 30,
+            imageTop: 16,
+            imageWidth: 168,
+            imageHeight: 276,
+            previewCaption: l10n.solPreviewTabletInicio,
+            loadImage: _loadedMockupCount > 3,
+          ),
+          actions: SolutionsAppActionsBlock(
+            getAppLabel: l10n.solAppsGetAppLabel,
+            supportPortalLabel: l10n.solAppsSupportPortalLabel,
+            productUrl: kPerfectGestIProductUrl,
+            supportUrl: kAppSupportFaqUrl,
+            hashtags: l10n.solAppsHashtags,
           ),
           fadeBegin: 0.08,
           fadeEnd: 0.48,

@@ -111,19 +111,19 @@ class _SiteContabilgestFaqTextsPt extends SiteContabilgestFaqTexts {
               'Não. O app é portal assistido: calcula, organiza prazos e abre o link do portal. Quem transmite no eSocial, DCTFWeb, FGTS Digital, DAS etc. é você (ou o contador no serviço contratado), nunca o app de forma automática.',
         ),
         SiteFaqItem(
-          question: 'Como emito NFS-e no plano Básico?',
+          question: 'Como emito NFS-e / NF-e no plano Básico?',
           body:
-              'No Básico, o app pode pedir o utilizador e a senha do portal municipal. O pedido vai para a fila e o Worker autentica com essa credencial. Não é o certificado A1. Captcha/2FA no portal podem exigir que conclua o acesso no site da prefeitura.',
+              'No plano Básico, a emissão de NFS-e e NF-e exige certificado A1 do emitente e o cumprimento das autorizações exigidas pelo portal (prefeitura, NFS-e Nacional e/ou SEFAZ). Sem o A1 e sem essas autorizações, o app não consegue emitir. Login e senha do portal municipal não substituem o certificado A1.',
         ),
         SiteFaqItem(
           question: 'Como emito NFS-e / NF-e com Contabil+ ou pacote com contador?',
           body:
-              'Continua o fluxo homologado: NFS-e com A1 do escritório + procuração (CRC); NF-e com A1 do emitente na SEFAZ. O login/senha do portal do Básico não substitui esse processo.',
+              'No Contabil+ ou pacote com contador, o fluxo homologado continua: NFS-e com A1 do escritório + procuração (CRC); NF-e com A1 do emitente na SEFAZ. O contador apoia as autorizações e a emissão conforme o escopo contratado. Login e senha de portal não substituem o certificado A1.',
         ),
         SiteFaqItem(
           question: 'A NF-e de venda aceita login/senha do portal?',
           body:
-              'Não. A SEFAZ exige certificado A1 (assinatura e ligação). Login/senha de site não autoriza NF-e.',
+              'Não. A SEFAZ exige certificado A1 (assinatura e ligação) para NF-e. Login e senha de portal não autorizam NF-e, nem no plano Básico nem nos planos com contador.',
         ),
         SiteFaqItem(
           question: 'O app movimenta dinheiro da minha conta?',
@@ -226,19 +226,19 @@ class _SiteContabilgestFaqTextsEn extends SiteContabilgestFaqTexts {
               'No. The app is an assisted portal: it calculates, organizes deadlines, and opens the portal link. You (or the accountant under a contracted service) transmit in eSocial, DCTFWeb, FGTS Digital, DAS, and so on. The app never transmits automatically.',
         ),
         SiteFaqItem(
-          question: 'How do I issue NFS-e on the Basic plan?',
+          question: 'How do I issue NFS-e / NF-e on the Basic plan?',
           body:
-              'On Basic, the app may ask for the municipal portal username and password. The request goes to the queue and the Worker authenticates with that credential. It is not the A1 certificate. Captcha/2FA on the portal may require you to finish access on the city hall website.',
+              'On the Basic plan, issuing NFS-e and NF-e requires the issuer A1 certificate and the authorizations required by the portal (city hall, National NFS-e and/or SEFAZ). Without the A1 and those authorizations, the app cannot issue invoices. Municipal portal username and password do not replace the A1 certificate.',
         ),
         SiteFaqItem(
           question: 'How do I issue NFS-e / NF-e with Contabil+ or an accountant package?',
           body:
-              'The approved flow remains: NFS-e with the office A1 plus power of attorney (CRC); NF-e with the issuer A1 at SEFAZ. The Basic portal login/password does not replace that process.',
+              'On Contabil+ or an accountant package, the approved flow remains: NFS-e with the office A1 plus power of attorney (CRC); NF-e with the issuer A1 at SEFAZ. The accountant supports authorizations and issuance according to the contracted scope. Portal login and password do not replace the A1 certificate.',
         ),
         SiteFaqItem(
           question: 'Does a sales NF-e accept portal login/password?',
           body:
-              'No. SEFAZ requires an A1 certificate (signature and connection). A website login/password does not authorize NF-e.',
+              'No. SEFAZ requires an A1 certificate (signature and connection) for NF-e. Portal login and password do not authorize NF-e, neither on the Basic plan nor on plans with an accountant.',
         ),
         SiteFaqItem(
           question: 'Does the app move money from my bank account?',
@@ -341,19 +341,19 @@ class _SiteContabilgestFaqTextsEs extends SiteContabilgestFaqTexts {
               'No. La app es un portal asistido: calcula, organiza plazos y abre el enlace del portal. Quien transmite en eSocial, DCTFWeb, FGTS Digital, DAS, etc. es usted (o el contador en el servicio contratado), nunca la app de forma automática.',
         ),
         SiteFaqItem(
-          question: '¿Cómo emito NFS-e en el plan Básico?',
+          question: '¿Cómo emito NFS-e / NF-e en el plan Básico?',
           body:
-              'En el Básico, la app puede pedir el usuario y la contraseña del portal municipal. El pedido va a la cola y el Worker autentica con esa credencial. No es el certificado A1. Captcha/2FA en el portal pueden exigir que termine el acceso en el sitio de la prefectura.',
+              'En el plan Básico, la emisión de NFS-e y NF-e exige certificado A1 del emisor y el cumplimiento de las autorizaciones exigidas por el portal (prefectura, NFS-e Nacional y/o SEFAZ). Sin el A1 y sin esas autorizaciones, la app no puede emitir. Usuario y contraseña del portal municipal no sustituyen el certificado A1.',
         ),
         SiteFaqItem(
           question: '¿Cómo emito NFS-e / NF-e con Contabil+ o paquete con contador?',
           body:
-              'Continúa el flujo homologado: NFS-e con A1 del despacho + poder (CRC); NF-e con A1 del emisor en SEFAZ. El usuario/contraseña del portal del Básico no sustituye ese proceso.',
+              'En Contabil+ o paquete con contador, el flujo homologado continúa: NFS-e con A1 del despacho + poder (CRC); NF-e con A1 del emisor en SEFAZ. El contador apoya las autorizaciones y la emisión según el alcance contratado. Usuario y contraseña de portal no sustituyen el certificado A1.',
         ),
         SiteFaqItem(
           question: '¿La NF-e de venta acepta usuario/contraseña del portal?',
           body:
-              'No. SEFAZ exige certificado A1 (firma y conexión). Usuario/contraseña de un sitio no autoriza NF-e.',
+              'No. SEFAZ exige certificado A1 (firma y conexión) para NF-e. Usuario y contraseña de portal no autorizan NF-e, ni en el plan Básico ni en los planes con contador.',
         ),
         SiteFaqItem(
           question: '¿La app mueve dinero de mi cuenta?',

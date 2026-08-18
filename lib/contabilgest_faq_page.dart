@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'l10n/app_localizations.dart';
 import 'l10n/site_contabilgest_faq_texts.dart';
+import 'company_legal_policy_footer.dart';
 import 'metallic_site_shell.dart';
 import 'seo_meta_stub.dart' if (dart.library.html) 'seo_meta_web.dart' as seo_meta;
 import 'site_language_menu.dart';
@@ -81,6 +83,18 @@ class _ContabilgestFaqPageState extends State<ContabilgestFaqPage> {
                         ),
                         const SizedBox(height: 22),
                         for (final item in st.items) _FaqSection(item: item),
+                        const SizedBox(height: 14),
+                        const CompanyLegalPolicyFooter(),
+                        const SizedBox(height: 28),
+                        Text(
+                          AppLocalizations.of(context).aboutFooterCopyright(DateTime.now().year),
+                          style: GoogleFonts.inter(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                            color: cs.onSurface.withValues(alpha: 0.7),
+                          ),
+                        ),
+                        if (kIsWeb) const SizedBox(height: 60),
                       ],
                     ),
                   ),
