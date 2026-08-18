@@ -1966,6 +1966,7 @@ FROM site_leads ORDER BY created_at DESC;
 - Apos o link FAQ: traco + titulo `heroAppsQualityTitle` com o mesmo ShaderMask de `heroHeadline1`.
 - Solucoes (App/Web): PerfectGest ContabilGest em primeiro; PerfectGest I em segundo.
 - Titulo visivel ContabilGest: `ContabilGest - Gestão Contabil` (EN/ES equivalentes).
+- Hero: wordmark 90% da largura da tela; `heroAppsQualityTitle` e planos com letra maior; titulos sem ShaderMask 3D (cor ouro mantida).
 
 
 ### [2026-08-18] Script publish site completo Render

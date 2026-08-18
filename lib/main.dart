@@ -1351,10 +1351,13 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
                   final screenWidth = MediaQuery.sizeOf(context).width;
                   final isCompactHero = screenWidth < 760;
                   final heroSubtitleSize = isCompactHero ? 15.0 : 18.0;
+                  final heroQualitySize = isCompactHero ? 24.0 : 32.0;
                   final pulse = accentMotion ? (0.45 + 0.55 * (0.5 + 0.5 * math.sin(_ambient.value * math.pi * 2))) : 0.55;
                   final beat = accentMotion ? (0.5 + 0.5 * math.sin(_ambient.value * math.pi * 6)) : 0.5;
                   final borderColor = Color.lerp(cs.outline, cs.primary, pulse * 0.55)!;
-                  final heroTitleAngle = accentMotion ? _ambient.value * math.pi * 1.25 : 0.0;
+                  final titleGold = Theme.of(context).brightness == Brightness.dark
+                      ? BrandPalette.goldWarm
+                      : BrandPalette.goldReadableLight;
                   return SiteRaisedBlock(
                     lift: 1.0 + (beat * 0.12),
                     goldIntensity: 0.88 + (beat * 0.22),
@@ -1383,83 +1386,39 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
                         Semantics(
                           header: true,
                           label: l10n.heroAppsQualityTitle,
-                          child: staticDecor
-                              ? ShaderMask(
-                                  blendMode: BlendMode.srcIn,
-                                  shaderCallback: (bounds) => BrandPalette.heroTitleGradient(angle: heroTitleAngle)
-                                      .createShader(bounds),
-                                  child: Text(
-                                    l10n.heroAppsQualityTitle,
-                                    style: TextStyle(
-                                      fontSize: heroSubtitleSize,
-                                      fontWeight: FontWeight.w800,
-                                      height: 1.15,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                )
-                              : Text(
-                                  l10n.heroAppsQualityTitle,
-                                  style: TextStyle(
-                                    fontSize: heroSubtitleSize,
-                                    fontWeight: FontWeight.w800,
-                                    height: 1.15,
-                                    color: cs.onSurface,
-                                  ),
-                                ),
+                          child: Text(
+                            l10n.heroAppsQualityTitle,
+                            style: TextStyle(
+                              fontSize: heroQualitySize,
+                              fontWeight: FontWeight.w800,
+                              height: 1.15,
+                              color: titleGold,
+                            ),
+                          ),
                         ),
                         const SizedBox(height: 12),
                         Semantics(
                           header: true,
                           label: l10n.heroHeadline1,
-                          child: staticDecor
-                              ? ShaderMask(
-                                  blendMode: BlendMode.srcIn,
-                                  shaderCallback: (bounds) => BrandPalette.heroTitleGradient(angle: heroTitleAngle)
-                                      .createShader(bounds),
-                                  child: Text(
-                                    l10n.heroHeadline1,
-                                    style: TextStyle(
-                                      fontSize: heroSubtitleSize,
-                                      fontWeight: FontWeight.w800,
-                                      height: 1.15,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                )
-                              : Text(
-                                  l10n.heroHeadline1,
-                                  style: TextStyle(
-                                    fontSize: heroSubtitleSize,
-                                    fontWeight: FontWeight.w800,
-                                    height: 1.15,
-                                    color: cs.onSurface,
-                                  ),
-                                ),
+                          child: Text(
+                            l10n.heroHeadline1,
+                            style: TextStyle(
+                              fontSize: heroSubtitleSize,
+                              fontWeight: FontWeight.w800,
+                              height: 1.15,
+                              color: titleGold,
+                            ),
+                          ),
                         ),
                         const SizedBox(height: 10),
-                        staticDecor
-                            ? ShaderMask(
-                                blendMode: BlendMode.srcIn,
-                                shaderCallback: (bounds) => BrandPalette.heroTitleGradient(angle: heroTitleAngle)
-                                    .createShader(bounds),
-                                child: Text(
-                                  l10n.heroHeadline2,
-                                  style: GoogleFonts.inter(
-                                    fontSize: heroSubtitleSize,
-                                    height: 1.45,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              )
-                            : Text(
-                                l10n.heroHeadline2,
-                                style: GoogleFonts.inter(
-                                  fontSize: heroSubtitleSize,
-                                  height: 1.45,
-                                  color: cs.onSurface,
-                                ),
-                              ),
+                        Text(
+                          l10n.heroHeadline2,
+                          style: GoogleFonts.inter(
+                            fontSize: heroSubtitleSize,
+                            height: 1.45,
+                            color: titleGold,
+                          ),
+                        ),
                         const SizedBox(height: 12),
                         Text(
                           l10n.heroSubline,
@@ -1470,30 +1429,15 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
                           ),
                         ),
                         const SizedBox(height: 12),
-                        staticDecor
-                            ? ShaderMask(
-                                blendMode: BlendMode.srcIn,
-                                shaderCallback: (bounds) => BrandPalette.heroTitleGradient(angle: heroTitleAngle)
-                                    .createShader(bounds),
-                                child: Text(
-                                  l10n.heroCloser,
-                                  style: TextStyle(
-                                    fontSize: heroSubtitleSize,
-                                    fontWeight: FontWeight.w800,
-                                    height: 1.15,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              )
-                            : Text(
-                                l10n.heroCloser,
-                                style: TextStyle(
-                                  fontSize: heroSubtitleSize,
-                                  fontWeight: FontWeight.w800,
-                                  height: 1.15,
-                                  color: cs.onSurface.withValues(alpha: 0.78),
-                                ),
-                              ),
+                        Text(
+                          l10n.heroCloser,
+                          style: TextStyle(
+                            fontSize: heroSubtitleSize,
+                            fontWeight: FontWeight.w800,
+                            height: 1.15,
+                            color: titleGold,
+                          ),
+                        ),
                       ],
                     ),
                   );
@@ -1535,6 +1479,12 @@ class _HeroContabilIntro extends StatelessWidget {
       fontSize: 15,
       fontWeight: FontWeight.w700,
       height: 1.35,
+      color: gold,
+    );
+    final plansIntroStyle = GoogleFonts.inter(
+      fontSize: MediaQuery.sizeOf(context).width < 760 ? 18.0 : 21.0,
+      fontWeight: FontWeight.w800,
+      height: 1.3,
       color: gold,
     );
     final bodyStyle = GoogleFonts.inter(
@@ -1591,7 +1541,7 @@ class _HeroContabilIntro extends StatelessWidget {
         const SizedBox(height: 6),
         Text(l10n.heroContabilLgpd, style: bodyStyle),
         const SizedBox(height: 18),
-        Text(l10n.heroContabilPlansIntro, style: subtitleStyle),
+        Text(l10n.heroContabilPlansIntro, style: plansIntroStyle),
         const SizedBox(height: 10),
         Text(l10n.heroContabilPlanBasicTitle, style: subtitleStyle),
         const SizedBox(height: 6),

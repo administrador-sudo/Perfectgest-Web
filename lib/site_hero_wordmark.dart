@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'company_legal.dart';
 import 'site_web_image.dart';
 
-/// Largura útil do hero: 50% do bloco, com fallback se constraints forem ilimitadas.
+/// Largura útil do hero: 90% da largura da tela, limitada ao bloco.
 double siteHeroWordmarkWidth(BuildContext context, BoxConstraints constraints) {
   const blockPadding = 52.0; // SiteRaisedBlock padding horizontal (26×2)
   const outerPadding = 48.0; // Padding L/R do HeroSection (24×2)
@@ -12,10 +12,10 @@ double siteHeroWordmarkWidth(BuildContext context, BoxConstraints constraints) {
   final maxBlock = constraints.maxWidth.isFinite && constraints.maxWidth > 0
       ? constraints.maxWidth
       : (viewport - outerPadding - blockPadding).clamp(280.0, viewport);
-  return maxBlock * 0.5;
+  return (viewport * 0.9).clamp(280.0, maxBlock);
 }
 
-/// Imagem PERFECTGESTDEV — 50% da largura do bloco, centrada no topo.
+/// Imagem PERFECTGESTDEV — 90% da largura da tela, centrada no topo.
 class SiteHeroWordmark extends StatelessWidget {
   const SiteHeroWordmark({super.key, this.onTap});
 
