@@ -12,6 +12,8 @@ void applyPoliticaSeoMetaTags() {}
 
 void applyPreCadastroSeoMetaTags() {}
 
+void applyContabilgestFaqSeoMetaTags() {}
+
 void applyClinicaIiiLegalSeoMetaTags(String documentTitle) {}
 
 void applyPerfectGestILegalSeoMetaTags(String documentTitle) {}

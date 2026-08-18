@@ -14,11 +14,16 @@ const String kSitePrivacyPolicyPath = '/politica-privacidade-site';
 /// Política de devolução do site.
 const String kSiteReturnsPolicyPath = '/politica-devolucao';
 
+/// FAQ institucional ContabilGest (formato vitrine — distinto de /contabil-i-faq legal Play).
+const String kContabilgestFaqPath = '/faq-contabilgest';
+
 const String kPreCadastroPublicUrl = '$kSitePublicOrigin$kPreCadastroPath';
 
 const String kSitePrivacyPolicyPublicUrl = '$kSitePublicOrigin$kSitePrivacyPolicyPath';
 
 const String kSiteReturnsPolicyPublicUrl = '$kSitePublicOrigin$kSiteReturnsPolicyPath';
+
+const String kContabilgestFaqPublicUrl = '$kSitePublicOrigin$kContabilgestFaqPath';
 
 /// Políticas do produto PerfectGest-Clinica III (consulta isolada — sem navegação da vitrine).
 const String kClinicaIIIPrivacyPolicyPath = '/politica-privacidade-clinica-iii';

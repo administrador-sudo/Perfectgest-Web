@@ -44,6 +44,15 @@ const String _kOgDescriptionPreCadastro =
     'Formulario rapido para acompanhar lancamentos e solucoes da Perfect Gest Dev.';
 const String _kDocumentTitlePreCadastro = 'Pre-cadastro | Perfect Gest Dev';
 
+const String _kMetaDescriptionContabilgestFaq =
+    'Perguntas e respostas PerfectGest ContabilGest: MEI, Livro Caixa, NFS-e, planos, assinatura Google Play e fontes oficiais.';
+const String _kMetaKeywordsContabilgestFaq =
+    'PerfectGest ContabilGest, FAQ, MEI, Livro Caixa, NFS-e, Google Play, assinatura, Perfect Gest Dev';
+const String _kOgTitleContabilgestFaq = 'Perguntas e respostas | ContabilGest';
+const String _kOgDescriptionContabilgestFaq =
+    'FAQ do PerfectGest ContabilGest: o que e o app, internet, contador, NFS-e, planos e assinatura Google Play.';
+const String _kDocumentTitleContabilgestFaq = 'Perguntas e respostas | ContabilGest';
+
 void _applyHomeSeoMetaTags() {
   _syncCanonicalFromLocation();
   _upsertMeta('description', _kMetaDescriptionHome);
@@ -112,6 +121,19 @@ void applyPreCadastroSeoMetaTags() {
   _upsertMetaProperty('og:type', 'website');
   _upsertMetaProperty('og:locale', 'pt_BR');
   _setDocumentTitle(_kDocumentTitlePreCadastro);
+}
+
+/// Meta da pagina FAQ institucional ContabilGest (vitrine).
+void applyContabilgestFaqSeoMetaTags() {
+  _syncCanonicalFromLocation();
+  _upsertMeta('description', _kMetaDescriptionContabilgestFaq);
+  _upsertMeta('keywords', _kMetaKeywordsContabilgestFaq);
+  _upsertMeta('robots', 'index, follow');
+  _upsertMetaProperty('og:title', _kOgTitleContabilgestFaq);
+  _upsertMetaProperty('og:description', _kOgDescriptionContabilgestFaq);
+  _upsertMetaProperty('og:type', 'article');
+  _upsertMetaProperty('og:locale', 'pt_BR');
+  _setDocumentTitle(_kDocumentTitleContabilgestFaq);
 }
 
 /// Meta das paginas legais PerfectGest-Clinica III (consulta isolada).

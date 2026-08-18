@@ -10,6 +10,9 @@ routes:
     source: /pre-cadastro
     destination: /pre-cadastro.html
   - type: rewrite
+    source: /faq-contabilgest
+    destination: /faq-contabilgest.html
+  - type: rewrite
     source: /politica-privacidade-clinica-iii
     destination: /politica-privacidade-clinica-iii.html
   - type: rewrite

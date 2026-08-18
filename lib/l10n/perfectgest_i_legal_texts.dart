@@ -71,7 +71,7 @@ Permanecem no dispositivo e não saem da app por iniciativa do sistema:
 
 - Cadastro e histórico de clientes
 - Orçamentos comerciais, itens, valores e estados
-- Orçamentos fiscais (aba Orç/NF-e/NFS-e) e códigos fiscais de consulta/cadastro (ex.: NCM, CFOP, LC 116) — documentos de apoio locais; a app não emite NF-e/NFS-e electrónica junto à SEFAZ/prefeitura
+- Orçamentos fiscais (aba Orç/NF-e/NFS-e) e códigos fiscais de consulta/cadastro (ex.: NCM, CFOP, LC 116) — documentos de apoio locais (PDF do orçamento; com status aprovado, PDF guia NF com links de portais); a app não emite NF-e/NFS-e electrónica junto à SEFAZ/prefeitura
 - Caixa — entradas, saídas, categorias e saldos
 - Ordens de serviço / produção e projetos
 - Contratos e documentos auxiliares de gestão
@@ -178,7 +178,7 @@ const List<LegalSectionText> _kFaqPt = <LegalSectionText>[
   LegalSectionText(heading: 'Posso usar a app sem assinatura?', body: 'Sim, para explorar (navegar ecrãs e consultar a interface). Para operações (criar clientes, orçamentos comerciais ou fiscais, caixa; gerar PDFs de gestão; restauro de backup encriptado; e demais acções condicionadas) é necessário o Plano Pro. Ao tentar uma operação sem assinatura, surge um aviso com o plano (referência R\$ 9,90/mês; preço na Google Play) e os botões Assinar ou Continuar a explorar recursos do Aplicativo.'),
   LegalSectionText(heading: 'Como funciona o Plano Pro?', body: 'Assinatura mensal ou anual na Google Play: clientes, orçamentos, caixa e PDFs sem limite prático; restauro de backup encriptado; cartão de visita interactivo (vCard, QR, preview). Gerir em Configurações → Assinatura Google Play.'),
   LegalSectionText(heading: 'Onde compro ou gerencio a subscrição?', body: 'Configurações → Assinatura Google Play. Pagamentos pelo Google. Cancelamento: Play Store → Pagamentos e subscrições → Subscrições.'),
-  LegalSectionText(heading: 'O que é a aba Orç/NF-e/NFS-e?', body: 'Orçamento fiscal local (produtos e serviços, códigos NCM/CFOP/LC 116, PDF de apoio) e consulta/cadastro de códigos. Não emite NF-e nem NFS-e electrónica junto à SEFAZ/prefeitura.'),
+  LegalSectionText(heading: 'O que é a aba Orç/NF-e/NFS-e?', body: 'Orçamento fiscal local (produtos e serviços, códigos NCM/CFOP/LC 116, consulta/cadastro, PDF do orçamento). Com status Aprovado, pode gerar um PDF guia NF com dados técnicos e links dos portais oficiais. Não emite NF-e nem NFS-e electrónica junto à SEFAZ/prefeitura.'),
   LegalSectionText(heading: 'O que é o cartão de visita digital?', body: '''Na aba Empresa edita os dados profissionais da empresa (não inclui clientes nem caixa). Pode escolher o logótipo (guardado no aparelho) para aparecer nos PDFs. O cartão mostra logótipo, nome, slogan, CNPJ, nome do profissional e contactos com rótulos no rodapé (até 2 por linha). Temas: branco, cinza ou preto.
 
 Partilhar cartão de visita gera PNG e abre a folha de partilha (WhatsApp, e-mail, etc.). Após o primeiro cartão, sem Plano Pro o cartão fica em modo estático (pode partilhar o PNG do snapshot); com Pro, edita e usa funções avançadas só na app (vCard, QR, preview interactivo) — sem página web alojada pela PerfectGest.
@@ -215,7 +215,7 @@ These stay on the device and do not leave the app unless you choose to:
 
 - Client records and history
 - Commercial estimates, line items, amounts, and status
-- Fiscal quotes (Quote/NF-e/NFS-e tab) and fiscal codes for lookup/registration (e.g. NCM, CFOP, LC 116) — local support documents only; the app does not issue electronic NF-e/NFS-e to tax authorities
+- Fiscal quotes (Quote/NF-e/NFS-e tab) and fiscal codes for lookup/registration (e.g. NCM, CFOP, LC 116) — local support documents only (quote PDF; when approved, NF guide PDF with portal links); the app does not issue electronic NF-e/NFS-e to tax authorities
 - Cash flow — income, expenses, categories, balances
 - Work orders, projects, contracts, and management documents
 - Any client name, amount, or financial movement in the app
@@ -309,7 +309,7 @@ const List<LegalSectionText> _kFaqEn = <LegalSectionText>[
   LegalSectionText(heading: 'Can I use the app without a subscription?', body: 'Yes, to explore (browse screens and the interface). Operations (creating clients, commercial or fiscal estimates, cash entries; generating management PDFs; encrypted backup restore; and other gated actions) require Pro Plan. Trying an operation without a subscription shows a notice with the plan (reference R\$ 9.90/month; price on Google Play) and Subscribe or Continue exploring app features.'),
   LegalSectionText(heading: 'How does the Pro Plan work?', body: 'Monthly or annual subscription on Google Play: clients, estimates, cash and PDFs without practical limits; encrypted backup restore; interactive business card (vCard, QR, preview). Manage in Settings → Google Play subscription.'),
   LegalSectionText(heading: 'Where do I manage the subscription?', body: 'Settings → Google Play subscription. Cancel via Play Store → Payments & subscriptions.'),
-  LegalSectionText(heading: 'What is the Quote/NF-e/NFS-e tab?', body: 'A local fiscal quote (products and services, NCM/CFOP/LC 116 codes, support PDF) plus code lookup/registration. It does not issue electronic NF-e/NFS-e to tax authorities.'),
+  LegalSectionText(heading: 'What is the Quote/NF-e/NFS-e tab?', body: 'A local fiscal quote (products and services, NCM/CFOP/LC 116 codes, lookup/registration, quote PDF). When status is Approved, you can generate an NF guide PDF with technical data and official portal links. It does not issue electronic NF-e/NFS-e to tax authorities.'),
   LegalSectionText(heading: 'What is the digital business card?', body: '''In Company, edit professional business details only (not clients or cash). Share card generates a PNG via the system share sheet. After your first card, without Pro Plan the card is static (you can still share the snapshot PNG); with Pro, edit and use advanced features in the app only (vCard, QR, interactive preview) — no PerfectGest-hosted web page.
 
 Clients and financial data stay protected on the device and are not sent to servers automatically.'''),
@@ -330,7 +330,7 @@ Permanecen en el dispositivo y no salen de la app por iniciativa del sistema:
 
 - Registro e historial de clientes
 - Presupuestos comerciales, ítems, importes y estados
-- Presupuestos fiscales (pestaña Presup./NF-e/NFS-e) y códigos fiscales de consulta/registro (p. ej. NCM, CFOP, LC 116) — documentos de apoyo locales; la app no emite NF-e/NFS-e electrónica ante la autoridad fiscal
+- Presupuestos fiscales (pestaña Presup./NF-e/NFS-e) y códigos fiscales de consulta/registro (p. ej. NCM, CFOP, LC 116) — documentos de apoyo locales (PDF del presupuesto; con estado aprobado, PDF guía NF con enlaces de portales); la app no emite NF-e/NFS-e electrónica ante la autoridad fiscal
 - Caja — ingresos, gastos, categorías y saldos
 - Órdenes de servicio, proyectos, contratos y documentos de gestión
 - Cualquier nombre de cliente, importe o movimiento financiero
@@ -422,7 +422,7 @@ const List<LegalSectionText> _kFaqEs = <LegalSectionText>[
   LegalSectionText(heading: '¿Puedo usar la app sin suscripción?', body: 'Sí, para explorar (navegar pantallas y consultar la interfaz). Las operaciones (crear clientes, presupuestos comerciales o fiscales, caja; generar PDF de gestión; restaurar backup cifrado; y demás acciones condicionadas) requieren Plan Pro. Al intentar una operación sin suscripción aparece un aviso con el plan (referencia R\$ 9,90/mes; precio en Google Play) y Suscribirse o Continuar explorando los recursos de la aplicación.'),
   LegalSectionText(heading: '¿Cómo funciona el Plan Pro?', body: 'Suscripción mensual o anual en Google Play: clientes, presupuestos, caja y PDF sin límite práctico; restauración de backup cifrado; tarjeta interactiva (vCard, QR, vista previa). Gestionar en Ajustes → Suscripción Google Play.'),
   LegalSectionText(heading: '¿Dónde gestiono la suscripción?', body: 'Ajustes → Suscripción Google Play. Cancelación: Play Store → Pagos y suscripciones.'),
-  LegalSectionText(heading: '¿Qué es la pestaña Presup./NF-e/NFS-e?', body: 'Presupuesto fiscal local (productos y servicios, códigos NCM/CFOP/LC 116, PDF de apoyo) y consulta/registro de códigos. No emite NF-e ni NFS-e electrónica ante la autoridad fiscal.'),
+  LegalSectionText(heading: '¿Qué es la pestaña Presup./NF-e/NFS-e?', body: 'Presupuesto fiscal local (productos y servicios, códigos NCM/CFOP/LC 116, consulta/registro, PDF del presupuesto). Con estado Aprobado, puede generar un PDF guía NF con datos técnicos y enlaces de portales oficiales. No emite NF-e ni NFS-e electrónica ante la autoridad fiscal.'),
   LegalSectionText(heading: '¿Qué es la tarjeta de visita digital?', body: '''En Empresa, edita datos profesionales (no clientes ni caja). Compartir tarjeta genera PNG en la hoja de compartir. Tras la primera tarjeta, sin Plan Pro queda en modo estático (puede compartir el PNG); con Pro, edita y usa funciones avanzadas solo en la app (vCard, QR, vista previa interactiva) — sin página web alojada por PerfectGest.
 
 Clientes y datos financieros protegidos en el teléfono; no se envían automáticamente a servidores.'''),

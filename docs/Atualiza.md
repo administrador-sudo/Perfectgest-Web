@@ -1922,3 +1922,47 @@ FROM site_leads ORDER BY created_at DESC;
 - [x] `flutter build web --release`
 - [ ] Smoke: home dark/light, hero glow, shell loading (operador)
 
+## [2026-08-18] Hero: bloco Setor de Contabilidade
+
+### Contexto
+- Pedido: na pagina principal, colocar apresentacao do setor de contabilidade logo abaixo do wordmark, com visual de corpo da pagina (sem gradiente do hero), e descer os textos Flutter/Java/SDK.
+
+### Alteracoes
+- `lib/l10n/app_pt.arb`, `lib/l10n/app_en.arb`, `lib/l10n/app_es.arb` — chaves `heroContabil*`.
+- `lib/l10n/app_localizations.dart` — getters PT/EN/ES.
+- `lib/main.dart` — `_HeroContabilIntro` (Inter, `onSurface`, sem ShaderMask) apos o wordmark; headlines atuais mantidas abaixo com gradiente.
+
+### Fora de escopo
+- `web/index.html` casca estatica e `lib/seo_meta_web.dart` (pitch software house).
+- Seccao Solucoes e deploy.
+
+### Risco
+- Copy afirma emissao de NFS-e/NF-e; paginas legais do PerfectGest I dizem o contrario. Texto entra como enviado pelo operador.
+
+### Rollback
+- Remover `_HeroContabilIntro` do `HeroSection` e as chaves `heroContabil*`.
+
+### Validacao
+- [ ] Smoke home PT/EN/ES: wordmark → bloco contabil (sem glow) → headlines Flutter com gradiente
+
+### [2026-08-18] Hero contabil: suporte e CTA
+- Incluidos titulos maiores (`heroContabilMoreThanApp`, `heroContabilNoRisk` a 22px) e bullets de suporte/crescimento, Android e LGPD.
+- `lib/main.dart`, `lib/l10n/app_pt.arb`, `lib/l10n/app_en.arb`, `lib/l10n/app_es.arb`, `lib/l10n/app_localizations.dart`.
+
+### [2026-08-18] Hero contabil: planos e FAQ
+- Planos Basico (MEI) e Contabilidade Ativa (ME) apos o aviso LGPD.
+- Link `heroContabilFaqLink` aponta para SPA `/faq-contabilgest` (nao substitui `/contabil-i-faq` legal Play).
+
+### [2026-08-18] Script publish home Render
+- `scripts/publicar_home_render.ps1` - atalho para o publish completo.
+
+### [2026-08-18] Pagina FAQ ContabilGest (formato vitrine)
+- Nova rota SPA `/faq-contabilgest`: `lib/contabilgest_faq_page.dart` + `lib/l10n/site_contabilgest_faq_texts.dart` (PT/EN/ES).
+- `scripts/legal-routes.cjs`, `web/index.html`, `web/sitemap.xml`, `docs/RENDER_SPA_REWRITE.md`.
+- No Render: adicionar Rewrite `/faq-contabilgest` -> `/faq-contabilgest.html`.
+
+### [2026-08-18] Script publish site completo Render
+- `scripts/publicar_site_render.ps1` - build web + legais + FAQ SPA + push `origin main`.
+- Correcao Windows: `publish-web.cjs` chama `dart`/`flutter` via `cmd.exe` (evita EINVAL em .bat).
+- Correcao dart2js: `R\$` em `heroContabilBulletLimit` (PT) - `$` nao interpola.
+

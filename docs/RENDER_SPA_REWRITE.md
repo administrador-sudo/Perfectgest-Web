@@ -24,6 +24,7 @@ Isto publica `politica-devolucao.html` (e as outras) e **remove** ficheiros sem 
 | `/politica-exclusao-dados-perfectgest-i` | `/politica-exclusao-dados-perfectgest-i.html` | **Rewrite** (HTML redirect → Google Sites) |
 | `/politica-privacidade-site` | `/politica-privacidade-site.html` | **Rewrite** |
 | `/pre-cadastro` | `/pre-cadastro.html` | **Rewrite** |
+| `/faq-contabilgest` | `/faq-contabilgest.html` | **Rewrite** (SPA Flutter — FAQ vitrine ContabilGest) |
 | `/politica-privacidade-clinica-iii` | `/politica-privacidade-clinica-iii.html` | **Rewrite** (HTML estático — PerfectGest-Clinica III) |
 | `/termos-clinica-iii` | `/termos-clinica-iii.html` | **Rewrite** |
 | `/dados-saude-lgpd-clinica-iii` | `/dados-saude-lgpd-clinica-iii.html` | **Rewrite** (HTML estático — PerfectGest-Clinica III) |

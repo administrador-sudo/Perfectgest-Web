@@ -178,6 +178,11 @@ class _PerfectProSiteAppState extends State<PerfectProSiteApp> {
           settings: settings,
           builder: (_) => buildPerfectGestIFaqPage(),
         );
+      case '/faq-contabilgest':
+        return MaterialPageRoute<void>(
+          settings: settings,
+          builder: (_) => buildContabilgestFaqPage(onToggleTheme: _toggleTheme),
+        );
       case '/amostra-metal':
         return MaterialPageRoute<void>(
           settings: settings,
@@ -1367,6 +1372,8 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
                           ),
                         ),
                         const SizedBox(height: 18),
+                        _HeroContabilIntro(l10n: l10n, colorScheme: cs),
+                        const SizedBox(height: 22),
                         Semantics(
                           header: true,
                           label: l10n.heroHeadline1,
@@ -1461,6 +1468,123 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
           );
         },
       ),
+    );
+  }
+}
+
+class _HeroContabilIntro extends StatelessWidget {
+  const _HeroContabilIntro({required this.l10n, required this.colorScheme});
+  final AppLocalizations l10n;
+  final ColorScheme colorScheme;
+
+  @override
+  Widget build(BuildContext context) {
+    final onSurface = colorScheme.onSurface;
+    final bodyColor = onSurface.withValues(alpha: 0.88);
+    final titleStyle = GoogleFonts.inter(
+      fontSize: 16,
+      fontWeight: FontWeight.w800,
+      height: 1.25,
+      color: onSurface,
+    );
+    final largeTitleStyle = GoogleFonts.inter(
+      fontSize: 22,
+      fontWeight: FontWeight.w800,
+      height: 1.2,
+      color: onSurface,
+    );
+    final subtitleStyle = GoogleFonts.inter(
+      fontSize: 15,
+      fontWeight: FontWeight.w700,
+      height: 1.35,
+      color: onSurface,
+    );
+    final bodyStyle = GoogleFonts.inter(
+      fontSize: 14,
+      height: 1.5,
+      color: bodyColor,
+    );
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(l10n.heroContabilTitle, style: titleStyle),
+        const SizedBox(height: 10),
+        Text(l10n.heroContabilMei2027, style: subtitleStyle),
+        const SizedBox(height: 10),
+        Text(l10n.heroContabilLead, style: bodyStyle),
+        const SizedBox(height: 14),
+        Text(l10n.heroContabilWhyNowTitle, style: subtitleStyle),
+        const SizedBox(height: 8),
+        Text(l10n.heroContabilWhyNowBody, style: bodyStyle),
+        const SizedBox(height: 10),
+        Text(l10n.heroContabilBulletPix, style: bodyStyle),
+        const SizedBox(height: 6),
+        Text(l10n.heroContabilBulletLimit, style: bodyStyle),
+        const SizedBox(height: 6),
+        Text(l10n.heroContabilBulletMandatory, style: bodyStyle),
+        const SizedBox(height: 14),
+        Text(l10n.heroContabilFeaturesTitle, style: subtitleStyle),
+        const SizedBox(height: 8),
+        Text(l10n.heroContabilFeaturesLead, style: bodyStyle),
+        const SizedBox(height: 10),
+        Text(l10n.heroContabilFeatEmit, style: bodyStyle),
+        const SizedBox(height: 6),
+        Text(l10n.heroContabilFeatThermometer, style: bodyStyle),
+        const SizedBox(height: 6),
+        Text(l10n.heroContabilFeatRadar, style: bodyStyle),
+        const SizedBox(height: 6),
+        Text(l10n.heroContabilFeatCashbook, style: bodyStyle),
+        const SizedBox(height: 18),
+        Text(l10n.heroContabilMoreThanApp, style: largeTitleStyle),
+        const SizedBox(height: 8),
+        Text(l10n.heroContabilPartnerOffice, style: subtitleStyle),
+        const SizedBox(height: 8),
+        Text(l10n.heroContabilHumanSupport, style: bodyStyle),
+        const SizedBox(height: 10),
+        Text(l10n.heroContabilBulletSupport, style: bodyStyle),
+        const SizedBox(height: 6),
+        Text(l10n.heroContabilBulletGrowth, style: bodyStyle),
+        const SizedBox(height: 18),
+        Text(l10n.heroContabilNoRisk, style: largeTitleStyle),
+        const SizedBox(height: 8),
+        Text(l10n.heroContabilStartToday, style: subtitleStyle),
+        const SizedBox(height: 8),
+        Text(l10n.heroContabilAndroid, style: bodyStyle),
+        const SizedBox(height: 6),
+        Text(l10n.heroContabilLgpd, style: bodyStyle),
+        const SizedBox(height: 18),
+        Text(l10n.heroContabilPlansIntro, style: subtitleStyle),
+        const SizedBox(height: 10),
+        Text(l10n.heroContabilPlanBasicTitle, style: subtitleStyle),
+        const SizedBox(height: 6),
+        Text(l10n.heroContabilPlanBasicBody, style: bodyStyle),
+        const SizedBox(height: 12),
+        Text(l10n.heroContabilPlanActiveTitle, style: subtitleStyle),
+        const SizedBox(height: 6),
+        Text(l10n.heroContabilPlanActiveBody, style: bodyStyle),
+        const SizedBox(height: 14),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: TextButton(
+            onPressed: () => openContabilgestFaqPage(context),
+            style: TextButton.styleFrom(
+              padding: EdgeInsets.zero,
+              minimumSize: Size.zero,
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            ),
+            child: Text(
+              l10n.heroContabilFaqLink,
+              style: GoogleFonts.inter(
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+                height: 1.45,
+                color: colorScheme.primary,
+                decoration: TextDecoration.underline,
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

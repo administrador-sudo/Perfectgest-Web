@@ -1,0 +1,38 @@
+((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
+$__dart_deferred_initializers__.current=function(a,b,c,$){var J,A,B,C={
+abq(){var x=0,w=A.R(y.f),v=1,u=[],t,s,r,q,p,o,n
+var $async$abq=A.N(function(d,e){if(d===1){u.push(e)
+x=v}for(;;)switch(x){case 0:v=3
+A.id().$1("Acordando o servidor Render... aguarde.")
+r=A.dV("https://onrender.com",0,null)
+q=y.g
+p=A.aA(["Content-Type","application/json"],q,q)
+x=6
+return A.T(D.aSb(r,B.dl.Lo(A.aA(["mensagem","Teste de iniciante com sucesso!","usuario","PerfectProAdmin","data_envio",new A.eL(Date.now(),0,!1).ayK()],q,q),null),p),$async$abq)
+case 6:t=e
+if(t.b===200){A.id().$1("Sucesso: o dado chegou no Elastic.")
+r=t
+A.id().$1("ID do registro: "+A.j(J.jY(B.dl.a_b(A.aRK(A.aQw(r.e)).fO(r.w),null),"id")))}else A.id().$1("Erro do servidor: "+t.b)
+v=1
+x=5
+break
+case 3:v=2
+n=u.pop()
+s=A.aq(n)
+A.id().$1("Erro de conexao: verifique internet e endpoint.")
+A.id().$1("Detalhe do erro: "+A.j(s))
+x=5
+break
+case 2:x=1
+break
+case 5:return A.P(null,w)
+case 1:return A.O(u.at(-1),w)}})
+return A.Q($async$abq,w)}},D
+J=c[1]
+A=c[0]
+B=c[2]
+C=a.updateHolder(c[9],C)
+D=c[11]
+var z=a.updateTypes([])
+var y={g:A.a2("k"),f:A.a2("~")}};
+(a=>{a["oixgL/BBodClA6yu9Op5SV0KiDk="]=a.current})($__dart_deferred_initializers__);

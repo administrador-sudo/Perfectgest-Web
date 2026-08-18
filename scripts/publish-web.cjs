@@ -2,24 +2,42 @@
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 
-function run(command, args) {
-  const result = spawnSync(command, args, {
-    stdio: 'inherit',
-    // shell:false evita que mensagens de commit com espacos se partam no Windows
-    shell: false,
-  });
+const isWin = process.platform === 'win32';
 
+function spawnOpts(command, args, extra) {
+  if (isWin && (command === 'dart' || command === 'flutter')) {
+    return {
+      cmd: process.env.ComSpec || 'cmd.exe',
+      args: ['/d', '/s', '/c', command, ...args],
+      extra,
+    };
+  }
+  return { cmd: command, args, extra };
+}
+
+function run(command, args) {
+  const { cmd, args: cmdArgs, extra } = spawnOpts(command, args, { stdio: 'inherit' });
+  const result = spawnSync(cmd, cmdArgs, extra);
+
+  if (result.error) {
+    console.error(`[publish-web] falhou ao iniciar ${command}: ${result.error.message}`);
+    process.exit(1);
+  }
   if (result.status !== 0) {
+    console.error(`[publish-web] ${command} saiu com codigo ${result.status ?? 1}`);
     process.exit(result.status ?? 1);
   }
 }
 
 function output(command, args) {
-  const result = spawnSync(command, args, {
-    encoding: 'utf8',
-    shell: false,
-  });
+  const { cmd, args: cmdArgs, extra } = spawnOpts(command, args, { encoding: 'utf8' });
+  const result = spawnSync(cmd, cmdArgs, extra);
+  if (result.error) {
+    console.error(`[publish-web] falhou ao iniciar ${command}: ${result.error.message}`);
+    process.exit(1);
+  }
   if (result.status !== 0) {
+    console.error(`[publish-web] ${command} saiu com codigo ${result.status ?? 1}`);
     process.exit(result.status ?? 1);
   }
   return (result.stdout || '').trim();

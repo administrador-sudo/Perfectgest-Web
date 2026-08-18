@@ -3,6 +3,7 @@ const siteSpaPages = [
   'politica-devolucao',
   'politica-privacidade-site',
   'pre-cadastro',
+  'faq-contabilgest',
 ];
 
 const clinicaIiiStaticSlugs = [
