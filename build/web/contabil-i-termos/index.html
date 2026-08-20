@@ -130,7 +130,7 @@ Papéis no tratamento (LGPD)<br>
 • Controlador dos dados contábeis e da empresa: o titular da ME/MEI ou o profissional que utiliza o software.<br>
 • Operador do software: Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA) — desenvolve e mantém a ferramenta; não decide sobre o conteúdo inserido pelo utilizador.<br>
 • Direitos do titular: aceder, corrigir, exportar e eliminar no próprio app, ou contactar suporte@perfectgestdev.com.</div>
-  <section class="block"><h2>Introdução</h2><div class="body">Versão: 3.0 · Última atualização: 27 de julho de 2026<br>
+  <section class="block"><h2>Introdução</h2><div class="body">Versão: 3.1 · Última atualização: 20 de agosto de 2026<br>
 <br>
 Documento exclusivo do PerfectGest ContabilGest (pacote br.perfectgestcontabil.dev). Não regula outros produtos PerfectGest.<br>
 <br>
@@ -148,8 +148,8 @@ Contador responsável: Marcos Leandro dos Santos — CRC-RS nº RS-106913/O<br>
 Não somos órgão público: o ContabilGest não é aplicativo oficial da Receita Federal, do governo brasileiro, do eSocial, do FGTS Digital nem de prefeituras, e não é afiliado nem endossado por esses órgãos. Fontes oficiais: portais gov.br / Receita listados no FAQ e na ficha da Play.</div></section>
 <section class="block"><h2>O que é o app</h2><div class="body">O PerfectGest ContabilGest é um aplicativo de gestão financeira e fiscal para MEI, ME e profissionais autônomos: Livro Caixa digital, Imposto de Renda (simulação), obrigações, folha simplificada, pró-labore, e, nos planos com contador, revisão técnica e assinatura contábil conforme o escopo.</div></section>
 <section class="block"><h2>Natureza do serviço (declarações claras)</h2><div class="body">- Portal assistido: o app calcula, agenda prazos e abre links oficiais. Não transmite automaticamente declarações ao eSocial, DCTFWeb, FGTS Digital, DAS ou prefeitura.<br>
-- NFS-e no plano Básico: pode pedir o utilizador e a senha do portal municipal (guardados de forma restrita) para o Worker emitir em seu nome. Não é o certificado A1 nem a senha do ficheiro .pfx.<br>
-- NFS-e / NF-e nos planos com contador (Contabil+ / pacote): emissão continua pelo fluxo homologado do escritório (A1 + procuração / SEFAZ). Esse processo não é substituído pelo login/senha do Básico.<br>
+- NFS-e / NF-e no plano Básico: emissão pelo robô quando o certificado A1 está operacional — comprar avulso na Google Play ou enviar o ficheiro .pfx em Documentos do escritório (o CRC carrega; a senha do PFX não vai para o Firebase).<br>
+- NFS-e / NF-e nos planos com contador (Contabil+ / pacote): fluxo homologado do escritório (A1 do escritório + procuração / SEFAZ com A1 do emitente). Esse processo não é substituído pelo canal .pfx do Básico.<br>
 - Folha “Contador processa a folha”: significa revisão/validação do pacote enviado pelo cliente após fecho no app — não substituição automática do cumprimento nos portais públicos.<br>
 - Bónus certificado A1: direito a iniciar o fluxo de emissão junto à certificadora. O ficheiro do certificado digital só existe após habilitação ICP-Brasil (Quality). O bónus não é o certificado em si.</div></section>
 <section class="block"><h2>Limitação de responsabilidade</h2><div class="body">- Dados incorretos digitados por você geram documentos e cálculos incorretos.<br>
@@ -166,7 +166,7 @@ Mesmo com contador, você responde pela veracidade dos dados e pela conferência
 <br>
 Tipos de oferta (como na app e na Console)<br>
 <br>
-<div class="table-scroll"><table class="compare-table"><thead><tr><th>Tipo</th><th>O que é</th><th>Cobrança (Play)</th><th>Ref.</th></tr></thead><tbody><tr><td>Básico Mensal</td><td>Só a app</td><td>Renovação mensal</td><td>R$ 59,90/mês</td></tr><tr><td>Básico Anual</td><td>Só a app</td><td>Renovação anual</td><td>R$ 658,90/ano (1 mês grátis)</td></tr><tr><td>Contabil+ / pacote com contador</td><td>Continuidade 12 meses</td><td>Parcelas (compromisso 12 meses); preço = parcela mensal</td><td>Essencial R$ 198,90 · Standard R$ 218,90 · Avançado R$ 248,90 /parcela</td></tr><tr><td>Folha (avulso ou add-on)</td><td>Continuidade 12 meses</td><td>Parcelas · 12 meses</td><td>12× R$ 99,90</td></tr><tr><td>IRPF/MEI e add-on IR</td><td>Serviço anual</td><td>Renovação anual</td><td>R$ 49,90/ano</td></tr><tr><td>Certificado A1 avulso</td><td>Só fluxo A1 (sem app completo)</td><td>Renovação anual</td><td>R$ 119,00/ano</td></tr></tbody></table></div><br>
+<div class="table-scroll"><table class="compare-table"><thead><tr><th>Tipo</th><th>O que é</th><th>Cobrança (Play)</th><th>Ref.</th></tr></thead><tbody><tr><td>Básico Mensal</td><td>App + emissão NF com A1</td><td>Renovação mensal</td><td>R$ 59,90/mês</td></tr><tr><td>Básico Anual</td><td>App + emissão NF com A1</td><td>Renovação anual</td><td>R$ 658,90/ano (1 mês grátis)</td></tr><tr><td>Contabil+ / pacote com contador</td><td>Continuidade 12 meses</td><td>Parcelas (compromisso 12 meses); preço = parcela mensal</td><td>Essencial R$ 198,90 · Standard R$ 218,90 · Avançado R$ 248,90 /parcela</td></tr><tr><td>Folha (avulso ou add-on)</td><td>Continuidade 12 meses</td><td>Parcelas · 12 meses</td><td>12× R$ 99,90</td></tr><tr><td>IRPF/MEI e add-on IR</td><td>Serviço anual</td><td>Renovação anual</td><td>R$ 49,90/ano</td></tr><tr><td>Certificado A1 avulso</td><td>Só fluxo A1 (sem app completo)</td><td>Renovação anual</td><td>R$ 119,00/ano</td></tr></tbody></table></div><br>
 <br>
 Parcelas (continuidade): o utilizador assume 12 meses contínuos (serviço de declaração/contabilidade não deve «saltar» meses). Na Play o preço cadastrado é o valor mensal da parcela; o total do compromisso é aproximadamente 12× essa parcela. A renovação automática segue as regras da oferta na Play.<br>
 <br>
@@ -176,7 +176,7 @@ Add-ons depois da assinatura<br>
 <br>
 Se já tiver Contabil+ (Essencial, Standard ou Avançado) ou um pacote anual com contador activo, pode contratar depois os add-ons de folha ou IR (subscrições próprias na Google Play), em Mais → Complementar plano. A Conferencia do Contador (envio de BKP/extratos) já está incluída no Contabil+. Planos Básico mensal/anual (só app, sem Contabil+) não são elegíveis a esses add-ons posteriores.<br>
 <br>
-Nos planos com contador, o cliente gera NF-e e NFS-e, cadastra NFs de compra e lança despesas/receitas extras no chat, para o fecho do mês. Se as contas não fecharem, usa o menu Conferencia do Contador. Abertura de empresa sem custo de serviço para quem solicitar no app (planos com contador; promoção válida até segunda ordem; taxas de órgãos à parte).<br>
+Nos planos com contador, o cliente gera NF-e e NFS-e, cadastra NFs de compra e lança despesas/receitas extras no chat, para o fecho do mês. Se as contas não fecharem, usa o menu Conferencia do Contador. Transformação MEI → ME: sem custo de mão de obra do escritório para quem solicitar no app (planos com contador; promoção válida até segunda ordem); taxas de órgãos à parte. Abertura / constituição de empresa nova: serviço com custo de mão de obra do escritório, contratado fora da Google Play; valores e condições vigentes com o suporte PerfectGestDev (suporte@perfectgestdev.com / WhatsApp). Em ambos os casos, taxas de Junta, cartório, prefeitura, documentação e emolumentos são cobradas à parte.<br>
 <br>
 Upgrade de faixa Contabil+ (Essencial → Standard → Avançado)<br>
 <br>
@@ -209,7 +209,12 @@ Faixas (funcionários / limites): conforme telas do app. Envio ao CRC pode pausa
 - Oferta avulsa «só certificado A1»: apenas o fluxo de emissão — não inclui o uso completo do app.<br>
 - Emissão, validação de identidade e entrega do ficheiro do certificado são da certificadora ICP-Brasil.<br>
 - Cancelar a Play não apaga automaticamente um certificado já emitido pela autoridade certificadora.</div></section>
-<section class="block"><h2>Abertura de empresa</h2><div class="body">Disponível nos planos Contabil+ / pacote anual: o escritório PerfectGest orienta, prepara o protocolo e acompanha o processo junto à Junta Comercial (JUCISRS ou equivalente estadual), Receita Federal, Prefeitura e demais órgãos competentes. As taxas pagas aos órgãos (Junta, alvará municipal, cartório, DAS de enquadramento, entre outras) são de responsabilidade do requerente e não estão incluídas no plano.<br>
+<section class="block"><h2>Abertura de empresa e transformação MEI → ME</h2><div class="body">Disponível nos planos Contabil+ / pacote anual (solicitação no app): o escritório PerfectGest orienta, prepara o protocolo e acompanha o processo junto à Junta Comercial (JUCISRS ou equivalente estadual), Receita Federal, Prefeitura e demais órgãos competentes.<br>
+<br>
+- Transformação MEI → ME: sem custo de mão de obra do escritório (promoção até segunda ordem); não confundir com abertura de CNPJ novo.<br>
+- Abertura / constituição de CNPJ novo: a mão de obra do escritório tem custo e não é cobrada pela Google Play; valores e condições — suporte PerfectGestDev.<br>
+<br>
+As taxas pagas aos órgãos (Junta, alvará municipal, cartório, DAS de enquadramento, entre outras) são de responsabilidade do requerente e não estão incluídas no plano de assinatura.<br>
 <br>
 Prazo orientativo: até 14 dias úteis após entrega da documentação completa. Este prazo é estimado com base nos processos regulares e pode variar de acordo com o volume de processos nos órgãos públicos, exigências complementares ou pendências cadastrais.<br>
 <br>
