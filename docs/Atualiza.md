@@ -1974,3 +1974,39 @@ FROM site_leads ORDER BY created_at DESC;
 - Correcao Windows: `publish-web.cjs` chama `dart`/`flutter` via `cmd.exe` (evita EINVAL em .bat).
 - Correcao dart2js: `R\$` em `heroContabilBulletLimit` (PT) - `$` nao interpola.
 
+## [2026-08-18] Modelo Word PPP INSS (papel, 2017)
+
+### Contexto
+- Pedido: passar a limpo PPP de 2017 (aposentadoria INSS), assinar de novo como representante legal da empresa do vinculo.
+- Empresa do PPP **nao** e a PerfectGest; o arquivo so e guardado em `docs/`.
+
+### Arquivos
+- `docs/PPP_INSS_Modelo_Atual.docx`
+- `scripts/generate_ppp_word.py`
+
+### O que foi feito
+- Modelo Anexo XVII (IN PRES/INSS 128/2022 / IN 133/2022), campos em branco.
+- Empresa, trabalhador, exposicao e assinatura para preencher; checklist de transcricao.
+
+### Risco
+- Baixo (documento interno, fora do site). Nao substitui PPP-e (periodos a partir de 01/01/2023) nem LTCAT.
+
+### Validacao
+- [x] Geracao do .docx
+- [ ] Operador preenche e assina
+
+## [2026-08-25] Hero contabil: texto 3D ouro
+
+### Contexto
+- Pedido: bloco SETOR DE CONTABILIDADE estava plano e nao combinava com os outros blocos da home.
+
+### Arquivos
+- `lib/metallic_style.dart` — `metallicGoldText` com `height`/`compact`; wrap; sem recorte especular em paragrafo.
+- `lib/main.dart` — `_HeroContabilIntro` usa ouro 3D (titulos e corpo); FAQ permanece link.
+
+### Risco
+- Baixo. Modo claro inalterado (sem chrome). Copy e tamanhos iguais.
+
+### Validacao
+- [ ] Smoke home: bloco contabil 3D; FAQ clicavel; modo claro legivel
+

@@ -1,26 +1,26 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
 $__dart_deferred_initializers__.current=function(a,b,c,$){var A,C,E,F,B={
-b0c(d){switch(d.am(y.k).r.f.gcs()){case"en":return D.M_
+b0f(d){switch(d.am(y.k).r.f.gcs()){case"en":return D.M_
 case"es":return D.M0
 case"pt":default:return D.M1}},
 ap5:function ap5(){},
-aBz:function aBz(){},
-aBx:function aBx(){},
+aBA:function aBA(){},
 aBy:function aBy(){},
-b_4(d){return new B.nT(d,null)},
+aBz:function aBz(){},
+b_7(d){return new B.nT(d,null)},
 nT:function nT(d,e){this.c=d
 this.a=e},
 a25:function a25(){this.c=this.a=null},
-ayK:function ayK(d){this.a=d},
-ayL:function ayL(d,e,f,g,h){var _=this
+ayL:function ayL(d){this.a=d},
+ayM:function ayM(d,e,f,g,h){var _=this
 _.a=d
 _.b=e
 _.c=f
 _.d=g
 _.e=h},
-ayI:function ayI(d,e){this.a=d
-this.b=e},
 ayJ:function ayJ(d,e){this.a=d
+this.b=e},
+ayK:function ayK(d,e){this.a=d
 this.b=e},
 kY:function kY(d,e,f){this.c=d
 this.d=e
@@ -33,7 +33,7 @@ B=a.updateHolder(c[4],B)
 D=c[18]
 G=c[15]
 B.ap5.prototype={}
-B.aBz.prototype={
+B.aBA.prototype={
 gf0(){return"Politica de privacidade, dados, cookies e termos Perfect Gest Dev"},
 ghH(){return"Privacidade e termos"},
 gk8(){return"Perfect Gest Dev"},
@@ -58,7 +58,7 @@ gKB(){return"Se aceitar, gravamos a sua escolha no navegador e, na pr\xf3xima ca
 gEB(){return"Prefer\xeancia gravada. Recarregue a p\xe1gina uma vez para aplicar a medi\xe7\xe3o."},
 gJo(){return"Aceitar medi\xe7\xe3o"},
 gJn(){return"Aceitar cookies de medi\xe7\xe3o"}}
-B.aBx.prototype={
+B.aBy.prototype={
 gf0(){return"Perfect Gest Dev privacy policy, data, cookies and terms"},
 ghH(){return"Privacy and terms"},
 gk8(){return"Perfect Gest Dev"},
@@ -83,7 +83,7 @@ gKB(){return"If you accept, we store your choice in the browser and, on the next
 gEB(){return"Preference saved. Reload the page once to apply measurement."},
 gJo(){return"Accept measurement"},
 gJn(){return"Accept measurement cookies"}}
-B.aBy.prototype={
+B.aBz.prototype={
 gf0(){return"Politica de privacidad, datos, cookies y terminos Perfect Gest Dev"},
 ghH(){return"Privacidad y terminos"},
 gk8(){return"Perfect Gest Dev"},
@@ -112,16 +112,16 @@ B.nT.prototype={
 aa(){return new B.a25()}}
 B.a25.prototype={
 au(){this.aP()
-E.aRj()},
+E.aRl()},
 l(){A.to()
 this.aG()},
 F(d){var x,w,v,u,t=null,s=A.C(d),r=A.b2(d,C.al,y.h).w.a.a,q=r<400?16:24,p=A.cm(d,C.ar,y.p)
 p.toString
-x=B.b0c(d)
+x=B.b0f(d)
 w=x.gf0()
 v=A.C(d).ax.a===C.E?C.bw:C.bb
 u=x.ghH()
-return A.aR(t,t,A.jv(F.aG9(d,new B.ayK(d),this.a.c,u),v,new A.kK(A.nv(new B.ayL(q,x,s.ax,r,p)),t),t),!1,t,t,t,!1,t,t,t,t,t,t,t,w,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,C.p,t)}}
+return A.aR(t,t,A.jv(F.aGa(d,new B.ayL(d),this.a.c,u),v,new A.kK(A.nv(new B.ayM(q,x,s.ax,r,p)),t),t),!1,t,t,t,!1,t,t,t,t,t,t,t,w,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,C.p,t)}}
 B.kY.prototype={
 F(d){var x,w,v,u,t=null,s=A.C(d).ax,r=A.b2(d,C.al,y.h).w.a.a,q=r<400?12:16,p=this.c,o=s.RG
 o=(o==null?s.k2:o).ad(0.5)
@@ -131,14 +131,14 @@ if(w==null){w=s.n
 if(w==null)w=s.k3}w=A.hD(w.ad(0.4),1)
 v=r<360
 u=v?15:16
-u=A.T(p,t,t,t,A.aN().$3$color$fontSize$fontWeight(s.b,u,C.aD),t,t)
+u=A.X(p,t,t,t,t,A.aN().$3$color$fontSize$fontWeight(s.b,u,C.aD),t,t)
 v=v?13:14
-return new A.bk(G.qw,A.aR(t,t,A.dr(new A.bk(new A.ad(q,16,q,18),A.bS(A.b([u,C.bh,A.T(this.d,t,t,t,A.aN().$3$color$fontSize$height(s.k3.ad(0.88),v,1.55),t,t)],y.e),C.W,C.w,C.z),t),new A.bM(o,t,w,x,t,t,C.S),C.aj),!0,t,t,t,!1,t,t,t,t,t,t,t,p,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,C.p,t),t)}}
+return new A.bk(G.qw,A.aR(t,t,A.dr(new A.bk(new A.ad(q,16,q,18),A.bS(A.b([u,C.bh,A.X(this.d,t,t,t,t,A.aN().$3$color$fontSize$height(s.k3.ad(0.88),v,1.55),t,t)],y.e),C.W,C.w,C.z),t),new A.bM(o,t,w,x,t,t,C.S),C.aj),!0,t,t,t,!1,t,t,t,t,t,t,t,p,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,C.p,t),t)}}
 var z=a.updateTypes([])
-B.ayK.prototype={
+B.ayL.prototype={
 $0(){return A.cU(this.a,!1).dG()},
 $S:0}
-B.ayL.prototype={
+B.ayM.prototype={
 $2(b3,b4){var x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9=this,b0=null,b1="suporte@perfectgestdev.com",b2=b4.b
 b2=b2<1/0&&isFinite(b2)?b2:A.b2(b3,C.al,y.h).w.a.a
 x=C.d.cT(b2<720?b2:720,200,720)
@@ -146,14 +146,14 @@ w=a9.a
 v=a9.b
 u=a9.c
 t=u.b
-s=A.T(v.gk8(),b0,b0,b0,A.aN().$4$color$fontSize$fontWeight$letterSpacing(t,13,C.aD,0.4),b0,b0)
+s=A.X(v.gk8(),b0,b0,b0,b0,A.aN().$4$color$fontSize$fontWeight$letterSpacing(t,13,C.aD,0.4),b0,b0)
 r=v.gkd()
 q=a9.d
 p=q<400
 o=p?18:22
 n=u.k3
-o=A.T(r,b0,b0,b0,A.aN().$4$color$fontSize$fontWeight$height(n,o,C.aO,1.2),b0,b0)
-r=A.T(v.pt(b1),b0,b0,b0,A.aN().$3$color$fontSize$height(n.ad(0.72),13,1.45),b0,b0)
+o=A.X(r,b0,b0,b0,b0,A.aN().$4$color$fontSize$fontWeight$height(n,o,C.aO,1.2),b0,b0)
+r=A.X(v.pt(b1),b0,b0,b0,b0,A.aN().$3$color$fontSize$height(n.ad(0.72),13,1.45),b0,b0)
 m=v.gnS()
 l=v.gnR()
 k=v.gnU()
@@ -176,37 +176,37 @@ if(a5==null){u=u.n
 if(u==null)u=n}else u=a5
 u=A.hD(u.ad(0.45),1)
 p=p?14:16
-a5=A.T(v.gKC(),b0,b0,b0,A.aN().$3$color$fontSize$fontWeight(n,14,C.aD),b0,b0)
-a6=A.T(v.gKB(),b0,b0,b0,A.aN().$3$color$fontSize$height(n.ad(0.8),12.5,1.45),b0,b0)
+a5=A.X(v.gKC(),b0,b0,b0,b0,A.aN().$3$color$fontSize$fontWeight(n,14,C.aD),b0,b0)
+a6=A.X(v.gKB(),b0,b0,b0,b0,A.aN().$3$color$fontSize$height(n.ad(0.8),12.5,1.45),b0,b0)
 a7=a9.e
 a8=y.e
-return A.hY(A.dL(new A.dg(new A.a9(0,x,0,1/0),A.bS(A.b([s,C.bi,o,C.bh,r,C.em,new B.kY(m,l,b0),new B.kY(k,j,b0),new B.kY(i,h,b0),new B.kY(g,f,b0),new B.kY(e,d,b0),new B.kY(a0,a1,b0),new B.kY(a2,a3,b0),C.fo,A.dr(new A.bk(new A.ad(p,p,p,p),A.bS(A.b([a5,C.b0,a6,C.ce,A.iS(C.bE,A.b([A.aca(D.Qv,A.T(q<360?v.gJo():v.gJn(),b0,b0,b0,b0,C.dG,b0),new B.ayI(b3,v),b0),new A.C3(!1,new B.ayJ(b3,a7),b0,b0,b0,b0,b0,b0,!1,b0,!0,b0,A.T(a7.gvz(),b0,b0,b0,b0,b0,b0),b0)],a8),C.cN,8,8)],a8),C.bc,C.w,C.z),b0),new A.bM(t,b0,u,a4,b0,b0,C.S),C.aj),C.od,A.T(a7.r6(A.nY(new A.ev(Date.now(),0,!1))),b0,b0,b0,A.aN().$2$color$fontSize(n.ad(0.65),12),C.dG,b0)],a8),C.W,C.w,C.z),b0),b0,b0),b0,new A.ad(w,16,w,28),C.ah)},
+return A.hY(A.dL(new A.dg(new A.a9(0,x,0,1/0),A.bS(A.b([s,C.bi,o,C.bh,r,C.em,new B.kY(m,l,b0),new B.kY(k,j,b0),new B.kY(i,h,b0),new B.kY(g,f,b0),new B.kY(e,d,b0),new B.kY(a0,a1,b0),new B.kY(a2,a3,b0),C.fo,A.dr(new A.bk(new A.ad(p,p,p,p),A.bS(A.b([a5,C.b0,a6,C.ce,A.iS(C.bE,A.b([A.aca(D.Qv,A.X(q<360?v.gJo():v.gJn(),b0,b0,b0,b0,b0,C.dG,b0),new B.ayJ(b3,v),b0),new A.C2(!1,new B.ayK(b3,a7),b0,b0,b0,b0,b0,b0,!1,b0,!0,b0,A.X(a7.gvz(),b0,b0,b0,b0,b0,b0,b0),b0)],a8),C.cN,8,8)],a8),C.bc,C.w,C.z),b0),new A.bM(t,b0,u,a4,b0,b0,C.S),C.aj),C.od,A.X(a7.r6(A.nY(new A.ev(Date.now(),0,!1))),b0,b0,b0,b0,A.aN().$2$color$fontSize(n.ad(0.65),12),C.dG,b0)],a8),C.W,C.w,C.z),b0),b0,b0),b0,new A.ad(w,16,w,28),C.ah)},
 $S:116}
-B.ayI.prototype={
-$0(){var x,w=null
-A.aRN()
-x=this.a
-if(x.e==null)return
-x.am(y.f).f.Ev(A.aph(w,w,w,w,C.hO,C.Y,w,A.T(this.b.gEB(),w,w,w,w,w,w),w,C.iJ,w,w,w,w,w,w,w,w,w,w))},
-$S:0}
 B.ayJ.prototype={
 $0(){var x,w=null
-A.aRC()
+A.aRP()
 x=this.a
 if(x.e==null)return
-x.am(y.f).f.Ev(A.aph(w,w,w,w,C.hO,C.Y,w,A.T(this.b.gvz(),w,w,w,w,w,w),w,C.iJ,w,w,w,w,w,w,w,w,w,w))},
+x.am(y.f).f.Ev(A.aph(w,w,w,w,C.hO,C.Y,w,A.X(this.b.gEB(),w,w,w,w,w,w,w),w,C.iJ,w,w,w,w,w,w,w,w,w,w))},
+$S:0}
+B.ayK.prototype={
+$0(){var x,w=null
+A.aRE()
+x=this.a
+if(x.e==null)return
+x.am(y.f).f.Ev(A.aph(w,w,w,w,C.hO,C.Y,w,A.X(this.b.gvz(),w,w,w,w,w,w,w),w,C.iJ,w,w,w,w,w,w,w,w,w,w))},
 $S:0};(function inheritance(){var x=a.inherit,w=a.inheritMany
 x(B.ap5,A.J)
-w(B.ap5,[B.aBz,B.aBx,B.aBy])
-x(B.nT,A.U)
+w(B.ap5,[B.aBA,B.aBy,B.aBz])
+x(B.nT,A.T)
 x(B.a25,A.Y)
-w(A.j8,[B.ayK,B.ayI,B.ayJ])
-x(B.ayL,A.mT)
+w(A.j8,[B.ayL,B.ayJ,B.ayK])
+x(B.ayM,A.mT)
 x(B.kY,A.a4)})()
-A.tk(b.typeUniverse,JSON.parse('{"nT":{"U":[],"e":[]},"a25":{"Y":["nT"]},"kY":{"a4":[],"e":[]}}'))
-var y={p:A.a1("fk"),e:A.a1("p<e>"),h:A.a1("fz"),k:A.a1("kX"),f:A.a1("xB")};(function constants(){D.M_=new B.aBx()
-D.M0=new B.aBy()
-D.M1=new B.aBz()
+A.tk(b.typeUniverse,JSON.parse('{"nT":{"T":[],"e":[]},"a25":{"Y":["nT"]},"kY":{"a4":[],"e":[]}}'))
+var y={p:A.a1("fk"),e:A.a1("p<e>"),h:A.a1("fz"),k:A.a1("kX"),f:A.a1("xA")};(function constants(){D.M_=new B.aBy()
+D.M0=new B.aBz()
+D.M1=new B.aBA()
 D.PU=new A.bA(57690,"MaterialIcons",!1)
 D.Qv=new A.dx(D.PU,20,null,null,null)})()};
-(a=>{a["Xl2gf/vOHnBTR4quzoAHlH88Go8="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["pWVRrXRD3c7IM1+lRD7IP7tdnIc="]=a.current})($__dart_deferred_initializers__);

@@ -1,18 +1,18 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
 $__dart_deferred_initializers__.current=function(a,b,c,$){var C,D,B={
-aWt(d){return new B.mX(d,null)},
+aWw(d){return new B.mX(d,null)},
 mX:function mX(d,e){this.c=d
 this.a=e},
-YZ:function YZ(){this.c=this.a=null},
+YY:function YY(){this.c=this.a=null},
 atP:function atP(d,e,f,g){var _=this
 _.a=d
 _.b=e
 _.c=f
 _.d=g},
-a_l:function a_l(d,e){this.c=d
+a_k:function a_k(d,e){this.c=d
 this.a=e},
 auS:function auS(d){this.a=d},
-b0b(d){switch(d.am(y.h).r.f.gcs()){case"en":return A.LX
+b0e(d){switch(d.am(y.h).r.f.gcs()){case"en":return A.LX
 case"es":return A.LY
 case"pt":default:return A.LZ}},
 kL:function kL(d,e){this.a=d
@@ -21,9 +21,9 @@ bw:function bw(d,e,f){this.a=d
 this.b=e
 this.c=f},
 aoY:function aoY(){},
-aBk:function aBk(){},
-aBi:function aBi(){},
-aBj:function aBj(){}},A,E,F,G
+aBl:function aBl(){},
+aBj:function aBj(){},
+aBk:function aBk(){}},A,E,F,G
 C=c[0]
 D=c[2]
 B=a.updateHolder(c[8],B)
@@ -32,8 +32,8 @@ E=c[16]
 F=c[13]
 G=c[15]
 B.mX.prototype={
-aa(){return new B.YZ()}}
-B.YZ.prototype={
+aa(){return new B.YY()}}
+B.YY.prototype={
 au(){this.aP()
 C.l4()
 C.eJ("description","Perguntas e respostas PerfectGest ContabilGest: MEI, Livro Caixa, NFS-e, planos, assinatura Google Play e fontes oficiais.")
@@ -46,9 +46,9 @@ C.dm("og:locale","pt_BR")
 b.G.document.title="Perguntas e respostas | ContabilGest"},
 l(){C.to()
 this.aG()},
-F(d){var x=null,w=C.C(d),v=C.b2(d,D.al,y.x).w.a.a,u=v<400?16:24,t=B.b0b(d),s=t.gf0(),r=C.C(d).ax.a===D.E?D.bw:D.bb,q=t.ghH()
-return C.aR(x,x,C.jv(F.aG9(d,x,this.a.c,q),r,new C.kK(C.nv(new B.atP(u,t,w.ax,v)),x),x),!1,x,x,x,!1,x,x,x,x,x,x,x,s,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,D.p,x)}}
-B.a_l.prototype={
+F(d){var x=null,w=C.C(d),v=C.b2(d,D.al,y.x).w.a.a,u=v<400?16:24,t=B.b0e(d),s=t.gf0(),r=C.C(d).ax.a===D.E?D.bw:D.bb,q=t.ghH()
+return C.aR(x,x,C.jv(F.aGa(d,x,this.a.c,q),r,new C.kK(C.nv(new B.atP(u,t,w.ax,v)),x),x),!1,x,x,x,!1,x,x,x,x,x,x,x,s,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,D.p,x)}}
+B.a_k.prototype={
 F(d){var x,w,v,u,t,s,r,q,p,o,n=null,m=C.C(d).ax,l=C.b2(d,D.al,y.x).w.a.a,k=l<400?12:16,j=this.c,i=j.a,h=m.RG
 h=(h==null?m.k2:h).ad(0.5)
 x=C.cX(14)
@@ -58,32 +58,32 @@ if(w==null)w=m.k3}w=C.hD(w.ad(0.4),1)
 v=l<360
 u=v?15:16
 t=m.b
-u=C.T(i,n,n,n,C.aN().$3$color$fontSize$fontWeight(t,u,D.aD),n,n)
+u=C.X(i,n,n,n,n,C.aN().$3$color$fontSize$fontWeight(t,u,D.aD),n,n)
 s=v?13:14
 r=y.u
-s=C.b([u,D.bh,C.T(j.b,n,n,n,C.aN().$3$color$fontSize$height(m.k3.ad(0.88),s,1.55),n,n)],r)
+s=C.b([u,D.bh,C.X(j.b,n,n,n,n,C.aN().$3$color$fontSize$height(m.k3.ad(0.88),s,1.55),n,n)],r)
 j=j.c
 u=j.length
 if(u!==0){r=C.b([D.bh],r)
 for(q=0;q<u;++q){p=j[q]
 o=C.wf(D.cP,n,n,n,n,n,n,n,n,n,n,D.I,D.as,n,n,n,n,D.f6,n,n)
-r.push(new C.bk(A.OR,new C.dw(D.cP,n,n,C.i3(C.T(p.a,n,n,n,C.aN().$5$color$decoration$fontSize$fontWeight$height(t,D.dH,v?13:14,D.ad,1.45),n,n),new B.auS(p),o),n),n))}D.b.a1(s,r)}return new C.bk(G.qw,C.aR(n,n,C.dr(new C.bk(new C.ad(k,16,k,18),C.bS(s,D.W,D.w,D.z),n),new C.bM(h,n,w,x,n,n,D.S),D.aj),!0,n,n,n,!1,n,n,n,n,n,n,n,i,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,D.p,n),n)}}
+r.push(new C.bk(A.OR,new C.dw(D.cP,n,n,C.i3(C.X(p.a,n,n,n,n,C.aN().$5$color$decoration$fontSize$fontWeight$height(t,D.dH,v?13:14,D.ad,1.45),n,n),new B.auS(p),o),n),n))}D.b.a1(s,r)}return new C.bk(G.qw,C.aR(n,n,C.dr(new C.bk(new C.ad(k,16,k,18),C.bS(s,D.W,D.w,D.z),n),new C.bM(h,n,w,x,n,n,D.S),D.aj),!0,n,n,n,!1,n,n,n,n,n,n,n,i,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,D.p,n),n)}}
 B.kL.prototype={}
 B.bw.prototype={}
 B.aoY.prototype={}
-B.aBk.prototype={
+B.aBl.prototype={
 gf0(){return"Perguntas e respostas PerfectGest ContabilGest"},
 ghH(){return"Perguntas e respostas"},
 gk8(){return"PerfectGest ContabilGest"},
 gkd(){return"Perguntas e respostas sobre o Aplicativo"},
 gNk(){return A.a3V}}
-B.aBi.prototype={
+B.aBj.prototype={
 gf0(){return"Questions and answers PerfectGest ContabilGest"},
 ghH(){return"Questions and answers"},
 gk8(){return"PerfectGest ContabilGest"},
 gkd(){return"Questions and answers about the App"},
 gNk(){return A.V7}}
-B.aBj.prototype={
+B.aBk.prototype={
 gf0(){return"Preguntas y respuestas PerfectGest ContabilGest"},
 ghH(){return"Preguntas y respuestas"},
 gk8(){return"PerfectGest ContabilGest"},
@@ -97,36 +97,36 @@ x=D.d.cT(m<720?m:720,200,720)
 w=o.a
 v=o.b
 u=o.c
-t=C.T(v.gk8(),n,n,n,C.aN().$4$color$fontSize$fontWeight$letterSpacing(u.b,13,D.aD,0.4),n,n)
+t=C.X(v.gk8(),n,n,n,n,C.aN().$4$color$fontSize$fontWeight$letterSpacing(u.b,13,D.aD,0.4),n,n)
 s=v.gkd()
 r=o.d<400?18:22
 u=u.k3
-r=C.b([t,D.bi,C.T(s,n,n,n,C.aN().$4$color$fontSize$fontWeight$height(u,r,D.aO,1.2),n,n),D.em],y.u)
-for(v=v.gNk(),q=0;q<17;++q)r.push(new B.a_l(v[q],n))
+r=C.b([t,D.bi,C.X(s,n,n,n,n,C.aN().$4$color$fontSize$fontWeight$height(u,r,D.aO,1.2),n,n),D.em],y.u)
+for(v=v.gNk(),q=0;q<17;++q)r.push(new B.a_k(v[q],n))
 r.push(D.c2)
 r.push(E.q9)
 r.push(D.hN)
 p=C.cm(d,D.ar,y.F)
 p.toString
-r.push(C.T(p.r6(C.nY(new C.ev(Date.now(),0,!1))),n,n,n,C.aN().$3$color$fontSize$fontWeight(u.ad(0.7),12,D.ad),n,n))
+r.push(C.X(p.r6(C.nY(new C.ev(Date.now(),0,!1))),n,n,n,n,C.aN().$3$color$fontSize$fontWeight(u.ad(0.7),12,D.ad),n,n))
 r.push(E.Ip)
 return C.hY(C.dL(new C.dg(new C.a9(0,x,0,1/0),C.bS(r,D.W,D.w,D.z),n),n,n),n,new C.ad(w,16,w,28),D.ah)},
 $S:116}
 B.auS.prototype={
 $0(){return C.tv(C.dU(this.a.b,0,null),D.eW,"_blank")},
 $S:0};(function inheritance(){var x=a.inherit,w=a.inheritMany
-x(B.mX,C.U)
-x(B.YZ,C.Y)
+x(B.mX,C.T)
+x(B.YY,C.Y)
 x(B.atP,C.mT)
-x(B.a_l,C.a4)
+x(B.a_k,C.a4)
 x(B.auS,C.j8)
 w(C.J,[B.kL,B.bw,B.aoY])
-w(B.aoY,[B.aBk,B.aBi,B.aBj])})()
-C.tk(b.typeUniverse,JSON.parse('{"mX":{"U":[],"e":[]},"YZ":{"Y":["mX"]},"a_l":{"a4":[],"e":[]}}'))
+w(B.aoY,[B.aBl,B.aBj,B.aBk])})()
+C.tk(b.typeUniverse,JSON.parse('{"mX":{"T":[],"e":[]},"YY":{"Y":["mX"]},"a_k":{"a4":[],"e":[]}}'))
 var y={F:C.a1("fk"),a:C.a1("p<bw>"),g:C.a1("p<kL>"),u:C.a1("p<e>"),x:C.a1("fz"),h:C.a1("kX")};(function constants(){var x=a.makeConstList
-A.LX=new B.aBi()
-A.LY=new B.aBj()
-A.LZ=new B.aBk()
+A.LX=new B.aBj()
+A.LY=new B.aBk()
+A.LZ=new B.aBl()
 A.OR=new C.ad(0,0,0,6)
 A.G=x([],y.g)
 A.adG=new B.bw("What is the app?","PerfectGest ContabilGest helps MEI and small business owners record income and expenses (Cash Book), track tax obligations, simulate Income Tax, manage employees and owner draws, and, on contracted plans, send the month to the accountant for review. Daily use is offline by default.",A.G)
@@ -191,4 +191,4 @@ A.adF=new B.bw("Posso baixar de Avan\xe7ado para Standard ou Essencial?","N\xe3o
 A.adz=new B.bw("Posso adicionar lan\xe7amentos, folha ou IR depois?","Sim, se tiver Contabil+ (qualquer faixa) ou pacote anual com contador: Mais \u2192 Complementar plano (folha e IR). A Conferencia do Contador j\xe1 est\xe1 inclu\xedda. Planos B\xe1sico sem Contabil+ n\xe3o s\xe3o eleg\xedveis.",A.G)
 A.adE=new B.bw("A app avisa antes da renova\xe7\xe3o?","Quando a Play informar a data do ciclo, a app pode avisar at\xe9 30 dias antes (In\xedcio / Mais). Sem data da Play, n\xe3o h\xe1 contagem inventada \u2014 consulte Play \u2192 Assinaturas.",A.G)
 A.a3V=x([A.adM,A.adi,A.ad_,A.ad2,A.ad8,A.ad7,A.adA,A.adK,A.adp,A.ads,A.adg,A.ady,A.ad9,A.adb,A.adF,A.adz,A.adE],y.a)})()};
-(a=>{a["HFqNXRTxqPE720GHsxbhiwPpnoU="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["CA2obTWt4jhAstnFqi1qNb4lFY4="]=a.current})($__dart_deferred_initializers__);

@@ -338,17 +338,21 @@ Widget metallicGoldText(
   double fontSize = 22,
   FontWeight fontWeight = FontWeight.w900,
   double lift = 3,
+  double height = 1.1,
+  double letterSpacing = -0.2,
+  bool compact = false,
 }) {
   final baseStyle = GoogleFonts.inter(
     fontSize: fontSize,
     fontWeight: fontWeight,
-    height: 1.1,
-    letterSpacing: -0.2,
+    height: height,
+    letterSpacing: letterSpacing,
   );
   return _MetallicEmbossedText(
     text: text,
     baseStyle: baseStyle,
     lift: lift,
+    compact: compact,
     fill: (bounds) => const LinearGradient(
       begin: Alignment.topCenter,
       end: Alignment.bottomCenter,
@@ -408,6 +412,7 @@ class _MetallicEmbossedText extends StatelessWidget {
     required this.fill,
     required this.specularStrength,
     required this.glowColor,
+    this.compact = false,
   });
 
   final String text;
@@ -416,6 +421,7 @@ class _MetallicEmbossedText extends StatelessWidget {
   final Shader Function(Rect bounds) fill;
   final double specularStrength;
   final Color glowColor;
+  final bool compact;
 
   static const _bevelOffsets = [
     Offset(1.2, 1.2),
@@ -424,6 +430,15 @@ class _MetallicEmbossedText extends StatelessWidget {
     Offset(-1.5, -2),
   ];
 
+  bool get _multiline => compact || text.contains('\n');
+
+  Widget _plain(Offset offset, TextStyle style) {
+    return Transform.translate(
+      offset: offset,
+      child: Text(text, softWrap: true, style: style),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final shadows = metallicRaisedTextShadows(lift: lift);
@@ -431,78 +446,69 @@ class _MetallicEmbossedText extends StatelessWidget {
     return Stack(
       clipBehavior: Clip.none,
       children: [
-        for (final o in _bevelOffsets.take(2))
-          Transform.translate(
-            offset: Offset(o.dx, o.dy + lift),
-            child: Text(
-              text,
-              style: baseStyle.copyWith(
-                color: Colors.black.withValues(alpha: 0.75),
-              ),
+        if (!compact)
+          for (final o in _bevelOffsets.take(2))
+            _plain(
+              Offset(o.dx, o.dy + lift),
+              baseStyle.copyWith(color: Colors.black.withValues(alpha: 0.75)),
             ),
-          ),
-        Transform.translate(
-          offset: Offset(0, 2.8 + lift),
-          child: Text(
-            text,
-            style: baseStyle.copyWith(
-              color: Colors.black.withValues(alpha: 0.5),
-              shadows: shadows,
-            ),
+        _plain(
+          Offset(0, compact ? 1.2 + lift : 2.8 + lift),
+          baseStyle.copyWith(
+            color: Colors.black.withValues(alpha: 0.5),
+            shadows: shadows,
           ),
         ),
-        for (final o in _bevelOffsets.skip(2))
-          Transform.translate(
-            offset: o,
-            child: Text(
-              text,
-              style: baseStyle.copyWith(
-                color: Colors.white.withValues(alpha: 0.18),
-              ),
+        if (!compact)
+          for (final o in _bevelOffsets.skip(2))
+            _plain(
+              o,
+              baseStyle.copyWith(color: Colors.white.withValues(alpha: 0.18)),
             ),
-          ),
         Transform.translate(
           offset: Offset(0, -lift * 0.35),
           child: ShaderMask(
             blendMode: BlendMode.srcIn,
             shaderCallback: fill,
-            child: Text(text, style: baseStyle.copyWith(color: Colors.white)),
+            child: Text(
+              text,
+              softWrap: true,
+              style: baseStyle.copyWith(color: Colors.white),
+            ),
           ),
         ),
-        Positioned(
-          left: 0,
-          top: -lift * 0.35,
-          child: ClipRect(
-            child: Align(
-              alignment: Alignment.topLeft,
-              heightFactor: 1,
-              child: SizedBox(
-                height: capHeight,
-                child: Text(
-                  text,
-                  style: baseStyle.copyWith(
-                    color: Colors.white.withValues(alpha: specularStrength),
-                    shadows: [
-                      Shadow(
-                        color: glowColor.withValues(alpha: 0.35),
-                        blurRadius: 8,
-                      ),
-                    ],
+        if (!_multiline)
+          Positioned(
+            left: 0,
+            top: -lift * 0.35,
+            child: ClipRect(
+              child: Align(
+                alignment: Alignment.topLeft,
+                heightFactor: 1,
+                child: SizedBox(
+                  height: capHeight,
+                  child: Text(
+                    text,
+                    softWrap: true,
+                    style: baseStyle.copyWith(
+                      color: Colors.white.withValues(alpha: specularStrength),
+                      shadows: [
+                        Shadow(
+                          color: glowColor.withValues(alpha: 0.35),
+                          blurRadius: 8,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
             ),
           ),
-        ),
-        Transform.translate(
-          offset: const Offset(-0.8, -2.2),
-          child: Text(
-            text,
-            style: baseStyle.copyWith(
-              color: Colors.white.withValues(alpha: 0.35),
-            ),
+        if (!compact)
+          _plain(
+            const Offset(-0.8, -2.2),
+            baseStyle.copyWith(color: Colors.white.withValues(alpha: 0.35)),
           ),
-        ),
       ],
     );
   }
