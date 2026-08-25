@@ -332,6 +332,72 @@ Widget metallicChromeText(
   );
 }
 
+/// Botão ouro 3D com contorno (FAQ / secundário). Permanece clicável.
+Widget metallicGoldOutlinedButton({
+  required String label,
+  required VoidCallback onPressed,
+  IconData? icon,
+}) {
+  return Container(
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(28),
+      gradient: const LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: [
+          Color(0xFFFFF9C4),
+          MetallicPalette.gold,
+          MetallicPalette.goldDim,
+          Color(0xFF4A3808),
+        ],
+      ),
+      boxShadow: [
+        BoxShadow(
+          color: Colors.black.withValues(alpha: 0.55),
+          blurRadius: 10,
+          offset: const Offset(0, 4),
+        ),
+        BoxShadow(
+          color: MetallicPalette.gold.withValues(alpha: 0.35),
+          blurRadius: 16,
+          offset: const Offset(0, 6),
+        ),
+      ],
+    ),
+    padding: const EdgeInsets.all(2.2),
+    child: ClipRRect(
+      borderRadius: BorderRadius.circular(26),
+      child: Material(
+        color: MetallicPalette.charcoalDeep,
+        child: InkWell(
+          onTap: onPressed,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                if (icon != null) ...[
+                  Icon(icon, size: 20, color: MetallicPalette.gold),
+                  const SizedBox(width: 8),
+                ],
+                metallicGoldText(
+                  label,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w700,
+                  height: 1.2,
+                  letterSpacing: 0,
+                  lift: 1.4,
+                  compact: true,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    ),
+  );
+}
+
 /// Ouro polido (títulos e destaques).
 Widget metallicGoldText(
   String text, {
@@ -569,10 +635,11 @@ Widget metallicReferenceLogo({
 Widget metallicPolishedButton({
   required String label,
   required VoidCallback onPressed,
+  IconData? icon,
 }) {
   return Container(
     decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(14),
+      borderRadius: BorderRadius.circular(icon != null ? 28 : 14),
       gradient: kMetallicRimGradient,
       boxShadow: [
         BoxShadow(
@@ -589,7 +656,7 @@ Widget metallicPolishedButton({
     ),
     padding: const EdgeInsets.all(3),
     child: ClipRRect(
-      borderRadius: BorderRadius.circular(11),
+      borderRadius: BorderRadius.circular(icon != null ? 25 : 11),
       child: Stack(
         children: [
           Positioned.fill(
@@ -629,20 +696,28 @@ Widget metallicPolishedButton({
               onTap: onPressed,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 14),
-                child: Center(
-                  child: Text(
-                    label,
-                    style: GoogleFonts.inter(
-                      fontWeight: FontWeight.w800,
-                      color: MetallicPalette.charcoalDeep,
-                      shadows: [
-                        Shadow(
-                          color: Colors.white.withValues(alpha: 0.9),
-                          offset: const Offset(0, -1.5),
-                        ),
-                      ],
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    if (icon != null) ...[
+                      Icon(icon, size: 20, color: MetallicPalette.charcoalDeep),
+                      const SizedBox(width: 8),
+                    ],
+                    Text(
+                      label,
+                      style: GoogleFonts.inter(
+                        fontWeight: FontWeight.w800,
+                        color: MetallicPalette.charcoalDeep,
+                        shadows: [
+                          Shadow(
+                            color: Colors.white.withValues(alpha: 0.9),
+                            offset: const Offset(0, -1.5),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
+                  ],
                 ),
               ),
             ),

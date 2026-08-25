@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
+import 'metallic_site_shell.dart';
 
 /// Tipografia e layout estilo Microsoft Fluent para cada app na secção Soluções.
 class SolutionsProductShowcase extends StatelessWidget {
@@ -22,48 +23,6 @@ class SolutionsProductShowcase extends StatelessWidget {
 
   static const double _wideBreakpoint = 840;
 
-  TextStyle _appNameStyle(BuildContext context, {required bool compact}) {
-    final cs = Theme.of(context).colorScheme;
-    return GoogleFonts.inter(
-      fontSize: compact ? 24 : 28,
-      fontWeight: FontWeight.w600,
-      letterSpacing: -0.4,
-      height: 1.15,
-      color: cs.onSurface,
-    );
-  }
-
-  TextStyle _platformLabelStyle(BuildContext context) {
-    final cs = Theme.of(context).colorScheme;
-    return GoogleFonts.inter(
-      fontSize: 13,
-      fontWeight: FontWeight.w500,
-      letterSpacing: 0.2,
-      height: 1.3,
-      color: cs.onSurface.withValues(alpha: 0.62),
-    );
-  }
-
-  TextStyle _taglineStyle(BuildContext context, {required bool compact}) {
-    final cs = Theme.of(context).colorScheme;
-    return GoogleFonts.inter(
-      fontSize: compact ? 16 : 18,
-      fontWeight: FontWeight.w400,
-      height: 1.35,
-      color: cs.primary,
-    );
-  }
-
-  TextStyle _bodyStyle(BuildContext context) {
-    final cs = Theme.of(context).colorScheme;
-    return GoogleFonts.inter(
-      fontSize: 15,
-      fontWeight: FontWeight.w400,
-      height: 1.55,
-      color: cs.onSurface.withValues(alpha: 0.78),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
@@ -75,13 +34,44 @@ class SolutionsProductShowcase extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(appName, style: _appNameStyle(context, compact: compact)),
+              siteMetallicGoldText(
+                context,
+                appName,
+                fontSize: compact ? 24 : 28,
+                fontWeight: FontWeight.w600,
+                height: 1.15,
+                letterSpacing: -0.4,
+                fallbackColor: cs.onSurface,
+              ),
               const SizedBox(height: 4),
-              Text(platformLabel, style: _platformLabelStyle(context)),
+              siteMetallicGoldText(
+                context,
+                platformLabel,
+                fontSize: 13,
+                fontWeight: FontWeight.w500,
+                height: 1.3,
+                letterSpacing: 0.2,
+                compact: true,
+                fallbackColor: cs.onSurface.withValues(alpha: 0.62),
+              ),
               const SizedBox(height: 8),
-              Text(tagline, style: _taglineStyle(context, compact: compact)),
+              siteMetallicGoldText(
+                context,
+                tagline,
+                fontSize: compact ? 16 : 18,
+                height: 1.35,
+                compact: tagline.length > 40,
+                fallbackColor: cs.primary,
+              ),
               const SizedBox(height: 14),
-              Text(description, style: _bodyStyle(context)),
+              siteMetallicGoldText(
+                context,
+                description,
+                fontSize: 15,
+                height: 1.55,
+                compact: true,
+                fallbackColor: cs.onSurface.withValues(alpha: 0.78),
+              ),
               const SizedBox(height: 20),
               actions,
             ],

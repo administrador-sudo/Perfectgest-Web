@@ -22,7 +22,6 @@ import 'site_layout.dart';
 import 'solution_screenshot_preview.dart';
 import 'solutions_product_showcase.dart';
 import 'metallic_site_shell.dart';
-import 'metallic_style.dart';
 import 'site_brand_logo.dart';
 import 'site_deferred_pages.dart';
 import 'site_surface.dart';
@@ -1387,57 +1386,54 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
                         Semantics(
                           header: true,
                           label: l10n.heroAppsQualityTitle,
-                          child: Text(
+                          child: siteMetallicGoldText(
+                            context,
                             l10n.heroAppsQualityTitle,
-                            style: TextStyle(
-                              fontSize: heroQualitySize,
-                              fontWeight: FontWeight.w800,
-                              height: 1.15,
-                              color: titleGold,
-                            ),
+                            fontSize: heroQualitySize,
+                            fontWeight: FontWeight.w800,
+                            height: 1.15,
+                            fallbackColor: titleGold,
                           ),
                         ),
                         const SizedBox(height: 12),
                         Semantics(
                           header: true,
                           label: l10n.heroHeadline1,
-                          child: Text(
+                          child: siteMetallicGoldText(
+                            context,
                             l10n.heroHeadline1,
-                            style: TextStyle(
-                              fontSize: heroSubtitleSize,
-                              fontWeight: FontWeight.w800,
-                              height: 1.15,
-                              color: titleGold,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 10),
-                        Text(
-                          l10n.heroHeadline2,
-                          style: GoogleFonts.inter(
-                            fontSize: heroSubtitleSize,
-                            height: 1.45,
-                            color: titleGold,
-                          ),
-                        ),
-                        const SizedBox(height: 12),
-                        Text(
-                          l10n.heroSubline,
-                          style: GoogleFonts.inter(
-                            fontSize: heroSubtitleSize,
-                            height: 1.45,
-                            color: cs.onSurface.withValues(alpha: 0.72),
-                          ),
-                        ),
-                        const SizedBox(height: 12),
-                        Text(
-                          l10n.heroCloser,
-                          style: TextStyle(
                             fontSize: heroSubtitleSize,
                             fontWeight: FontWeight.w800,
                             height: 1.15,
-                            color: titleGold,
+                            fallbackColor: titleGold,
                           ),
+                        ),
+                        const SizedBox(height: 10),
+                        siteMetallicGoldText(
+                          context,
+                          l10n.heroHeadline2,
+                          fontSize: heroSubtitleSize,
+                          height: 1.45,
+                          compact: true,
+                          fallbackColor: titleGold,
+                        ),
+                        const SizedBox(height: 12),
+                        siteMetallicGoldText(
+                          context,
+                          l10n.heroSubline,
+                          fontSize: heroSubtitleSize,
+                          height: 1.45,
+                          compact: true,
+                          fallbackColor: cs.onSurface.withValues(alpha: 0.72),
+                        ),
+                        const SizedBox(height: 12),
+                        siteMetallicGoldText(
+                          context,
+                          l10n.heroCloser,
+                          fontSize: heroSubtitleSize,
+                          fontWeight: FontWeight.w800,
+                          height: 1.15,
+                          fallbackColor: titleGold,
                         ),
                       ],
                     ),
@@ -1494,18 +1490,14 @@ class _HeroContabilIntro extends StatelessWidget {
       color: bodyColor,
     );
     Widget gold3d(String text, TextStyle style, {bool compact = false}) {
-      if (!useMetallicPresentation(context)) {
-        return Text(text, style: style);
-      }
-      final size = style.fontSize ?? 14;
-      return metallicGoldText(
+      return siteMetallicGoldText(
+        context,
         text,
-        fontSize: size,
+        fontSize: style.fontSize ?? 14,
         fontWeight: style.fontWeight ?? FontWeight.w400,
         height: style.height ?? 1.2,
-        letterSpacing: 0,
-        lift: compact ? 1.4 : (size >= 18 ? 2.4 : 1.8),
         compact: compact,
+        fallbackColor: style.color,
       );
     }
 
@@ -1577,14 +1569,24 @@ class _HeroContabilIntro extends StatelessWidget {
               minimumSize: Size.zero,
               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
             ),
-            child: Text(
-              l10n.heroContabilFaqLink,
-              style: GoogleFonts.inter(
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(
+                    color: useMetallicPresentation(context)
+                        ? BrandPalette.goldWarm
+                        : colorScheme.primary,
+                  ),
+                ),
+              ),
+              child: siteMetallicGoldText(
+                context,
+                l10n.heroContabilFaqLink,
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
                 height: 1.45,
-                color: colorScheme.primary,
-                decoration: TextDecoration.underline,
+                compact: true,
+                fallbackColor: colorScheme.primary,
               ),
             ),
           ),
@@ -2315,35 +2317,37 @@ class SolutionsAppActionsBlock extends StatelessWidget {
             runSpacing: 10,
             crossAxisAlignment: WrapCrossAlignment.center,
             children: [
-              FilledButton.icon(
+              sitePrimaryActionButton(
+                context: context,
+                label: getAppLabel,
+                icon: Icons.download_rounded,
                 onPressed: () => launchUrl(
                   Uri.parse(productUrl),
                   mode: LaunchMode.externalApplication,
                   webOnlyWindowName: kIsWeb ? '_blank' : null,
                 ),
-                icon: const Icon(Icons.download_rounded, size: 20),
-                label: Text(getAppLabel),
               ),
-              OutlinedButton.icon(
+              siteMetallicOutlinedButton(
+                context: context,
+                label: supportPortalLabel,
+                icon: Icons.support_agent_outlined,
                 onPressed: () => launchUrl(
                   Uri.parse(supportUrl),
                   mode: LaunchMode.externalApplication,
                   webOnlyWindowName: kIsWeb ? '_blank' : null,
                 ),
-                icon: const Icon(Icons.support_agent_outlined, size: 20),
-                label: Text(supportPortalLabel),
               ),
             ],
           ),
           if (hashtags != null) ...[
             const SizedBox(height: 14),
-            Text(
+            siteMetallicGoldText(
+              context,
               hashtags!,
-              style: GoogleFonts.inter(
-                fontSize: 12,
-                height: 1.4,
-                color: cs.onSurfaceVariant.withValues(alpha: 0.85),
-              ),
+              fontSize: 12,
+              height: 1.4,
+              compact: true,
+              fallbackColor: cs.onSurfaceVariant.withValues(alpha: 0.85),
             ),
           ],
         ],
@@ -2366,7 +2370,14 @@ class SectionText extends StatelessWidget {
         children: [
           siteSectionTitle(context, title, fontSize: 19),
           const SizedBox(height: 8),
-          Text(body, style: siteBodyTextStyle(context)),
+          siteMetallicGoldText(
+            context,
+            body,
+            fontSize: 15,
+            height: 1.5,
+            compact: true,
+            fallbackColor: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.85),
+          ),
         ],
       ),
     );

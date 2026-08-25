@@ -2010,3 +2010,21 @@ FROM site_leads ORDER BY created_at DESC;
 ### Validacao
 - [ ] Smoke home: bloco contabil 3D; FAQ clicavel; modo claro legivel
 
+## [2026-08-25] Home: 3D no resto do hero, solucoes e botoes
+
+### Contexto
+- Pedido: textos apos SETOR DE CONTABILIDADE (qualidade/Flutter, ContabilGest, PerfectGest I) iguais ao 3D do primeiro bloco; FAQ e botoes clicaveis com relevo.
+
+### Arquivos
+- `lib/metallic_style.dart` — `metallicGoldOutlinedButton`; icone no `metallicPolishedButton`.
+- `lib/metallic_site_shell.dart` — `siteMetallicGoldText`, `siteMetallicOutlinedButton`.
+- `lib/main.dart` — hero qualidade/headlines/FAQ; botoes e hashtags das solucoes.
+- `lib/solutions_product_showcase.dart` — titulos e corpo 3D.
+
+### Risco
+- Baixo. InkWell nos botoes 3D; FAQ continua `TextButton`.
+
+### Validacao
+- [ ] Smoke: FAQ hero; Obter app + FAQ politicas; textos 3D
+
+

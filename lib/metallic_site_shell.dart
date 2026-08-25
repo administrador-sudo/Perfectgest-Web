@@ -91,6 +91,40 @@ Widget siteSectionTitle(
   );
 }
 
+/// Ouro 3D (modo escuro) com os mesmos tamanhos do texto plano.
+Widget siteMetallicGoldText(
+  BuildContext context,
+  String text, {
+  required double fontSize,
+  FontWeight fontWeight = FontWeight.w400,
+  double height = 1.2,
+  double letterSpacing = 0,
+  bool compact = false,
+  Color? fallbackColor,
+}) {
+  if (!useMetallicPresentation(context)) {
+    return Text(
+      text,
+      style: GoogleFonts.inter(
+        fontSize: fontSize,
+        fontWeight: fontWeight,
+        height: height,
+        letterSpacing: letterSpacing,
+        color: fallbackColor ?? Theme.of(context).colorScheme.onSurface,
+      ),
+    );
+  }
+  return metallicGoldText(
+    text,
+    fontSize: fontSize,
+    fontWeight: fontWeight,
+    height: height,
+    letterSpacing: letterSpacing,
+    lift: compact ? 1.4 : (fontSize >= 18 ? 2.4 : 1.8),
+    compact: compact,
+  );
+}
+
 TextStyle siteBodyTextStyle(
   BuildContext context, {
   double fontSize = 15,
@@ -128,7 +162,7 @@ Widget sitePrimaryActionButton({
   IconData? icon,
 }) {
   if (useMetallicPresentation(context)) {
-    return metallicPolishedButton(label: label, onPressed: onPressed);
+    return metallicPolishedButton(label: label, onPressed: onPressed, icon: icon);
   }
   final cs = Theme.of(context).colorScheme;
   if (icon != null) {
@@ -151,6 +185,22 @@ Widget sitePrimaryActionButton({
     ),
     onPressed: onPressed,
     child: Text(label),
+  );
+}
+
+Widget siteMetallicOutlinedButton({
+  required BuildContext context,
+  required String label,
+  required VoidCallback onPressed,
+  IconData? icon,
+}) {
+  if (useMetallicPresentation(context)) {
+    return metallicGoldOutlinedButton(label: label, onPressed: onPressed, icon: icon);
+  }
+  return OutlinedButton.icon(
+    onPressed: onPressed,
+    icon: Icon(icon ?? Icons.open_in_new, size: 20),
+    label: Text(label),
   );
 }
 
