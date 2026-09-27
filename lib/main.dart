@@ -702,6 +702,37 @@ class _SobreNosLegalFooter extends StatelessWidget {
                     const CompanyLegalStrip(dense: true),
                     const SizedBox(height: 6),
                     Text(
+                      l10n.aboutFooterOffer,
+                      style: GoogleFonts.inter(
+                        fontSize: 11,
+                        height: 1.35,
+                        color: cs.onSurface.withValues(alpha: 0.82),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: TextButton(
+                        onPressed: () => launchUrl(
+                          Uri.parse(kPerfectGestContabilIProductUrl),
+                          mode: LaunchMode.externalApplication,
+                          webOnlyWindowName: kIsWeb ? '_blank' : null,
+                        ),
+                        style: TextButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 4),
+                          visualDensity: VisualDensity.compact,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        ),
+                        child: Text(
+                          l10n.aboutFooterDownload,
+                          style: GoogleFonts.inter(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
                       l10n.aboutFooterCopyright(year),
                       style: GoogleFonts.inter(
                         fontSize: 11,

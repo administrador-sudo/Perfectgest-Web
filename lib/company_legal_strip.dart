@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'company_legal.dart';
 import 'l10n/app_localizations.dart';
 
-/// Identificação da LTDA no rodapé — razão social e localização.
+/// Identificação da desenvolvedora no rodapé — nome fantasia e localização.
 class CompanyLegalStrip extends StatelessWidget {
   const CompanyLegalStrip({super.key, this.dense = false});
 
@@ -30,7 +30,7 @@ class CompanyLegalStrip extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            kCompanyLegalName,
+            kCompanyFantasyName,
             style: GoogleFonts.inter(
               fontSize: nameSize,
               fontWeight: FontWeight.w700,

@@ -92,6 +92,28 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 
 ## Registro de evolucao
 
+## [2026-09-27] Rodape Sobre: ofertas NFS-e/NF-e/livros + Play ContabilGest; nome fantasia
+
+### Contexto
+- Pedido: mesmo bloco do banner PerfectGest no rodape da pagina de apresentacao (Sobre). Nome fantasia visivel; razao social/CNPJ fora deste destaque.
+
+### O que foi feito
+- `lib/company_legal_strip.dart`: mostra `kCompanyFantasyName`.
+- `lib/main.dart` (`_SobreNosLegalFooter`): oferta NFS-e/NF-e/livros + botao Play ContabilGest.
+- `lib/l10n/app_localizations.dart`: `aboutFooterOffer` / `aboutFooterDownload` PT/EN/ES.
+
+### Arquivos alterados
+- lib/company_legal_strip.dart
+- lib/main.dart
+- lib/l10n/app_localizations.dart
+
+### Risco de regressao
+- Baixo: so rodape Sobre e texto do strip; paginas legais inalteradas neste passo (salvo sync PerfectGest-I se corrido).
+
+### Validacao executada
+- [ ] Operador: conferir Sobre no browser local; Play abre; sem push Render ate ordem expressa.
+
+
 ## [2026-07-23 10:33] Fix pre-cadastro — erro "não foi possível conectar com o servidor"
 
 ### Contexto

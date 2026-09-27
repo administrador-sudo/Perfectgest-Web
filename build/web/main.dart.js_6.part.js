@@ -1,13 +1,13 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
 $__dart_deferred_initializers__.current=function(a,b,c,$){var A,C,E,F,B={
-b0h(d){switch(d.am(y.k).r.f.gcs()){case"en":return D.M3
-case"es":return D.M4
-case"pt":default:return D.M5}},
+b0i(d){switch(d.am(y.k).r.f.gcs()){case"en":return D.M5
+case"es":return D.M6
+case"pt":default:return D.M7}},
 ap5:function ap5(){},
 aBA:function aBA(){},
 aBy:function aBy(){},
 aBz:function aBz(){},
-b_9(d){return new B.nU(d,null)},
+b_a(d){return new B.nU(d,null)},
 nU:function nU(d,e){this.c=d
 this.a=e},
 a26:function a26(){this.c=this.a=null},
@@ -53,11 +53,11 @@ gEi(){return"6. Os seus direitos"},
 Eh(d){return"No Brasil, aplica-se a Lei Geral de Prote\xe7\xe3o de Dados (LGPD, Lei 13.709/2018). Na Uni\xe3o Europeia, aplica-se o RGPD. Dependendo da lei aplic\xe1vel, poder\xe1 solicitar acesso, retifica\xe7\xe3o, apagamento, limita\xe7\xe3o, portabilidade ou oposi\xe7\xe3o ao tratamento dos seus dados pessoais, incluindo dados de pr\xe9-cadastro. Para exercer direitos ou quest\xf5es de privacidade, escreva para "+d+"."},
 gEk(){return"7. Termos de uso do site"},
 gEj(){return"O conte\xfado deste site (textos, identidade visual e materiais) destina-se a informa\xe7\xe3o sobre Perfect Gest Dev e os seus produtos. A reprodu\xe7\xe3o n\xe3o autorizada para fins comerciais pode ser proibida. Os links externos s\xe3o fornecidos por conveni\xeancia; n\xe3o controlamos sites de terceiros. O uso do site \xe9 por sua conta e risco, na medida permitida pela lei."},
-gKC(){return"Gerenciar cookies de medi\xe7\xe3o"},
-gKB(){return"Se aceitar, gravamos a sua escolha no navegador e, na pr\xf3xima carga da p\xe1gina, a medi\xe7\xe3o poder\xe1 operar apenas conforme o consentimento dado. Pode recusar ou revogar apagando os dados do site nas defini\xe7\xf5es do browser ou usando o bot\xe3o \xabRecusar\xbb abaixo."},
+gKE(){return"Gerenciar cookies de medi\xe7\xe3o"},
+gKD(){return"Se aceitar, gravamos a sua escolha no navegador e, na pr\xf3xima carga da p\xe1gina, a medi\xe7\xe3o poder\xe1 operar apenas conforme o consentimento dado. Pode recusar ou revogar apagando os dados do site nas defini\xe7\xf5es do browser ou usando o bot\xe3o \xabRecusar\xbb abaixo."},
 gEB(){return"Prefer\xeancia gravada. Recarregue a p\xe1gina uma vez para aplicar a medi\xe7\xe3o."},
-gJo(){return"Aceitar medi\xe7\xe3o"},
-gJn(){return"Aceitar cookies de medi\xe7\xe3o"}}
+gJq(){return"Aceitar medi\xe7\xe3o"},
+gJp(){return"Aceitar cookies de medi\xe7\xe3o"}}
 B.aBy.prototype={
 gf0(){return"Perfect Gest Dev privacy policy, data, cookies and terms"},
 ghH(){return"Privacy and terms"},
@@ -78,11 +78,11 @@ gEi(){return"6. Your rights"},
 Eh(d){return"In Brazil, the General Data Protection Law (LGPD, Law 13,709/2018) applies. In the European Union, the GDPR applies. Depending on applicable law, you may request access, rectification, erasure, restriction, portability or objection to processing of your personal data, including pre-registration data. To exercise rights or ask privacy questions, write to "+d+"."},
 gEk(){return"7. Website terms of use"},
 gEj(){return"The content of this site (text, visual identity and materials) is for information about Perfect Gest Dev and its products. Unauthorized reproduction for commercial purposes may be prohibited. External links are provided for convenience; we do not control third-party sites. You use the site at your own risk, to the extent permitted by law."},
-gKC(){return"Manage measurement cookies"},
-gKB(){return"If you accept, we store your choice in the browser and, on the next page load, measurement may run only according to your consent. You can decline or revoke by clearing site data in your browser settings or using \xabDecline\xbb below."},
+gKE(){return"Manage measurement cookies"},
+gKD(){return"If you accept, we store your choice in the browser and, on the next page load, measurement may run only according to your consent. You can decline or revoke by clearing site data in your browser settings or using \xabDecline\xbb below."},
 gEB(){return"Preference saved. Reload the page once to apply measurement."},
-gJo(){return"Accept measurement"},
-gJn(){return"Accept measurement cookies"}}
+gJq(){return"Accept measurement"},
+gJp(){return"Accept measurement cookies"}}
 B.aBz.prototype={
 gf0(){return"Politica de privacidad, datos, cookies y terminos Perfect Gest Dev"},
 ghH(){return"Privacidad y terminos"},
@@ -103,37 +103,37 @@ gEi(){return"6. Sus derechos"},
 Eh(d){return"En Brasil, se aplica la Ley General de Proteccion de Datos (LGPD, Ley 13.709/2018). En la Union Europea, se aplica el RGPD. Segun la ley aplicable, puede solicitar acceso, rectificacion, supresion, limitacion, portabilidad u oposicion al tratamiento de sus datos personales, incluidos datos de pre-registro. Para ejercer derechos o consultas de privacidad, escriba a "+d+"."},
 gEk(){return"7. Terminos de uso del sitio"},
 gEj(){return"El contenido de este sitio (textos, identidad visual y materiales) tiene fines informativos sobre Perfect Gest Dev y sus productos. La reproduccion no autorizada con fines comerciales puede estar prohibida. Los enlaces externos se ofrecen por conveniencia; no controlamos sitios de terceros. El uso del sitio es bajo su propio riesgo, en la medida permitida por la ley."},
-gKC(){return"Gestionar cookies de medicion"},
-gKB(){return"Si acepta, guardamos su eleccion en el navegador y, en la proxima carga de la pagina, la medicion puede operar solo segun el consentimiento dado. Puede rechazar o revocar borrando los datos del sitio en la configuracion del navegador o usando \xabRechazar\xbb abajo."},
+gKE(){return"Gestionar cookies de medicion"},
+gKD(){return"Si acepta, guardamos su eleccion en el navegador y, en la proxima carga de la pagina, la medicion puede operar solo segun el consentimiento dado. Puede rechazar o revocar borrando los datos del sitio en la configuracion del navegador o usando \xabRechazar\xbb abajo."},
 gEB(){return"Preferencia guardada. Recargue la pagina una vez para aplicar la medicion."},
-gJo(){return"Aceptar medicion"},
-gJn(){return"Aceptar cookies de medicion"}}
+gJq(){return"Aceptar medicion"},
+gJp(){return"Aceptar cookies de medicion"}}
 B.nU.prototype={
 ab(){return new B.a26()}}
 B.a26.prototype={
 au(){this.aP()
-E.aRn()},
-l(){A.to()
+E.aRo()},
+l(){A.tq()
 this.aG()},
 F(d){var x,w,v,u,t=null,s=A.C(d),r=A.b2(d,C.am,y.h).w.a.a,q=r<400?16:24,p=A.cm(d,C.as,y.p)
 p.toString
-x=B.b0h(d)
+x=B.b0i(d)
 w=x.gf0()
 v=A.C(d).ax.a===C.E?C.bx:C.bb
 u=x.ghH()
-return A.aQ(t,t,A.jw(F.aGa(d,new B.ayL(d),this.a.c,u),v,new A.kL(A.nw(new B.ayM(q,x,s.ax,r,p)),t),t),!1,t,t,t,!1,t,t,t,t,t,t,t,w,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,C.q,t)}}
+return A.aQ(t,t,A.jw(F.aGb(d,new B.ayL(d),this.a.c,u),v,new A.kL(A.nw(new B.ayM(q,x,s.ax,r,p)),t),t),!1,t,t,t,!1,t,t,t,t,t,t,t,w,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,C.q,t)}}
 B.kZ.prototype={
 F(d){var x,w,v,u,t=null,s=A.C(d).ax,r=A.b2(d,C.am,y.h).w.a.a,q=r<400?12:16,p=this.c,o=s.RG
 o=(o==null?s.k2:o).a8(0.5)
 x=A.cJ(14)
 w=s.ry
 if(w==null){w=s.n
-if(w==null)w=s.k3}w=A.hD(w.a8(0.4),1)
+if(w==null)w=s.k3}w=A.hE(w.a8(0.4),1)
 v=r<360
 u=v?15:16
-u=A.a_(p,t,t,t,t,A.b0().$3$color$fontSize$fontWeight(s.b,u,C.az),t,t)
+u=A.Z(p,t,t,t,t,A.aZ().$3$color$fontSize$fontWeight(s.b,u,C.au),t,t)
 v=v?13:14
-return new A.bg(G.qz,A.aQ(t,t,A.di(new A.bg(new A.ad(q,16,q,18),A.bS(A.b([u,C.bh,A.a_(this.d,t,t,t,t,A.b0().$3$color$fontSize$height(s.k3.a8(0.88),v,1.55),t,t)],y.e),C.W,C.w,C.A),t),new A.bI(o,t,w,x,t,t,C.P),C.ai),!0,t,t,t,!1,t,t,t,t,t,t,t,p,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,C.q,t),t)}}
+return new A.bg(G.qz,A.aQ(t,t,A.di(new A.bg(new A.ad(q,16,q,18),A.bS(A.b([u,C.bh,A.Z(this.d,t,t,t,t,A.aZ().$3$color$fontSize$height(s.k3.a8(0.88),v,1.55),t,t)],y.e),C.W,C.w,C.A),t),new A.bI(o,t,w,x,t,t,C.P),C.ai),!0,t,t,t,!1,t,t,t,t,t,t,t,p,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,C.q,t),t)}}
 var z=a.updateTypes([])
 B.ayL.prototype={
 $0(){return A.cV(this.a,!1).dG()},
@@ -146,14 +146,14 @@ w=a9.a
 v=a9.b
 u=a9.c
 t=u.b
-s=A.a_(v.gk8(),b0,b0,b0,b0,A.b0().$4$color$fontSize$fontWeight$letterSpacing(t,13,C.az,0.4),b0,b0)
+s=A.Z(v.gk8(),b0,b0,b0,b0,A.aZ().$4$color$fontSize$fontWeight$letterSpacing(t,13,C.au,0.4),b0,b0)
 r=v.gkd()
 q=a9.d
 p=q<400
 o=p?18:22
 n=u.k3
-o=A.a_(r,b0,b0,b0,b0,A.b0().$4$color$fontSize$fontWeight$height(n,o,C.aO,1.2),b0,b0)
-r=A.a_(v.pt(b1),b0,b0,b0,b0,A.b0().$3$color$fontSize$height(n.a8(0.72),13,1.45),b0,b0)
+o=A.Z(r,b0,b0,b0,b0,A.aZ().$4$color$fontSize$fontWeight$height(n,o,C.aO,1.2),b0,b0)
+r=A.Z(v.pt(b1),b0,b0,b0,b0,A.aZ().$3$color$fontSize$height(n.a8(0.72),13,1.45),b0,b0)
 m=v.gnS()
 l=v.gnR()
 k=v.gnU()
@@ -174,39 +174,39 @@ a4=A.cJ(14)
 a5=u.ry
 if(a5==null){u=u.n
 if(u==null)u=n}else u=a5
-u=A.hD(u.a8(0.45),1)
+u=A.hE(u.a8(0.45),1)
 p=p?14:16
-a5=A.a_(v.gKC(),b0,b0,b0,b0,A.b0().$3$color$fontSize$fontWeight(n,14,C.az),b0,b0)
-a6=A.a_(v.gKB(),b0,b0,b0,b0,A.b0().$3$color$fontSize$height(n.a8(0.8),12.5,1.45),b0,b0)
+a5=A.Z(v.gKE(),b0,b0,b0,b0,A.aZ().$3$color$fontSize$fontWeight(n,14,C.au),b0,b0)
+a6=A.Z(v.gKD(),b0,b0,b0,b0,A.aZ().$3$color$fontSize$height(n.a8(0.8),12.5,1.45),b0,b0)
 a7=a9.e
 a8=y.e
-return A.hY(A.dZ(new A.dh(new A.a9(0,x,0,1/0),A.bS(A.b([s,C.bi,o,C.bh,r,C.el,new B.kZ(m,l,b0),new B.kZ(k,j,b0),new B.kZ(i,h,b0),new B.kZ(g,f,b0),new B.kZ(e,d,b0),new B.kZ(a0,a1,b0),new B.kZ(a2,a3,b0),C.fp,A.di(new A.bg(new A.ad(p,p,p,p),A.bS(A.b([a5,C.b1,a6,C.cf,A.iS(C.bF,A.b([A.aHf(D.Qz,A.a_(q<360?v.gJo():v.gJn(),b0,b0,b0,b0,b0,C.dI,b0),new B.ayJ(b3,v),b0),new A.C4(!1,new B.ayK(b3,a7),b0,b0,b0,b0,b0,b0,!1,b0,!0,b0,A.a_(a7.gvz(),b0,b0,b0,b0,b0,b0,b0),b0)],a8),C.cN,8,8)],a8),C.bc,C.w,C.A),b0),new A.bI(t,b0,u,a4,b0,b0,C.P),C.ai),C.of,A.a_(a7.r6(A.nZ(new A.ev(Date.now(),0,!1))),b0,b0,b0,b0,A.b0().$2$color$fontSize(n.a8(0.65),12),C.dI,b0)],a8),C.W,C.w,C.A),b0),b0,b0),b0,new A.ad(w,16,w,28),C.ah)},
+return A.hZ(A.dZ(new A.dh(new A.a9(0,x,0,1/0),A.bS(A.b([s,C.bi,o,C.bh,r,C.en,new B.kZ(m,l,b0),new B.kZ(k,j,b0),new B.kZ(i,h,b0),new B.kZ(g,f,b0),new B.kZ(e,d,b0),new B.kZ(a0,a1,b0),new B.kZ(a2,a3,b0),C.fp,A.di(new A.bg(new A.ad(p,p,p,p),A.bS(A.b([a5,C.b1,a6,C.cf,A.iS(C.bF,A.b([A.aHg(D.QA,A.Z(q<360?v.gJq():v.gJp(),b0,b0,b0,b0,b0,C.dI,b0),new B.ayJ(b3,v),b0),new A.C4(!1,new B.ayK(b3,a7),b0,b0,b0,b0,b0,b0,!1,b0,!0,b0,A.Z(a7.gvz(),b0,b0,b0,b0,b0,b0,b0),b0)],a8),C.cO,8,8)],a8),C.bc,C.w,C.A),b0),new A.bI(t,b0,u,a4,b0,b0,C.P),C.ai),C.of,A.Z(a7.r6(A.nZ(new A.ev(Date.now(),0,!1))),b0,b0,b0,b0,A.aZ().$2$color$fontSize(n.a8(0.65),12),C.dI,b0)],a8),C.W,C.w,C.A),b0),b0,b0),b0,new A.ad(w,16,w,28),C.ah)},
 $S:116}
 B.ayJ.prototype={
 $0(){var x,w=null
-A.aRR()
+A.aRS()
 x=this.a
 if(x.e==null)return
-x.am(y.f).f.Ev(A.aph(w,w,w,w,C.hP,C.Y,w,A.a_(this.b.gEB(),w,w,w,w,w,w,w),w,C.iL,w,w,w,w,w,w,w,w,w,w))},
+x.am(y.f).f.Ev(A.aph(w,w,w,w,C.hQ,C.Y,w,A.Z(this.b.gEB(),w,w,w,w,w,w,w),w,C.iM,w,w,w,w,w,w,w,w,w,w))},
 $S:0}
 B.ayK.prototype={
 $0(){var x,w=null
-A.aRG()
+A.aRH()
 x=this.a
 if(x.e==null)return
-x.am(y.f).f.Ev(A.aph(w,w,w,w,C.hP,C.Y,w,A.a_(this.b.gvz(),w,w,w,w,w,w,w),w,C.iL,w,w,w,w,w,w,w,w,w,w))},
+x.am(y.f).f.Ev(A.aph(w,w,w,w,C.hQ,C.Y,w,A.Z(this.b.gvz(),w,w,w,w,w,w,w),w,C.iM,w,w,w,w,w,w,w,w,w,w))},
 $S:0};(function inheritance(){var x=a.inherit,w=a.inheritMany
 x(B.ap5,A.J)
 w(B.ap5,[B.aBA,B.aBy,B.aBz])
-x(B.nU,A.T)
-x(B.a26,A.X)
+x(B.nU,A.S)
+x(B.a26,A.W)
 w(A.j9,[B.ayL,B.ayJ,B.ayK])
 x(B.ayM,A.mV)
 x(B.kZ,A.a4)})()
-A.tk(b.typeUniverse,JSON.parse('{"nU":{"T":[],"e":[]},"a26":{"X":["nU"]},"kZ":{"a4":[],"e":[]}}'))
-var y={p:A.a1("fm"),e:A.a1("p<e>"),h:A.a1("fz"),k:A.a1("kY"),f:A.a1("xB")};(function constants(){D.M3=new B.aBy()
-D.M4=new B.aBz()
-D.M5=new B.aBA()
-D.PY=new A.bA(57690,"MaterialIcons",!1)
-D.Qz=new A.dP(D.PY,20,null,null,null)})()};
-(a=>{a["1Vvsdn3Al8s8j8zSBMAM4OzkVtU="]=a.current})($__dart_deferred_initializers__);
+A.tm(b.typeUniverse,JSON.parse('{"nU":{"S":[],"e":[]},"a26":{"W":["nU"]},"kZ":{"a4":[],"e":[]}}'))
+var y={p:A.a1("fm"),e:A.a1("p<e>"),h:A.a1("fz"),k:A.a1("kY"),f:A.a1("xB")};(function constants(){D.M5=new B.aBy()
+D.M6=new B.aBz()
+D.M7=new B.aBA()
+D.PZ=new A.bA(57690,"MaterialIcons",!1)
+D.QA=new A.dQ(D.PZ,20,null,null,null)})()};
+(a=>{a["L1uBKmsfKPir0GK0FvnL6cAekcc="]=a.current})($__dart_deferred_initializers__);

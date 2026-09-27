@@ -180,6 +180,8 @@ abstract class AppLocalizations {
   String get aboutWhyBody;
   String get aboutFooterSemantics;
   String get aboutFooterDisclaimer;
+  String get aboutFooterOffer;
+  String get aboutFooterDownload;
   String aboutFooterCopyright(int year);
 }
 
@@ -555,6 +557,11 @@ class _AppLocalizationsPt extends AppLocalizations {
   String get aboutFooterDisclaimer =>
       'Marca, logotipos, textos e ilustracoes deste site sao de uso exclusivo da Perfect Gest Dev, salvo indicacao em contrario. E proibida a reproducao total ou parcial para fins comerciais sem autorizacao previa por escrito.';
   @override
+  String get aboutFooterOffer =>
+      'Emissao de NFS-e e NF-e. Gerenciamento e assinatura do contador nos livros.';
+  @override
+  String get aboutFooterDownload => 'Baixar o ContabilGest na Google Play';
+  @override
   String aboutFooterCopyright(int year) => '© $year Perfect Gest Dev. Todos os direitos reservados.';
 }
 
@@ -901,6 +908,11 @@ class _AppLocalizationsEn extends AppLocalizations {
   @override
   String get aboutFooterDisclaimer =>
       'Brand, logos, text, and illustrations on this site are for exclusive use by Perfect Gest Dev unless stated otherwise. Total or partial reproduction for commercial purposes is prohibited without prior written authorization.';
+  @override
+  String get aboutFooterOffer =>
+      'NFS-e and NF-e issuance. Accountant book management and signature.';
+  @override
+  String get aboutFooterDownload => 'Download ContabilGest on Google Play';
   @override
   String aboutFooterCopyright(int year) => '© $year Perfect Gest Dev. All rights reserved.';
 }
@@ -1249,6 +1261,11 @@ class _AppLocalizationsEs extends AppLocalizations {
   @override
   String get aboutFooterDisclaimer =>
       'Marca, logotipos, textos e ilustraciones de este sitio son de uso exclusivo de Perfect Gest Dev salvo indicación en contrario. Queda prohibida la reproducción total o parcial con fines comerciales sin autorización previa por escrito.';
+  @override
+  String get aboutFooterOffer =>
+      'Emision de NFS-e y NF-e. Gestion y firma del contador en los libros.';
+  @override
+  String get aboutFooterDownload => 'Descargar ContabilGest en Google Play';
   @override
   String aboutFooterCopyright(int year) => '© $year Perfect Gest Dev. Todos los derechos reservados.';
 }
