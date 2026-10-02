@@ -2804,7 +2804,7 @@ else t.push(v)}new B.bk(q,q.$ti.i("bk<2>")).aN(0,new B.Lg(t,s).gavS())
 return new B.mU(t,s)},
 ex(d){d.p2=this.gab0()}}
 A.ZE.prototype={
-gEA(){return D.Yh},
+gEA(){return D.Yf},
 JW(d){var w,v=this
 switch(d.a){case 0:w=v.d.ax
 break
@@ -5461,7 +5461,7 @@ u.bI.a2(v)
 u.bN.a2(v)
 m.IW()
 v=m.gae9()
-p=B.aOh(l.x,w,k,r,l.cy,C.cx,n,0,0,t,v,m.gags(),m.gagu(),q,v,m.gagy(),m.gagA(),s,l,D.a0s,l.cx,C.cx,o,l.CW,u.w7,p)
+p=B.aOh(l.x,w,k,r,l.cy,C.cx,n,0,0,t,v,m.gags(),m.gagu(),q,v,m.gagy(),m.gagA(),s,l,D.a0r,l.cx,C.cx,o,l.CW,u.w7,p)
 m.e!==$&&B.bd()
 m.e=p
 return m},
@@ -7539,7 +7539,7 @@ A.aBD.prototype={
 gf0(){return"Pre-cadastro Perfect Gest Dev"},
 ghH(){return"Pre-cadastro"},
 gMt(){return"Deixe seu contato"},
-gNa(){return"Informe nome e e-mail para receber novidades sobre PerfectGest I e solu\xe7\xf5es Perfect Gest Dev."},
+gNa(){return"Informe nome e e-mail para receber novidades sobre PerfectGest e solu\xe7\xf5es Perfect Gest Dev."},
 gOh(){return"Parte deste pr\xe9-cadastro destina-se a convites para o nosso programa de pr\xe9-lan\xe7amento: acesso integral \xe0s vers\xf5es em desenvolvimento dos aplicativos, com oportunidade de testar funcionalidades em antecipa\xe7\xe3o e contribuir com feedback que orienta a evolu\xe7\xe3o do produto antes do lan\xe7amento p\xfablico."},
 gLS(){return"Nome"},
 gLR(){return"Seu nome completo"},
@@ -7570,7 +7570,7 @@ A.aBB.prototype={
 gf0(){return"Pre-registration Perfect Gest Dev"},
 ghH(){return"Pre-registration"},
 gMt(){return"Leave your contact details"},
-gNa(){return"Enter your name and email to receive updates about PerfectGest I and Perfect Gest Dev solutions."},
+gNa(){return"Enter your name and email to receive updates about PerfectGest and Perfect Gest Dev solutions."},
 gOh(){return"Pre-registration also enables us to invite selected participants to our pre-launch program: full access to in-development app builds, early feature testing, and feedback that helps shape the product before public release."},
 gLS(){return"Name"},
 gLR(){return"Your full name"},
@@ -7601,7 +7601,7 @@ A.aBC.prototype={
 gf0(){return"Pre-registro Perfect Gest Dev"},
 ghH(){return"Pre-registro"},
 gMt(){return"Deje su contacto"},
-gNa(){return"Indique nombre y correo para recibir novedades sobre PerfectGest I y soluciones Perfect Gest Dev."},
+gNa(){return"Indique nombre y correo para recibir novedades sobre PerfectGest y soluciones Perfect Gest Dev."},
 gOh(){return"Parte de este pre-registro sirve para invitar a participantes seleccionados al programa de prelanzamiento: acceso completo a las versiones en desarrollo de las aplicaciones, prueba anticipada de funcionalidades y retroalimentaci\xf3n que orienta la evoluci\xf3n del producto antes del lanzamiento p\xfablico."},
 gLS(){return"Nombre"},
 gLR(){return"Su nombre completo"},
@@ -8903,8 +8903,8 @@ D.bk=new A.eT(7,"suffixIcon")
 D.cy=new A.eT(8,"helperError")
 D.cz=new A.eT(9,"counter")
 D.dJ=new A.eT(10,"container")
-D.Yh=w([D.ba,D.bu,D.aD,D.bG,D.bH,D.bI,D.ay,D.bk,D.cy,D.cz,D.dJ],B.a1("p<eT>"))
-D.a0s=w([],x.a)
+D.Yf=w([D.ba,D.bu,D.aD,D.bG,D.bH,D.bI,D.ay,D.bk,D.cy,D.cz,D.dJ],B.a1("p<eT>"))
+D.a0r=w([],x.a)
 D.a7L={"Content-Type":0,Accept:1}
 D.a5u=new B.a3(D.a7L,["application/json","application/json"],B.a1("a3<k,k>"))
 D.a7K={"deleteBackward:":0,"deleteWordBackward:":1,"deleteToBeginningOfLine:":2,"deleteForward:":3,"deleteWordForward:":4,"deleteToEndOfLine:":5,"moveLeft:":6,"moveRight:":7,"moveForward:":8,"moveBackward:":9,"moveUp:":10,"moveDown:":11,"moveLeftAndModifySelection:":12,"moveRightAndModifySelection:":13,"moveUpAndModifySelection:":14,"moveDownAndModifySelection:":15,"moveWordLeft:":16,"moveWordRight:":17,"moveToBeginningOfParagraph:":18,"moveToEndOfParagraph:":19,"moveWordLeftAndModifySelection:":20,"moveWordRightAndModifySelection:":21,"moveParagraphBackwardAndModifySelection:":22,"moveParagraphForwardAndModifySelection:":23,"moveToLeftEndOfLine:":24,"moveToRightEndOfLine:":25,"moveToBeginningOfDocument:":26,"moveToEndOfDocument:":27,"moveToLeftEndOfLineAndModifySelection:":28,"moveToRightEndOfLineAndModifySelection:":29,"moveToBeginningOfDocumentAndModifySelection:":30,"moveToEndOfDocumentAndModifySelection:":31,"transpose:":32,"scrollToBeginningOfDocument:":33,"scrollToEndOfDocument:":34,"scrollPageUp:":35,"scrollPageDown:":36,"pageUpAndModifySelection:":37,"pageDownAndModifySelection:":38,"cancelOperation:":39,"insertTab:":40,"insertBacktab:":41}
@@ -8988,4 +8988,4 @@ w($,"bab","a73",()=>{var v=new A.Vy()
 v.a=D.a8x
 v.gao8().my(v.gahq())
 return v})})()};
-(a=>{a["9R68MVD1qMefkQLzIxz4H/o+SCU="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["tvLm2BGNldlidqGijQhsmhvIeOg="]=a.current})($__dart_deferred_initializers__);

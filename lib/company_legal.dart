@@ -33,8 +33,8 @@ const String kSiteBrandFaviconPngWebPath = 'favicon.png';
 const String kCompanyLegalName =
     'PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA';
 
-/// Produto mobile PerfectGest I.
-const String kProductPerfectGestIName = 'PerfectGest I';
+/// Produto mobile PerfectGest (nome na Play Store).
+const String kProductPerfectGestIName = 'PerfectGest';
 
 /// Produto desktop PerfectGest-Clinica III (Microsoft Store).
 const String kProductPerfectGestClinicaIIIName = 'PerfectGest-Clinica III';

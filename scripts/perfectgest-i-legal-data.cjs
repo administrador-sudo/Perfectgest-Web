@@ -1,7 +1,7 @@
 /** PerfectGest I — documentos legais no domínio.
  * Gerado por scripts/perfectgest-i-sync-legal-from-md.cjs a partir de
  * apps/PerfectGest-I/Politicas-Privacidade/*.md — não editar manualmente. */
-const PRODUCT = "PerfectGest I";
+const PRODUCT = "PerfectGest";
 const FANTASY = "Perfect Gest Dev";
 const LEGAL_NAME = "PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA";
 const CNPJ = "66.889.409/0001-19";

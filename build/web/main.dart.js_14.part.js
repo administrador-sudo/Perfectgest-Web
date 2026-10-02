@@ -51,7 +51,7 @@ gN1(){return"Our technical strategy connects architecture, data, user experience
 gN2(){return"Integrated flow: solid technical foundation -> reliable data -> consistent experience -> measurable operations. Each decision reinforces the next and keeps commercial narrative aligned with product execution."},
 gOd(){return"Portfolio differentiators"},
 gKl(){return"Applied concept:"},
-gqd(){return A.a3f}}
+gqd(){return A.a3e}}
 B.aBI.prototype={
 gf0(){return"Tecnologias Flutter y stack principal de Perfect Gest Dev"},
 gN5(){return"Stack Flutter y tecnologias de Perfect Gest Dev"},
@@ -189,5 +189,5 @@ A.aeh=new B.bK("Web integrations and technical SEO","We implement dynamic meta t
 A.aeu=new B.bK("Analytics and consent (GA4)","Measurement with Google Analytics 4 integrated into the cookie consent flow. This enables behavioral analysis with respect for privacy and alignment with modern measurement policies.","Practical example: the conversion funnel records only consented events and guides UX improvements with real data.")
 A.aek=new B.bK("Clean architecture and maintenance","We prioritize organized code, reusable components and separation of concerns to support continuous product evolution, fewer bugs and lower maintenance cost.","Practical example: a new subscription feature is added by reusing components and reducing QA effort.")
 A.ae5=new B.bK("HTTP integrations and external services","We integrate external APIs and data services for real business flows, including back-end endpoints and observability services, ensuring operational reliability and metric-driven evolution.","Practical example: we monitor API latency and errors in production to act before customers are impacted.")
-A.a3f=w([A.ae9,A.adV,A.aeg,A.aee,A.adX,A.ae7,A.aej,A.aeb,A.ae3,A.aeq,A.aer,A.aeh,A.aeu,A.aek,A.ae5],x.c)})()};
-(a=>{a["kSWrK1GWrU/fOaCVTz6zpCUUh+s="]=a.current})($__dart_deferred_initializers__);
+A.a3e=w([A.ae9,A.adV,A.aeg,A.aee,A.adX,A.ae7,A.aej,A.aeb,A.ae3,A.aeq,A.aer,A.aeh,A.aeu,A.aek,A.ae5],x.c)})()};
+(a=>{a["Nk4qV9WD5v0slx8WJktFwsibQgY="]=a.current})($__dart_deferred_initializers__);

@@ -12,7 +12,7 @@ const OUT_CJS = path.join(__dirname, 'perfectgest-i-legal-data.cjs');
 const OUT_DART = path.join(ROOT, 'lib', 'l10n', 'perfectgest_i_legal_texts.dart');
 
 const EMAIL = 'suporte@perfectgestdev.com';
-const PRODUCT = 'PerfectGest I';
+const PRODUCT = 'PerfectGest';
 const FANTASY = 'Perfect Gest Dev';
 const LEGAL_NAME = 'PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA';
 const CNPJ = '66.889.409/0001-19';

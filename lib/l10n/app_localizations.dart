@@ -283,7 +283,7 @@ class _AppLocalizationsPt extends AppLocalizations {
       'O MEI vai mudar em 2027.\nO seu CNPJ está preparado para a nova Nota Fiscal?';
   @override
   String get heroContabilLead =>
-      'Não espere o bloqueio do seu CNPJ ou multas retroativas. Conheça o único aplicativo que emite NFS-e/NF-e em segundos e controla o seu limite do MEI automaticamente.';
+      'Não espere o bloqueio do seu CNPJ ou multas retroativas. O PerfectGest ContabilGest ajuda MEI e ME a emitir NFS-e/NF-e com certificado A1 operacional e a controlar o Livro Caixa no celular.';
   @override
   String get heroContabilWhyNowTitle =>
       'Por que você precisa agir agora e não em 2027?';
@@ -304,32 +304,32 @@ class _AppLocalizationsPt extends AppLocalizations {
       'Tudo o que o seu CNPJ precisa na palma da sua mão';
   @override
   String get heroContabilFeaturesLead =>
-      'Desenvolvemos uma ferramenta intuitiva para quem não tem tempo a perder com burocracia.';
+      'Ferramenta para organizar Livro Caixa, obrigações fiscais e notas no celular — sem substituir os portais oficiais do governo.';
   @override
   String get heroContabilFeatEmit =>
-      '--> Emissão Relâmpago em 1 Minuto: Chega de portais do governo lentos e complicados. Emita suas Notas Fiscais de produto ou serviço direto pelo celular.';
+      '--> NFS-e e NF-e pelo celular, com certificado A1 operacional. No plano Básico usa o seu A1; nos planos Contabil+, o fluxo homologado do escritório. Quem autoriza a nota é o município ou a SEFAZ.';
   @override
   String get heroContabilFeatThermometer =>
-      '--> Termômetro do Limite MEI: O app calcula seu faturamento acumulado mês a mês e avisa quando você estiver chegando perto do teto.';
+      '--> Obrigações e Imposto de Renda: acompanhe prazos e simule o IR no app. Guias e transmissões oficiais continuam nos portais do governo.';
   @override
   String get heroContabilFeatRadar =>
-      '--> Radar de Compras (Notas de Entrada): Saiba na hora quando um fornecedor emitir uma nota contra o seu CNPJ. Monitore suas compras automaticamente.';
+      '--> Notas de compra: cadastre as NFs de entrada no app para conferir com as saídas no fecho do mês.';
   @override
   String get heroContabilFeatCashbook =>
-      '--> Livro Caixa Oficial Automatizado: Tenha um relatório financeiro profissional pronto. Use para comprovar renda no banco e liberar empréstimos mais fáceis.';
+      '--> Livro Caixa no celular: registre entradas e saídas no uso diário (offline por padrão). Nos planos Contabil+, o contador responsável confere e assina os livros conforme o escopo.';
   @override
-  String get heroContabilMoreThanApp => 'Muito mais que um aplicativo.';
+  String get heroContabilMoreThanApp => 'Mais do que um aplicativo.';
   @override
-  String get heroContabilPartnerOffice => 'Um escritório de contabilidade parceiro.';
+  String get heroContabilPartnerOffice => 'Um sistema de contabilidade desenvolvido por um contador.';
   @override
   String get heroContabilHumanSupport =>
-      'Aplicativos comuns te dão uma mensagem de erro e somem. O nosso diferencial é o suporte humano de verdade.';
+      'Há um contador responsável e apoio de suporte — não um time de contadores.';
   @override
   String get heroContabilBulletSupport =>
-      '--> Suporte Técnico Integrado: Se alguma nota der erro no sistema da prefeitura ou do governo, nosso time de contadores resolve para você.';
+      '--> Contador responsável: nos planos Contabil+, confere o mês e assina os livros conforme o contrato. No Básico, você opera sozinho (autocontabilidade).';
   @override
   String get heroContabilBulletGrowth =>
-      '--> Crescimento Sem Medo: O seu negócio cresceu e passou do limite do MEI? Nós cuidamos de toda a transição burocrática para transformar sua empresa em ME (Microempresa) com desconto exclusivo para usuários do app.';
+      '--> Abertura de empresa e transformação MEI para ME: solicite no aplicativo (plano Básico MEI e planos com contador). Mão de obra: R\$ 490,00 (abertura) e R\$ 350,00 (transformação). Taxas de órgãos são à parte.';
   @override
   String get heroContabilNoRisk => 'Chega de correr riscos com o Leão.';
   @override
@@ -346,13 +346,13 @@ class _AppLocalizationsPt extends AppLocalizations {
   String get heroContabilPlanBasicTitle => 'Plano Básico (Indicado para MEI):';
   @override
   String get heroContabilPlanBasicBody =>
-      'Acesso completo a todas as ferramentas e funcionalidades automáticas do aplicativo para você gerenciar sua empresa com autonomia, sem a necessidade de um contador ativo.';
+      'App + emissão de NF com certificado A1 (até 10 NF/mês). Autocontabilidade: sem assinatura contábil nos documentos. Uso completo exige assinatura; o preço oficial é o do checkout (referência R\$ 59,99/mês). Certificado A1 Quality é oferta avulsa.';
   @override
   String get heroContabilPlanActiveTitle =>
-      'Plano Contabilidade Ativa (Indicado para ME):';
+      'Plano Contabil+ (indicado para ME):';
   @override
   String get heroContabilPlanActiveBody =>
-      'Acesso total à plataforma integrado ao suporte de um contador responsável, garantindo a emissão e assinatura dos livros contábeis obrigatórios por lei. Esta modalidade possui 3 faixas de preço, e "você ganha um Certificado A1", categorizadas de acordo com o volume de movimentações e o número de funcionários da sua empresa.';
+      'Três faixas (Essencial, Standard e Avançado): o contador responsável confere e assina os livros conforme o escopo. O certificado A1 Quality não está incluído — é oferta avulsa (referência R\$ 119,99/ano). Preço oficial: o exibido no checkout.';
   @override
   String get heroContabilFaqLink =>
       'Acesse Perguntas e respostas sobre o Aplicativo';
@@ -363,14 +363,14 @@ class _AppLocalizationsPt extends AppLocalizations {
   String get footerComplianceTitle => 'Ética e Compliance';
 
   @override
-  String get solAppsTitle => 'PerfectGest I';
+  String get solAppsTitle => 'PerfectGest';
   @override
   String get solAppsPlatformLabel => 'Aplicativos para Android';
   @override
-  String get solAppsTagline => 'Gestão para ME, MEI e autônomos';
+  String get solAppsTagline => 'Gratuito. Gestão no celular para ME, MEI e autônomos';
   @override
   String get solAppsBody =>
-      'Cadastre clientes, crie orçamentos em PDF, controle o caixa e receba lembretes fiscais com alarme. Funciona offline no seu celular.';
+      'Cadastre clientes, crie orçamentos e ordens de serviço em PDF, controle o caixa, receba lembretes fiscais e use o cartão de visita digital — todas as funções gratuitas, inclusive offline. Para NFS-e/NF-e, Livro Caixa com conferência e contador responsável, conheça o PerfectGest ContabilGest.';
   @override
   String get solAppsGetAppLabel => 'Obter o aplicativo';
   @override
@@ -379,12 +379,12 @@ class _AppLocalizationsPt extends AppLocalizations {
   String get solAppsHashtags =>
       '#MEI #gestão #empreendedor #autônomo #microempresa #controleFinanceiro #orçamento #caixa #PerfectGest';
   @override
-  String get solContabilAppsTitle => 'ContabilGest - Gestão Contabil';
+  String get solContabilAppsTitle => 'PerfectGest ContabilGest';
   @override
-  String get solContabilAppsTagline => 'Livro caixa, IR com IA e conferência contábil';
+  String get solContabilAppsTagline => 'Livro caixa, IR com IA e conferência nos planos contratados';
   @override
   String get solContabilAppsBody =>
-      'Configure a empresa, lance movimentos com chat e IA, prepare o IR e envie o mês para conferência do escritório. Criptografia AES-256 no dispositivo.';
+      'Configure a empresa, lance movimentos com chat e IA, prepare o IR e, nos planos contratados, envie o mês para conferência do contador responsável. Dados no dispositivo; uso diário offline por padrão.';
   @override
   String get solContabilAppsSupportPortalLabel => 'FAQ e políticas do app';
   @override
@@ -458,16 +458,16 @@ class _AppLocalizationsPt extends AppLocalizations {
   @override
   String get solShowcaseTapToExpand => 'Clique para ampliar a captura de tela';
   @override
-  String get solPreviewPhoneInicio => 'PerfectGest I — Inicio (celular)';
+  String get solPreviewPhoneInicio => 'PerfectGest — Inicio (celular)';
   @override
-  String get solPreviewPhoneOrcamentos => 'PerfectGest I — Orcamentos (celular)';
+  String get solPreviewPhoneOrcamentos => 'PerfectGest — Orcamentos (celular)';
   @override
-  String get solPreviewTabletInicio => 'PerfectGest I — Inicio (tablet)';
+  String get solPreviewTabletInicio => 'PerfectGest — Inicio (tablet)';
   @override
-  String get solPreviewTabletOrcamentos => 'PerfectGest I — Orcamentos (tablet)';
+  String get solPreviewTabletOrcamentos => 'PerfectGest — Orcamentos (tablet)';
   @override
   String get solPreviewContabilPhoneEmpresa =>
-      'PerfectGest ContábilSigilo — Empresa e contador CRC (celular)';
+      'PerfectGest ContabilGest — Empresa e contador CRC (celular)';
   @override
   String get solPreviewContabilTabletLancar => 'PerfectGest ContabilGest — Lancar (tablet)';
   @override
@@ -558,9 +558,9 @@ class _AppLocalizationsPt extends AppLocalizations {
       'Marca, logotipos, textos e ilustracoes deste site sao de uso exclusivo da Perfect Gest Dev, salvo indicacao em contrario. E proibida a reproducao total ou parcial para fins comerciais sem autorizacao previa por escrito.';
   @override
   String get aboutFooterOffer =>
-      'Emissao de NFS-e e NF-e. Gerenciamento e assinatura do contador nos livros.';
+      'Emissão de NFS-e e NF-e com certificado A1. Livros assinados pelo contador responsável nos planos Contabil+.';
   @override
-  String get aboutFooterDownload => 'Baixar o ContabilGest na Google Play';
+  String get aboutFooterDownload => 'Obter o PerfectGest ContabilGest';
   @override
   String aboutFooterCopyright(int year) => '© $year Perfect Gest Dev. Todos os direitos reservados.';
 }
@@ -636,7 +636,7 @@ class _AppLocalizationsEn extends AppLocalizations {
       'MEI rules change in 2027.\nIs your CNPJ ready for the new electronic invoice?';
   @override
   String get heroContabilLead =>
-      'Do not wait for a CNPJ block or retroactive fines. Meet the only app that issues NFS-e/NF-e in seconds and automatically tracks your MEI revenue cap.';
+      'Do not wait for a CNPJ block or retroactive fines. PerfectGest ContabilGest helps MEI and small companies issue NFS-e/NF-e with an operational A1 certificate and keep the cash book on the phone.';
   @override
   String get heroContabilWhyNowTitle =>
       'Why you need to act now, not in 2027?';
@@ -657,32 +657,32 @@ class _AppLocalizationsEn extends AppLocalizations {
       'Everything your CNPJ needs in the palm of your hand';
   @override
   String get heroContabilFeaturesLead =>
-      'We built an intuitive tool for people who have no time to waste on bureaucracy.';
+      'A tool to organize the cash book, tax obligations, and invoices on your phone — without replacing official government portals.';
   @override
   String get heroContabilFeatEmit =>
-      '--> Lightning issuance in 1 minute: No more slow, complicated government portals. Issue product or service invoices right from your phone.';
+      '--> NFS-e and NF-e from your phone, with an operational A1 certificate. Basic plan uses your A1; Contabil+ plans use the office homologated flow. The city or SEFAZ authorizes the invoice.';
   @override
   String get heroContabilFeatThermometer =>
-      '--> MEI cap thermometer: The app calculates your accumulated revenue month by month and alerts you when you are approaching the ceiling.';
+      '--> Obligations and income tax: track deadlines and simulate IR in the app. Official guides and filings remain on government portals.';
   @override
   String get heroContabilFeatRadar =>
-      '--> Purchase radar (inbound invoices): Know immediately when a supplier issues an invoice against your CNPJ. Monitor your purchases automatically.';
+      '--> Purchase invoices: register inbound NFs in the app to match them against outflows at month close.';
   @override
   String get heroContabilFeatCashbook =>
-      '--> Automated official cash book: Get a professional financial report ready. Use it to prove income at the bank and unlock easier loans.';
+      '--> Cash book on your phone: record income and expenses for daily use (offline by default). On Contabil+ plans, the responsible accountant reviews and signs the books as contracted.';
   @override
-  String get heroContabilMoreThanApp => 'Much more than an app.';
+  String get heroContabilMoreThanApp => 'More than an app.';
   @override
-  String get heroContabilPartnerOffice => 'A partner accounting office.';
+  String get heroContabilPartnerOffice => 'An accounting system developed by an accountant.';
   @override
   String get heroContabilHumanSupport =>
-      'Ordinary apps give you an error message and disappear. Our difference is real human support.';
+      'There is one responsible accountant and support — not a team of accountants.';
   @override
   String get heroContabilBulletSupport =>
-      '--> Integrated technical support: If an invoice fails in the city hall or government system, our accounting team resolves it for you.';
+      '--> Responsible accountant: on Contabil+ plans, reviews the month and signs the books as contracted. On Basic, you operate on your own (self-accounting).';
   @override
   String get heroContabilBulletGrowth =>
-      '--> Growth without fear: Did your business grow past the MEI cap? We handle the entire bureaucratic transition to turn your company into ME (Microempresa) with an exclusive discount for app users.';
+      '--> Company opening and MEI to ME conversion: request it in the app (Basic MEI plan and plans with an accountant). Labor: R\$ 490.00 (opening) and R\$ 350.00 (conversion). Government fees are extra.';
   @override
   String get heroContabilNoRisk => 'Stop taking risks with the taxman.';
   @override
@@ -699,13 +699,13 @@ class _AppLocalizationsEn extends AppLocalizations {
   String get heroContabilPlanBasicTitle => 'Basic Plan (Recommended for MEI):';
   @override
   String get heroContabilPlanBasicBody =>
-      'Full access to all automatic tools and features of the app so you can manage your company independently, without an active accountant.';
+      'App + invoice issuance with an A1 certificate (up to 10 invoices/month). Self-accounting: no accountant signature on documents. Full use requires a subscription; official price is at checkout (reference R\$ 59.99/month). A1 Quality certificate is a separate offer.';
   @override
   String get heroContabilPlanActiveTitle =>
-      'Active Accounting Plan (Recommended for ME):';
+      'Contabil+ plan (recommended for ME):';
   @override
   String get heroContabilPlanActiveBody =>
-      'Full platform access plus support from a responsible accountant, ensuring issuance and signing of the accounting books required by law. This option has 3 price bands, and "you get an A1 Certificate", categorized by transaction volume and the number of employees in your company.';
+      'Three bands (Essential, Standard, and Advanced): the responsible accountant reviews and signs the books as contracted. The A1 Quality certificate is not included — it is a separate offer (reference R\$ 119.99/year). Official price: the amount shown at checkout.';
   @override
   String get heroContabilFaqLink => 'Open Questions and answers about the App';
   @override
@@ -715,14 +715,14 @@ class _AppLocalizationsEn extends AppLocalizations {
   String get footerComplianceTitle => 'Ethics & Compliance';
 
   @override
-  String get solAppsTitle => 'PerfectGest I';
+  String get solAppsTitle => 'PerfectGest';
   @override
   String get solAppsPlatformLabel => 'Android apps';
   @override
-  String get solAppsTagline => 'Management for LLCs, MEI, and solo professionals';
+  String get solAppsTagline => 'Free. Phone management for small companies, MEI, and solo professionals';
   @override
   String get solAppsBody =>
-      'Register clients, create PDF quotes, manage cash flow, and get tax reminders with alerts. Works offline on your phone.';
+      'Register clients, create PDF quotes and work orders, manage cash, get tax reminders, and use the digital business card — every feature is free, including offline use. For NFS-e/NF-e, a reviewed cash book, and a responsible accountant, see PerfectGest ContabilGest.';
   @override
   String get solAppsGetAppLabel => 'Get the app';
   @override
@@ -731,12 +731,12 @@ class _AppLocalizationsEn extends AppLocalizations {
   String get solAppsHashtags =>
       '#MEI #management #entrepreneur #freelancer #smallBusiness #cashFlow #quotes #PerfectGest';
   @override
-  String get solContabilAppsTitle => 'ContabilGest - Accounting Management';
+  String get solContabilAppsTitle => 'PerfectGest ContabilGest';
   @override
-  String get solContabilAppsTagline => 'Cash book, AI tax prep, and accounting review';
+  String get solContabilAppsTagline => 'Cash book, AI tax prep, and review on contracted plans';
   @override
   String get solContabilAppsBody =>
-      'Set up your company, record entries via AI chat, prepare your tax return, and send closed months for office review. AES-256 encryption on device.';
+      'Set up your company, record entries via AI chat, prepare your tax return, and, on contracted plans, send the month to the responsible accountant for review. Data stays on the device; daily use is offline by default.';
   @override
   String get solContabilAppsSupportPortalLabel => 'App FAQ and policies';
   @override
@@ -810,16 +810,16 @@ class _AppLocalizationsEn extends AppLocalizations {
   @override
   String get solShowcaseTapToExpand => 'Click to enlarge the screenshot';
   @override
-  String get solPreviewPhoneInicio => 'PerfectGest I — Home (phone)';
+  String get solPreviewPhoneInicio => 'PerfectGest — Home (phone)';
   @override
-  String get solPreviewPhoneOrcamentos => 'PerfectGest I — Quotes (phone)';
+  String get solPreviewPhoneOrcamentos => 'PerfectGest — Quotes (phone)';
   @override
-  String get solPreviewTabletInicio => 'PerfectGest I — Home (tablet)';
+  String get solPreviewTabletInicio => 'PerfectGest — Home (tablet)';
   @override
-  String get solPreviewTabletOrcamentos => 'PerfectGest I — Quotes (tablet)';
+  String get solPreviewTabletOrcamentos => 'PerfectGest — Quotes (tablet)';
   @override
   String get solPreviewContabilPhoneEmpresa =>
-      'PerfectGest ContábilSigilo — Company and CRC accountant (phone)';
+      'PerfectGest ContabilGest — Company and CRC accountant (phone)';
   @override
   String get solPreviewContabilTabletLancar => 'PerfectGest ContabilGest — Record entry (tablet)';
   @override
@@ -910,9 +910,9 @@ class _AppLocalizationsEn extends AppLocalizations {
       'Brand, logos, text, and illustrations on this site are for exclusive use by Perfect Gest Dev unless stated otherwise. Total or partial reproduction for commercial purposes is prohibited without prior written authorization.';
   @override
   String get aboutFooterOffer =>
-      'NFS-e and NF-e issuance. Accountant book management and signature.';
+      'NFS-e and NF-e issuance with an A1 certificate. Books signed by the responsible accountant on Contabil+ plans.';
   @override
-  String get aboutFooterDownload => 'Download ContabilGest on Google Play';
+  String get aboutFooterDownload => 'Get PerfectGest ContabilGest';
   @override
   String aboutFooterCopyright(int year) => '© $year Perfect Gest Dev. All rights reserved.';
 }
@@ -988,7 +988,7 @@ class _AppLocalizationsEs extends AppLocalizations {
       'El MEI cambiará en 2027.\n¿Su CNPJ está preparado para la nueva Nota Fiscal?';
   @override
   String get heroContabilLead =>
-      'No espere el bloqueo de su CNPJ ni multas retroactivas. Conozca la única aplicación que emite NFS-e/NF-e en segundos y controla su límite del MEI automáticamente.';
+      'No espere el bloqueo de su CNPJ ni multas retroactivas. PerfectGest ContabilGest ayuda a MEI y ME a emitir NFS-e/NF-e con certificado A1 operativo y a controlar el Libro de caja en el celular.';
   @override
   String get heroContabilWhyNowTitle =>
       '¿Por qué debe actuar ahora y no en 2027?';
@@ -1009,32 +1009,32 @@ class _AppLocalizationsEs extends AppLocalizations {
       'Todo lo que su CNPJ necesita en la palma de su mano';
   @override
   String get heroContabilFeaturesLead =>
-      'Desarrollamos una herramienta intuitiva para quien no tiene tiempo que perder con burocracia.';
+      'Herramienta para organizar el Libro de caja, obligaciones fiscales y notas en el celular — sin sustituir los portales oficiales del gobierno.';
   @override
   String get heroContabilFeatEmit =>
-      '--> Emisión relámpago en 1 minuto: Basta de portales del gobierno lentos y complicados. Emita sus Notas Fiscales de producto o servicio directo desde el celular.';
+      '--> NFS-e y NF-e desde el celular, con certificado A1 operativo. En el plan Básico usa su A1; en los planes Contabil+, el flujo homologado del despacho. Quien autoriza la nota es el municipio o la SEFAZ.';
   @override
   String get heroContabilFeatThermometer =>
-      '--> Termómetro del límite MEI: La app calcula su facturación acumulada mes a mes y avisa cuando se acerque al tope.';
+      '--> Obligaciones e Impuesto de Renta: siga plazos y simule el IR en la app. Guías y transmisiones oficiales siguen en los portales del gobierno.';
   @override
   String get heroContabilFeatRadar =>
-      '--> Radar de compras (notas de entrada): Entérese al momento cuando un proveedor emita una nota contra su CNPJ. Monitore sus compras automáticamente.';
+      '--> Notas de compra: registre las NF de entrada en la app para cotejarlas con las salidas al cierre del mes.';
   @override
   String get heroContabilFeatCashbook =>
-      '--> Libro de caja oficial automatizado: Tenga un informe financiero profesional listo. Úselo para comprobar ingresos en el banco y facilitar préstamos.';
+      '--> Libro de caja en el celular: registre entradas y salidas en el uso diario (offline por defecto). En los planes Contabil+, el contador responsable revisa y firma los libros según el alcance.';
   @override
-  String get heroContabilMoreThanApp => 'Mucho más que una aplicación.';
+  String get heroContabilMoreThanApp => 'Más que una aplicación.';
   @override
-  String get heroContabilPartnerOffice => 'Un despacho de contabilidad asociado.';
+  String get heroContabilPartnerOffice => 'Un sistema de contabilidad desarrollado por un contador.';
   @override
   String get heroContabilHumanSupport =>
-      'Las aplicaciones comunes te dan un mensaje de error y desaparecen. Nuestra diferencia es el soporte humano de verdad.';
+      'Hay un contador responsable y apoyo de soporte — no un equipo de contadores.';
   @override
   String get heroContabilBulletSupport =>
-      '--> Soporte técnico integrado: Si alguna nota falla en el sistema de la prefectura o del gobierno, nuestro equipo de contadores lo resuelve por usted.';
+      '--> Contador responsable: en los planes Contabil+, revisa el mes y firma los libros según el contrato. En el Básico, usted opera solo (autocontabilidad).';
   @override
   String get heroContabilBulletGrowth =>
-      '--> Crecimiento sin miedo: ¿Su negocio creció y superó el límite del MEI? Nosotros cuidamos toda la transición burocrática para transformar su empresa en ME (Microempresa) con descuento exclusivo para usuarios de la app.';
+      '--> Apertura de empresa y transformación MEI a ME: solicítela en la aplicación (plan Básico MEI y planes con contador). Mano de obra: R\$ 490,00 (apertura) y R\$ 350,00 (transformación). Tasas de organismos van aparte.';
   @override
   String get heroContabilNoRisk => 'Basta de correr riesgos con el Leão.';
   @override
@@ -1051,13 +1051,13 @@ class _AppLocalizationsEs extends AppLocalizations {
   String get heroContabilPlanBasicTitle => 'Plan Básico (Indicada para MEI):';
   @override
   String get heroContabilPlanBasicBody =>
-      'Acceso completo a todas las herramientas y funciones automáticas de la aplicación para gestionar su empresa con autonomía, sin necesidad de un contador activo.';
+      'App + emisión de NF con certificado A1 (hasta 10 NF/mes). Autocontabilidad: sin firma contable en los documentos. El uso completo exige suscripción; el precio oficial es el del checkout (referencia R\$ 59,99/mes). El certificado A1 Quality es oferta suelta.';
   @override
   String get heroContabilPlanActiveTitle =>
-      'Plan Contabilidad Activa (Indicada para ME):';
+      'Plan Contabil+ (indicado para ME):';
   @override
   String get heroContabilPlanActiveBody =>
-      'Acceso total a la plataforma integrado al soporte de un contador responsable, garantizando la emisión y firma de los libros contables obligatorios por ley. Esta modalidad tiene 3 franjas de precio, y "usted gana un Certificado A1", categorizadas según el volumen de movimientos y el número de empleados de su empresa.';
+      'Tres franjas (Esencial, Standard y Avanzado): el contador responsable revisa y firma los libros según el alcance. El certificado A1 Quality no está incluido — es oferta suelta (referencia R\$ 119,99/año). Precio oficial: el mostrado en el checkout.';
   @override
   String get heroContabilFaqLink =>
       'Acceda a Preguntas y respuestas sobre la Aplicación';
@@ -1068,14 +1068,14 @@ class _AppLocalizationsEs extends AppLocalizations {
   String get footerComplianceTitle => 'Ética y cumplimiento';
 
   @override
-  String get solAppsTitle => 'PerfectGest I';
+  String get solAppsTitle => 'PerfectGest';
   @override
   String get solAppsPlatformLabel => 'Aplicativos para Android';
   @override
-  String get solAppsTagline => 'Gestión para ME, MEI y autónomos';
+  String get solAppsTagline => 'Gratuito. Gestión en el celular para ME, MEI y autónomos';
   @override
   String get solAppsBody =>
-      'Registre clientes, cree presupuestos en PDF, controle la caja y reciba recordatorios fiscales con alarma. Funciona sin conexión en su móvil.';
+      'Registre clientes, cree presupuestos y órdenes de servicio en PDF, controle la caja, reciba recordatorios fiscales y use la tarjeta de visita digital — todas las funciones son gratuitas, también sin conexión. Para NFS-e/NF-e, Libro de caja con revisión y contador responsable, conozca PerfectGest ContabilGest.';
   @override
   String get solAppsGetAppLabel => 'Obtener la aplicación';
   @override
@@ -1084,12 +1084,12 @@ class _AppLocalizationsEs extends AppLocalizations {
   String get solAppsHashtags =>
       '#MEI #gestión #emprendedor #autónomo #microempresa #controlFinanciero #presupuesto #caja #PerfectGest';
   @override
-  String get solContabilAppsTitle => 'ContabilGest - Gestión Contable';
+  String get solContabilAppsTitle => 'PerfectGest ContabilGest';
   @override
-  String get solContabilAppsTagline => 'Libro de caja, IR con IA y revisión contable';
+  String get solContabilAppsTagline => 'Libro de caja, IR con IA y revisión en los planes contratados';
   @override
   String get solContabilAppsBody =>
-      'Configure la empresa, registre movimientos con chat e IA, prepare el IR y envíe el mes cerrado a revisión de la oficina. Cifrado AES-256 en el dispositivo.';
+      'Configure la empresa, registre movimientos con chat e IA, prepare el IR y, en los planes contratados, envíe el mes a revisión del contador responsable. Datos en el dispositivo; uso diario offline por defecto.';
   @override
   String get solContabilAppsSupportPortalLabel => 'FAQ y políticas de la app';
   @override
@@ -1163,16 +1163,16 @@ class _AppLocalizationsEs extends AppLocalizations {
   @override
   String get solShowcaseTapToExpand => 'Pulse para ampliar la captura de pantalla';
   @override
-  String get solPreviewPhoneInicio => 'PerfectGest I — Inicio (movil)';
+  String get solPreviewPhoneInicio => 'PerfectGest — Inicio (movil)';
   @override
-  String get solPreviewPhoneOrcamentos => 'PerfectGest I — Presupuestos (movil)';
+  String get solPreviewPhoneOrcamentos => 'PerfectGest — Presupuestos (movil)';
   @override
-  String get solPreviewTabletInicio => 'PerfectGest I — Inicio (tablet)';
+  String get solPreviewTabletInicio => 'PerfectGest — Inicio (tablet)';
   @override
-  String get solPreviewTabletOrcamentos => 'PerfectGest I — Presupuestos (tablet)';
+  String get solPreviewTabletOrcamentos => 'PerfectGest — Presupuestos (tablet)';
   @override
   String get solPreviewContabilPhoneEmpresa =>
-      'PerfectGest ContábilSigilo — Empresa y contador CRC (movil)';
+      'PerfectGest ContabilGest — Empresa y contador CRC (movil)';
   @override
   String get solPreviewContabilTabletLancar => 'PerfectGest ContabilGest — Registrar (tablet)';
   @override
@@ -1263,9 +1263,9 @@ class _AppLocalizationsEs extends AppLocalizations {
       'Marca, logotipos, textos e ilustraciones de este sitio son de uso exclusivo de Perfect Gest Dev salvo indicación en contrario. Queda prohibida la reproducción total o parcial con fines comerciales sin autorización previa por escrito.';
   @override
   String get aboutFooterOffer =>
-      'Emision de NFS-e y NF-e. Gestion y firma del contador en los libros.';
+      'Emisión de NFS-e y NF-e con certificado A1. Libros firmados por el contador responsable en los planes Contabil+.';
   @override
-  String get aboutFooterDownload => 'Descargar ContabilGest en Google Play';
+  String get aboutFooterDownload => 'Obtener PerfectGest ContabilGest';
   @override
   String aboutFooterCopyright(int year) => '© $year Perfect Gest Dev. Todos los derechos reservados.';
 }

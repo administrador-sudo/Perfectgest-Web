@@ -92,7 +92,75 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 
 ## Registro de evolucao
 
+## [2026-10-02 17:25] Titulos PerfectGest (nome da Play)
+
+### Contexto
+- Pedido: titulo no site deve usar o nome da Play Store «PerfectGest».
+- Escopo: constante do produto, titulos legais HTML (h1/aba) e textos que interpolam o nome.
+
+### Arquivos alterados
+- lib/company_legal.dart
+- lib/l10n/play_store_app_legal_texts.dart
+- scripts/perfectgest-i-legal-data.cjs
+- scripts/perfectgest-i-sync-legal-from-md.cjs
+- exports/perfectgest-i-legal-preview/*.html
+- docs/Atualiza.md
+
+### O que foi feito
+- `kProductPerfectGestIName` e `PRODUCT` dos HTML legais: PerfectGest (URLs `/perfectgest-i-*` iguais).
+
+### Risco de regressao
+- Baixo: so nome visivel nos titulos.
+- Pontos sensiveis: HTML em producao so muda no proximo deploy Render.
+
+### Validacao executada
+- [x] HTML preview gerado com titulos «— PerfectGest»
+
+### Resultado
+- Titulos legais e vitrine passam a usar PerfectGest.
+- Pendencias: deploy Render para as paginas `/perfectgest-i-*` publicas.
+
+### Proximos passos recomendados
+- Publicar no Render quando o operador autorizar.
+
+## [2026-10-02 16:50] Vitrine: textos PerfectGest e ContabilGest alinhados
+
+### Contexto
+- Pedido: corrigir textos da vitrine sobre PerfectGest e ContabilGest usando as politicas `/contabil-i-*` e a instrucao do operador para PerfectGest.
+- Escopo: Hero, Solucoes e rodape Sobre (PT/EN/ES). HTML legais nao alterados.
+
+### Arquivos alterados
+- lib/l10n/app_pt.arb
+- lib/l10n/app_en.arb
+- lib/l10n/app_es.arb
+- lib/l10n/app_localizations.dart
+- lib/company_legal.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- Hero ContabilGest: sem «unico app», emissao relampago, termometro, radar automatico, time de contadores ou A1 de oferta. Planos Básico e Contabil+; 1 contador responsavel.
+- PerfectGest na vitrine: nome sem «I», gratuito, convite ao ContabilGest.
+- Captions e rodape Sobre: nome PerfectGest ContabilGest; botao sem citar loja.
+
+### Risco de regressao
+- Baixo: so strings; layout inalterado.
+- Pontos sensiveis: textos longos no Hero; politicas HTML `/perfectgest-i-*` ainda podem mencionar Plano Pro (fora deste lote).
+
+### Validacao executada
+- [x] Browser Home (Hero EN + Solucoes EN): textos novos visiveis
+- [x] Browser Sobre: `aboutFooterOffer` e botao «Get PerfectGest ContabilGest»
+- [x] HTML `/contabil-i-*` e `/perfectgest-i-*` nao editados
+
+### Resultado
+- Comportamento esperado: vitrine descreve ContabilGest como nas politicas; PerfectGest gratuito e propaganda do ContabilGest.
+- Pendencias: pre-cadastro/politica do site/devolucao ainda citam PerfectGest I (operador nao autorizou).
+
+### Proximos passos recomendados
+- Conferir visual no browser apos hot reload / deploy.
+- Decidir se HTML `/perfectgest-i-*` deve deixar de citar Plano Pro.
+
 ## [2026-09-27] Rodape Sobre: ofertas NFS-e/NF-e/livros + Play ContabilGest; nome fantasia
+
 
 ### Contexto
 - Pedido: mesmo bloco do banner PerfectGest no rodape da pagina de apresentacao (Sobre). Nome fantasia visivel; razao social/CNPJ fora deste destaque.

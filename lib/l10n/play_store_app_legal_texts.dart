@@ -92,7 +92,7 @@ const List<LegalSectionText> _kDataDeletionPt = <LegalSectionText>[
     heading: '1. Eliminação de dados de gestão (locais)',
     body:
         'Os dados de clientes, orçamentos e finanças residem exclusivamente no dispositivo. '
-        'Para eliminar: abrir PerfectGest I > Configurações > Dados no dispositivo > Eliminar todos os dados. '
+        'Para eliminar: abrir PerfectGest > Configurações > Dados no dispositivo > Eliminar todos os dados. '
         'Atenção: processo irreversível, com remoção permanente da base interna.',
   ),
   LegalSectionText(
@@ -178,7 +178,7 @@ const List<LegalSectionText> _kDataDeletionEn = <LegalSectionText>[
     heading: '1. Deletion of management data (local)',
     body:
         'Client, quote and finance data resides exclusively on the device. '
-        'To delete: open PerfectGest I > Settings > On-device data > Delete all data. '
+        'To delete: open PerfectGest > Settings > On-device data > Delete all data. '
         'Note: this is irreversible and permanently removes the internal database.',
   ),
   LegalSectionText(
@@ -264,7 +264,7 @@ const List<LegalSectionText> _kDataDeletionEs = <LegalSectionText>[
     heading: '1. Eliminacion de datos de gestion (locales)',
     body:
         'Los datos de clientes, presupuestos y finanzas residen exclusivamente en el dispositivo. '
-        'Para eliminar: abrir PerfectGest I > Configuracion > Datos en el dispositivo > Eliminar todos los datos. '
+        'Para eliminar: abrir PerfectGest > Configuracion > Datos en el dispositivo > Eliminar todos los datos. '
         'Atencion: proceso irreversible, con remocion permanente de la base interna.',
   ),
   LegalSectionText(
@@ -299,10 +299,10 @@ class _PlayStoreAppLegalTextsPt extends PlayStoreAppLegalTexts {
   const _PlayStoreAppLegalTextsPt() : super();
 
   @override
-  String get privacyPolicyPerfectGestITitle => 'Política de Privacidade PerfectGest I';
+  String get privacyPolicyPerfectGestITitle => 'Política de Privacidade PerfectGest';
 
   @override
-  String get dataDeletionPolicyPerfectGestITitle => 'Política de exclusão de Dados PerfectGest I';
+  String get dataDeletionPolicyPerfectGestITitle => 'Política de exclusão de Dados PerfectGest';
 
   @override
   String get lastUpdatedMay2026 => 'Última atualização: Maio de 2026';
@@ -318,10 +318,10 @@ class _PlayStoreAppLegalTextsEn extends PlayStoreAppLegalTexts {
   const _PlayStoreAppLegalTextsEn() : super();
 
   @override
-  String get privacyPolicyPerfectGestITitle => 'PerfectGest I Privacy Policy';
+  String get privacyPolicyPerfectGestITitle => 'PerfectGest Privacy Policy';
 
   @override
-  String get dataDeletionPolicyPerfectGestITitle => 'PerfectGest I Data deletion policy';
+  String get dataDeletionPolicyPerfectGestITitle => 'PerfectGest Data deletion policy';
 
   @override
   String get lastUpdatedMay2026 => 'Last updated: May 2026';
@@ -337,10 +337,10 @@ class _PlayStoreAppLegalTextsEs extends PlayStoreAppLegalTexts {
   const _PlayStoreAppLegalTextsEs() : super();
 
   @override
-  String get privacyPolicyPerfectGestITitle => 'Politica de privacidad PerfectGest I';
+  String get privacyPolicyPerfectGestITitle => 'Politica de privacidad PerfectGest';
 
   @override
-  String get dataDeletionPolicyPerfectGestITitle => 'Politica de eliminacion de datos PerfectGest I';
+  String get dataDeletionPolicyPerfectGestITitle => 'Politica de eliminacion de datos PerfectGest';
 
   @override
   String get lastUpdatedMay2026 => 'Ultima actualizacion: mayo de 2026';
