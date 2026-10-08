@@ -4,6 +4,7 @@ const siteSpaPages = [
   'politica-privacidade-site',
   'pre-cadastro',
   'faq-contabilgest',
+  'contabilidade',
 ];
 
 const clinicaIiiStaticSlugs = [

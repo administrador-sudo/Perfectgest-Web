@@ -1,78 +1,78 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
-$__dart_deferred_initializers__.current=function(a,b,c,$){var B,D,A={LK:function LK(d){this.a=d},
-aOp(d){switch(d.am(y.h).r.f.gcs()){case"en":return C.Mb
-case"es":return C.Mc
-case"pt":default:return C.Md}},
-ap7:function ap7(){},
-aBG:function aBG(){},
-aBE:function aBE(){},
-aBF:function aBF(){}},C
+$__dart_deferred_initializers__.current=function(a,b,c,$){var B,D,A={Nw:function Nw(d){this.a=d},
+aTz(d){switch(d.ah(y.h).r.f.gcA()){case"en":return C.O5
+case"es":return C.O6
+case"pt":default:return C.O7}},
+as4:function as4(){},
+aGm:function aGm(){},
+aGk:function aGk(){},
+aGl:function aGl(){}},C
 B=c[0]
 D=c[2]
-A=a.updateHolder(c[10],A)
-C=c[16]
-A.LK.prototype={
-F(d){var x,w=null,v=B.C(d),u=A.aOp(d)
+A=a.updateHolder(c[11],A)
+C=c[20]
+A.Nw.prototype={
+E(d){var x,w=null,v=B.x(d),u=A.aTz(d)
 v=v.ax.k3
-x=B.aZ().$3$color$fontSize$height(v.a8(0.72),11.5,1.4)
-return B.bS(B.b([B.Z("PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA",w,w,w,w,B.aZ().$4$color$fontSize$fontWeight$height(v.a8(0.85),12,D.au,1.3),w,w),D.hP,B.Z(u.gLX()+" 66.889.409/0001-19",w,w,w,w,x,w,w),D.kN,B.Z(u.gM_()+" +55 51 989045442",w,w,w,w,x,w,w),D.kN,B.Z("Caxias do Sul \u2014 RS \u2014 Brasil",w,w,w,w,x,w,w)],y.e),D.W,D.w,D.A)}}
-A.ap7.prototype={}
-A.aBG.prototype={
-gf0(){return"Etica e compliance Perfect Gest Dev"},
-ghH(){return"\xc9tica e Compliance"},
-gk8(){return"Perfect Gest Dev"},
-gkd(){return"\xc9tica, conformidade e devolu\xe7\xf5es (site vitrine)"},
-pt(d){return"\xdaltima atualiza\xe7\xe3o: documento institucional. Para solicitar reembolso, cancelamento ou esclarecimentos sobre o produto PerfectGest, contacte: "+d+"."},
-gnS(){return"1. Escopo (site vitrine)"},
-gnR(){return"Este site \xe9 a vitrine institucional de Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA), em https://perfectgestdev.com. As vendas e pagamentos do produto PerfectGest n\xe3o s\xe3o processados neste site \u2014 ocorrem no canal de distribui\xe7\xe3o oficial do produto ou por acordo comercial directo connosco. Publicamos esta pol\xedtica em favor da transpar\xeancia com o nosso p\xfablico e utilizadores."},
-gnU(){return"2. Direito de arrependimento (Brasil)"},
-gnT(){return"Quando aplic\xe1vel a compras \xe0 dist\xe2ncia (CDC, art. 49), o consumidor pode exercer o direito de arrependimento em at\xe9 7 dias corridos. Se a compra n\xe3o ocorreu neste site, o pedido deve ser feito no canal onde adquiriu o produto e/ou pelo nosso contacto de suporte \u2014 estamos do lado do utilizador para orientar o processo."},
-gnW(){return"3. Produtos digitais, assinaturas e cancelamento"},
-gnV(){return"Para produtos digitais e assinaturas, reembolso e cancelamento dependem do canal de aquisi\xe7\xe3o; cada canal tem fluxos e prazos pr\xf3prios. Independentemente do canal, pode contactar-nos: analisamos pedidos de forma imparcial e orientamos a melhor resolu\xe7\xe3o, incluindo falhas t\xe9cnicas comprovadas."},
-gnY(){return"4. Como solicitar (passo a passo)"},
-gnX(){return"1) Informe onde adquiriu o produto, data e comprovante.\n2) Descreva o motivo (arrependimento, cobran\xe7a indevida, defeito t\xe9cnico, etc.).\n3) Envie para o nosso e-mail de suporte.\nResponderemos com orienta\xe7\xf5es claras e, quando aplic\xe1vel, com o procedimento adequado ao seu caso."},
-gLX(){return"CNPJ:"},
-gM_(){return"Contato com Empresa:"}}
-A.aBE.prototype={
-gf0(){return"Ethics and compliance Perfect Gest Dev"},
-ghH(){return"Ethics & Compliance"},
-gk8(){return"Perfect Gest Dev"},
-gkd(){return"Ethics, compliance and returns (showcase website)"},
-pt(d){return"Last updated: institutional document. To request a refund, cancellation, or clarification about PerfectGest, contact: "+d+"."},
-gnS(){return"1. Scope (showcase website)"},
-gnR(){return"This website is the institutional showcase of Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA) at https://perfectgestdev.com. Sales and payments for PerfectGest are not processed on this site \u2014 they happen through the product's official distribution channel or a direct commercial agreement with us. We publish this policy for transparency with our audience and users."},
-gnU(){return"2. Consumer withdrawal (Brazil)"},
-gnT(){return"When applicable to remote purchases under Brazilian consumer law, a customer may exercise the withdrawal right within 7 calendar days. If the purchase did not happen on this website, the request must be made through the channel where you bought the product and/or via our support contact \u2014 we are on the user's side to guide the process."},
-gnW(){return"3. Digital products, subscriptions, and cancellation"},
-gnV(){return"For digital products and subscriptions, refunds and cancellation depend on the purchase channel; each channel has its own flows and timelines. Regardless of channel, you may contact us: we review requests impartially and guide the best resolution, including confirmed technical issues."},
-gnY(){return"4. How to request (step by step)"},
-gnX(){return"1) State where you purchased the product, date, and proof.\n2) Describe the reason (withdrawal, incorrect charge, technical defect, etc.).\n3) Send it to our support email.\nWe will reply with clear guidance and, when applicable, the right procedure for your case."},
-gLX(){return"CNPJ:"},
-gM_(){return"Company contact:"}}
-A.aBF.prototype={
-gf0(){return"Etica y cumplimiento Perfect Gest Dev"},
-ghH(){return"\xc9tica y cumplimiento"},
-gk8(){return"Perfect Gest Dev"},
-gkd(){return"\xc9tica, cumplimiento y devoluciones (sitio vitrina)"},
-pt(d){return"\xdaltima actualizaci\xf3n: documento institucional. Para solicitar reembolso, cancelaci\xf3n o aclaraciones sobre PerfectGest, contacte: "+d+"."},
-gnS(){return"1. Alcance (sitio vitrina)"},
-gnR(){return"Este sitio es la vitrina institucional de Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA), en https://perfectgestdev.com. Las ventas y pagos del producto PerfectGest no se procesan en este sitio \u2014 ocurren en el canal de distribuci\xf3n oficial del producto o por acuerdo comercial directo con nosotros. Publicamos esta pol\xedtica en favor de la transparencia con nuestro p\xfablico y usuarios."},
-gnU(){return"2. Derecho de desistimiento (Brasil)"},
-gnT(){return"Cuando aplique a compras a distancia seg\xfan la ley brasile\xf1a, el consumidor puede ejercer el derecho de desistimiento dentro de 7 d\xedas calendario. Si la compra no ocurri\xf3 en este sitio, la solicitud debe hacerse en el canal donde adquiri\xf3 el producto y/o por nuestro contacto de soporte \u2014 estamos del lado del usuario para orientar el proceso."},
-gnW(){return"3. Productos digitales, suscripciones y cancelaci\xf3n"},
-gnV(){return"Para productos digitales y suscripciones, reembolso y cancelaci\xf3n dependen del canal de adquisici\xf3n; cada canal tiene flujos y plazos propios. Independientemente del canal, puede contactarnos: revisamos solicitudes de forma imparcial y orientamos la mejor resoluci\xf3n, incluidas fallas t\xe9cnicas comprobadas."},
-gnY(){return"4. C\xf3mo solicitar (paso a paso)"},
-gnX(){return"1) Indique d\xf3nde adquiri\xf3 el producto, fecha y comprobante.\n2) Describa el motivo (desistimiento, cobro indebido, defecto t\xe9cnico, etc.).\n3) Env\xedelo a nuestro correo de soporte.\nResponderemos con orientaciones claras y, cuando aplique, con el procedimiento adecuado a su caso."},
-gLX(){return"CNPJ:"},
-gM_(){return"Contacto con la empresa:"}}
+x=B.b4().$3$color$fontSize$height(v.af(0.72),11.5,1.4)
+return B.bm(B.b([B.M("PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA",w,w,w,w,B.b4().$4$color$fontSize$fontWeight$height(v.af(0.85),12,D.as,1.3),w,w),D.fQ,B.M(u.gNX()+" 66.889.409/0001-19",w,w,w,w,x,w,w),D.li,B.M(u.gO_()+" +55 51 989045442",w,w,w,w,x,w,w),D.li,B.M("Caxias do Sul \u2014 RS \u2014 Brasil",w,w,w,w,x,w,w)],y.e),D.I,D.n,D.q)}}
+A.as4.prototype={}
+A.aGm.prototype={
+gex(){return"Etica e compliance Perfect Gest Dev"},
+gi4(){return"\xc9tica e Compliance"},
+gi6(){return"Perfect Gest Dev"},
+gkF(){return"\xc9tica, conformidade e devolu\xe7\xf5es (site vitrine)"},
+qt(d){return"\xdaltima atualiza\xe7\xe3o: documento institucional. Para solicitar reembolso, cancelamento ou esclarecimentos sobre o produto PerfectGest, contacte: "+d+"."},
+goN(){return"1. Escopo (site vitrine)"},
+goM(){return"Este site \xe9 a vitrine institucional de Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA), em https://perfectgestdev.com. As vendas e pagamentos do produto PerfectGest n\xe3o s\xe3o processados neste site \u2014 ocorrem no canal de distribui\xe7\xe3o oficial do produto ou por acordo comercial directo connosco. Publicamos esta pol\xedtica em favor da transpar\xeancia com o nosso p\xfablico e utilizadores."},
+goP(){return"2. Direito de arrependimento (Brasil)"},
+goO(){return"Quando aplic\xe1vel a compras \xe0 dist\xe2ncia (CDC, art. 49), o consumidor pode exercer o direito de arrependimento em at\xe9 7 dias corridos. Se a compra n\xe3o ocorreu neste site, o pedido deve ser feito no canal onde adquiriu o produto e/ou pelo nosso contacto de suporte \u2014 estamos do lado do utilizador para orientar o processo."},
+goR(){return"3. Produtos digitais, assinaturas e cancelamento"},
+goQ(){return"Para produtos digitais e assinaturas, reembolso e cancelamento dependem do canal de aquisi\xe7\xe3o; cada canal tem fluxos e prazos pr\xf3prios. Independentemente do canal, pode contactar-nos: analisamos pedidos de forma imparcial e orientamos a melhor resolu\xe7\xe3o, incluindo falhas t\xe9cnicas comprovadas."},
+goT(){return"4. Como solicitar (passo a passo)"},
+goS(){return"1) Informe onde adquiriu o produto, data e comprovante.\n2) Descreva o motivo (arrependimento, cobran\xe7a indevida, defeito t\xe9cnico, etc.).\n3) Envie para o nosso e-mail de suporte.\nResponderemos com orienta\xe7\xf5es claras e, quando aplic\xe1vel, com o procedimento adequado ao seu caso."},
+gNX(){return"CNPJ:"},
+gO_(){return"Contato com Empresa:"}}
+A.aGk.prototype={
+gex(){return"Ethics and compliance Perfect Gest Dev"},
+gi4(){return"Ethics & Compliance"},
+gi6(){return"Perfect Gest Dev"},
+gkF(){return"Ethics, compliance and returns (showcase website)"},
+qt(d){return"Last updated: institutional document. To request a refund, cancellation, or clarification about PerfectGest, contact: "+d+"."},
+goN(){return"1. Scope (showcase website)"},
+goM(){return"This website is the institutional showcase of Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA) at https://perfectgestdev.com. Sales and payments for PerfectGest are not processed on this site \u2014 they happen through the product's official distribution channel or a direct commercial agreement with us. We publish this policy for transparency with our audience and users."},
+goP(){return"2. Consumer withdrawal (Brazil)"},
+goO(){return"When applicable to remote purchases under Brazilian consumer law, a customer may exercise the withdrawal right within 7 calendar days. If the purchase did not happen on this website, the request must be made through the channel where you bought the product and/or via our support contact \u2014 we are on the user's side to guide the process."},
+goR(){return"3. Digital products, subscriptions, and cancellation"},
+goQ(){return"For digital products and subscriptions, refunds and cancellation depend on the purchase channel; each channel has its own flows and timelines. Regardless of channel, you may contact us: we review requests impartially and guide the best resolution, including confirmed technical issues."},
+goT(){return"4. How to request (step by step)"},
+goS(){return"1) State where you purchased the product, date, and proof.\n2) Describe the reason (withdrawal, incorrect charge, technical defect, etc.).\n3) Send it to our support email.\nWe will reply with clear guidance and, when applicable, the right procedure for your case."},
+gNX(){return"CNPJ:"},
+gO_(){return"Company contact:"}}
+A.aGl.prototype={
+gex(){return"Etica y cumplimiento Perfect Gest Dev"},
+gi4(){return"\xc9tica y cumplimiento"},
+gi6(){return"Perfect Gest Dev"},
+gkF(){return"\xc9tica, cumplimiento y devoluciones (sitio vitrina)"},
+qt(d){return"\xdaltima actualizaci\xf3n: documento institucional. Para solicitar reembolso, cancelaci\xf3n o aclaraciones sobre PerfectGest, contacte: "+d+"."},
+goN(){return"1. Alcance (sitio vitrina)"},
+goM(){return"Este sitio es la vitrina institucional de Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA), en https://perfectgestdev.com. Las ventas y pagos del producto PerfectGest no se procesan en este sitio \u2014 ocurren en el canal de distribuci\xf3n oficial del producto o por acuerdo comercial directo con nosotros. Publicamos esta pol\xedtica en favor de la transparencia con nuestro p\xfablico y usuarios."},
+goP(){return"2. Derecho de desistimiento (Brasil)"},
+goO(){return"Cuando aplique a compras a distancia seg\xfan la ley brasile\xf1a, el consumidor puede ejercer el derecho de desistimiento dentro de 7 d\xedas calendario. Si la compra no ocurri\xf3 en este sitio, la solicitud debe hacerse en el canal donde adquiri\xf3 el producto y/o por nuestro contacto de soporte \u2014 estamos del lado del usuario para orientar el proceso."},
+goR(){return"3. Productos digitales, suscripciones y cancelaci\xf3n"},
+goQ(){return"Para productos digitales y suscripciones, reembolso y cancelaci\xf3n dependen del canal de adquisici\xf3n; cada canal tiene flujos y plazos propios. Independientemente del canal, puede contactarnos: revisamos solicitudes de forma imparcial y orientamos la mejor resoluci\xf3n, incluidas fallas t\xe9cnicas comprobadas."},
+goT(){return"4. C\xf3mo solicitar (paso a paso)"},
+goS(){return"1) Indique d\xf3nde adquiri\xf3 el producto, fecha y comprobante.\n2) Describa el motivo (desistimiento, cobro indebido, defecto t\xe9cnico, etc.).\n3) Env\xedelo a nuestro correo de soporte.\nResponderemos con orientaciones claras y, cuando aplique, con el procedimiento adecuado a su caso."},
+gNX(){return"CNPJ:"},
+gO_(){return"Contacto con la empresa:"}}
 var z=a.updateTypes([]);(function inheritance(){var x=a.inherit,w=a.inheritMany
-x(A.LK,B.a4)
-x(A.ap7,B.J)
-w(A.ap7,[A.aBG,A.aBE,A.aBF])})()
-B.tm(b.typeUniverse,JSON.parse('{"LK":{"a4":[],"e":[]}}'))
-var y={e:B.a1("p<e>"),h:B.a1("kY")};(function constants(){C.Mb=new A.aBE()
-C.Mc=new A.aBF()
-C.Md=new A.aBG()
-C.qc=new A.LK(null)
-C.Iu=new B.cP(null,60,null,null)})()};
-(a=>{a["NplT7bojkFhL1u0uld+YDlpA2D0="]=a.current})($__dart_deferred_initializers__);
+x(A.Nw,B.Y)
+x(A.as4,B.I)
+w(A.as4,[A.aGm,A.aGk,A.aGl])})()
+B.ng(b.typeUniverse,JSON.parse('{"Nw":{"Y":[],"e":[]}}'))
+var y={e:B.a0("o<e>"),h:B.a0("kc")};(function constants(){C.O5=new A.aGk()
+C.O6=new A.aGl()
+C.O7=new A.aGm()
+C.r6=new A.Nw(null)
+C.JE=new B.d0(null,60,null,null)})()};
+(a=>{a["y6xa21t5Bb9mCHEiG73zd/SjWZE="]=a.current})($__dart_deferred_initializers__);

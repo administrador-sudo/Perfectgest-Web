@@ -10,6 +10,7 @@ import 'politica_page.dart' deferred as politica;
 import 'pre_cadastro_page.dart' deferred as pre_cadastro;
 import 'tecnologias_page.dart' deferred as tecnologias;
 import 'contabilgest_faq_page.dart' deferred as contabilgest_faq;
+import 'contabilidade_funil_page.dart' deferred as contabilidade_funil;
 
 /// IDs de tópicos (espelham [tecnologias.TecnologiasPage] no chunk diferido).
 const kTecnologiaTopicCleanArch = 'clean-arch';
@@ -173,6 +174,13 @@ Widget buildContabilgestFaqPage({VoidCallback? onToggleTheme}) {
   return DeferredRouteLoader(
     loadLibrary: contabilgest_faq.loadLibrary,
     builder: () => contabilgest_faq.ContabilgestFaqPage(onToggleTheme: onToggleTheme),
+  );
+}
+
+Widget buildContabilidadeFunilPage() {
+  return DeferredRouteLoader(
+    loadLibrary: contabilidade_funil.loadLibrary,
+    builder: () => contabilidade_funil.ContabilidadeFunilPage(),
   );
 }
 

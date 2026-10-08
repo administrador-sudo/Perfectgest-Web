@@ -183,6 +183,11 @@ class _PerfectProSiteAppState extends State<PerfectProSiteApp> {
           settings: settings,
           builder: (_) => buildContabilgestFaqPage(onToggleTheme: _toggleTheme),
         );
+      case '/contabilidade':
+        return MaterialPageRoute<void>(
+          settings: settings,
+          builder: (_) => buildContabilidadeFunilPage(),
+        );
       case '/amostra-metal':
         return MaterialPageRoute<void>(
           settings: settings,

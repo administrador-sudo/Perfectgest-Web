@@ -82,6 +82,7 @@ run('git', [
   'assets',
   'imagens',
   'IMAGENS_APP/Screenshot',
+  'IMAGENS_APP/IMAGENS NOVA PAGE',
   'pubspec.yaml',
   'pubspec.lock',
   'package.json',

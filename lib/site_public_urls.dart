@@ -17,6 +17,9 @@ const String kSiteReturnsPolicyPath = '/politica-devolucao';
 /// FAQ institucional ContabilGest (formato vitrine — distinto de /contabil-i-faq legal Play).
 const String kContabilgestFaqPath = '/faq-contabilgest';
 
+/// Funil isolado de honorários (sem menu da vitrine).
+const String kContabilidadePath = '/contabilidade';
+
 const String kPreCadastroPublicUrl = '$kSitePublicOrigin$kPreCadastroPath';
 
 const String kSitePrivacyPolicyPublicUrl = '$kSitePublicOrigin$kSitePrivacyPolicyPath';
@@ -24,6 +27,8 @@ const String kSitePrivacyPolicyPublicUrl = '$kSitePublicOrigin$kSitePrivacyPolic
 const String kSiteReturnsPolicyPublicUrl = '$kSitePublicOrigin$kSiteReturnsPolicyPath';
 
 const String kContabilgestFaqPublicUrl = '$kSitePublicOrigin$kContabilgestFaqPath';
+
+const String kContabilidadePublicUrl = '$kSitePublicOrigin$kContabilidadePath';
 
 /// Políticas do produto PerfectGest-Clinica III (consulta isolada — sem navegação da vitrine).
 const String kClinicaIIIPrivacyPolicyPath = '/politica-privacidade-clinica-iii';

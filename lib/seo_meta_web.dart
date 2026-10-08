@@ -53,6 +53,15 @@ const String _kOgDescriptionContabilgestFaq =
     'FAQ do PerfectGest ContabilGest: o que e o app, internet, contador, NFS-e, planos e assinatura Google Play.';
 const String _kDocumentTitleContabilgestFaq = 'Perguntas e respostas | ContabilGest';
 
+const String _kMetaDescriptionContabilidadeFunil =
+    'Honorarios de contabilidade para MEI e ME em Caxias do Sul/RS, com o app PerfectGest ContabilGest. Pedido de plano por boleto no CNPJ.';
+const String _kMetaKeywordsContabilidadeFunil =
+    'contabilidade, honorarios, MEI, ME, ContabilGest, Perfect Gest Dev, Caxias do Sul';
+const String _kOgTitleContabilidadeFunil = 'Contabilidade | Perfect Gest Dev';
+const String _kOgDescriptionContabilidadeFunil =
+    'Pedido de honorarios no CNPJ e demo do PerfectGest ContabilGest. Assinatura do app na Play so no fim.';
+const String _kDocumentTitleContabilidadeFunil = 'Contabilidade | Perfect Gest Dev';
+
 void _applyHomeSeoMetaTags() {
   _syncCanonicalFromLocation();
   _upsertMeta('description', _kMetaDescriptionHome);
@@ -134,6 +143,19 @@ void applyContabilgestFaqSeoMetaTags() {
   _upsertMetaProperty('og:type', 'article');
   _upsertMetaProperty('og:locale', 'pt_BR');
   _setDocumentTitle(_kDocumentTitleContabilgestFaq);
+}
+
+/// Funil isolado /contabilidade — nao indexar (link direto apenas).
+void applyContabilidadeFunilSeoMetaTags() {
+  _syncCanonicalFromLocation();
+  _upsertMeta('description', _kMetaDescriptionContabilidadeFunil);
+  _upsertMeta('keywords', _kMetaKeywordsContabilidadeFunil);
+  _upsertMeta('robots', 'noindex, nofollow');
+  _upsertMetaProperty('og:title', _kOgTitleContabilidadeFunil);
+  _upsertMetaProperty('og:description', _kOgDescriptionContabilidadeFunil);
+  _upsertMetaProperty('og:type', 'website');
+  _upsertMetaProperty('og:locale', 'pt_BR');
+  _setDocumentTitle(_kDocumentTitleContabilidadeFunil);
 }
 
 /// Meta das paginas legais PerfectGest-Clinica III (consulta isolada).

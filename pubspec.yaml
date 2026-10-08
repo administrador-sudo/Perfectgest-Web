@@ -90,6 +90,7 @@ flutter:
     - IMAGENS_APP/Screenshot/tablet_01_inicio.webp
     - IMAGENS_APP/Screenshot/contabil_phone_empresa.webp
     - IMAGENS_APP/Screenshot/contabil_tablet_lancar.webp
+    - "IMAGENS_APP/IMAGENS NOVA PAGE/"
 
   fonts:
     - family: Inter

@@ -10,6 +10,192 @@ Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs,
 - Sempre registrar impacto, risco e validacao realizada.
 - Em caso de mudanca de comportamento, registrar motivo e plano de rollback.
 
+## [2026-10-08 18:29] Publish Render: funil /contabilidade
+
+### Contexto
+- Pedido: publicar o site na Web.
+
+### Arquivos alterados
+- scripts/publish-web.cjs
+- docs/Atualiza.md
+
+### O que foi feito
+- Inclusao de `IMAGENS_APP/IMAGENS NOVA PAGE` no git add do publish.
+- Execucao de `publicar_site_render.ps1` (build web + push main).
+
+### Risco de regressao
+- Medio: deploy substitui o site em producao.
+
+### Validacao executada
+- [ ] Aguardar Render e abrir https://perfectgestdev.com/contabilidade
+
+### Resultado
+- Funil isolado enviado para producao.
+- Pendencias: confirmar URL apos o deploy.
+
+### Proximos passos recomendados
+- Validar em janela anonima `/contabilidade`.
+
+## [2026-10-08 18:25] Funil: Básicos MEI com 5 NFs
+
+### Contexto
+- Pedido: só Básico e Básico Fidelizado (MEI) passam de 10 para 5 notas fiscais (NFs).
+
+### Arquivos alterados
+- lib/l10n/site_contabilidade_funil_texts.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- mei e fidelizado: Até 5 notas fiscais (NFs) por mês (PT/EN/ES).
+- Essencial permanece em 10.
+
+### Risco de regressao
+- Baixo: so copy dos dois cartoes MEI.
+
+### Validacao executada
+- [x] Web-server 8088 reiniciado.
+
+### Resultado
+- Limite 5 NFs nos dois Básicos.
+- Pendencias: nenhuma.
+
+### Proximos passos recomendados
+- Nao publicar ate ordem expressa.
+
+## [2026-10-08 18:12] Funil: FAQ equipe e IR por ano
+
+### Contexto
+- Pedido: nova resposta da FAQ da equipe; add-on de Imposto de renda com /ano.
+
+### Arquivos alterados
+- lib/l10n/site_contabilidade_funil_texts.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- FAQ: um contador habilitado + sistema inteligente, acompanhamento em tempo real no app (PT/EN/ES).
+- extraIr: R$ 49,99/ano.
+
+### Risco de regressao
+- Baixo: so copy.
+
+### Validacao executada
+- [x] Web-server 8088 reiniciado.
+
+### Resultado
+- FAQ e add-on IR atualizados.
+- Pendencias: nenhuma.
+
+### Proximos passos recomendados
+- Nao publicar ate ordem expressa.
+
+## [2026-10-08 18:07] Funil: add-on no acompanhamento do contador
+
+### Contexto
+- Pedido: em Acompanhamento do contador, assinalar add-on com valores entre parenteses; A1 junto dessas opcoes.
+
+### Arquivos alterados
+- lib/contabilidade_funil_page.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- Em ME: checkboxes Folha (R$ 99,99/mes), Imposto de renda (R$ 49,99) e A1 (R$ 119,99/ano).
+- Em MEI: A1 permanece disponivel. Precos os ja documentados no funil.
+
+### Risco de regressao
+- Baixo: so formulario do funil.
+
+### Validacao executada
+- [x] Web-server 8088 reiniciado.
+
+### Resultado
+- Add-on e A1 no bloco do contador (ME).
+- Pendencias: nenhuma.
+
+### Proximos passos recomendados
+- Nao publicar ate ordem expressa.
+
+## [2026-10-08 18:03] Funil: siglas oficiais MEI e ME entre parenteses
+
+### Contexto
+- Pedido: apos Microempreendedor Individual colocar (MEI); apos Microempresa colocar (ME); siglas oficiais entre parenteses.
+
+### Arquivos alterados
+- lib/l10n/site_contabilidade_funil_texts.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- Nome por extenso + sigla oficial (MEI)/(ME) em PT, EN e ES (cartoes, enquadramento, FAQ e provas).
+
+### Risco de regressao
+- Baixo: so copy.
+
+### Validacao executada
+- [x] Web-server 8088 reiniciado para aplicar Dart.
+
+### Resultado
+- Siglas oficiais visiveis junto ao nome.
+- Pendencias: nenhuma.
+
+### Proximos passos recomendados
+- Nao publicar ate ordem expressa.
+
+## [2026-10-08 17:53] Funil: servicos em lista e numerais nos cartoes
+
+### Contexto
+- Pedido: cartoes em lista; numeros em numeral (10, 20, 30, 2, 4); aplicar na pagina porque F5 nao recarrega Dart no web-server.
+
+### Arquivos alterados
+- lib/l10n/site_contabilidade_funil_texts.dart
+- lib/contabilidade_funil_page.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- `planDetail` substituido por `planItems` (lista PT/EN/ES).
+- Cartoes renderizam itens com marcador.
+- Web-server 8088 reiniciado (F5 nao basta).
+
+### Risco de regressao
+- Baixo: so copy e layout dos cartoes.
+
+### Validacao executada
+- [x] Web-server 8088 reiniciado; HTTP 200 em `/contabilidade`
+
+### Resultado
+- Servicos em lista; limites em 10/20/30 e 2/4.
+- Pendencias: nenhuma.
+
+### Proximos passos recomendados
+- Nao publicar ate ordem expressa.
+
+## [2026-10-08 17:58] Funil: enquadramento MEI/ME sem Mei com contador
+
+### Contexto
+- Pedido: apresentacao de enquadramento confusa; acompanhamento do contador so ao clicar ME; MEI nao tem MEI com contador.
+
+### Arquivos alterados
+- lib/contabilidade_funil_page.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- MEI esconde o bloco do contador e filtra faixas mei/fidelizado.
+- ME mostra acompanhamento do contador (planos essenciais/intermediario/avancado).
+- Cartoes agrupados em MEI vs ME.
+
+### Risco de regressao
+- Baixo: so fluxo do formulario e agrupamento dos cartoes.
+
+### Validacao executada
+- [x] Web-server 8088 reiniciado (Dart nao atualiza com F5)
+
+### Resultado
+- Nao ha combinacao MEI + contador no formulario.
+- Pendencias: nenhuma.
+
+### Proximos passos recomendados
+- Nao publicar ate ordem expressa.
+
 ## Estado atual consolidado
 
 - Projeto: `webs/Web_perfectgest/`
@@ -91,6 +277,212 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 ```
 
 ## Registro de evolucao
+
+## [2026-10-08 17:48] Funil: subtitulo menor no hero
+
+### Contexto
+- Pedido: subtitulo em letra menor que o titulo.
+- Escopo: estilo de `heroLead` em `contabilidade_funil_page.dart`.
+
+### Arquivos alterados
+- lib/contabilidade_funil_page.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- Subtitulo a 13 px, peso regular, tinta mais suave; titulo permanece 26 px em negrito.
+
+### Risco de regressao
+- Baixo.
+
+### Validacao executada
+- [ ] Recarregar `/contabilidade`
+
+### Resultado
+- Hierarquia titulo/subtitulo mais clara.
+- Pendencias: nenhuma.
+
+### Proximos passos recomendados
+- Hot reload no web-server (r).
+
+## [2026-10-08 17:39] Funil: descricoes completas nos cartoes de plano
+
+### Contexto
+- Pedido: cartoes sucintos, sem abreviacoes, com tudo o que cada plano oferece.
+- Escopo: planName e planDetail PT/EN/ES.
+
+### Arquivos alterados
+- lib/l10n/site_contabilidade_funil_texts.dart
+- lib/contabilidade_funil_page.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- Cada cartao lista servicos do aplicativo, limites de notas e empregados, e se ha contador assinando os livros.
+
+### Risco de regressao
+- Baixo: so copy dos cartoes.
+
+### Validacao executada
+- [ ] Conferir cartoes em `/contabilidade`
+
+### Resultado
+- Descricoes completas sem NF/CLT/ME.
+- Pendencias: nenhuma.
+
+### Proximos passos recomendados
+- Hot reload local.
+
+## [2026-10-08 17:34] Funil: planos otimistas (assinatura + A1)
+
+### Contexto
+- Pedido: nao assustar com muitas cobrancas; nao falar em boleto; destacar vantagens do app.
+- Escopo: tabela, formulario e copy PT/EN/ES do funil.
+
+### Arquivos alterados
+- lib/contabilidade_funil_page.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- So assinatura mensal dos planos (59,99 / 54,99 / 199,99 / 299,99 / 399,99) e A1 119,99/ano.
+- Removidos extras (folha, IR, NF, CLT, abertura) e linguagem de boleto.
+- Funcoes e FAQ falam de servicos exclusivos; pagamento na contratacao.
+
+### Risco de regressao
+- Baixo: so funil. Lead interno ainda envia faixa e A1 S/N.
+
+### Validacao executada
+- [ ] Conferir `/contabilidade` no browser
+
+### Resultado
+- Pagina mais leve e otimista.
+- Pendencias: nenhuma.
+
+### Proximos passos recomendados
+- Hot reload no web-server local.
+
+## [2026-10-08 17:30] Funil: titulo e subtitulo do hero
+
+### Contexto
+- Pedido: titulo (app + IA + contador + NFS-e/NF-e em tempo real) e subtitulo (servicos de contabilidade).
+- Escopo: heroHeadline e heroLead em PT/EN/ES.
+
+### Arquivos alterados
+- lib/l10n/site_contabilidade_funil_texts.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- Hero passa a vender o app com IA, contador ativo, suporte e controle de NFs; subtitulo lista contas, pro-labore, lucros, folha e IR.
+
+### Risco de regressao
+- Baixo: so copy do hero.
+
+### Validacao executada
+- [ ] Conferir `/contabilidade` no browser
+
+### Resultado
+- Titulo e subtitulo atualizados.
+- Pendencias: nenhuma.
+
+### Proximos passos recomendados
+- Hot reload no web-server local.
+
+## [2026-10-08 17:25] Funil /contabilidade: copy CRC em linguagem clara
+
+### Contexto
+- Pedido: tirar jargao CRC da landing; visitor nao conhece o app.
+- Escopo: so `site_contabilidade_funil_texts.dart` PT/EN/ES.
+
+### Arquivos alterados
+- lib/l10n/site_contabilidade_funil_texts.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- «Planos Contábeis com contador ativo»; «Escritório com sistema de gerenciamento digital».
+- CRC de marketing → sistema de gerenciamento digital por IA + contador habilitado assinando os livros.
+- CRC-RS RS-011403/O mantido só como identificação legal.
+
+### Risco de regressao
+- Baixo: só copy visível do funil.
+
+### Validacao executada
+- [x] Grep CRC no funil: só CRC-RS legal
+
+### Resultado
+- Landing explica o serviço sem jargão interno.
+- Pendencias: nenhuma.
+
+### Proximos passos recomendados
+- Conferir no browser local.
+
+## [2026-10-08 17:08] Funil /contabilidade: screenshots modo claro
+
+### Contexto
+- Pedido: trocar fotos de apresentacao do funil por imagens claras em `IMAGENS_APP/IMAGENS NOVA PAGE`.
+- Escopo: classificar e colocar por seccao; nao mexer na home.
+
+### Arquivos alterados
+- pubspec.yaml
+- lib/contabilidade_funil_page.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- Hero: tela inicial; prova CRC: contador no fluxo; funcoes: menu; passos: MEI sem contador; demo: celular NFS-e, tablet, inicio, fecho, obrigacoes, notas.
+
+### Risco de regressao
+- Baixo: so assets do funil. Home continua com screenshots antigos.
+
+### Validacao executada
+- [ ] Hot restart do `flutter run` (pubspec assets)
+- [ ] Conferir `/contabilidade` no browser
+
+### Resultado
+- Funil usa as 10 fotos claras da pasta indicada.
+- Pendencias: restart local se o web-server ja estava a correr.
+
+### Proximos passos recomendados
+- Confirmar no browser; publish so com ordem.
+
+## [2026-10-08 16:38] Funil isolado /contabilidade
+
+### Contexto
+- Pedido: landing isolada para honorarios CNPJ + demo ContabilGest; Play R$ 19,99 so no fim; fora do menu da vitrine.
+- Escopo: rota `/contabilidade`, copy PT/EN/ES, form para API de leads existente, SEO noindex. Sem publish.
+
+### Arquivos alterados
+- lib/contabilidade_funil_page.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- lib/main.dart
+- lib/site_deferred_pages.dart
+- lib/site_public_urls.dart
+- lib/seo_meta_web.dart
+- lib/seo_meta_stub.dart
+- scripts/legal-routes.cjs
+- web/index.html
+- render.yaml
+- docs/generated-render-legal-routes.yaml
+- docs/Atualiza.md
+
+### O que foi feito
+- Pagina propria (fundo claro, verde #1B5E4B), sem metallic_site_shell nem item de menu.
+- Lead com prefixo `[CONTABILIDADE]` e abertura WhatsApp; Assinar o app so no ecrã de sucesso.
+
+### Risco de regressao
+- Baixo: so um `case` novo em `main.dart`; NavigationBar intacto.
+- Pontos sensiveis: rewrite Render so vale no proximo publish.
+
+### Validacao executada
+- [x] Analise estatica/lint (`flutter analyze` nos ficheiros novos/tocados: 0 issues)
+- [x] Build local (`flutter run -d web-server` porta 8088)
+- [x] Teste manual: `/contabilidade` funil + tabela 40/35/180/280/380; home menu inalterado (Home/Solutions/Portfolio/About/Contact); robots `noindex, nofollow` no funil e `index, follow` na home
+- [x] Outros: sem publish; POST de lead nao disparado no browser (evita lead real na API)
+
+### Resultado
+- Rota local `/contabilidade` com funil completo; home inalterada.
+- Pendencias: publish Render quando o operador autorizar.
+
+### Proximos passos recomendados
+- Confirmar no browser local e, se ok, `.\scripts\publicar_site_render.ps1`.
 
 ## [2026-10-02 17:25] Titulos PerfectGest (nome da Play)
 

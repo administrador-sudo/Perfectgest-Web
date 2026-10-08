@@ -1,193 +1,194 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
 $__dart_deferred_initializers__.current=function(a,b,c,$){var C,D,B={
-b0k(d){switch(d.am(x.h).r.f.gcs()){case"en":return A.Me
-case"es":return A.Mf
-case"pt":default:return A.Mg}},
-bK:function bK(d,e,f){this.a=d
+b0P(d){return new B.nz(d,null)},
+nz:function nz(d,e){this.c=d
+this.a=e},
+a04:function a04(){this.c=this.a=null},
+ax0:function ax0(d,e,f,g){var _=this
+_.a=d
+_.b=e
+_.c=f
+_.d=g},
+a1v:function a1v(d,e){this.c=d
+this.a=e},
+az2:function az2(d){this.a=d},
+b5z(d){switch(d.ah(y.h).r.f.gcA()){case"en":return A.NU
+case"es":return A.NV
+case"pt":default:return A.NW}},
+li:function li(d,e){this.a=d
+this.b=e},
+bE:function bE(d,e,f){this.a=d
 this.b=e
 this.c=f},
-ap8:function ap8(){},
-aBJ:function aBJ(){},
-aBH:function aBH(){},
-aBI:function aBI(){},
-b0J(d,e){return new B.om(e,d,null)},
-om:function om(d,e,f){this.c=d
-this.d=e
-this.a=f},
-a4o:function a4o(d,e,f,g,h){var _=this
-_.d=d
-_.e=e
-_.f=f
-_.r=g
-_.w=h
-_.c=_.a=null},
-aCa:function aCa(d){this.a=d},
-aC9:function aC9(d){this.a=d},
-aC8:function aC8(){},
-a4n:function a4n(d,e,f,g,h){var _=this
-_.c=d
-_.d=e
-_.e=f
-_.f=g
-_.a=h}},A
+arU:function arU(){},
+aFZ:function aFZ(){},
+aFX:function aFX(){},
+aFY:function aFY(){}},A,F,E,G,H
 C=c[0]
 D=c[2]
-B=a.updateHolder(c[7],B)
-A=c[20]
-B.bK.prototype={}
-B.ap8.prototype={}
-B.aBJ.prototype={
-gf0(){return"Tecnologias Flutter e stack principal da Perfect Gest Dev"},
-gN5(){return"Stack Flutter e tecnologias da Perfect Gest Dev"},
-gN1(){return"Nossa estrat\xe9gia t\xe9cnica conecta arquitetura, dados, experi\xeancia de utiliza\xe7\xe3o e opera\xe7\xe3o cont\xednua. Cada componente abaixo foi pensado para funcionar em conjunto, reduzindo riscos e acelerando entregas com qualidade previs\xedvel."},
-gN2(){return"Fluxo integrado: base t\xe9cnica s\xf3lida -> dados confi\xe1veis -> experi\xeancia consistente -> opera\xe7\xe3o mensur\xe1vel. Assim, cada decis\xe3o refor\xe7a a pr\xf3xima etapa e mant\xe9m coer\xeancia entre discurso comercial e execu\xe7\xe3o de produto."},
-gOd(){return"Diferenciais do Portf\xf3lio"},
-gKl(){return"Conceito aplicado:"},
-gqd(){return A.a2J}}
-B.aBH.prototype={
-gf0(){return"Flutter technologies and Perfect Gest Dev core stack"},
-gN5(){return"Flutter stack and Perfect Gest Dev technologies"},
-gN1(){return"Our technical strategy connects architecture, data, user experience and continuous operations. Each component below is designed to work together, reducing risk and accelerating predictable-quality delivery."},
-gN2(){return"Integrated flow: solid technical foundation -> reliable data -> consistent experience -> measurable operations. Each decision reinforces the next and keeps commercial narrative aligned with product execution."},
-gOd(){return"Portfolio differentiators"},
-gKl(){return"Applied concept:"},
-gqd(){return A.a3e}}
-B.aBI.prototype={
-gf0(){return"Tecnologias Flutter y stack principal de Perfect Gest Dev"},
-gN5(){return"Stack Flutter y tecnologias de Perfect Gest Dev"},
-gN1(){return"Nuestra estrategia tecnica conecta arquitectura, datos, experiencia de uso y operacion continua. Cada componente debajo esta pensado para funcionar junto, reducir riesgos y acelerar entregas con calidad previsible."},
-gN2(){return"Flujo integrado: base tecnica solida -> datos fiables -> experiencia consistente -> operacion medible. Asi, cada decision refuerza la siguiente y mantiene coherencia entre discurso comercial y ejecucion de producto."},
-gOd(){return"Diferenciales del portafolio"},
-gKl(){return"Concepto aplicado:"},
-gqd(){return A.a3a}}
-B.om.prototype={
-ab(){var w=null,v=x.z
-return new B.a4o(C.Dp(),new C.b8(w,v),new C.b8(w,v),new C.b8(w,v),new C.b8(w,v))}}
-B.a4o.prototype={
-au(){this.aP()
-C.l5()
-C.eJ("description","Parceiros tecnol\xf3gicos e stack Flutter da Perfect Gest Dev: Clean Architecture, seguran\xe7a, escala, integra\xe7\xf5es e opera\xe7\xe3o cont\xednua.")
-C.eJ("keywords","Perfect Gest Dev, tecnologias, Flutter, Dart, Java, Gradle, SDK, integra\xe7\xf5es, arquitetura limpa, seguran\xe7a, escala")
-C.eJ("robots","index, follow")
-C.dp("og:title",y.c)
-C.dp("og:description","Vis\xe3o t\xe9cnica do stack Perfect Gest Dev para mobile, web e desktop com foco em performance e previsibilidade.")
-C.dp("og:type","article")
-C.dp("og:locale","pt_BR")
-b.G.document.title=y.c
-$.a_.k4$.push(new B.aCa(this))},
-l(){this.d.l()
-C.tq()
-this.aG()},
-amf(){var w=this,v=C.aA(["clean-arch",w.e,"seguranca",w.f,"escala",w.r,"full-stack",w.w],x.w,x.d).h(0,w.a.d),u=v==null?null:$.a_.ak$.x.h(0,v)
-if(u==null)return
-C.aI8(u,0.24,D.HE,D.dq,D.qt)},
-F(d){var w,v,u,t,s,r,q,p,o,n,m,l=this,k=null,j=C.C(d).ax,i=C.b2(d,D.am,x.x).w.a.a<400,h=i?16:24,g=C.cm(d,D.as,x.F)
-g.toString
-w=B.b0k(d)
-C.C(d)
-v=[l.e,l.f,l.r,l.w]
-u=w.gf0()
-t=C.C(d).ax.a===D.E?D.bx:D.bb
-s=(C.C(d).ax.a===D.E?D.bx:D.bb).a8(0.96)
-r=C.eN(!1,k,k,k,C.cs(D.j8,j.b,k,k),k,k,new B.aC9(d),k,k,k,g.gCJ())
-q=j.k3
-p=C.Z(g.gDe(),k,k,k,k,C.aZ().$2$color$fontWeight(q,D.au),k,k)
-o=x.u
-n=C.b([],o)
-l.a.toString
-s=C.a7z(n,s,r,D.v,p)
-r=w.gN5()
-r=C.b([C.Z(r,k,k,k,k,C.aZ().$4$color$fontSize$fontWeight$height(q,i?22:26,D.aO,1.2),k,k),D.bh,C.Z(w.gN1(),k,k,k,k,C.aZ().$3$color$fontSize$height(q.a8(0.82),14,1.5),k,k),D.b1,C.Z(w.gN2(),k,k,k,k,C.aZ().$3$color$fontSize$height(q.a8(0.8),13.6,1.5),k,k),D.bW,C.Z(w.gOd(),k,k,k,k,C.aZ().$3$color$fontSize$fontWeight(q,18,D.aO),k,k),D.bh],o)
-for(m=0;w.gqd(),m<15;++m){i=C.b([],o)
-if(m===4)i.push(D.b1)
-q=m<4?v[m]:k
-p=w.gKl()
-i.push(new B.a4n(w.gqd()[m].a,w.gqd()[m].b,w.gqd()[m].c,p,q))
-D.b.a0(r,i)}return C.aQ(k,k,C.jw(s,t,new C.kL(C.hZ(C.dZ(new C.dh(A.Kz,C.bS(r,D.W,D.w,D.A),k),k,k),l.d,new C.ad(h,16,h,28),D.ah),k),k),!1,k,k,k,!1,k,k,k,k,k,k,k,u,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,D.q,k)}}
-B.a4n.prototype={
-F(d){var w,v,u,t,s,r=this,q=null,p=C.C(d).ax,o=p.RG
-o=(o==null?p.k2:o).a8(0.55)
-w=C.cJ(14)
-v=p.ry
-if(v==null){v=p.n
-if(v==null)v=p.k3}v=C.hE(v.a8(0.35),1)
-u=p.b
-t=x.u
-s=C.b([C.Z(r.c,q,q,q,q,C.aZ().$3$color$fontSize$fontWeight(u,15.5,D.au),q,q),D.bi,D.kN,C.Z(r.f,q,q,q,q,C.aZ().$4$color$fontSize$fontWeight$height(u.a8(0.9),12.8,D.au,1.4),q,q),C.Z(r.d,q,q,q,q,C.aZ().$3$color$fontSize$height(p.k3.a8(0.84),12.8,1.45),q,q)],t)
-D.b.a0(s,C.b([D.b1,C.Z(r.e,q,q,q,q,C.aZ().$4$color$fontSize$fontWeight$height(u.a8(0.92),12.8,D.ad,1.45),q,q)],t))
-return new C.bg(A.OU,C.di(new C.bg(A.P2,C.bS(s,D.W,D.w,D.A),q),new C.bI(o,q,v,w,q,q,D.P),D.ai),q)}}
+B=a.updateHolder(c[8],B)
+A=c[19]
+F=c[17]
+E=c[20]
+G=c[16]
+H=c[18]
+B.nz.prototype={
+a7(){return new B.a04()}}
+B.a04.prototype={
+ao(){this.aO()
+C.ki()
+C.e6("description","Perguntas e respostas PerfectGest ContabilGest: MEI, Livro Caixa, NFS-e, planos, assinatura Google Play e fontes oficiais.")
+C.e6("keywords","PerfectGest ContabilGest, FAQ, MEI, Livro Caixa, NFS-e, Google Play, assinatura, Perfect Gest Dev")
+C.e6("robots","index, follow")
+C.d2("og:title","Perguntas e respostas | ContabilGest")
+C.d2("og:description","FAQ do PerfectGest ContabilGest: o que e o app, internet, contador, NFS-e, planos e assinatura Google Play.")
+C.d2("og:type","article")
+C.d2("og:locale","pt_BR")
+b.G.document.title="Perguntas e respostas | ContabilGest"},
+l(){C.pH()
+this.aA()},
+E(d){var x=null,w=C.x(d),v=C.b8(d,D.aq,y.x).w.a.a,u=v<400?16:24,t=B.b5z(d),s=t.gex(),r=C.x(d).ax.a===D.F?D.bM:D.bn,q=t.gi4()
+return C.aG(x,x,x,C.j3(G.aKZ(d,x,this.a.c,q),r,new C.lh(C.me(new B.ax0(u,t,w.ax,v)),x),x,x),!1,x,x,x,!1,x,x,x,x,x,x,x,x,x,s,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,D.o,x)}}
+B.a1v.prototype={
+E(d){var x,w,v,u,t,s,r,q,p,o,n=null,m=C.x(d).ax,l=C.b8(d,D.aq,y.x).w.a.a,k=l<400?12:16,j=this.c,i=j.a,h=m.RG
+h=(h==null?m.k2:h).af(0.5)
+x=C.cx(14)
+w=m.ry
+if(w==null){w=m.p
+if(w==null)w=m.k3}w=C.fY(w.af(0.4),1)
+v=l<360
+u=v?15:16
+t=m.b
+u=C.M(i,n,n,n,n,C.b4().$3$color$fontSize$fontWeight(t,u,D.as),n,n)
+s=v?13:14
+r=y.u
+s=C.b([u,D.bh,C.M(j.b,n,n,n,n,C.b4().$3$color$fontSize$height(m.k3.af(0.88),s,1.55),n,n)],r)
+j=j.c
+u=j.length
+if(u!==0){r=C.b([D.bh],r)
+for(q=0;q<u;++q){p=j[q]
+o=C.p5(D.ct,n,n,n,n,n,n,n,n,n,n,D.J,D.aa,n,n,n,n,D.dt,n,n)
+r.push(new C.aS(F.ry,new C.cV(D.ct,n,n,C.f6(C.M(p.a,n,n,n,n,C.b4().$5$color$decoration$fontSize$fontWeight$height(t,D.dX,v?13:14,D.ac,1.45),n,n),new B.az2(p),o),n),n))}D.b.a_(s,r)}return new C.aS(H.rw,C.aG(n,n,n,C.d4(new C.aS(new C.a8(k,16,k,18),C.bm(s,D.I,D.n,D.q),n),new C.bA(h,n,w,x,n,n,D.M),D.ah),!0,n,n,n,!1,n,n,n,n,n,n,n,n,n,i,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,D.o,n),n)}}
+B.li.prototype={}
+B.bE.prototype={}
+B.arU.prototype={}
+B.aFZ.prototype={
+gex(){return"Perguntas e respostas PerfectGest ContabilGest"},
+gi4(){return"Perguntas e respostas"},
+gi6(){return"PerfectGest ContabilGest"},
+gkF(){return"Perguntas e respostas sobre o Aplicativo"},
+gPx(){return A.a65}}
+B.aFX.prototype={
+gex(){return"Questions and answers PerfectGest ContabilGest"},
+gi4(){return"Questions and answers"},
+gi6(){return"PerfectGest ContabilGest"},
+gkF(){return"Questions and answers about the App"},
+gPx(){return A.WP}}
+B.aFY.prototype={
+gex(){return"Preguntas y respuestas PerfectGest ContabilGest"},
+gi4(){return"Preguntas y respuestas"},
+gi6(){return"PerfectGest ContabilGest"},
+gkF(){return"Preguntas y respuestas sobre la Aplicaci\xf3n"},
+gPx(){return A.ZF}}
 var z=a.updateTypes([])
-B.aCa.prototype={
-$1(d){return this.a.amf()},
-$S:3}
-B.aC9.prototype={
-$0(){return C.cV(this.a,!1).axp(new B.aC8())},
-$S:0}
-B.aC8.prototype={
-$1(d){return d.grV()},
-$S:600};(function inheritance(){var w=a.inheritMany,v=a.inherit
-w(C.J,[B.bK,B.ap8])
-w(B.ap8,[B.aBJ,B.aBH,B.aBI])
-v(B.om,C.S)
-v(B.a4o,C.W)
-w(C.il,[B.aCa,B.aC8])
-v(B.aC9,C.j9)
-v(B.a4n,C.a4)})()
-C.tm(b.typeUniverse,JSON.parse('{"om":{"S":[],"e":[]},"a4o":{"W":["om"]},"a4n":{"a4":[],"e":[]}}'))
-var y={c:"Parceiros tecnol\xf3gicos | Perfect Gest Dev"}
-var x={F:C.a1("fm"),d:C.a1("ir<W<S>>"),c:C.a1("p<bK>"),u:C.a1("p<e>"),z:C.a1("b8<W<S>>"),x:C.a1("fz"),w:C.a1("k"),h:C.a1("kY")};(function constants(){var w=a.makeConstList
-A.Kz=new C.a9(0,760,0,1/0)
-A.Me=new B.aBH()
-A.Mf=new B.aBI()
-A.Mg=new B.aBJ()
-A.OU=new C.ad(0,0,0,12)
-A.P2=new C.ad(14,14,14,15)
-A.ael=new B.bK("Clean Arch","Aplicamos arquitetura limpa com separa\xe7\xe3o clara de responsabilidades, camadas desacopladas e componentes reutiliz\xe1veis. Isso acelera evolu\xe7\xe3o de produto, melhora testes e reduz custo de manuten\xe7\xe3o.","Exemplo pr\xe1tico: ao alterar uma regra de or\xe7amento, ajustamos somente a camada de dom\xednio sem quebrar interface ou integra\xe7\xf5es externas.")
-A.aez=new B.bK("Seguran\xe7a","Adotamos boas pr\xe1ticas de seguran\xe7a em autentica\xe7\xe3o, gest\xe3o de sess\xe3o, pol\xedticas de conte\xfado web e prote\xe7\xe3o de dados. O objetivo \xe9 reduzir risco operacional e elevar confian\xe7a em produ\xe7\xe3o.","Exemplo pr\xe1tico: protegemos rotas sens\xedveis com valida\xe7\xe3o de sess\xe3o e aplicamos CSP no web para bloquear scripts n\xe3o autorizados.")
-A.adU=new B.bK("Escala","Projetamos solu\xe7\xf5es para crescer com o neg\xf3cio, com foco em performance, observabilidade e integra\xe7\xe3o de servi\xe7os. A arquitetura \xe9 preparada para aumento de utilizadores e novos m\xf3dulos.","Exemplo pr\xe1tico: em campanhas sazonais, ampliamos servi\xe7os de API e cache sem refazer o app, mantendo estabilidade durante pico de acesso.")
-A.ae8=new B.bK("Full-Stack","Atuamos do front-end ao back-end, conectando Flutter, APIs, servi\xe7os de dados, integra\xe7\xf5es corporativas e automa\xe7\xe3o de build. Isso garante entregas consistentes em todo o ciclo do produto.","Exemplo pr\xe1tico: publicamos uma funcionalidade completa de venda, desde a tela mobile at\xe9 API, banco de dados e monitoramento.")
-A.aed=new B.bK("Flutter + Dart (base multiplataforma)","Usamos Flutter como framework principal e Dart como linguagem para entregar uma base \xfanica de c\xf3digo com alta produtividade, consist\xeancia de interface e excelente performance em Android, iOS, Web e Desktop.","Exemplo pr\xe1tico: um mesmo m\xf3dulo de cadastro \xe9 compartilhado entre mobile e web, reduzindo retrabalho e tempo de lan\xe7amento.")
-A.aef=new B.bK("Banco de dados offline (Dart/Flutter)","Para persist\xeancia local e uso sem internet, utilizamos SQLite (sqflite/drift), Isar e Hive. Essa camada local mant\xe9m performance, resposta r\xe1pida da interface e continuidade das opera\xe7\xf5es mesmo em cen\xe1rios com conectividade limitada.","Exemplo pr\xe1tico: t\xe9cnico em campo registra atendimento sem internet e o app mant\xe9m os dados locais at\xe9 a conex\xe3o voltar.")
-A.aec=new B.bK("Banco de dados online (Dart/Flutter)","Para sincroniza\xe7\xe3o e dados em nuvem, trabalhamos com Cloud Firestore, Firebase Realtime Database e Supabase/PostgreSQL. Isso permite backup, atualiza\xe7\xe3o em tempo real e acesso multiutilizador com confiabilidade em produ\xe7\xe3o.","Exemplo pr\xe1tico: altera\xe7\xf5es no estoque feitas no painel web aparecem quase em tempo real no app da equipe comercial.")
-A.aeB=new B.bK("Java (integra\xe7\xf5es e backend enterprise)","Utilizamos Java em integra\xe7\xf5es corporativas e servi\xe7os de apoio para ambientes que exigem robustez, seguran\xe7a e compatibilidade com ecossistemas enterprise, conectando aplica\xe7\xf5es Flutter a APIs e sistemas legados.","Exemplo pr\xe1tico: integra\xe7\xe3o com ERP legado para sincronizar pedidos e faturamento sem alterar o sistema principal do cliente.")
-A.ae2=new B.bK("Gradle (build e automa\xe7\xe3o Android)","No Android, usamos Gradle para gerenciamento de depend\xeancias, variantes de build e automa\xe7\xe3o de pipeline. Isso melhora a previsibilidade de releases, organiza\xe7\xe3o de ambientes e qualidade cont\xednua de entrega.","Exemplo pr\xe1tico: geramos builds separados para homologa\xe7\xe3o e produ\xe7\xe3o com vari\xe1veis de ambiente e assinaturas distintas.")
-A.aeo=new B.bK("SDKs de terceiros e integra\xe7\xf5es nativas","Integramos SDKs nativos e bibliotecas especializadas para recursos de neg\xf3cio como autentica\xe7\xe3o, pagamentos, analytics, notifica\xe7\xf5es e servi\xe7os propriet\xe1rios, mantendo estabilidade e desempenho em produ\xe7\xe3o.","Exemplo pr\xe1tico: adicionamos gateway de pagamento e autentica\xe7\xe3o biom\xe9trica mantendo UX fluida em Android e iOS.")
-A.aev=new B.bK("Material 3 e UI responsiva","Adotamos Material 3, LayoutBuilder e breakpoints responsivos para criar interfaces adapt\xe1veis a celulares, tablets e desktop. Isso melhora experi\xeancia do utilizador, reten\xe7\xe3o e m\xe9tricas de usabilidade.","Exemplo pr\xe1tico: a mesma jornada de compra se reorganiza automaticamente para tablet e desktop sem duplicar tela.")
-A.aeA=new B.bK("Integra\xe7\xf5es web e SEO t\xe9cnico","Implementamos metatags din\xe2micas, Open Graph, canonical, robots.txt e sitemap.xml para melhorar rastreamento e indexa\xe7\xe3o no Google. Tamb\xe9m aplicamos boas pr\xe1ticas de seguran\xe7a com Content Security Policy e pol\xedticas de permiss\xf5es.","Exemplo pr\xe1tico: p\xe1gina de servi\xe7o ganha preview otimizado no WhatsApp e melhor posicionamento org\xe2nico no Google.")
-A.adW=new B.bK("Analytics e consentimento (GA4)","Medi\xe7\xe3o com Google Analytics 4 integrada ao fluxo de consentimento de cookies. Isso permite an\xe1lise de comportamento com respeito \xe0 privacidade e conformidade com pol\xedticas modernas de medi\xe7\xe3o.","Exemplo pr\xe1tico: funil de convers\xe3o registra apenas eventos consentidos e orienta ajustes de UX com base em dados reais.")
-A.ae1=new B.bK("Arquitetura limpa e manuten\xe7\xe3o","Priorizamos c\xf3digo organizado, componentes reutiliz\xe1veis e separa\xe7\xe3o de responsabilidades para facilitar evolu\xe7\xe3o cont\xednua do produto, redu\xe7\xe3o de bugs e menor custo de manuten\xe7\xe3o.","Exemplo pr\xe1tico: nova funcionalidade de assinatura \xe9 inclu\xedda reaproveitando componentes e reduzindo esfor\xe7o de QA.")
-A.aew=new B.bK("Integra\xe7\xf5es HTTP e servi\xe7os externos","Integramos APIs externas e servi\xe7os de dados para fluxos reais de neg\xf3cio, incluindo endpoints de back-end e servi\xe7os de observabilidade, garantindo confiabilidade operacional e evolu\xe7\xe3o orientada a m\xe9tricas.","Exemplo pr\xe1tico: monitoramos lat\xeancia e erro das APIs em produ\xe7\xe3o para agir r\xe1pido antes de impactar clientes.")
-A.a2J=w([A.ael,A.aez,A.adU,A.ae8,A.aed,A.aef,A.aec,A.aeB,A.ae2,A.aeo,A.aev,A.aeA,A.adW,A.ae1,A.aew],x.c)
-A.ae6=new B.bK("Clean Arch","Aplicamos arquitectura limpia con separacion clara de responsabilidades, capas desacopladas y componentes reutilizables. Esto acelera la evolucion del producto, mejora pruebas y reduce coste de mantenimiento.","Ejemplo practico: al cambiar una regla de presupuesto, ajustamos solo la capa de dominio sin romper la interfaz ni integraciones externas.")
-A.ae_=new B.bK("Seguridad","Adoptamos buenas practicas de seguridad en autenticacion, gestion de sesion, politicas de contenido web y proteccion de datos. El objetivo es reducir riesgo operativo y aumentar la confianza en produccion.","Ejemplo practico: protegemos rutas sensibles con validacion de sesion y aplicamos CSP en web para bloquear scripts no autorizados.")
-A.adY=new B.bK("Escala","Disenamos soluciones para crecer con el negocio, con foco en rendimiento, observabilidad e integracion de servicios. La arquitectura esta preparada para mas usuarios y nuevos modulos.","Ejemplo practico: en campanas estacionales ampliamos API y cache sin rehacer la app, manteniendo estabilidad en picos de trafico.")
-A.aen=new B.bK("Full-Stack","Actuamos de front-end a back-end, conectando Flutter, APIs, servicios de datos, integraciones corporativas y automatizacion de build. Garantizamos entregas coherentes en todo el ciclo del producto.","Ejemplo practico: publicamos una funcionalidad completa de venta, desde la pantalla movil hasta API, base de datos y monitorizacion.")
-A.ae4=new B.bK("Flutter + Dart (base multiplataforma)","Usamos Flutter como framework principal y Dart como lenguaje para entregar una base unica de codigo con alta productividad, consistencia de interfaz y excelente rendimiento en Android, iOS, Web y Desktop.","Ejemplo practico: un mismo modulo de registro se comparte entre movil y web, reduciendo retrabajo y tiempo de lanzamiento.")
-A.aes=new B.bK("Base de datos offline (Dart/Flutter)","Para persistencia local y uso sin internet usamos SQLite (sqflite/drift), Isar y Hive. Esta capa local mantiene rendimiento, respuesta rapida de la interfaz y continuidad con conectividad limitada.","Ejemplo practico: un tecnico en campo registra atencion sin internet y la app conserva los datos locales hasta que vuelva la conexion.")
-A.aex=new B.bK("Base de datos online (Dart/Flutter)","Para sincronizacion y datos en la nube trabajamos con Cloud Firestore, Firebase Realtime Database y Supabase/PostgreSQL. Permite backup, actualizacion casi en tiempo real y acceso multiusuario fiable en produccion.","Ejemplo practico: cambios de stock hechos en el panel web aparecen casi en tiempo real en la app del equipo comercial.")
-A.aet=new B.bK("Java (integraciones y backend enterprise)","Utilizamos Java en integraciones corporativas y servicios de apoyo para entornos que exigen robustez, seguridad y compatibilidad con ecosistemas enterprise, conectando apps Flutter a APIs y sistemas legacy.","Ejemplo practico: integracion con ERP legacy para sincronizar pedidos y facturacion sin alterar el sistema principal del cliente.")
-A.aey=new B.bK("Gradle (build y automatizacion Android)","En Android usamos Gradle para dependencias, variantes de build y automatizacion de pipeline. Mejora la previsibilidad de releases, la organizacion de entornos y la calidad continua de entrega.","Ejemplo practico: generamos builds separados para homologacion y produccion con variables de entorno y firmas distintas.")
-A.aem=new B.bK("SDKs de terceros e integraciones nativas","Integramos SDKs nativos y bibliotecas especializadas para negocio: autenticacion, pagos, analytics, notificaciones y servicios propietarios, manteniendo estabilidad y rendimiento en produccion.","Ejemplo practico: a\xf1adimos pasarela de pago y autenticacion biometrica manteniendo UX fluida en Android e iOS.")
-A.aei=new B.bK("Material 3 y UI responsiva","Adoptamos Material 3, LayoutBuilder y breakpoints responsivos para interfaces adaptables a moviles, tablets y escritorio. Mejora la experiencia de usuario, retencion y metricas de usabilidad.","Ejemplo practico: la misma jornada de compra se reorganiza automaticamente en tablet y escritorio sin duplicar pantallas.")
-A.ae0=new B.bK("Integraciones web y SEO tecnico","Implementamos metatags dinamicas, Open Graph, canonical, robots.txt y sitemap.xml para mejorar rastreo e indexacion en Google. Tambien aplicamos buenas practicas con Content Security Policy y politicas de permisos.","Ejemplo practico: la pagina de servicio gana preview optimizado en WhatsApp y mejor posicionamiento organico en Google.")
-A.adZ=new B.bK("Analytics y consentimiento (GA4)","Medicion con Google Analytics 4 integrada al flujo de consentimiento de cookies. Permite analisis de comportamiento respetando la privacidad y politicas modernas de medicion.","Ejemplo practico: el embudo de conversion registra solo eventos consentidos y orienta mejoras de UX con datos reales.")
-A.aea=new B.bK("Arquitectura limpia y mantenimiento","Priorizamos codigo organizado, componentes reutilizables y separacion de responsabilidades para evolucion continua del producto, menos errores y menor coste de mantenimiento.","Ejemplo practico: una nueva funcionalidad de suscripcion se anade reutilizando componentes y reduciendo esfuerzo de QA.")
-A.aep=new B.bK("Integraciones HTTP y servicios externos","Integramos APIs externas y servicios de datos para flujos reales de negocio, incluyendo endpoints de back-end y observabilidad, garantizando fiabilidad operativa y evolucion guiada por metricas.","Ejemplo practico: monitorizamos latencia y error de APIs en produccion para actuar antes de impactar a clientes.")
-A.a3a=w([A.ae6,A.ae_,A.adY,A.aen,A.ae4,A.aes,A.aex,A.aet,A.aey,A.aem,A.aei,A.ae0,A.adZ,A.aea,A.aep],x.c)
-A.ae9=new B.bK("Clean Arch","We apply clean architecture with clear separation of concerns, decoupled layers and reusable components. This speeds product evolution, improves testing and lowers maintenance cost.","Practical example: when a quoting rule changes, we adjust only the domain layer without breaking the UI or external integrations.")
-A.adV=new B.bK("Security","We adopt security best practices for authentication, session management, web content policies and data protection. The goal is to reduce operational risk and increase production trust.","Practical example: we protect sensitive routes with session validation and apply CSP on the web to block unauthorized scripts.")
-A.aeg=new B.bK("Scale","We design solutions to grow with the business, focusing on performance, observability and service integration. Architecture is ready for more users and new modules.","Practical example: in seasonal campaigns we scale API and cache services without rebuilding the app, keeping stability at peak traffic.")
-A.aee=new B.bK("Full-Stack","We work from front-end to back-end, connecting Flutter, APIs, data services, enterprise integrations and build automation. This keeps delivery consistent across the product lifecycle.","Practical example: we ship a full sales feature from the mobile screen to API, database and monitoring.")
-A.adX=new B.bK("Flutter + Dart (cross-platform foundation)","We use Flutter as the main framework and Dart as the language to deliver a single codebase with high productivity, consistent UI and strong performance on Android, iOS, Web and Desktop.","Practical example: one registration module is shared between mobile and web, reducing rework and release time.")
-A.ae7=new B.bK("Offline databases (Dart/Flutter)","For local persistence and offline use we rely on SQLite (sqflite/drift), Isar and Hive. This local layer keeps performance, fast UI response and continuity even with limited connectivity.","Practical example: a field technician logs service offline and the app keeps data local until connectivity returns.")
-A.aej=new B.bK("Online databases (Dart/Flutter)","For sync and cloud data we work with Cloud Firestore, Firebase Realtime Database and Supabase/PostgreSQL. This enables backup, near real-time updates and multi-user access in production.","Practical example: stock changes made in the web panel appear almost in real time in the sales team app.")
-A.aeb=new B.bK("Java (enterprise integrations and backend)","We use Java for corporate integrations and supporting services where robustness, security and enterprise ecosystem compatibility matter, connecting Flutter apps to APIs and legacy systems.","Practical example: integration with a legacy ERP to sync orders and billing without changing the client\u2019s core system.")
-A.ae3=new B.bK("Gradle (Android build and automation)","On Android we use Gradle for dependency management, build variants and pipeline automation. This improves release predictability, environment organization and continuous delivery quality.","Practical example: separate staging and production builds with environment variables and distinct signing configs.")
-A.aeq=new B.bK("Third-party SDKs and native integrations","We integrate native SDKs and specialized libraries for business features such as authentication, payments, analytics, notifications and proprietary services, keeping stability and performance in production.","Practical example: we add a payment gateway and biometric authentication while keeping fluid UX on Android and iOS.")
-A.aer=new B.bK("Material 3 and responsive UI","We adopt Material 3, LayoutBuilder and responsive breakpoints for interfaces that adapt to phones, tablets and desktop. This improves UX, retention and usability metrics.","Practical example: the same purchase journey rearranges automatically for tablet and desktop without duplicating screens.")
-A.aeh=new B.bK("Web integrations and technical SEO","We implement dynamic meta tags, Open Graph, canonical, robots.txt and sitemap.xml to improve crawling and indexing on Google. We also apply security practices such as Content Security Policy and permission policies.","Practical example: a service page gets an optimized WhatsApp preview and better organic positioning on Google.")
-A.aeu=new B.bK("Analytics and consent (GA4)","Measurement with Google Analytics 4 integrated into the cookie consent flow. This enables behavioral analysis with respect for privacy and alignment with modern measurement policies.","Practical example: the conversion funnel records only consented events and guides UX improvements with real data.")
-A.aek=new B.bK("Clean architecture and maintenance","We prioritize organized code, reusable components and separation of concerns to support continuous product evolution, fewer bugs and lower maintenance cost.","Practical example: a new subscription feature is added by reusing components and reducing QA effort.")
-A.ae5=new B.bK("HTTP integrations and external services","We integrate external APIs and data services for real business flows, including back-end endpoints and observability services, ensuring operational reliability and metric-driven evolution.","Practical example: we monitor API latency and errors in production to act before customers are impacted.")
-A.a3e=w([A.ae9,A.adV,A.aeg,A.aee,A.adX,A.ae7,A.aej,A.aeb,A.ae3,A.aeq,A.aer,A.aeh,A.aeu,A.aek,A.ae5],x.c)})()};
-(a=>{a["Nk4qV9WD5v0slx8WJktFwsibQgY="]=a.current})($__dart_deferred_initializers__);
+B.ax0.prototype={
+$2(d,e){var x,w,v,u,t,s,r,q,p,o=this,n=null,m=e.b
+m=m<1/0&&isFinite(m)?m:C.b8(d,D.aq,y.x).w.a.a
+x=D.d.d3(m<720?m:720,200,720)
+w=o.a
+v=o.b
+u=o.c
+t=C.M(v.gi6(),n,n,n,n,C.b4().$4$color$fontSize$fontWeight$letterSpacing(u.b,13,D.as,0.4),n,n)
+s=v.gkF()
+r=o.d<400?18:22
+u=u.k3
+r=C.b([t,D.ba,C.M(s,n,n,n,n,C.b4().$4$color$fontSize$fontWeight$height(u,r,D.am,1.2),n,n),D.ez],y.u)
+for(v=v.gPx(),q=0;q<17;++q)r.push(new B.a1v(v[q],n))
+r.push(D.cb)
+r.push(E.r6)
+r.push(D.eA)
+p=C.c4(d,D.ax,y.F)
+p.toString
+r.push(C.M(p.tb(C.oD(new C.eL(Date.now(),0,!1))),n,n,n,n,C.b4().$3$color$fontSize$fontWeight(u.af(0.7),12,D.ac),n,n))
+r.push(E.JE)
+return C.hG(C.dG(new C.cX(new C.a4(0,x,0,1/0),C.bm(r,D.I,D.n,D.q),n),n,n),n,new C.a8(w,16,w,28),D.ai)},
+$S:121}
+B.az2.prototype={
+$0(){return C.lF(C.dA(this.a.b,0,null),D.dp,"_blank")},
+$S:0};(function inheritance(){var x=a.inherit,w=a.inheritMany
+x(B.nz,C.L)
+x(B.a04,C.U)
+x(B.ax0,C.lW)
+x(B.a1v,C.Y)
+x(B.az2,C.hW)
+w(C.I,[B.li,B.bE,B.arU])
+w(B.arU,[B.aFZ,B.aFX,B.aFY])})()
+C.ng(b.typeUniverse,JSON.parse('{"nz":{"L":[],"e":[]},"a04":{"U":["nz"]},"a1v":{"Y":[],"e":[]}}'))
+var y={F:C.a0("fC"),a:C.a0("o<bE>"),g:C.a0("o<li>"),u:C.a0("o<e>"),x:C.a0("f3"),h:C.a0("kc")};(function constants(){var x=a.makeConstList
+A.NU=new B.aFX()
+A.NV=new B.aFY()
+A.NW=new B.aFZ()
+A.Q=x([],y.g)
+A.afY=new B.bE("What is the app?","PerfectGest ContabilGest helps MEI and small business owners record income and expenses (Cash Book), track tax obligations, simulate Income Tax, manage employees and owner draws, and, on contracted plans, send the month to the accountant for review. Daily use is offline by default.",A.Q)
+A.afF=new B.bE("Is ContabilGest an official government app?","No. It is a private product of Perfect Gest Dev (CNPJ 66.889.409/0001-19). We are not affiliated with or endorsed by the Federal Revenue Service, eSocial, FGTS Digital, or city halls. The official source of obligations and guides is always the government portal.",A.Q)
+A.ag7=new B.li("Simples / PGDAS / DAS","https://www8.receita.fazenda.gov.br/SimplesNacional/")
+A.agb=new B.li("MEI (Portal do Empreendedor)","https://www.gov.br/empresas-e-negocios/pt-br/empreendedor")
+A.ag8=new B.li("eSocial","https://www.esocial.gov.br/")
+A.ag5=new B.li("e-CAC / DCTFWeb","https://cav.receita.fazenda.gov.br/")
+A.ag6=new B.li("FGTS Digital","https://www.gov.br/trabalho-e-emprego/pt-br/servicos/empregador/fgtsdigital")
+A.aga=new B.li("NFS-e Nacional","https://www.gov.br/nfse/pt-br")
+A.ag9=new B.li("IRPF","https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda")
+A.nG=x([A.ag7,A.agb,A.ag8,A.ag5,A.ag6,A.aga,A.ag9],y.g)
+A.ag4=new B.bE("What are the official sources?","Always use government portals for obligations and guides:",A.nG)
+A.afU=new B.bE("Do I need the internet?","- Record entries, close the month, and generate PDF: no\n- Subscribe, restore a purchase, send to the accountant, A1 certificate, AI Assistant: yes\n- Open government portals (DAS, eSocial, DCTFWeb, FGTS Digital, city hall): yes",A.Q)
+A.afT=new B.bE("Does the app replace my accountant?","Not completely. On basic plans you operate on your own and you are responsible for checking everything. On Contabil+ / annual packages, the accountant reviews and signs according to the contracted scope \u2014 you must still check PDFs, payslips, and notices before using them.",A.Q)
+A.afx=new B.bE("Does the app file returns on government portals by itself?","No. The app is an assisted portal: it calculates, organizes deadlines, and opens the portal link. You (or the accountant under a contracted service) transmit in eSocial, DCTFWeb, FGTS Digital, DAS, and so on. The app never transmits automatically.",A.Q)
+A.afN=new B.bE("How do I issue NFS-e / NF-e on the Basic plan?","On the Basic plan, issuing NFS-e and NF-e requires the issuer A1 certificate and the authorizations required by the portal (city hall, National NFS-e and/or SEFAZ). Without the A1 and those authorizations, the app cannot issue invoices. Municipal portal username and password do not replace the A1 certificate.",A.Q)
+A.ag2=new B.bE("How do I issue NFS-e / NF-e with Contabil+ or an accountant package?","On Contabil+ or an accountant package, the approved flow remains: NFS-e with the office A1 plus power of attorney (CRC); NF-e with the issuer A1 at SEFAZ. The accountant supports authorizations and issuance according to the contracted scope. Portal login and password do not replace the A1 certificate.",A.Q)
+A.afn=new B.bE("Does a sales NF-e accept portal login/password?","No. SEFAZ requires an A1 certificate (signature and connection) for NF-e. Portal login and password do not authorize NF-e, neither on the Basic plan nor on plans with an accountant.",A.Q)
+A.afJ=new B.bE("Does the app move money from my bank account?","No. It does not access your bank or make transfers.",A.Q)
+A.afi=new B.bE("Can I use it without a subscription?",'- Demo mode ("Explore the app"): you can browse menus and screens to learn ContabilGest.\n- Usage functions (record, save, close the month, send to the accountant, etc.): require an active Google Play subscription.\n- A1 certificate-only offer (standalone): does not include full Cash Book / app use.\n\nTo use the app, choose a plan on the subscription screen. If you already purchased: "I already have an account" / Restore purchase.',A.Q)
+A.afm=new B.bE("Subscriptions (Google Play policy)",'- A subscription is required to use ContabilGest (except the standalone "certificate only" offer, when shown)\n- Billing and renewal: managed by Google Play\n- Auto-renews until you cancel in Play \u2192 Payments and subscriptions \u2192 Subscriptions\n- On Installment plans (accountant / packages), there is a 12-month commitment; cancellation or change may only take effect at the end of that commitment, according to Play\n- Uninstalling the app does not cancel the subscription\n- In the app: More \u2192 Google Play Subscription (plans) \xb7 Cancel / manage billing (opens the Subscriptions Center)\n- Refunds: Google Play policy\n- There is no free trial unless an express campaign is set in Play Console\n- The official price is the one shown in Play at checkout; tables in this FAQ are reference only\n- On the plans screen, the app shows offer terms (price, frequency, renewal, cancellation) and the Contabil+ upgrade flow',A.Q)
+A.afl=new B.bE("How do I restore a purchase?",'More \u2192 Google Play Subscription \u2192 Restore purchase (or "I already have an account" on the landing)',A.Q)
+A.afP=new B.bE("Can I change from Essential to Standard or Advanced?",'Yes. With Contabil+ active: More \u2192 Change Contabil+ plan \u2192 Update plan on the upper band. Google Play charges the prorated difference (subscription replacement). You can also use the "Update plan" / "Manage plan" button on the paywall.',A.Q)
+A.afM=new B.bE("Can I drop from Advanced to Standard or Essential?",'There is no "immediate downgrade" button in the app. Cancel auto-renewal in Google Play, use the remaining paid period, then subscribe to the desired plan in the app. Details: More \u2192 Change Contabil+ plan \u2192 "Need a lower plan?"',A.Q)
+A.afV=new B.bE("Can I add entries, payroll, or income tax later?","Yes, if you have Contabil+ (any band) or an annual accountant package: More \u2192 Complement plan (payroll and income tax). Accountant Review is already included. Basic plans without Contabil+ are not eligible.",A.Q)
+A.afw=new B.bE("Does the app warn before renewal?","When Play provides the cycle date, the app may warn up to 30 days ahead (Home / More). Without a Play date, there is no invented countdown \u2014 check Play \u2192 Subscriptions.",A.Q)
+A.WP=x([A.afY,A.afF,A.ag4,A.afU,A.afT,A.afx,A.afN,A.ag2,A.afn,A.afJ,A.afi,A.afm,A.afl,A.afP,A.afM,A.afV,A.afw],y.a)
+A.afu=new B.bE("\xbfQu\xe9 es la app?","PerfectGest ContabilGest ayuda a MEI y peque\xf1os empresarios a registrar entradas y salidas (Libro de caja), seguir obligaciones fiscales, simular Impuesto de Renta, gestionar empleados, pr\xf3-labore y, en los planes contratados, enviar el mes a revisi\xf3n del contador. El uso diario es offline por defecto.",A.Q)
+A.afG=new B.bE("\xbfContabilGest es una app oficial del gobierno?","No. Es un producto privado de Perfect Gest Dev (CNPJ 66.889.409/0001-19). No estamos afiliados ni respaldados por la Receita Federal, eSocial, FGTS Digital o prefecturas. La fuente oficial de obligaciones y gu\xedas es siempre el portal del gobierno.",A.Q)
+A.afz=new B.bE("\xbfCu\xe1les son las fuentes oficiales?","Use siempre los portales del gobierno para obligaciones y gu\xedas:",A.nG)
+A.afC=new B.bE("\xbfNecesito internet?","- Registrar, cerrar el mes y generar PDF: no\n- Suscribirse, restaurar compra, enviar al contador, certificado A1, Asistente IA: s\xed\n- Abrir portales del gobierno (DAS, eSocial, DCTFWeb, FGTS Digital, prefectura): s\xed",A.Q)
+A.afj=new B.bE("\xbfLa app sustituye a mi contador?","No por completo. En los planes b\xe1sicos usted opera solo y es responsable de revisar todo. En los planes Contabil+ / paquete anual, el contador revisa y firma seg\xfan el alcance contratado \u2014 usted a\xfan debe revisar PDF, recibos de sueldo y comunicaciones antes de usarlos.",A.Q)
+A.afo=new B.bE("\xbfLa app env\xeda declaraciones sola a los portales del gobierno?","No. La app es un portal asistido: calcula, organiza plazos y abre el enlace del portal. Quien transmite en eSocial, DCTFWeb, FGTS Digital, DAS, etc. es usted (o el contador en el servicio contratado), nunca la app de forma autom\xe1tica.",A.Q)
+A.afE=new B.bE("\xbfC\xf3mo emito NFS-e / NF-e en el plan B\xe1sico?","En el plan B\xe1sico, la emisi\xf3n de NFS-e y NF-e exige certificado A1 del emisor y el cumplimiento de las autorizaciones exigidas por el portal (prefectura, NFS-e Nacional y/o SEFAZ). Sin el A1 y sin esas autorizaciones, la app no puede emitir. Usuario y contrase\xf1a del portal municipal no sustituyen el certificado A1.",A.Q)
+A.afI=new B.bE("\xbfC\xf3mo emito NFS-e / NF-e con Contabil+ o paquete con contador?","En Contabil+ o paquete con contador, el flujo homologado contin\xfaa: NFS-e con A1 del despacho + poder (CRC); NF-e con A1 del emisor en SEFAZ. El contador apoya las autorizaciones y la emisi\xf3n seg\xfan el alcance contratado. Usuario y contrase\xf1a de portal no sustituyen el certificado A1.",A.Q)
+A.afv=new B.bE("\xbfLa NF-e de venta acepta usuario/contrase\xf1a del portal?","No. SEFAZ exige certificado A1 (firma y conexi\xf3n) para NF-e. Usuario y contrase\xf1a de portal no autorizan NF-e, ni en el plan B\xe1sico ni en los planes con contador.",A.Q)
+A.afO=new B.bE("\xbfLa app mueve dinero de mi cuenta?","No. No accede al banco ni hace transferencias.",A.Q)
+A.afZ=new B.bE("\xbfPuedo usarla sin suscribirme?","- Modo demostraci\xf3n (\xabConocer la app\xbb): puede navegar men\xfas y pantallas para conocer ContabilGest.\n- Funciones de uso (registrar, guardar, cerrar mes, enviar al contador, etc.): exigen suscripci\xf3n activa en Google Play.\n- Oferta solo certificado A1 (suelto): no incluye el uso completo del Libro de caja / app.\n\nPara utilizar la app, elija un plan en la pantalla de suscripci\xf3n. Si ya compr\xf3: \xabYa tengo cuenta\xbb / Restaurar compra.",A.Q)
+A.afB=new B.bE("Suscripciones (pol\xedtica Google Play)","- Se necesita suscripci\xf3n para utilizar ContabilGest (excepto oferta suelta \xabsolo certificado\xbb, cuando est\xe9 indicada)\n- Cobro y renovaci\xf3n: gestionados por Google Play\n- Renovaci\xf3n autom\xe1tica hasta cancelar en Play \u2192 Pagos y suscripciones \u2192 Suscripciones\n- En planes Cuotas (contador / paquetes), hay compromiso de 12 meses; la cancelaci\xf3n o el cambio puede valer solo al final de ese compromiso, seg\xfan Play\n- Desinstalar la app no cancela la suscripci\xf3n\n- En la app: M\xe1s \u2192 Suscripci\xf3n Google Play (planes) \xb7 Cancelar / gestionar cobro (abre el Centro de Suscripciones)\n- Reembolsos: pol\xedtica de Google Play\n- No hay per\xedodo de prueba gratuito, salvo campa\xf1a expresa en Play Console\n- El precio oficial es el mostrado en Play en el checkout; las tablas de este FAQ son solo referencia\n- En la pantalla de planes, la app muestra t\xe9rminos de la oferta (precio, frecuencia, renovaci\xf3n, cancelaci\xf3n) y el flujo de upgrade Contabil+",A.Q)
+A.afD=new B.bE("\xbfC\xf3mo restauro una compra?","M\xe1s \u2192 Suscripci\xf3n Google Play \u2192 Restaurar compra (o \xabYa tengo cuenta\xbb en la landing)",A.Q)
+A.ag0=new B.bE("\xbfPuedo pasar de Esencial a Standard o Avanzado?","S\xed. Con Contabil+ activo: M\xe1s \u2192 Cambiar plan Contabil+ \u2192 Actualizar plan en la franja superior. Google Play cobra la diferencia proporcional (sustituci\xf3n de suscripci\xf3n). Tambi\xe9n puede usar el bot\xf3n \xabActualizar plan\xbb / \xabGestionar plan\xbb en el paywall.",A.Q)
+A.afs=new B.bE("\xbfPuedo bajar de Avanzado a Standard o Esencial?","No hay bot\xf3n de \xabdowngrade inmediato\xbb en la app. Cancele la renovaci\xf3n autom\xe1tica en Google Play, use hasta el final del per\xedodo ya pagado y, despu\xe9s, suscr\xedbase al plan deseado en la app. Detalles: M\xe1s \u2192 Cambiar plan Contabil+ \u2192 \xab\xbfNecesita un plan inferior?\xbb",A.Q)
+A.afL=new B.bE("\xbfPuedo agregar lanzamientos, n\xf3mina o IR despu\xe9s?","S\xed, si tiene Contabil+ (cualquier franja) o paquete anual con contador: M\xe1s \u2192 Complementar plan (n\xf3mina e IR). La Conferencia del Contador ya est\xe1 incluida. Los planes B\xe1sico sin Contabil+ no son elegibles.",A.Q)
+A.ag_=new B.bE("\xbfLa app avisa antes de la renovaci\xf3n?","Cuando Play informe la fecha del ciclo, la app puede avisar hasta 30 d\xedas antes (Inicio / M\xe1s). Sin fecha de Play, no hay cuenta inventada \u2014 consulte Play \u2192 Suscripciones.",A.Q)
+A.ZF=x([A.afu,A.afG,A.afz,A.afC,A.afj,A.afo,A.afE,A.afI,A.afv,A.afO,A.afZ,A.afB,A.afD,A.ag0,A.afs,A.afL,A.ag_],y.a)
+A.ag3=new B.bE("O que \xe9 o app?","O PerfectGest ContabilGest ajuda MEI e pequenos empres\xe1rios a registrar entradas e sa\xeddas (Livro Caixa), acompanhar obriga\xe7\xf5es fiscais, simular Imposto de Renda, gerenciar funcion\xe1rios, pr\xf3-labore e, nos planos contratados, enviar o m\xeas para confer\xeancia do contador. O uso di\xe1rio \xe9 offline por padr\xe3o.",A.Q)
+A.afA=new B.bE("O ContabilGest \xe9 um app oficial do governo?","N\xe3o. \xc9 um produto privado da Perfect Gest Dev (CNPJ 66.889.409/0001-19). N\xe3o somos afiliados nem endossados pela Receita Federal, eSocial, FGTS Digital ou prefeituras. A fonte oficial de obriga\xe7\xf5es e guias \xe9 sempre o portal do governo.",A.Q)
+A.afh=new B.bE("Quais s\xe3o as fontes oficiais?","Use sempre os portais do governo para obriga\xe7\xf5es e guias:",A.nG)
+A.afk=new B.bE("Preciso de internet?","- Lan\xe7ar, fechar o m\xeas e gerar PDF: n\xe3o\n- Assinar plano, restaurar compra, enviar ao contador, certificado A1, Assistente IA: sim\n- Abrir portais do governo (DAS, eSocial, DCTFWeb, FGTS Digital, prefeitura): sim",A.Q)
+A.afq=new B.bE("O app substitui meu contador?","N\xe3o por completo. Nos planos b\xe1sicos voc\xea opera sozinho e \xe9 respons\xe1vel por conferir tudo. Nos planos Contabil+ / pacote anual, o contador revisa e assina conforme o escopo contratado \u2014 voc\xea ainda deve conferir PDFs, holerites e comunica\xe7\xf5es antes de usar.",A.Q)
+A.afp=new B.bE("O app envia declara\xe7\xf5es sozinho aos portais do governo?","N\xe3o. O app \xe9 portal assistido: calcula, organiza prazos e abre o link do portal. Quem transmite no eSocial, DCTFWeb, FGTS Digital, DAS etc. \xe9 voc\xea (ou o contador no servi\xe7o contratado), nunca o app de forma autom\xe1tica.",A.Q)
+A.afS=new B.bE("Como emito NFS-e / NF-e no plano B\xe1sico?","No plano B\xe1sico, a emiss\xe3o de NFS-e e NF-e exige certificado A1 do emitente e o cumprimento das autoriza\xe7\xf5es exigidas pelo portal (prefeitura, NFS-e Nacional e/ou SEFAZ). Sem o A1 e sem essas autoriza\xe7\xf5es, o app n\xe3o consegue emitir. Login e senha do portal municipal n\xe3o substituem o certificado A1.",A.Q)
+A.ag1=new B.bE("Como emito NFS-e / NF-e com Contabil+ ou pacote com contador?","No Contabil+ ou pacote com contador, o fluxo homologado continua: NFS-e com A1 do escrit\xf3rio + procura\xe7\xe3o (CRC); NF-e com A1 do emitente na SEFAZ. O contador apoia as autoriza\xe7\xf5es e a emiss\xe3o conforme o escopo contratado. Login e senha de portal n\xe3o substituem o certificado A1.",A.Q)
+A.afH=new B.bE("A NF-e de venda aceita login/senha do portal?","N\xe3o. A SEFAZ exige certificado A1 (assinatura e liga\xe7\xe3o) para NF-e. Login e senha de portal n\xe3o autorizam NF-e, nem no plano B\xe1sico nem nos planos com contador.",A.Q)
+A.afK=new B.bE("O app movimenta dinheiro da minha conta?","N\xe3o. N\xe3o acessa banco nem faz transfer\xeancias.",A.Q)
+A.afy=new B.bE("Posso usar sem assinar?","- Modo demonstra\xe7\xe3o (\xabConhecer o app\xbb): pode navegar menus e ecr\xe3s para conhecer o ContabilGest.\n- Fun\xe7\xf5es de uso (lan\xe7ar, gravar, fechar m\xeas, enviar ao contador, etc.): exigem assinatura activa na Google Play.\n- Oferta s\xf3 certificado A1 (avulso): n\xe3o inclui o uso completo do Livro Caixa / app.\n\nPara utilizar o app, escolha um plano na tela de assinatura. Se j\xe1 comprou: \xabJ\xe1 tenho conta\xbb / Restaurar compra.",A.Q)
+A.afQ=new B.bE("Assinaturas (pol\xedtica Google Play)","- Assinatura necess\xe1ria para utilizar o ContabilGest (exceto oferta avulsa \xabs\xf3 certificado\xbb, quando indicada)\n- Cobran\xe7a e renova\xe7\xe3o: geridas pela Google Play\n- Renova\xe7\xe3o autom\xe1tica at\xe9 cancelar em Play \u2192 Pagamentos e subscri\xe7\xf5es \u2192 Subscri\xe7\xf5es\n- Em planos Parcelas (contador / pacotes), h\xe1 compromisso de 12 meses; cancelamento ou mudan\xe7a pode s\xf3 valer no fim desse compromisso, conforme a Play\n- Desinstalar o app n\xe3o cancela a assinatura\n- Na app: Mais \u2192 Assinatura Google Play (planos) \xb7 Cancelar / gerir cobran\xe7a (abre o Centro de Assinaturas)\n- Reembolsos: pol\xedtica da Google Play\n- N\xe3o h\xe1 per\xedodo de teste gratuito, salvo campanha expressa na Play Console\n- O pre\xe7o oficial \xe9 o exibido na Play no checkout; tabelas neste FAQ s\xe3o s\xf3 refer\xeancia\n- No ecr\xe3 de planos, a app mostra termos da oferta (pre\xe7o, frequ\xeancia, renova\xe7\xe3o, cancelamento) e o fluxo de upgrade Contabil+",A.Q)
+A.afr=new B.bE("Como restauro uma compra?","Mais \u2192 Assinatura Google Play \u2192 Restaurar compra (ou \xabJ\xe1 tenho conta\xbb na landing)",A.Q)
+A.aft=new B.bE("Posso mudar de Essencial para Standard ou Avan\xe7ado?","Sim. Com Contabil+ activo: Mais \u2192 Alterar plano Contabil+ \u2192 Actualizar plano na faixa superior. A Google Play cobra a diferen\xe7a proporcional (substitui\xe7\xe3o de assinatura). Tamb\xe9m pode usar o bot\xe3o \xabActualizar plano\xbb / \xabGerir plano\xbb no paywall.",A.Q)
+A.afX=new B.bE("Posso baixar de Avan\xe7ado para Standard ou Essencial?","N\xe3o h\xe1 bot\xe3o de \xabdowngrade imediato\xbb na app. Cancele a renova\xe7\xe3o autom\xe1tica na Google Play, use at\xe9 ao fim do per\xedodo j\xe1 pago e, depois, assine o plano desejado na app. Detalhes: Mais \u2192 Alterar plano Contabil+ \u2192 \xabPrecisa de um plano inferior?\xbb",A.Q)
+A.afR=new B.bE("Posso adicionar lan\xe7amentos, folha ou IR depois?","Sim, se tiver Contabil+ (qualquer faixa) ou pacote anual com contador: Mais \u2192 Complementar plano (folha e IR). A Conferencia do Contador j\xe1 est\xe1 inclu\xedda. Planos B\xe1sico sem Contabil+ n\xe3o s\xe3o eleg\xedveis.",A.Q)
+A.afW=new B.bE("A app avisa antes da renova\xe7\xe3o?","Quando a Play informar a data do ciclo, a app pode avisar at\xe9 30 dias antes (In\xedcio / Mais). Sem data da Play, n\xe3o h\xe1 contagem inventada \u2014 consulte Play \u2192 Assinaturas.",A.Q)
+A.a65=x([A.ag3,A.afA,A.afh,A.afk,A.afq,A.afp,A.afS,A.ag1,A.afH,A.afK,A.afy,A.afQ,A.afr,A.aft,A.afX,A.afR,A.afW],y.a)})()};
+(a=>{a["xJgDxft5pDwzYO7X1BdvzqO1zNg="]=a.current})($__dart_deferred_initializers__);
