@@ -29,7 +29,7 @@ class FunilImg {
   static const duties = '$kFunilImgDir/Screenshot_20261008-165743.jpg';
   static const menu = '$kFunilImgDir/Screenshot_20261008-165818.jpg';
   static const invoices = '$kFunilImgDir/Screenshot_20261008-165926.jpg';
-  static const phoneNfe = '$kFunilImgDir/WhatsApp Image 2026-10-08 at 17.01.28.jpeg';
+  static const phoneNfe = '$kFunilImgDir/phone_nfe.jpeg';
 }
 
 const List<({String id, double monthly, bool highlight})> kFunilTiers =
@@ -710,7 +710,7 @@ class _HeroBlock extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 16),
-        _FunilShot(asset: FunilImg.welcome, caption: st.shotCaption('welcome'), height: 440),
+        _FunilShot(asset: FunilImg.welcome, caption: st.shotCaption('welcome'), height: 640),
       ],
     );
   }
@@ -900,7 +900,7 @@ class _SuccessCard extends StatelessWidget {
 }
 
 class _FunilShot extends StatelessWidget {
-  const _FunilShot({required this.asset, this.caption, this.height = 400});
+  const _FunilShot({required this.asset, this.caption, this.height = 560});
 
   final String asset;
   final String? caption;
@@ -908,6 +908,8 @@ class _FunilShot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final st = SiteContabilidadeFunilTexts.of(context);
+    final title = (caption != null && caption!.isNotEmpty) ? caption! : st.demoTitle;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -915,16 +917,38 @@ class _FunilShot extends StatelessWidget {
           Text(caption!, style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13.5)),
           const SizedBox(height: 8),
         ],
-        ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: ColoredBox(
-            color: const Color(0xFFEEF3F0),
-            child: SizedBox(
-              height: height,
-              width: double.infinity,
-              child: buildScreenshotAssetImage(
-                assetPath: asset,
-                fit: BoxFit.contain,
+        Material(
+          color: Colors.transparent,
+          child: InkWell(
+            onTap: () => _showFunilShotPreview(
+              context,
+              asset: asset,
+              title: title,
+              zoomHint: st.zoomHint,
+            ),
+            borderRadius: BorderRadius.circular(10),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: ColoredBox(
+                color: const Color(0xFFEEF3F0),
+                child: SizedBox(
+                  height: height,
+                  width: double.infinity,
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      buildScreenshotAssetImage(
+                        assetPath: asset,
+                        fit: BoxFit.contain,
+                      ),
+                      const Positioned(
+                        right: 8,
+                        top: 8,
+                        child: Icon(Icons.zoom_out_map_rounded, size: 22, color: kFunilGreen),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
           ),
@@ -932,6 +956,85 @@ class _FunilShot extends StatelessWidget {
       ],
     );
   }
+}
+
+Future<void> _showFunilShotPreview(
+  BuildContext context, {
+  required String asset,
+  required String title,
+  required String zoomHint,
+}) {
+  final size = MediaQuery.sizeOf(context);
+  return showDialog<void>(
+    context: context,
+    barrierDismissible: true,
+    builder: (ctx) {
+      return Dialog(
+        insetPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+        backgroundColor: Colors.white,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        child: SizedBox(
+          width: size.width - 24,
+          height: size.height * 0.9,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(12, 4, 4, 0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(title, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 15)),
+                    ),
+                    IconButton(
+                      onPressed: () => Navigator.of(ctx).pop(),
+                      icon: const Icon(Icons.close_rounded, color: kFunilInk),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+                child: Text(
+                  zoomHint,
+                  style: TextStyle(fontSize: 12, color: kFunilInk.withValues(alpha: 0.65)),
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(12, 0, 12, 12),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: ColoredBox(
+                      color: const Color(0xFFEEF3F0),
+                      child: LayoutBuilder(
+                        builder: (context, constraints) {
+                          return InteractiveViewer(
+                            minScale: 1,
+                            maxScale: 5,
+                            clipBehavior: Clip.hardEdge,
+                            boundaryMargin: const EdgeInsets.all(48),
+                            child: SizedBox(
+                              width: constraints.maxWidth,
+                              height: constraints.maxHeight,
+                              child: buildScreenshotAssetImage(
+                                assetPath: asset,
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    },
+  );
 }
 
 class _DemoBlock extends StatelessWidget {
@@ -949,7 +1052,7 @@ class _DemoBlock extends StatelessWidget {
         children: [
           _FunilShot(asset: FunilImg.phoneNfe, caption: st.shotCaption('phoneNfe')),
           const SizedBox(height: 16),
-          _FunilShot(asset: FunilImg.tabletNfe, caption: st.shotCaption('tabletNfe'), height: 360),
+          _FunilShot(asset: FunilImg.tabletNfe, caption: st.shotCaption('tabletNfe'), height: 560),
           const SizedBox(height: 16),
           _FunilShot(asset: FunilImg.home, caption: st.shotCaption('home')),
           const SizedBox(height: 16),

@@ -10,6 +10,34 @@ Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs,
 - Sempre registrar impacto, risco e validacao realizada.
 - Em caso de mudanca de comportamento, registrar motivo e plano de rollback.
 
+## [2026-10-08 18:41] Funil: imagens maiores e zoom com pinca
+
+### Contexto
+- Pedido: fotos maiores; toque abre zoom com pinca para focar um ponto.
+
+### Arquivos alterados
+- lib/contabilidade_funil_page.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- IMAGENS_APP/IMAGENS NOVA PAGE/phone_nfe.jpeg
+- docs/Atualiza.md
+
+### O que foi feito
+- _FunilShot 560 px (welcome 640); icone de zoom; dialogo InteractiveViewer 1x-5x.
+- Ficheiro WhatsApp renomeado para phone_nfe.jpeg.
+
+### Risco de regressao
+- Baixo: so funil. Home nao alterada.
+
+### Validacao executada
+- [x] Web-server 8088 reiniciado.
+
+### Resultado
+- Capturas maiores e ampliaveis no toque.
+- Pendencias: publish so com ordem expressa.
+
+### Proximos passos recomendados
+- Conferir `/contabilidade` e toque/pinca nas fotos.
+
 ## [2026-10-08 18:29] Publish Render: funil /contabilidade
 
 ### Contexto

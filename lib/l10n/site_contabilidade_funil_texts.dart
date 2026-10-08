@@ -84,6 +84,7 @@ abstract class SiteContabilidadeFunilTexts {
   String get subscribeApp;
   String get backHome;
   String get demoTitle;
+  String get zoomHint;
   String shotCaption(String id);
   String get faqTitle;
   List<FunilFaqItem> get faq;
@@ -313,6 +314,9 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
 
   @override
   String get demoTitle => 'Demo do app';
+
+  @override
+  String get zoomHint => 'Pinça ou use a roda do mouse para ampliar. Toque fora para fechar.';
 
   @override
   String shotCaption(String id) => switch (id) {
@@ -716,6 +720,9 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
   String get demoTitle => 'App demo';
 
   @override
+  String get zoomHint => 'Pinch or use the mouse wheel to zoom. Tap outside to close.';
+
+  @override
   String shotCaption(String id) => switch (id) {
         'welcome' => 'Welcome screen: try the app at no charge',
         'accountant' => 'Accounting plans with an active accountant',
@@ -1113,6 +1120,9 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
 
   @override
   String get demoTitle => 'Demo de la app';
+
+  @override
+  String get zoomHint => 'Pellizque o use la rueda del ratón para ampliar. Toque fuera para cerrar.';
 
   @override
   String shotCaption(String id) => switch (id) {
