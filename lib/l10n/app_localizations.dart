@@ -370,7 +370,7 @@ class _AppLocalizationsPt extends AppLocalizations {
   String get solAppsTagline => 'Gratuito. Gestão no celular para ME, MEI e autônomos';
   @override
   String get solAppsBody =>
-      'Cadastre clientes, crie orçamentos e ordens de serviço em PDF, controle o caixa, receba lembretes fiscais e use o cartão de visita digital — todas as funções gratuitas, inclusive offline. Para NFS-e/NF-e, Livro Caixa com conferência e contador responsável, conheça o PerfectGest ContabilGest.';
+      'Cadastre clientes, crie orçamentos e ordens de serviço em PDF, controle o caixa, receba lembretes fiscais e use o cartão de visita digital — todas as funções gratuitas, inclusive offline.';
   @override
   String get solAppsGetAppLabel => 'Obter o aplicativo';
   @override
