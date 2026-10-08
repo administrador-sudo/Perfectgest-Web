@@ -136,6 +136,8 @@
   "@solAppsBody": { "description": "Descricao do bloco PerfectGest em Solucoes" },
   "solAppsGetAppLabel": "Obter o aplicativo",
   "@solAppsGetAppLabel": { "description": "Botao para obter o PerfectGest (canal externo)" },
+  "solContabilKnowAppLabel": "Conhecer o aplicativo",
+  "@solContabilKnowAppLabel": { "description": "Botao ContabilGest na home para a landing /contabilidade" },
   "solAppsSupportPortalLabel": "FAQ e políticas do app",
   "solAppsHashtags": "#MEI #gestão #empreendedor #autônomo #microempresa #controleFinanceiro #orçamento #caixa #PerfectGest",
   "@solAppsHashtags": { "description": "Hashtags de marketing abaixo do bloco PerfectGest" },

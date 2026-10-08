@@ -82,7 +82,7 @@ class PerfectProSiteApp extends StatefulWidget {
 }
 
 class _PerfectProSiteAppState extends State<PerfectProSiteApp> {
-  ThemeMode _themeMode = ThemeMode.dark;
+  ThemeMode _themeMode = ThemeMode.light;
 
   void _toggleTheme() {
     setState(() {
@@ -1733,10 +1733,12 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
             loadImage: _loadedMockupCount > 1,
           ),
           actions: SolutionsAppActionsBlock(
-            getAppLabel: l10n.solAppsGetAppLabel,
+            getAppLabel: l10n.solContabilKnowAppLabel,
             supportPortalLabel: l10n.solContabilAppsSupportPortalLabel,
             productUrl: kPerfectGestContabilIProductUrl,
             supportUrl: kPerfectGestContabilIFaqUrl,
+            primaryIcon: Icons.visibility_outlined,
+            onPrimary: () => Navigator.of(context).pushNamed(kContabilidadePath),
           ),
           fadeBegin: 0.0,
           fadeEnd: 0.4,
@@ -2332,6 +2334,8 @@ class SolutionsAppActionsBlock extends StatelessWidget {
     required this.productUrl,
     required this.supportUrl,
     this.hashtags,
+    this.onPrimary,
+    this.primaryIcon = Icons.download_rounded,
   });
 
   final String getAppLabel;
@@ -2339,6 +2343,8 @@ class SolutionsAppActionsBlock extends StatelessWidget {
   final String productUrl;
   final String supportUrl;
   final String? hashtags;
+  final VoidCallback? onPrimary;
+  final IconData primaryIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -2356,12 +2362,13 @@ class SolutionsAppActionsBlock extends StatelessWidget {
               sitePrimaryActionButton(
                 context: context,
                 label: getAppLabel,
-                icon: Icons.download_rounded,
-                onPressed: () => launchUrl(
-                  Uri.parse(productUrl),
-                  mode: LaunchMode.externalApplication,
-                  webOnlyWindowName: kIsWeb ? '_blank' : null,
-                ),
+                icon: primaryIcon,
+                onPressed: onPrimary ??
+                    () => launchUrl(
+                          Uri.parse(productUrl),
+                          mode: LaunchMode.externalApplication,
+                          webOnlyWindowName: kIsWeb ? '_blank' : null,
+                        ),
               ),
               siteMetallicOutlinedButton(
                 context: context,

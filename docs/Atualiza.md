@@ -10,6 +10,42 @@ Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs,
 - Sempre registrar impacto, risco e validacao realizada.
 - Em caso de mudanca de comportamento, registrar motivo e plano de rollback.
 
+## [2026-10-08 19:58] Home clara, CTA ContabilGest e funil com visual da vitrine
+
+### Contexto
+- Pedido: abrir o site em modo claro; CTA Conhecer o aplicativo para /contabilidade; funil com placa PERFECTGESTDEV e blocos 3D ouro; titulo em duas linhas.
+
+### Arquivos alterados
+- lib/main.dart
+- lib/contabilidade_funil_page.dart
+- lib/l10n/app_pt.arb
+- lib/l10n/app_en.arb
+- lib/l10n/app_es.arb
+- lib/l10n/app_localizations.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- web/index.html
+- web/manifest.json
+- docs/Atualiza.md
+
+### O que foi feito
+- ThemeMode.light; splash e theme-color claros.
+- ContabilGest: Conhecer o aplicativo → /contabilidade. PerfectGest I inalterado.
+- Funil: SiteBackgroundShell, SiteHeroWordmark, SiteRaisedBlock; segunda linha do titulo a 13 px.
+
+### Risco de regressao
+- Medio: tema inicial e CTA da home. Funil herda o tema da vitrine.
+
+### Validacao executada
+- [x] Web-server 8088 reiniciado.
+- [x] Home em modo claro; /contabilidade com placa PerfectGestDev, bloco ouro 3D e titulo em duas linhas.
+
+### Resultado
+- Home clara; landing com visual da vitrine.
+- Pendencias: publish so com ordem expressa.
+
+### Proximos passos recomendados
+- Publish so com ordem expressa.
+
 ## [2026-10-08 18:41] Funil: imagens maiores e zoom com pinca
 
 ### Contexto

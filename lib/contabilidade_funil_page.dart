@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'app_theme.dart';
 import 'asset_screenshot.dart';
+import 'brand_palette.dart';
 import 'company_legal.dart';
 import 'l10n/site_contabilidade_funil_texts.dart';
 import 'lead_capture_service.dart';
 import 'locale_controller.dart';
+import 'metallic_site_shell.dart';
 import 'seo_meta_stub.dart' if (dart.library.html) 'seo_meta_web.dart' as seo_meta;
-import 'site_brand_logo.dart';
+import 'site_hero_wordmark.dart';
 import 'site_public_urls.dart';
+import 'site_surface.dart';
 
-const Color kFunilGreen = Color(0xFF1B5E4B);
+const Color kFunilGreen = BrandPalette.goldWarm;
 const Color kFunilA1Purple = Color(0xFF7A2E9A);
 const Color kFunilBg = Color(0xFFF4F7F5);
 const Color kFunilInk = Color(0xFF14211C);
@@ -218,48 +220,17 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
   Widget build(BuildContext context) {
     final st = SiteContabilidadeFunilTexts.of(context);
     final narrow = MediaQuery.sizeOf(context).width < 720;
-    final theme = ThemeData(
-      useMaterial3: true,
-      brightness: Brightness.light,
-      colorScheme: ColorScheme.light(
-        primary: kFunilGreen,
-        onPrimary: Colors.white,
-        surface: Colors.white,
-        onSurface: kFunilInk,
-        secondary: kFunilGreen,
-        onSecondary: Colors.white,
-      ),
-      scaffoldBackgroundColor: kFunilBg,
-      filledButtonTheme: FilledButtonThemeData(
-        style: FilledButton.styleFrom(
-          backgroundColor: kFunilGreen,
-          foregroundColor: Colors.white,
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
-        ),
-      ),
-      outlinedButtonTheme: OutlinedButtonThemeData(
-        style: OutlinedButton.styleFrom(
-          foregroundColor: kFunilGreen,
-          side: const BorderSide(color: kFunilGreen),
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
-        ),
-      ),
-      textTheme: GoogleFonts.interTextTheme(ThemeData.light().textTheme).apply(
-        bodyColor: kFunilInk,
-        displayColor: kFunilInk,
-      ),
-    );
+    final cs = Theme.of(context).colorScheme;
 
-    return Theme(
-      data: theme,
-      child: Semantics(
-        label: st.semanticsLabel,
+    return Semantics(
+      label: st.semanticsLabel,
+      child: SiteBackgroundShell(
         child: Scaffold(
-          backgroundColor: kFunilBg,
+          backgroundColor: Colors.transparent,
           floatingActionButton: narrow
               ? FloatingActionButton.extended(
-                  backgroundColor: kFunilGreen,
-                  foregroundColor: Colors.white,
+                  backgroundColor: cs.primary,
+                  foregroundColor: cs.onPrimary,
                   onPressed: () => _openWhatsApp(),
                   icon: const Icon(Icons.chat_rounded),
                   label: Text(st.whatsAppFab),
@@ -267,10 +238,7 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
               : null,
           body: Column(
             children: [
-              _FunilHeader(
-                st: st,
-                onLogo: _goHome,
-              ),
+              _FunilHeader(st: st),
               Expanded(
                 child: SingleChildScrollView(
                   padding: EdgeInsets.fromLTRB(narrow ? 16 : 24, 20, narrow ? 16 : 24, 48),
@@ -282,6 +250,7 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                         children: [
                           _HeroBlock(
                             st: st,
+                            onLogo: _goHome,
                             onKnowApp: _openPlay,
                             onSeePlans: () => _scrollTo(_planosKey),
                           ),
@@ -560,9 +529,10 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
               ),
             ],
             const SizedBox(height: 16),
-            FilledButton(
-              onPressed: _submitting ? null : () => _submit(st),
-              child: Text(_submitting ? st.submittingLabel : st.submitLabel),
+            sitePrimaryActionButton(
+              context: context,
+              label: _submitting ? st.submittingLabel : st.submitLabel,
+              onPressed: _submitting ? () {} : () => _submit(st),
             ),
           ],
         ),
@@ -607,26 +577,21 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
 }
 
 class _FunilHeader extends StatelessWidget {
-  const _FunilHeader({required this.st, required this.onLogo});
+  const _FunilHeader({required this.st});
 
   final SiteContabilidadeFunilTexts st;
-  final VoidCallback onLogo;
 
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.white,
-      elevation: 1,
+      color: siteHeaderBackground(context),
+      elevation: 0,
       child: SafeArea(
         bottom: false,
         child: Padding(
           padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
           child: Row(
             children: [
-              InkWell(
-                onTap: onLogo,
-                child: const SiteBrandLogo(height: 36, fullLogo: true),
-              ),
               const Spacer(),
               _LangChip(code: 'pt', label: st.langPt),
               _LangChip(code: 'en', label: st.langEn),
@@ -656,8 +621,8 @@ class _LangChip extends StatelessWidget {
           child: TextButton(
             onPressed: () => appLocaleController.setLocale(Locale(code)),
             style: TextButton.styleFrom(
-              foregroundColor: active ? Colors.white : kFunilGreen,
-              backgroundColor: active ? kFunilGreen : Colors.transparent,
+              foregroundColor: active ? Theme.of(context).colorScheme.onPrimary : Theme.of(context).colorScheme.primary,
+              backgroundColor: active ? Theme.of(context).colorScheme.primary : Colors.transparent,
               minimumSize: const Size(40, 36),
               padding: const EdgeInsets.symmetric(horizontal: 10),
             ),
@@ -670,48 +635,70 @@ class _LangChip extends StatelessWidget {
 }
 
 class _HeroBlock extends StatelessWidget {
-  const _HeroBlock({required this.st, required this.onKnowApp, required this.onSeePlans});
+  const _HeroBlock({
+    required this.st,
+    required this.onLogo,
+    required this.onKnowApp,
+    required this.onSeePlans,
+  });
 
   final SiteContabilidadeFunilTexts st;
+  final VoidCallback onLogo;
   final VoidCallback onKnowApp;
   final VoidCallback onSeePlans;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          st.brandLabel,
-          style: const TextStyle(color: kFunilGreen, fontWeight: FontWeight.w800, letterSpacing: 0.3),
-        ),
-        const SizedBox(height: 8),
-        Text(
-          st.heroHeadline,
-          style: const TextStyle(fontSize: 26, fontWeight: FontWeight.w800, height: 1.2),
-        ),
-        const SizedBox(height: 12),
-        Text(
-          st.heroLead,
-          style: TextStyle(
-            height: 1.4,
-            fontSize: 13,
-            fontWeight: FontWeight.w400,
-            color: kFunilInk.withValues(alpha: 0.72),
+    final cs = Theme.of(context).colorScheme;
+    return SiteRaisedBlock(
+      goldIntensity: 0.95,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          SiteHeroWordmark(onTap: onLogo),
+          const SizedBox(height: 18),
+          siteMetallicGoldText(
+            context,
+            st.brandLabel,
+            fontSize: 15,
+            fontWeight: FontWeight.w800,
           ),
-        ),
-        const SizedBox(height: 16),
-        Wrap(
-          spacing: 10,
-          runSpacing: 10,
-          children: [
-            FilledButton(onPressed: onKnowApp, child: Text(st.ctaKnowApp)),
-            OutlinedButton(onPressed: onSeePlans, child: Text(st.ctaSeePlans)),
-          ],
-        ),
-        const SizedBox(height: 16),
-        _FunilShot(asset: FunilImg.welcome, caption: st.shotCaption('welcome'), height: 640),
-      ],
+          const SizedBox(height: 8),
+          siteMetallicGoldText(
+            context,
+            st.heroHeadline,
+            fontSize: 26,
+            fontWeight: FontWeight.w800,
+            height: 1.2,
+          ),
+          const SizedBox(height: 8),
+          Text(
+            st.heroHeadlineEmit,
+            style: TextStyle(
+              fontSize: 13,
+              fontWeight: FontWeight.w600,
+              height: 1.35,
+              color: cs.onSurface.withValues(alpha: 0.82),
+            ),
+          ),
+          const SizedBox(height: 12),
+          Text(
+            st.heroLead,
+            style: siteBodyTextStyle(context, fontSize: 13, height: 1.4),
+          ),
+          const SizedBox(height: 16),
+          Wrap(
+            spacing: 10,
+            runSpacing: 10,
+            children: [
+              sitePrimaryActionButton(context: context, label: st.ctaKnowApp, onPressed: onKnowApp),
+              siteMetallicOutlinedButton(context: context, label: st.ctaSeePlans, onPressed: onSeePlans, icon: Icons.list_alt_rounded),
+            ],
+          ),
+          const SizedBox(height: 16),
+          _FunilShot(asset: FunilImg.welcome, caption: st.shotCaption('welcome'), height: 640),
+        ],
+      ),
     );
   }
 }
@@ -724,22 +711,14 @@ class _SectionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: const Color(0xFFD7E3DC)),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 16, 16, 18),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(title, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w800)),
-            const SizedBox(height: 10),
-            DefaultTextStyle.merge(style: const TextStyle(height: 1.45, fontSize: 14.5), child: child),
-          ],
-        ),
+    return SiteRaisedBlock(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          siteSectionTitle(context, title, accentKey: title, fontSize: 18),
+          const SizedBox(height: 10),
+          DefaultTextStyle.merge(style: siteBodyTextStyle(context, fontSize: 14.5, height: 1.45), child: child),
+        ],
       ),
     );
   }
@@ -890,9 +869,9 @@ class _SuccessCard extends StatelessWidget {
           const SizedBox(height: 12),
           Text(st.successBody),
           const SizedBox(height: 16),
-          FilledButton(onPressed: onPlay, child: Text(st.subscribeApp)),
+          sitePrimaryActionButton(context: context, label: st.subscribeApp, onPressed: onPlay),
           const SizedBox(height: 8),
-          OutlinedButton(onPressed: onHome, child: Text(st.backHome)),
+          siteMetallicOutlinedButton(context: context, label: st.backHome, onPressed: onHome, icon: Icons.home_outlined),
         ],
       ),
     );
@@ -1062,7 +1041,7 @@ class _DemoBlock extends StatelessWidget {
           const SizedBox(height: 16),
           _FunilShot(asset: FunilImg.invoices, caption: st.shotCaption('invoices')),
           const SizedBox(height: 12),
-          FilledButton(onPressed: onKnowApp, child: Text(st.ctaKnowApp)),
+          sitePrimaryActionButton(context: context, label: st.ctaKnowApp, onPressed: onKnowApp),
         ],
       ),
     );

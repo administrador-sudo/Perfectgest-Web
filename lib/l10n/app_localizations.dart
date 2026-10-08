@@ -97,6 +97,7 @@ abstract class AppLocalizations {
   String get solAppsTagline;
   String get solAppsBody;
   String get solAppsGetAppLabel;
+  String get solContabilKnowAppLabel;
   String get solAppsSupportPortalLabel;
   String get solAppsHashtags;
   String get solContabilAppsTitle;
@@ -373,6 +374,8 @@ class _AppLocalizationsPt extends AppLocalizations {
       'Cadastre clientes, crie orçamentos e ordens de serviço em PDF, controle o caixa, receba lembretes fiscais e use o cartão de visita digital — todas as funções gratuitas, inclusive offline.';
   @override
   String get solAppsGetAppLabel => 'Obter o aplicativo';
+  @override
+  String get solContabilKnowAppLabel => 'Conhecer o aplicativo';
   @override
   String get solAppsSupportPortalLabel => 'FAQ e políticas do app';
   @override
@@ -726,6 +729,8 @@ class _AppLocalizationsEn extends AppLocalizations {
   @override
   String get solAppsGetAppLabel => 'Get the app';
   @override
+  String get solContabilKnowAppLabel => 'See the app';
+  @override
   String get solAppsSupportPortalLabel => 'App FAQ and policies';
   @override
   String get solAppsHashtags =>
@@ -1078,6 +1083,8 @@ class _AppLocalizationsEs extends AppLocalizations {
       'Registre clientes, cree presupuestos y órdenes de servicio en PDF, controle la caja, reciba recordatorios fiscales y use la tarjeta de visita digital — todas las funciones son gratuitas, también sin conexión. Para NFS-e/NF-e, Libro de caja con revisión y contador responsable, conozca PerfectGest ContabilGest.';
   @override
   String get solAppsGetAppLabel => 'Obtener la aplicación';
+  @override
+  String get solContabilKnowAppLabel => 'Conocer la aplicación';
   @override
   String get solAppsSupportPortalLabel => 'FAQ y políticas de la app';
   @override

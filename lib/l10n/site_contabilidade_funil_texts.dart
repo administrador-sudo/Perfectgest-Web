@@ -27,6 +27,7 @@ abstract class SiteContabilidadeFunilTexts {
   String get semanticsLabel;
   String get brandLabel;
   String get heroHeadline;
+  String get heroHeadlineEmit;
   String get heroLead;
   String get ctaKnowApp;
   String get ctaSeePlans;
@@ -117,7 +118,11 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
 
   @override
   String get heroHeadline =>
-      'Aplicativo de contabilidade com IA + Contador ativo + Suporte, Emissão de NFS-e e NF-e com controle total de NFs emitidas e tomadas pelo CNPJ na sua mão em tempo real.';
+      'Aplicativo de contabilidade com IA + Contador ativo + Suporte,';
+
+  @override
+  String get heroHeadlineEmit =>
+      'Emissão de NFS-e e NF-e com controle total de NFs emitidas e tomadas pelo CNPJ na sua mão em tempo real.';
 
   @override
   String get heroLead =>
@@ -521,7 +526,11 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
 
   @override
   String get heroHeadline =>
-      'Accounting app with AI + active accountant + support. Issue NFS-e and NF-e with full control of invoices issued and received under your CNPJ, in your hand, in real time.';
+      'Accounting app with AI + active accountant + support.';
+
+  @override
+  String get heroHeadlineEmit =>
+      'Issue NFS-e and NF-e with full control of invoices issued and received under your CNPJ, in your hand, in real time.';
 
   @override
   String get heroLead =>
@@ -923,7 +932,11 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
 
   @override
   String get heroHeadline =>
-      'Aplicación de contabilidad con IA + Contador activo + Soporte, emisión de NFS-e y NF-e con control total de las NFs emitidas y recibidas por el CNPJ en su mano en tiempo real.';
+      'Aplicación de contabilidad con IA + Contador activo + Soporte,';
+
+  @override
+  String get heroHeadlineEmit =>
+      'Emisión de NFS-e y NF-e con control total de las NFs emitidas y recibidas por el CNPJ en su mano en tiempo real.';
 
   @override
   String get heroLead =>
