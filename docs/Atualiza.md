@@ -10,6 +10,116 @@ Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs,
 - Sempre registrar impacto, risco e validacao realizada.
 - Em caso de mudanca de comportamento, registrar motivo e plano de rollback.
 
+## [2026-10-08 22:19] Rodape do funil aponta para paginas oficiais contabil-i
+
+### Contexto
+- Links legais do funil devem abrir as URLs oficiais do app.
+
+### Arquivos alterados
+- lib/contabilidade_funil_page.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- Privacidade, termos, exclusao e FAQ abrem perfectgestdev.com/contabil-i-*. Privacidade do site permanece na rota local.
+
+### Risco de regressao
+- Baixo: so o rodape.
+
+### Validacao executada
+- [x] Web-server 8088 reiniciado (compile ok).
+
+### Resultado
+- Rodape do funil usa as 4 URLs oficiais do app.
+
+### Proximos passos recomendados
+- Conferir /contabilidade.
+
+## [2026-10-08 21:49] Honorarios boleto CNPJ no funil (menos Play 19,99)
+
+### Contexto
+- Tabela do funil passa a mostrar honorarios do escritorio: MEI 40, Fidelizado 35, Essencial 180, Standard 280, Avancado 380.
+
+### Arquivos alterados
+- lib/contabilidade_funil_page.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- kFunilTiers com valores de boleto. Extras NF/CLT/abertura/MEI-ME visiveis. Play continua 19,99/239,88 a parte.
+
+### Risco de regressao
+- Baixo: so precos e copy da tabela.
+
+### Validacao executada
+- [x] Web-server 8088 reiniciado (compile ok).
+
+### Resultado
+- Coluna da direita = boleto CNPJ.
+
+### Proximos passos recomendados
+- Conferir /contabilidade.
+
+## [2026-10-08 21:39] Duas cobrancas: Play = app, planos = escritorio
+
+### Contexto
+- Briefing: FAQ /faq-contabilgest (16), funil so F1-F4, hero sem checkout de Contabil+.
+
+### Arquivos alterados
+- lib/l10n/site_contabilgest_faq_texts.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- lib/contabilidade_funil_page.dart
+- lib/l10n/app_localizations.dart
+- lib/l10n/app_pt.arb
+- lib/l10n/app_en.arb
+- lib/l10n/app_es.arb
+- docs/Atualiza.md
+
+### O que foi feito
+- 16 FAQs da vitrine: Play so do app; planos/habilitacao via suporte@perfectgestdev.com.
+- Funil: 4 FAQs; Conhecer vai ao cadastro; nota Play 19,99/239,88; CTA Assinar o app.
+- Hero Básico/Contabil+: honorarios em /contabilidade, nao checkout Play.
+
+### Risco de regressao
+- Medio: copy comercial e fluxo do funil.
+
+### Validacao executada
+- [x] Web-server 8088 reiniciado (compile ok).
+
+### Resultado
+- Duas cobrancas separadas no site. contabil-i-* intocado.
+- Pendencias: publish so com ordem expressa.
+
+### Proximos passos recomendados
+- Publish so com ordem expressa.
+
+## [2026-10-08 20:50] FAQ do funil com perguntas da pagina do aplicativo
+
+### Contexto
+- Pedido: incrementar Perguntas frequentes de /contabilidade com as Q&A de /faq-contabilgest, sem repetir.
+
+### Arquivos alterados
+- lib/contabilidade_funil_page.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- Mantidas as 5 FAQs do funil.
+- Acrescentadas 15 da pagina do app; omitidas «O que é o app?» e «O ContabilGest é um app oficial do governo?» (e equivalentes EN/ES).
+- Links oficiais no ExpansionTile de fontes oficiais.
+
+### Risco de regressao
+- Baixo: so a seccao FAQ do funil.
+
+### Validacao executada
+- [x] Web-server 8088 reiniciado (compile ok).
+
+### Resultado
+- 20 perguntas no funil; pagina /faq-contabilgest inalterada.
+- Pendencias: publish so com ordem expressa.
+
+### Proximos passos recomendados
+- Publish so com ordem expressa.
+
 ## [2026-10-08 19:58] Home clara, CTA ContabilGest e funil com visual da vitrine
 
 ### Contexto

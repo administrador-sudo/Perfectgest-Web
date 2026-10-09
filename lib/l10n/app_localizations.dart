@@ -347,13 +347,13 @@ class _AppLocalizationsPt extends AppLocalizations {
   String get heroContabilPlanBasicTitle => 'Plano Básico (Indicado para MEI):';
   @override
   String get heroContabilPlanBasicBody =>
-      'App + emissão de NF com certificado A1 (até 10 NF/mês). Autocontabilidade: sem assinatura contábil nos documentos. Uso completo exige assinatura; o preço oficial é o do checkout (referência R\$ 59,99/mês). Certificado A1 Quality é oferta avulsa.';
+      'App + emissão de NF com certificado A1 (até 10 NF/mês). Autocontabilidade: sem assinatura contábil nos documentos. Plano nesta página /contabilidade ou suporte@perfectgestdev.com. A Google Play cobra só o aplicativo (R\$ 19,99/mês ou R\$ 239,88/ano no checkout da Play). Certificado A1 Quality é oferta avulsa.';
   @override
   String get heroContabilPlanActiveTitle =>
       'Plano Contabil+ (indicado para ME):';
   @override
   String get heroContabilPlanActiveBody =>
-      'Três faixas (Essencial, Standard e Avançado): o contador responsável confere e assina os livros conforme o escopo. O certificado A1 Quality não está incluído — é oferta avulsa (referência R\$ 119,99/ano). Preço oficial: o exibido no checkout.';
+      'Três faixas (Essencial, Standard e Avançado): o contador responsável confere e assina os livros conforme o escopo. Honorários nesta página /contabilidade ou suporte@perfectgestdev.com. Certificado A1 Quality é oferta avulsa (R\$ 119,99/ano). A Google Play cobra só o aplicativo.';
   @override
   String get heroContabilFaqLink =>
       'Acesse Perguntas e respostas sobre o Aplicativo';
@@ -702,13 +702,13 @@ class _AppLocalizationsEn extends AppLocalizations {
   String get heroContabilPlanBasicTitle => 'Basic Plan (Recommended for MEI):';
   @override
   String get heroContabilPlanBasicBody =>
-      'App + invoice issuance with an A1 certificate (up to 10 invoices/month). Self-accounting: no accountant signature on documents. Full use requires a subscription; official price is at checkout (reference R\$ 59.99/month). A1 Quality certificate is a separate offer.';
+      'App + invoice issuance with an A1 certificate (up to 10 invoices/month). Self-accounting: no accountant signature on documents. Plan on this page /contabilidade or suporte@perfectgestdev.com. Google Play charges only for the app (R\$ 19.99/month or R\$ 239.88/year at Play checkout). A1 Quality certificate is a separate offer.';
   @override
   String get heroContabilPlanActiveTitle =>
       'Contabil+ plan (recommended for ME):';
   @override
   String get heroContabilPlanActiveBody =>
-      'Three bands (Essential, Standard, and Advanced): the responsible accountant reviews and signs the books as contracted. The A1 Quality certificate is not included — it is a separate offer (reference R\$ 119.99/year). Official price: the amount shown at checkout.';
+      'Three bands (Essential, Standard, and Advanced): the responsible accountant reviews and signs the books as contracted. Fees on this page /contabilidade or suporte@perfectgestdev.com. A1 Quality certificate is a separate offer (R\$ 119.99/year). Google Play charges only for the app.';
   @override
   String get heroContabilFaqLink => 'Open Questions and answers about the App';
   @override
@@ -1056,13 +1056,13 @@ class _AppLocalizationsEs extends AppLocalizations {
   String get heroContabilPlanBasicTitle => 'Plan Básico (Indicada para MEI):';
   @override
   String get heroContabilPlanBasicBody =>
-      'App + emisión de NF con certificado A1 (hasta 10 NF/mes). Autocontabilidad: sin firma contable en los documentos. El uso completo exige suscripción; el precio oficial es el del checkout (referencia R\$ 59,99/mes). El certificado A1 Quality es oferta suelta.';
+      'App + emisión de NF con certificado A1 (hasta 10 NF/mes). Autocontabilidad: sin firma contable en los documentos. Plan en esta página /contabilidade o suporte@perfectgestdev.com. Google Play cobra solo la aplicación (R\$ 19,99/mes o R\$ 239,88/año en el checkout de Play). El certificado A1 Quality es oferta suelta.';
   @override
   String get heroContabilPlanActiveTitle =>
       'Plan Contabil+ (indicado para ME):';
   @override
   String get heroContabilPlanActiveBody =>
-      'Tres franjas (Esencial, Standard y Avanzado): el contador responsable revisa y firma los libros según el alcance. El certificado A1 Quality no está incluido — es oferta suelta (referencia R\$ 119,99/año). Precio oficial: el mostrado en el checkout.';
+      'Tres franjas (Esencial, Standard y Avanzado): el contador responsable revisa y firma los libros según el alcance. Honorarios en esta página /contabilidade o suporte@perfectgestdev.com. El certificado A1 Quality es oferta suelta (R\$ 119,99/año). Google Play cobra solo la aplicación.';
   @override
   String get heroContabilFaqLink =>
       'Acceda a Preguntas y respuestas sobre la Aplicación';

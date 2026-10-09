@@ -81,7 +81,7 @@ class _SiteContabilgestFaqTextsPt extends SiteContabilgestFaqTexts {
         SiteFaqItem(
           question: 'O que é o app?',
           body:
-              'O PerfectGest ContabilGest ajuda MEI e pequenos empresários a registrar entradas e saídas (Livro Caixa), acompanhar obrigações fiscais, simular Imposto de Renda, gerenciar funcionários, pró-labore e, nos planos contratados, enviar o mês para conferência do contador. O uso diário é offline por padrão.',
+              'O PerfectGest ContabilGest é a ferramenta que registra o movimento da empresa no aparelho (Livro Caixa, NFS-e, NF-e e obrigações) e, quando o escritório habilita as funções, transmite esses dados ao escritório de contabilidade (CRC). O uso diário no aparelho é offline por padrão. A assinatura na Google Play abre o aplicativo; o envio ao escritório e as funções online só existem depois da habilitação.',
         ),
         SiteFaqItem(
           question: 'O ContabilGest é um app oficial do governo?',
@@ -90,35 +90,36 @@ class _SiteContabilgestFaqTextsPt extends SiteContabilgestFaqTexts {
         ),
         SiteFaqItem(
           question: 'Quais são as fontes oficiais?',
-          body: 'Use sempre os portais do governo para obrigações e guias:',
+          body: 'Use sempre os portais do governo.',
           links: kContabilgestOfficialSourceLinks,
         ),
         SiteFaqItem(
           question: 'Preciso de internet?',
           body:
               '- Lançar, fechar o mês e gerar PDF: não\n'
-              '- Assinar plano, restaurar compra, enviar ao contador, certificado A1, Assistente IA: sim\n'
+              '- Assinar ou restaurar a compra do aplicativo na Google Play: sim\n'
+              '- Enviar dados ao escritório, certificado A1 e Assistente IA: sim, e só depois da habilitação pelo escritório\n'
               '- Abrir portais do governo (DAS, eSocial, DCTFWeb, FGTS Digital, prefeitura): sim',
         ),
         SiteFaqItem(
           question: 'O app substitui meu contador?',
           body:
-              'Não por completo. Nos planos básicos você opera sozinho e é responsável por conferir tudo. Nos planos Contabil+ / pacote anual, o contador revisa e assina conforme o escopo contratado — você ainda deve conferir PDFs, holerites e comunicações antes de usar.',
+              'Não. O aplicativo organiza os dados e, com a habilitação, envia-os ao escritório. Nos planos com acompanhamento, um contador habilitado revisa e assina os livros. No Básico MEI você opera no app, no seu ritmo, e continua responsável por conferir o que usa. Em qualquer plano, confira PDFs, holerites e comunicações antes de usar.',
         ),
         SiteFaqItem(
           question: 'O app envia declarações sozinho aos portais do governo?',
           body:
-              'Não. O app é portal assistido: calcula, organiza prazos e abre o link do portal. Quem transmite no eSocial, DCTFWeb, FGTS Digital, DAS etc. é você (ou o contador no serviço contratado), nunca o app de forma automática.',
+              'Não. O app não transmite sozinho no eSocial, DCTFWeb, FGTS Digital, DAS ou prefeitura. Quem envia nesses portais é você ou o contador, no serviço contratado. Com a habilitação, o app transmite os dados do usuário para o escritório (CRC), não para o governo.',
         ),
         SiteFaqItem(
           question: 'Como emito NFS-e / NF-e no plano Básico?',
           body:
-              'No plano Básico, a emissão de NFS-e e NF-e exige certificado A1 do emitente e o cumprimento das autorizações exigidas pelo portal (prefeitura, NFS-e Nacional e/ou SEFAZ). Sem o A1 e sem essas autorizações, o app não consegue emitir. Login e senha do portal municipal não substituem o certificado A1.',
+              'A emissão exige certificado A1 do emitente e as autorizações do portal (prefeitura, NFS-e Nacional e/ou SEFAZ). Login e senha do portal municipal não substituem o A1. Sem habilitação do escritório, a assinatura da Play não basta para emitir.',
         ),
         SiteFaqItem(
           question: 'Como emito NFS-e / NF-e com Contabil+ ou pacote com contador?',
           body:
-              'No Contabil+ ou pacote com contador, o fluxo homologado continua: NFS-e com A1 do escritório + procuração (CRC); NF-e com A1 do emitente na SEFAZ. O contador apoia as autorizações e a emissão conforme o escopo contratado. Login e senha de portal não substituem o certificado A1.',
+              'Fluxo homologado: NFS-e com A1 do escritório + procuração (CRC); NF-e com A1 do emitente na SEFAZ. O contador apoia autorizações e emissão no escopo contratado. Login e senha de portal não substituem o A1. A habilitação é do escritório, não um upgrade na Google Play.',
         ),
         SiteFaqItem(
           question: 'A NF-e de venda aceita login/senha do portal?',
@@ -132,49 +133,37 @@ class _SiteContabilgestFaqTextsPt extends SiteContabilgestFaqTexts {
         SiteFaqItem(
           question: 'Posso usar sem assinar?',
           body:
-              '- Modo demonstração («Conhecer o app»): pode navegar menus e ecrãs para conhecer o ContabilGest.\n'
-              '- Funções de uso (lançar, gravar, fechar mês, enviar ao contador, etc.): exigem assinatura activa na Google Play.\n'
-              '- Oferta só certificado A1 (avulso): não inclui o uso completo do Livro Caixa / app.\n\n'
-              'Para utilizar o app, escolha um plano na tela de assinatura. Se já comprou: «Já tenho conta» / Restaurar compra.',
+              '- Demonstração («Conhecer o app»): navegar menus e telas\n'
+              '- Assinatura na Google Play: acesso ao aplicativo\n'
+              '- Funções plenas (envio ao escritório e funções online): depois da Play, contacte o escritório para habilitar; sem isso, a Play só abre o app\n'
+              '- Oferta só certificado A1 (avulso), quando indicada: não inclui o uso completo do Livro Caixa / app\n\n'
+              'Compra do aplicativo: tela de assinatura da Play, ou Recuperar a conta / Restaurar compra. Plano contábil: escritório / suporte@perfectgestdev.com.',
         ),
         SiteFaqItem(
           question: 'Assinaturas (política Google Play)',
           body:
-              '- Assinatura necessária para utilizar o ContabilGest (exceto oferta avulsa «só certificado», quando indicada)\n'
-              '- Cobrança e renovação: geridas pela Google Play\n'
-              '- Renovação automática até cancelar em Play → Pagamentos e subscrições → Subscrições\n'
-              '- Em planos Parcelas (contador / pacotes), há compromisso de 12 meses; cancelamento ou mudança pode só valer no fim desse compromisso, conforme a Play\n'
-              '- Desinstalar o app não cancela a assinatura\n'
-              '- Na app: Mais → Assinatura Google Play (planos) · Cancelar / gerir cobrança (abre o Centro de Assinaturas)\n'
-              '- Reembolsos: política da Google Play\n'
-              '- Não há período de teste gratuito, salvo campanha expressa na Play Console\n'
-              '- O preço oficial é o exibido na Play no checkout; tabelas neste FAQ são só referência\n'
-              '- No ecrã de planos, a app mostra termos da oferta (preço, frequência, renovação, cancelamento) e o fluxo de upgrade Contabil+',
+              'Isto vale só para a assinatura do aplicativo, não para o plano contábil.\n'
+              'Cobrança, renovação e cancelamento: Google Play. Renovação automática até cancelar em Play → Pagamentos e assinaturas → Assinaturas. Desinstalar o app não cancela. Reembolsos: política da Google Play. Sem teste gratuito, salvo campanha na Play Console. Preço oficial: o do checkout na Play. O plano (faixa, extras, upgrade/downgrade) é gerido pelo escritório, não pela Play.',
         ),
         SiteFaqItem(
           question: 'Como restauro uma compra?',
           body:
-              'Mais → Assinatura Google Play → Restaurar compra (ou «Já tenho conta» na landing)',
+              'Mais → Assinatura Google Play → Restaurar compra (ou Recuperar a conta / «Já tenho conta»). Isso restaura só a assinatura do aplicativo. Plano e habilitação: escritório / suporte@perfectgestdev.com.',
         ),
         SiteFaqItem(
-          question: 'Posso mudar de Essencial para Standard ou Avançado?',
+          question: 'Como altero meu plano (faixa, downgrade ou extras como folha e IR)?',
           body:
-              'Sim. Com Contabil+ activo: Mais → Alterar plano Contabil+ → Actualizar plano na faixa superior. A Google Play cobra a diferença proporcional (substituição de assinatura). Também pode usar o botão «Actualizar plano» / «Gerir plano» no paywall.',
+              'Toda alteração de plano é pedida por e-mail a suporte@perfectgestdev.com. O escritório gere as faixas e os extras (upgrade aplica; downgrade no fim do ciclo). A Google Play não troca Essencial, Standard ou Avançado.',
         ),
         SiteFaqItem(
-          question: 'Posso baixar de Avançado para Standard ou Essencial?',
+          question: 'O app avisa antes da renovação?',
           body:
-              'Não há botão de «downgrade imediato» na app. Cancele a renovação automática na Google Play, use até ao fim do período já pago e, depois, assine o plano desejado na app. Detalhes: Mais → Alterar plano Contabil+ → «Precisa de um plano inferior?»',
+              'Quando a Play informar a data do ciclo da assinatura do aplicativo, o app pode avisar até 30 dias antes. Sem data da Play, não há prazo inventado — consulte Play → Assinaturas. Honorários e plano contábil: com o escritório.',
         ),
         SiteFaqItem(
-          question: 'Posso adicionar lançamentos, folha ou IR depois?',
+          question: 'A assinatura da Play já libera tudo?',
           body:
-              'Sim, se tiver Contabil+ (qualquer faixa) ou pacote anual com contador: Mais → Complementar plano (folha e IR). A Conferencia do Contador já está incluída. Planos Básico sem Contabil+ não são elegíveis.',
-        ),
-        SiteFaqItem(
-          question: 'A app avisa antes da renovação?',
-          body:
-              'Quando a Play informar a data do ciclo, a app pode avisar até 30 dias antes (Início / Mais). Sem data da Play, não há contagem inventada — consulte Play → Assinaturas.',
+              'Não. A Play libera o acesso ao aplicativo. Para sincronização, envio de dados ao escritório e funções online, contacte o escritório depois de assinar. Sem habilitação, você entra no app, mas sem envio ao CRC e sem contato com o escritório.',
         ),
       ];
 }
@@ -196,7 +185,7 @@ class _SiteContabilgestFaqTextsEn extends SiteContabilgestFaqTexts {
         SiteFaqItem(
           question: 'What is the app?',
           body:
-              'PerfectGest ContabilGest helps MEI and small business owners record income and expenses (Cash Book), track tax obligations, simulate Income Tax, manage employees and owner draws, and, on contracted plans, send the month to the accountant for review. Daily use is offline by default.',
+              'PerfectGest ContabilGest is the tool that records the company\'s activity on the device (Cash Book, NFS-e, NF-e, and tax duties) and, when the office enables the functions, transmits that data to the accounting office (CRC). Daily use on the device is offline by default. A Google Play subscription opens the app; sending data to the office and online functions exist only after enablement.',
         ),
         SiteFaqItem(
           question: 'Is ContabilGest an official government app?',
@@ -205,35 +194,36 @@ class _SiteContabilgestFaqTextsEn extends SiteContabilgestFaqTexts {
         ),
         SiteFaqItem(
           question: 'What are the official sources?',
-          body: 'Always use government portals for obligations and guides:',
+          body: 'Always use government portals.',
           links: kContabilgestOfficialSourceLinks,
         ),
         SiteFaqItem(
           question: 'Do I need the internet?',
           body:
               '- Record entries, close the month, and generate PDF: no\n'
-              '- Subscribe, restore a purchase, send to the accountant, A1 certificate, AI Assistant: yes\n'
+              '- Subscribe or restore the app purchase on Google Play: yes\n'
+              '- Send data to the office, A1 certificate, and AI Assistant: yes, and only after the office enables those functions\n'
               '- Open government portals (DAS, eSocial, DCTFWeb, FGTS Digital, city hall): yes',
         ),
         SiteFaqItem(
           question: 'Does the app replace my accountant?',
           body:
-              'Not completely. On basic plans you operate on your own and you are responsible for checking everything. On Contabil+ / annual packages, the accountant reviews and signs according to the contracted scope — you must still check PDFs, payslips, and notices before using them.',
+              'No. The app organizes the data and, once enabled, sends it to the office. On plans with follow-up, a licensed accountant reviews and signs the books. On Basic MEI you operate in the app at your own pace and remain responsible for checking what you use. On any plan, check PDFs, payslips, and notices before using them.',
         ),
         SiteFaqItem(
           question: 'Does the app file returns on government portals by itself?',
           body:
-              'No. The app is an assisted portal: it calculates, organizes deadlines, and opens the portal link. You (or the accountant under a contracted service) transmit in eSocial, DCTFWeb, FGTS Digital, DAS, and so on. The app never transmits automatically.',
+              'No. The app does not transmit by itself to eSocial, DCTFWeb, FGTS Digital, DAS, or city hall. You or the accountant, under the contracted service, send filings on those portals. Once enabled, the app transmits the user\'s data to the accounting office (CRC), not to the government.',
         ),
         SiteFaqItem(
           question: 'How do I issue NFS-e / NF-e on the Basic plan?',
           body:
-              'On the Basic plan, issuing NFS-e and NF-e requires the issuer A1 certificate and the authorizations required by the portal (city hall, National NFS-e and/or SEFAZ). Without the A1 and those authorizations, the app cannot issue invoices. Municipal portal username and password do not replace the A1 certificate.',
+              'Issuance requires the issuer A1 certificate and the portal authorizations (city hall, National NFS-e and/or SEFAZ). Municipal portal username and password do not replace the A1. Without office enablement, a Play subscription is not enough to issue invoices.',
         ),
         SiteFaqItem(
           question: 'How do I issue NFS-e / NF-e with Contabil+ or an accountant package?',
           body:
-              'On Contabil+ or an accountant package, the approved flow remains: NFS-e with the office A1 plus power of attorney (CRC); NF-e with the issuer A1 at SEFAZ. The accountant supports authorizations and issuance according to the contracted scope. Portal login and password do not replace the A1 certificate.',
+              'Approved flow: NFS-e with the office A1 plus power of attorney (CRC); NF-e with the issuer A1 at SEFAZ. The accountant supports authorizations and issuance in the contracted scope. Portal login and password do not replace the A1. Enablement is done by the office, not as a Google Play upgrade.',
         ),
         SiteFaqItem(
           question: 'Does a sales NF-e accept portal login/password?',
@@ -247,49 +237,37 @@ class _SiteContabilgestFaqTextsEn extends SiteContabilgestFaqTexts {
         SiteFaqItem(
           question: 'Can I use it without a subscription?',
           body:
-              '- Demo mode ("Explore the app"): you can browse menus and screens to learn ContabilGest.\n'
-              '- Usage functions (record, save, close the month, send to the accountant, etc.): require an active Google Play subscription.\n'
-              '- A1 certificate-only offer (standalone): does not include full Cash Book / app use.\n\n'
-              'To use the app, choose a plan on the subscription screen. If you already purchased: "I already have an account" / Restore purchase.',
+              '- Demo ("See the app"): browse menus and screens\n'
+              '- Google Play subscription: access to the app\n'
+              '- Full functions (sending data to the office and online features): after Play, contact the office to enable them; without that, Play only opens the app\n'
+              '- A1 certificate-only offer (standalone), when shown: does not include full Cash Book / app use\n\n'
+              'App purchase: Play subscription screen, or Recover account / Restore purchase. Accounting plan: the office / suporte@perfectgestdev.com.',
         ),
         SiteFaqItem(
           question: 'Subscriptions (Google Play policy)',
           body:
-              '- A subscription is required to use ContabilGest (except the standalone "certificate only" offer, when shown)\n'
-              '- Billing and renewal: managed by Google Play\n'
-              '- Auto-renews until you cancel in Play → Payments and subscriptions → Subscriptions\n'
-              '- On Installment plans (accountant / packages), there is a 12-month commitment; cancellation or change may only take effect at the end of that commitment, according to Play\n'
-              '- Uninstalling the app does not cancel the subscription\n'
-              '- In the app: More → Google Play Subscription (plans) · Cancel / manage billing (opens the Subscriptions Center)\n'
-              '- Refunds: Google Play policy\n'
-              '- There is no free trial unless an express campaign is set in Play Console\n'
-              '- The official price is the one shown in Play at checkout; tables in this FAQ are reference only\n'
-              '- On the plans screen, the app shows offer terms (price, frequency, renewal, cancellation) and the Contabil+ upgrade flow',
+              'This applies only to the app subscription, not to the accounting plan.\n'
+              'Billing, renewal, and cancellation: Google Play. Auto-renews until you cancel in Play → Payments and subscriptions → Subscriptions. Uninstalling the app does not cancel. Refunds: Google Play policy. No free trial unless a Play Console campaign says so. Official price: the Play checkout price. The plan (band, add-ons, upgrade/downgrade) is managed by the office, not by Play.',
         ),
         SiteFaqItem(
           question: 'How do I restore a purchase?',
           body:
-              'More → Google Play Subscription → Restore purchase (or "I already have an account" on the landing)',
+              'More → Google Play Subscription → Restore purchase (or Recover account / "I already have an account"). This restores only the app subscription. Plan and enablement: the office / suporte@perfectgestdev.com.',
         ),
         SiteFaqItem(
-          question: 'Can I change from Essential to Standard or Advanced?',
+          question: 'How do I change my plan (band, downgrade, or add-ons such as payroll and income tax)?',
           body:
-              'Yes. With Contabil+ active: More → Change Contabil+ plan → Update plan on the upper band. Google Play charges the prorated difference (subscription replacement). You can also use the "Update plan" / "Manage plan" button on the paywall.',
-        ),
-        SiteFaqItem(
-          question: 'Can I drop from Advanced to Standard or Essential?',
-          body:
-              'There is no "immediate downgrade" button in the app. Cancel auto-renewal in Google Play, use the remaining paid period, then subscribe to the desired plan in the app. Details: More → Change Contabil+ plan → "Need a lower plan?"',
-        ),
-        SiteFaqItem(
-          question: 'Can I add entries, payroll, or income tax later?',
-          body:
-              'Yes, if you have Contabil+ (any band) or an annual accountant package: More → Complement plan (payroll and income tax). Accountant Review is already included. Basic plans without Contabil+ are not eligible.',
+              'Every plan change is requested by email to suporte@perfectgestdev.com. The office manages bands and add-ons (upgrade applies; downgrade at the end of the cycle). Google Play does not switch Essential, Standard, or Advanced.',
         ),
         SiteFaqItem(
           question: 'Does the app warn before renewal?',
           body:
-              'When Play provides the cycle date, the app may warn up to 30 days ahead (Home / More). Without a Play date, there is no invented countdown — check Play → Subscriptions.',
+              'When Play provides the app subscription cycle date, the app may warn up to 30 days ahead. Without a Play date, there is no invented deadline — check Play → Subscriptions. Accounting fees and plan: with the office.',
+        ),
+        SiteFaqItem(
+          question: 'Does a Play subscription already unlock everything?',
+          body:
+              'No. Play unlocks access to the app. For sync, sending data to the office, and online functions, contact the office after you subscribe. Without enablement you can open the app, but with no data sent to the CRC and no office contact.',
         ),
       ];
 }
@@ -311,7 +289,7 @@ class _SiteContabilgestFaqTextsEs extends SiteContabilgestFaqTexts {
         SiteFaqItem(
           question: '¿Qué es la app?',
           body:
-              'PerfectGest ContabilGest ayuda a MEI y pequeños empresarios a registrar entradas y salidas (Libro de caja), seguir obligaciones fiscales, simular Impuesto de Renta, gestionar empleados, pró-labore y, en los planes contratados, enviar el mes a revisión del contador. El uso diario es offline por defecto.',
+              'PerfectGest ContabilGest es la herramienta que registra el movimiento de la empresa en el aparato (Libro de caja, NFS-e, NF-e y obligaciones) y, cuando el despacho habilita las funciones, transmite esos datos al despacho de contabilidad (CRC). El uso diario en el aparato es offline por defecto. La suscripción en Google Play abre la aplicación; el envío al despacho y las funciones online solo existen después de la habilitación.',
         ),
         SiteFaqItem(
           question: '¿ContabilGest es una app oficial del gobierno?',
@@ -320,35 +298,36 @@ class _SiteContabilgestFaqTextsEs extends SiteContabilgestFaqTexts {
         ),
         SiteFaqItem(
           question: '¿Cuáles son las fuentes oficiales?',
-          body: 'Use siempre los portales del gobierno para obligaciones y guías:',
+          body: 'Use siempre los portales del gobierno.',
           links: kContabilgestOfficialSourceLinks,
         ),
         SiteFaqItem(
           question: '¿Necesito internet?',
           body:
               '- Registrar, cerrar el mes y generar PDF: no\n'
-              '- Suscribirse, restaurar compra, enviar al contador, certificado A1, Asistente IA: sí\n'
+              '- Suscribir o restaurar la compra de la aplicación en Google Play: sí\n'
+              '- Enviar datos al despacho, certificado A1 y Asistente IA: sí, y solo después de la habilitación por el despacho\n'
               '- Abrir portales del gobierno (DAS, eSocial, DCTFWeb, FGTS Digital, prefectura): sí',
         ),
         SiteFaqItem(
           question: '¿La app sustituye a mi contador?',
           body:
-              'No por completo. En los planes básicos usted opera solo y es responsable de revisar todo. En los planes Contabil+ / paquete anual, el contador revisa y firma según el alcance contratado — usted aún debe revisar PDF, recibos de sueldo y comunicaciones antes de usarlos.',
+              'No. La aplicación organiza los datos y, con la habilitación, los envía al despacho. En los planes con seguimiento, un contador habilitado revisa y firma los libros. En el Básico MEI usted opera en la app, a su ritmo, y sigue siendo responsable de revisar lo que usa. En cualquier plan, revise PDF, recibos de sueldo y comunicaciones antes de usarlos.',
         ),
         SiteFaqItem(
           question: '¿La app envía declaraciones sola a los portales del gobierno?',
           body:
-              'No. La app es un portal asistido: calcula, organiza plazos y abre el enlace del portal. Quien transmite en eSocial, DCTFWeb, FGTS Digital, DAS, etc. es usted (o el contador en el servicio contratado), nunca la app de forma automática.',
+              'No. La app no transmite sola en eSocial, DCTFWeb, FGTS Digital, DAS o prefectura. Quien envía en esos portales es usted o el contador, en el servicio contratado. Con la habilitación, la app transmite los datos del usuario al despacho (CRC), no al gobierno.',
         ),
         SiteFaqItem(
           question: '¿Cómo emito NFS-e / NF-e en el plan Básico?',
           body:
-              'En el plan Básico, la emisión de NFS-e y NF-e exige certificado A1 del emisor y el cumplimiento de las autorizaciones exigidas por el portal (prefectura, NFS-e Nacional y/o SEFAZ). Sin el A1 y sin esas autorizaciones, la app no puede emitir. Usuario y contraseña del portal municipal no sustituyen el certificado A1.',
+              'La emisión exige certificado A1 del emisor y las autorizaciones del portal (prefectura, NFS-e Nacional y/o SEFAZ). Usuario y contraseña del portal municipal no sustituyen el A1. Sin habilitación del despacho, la suscripción de Play no basta para emitir.',
         ),
         SiteFaqItem(
           question: '¿Cómo emito NFS-e / NF-e con Contabil+ o paquete con contador?',
           body:
-              'En Contabil+ o paquete con contador, el flujo homologado continúa: NFS-e con A1 del despacho + poder (CRC); NF-e con A1 del emisor en SEFAZ. El contador apoya las autorizaciones y la emisión según el alcance contratado. Usuario y contraseña de portal no sustituyen el certificado A1.',
+              'Flujo homologado: NFS-e con A1 del despacho + poder (CRC); NF-e con A1 del emisor en SEFAZ. El contador apoya autorizaciones y emisión en el alcance contratado. Usuario y contraseña de portal no sustituyen el A1. La habilitación es del despacho, no una mejora en Google Play.',
         ),
         SiteFaqItem(
           question: '¿La NF-e de venta acepta usuario/contraseña del portal?',
@@ -362,49 +341,37 @@ class _SiteContabilgestFaqTextsEs extends SiteContabilgestFaqTexts {
         SiteFaqItem(
           question: '¿Puedo usarla sin suscribirme?',
           body:
-              '- Modo demostración («Conocer la app»): puede navegar menús y pantallas para conocer ContabilGest.\n'
-              '- Funciones de uso (registrar, guardar, cerrar mes, enviar al contador, etc.): exigen suscripción activa en Google Play.\n'
-              '- Oferta solo certificado A1 (suelto): no incluye el uso completo del Libro de caja / app.\n\n'
-              'Para utilizar la app, elija un plan en la pantalla de suscripción. Si ya compró: «Ya tengo cuenta» / Restaurar compra.',
+              '- Demostración («Conocer la app»): navegar menús y pantallas\n'
+              '- Suscripción en Google Play: acceso a la aplicación\n'
+              '- Funciones plenas (envío al despacho y funciones online): después de Play, contacte al despacho para habilitar; sin eso, Play solo abre la app\n'
+              '- Oferta solo certificado A1 (suelto), cuando esté indicada: no incluye el uso completo del Libro de caja / app\n\n'
+              'Compra de la aplicación: pantalla de suscripción de Play, o Recuperar la cuenta / Restaurar compra. Plan contable: despacho / suporte@perfectgestdev.com.',
         ),
         SiteFaqItem(
           question: 'Suscripciones (política Google Play)',
           body:
-              '- Se necesita suscripción para utilizar ContabilGest (excepto oferta suelta «solo certificado», cuando esté indicada)\n'
-              '- Cobro y renovación: gestionados por Google Play\n'
-              '- Renovación automática hasta cancelar en Play → Pagos y suscripciones → Suscripciones\n'
-              '- En planes Cuotas (contador / paquetes), hay compromiso de 12 meses; la cancelación o el cambio puede valer solo al final de ese compromiso, según Play\n'
-              '- Desinstalar la app no cancela la suscripción\n'
-              '- En la app: Más → Suscripción Google Play (planes) · Cancelar / gestionar cobro (abre el Centro de Suscripciones)\n'
-              '- Reembolsos: política de Google Play\n'
-              '- No hay período de prueba gratuito, salvo campaña expresa en Play Console\n'
-              '- El precio oficial es el mostrado en Play en el checkout; las tablas de este FAQ son solo referencia\n'
-              '- En la pantalla de planes, la app muestra términos de la oferta (precio, frecuencia, renovación, cancelación) y el flujo de upgrade Contabil+',
+              'Esto vale solo para la suscripción de la aplicación, no para el plan contable.\n'
+              'Cobro, renovación y cancelación: Google Play. Renovación automática hasta cancelar en Play → Pagos y suscripciones → Suscripciones. Desinstalar la app no cancela. Reembolsos: política de Google Play. Sin prueba gratuita, salvo campaña en Play Console. Precio oficial: el del checkout en Play. El plan (franja, extras, upgrade/downgrade) lo gestiona el despacho, no Play.',
         ),
         SiteFaqItem(
           question: '¿Cómo restauro una compra?',
           body:
-              'Más → Suscripción Google Play → Restaurar compra (o «Ya tengo cuenta» en la landing)',
+              'Más → Suscripción Google Play → Restaurar compra (o Recuperar la cuenta / «Ya tengo cuenta»). Eso restaura solo la suscripción de la aplicación. Plan y habilitación: despacho / suporte@perfectgestdev.com.',
         ),
         SiteFaqItem(
-          question: '¿Puedo pasar de Esencial a Standard o Avanzado?',
+          question: '¿Cómo cambio mi plan (franja, downgrade o extras como nómina e IR)?',
           body:
-              'Sí. Con Contabil+ activo: Más → Cambiar plan Contabil+ → Actualizar plan en la franja superior. Google Play cobra la diferencia proporcional (sustitución de suscripción). También puede usar el botón «Actualizar plan» / «Gestionar plan» en el paywall.',
-        ),
-        SiteFaqItem(
-          question: '¿Puedo bajar de Avanzado a Standard o Esencial?',
-          body:
-              'No hay botón de «downgrade inmediato» en la app. Cancele la renovación automática en Google Play, use hasta el final del período ya pagado y, después, suscríbase al plan deseado en la app. Detalles: Más → Cambiar plan Contabil+ → «¿Necesita un plan inferior?»',
-        ),
-        SiteFaqItem(
-          question: '¿Puedo agregar lanzamientos, nómina o IR después?',
-          body:
-              'Sí, si tiene Contabil+ (cualquier franja) o paquete anual con contador: Más → Complementar plan (nómina e IR). La Conferencia del Contador ya está incluida. Los planes Básico sin Contabil+ no son elegibles.',
+              'Todo cambio de plan se pide por correo a suporte@perfectgestdev.com. El despacho gestiona las franjas y los extras (el upgrade aplica; el downgrade al final del ciclo). Google Play no cambia Esencial, Standard o Avanzado.',
         ),
         SiteFaqItem(
           question: '¿La app avisa antes de la renovación?',
           body:
-              'Cuando Play informe la fecha del ciclo, la app puede avisar hasta 30 días antes (Inicio / Más). Sin fecha de Play, no hay cuenta inventada — consulte Play → Suscripciones.',
+              'Cuando Play informe la fecha del ciclo de la suscripción de la aplicación, la app puede avisar hasta 30 días antes. Sin fecha de Play, no hay plazo inventado — consulte Play → Suscripciones. Honorarios y plan contable: con el despacho.',
+        ),
+        SiteFaqItem(
+          question: '¿La suscripción de Play ya libera todo?',
+          body:
+              'No. Play libera el acceso a la aplicación. Para sincronización, envío de datos al despacho y funciones online, contacte al despacho después de suscribirse. Sin habilitación, usted entra en la app, pero sin envío al CRC y sin contacto con el despacho.',
         ),
       ];
 }

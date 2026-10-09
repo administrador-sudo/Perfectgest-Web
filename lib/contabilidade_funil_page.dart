@@ -36,11 +36,11 @@ class FunilImg {
 
 const List<({String id, double monthly, bool highlight})> kFunilTiers =
     <({String id, double monthly, bool highlight})>[
-  (id: 'mei', monthly: 59.99, highlight: false),
-  (id: 'fidelizado', monthly: 54.99, highlight: false),
-  (id: 'essencial', monthly: 199.99, highlight: true),
-  (id: 'standard', monthly: 299.99, highlight: false),
-  (id: 'avancado', monthly: 399.99, highlight: false),
+  (id: 'mei', monthly: 40.00, highlight: false),
+  (id: 'fidelizado', monthly: 35.00, highlight: false),
+  (id: 'essencial', monthly: 180.00, highlight: true),
+  (id: 'standard', monthly: 280.00, highlight: false),
+  (id: 'avancado', monthly: 380.00, highlight: false),
 ];
 
 bool _tierIsMei(String id) => id == 'mei' || id == 'fidelizado';
@@ -126,7 +126,7 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
         ? 'MEI sem contador'
         : (_crc == 'com' ? 'ME com contador' : 'ME sem contador');
     final line =
-        '[CONTABILIDADE] ${_tipo ?? '-'}; $acomp; $faixa; assinatura ${_brl(_faixaMensal)}/mês; '
+        '[CONTABILIDADE] ${_tipo ?? '-'}; $acomp; $faixa; honorários boleto ${_brl(_faixaMensal)}/mês; '
         'Folha ${_folha ? 'S' : 'N'}; IR ${_ir ? 'S' : 'N'}; A1 ${_a1 ? 'S' : 'N'}; '
         'WhatsApp ${_digits(_whatsAppCtrl.text)}; CNPJ ${_digits(_cnpjCtrl.text)}; '
         'razão social ${_razaoCtrl.text.trim()}';
@@ -251,7 +251,7 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                           _HeroBlock(
                             st: st,
                             onLogo: _goHome,
-                            onKnowApp: _openPlay,
+                            onKnowApp: () => _scrollTo(_formAnchorKey),
                             onSeePlans: () => _scrollTo(_planosKey),
                           ),
                           const SizedBox(height: 28),
@@ -329,7 +329,7 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                             child: _success ? _SuccessCard(st: st, onPlay: _openPlay, onHome: _goHome) : _buildForm(st),
                           ),
                           const SizedBox(height: 20),
-                          _DemoBlock(st: st, onKnowApp: _openPlay),
+                          _DemoBlock(st: st, onKnowApp: () => _scrollTo(_formAnchorKey)),
                           const SizedBox(height: 20),
                           _FaqBlock(st: st),
                           const SizedBox(height: 28),
@@ -783,6 +783,16 @@ class _PlansTable extends StatelessWidget {
           const SizedBox(height: 8),
           Text(st.a1Body),
           const SizedBox(height: 8),
+          Text(st.playNote, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600)),
+          const SizedBox(height: 12),
+          Text(st.extrasTitle, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 15)),
+          const SizedBox(height: 6),
+          Text(st.extrasBody),
+          if (st.organsNote.isNotEmpty) ...[
+            const SizedBox(height: 8),
+            Text(st.organsNote, style: const TextStyle(fontSize: 13)),
+          ],
+          const SizedBox(height: 8),
           Text(st.paymentLaterNote, style: const TextStyle(fontSize: 13)),
         ],
       ),
@@ -811,9 +821,15 @@ class _PlansTable extends StatelessWidget {
                   Expanded(
                     child: Text(st.planName(t.id), style: const TextStyle(fontWeight: FontWeight.w800)),
                   ),
-                  Text(
-                    '${brl(t.monthly)}/${st.perMonth}',
-                    style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 16),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(
+                        '${brl(t.monthly)}/${st.perMonth}',
+                        style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 16),
+                      ),
+                      Text(st.colBoleto, style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w600)),
+                    ],
                   ),
                 ],
               ),
@@ -1090,9 +1106,9 @@ class _FunilFooter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget link(String label, String path) {
+    Widget appDoc(String label, String url) {
       return TextButton(
-        onPressed: () => Navigator.of(context).pushNamed(path),
+        onPressed: () => launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication),
         child: Text(label, style: const TextStyle(fontSize: 13)),
       );
     }
@@ -1111,10 +1127,14 @@ class _FunilFooter extends StatelessWidget {
         const SizedBox(height: 8),
         Wrap(
           children: [
-            link('Privacidade app', '/contabil-i-politica-privacidade'),
-            link('Termos', '/contabil-i-termos'),
-            link('FAQ app', '/contabil-i-faq'),
-            link('Privacidade site', kSitePrivacyPolicyPath),
+            appDoc(st.footerPrivacyApp, kPerfectGestContabilIPrivacyUrl),
+            appDoc(st.footerTerms, kPerfectGestContabilITermsUrl),
+            appDoc(st.footerDeletion, kPerfectGestContabilIDeletionUrl),
+            appDoc(st.footerFaqApp, kPerfectGestContabilIFaqUrl),
+            TextButton(
+              onPressed: () => Navigator.of(context).pushNamed(kSitePrivacyPolicyPath),
+              child: Text(st.footerPrivacySite, style: const TextStyle(fontSize: 13)),
+            ),
           ],
         ),
         TextButton(onPressed: onHome, child: Text(st.backHome)),

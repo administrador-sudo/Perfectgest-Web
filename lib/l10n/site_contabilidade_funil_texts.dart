@@ -90,6 +90,11 @@ abstract class SiteContabilidadeFunilTexts {
   String get faqTitle;
   List<FunilFaqItem> get faq;
   String get footerLegal;
+  String get footerPrivacyApp;
+  String get footerTerms;
+  String get footerDeletion;
+  String get footerFaqApp;
+  String get footerPrivacySite;
   String get footerCrc;
   String get honorariosEmail;
   String get appEmail;
@@ -166,32 +171,32 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
   String get stepsTitle => 'Como funciona';
 
   @override
-  String get stepATitle => 'A. Conheça o app';
+  String get stepATitle => 'A. Escolha o plano nesta página';
 
   @override
   String get stepABody =>
-      'Explore de graça: lançamentos, notas, obrigações e o assistente IA. Sem compromisso.';
+      'A tabela é de honorários do escritório (boleto/CNPJ). O aplicativo na Google Play é outra cobrança.';
 
   @override
-  String get stepBTitle => 'B. Escolha o plano que combina com você';
+  String get stepBTitle => 'B. Envie o pedido por e-mail';
 
   @override
   String get stepBBody =>
-      'Planos para Microempreendedor Individual (MEI) e Microempresa (ME). O escritório confirma e explica tudo com calma.';
+      'O escritório confirma o plano. Alterações de faixa, extras, upgrade ou downgrade: suporte@perfectgestdev.com.';
 
   @override
-  String get stepCTitle => 'C. Conte com suporte e o app no celular';
+  String get stepCTitle => 'C. Assine o app e peça a habilitação';
 
   @override
   String get stepCBody =>
-      'Sistema de gerenciamento digital por IA e, nos planos com acompanhamento, um contador habilitado assinando os livros.';
+      'Assinatura do aplicativo na Play: R\$ 19,99/mês ou R\$ 239,88/ano. Depois, contacte o escritório para habilitar o envio de dados.';
 
   @override
   String get plansTitle => 'Planos';
 
   @override
   String get plansLead =>
-      'Assinatura mensal simples. Sem surpresa nesta página: a forma de pagamento é combinada na contratação.';
+      'Honorários do escritório nesta tabela: boleto/CNPJ, combinados na contratação. A Google Play cobra só o software.';
 
   @override
   String get plansGroupMei => 'Microempreendedor Individual (MEI) — sem acompanhamento do contador';
@@ -200,16 +205,19 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
   String get plansGroupMe => 'Microempresa (ME) — com acompanhamento do contador';
 
   @override
-  String get playNote => '';
+  String get playNote =>
+      'Assinar o app na Google Play: R\$ 19,99/mês ou R\$ 239,88/ano. Planos Contabil+ e Básico MEI: esta página ou suporte@perfectgestdev.com.';
 
   @override
-  String get extrasTitle => 'Add-on';
+  String get extrasTitle => 'Extras (boleto CNPJ)';
 
   @override
-  String get extrasBody => '';
+  String get extrasBody =>
+      'NF extra R\$ 12,99 · CLT extra R\$ 39,99/mês · Folha R\$ 99,99/mês · IR R\$ 49,99/ano · A1 R\$ 119,99/ano · Abertura de empresa R\$ 490,00 · MEI para ME R\$ 350,00.';
 
   @override
-  String get organsNote => '';
+  String get organsNote =>
+      'Taxas de órgãos na abertura e na transformação MEI para ME são à parte.';
 
   @override
   String get perMonth => 'mês';
@@ -344,34 +352,44 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
   @override
   List<FunilFaqItem> get faq => const <FunilFaqItem>[
         FunilFaqItem(
-          question: 'Isto e um aplicativo do governo?',
-          body:
-              'Não. É um produto privado da Perfect Gest Dev (CNPJ 66.889.409/0001-19), com sistema de gerenciamento digital por IA e um contador habilitado assinando os livros. Não somos afiliados à Receita Federal, eSocial, FGTS Digital ou prefeituras.',
-        ),
-        FunilFaqItem(
           question: 'Quando assino na Google Play?',
           body:
-              'Depois do escritório confirmar o plano e explicar os próximos passos. Conheça o app primeiro, sem pressa.',
+              'Quando for assinar o aplicativo. Depois, contacte o escritório para habilitar o envio de dados. Conheça o app primeiro, sem pressa.',
         ),
         FunilFaqItem(
           question: 'O que o app traz de exclusivo?',
           body:
-              'NFS-e e NF-e com controle em tempo real, contas a receber e a pagar, pró-labore, lucros, folha, IR, Livro Caixa, assistente IA e suporte. Nos planos com acompanhamento, um contador habilitado assina os livros.',
+              'NFS-e e NF-e com controle em tempo real, contas a receber e a pagar, pró-labore, lucros, folha, IR, Livro Caixa, assistente IA e suporte. O app transmite os dados ao escritório (CRC) quando habilitado. Nos planos com acompanhamento, um contador habilitado assina os livros.',
         ),
         FunilFaqItem(
           question: 'Básico ou planos contábeis com contador ativo?',
           body:
-              'Básico Microempreendedor Individual (MEI) é autocontabilidade no app, no seu ritmo. Os planos contábeis com contador ativo incluem o sistema de gerenciamento digital por IA e um contador habilitado assinando os livros. Essencial é o mais escolhido por Microempresa (ME).',
+              'Básico MEI: autocontabilidade no app. Planos com contador ativo: sistema com IA e contador habilitado assinando os livros. Essencial é o mais escolhido por ME. Mudança de plano: suporte@perfectgestdev.com.',
         ),
         FunilFaqItem(
           question: 'Há uma equipe de contabilistas?',
           body:
-              'Não. Há um contador habilitado e um sistema inteligente que juntos prestam um serviço ágil e preciso, sem perder nenhuma obrigação, e você acompanha tudo em tempo real no aplicativo.',
+              'Não. Há um contador habilitado e um sistema inteligente; você acompanha no aplicativo em tempo real (com a habilitação, os dados chegam ao escritório).',
         ),
       ];
 
   @override
-  String get footerLegal => 'Politica do app, termos, FAQ do app e privacidade do site.';
+  String get footerLegal => 'Politica do app, termos, exclusao de dados, FAQ do app e privacidade do site.';
+
+  @override
+  String get footerPrivacyApp => 'Politica de privacidade';
+
+  @override
+  String get footerTerms => 'Termos de uso';
+
+  @override
+  String get footerDeletion => 'Exclusao de dados';
+
+  @override
+  String get footerFaqApp => 'FAQ';
+
+  @override
+  String get footerPrivacySite => 'Privacidade site';
 
   @override
   String get footerCrc =>
@@ -506,7 +524,7 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
   String get colPlan => 'Plano';
 
   @override
-  String get colBoleto => 'Boleto / PIX';
+  String get colBoleto => 'Boleto CNPJ';
 
   @override
   String get highlightBadge => 'Mais escolhido por Microempresa (ME)';
@@ -574,32 +592,32 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
   String get stepsTitle => 'How it works';
 
   @override
-  String get stepATitle => 'A. Try the app';
+  String get stepATitle => 'A. Choose the plan on this page';
 
   @override
   String get stepABody =>
-      'Explore at no charge: entries, invoices, duties and the AI assistant. No commitment.';
+      'The table is office fees (boleto/CNPJ). The Google Play app is a separate charge.';
 
   @override
-  String get stepBTitle => 'B. Pick the plan that fits you';
+  String get stepBTitle => 'B. Send the request by email';
 
   @override
   String get stepBBody =>
-      'Plans for Individual Microentrepreneurs (MEI) and Microenterprises (ME). The office confirms and explains everything calmly.';
+      'The office confirms the plan. Band changes, add-ons, upgrade or downgrade: suporte@perfectgestdev.com.';
 
   @override
-  String get stepCTitle => 'C. Get support and the app on your phone';
+  String get stepCTitle => 'C. Subscribe to the app and ask for enablement';
 
   @override
   String get stepCBody =>
-      'A digital management system with AI and, on plans with follow-up, a licensed accountant signing the books.';
+      'App subscription on Play: R\$ 19.99/month or R\$ 239.88/year. Then contact the office to enable data sending.';
 
   @override
   String get plansTitle => 'Plans';
 
   @override
   String get plansLead =>
-      'A clear monthly subscription. No surprises on this page: payment details come when you hire.';
+      'Office fees in this table: boleto/CNPJ, agreed when you hire. Google Play charges only for the software.';
 
   @override
   String get plansGroupMei => 'Individual Microentrepreneur (MEI) — no accountant follow-up';
@@ -608,16 +626,19 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
   String get plansGroupMe => 'Microenterprise (ME) — with accountant follow-up';
 
   @override
-  String get playNote => '';
+  String get playNote =>
+      'Subscribe to the app on Google Play: R\$ 19.99/month or R\$ 239.88/year. Contabil+ and Basic MEI plans: this page or suporte@perfectgestdev.com.';
 
   @override
-  String get extrasTitle => 'Add-on';
+  String get extrasTitle => 'Extras (CNPJ boleto)';
 
   @override
-  String get extrasBody => '';
+  String get extrasBody =>
+      'Extra invoice R\$ 12.99 · Extra CLT R\$ 39.99/month · Payroll R\$ 99.99/month · Income tax R\$ 49.99/year · A1 R\$ 119.99/year · Company opening R\$ 490.00 · MEI to ME R\$ 350.00.';
 
   @override
-  String get organsNote => '';
+  String get organsNote =>
+      'Government fees for company opening and MEI-to-ME conversion are extra.';
 
   @override
   String get perMonth => 'month';
@@ -752,34 +773,44 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
   @override
   List<FunilFaqItem> get faq => const <FunilFaqItem>[
         FunilFaqItem(
-          question: 'Is this a government app?',
-          body:
-              'No. It is a private product of Perfect Gest Dev (CNPJ 66.889.409/0001-19), with a digital management system with AI and a licensed accountant signing the books. We are not affiliated with the Federal Revenue Service, eSocial, FGTS Digital, or city halls.',
-        ),
-        FunilFaqItem(
           question: 'When do I subscribe on Google Play?',
           body:
-              'After the office confirms your plan and explains the next steps. Explore the app first, with no rush.',
+              'When you subscribe to the app. Then contact the office to enable data sending. Explore the app first, with no rush.',
         ),
         FunilFaqItem(
           question: 'What exclusive features does the app bring?',
           body:
-              'NFS-e and NF-e with real-time control, accounts receivable and payable, owner drawings, profits, payroll, income tax, cash book, AI assistant and support. On plans with follow-up, a licensed accountant signs the books.',
+              'NFS-e and NF-e with real-time control, accounts receivable and payable, owner drawings, profits, payroll, income tax, cash book, AI assistant and support. The app transmits data to the office (CRC) when enabled. On plans with follow-up, a licensed accountant signs the books.',
         ),
         FunilFaqItem(
           question: 'Basic or accounting plans with an active accountant?',
           body:
-              'Basic Individual Microentrepreneur (MEI) is self-accounting in the app, at your pace. Accounting plans with an active accountant include the digital management system with AI and a licensed accountant signing the books. Essential is the most chosen plan for Microenterprise (ME).',
+              'Basic MEI: self-accounting in the app. Plans with an active accountant: AI system and a licensed accountant signing the books. Essential is the most chosen plan for ME. Plan changes: suporte@perfectgestdev.com.',
         ),
         FunilFaqItem(
           question: 'Is there a team of accountants?',
           body:
-              'No. There is one licensed accountant and an intelligent system that together deliver a fast, precise service without missing any duty, and you follow everything in real time in the app.',
+              'No. There is one licensed accountant and an intelligent system; you follow everything in the app in real time (once enabled, the data reaches the office).',
         ),
       ];
 
   @override
-  String get footerLegal => 'App policy, terms, app FAQ, and site privacy.';
+  String get footerLegal => 'App policy, terms, data deletion, app FAQ, and site privacy.';
+
+  @override
+  String get footerPrivacyApp => 'Privacy policy';
+
+  @override
+  String get footerTerms => 'Terms of use';
+
+  @override
+  String get footerDeletion => 'Data deletion';
+
+  @override
+  String get footerFaqApp => 'FAQ';
+
+  @override
+  String get footerPrivacySite => 'Site privacy';
 
   @override
   String get footerCrc =>
@@ -912,7 +943,7 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
   String get colPlan => 'Plan';
 
   @override
-  String get colBoleto => 'Boleto / PIX';
+  String get colBoleto => 'CNPJ boleto';
 
   @override
   String get highlightBadge => 'Most chosen by Microenterprise (ME)';
@@ -980,32 +1011,32 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
   String get stepsTitle => 'Como funciona';
 
   @override
-  String get stepATitle => 'A. Conozca la app';
+  String get stepATitle => 'A. Elija el plan en esta página';
 
   @override
   String get stepABody =>
-      'Explore sin costo: lanzamientos, notas, obligaciones y el asistente IA. Sin compromiso.';
+      'La tabla es de honorarios del despacho (boleto/CNPJ). La aplicación en Google Play es otro cobro.';
 
   @override
-  String get stepBTitle => 'B. Elija el plan que combina con usted';
+  String get stepBTitle => 'B. Envíe el pedido por correo';
 
   @override
   String get stepBBody =>
-      'Planes para Microemprendedor Individual (MEI) y Microempresa (ME). El estudio confirma y explica todo con calma.';
+      'El despacho confirma el plan. Cambios de franja, extras, upgrade o downgrade: suporte@perfectgestdev.com.';
 
   @override
-  String get stepCTitle => 'C. Cuente con soporte y la app en el celular';
+  String get stepCTitle => 'C. Suscriba la app y pida la habilitación';
 
   @override
   String get stepCBody =>
-      'Sistema de gestión digital con IA y, en los planes con seguimiento, un contador habilitado que firma los libros.';
+      'Suscripción de la aplicación en Play: R\$ 19,99/mes o R\$ 239,88/año. Después, contacte al despacho para habilitar el envío de datos.';
 
   @override
   String get plansTitle => 'Planes';
 
   @override
   String get plansLead =>
-      'Suscripción mensual simple. Sin sorpresas en esta página: la forma de pago se combina al contratar.';
+      'Honorarios del despacho en esta tabla: boleto/CNPJ, combinados al contratar. Google Play cobra solo el software.';
 
   @override
   String get plansGroupMei => 'Microemprendedor Individual (MEI) — sin seguimiento del contador';
@@ -1014,16 +1045,19 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
   String get plansGroupMe => 'Microempresa (ME) — con seguimiento del contador';
 
   @override
-  String get playNote => '';
+  String get playNote =>
+      'Suscribir la app en Google Play: R\$ 19,99/mes o R\$ 239,88/año. Planes Contabil+ y Básico MEI: esta página o suporte@perfectgestdev.com.';
 
   @override
-  String get extrasTitle => 'Add-on';
+  String get extrasTitle => 'Extras (boleto CNPJ)';
 
   @override
-  String get extrasBody => '';
+  String get extrasBody =>
+      'NF extra R\$ 12,99 · CLT extra R\$ 39,99/mes · Nómina R\$ 99,99/mes · IR R\$ 49,99/año · A1 R\$ 119,99/año · Apertura de empresa R\$ 490,00 · MEI a ME R\$ 350,00.';
 
   @override
-  String get organsNote => '';
+  String get organsNote =>
+      'Las tasas de organismos en la apertura y en la transformación MEI a ME van aparte.';
 
   @override
   String get perMonth => 'mes';
@@ -1158,34 +1192,44 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
   @override
   List<FunilFaqItem> get faq => const <FunilFaqItem>[
         FunilFaqItem(
-          question: 'Esto es una aplicacion del gobierno?',
-          body:
-              'No. Es un producto privado de Perfect Gest Dev (CNPJ 66.889.409/0001-19), con sistema de gestión digital con IA y un contador habilitado que firma los libros. No estamos afiliados a la Receita Federal, eSocial, FGTS Digital ni prefecturas.',
-        ),
-        FunilFaqItem(
           question: 'Cuando suscribo en Google Play?',
           body:
-              'Después de que el estudio confirme el plan y explique los próximos pasos. Conozca la app primero, sin prisa.',
+              'Cuando vaya a suscribir la aplicación. Después, contacte al despacho para habilitar el envío de datos. Conozca la app primero, sin prisa.',
         ),
         FunilFaqItem(
           question: 'Qué trae de exclusivo la app?',
           body:
-              'NFS-e y NF-e con control en tiempo real, cuentas por cobrar y por pagar, pro-labore, utilidades, nómina, IR, libro de caja, asistente IA y soporte. En los planes con seguimiento, un contador habilitado firma los libros.',
+              'NFS-e y NF-e con control en tiempo real, cuentas por cobrar y por pagar, pro-labore, utilidades, nómina, IR, libro de caja, asistente IA y soporte. La app transmite los datos al despacho (CRC) cuando está habilitada. En los planes con seguimiento, un contador habilitado firma los libros.',
         ),
         FunilFaqItem(
           question: 'Básico o planes contables con contador activo?',
           body:
-              'Básico Microemprendedor Individual (MEI) es autocontabilidad en la app, a su ritmo. Los planes contables con contador activo incluyen el sistema de gestión digital con IA y un contador habilitado que firma los libros. Esencial es el más elegido por Microempresa (ME).',
+              'Básico MEI: autocontabilidad en la app. Planes con contador activo: sistema con IA y contador habilitado que firma los libros. Esencial es el más elegido por ME. Cambio de plan: suporte@perfectgestdev.com.',
         ),
         FunilFaqItem(
           question: 'Hay un equipo de contadores?',
           body:
-              'No. Hay un contador habilitado y un sistema inteligente que juntos prestan un servicio ágil y preciso, sin perder ninguna obligación, y usted acompaña todo en tiempo real en la aplicación.',
+              'No. Hay un contador habilitado y un sistema inteligente; usted acompaña en la aplicación en tiempo real (con la habilitación, los datos llegan al despacho).',
         ),
       ];
 
   @override
-  String get footerLegal => 'Politica de la app, terminos, FAQ de la app y privacidad del sitio.';
+  String get footerLegal => 'Politica de la app, terminos, eliminacion de datos, FAQ de la app y privacidad del sitio.';
+
+  @override
+  String get footerPrivacyApp => 'Politica de privacidad';
+
+  @override
+  String get footerTerms => 'Terminos de uso';
+
+  @override
+  String get footerDeletion => 'Eliminacion de datos';
+
+  @override
+  String get footerFaqApp => 'FAQ';
+
+  @override
+  String get footerPrivacySite => 'Privacidad del sitio';
 
   @override
   String get footerCrc =>
@@ -1318,7 +1362,7 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
   String get colPlan => 'Plan';
 
   @override
-  String get colBoleto => 'Boleto / PIX';
+  String get colBoleto => 'Boleto CNPJ';
 
   @override
   String get highlightBadge => 'El más elegido por Microempresa (ME)';
