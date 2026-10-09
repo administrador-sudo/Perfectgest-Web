@@ -2,6 +2,31 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-09 11:10] Tela branca em /contabilidade (splash removido)
+
+### Contexto
+- `__ppSkipLoadingShell` incluia `/contabilidade`. O splash saia na hora; o Flutter ainda nao pintava (branco/preto no Chrome).
+
+### Arquivos alterados
+- web/index.html
+- docs/Atualiza.md
+
+### O que foi feito
+- /contabilidade, FAQ, pre-cadastro e politicas SPA deixam de saltar o splash. So paginas HTML estaticas (Clinica III, PerfectGest I, Contabil I) saltam.
+
+### Risco de regressao
+- Rotas Flutter mostram o "Carregando..." ate o primeiro frame.
+
+### Validacao executada
+- [ ] publish-web (comando ao operador)
+- [ ] Reiniciar 8088 e hard refresh /contabilidade
+
+### Resultado
+- Splash fica ate o Flutter pintar o funil.
+
+### Proximos passos recomendados
+- npm run publish-web. Reiniciar flutter run na 8088.
+
 ## [2026-10-09 10:46] Funil no bundle + splash ate o primeiro frame
 
 ### Contexto
