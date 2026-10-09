@@ -267,6 +267,41 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
     }
   }
 
+  void _setTipo(String v) {
+    setState(() {
+      _tipo = v;
+      if (v == 'MEI') {
+        _crc = 'sem';
+        _folha = false;
+        if (_faixaId == null || !_tierIsMei(_faixaId!)) {
+          _faixaId = 'mei';
+        }
+      } else {
+        _crc = 'com';
+        if (_faixaId == null || _tierIsMei(_faixaId!)) {
+          _faixaId = 'essencial';
+        }
+      }
+    });
+  }
+
+  Widget _tipoLinha({
+    required String label,
+    required bool selected,
+    required VoidCallback? onTap,
+  }) {
+    return ListTile(
+      contentPadding: EdgeInsets.zero,
+      dense: true,
+      title: Text(label),
+      leading: Icon(
+        selected ? Icons.radio_button_checked : Icons.radio_button_off,
+        color: kFunilGreen,
+      ),
+      onTap: onTap,
+    );
+  }
+
   bool _formPronto() {
     setState(() => _errorCode = null);
     if (_tipo == null) {
@@ -654,46 +689,15 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
             ),
             const SizedBox(height: 16),
             Text(st.tipoLabel, style: const TextStyle(fontWeight: FontWeight.w700)),
-            RadioGroup<String>(
-              groupValue: _tipo,
-              onChanged: _submitting
-                  ? (_) {}
-                  : (v) {
-                      if (v == null) return;
-                      setState(() {
-                        _tipo = v;
-                        if (v == 'MEI') {
-                          _crc = 'sem';
-                          _folha = false;
-                          if (_faixaId == null || !_tierIsMei(_faixaId!)) {
-                            _faixaId = 'mei';
-                          }
-                        } else {
-                          _crc = 'com';
-                          if (_faixaId == null || _tierIsMei(_faixaId!)) {
-                            _faixaId = 'essencial';
-                          }
-                        }
-                      });
-                    },
-              child: Column(
-                children: [
-                  RadioListTile<String>(
-                    contentPadding: EdgeInsets.zero,
-                    dense: true,
-                    title: Text(st.tipoMei),
-                    value: 'MEI',
-                    activeColor: kFunilGreen,
-                  ),
-                  RadioListTile<String>(
-                    contentPadding: EdgeInsets.zero,
-                    dense: true,
-                    title: Text(st.tipoMe),
-                    value: 'ME',
-                    activeColor: kFunilGreen,
-                  ),
-                ],
-              ),
+            _tipoLinha(
+              label: st.tipoMei,
+              selected: _tipo == 'MEI',
+              onTap: _submitting ? null : () => _setTipo('MEI'),
+            ),
+            _tipoLinha(
+              label: st.tipoMe,
+              selected: _tipo == 'ME',
+              onTap: _submitting ? null : () => _setTipo('ME'),
             ),
             if (_tipo == 'ME') ...[
               const SizedBox(height: 8),

@@ -36,7 +36,8 @@ class DeferredRouteLoader extends StatefulWidget {
 }
 
 class _DeferredRouteLoaderState extends State<DeferredRouteLoader> {
-  late final Future<void> _loadFuture;
+  late Future<void> _loadFuture;
+  int _gen = 0;
 
   @override
   void initState() {
@@ -47,6 +48,7 @@ class _DeferredRouteLoaderState extends State<DeferredRouteLoader> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<void>(
+      key: ValueKey<int>(_gen),
       future: _loadFuture,
       builder: (context, snap) {
         if (snap.connectionState != ConnectionState.done) {
@@ -57,9 +59,32 @@ class _DeferredRouteLoaderState extends State<DeferredRouteLoader> {
           );
         }
         if (snap.hasError) {
-          return const Scaffold(body: Center(child: Text('Erro ao carregar a página.')));
+          return Scaffold(
+            body: Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Text('Erro ao carregar a página.'),
+                  const SizedBox(height: 12),
+                  FilledButton(
+                    onPressed: () {
+                      setState(() {
+                        _gen += 1;
+                        _loadFuture = widget.loadLibrary();
+                      });
+                    },
+                    child: const Text('Tentar de novo'),
+                  ),
+                ],
+              ),
+            ),
+          );
         }
-        return widget.builder();
+        try {
+          return widget.builder();
+        } on Object {
+          return const Scaffold(body: Center(child: Text('Erro ao montar a página.')));
+        }
       },
     );
   }

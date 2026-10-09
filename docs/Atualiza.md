@@ -2,6 +2,35 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-09 11:33] Funil: rota directa (sem chunk diferido)
+
+### Contexto
+- Home abria; /contabilidade mostrava "Erro ao carregar a página" (loader diferido no DDC/cache).
+
+### Arquivos alterados
+- lib/main.dart
+- lib/site_deferred_pages.dart
+- lib/contabilidade_funil_page.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- Rota /contabilidade monta ContabilidadeFunilPage no main, sem FutureBuilder.
+- Tipo MEI/ME sem RadioGroup (evita crash no Flutter web).
+- Loader diferido das outras paginas ganha "Tentar de novo".
+
+### Risco de regressao
+- Baixo. Funil deixa de depender de part.js.
+
+### Validacao executada
+- [ ] publish-web (comando ao operador)
+- [ ] Reiniciar 8088
+
+### Resultado
+- Funil nao passa pelo "Erro ao carregar a página".
+
+### Proximos passos recomendados
+- publish-web e reiniciar flutter run 8088.
+
 ## [2026-10-09 11:10] Tela branca em /contabilidade (splash removido)
 
 ### Contexto

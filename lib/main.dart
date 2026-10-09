@@ -23,6 +23,7 @@ import 'solution_screenshot_preview.dart';
 import 'solutions_product_showcase.dart';
 import 'metallic_site_shell.dart';
 import 'site_brand_logo.dart';
+import 'contabilidade_funil_page.dart';
 import 'site_deferred_pages.dart';
 import 'site_surface.dart';
 import 'site_hero_wordmark.dart';
@@ -186,7 +187,7 @@ class _PerfectProSiteAppState extends State<PerfectProSiteApp> {
       case '/contabilidade':
         return MaterialPageRoute<void>(
           settings: settings,
-          builder: (_) => buildContabilidadeFunilPage(),
+          builder: (_) => const ContabilidadeFunilPage(),
         );
       case '/amostra-metal':
         return MaterialPageRoute<void>(
