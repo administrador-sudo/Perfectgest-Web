@@ -2,6 +2,139 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-09 08:20] Pop: soma 12x + extras no 1o boleto
+
+### Contexto
+- O pop listava honorario e extras sem declarar 12x nem o 1o boleto.
+
+### Arquivos alterados
+- lib/contabilidade_funil_page.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- Honorario + Folha em 12 parcelas. A1 e IR no primeiro boleto; A1 12 meses; IR no mes do IR do ano seguinte.
+
+### Risco de regressao
+- Baixo: so pop e comentario do lead.
+
+### Validacao executada
+- [x] 8088 reiniciado.
+
+### Resultado
+- Pop soma e explica cobranca.
+
+### Proximos passos recomendados
+- Conferir o pop em /contabilidade.
+
+## [2026-10-09 08:06] Funil local: CORS Firebase bloqueava 127.0.0.1
+
+### Contexto
+- O POST da Function funciona. O browser em 8088 nao recebe Access-Control-Allow-Origin.
+
+### Arquivos alterados
+- S-App-ContabilGest/firebase/functions/crcAdminLeadsFunil.js (ORIGINS)
+- lib/l10n/site_contabilidade_funil_texts.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- CORS inclui 127.0.0.1:8088 e localhost. Copy de erro deixa de dizer "sem internet".
+
+### Risco de regressao
+- Precisa `firebase deploy --only functions:receberLeadFunil`.
+
+### Validacao executada
+- [x] POST sem Origin: 200 ok.
+- [ ] Deploy da Function.
+
+### Resultado
+- Site local envia depois do deploy.
+
+### Proximos passos recomendados
+- Rodar o script de deploy da Function.
+
+## [2026-10-09 07:57] Play 19,99 / a vista; funil so honorarios
+
+### Contexto
+- O site misturava R$ 239,88/ano com honorarios. Play oficial: 19,99/mes ou a vista 239,88.
+
+### Arquivos alterados
+- lib/l10n/app_pt.arb, app_en.arb, app_es.arb, app_localizations.dart
+- lib/l10n/site_contabilgest_faq_texts.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- lib/contabilidade_funil_page.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- Vitrine: ContabilGest como ferramenta de conexao em tempo real; Play so 19,99/mes ou a vista 239,88.
+- Funil: tabela/FAQ so honorarios; cadastro segue no Firebase; sucesso com link Play.
+
+### Risco de regressao
+- Baixo: so copy. POST Firestore inalterado.
+
+### Validacao executada
+- [x] Sem 239,88/ano no lib.
+- [x] 8088 reiniciado.
+
+### Resultado
+- Play e honorarios separados.
+
+### Proximos passos recomendados
+- Recarregar 8088. Sem publish.
+
+## [2026-10-09] Funil: CSP *.run.app + publish obrigatório
+
+### Contexto
+- O form no ar ainda não chega ao CRC: HTML publicado sem cloudfunctions. Dart local já POSTa na Function.
+
+### O que mudou
+- `web/index.html` `connect-src`: Function + `https://*.run.app`.
+- Falta `npm run publish-web` (gera `build/web` e push). Sem isto o browser continua a bloquear.
+
+## [2026-10-09] Funil: timeout 20s + finally + honeypot hp_site
+
+### Contexto
+- Botão ficava em «enviando» (3×60s). CSP no ar ainda precisa de publish.
+
+### O que mudou
+- `lib/funil_firestore_service.dart`: timeout 20s; 1 retry só em timeout; sem retry de Failed to fetch; `hp_site`; `skipped` não conta como sucesso.
+- `lib/contabilidade_funil_page.dart`: `_submit` com try/finally.
+- Function `receberLeadFunil`: honeypot `hp_site` ou `website`.
+
+## [2026-10-09] Funil: CSP permite Function Firebase
+
+### Contexto
+- O browser bloqueava o POST (`Failed to fetch` / «Sem ligacao a internet»). `connect-src` só tinha a API Postgres.
+
+### O que mudou
+- `web/index.html`: `connect-src` inclui `https://southamerica-east1-perfectgest-contabilgest.cloudfunctions.net`.
+
+## [2026-10-09] Funil: MEI só R$ 40 (sem Fidelizado)
+
+### Contexto
+- Havia duas faixas MEI (40 e Fidelizado 35). Fica só MEI mensalidade R$ 40,00.
+
+### Arquivos
+- lib/contabilidade_funil_page.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- lib/funil_firestore_service.dart
+
+## [2026-10-09] Funil /contabilidade → Firestore (receberLeadFunil)
+
+### Contexto
+- O POST ia para Postgres (`kLeadsApiUrl`). O CRC Novo Cadastro só lê Firestore.
+
+### O que mudou
+- `lib/funil_firestore_service.dart`: POST JSON na Function `receberLeadFunil`; retry 2× só em rede/timeout; sucesso só com `ok: true`.
+- `lib/contabilidade_funil_page.dart`: deixa de usar `LeadCaptureService`. Pré-cadastro geral continua no Postgres.
+
+### Impacto / risco
+- Sem deploy da Function no Firebase, o form falha (não mostra sucesso).
+- CORS só `perfectgestdev.com` / `www` — teste local pode falhar.
+
+### Rollback
+- Voltar `_submit` para `LeadCaptureService.submit`.
+
 ## Regras de uso (obrigatorio para proximas IAs)
 
 - Ler este arquivo antes de propor alteracoes relevantes.
@@ -9,6 +142,112 @@ Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs,
 - Nao apagar historico anterior; somente acrescentar novas entradas.
 - Sempre registrar impacto, risco e validacao realizada.
 - Em caso de mudanca de comportamento, registrar motivo e plano de rollback.
+
+## [2026-10-09 00:33] Tela branca apos splash (web-server debug)
+
+### Contexto
+- O splash sumia aos 7s e o Flutter debug nao chamava main sem a extensao Dart Debug.
+
+### Arquivos alterados
+- web/index.html
+- docs/Atualiza.md
+
+### O que foi feito
+- Splash fica ate o primeiro frame. Se o main nao arrancar, o site chama `$dartRunMain`.
+
+### Risco de regressao
+- Baixo: so o shell HTML de carregamento.
+
+### Validacao executada
+- [x] Forcar `$dartRunMain` pintou a home.
+- [x] 8088 reiniciado. A home abre apos o splash.
+
+### Resultado
+- Home deixa de ficar em branco apos o carregamento.
+
+### Proximos passos recomendados
+- Recarregar http://127.0.0.1:8088/ sem cache.
+
+## [2026-10-08 23:25] Sucesso do cadastro, copia de e-mail e link Play
+
+### Contexto
+- Depois do envio: mensagem de sucesso, copia no e-mail do usuario e link da Play Store.
+
+### Arquivos alterados
+- lib/contabilidade_funil_page.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- lib/lead_capture_service.dart
+- scripts/leads-api-server.js
+- scripts/configurar-smtp-leads.ps1
+- package.json
+- render.yaml
+- docs/Atualiza.md
+
+### O que foi feito
+- Tela "Envio realizado com sucesso", nota de copia no e-mail e URL da Play (app exclusivo).
+- API envia a copia se SMTP estiver no Render.
+
+### Risco de regressao
+- Medio: e-mail so sai apos SMTP + deploy da API de leads.
+
+### Validacao executada
+- [x] Web-server 8088 reiniciado.
+
+### Resultado
+- Sucesso e link Play no funil. Copia de e-mail depende de SMTP.
+
+### Proximos passos recomendados
+- Rodar scripts/configurar-smtp-leads.ps1 e publicar a API de leads.
+
+## [2026-10-08 23:14] Pop de proposta so honorarios (NF e boleto mensal)
+
+### Contexto
+- O pop e contrato de escritorio: sem Play/app; sem total anual.
+
+### Arquivos alterados
+- lib/contabilidade_funil_page.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- Obs. de NF e boleto todo mes no valor da mensalidade. 12x sem soma anual.
+
+### Risco de regressao
+- Baixo: so copy do dialog.
+
+### Validacao executada
+- [x] Web-server 8088 reiniciado.
+
+### Resultado
+- Pop mostra so honorario mensal.
+
+### Proximos passos recomendados
+- Conferir o pop em /contabilidade.
+
+## [2026-10-08 23:05] Pop de proposta no funil (12x, 30 dias, 1 dia util)
+
+### Contexto
+- Quero este plano abre resumo antes do envio ao escritorio.
+
+### Arquivos alterados
+- lib/contabilidade_funil_page.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- Dialog com cadastro, boleto, Play a parte, opcao 12x, renovacao automatica, cancelamento 30 dias, SLA 1 dia util. Enviar proposta dispara o lead.
+
+### Risco de regressao
+- Medio: fluxo de envio do formulario.
+
+### Validacao executada
+- [x] Web-server 8088 reiniciado (compile ok).
+
+### Resultado
+- Proposta so sai depois da confirmacao no pop.
+
+### Proximos passos recomendados
+- Conferir /contabilidade formulario.
 
 ## [2026-10-08 22:19] Rodape do funil aponta para paginas oficiais contabil-i
 

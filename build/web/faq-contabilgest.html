@@ -24,7 +24,7 @@
   <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
   <!-- CSP: Flutter Web + gtag adiado (pp_analytics.js) + fontes locais -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.gstatic.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob: https:; connect-src 'self' https://perfectgest-leads-api-2ztg.onrender.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://www.googletagmanager.com https://www.gstatic.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.gstatic.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob: https:; connect-src 'self' https://perfectgest-leads-api-2ztg.onrender.com https://southamerica-east1-perfectgest-contabilgest.cloudfunctions.net https://*.run.app https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://www.googletagmanager.com https://www.gstatic.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;">
   <meta name="theme-color" content="#E8E8E8">
   <meta name="description" content="Software house especialista em Flutter, Java e SDKs para apps mobile, web e desktop com alta performance.">
   <meta name="keywords" content="Flutter, Java, SDK, PWA, SEO, Google Search Console, mobile, web, desktop">
@@ -239,10 +239,22 @@
         }
       });
       observer.observe(document.body, { childList: true, subtree: true });
-      setTimeout(() => {
-        observer.disconnect();
-        hide();
-      }, 7000);
+      // web-server debug espera a extensao Dart Debug; sem ela o main nao corre.
+      var armed = false;
+      var bootWatch = setInterval(function () {
+        if (document.querySelector('flt-glass-pane, flutter-view')) {
+          clearInterval(bootWatch);
+          return;
+        }
+        if (typeof window.$dartRunMain === 'function' && !armed) {
+          armed = true;
+          clearInterval(bootWatch);
+          setTimeout(function () {
+            if (document.querySelector('flt-glass-pane, flutter-view')) return;
+            try { window.$dartRunMain(); } catch (err) {}
+          }, 1200);
+        }
+      }, 400);
     })();
   </script>
   <script src="flutter_bootstrap.js" async></script>

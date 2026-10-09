@@ -74,15 +74,31 @@ abstract class SiteContabilidadeFunilTexts {
   String get extraIr;
   String get extraA1;
   String get officeTotalLabel;
-  String officeTotalHint(String boleto);
+  String officeTotalHint(String monthly);
+  String proposalFirstBoleto(String amount);
+  String get proposalA1Rule;
+  String get proposalIrRule;
   String get consentPrefix;
   String get consentLinkLabel;
   String get consentSuffix;
   String get submitLabel;
   String get submittingLabel;
+  String get proposalTitle;
+  String get proposalSend;
+  String get proposalBack;
+  String get proposalHonorariosLabel;
+  String proposalNfObs(String monthly);
+  String get proposalParcelar12;
+  String proposalParcelarHint(String monthly);
+  String get proposalRenewal;
+  String get proposalCancel;
+  String get proposalSla;
   String get successTitle;
   String get successBody;
+  String get successPlayNote;
+  String successCopyNote(String email);
   String get subscribeApp;
+  String get playStoreLinkHint;
   String get backHome;
   String get demoTitle;
   String get zoomHint;
@@ -175,7 +191,7 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
 
   @override
   String get stepABody =>
-      'A tabela é de honorários do escritório (boleto/CNPJ). O aplicativo na Google Play é outra cobrança.';
+      'A tabela é de honorários do escritório (boleto/CNPJ).';
 
   @override
   String get stepBTitle => 'B. Envie o pedido por e-mail';
@@ -185,18 +201,18 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
       'O escritório confirma o plano. Alterações de faixa, extras, upgrade ou downgrade: suporte@perfectgestdev.com.';
 
   @override
-  String get stepCTitle => 'C. Assine o app e peça a habilitação';
+  String get stepCTitle => 'C. Envie o cadastro';
 
   @override
   String get stepCBody =>
-      'Assinatura do aplicativo na Play: R\$ 19,99/mês ou R\$ 239,88/ano. Depois, contacte o escritório para habilitar o envio de dados.';
+      'O escritório recebe o pedido de honorários e confirma o plano. Depois do cadastro, você baixa o aplicativo para acompanhar a contabilidade em tempo real.';
 
   @override
   String get plansTitle => 'Planos';
 
   @override
   String get plansLead =>
-      'Honorários do escritório nesta tabela: boleto/CNPJ, combinados na contratação. A Google Play cobra só o software.';
+      'Honorários do escritório nesta tabela: boleto/CNPJ, combinados na contratação.';
 
   @override
   String get plansGroupMei => 'Microempreendedor Individual (MEI) — sem acompanhamento do contador';
@@ -206,7 +222,7 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
 
   @override
   String get playNote =>
-      'Assinar o app na Google Play: R\$ 19,99/mês ou R\$ 239,88/ano. Planos Contabil+ e Básico MEI: esta página ou suporte@perfectgestdev.com.';
+      'Planos Contabil+ e Básico MEI: honorários nesta página ou suporte@perfectgestdev.com.';
 
   @override
   String get extrasTitle => 'Extras (boleto CNPJ)';
@@ -281,7 +297,7 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
   String get faixaLabel => 'Faixa';
 
   @override
-  String get extraFolha => 'Folha de pagamento (R\$ 99,99/mês)';
+  String get extraFolha => 'Contador faz a folha (R\$ 99,99/mês)';
 
   @override
   String get extraIr => 'Imposto de renda (R\$ 49,99/ano)';
@@ -290,10 +306,22 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
   String get extraA1 => 'Certificado A1 QualityCert (R\$ 119,99/ano)';
 
   @override
-  String get officeTotalLabel => '';
+  String get officeTotalLabel => '12 parcelas mensais';
 
   @override
-  String officeTotalHint(String boleto) => '';
+  String officeTotalHint(String monthly) =>
+      'Honorários + Contador faz a folha (se contratado): 12 parcelas de $monthly, com renovação automática.';
+
+  @override
+  String proposalFirstBoleto(String amount) =>
+      'A1 e IR (se contratados) entram no primeiro boleto. Valor do primeiro boleto: $amount.';
+
+  @override
+  String get proposalA1Rule => 'O certificado A1 é renovado em 12 meses.';
+
+  @override
+  String get proposalIrRule =>
+      'O IR é cobrado no mês do imposto de renda do próximo ano.';
 
   @override
   String get consentPrefix => 'Li e aceito a ';
@@ -312,15 +340,58 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
   String get submittingLabel => 'Enviando...';
 
   @override
-  String get successTitle => 'Pedido recebido';
+  String get proposalTitle => 'Resumo da proposta';
+
+  @override
+  String get proposalSend => 'Enviar a proposta para o escritório';
+
+  @override
+  String get proposalBack => 'Voltar ao formulário';
+
+  @override
+  String get proposalHonorariosLabel => 'Honorários no boleto CNPJ';
+
+  @override
+  String proposalNfObs(String monthly) =>
+      'Todo mês será emitida uma nota fiscal e um boleto de honorários no valor de $monthly.';
+
+  @override
+  String get proposalParcelar12 => 'Parcelar honorários em 12 vezes';
+
+  @override
+  String proposalParcelarHint(String monthly) =>
+      '12 parcelas de $monthly, com renovação automática.';
+
+  @override
+  String get proposalRenewal => 'O plano de honorários tem renovação automática.';
+
+  @override
+  String get proposalCancel =>
+      'Para cancelar, avise com 30 dias de antecedência para interromper a cobrança. Sem esse aviso, cobra-se o proporcional até o dia em que cessarem os serviços.';
+
+  @override
+  String get proposalSla => 'O escritório responde em 1 dia útil.';
+
+  @override
+  String get successTitle => 'Envio realizado com sucesso';
 
   @override
   String get successBody =>
-      'Recebemos o seu pedido. O escritório confirma o plano, explica a forma de pagamento na contratação e avisa quando puder assinar o app. '
-      'Você não fica sozinho: suporte e contador habilitado nos planos com acompanhamento.';
+      'Cadastro recebido. O escritório confirma o plano de honorários. Baixe o ContabilGest na Google Play: é a ferramenta de conexão para acompanhar a contabilidade em tempo real.';
 
   @override
-  String get subscribeApp => 'Assinar o app';
+  String get successPlayNote =>
+      'Na Google Play: R\$ 19,99/mês ou pagamento à vista R\$ 239,88.';
+
+  @override
+  String successCopyNote(String email) =>
+      'Enviamos uma cópia deste cadastro para $email.';
+
+  @override
+  String get subscribeApp => 'Baixar o app na Play Store';
+
+  @override
+  String get playStoreLinkHint => 'Link da Play Store (ferramenta exclusiva do escritório):';
 
   @override
   String get backHome => 'Voltar ao inicio';
@@ -352,9 +423,9 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
   @override
   List<FunilFaqItem> get faq => const <FunilFaqItem>[
         FunilFaqItem(
-          question: 'Quando assino na Google Play?',
+          question: 'Como funciona o contrato de honorários?',
           body:
-              'Quando for assinar o aplicativo. Depois, contacte o escritório para habilitar o envio de dados. Conheça o app primeiro, sem pressa.',
+              'O pedido é o contrato de honorários do escritório (boleto/CNPJ). Depois do cadastro, você baixa o aplicativo na Google Play para acompanhar a contabilidade em tempo real.',
         ),
         FunilFaqItem(
           question: 'O que o app traz de exclusivo?',
@@ -428,7 +499,8 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
         'tipo_required' => 'Selecione MEI ou ME.',
         'crc_required' => 'Selecione com ou sem acompanhamento do contador.',
         'faixa_required' => 'Selecione a faixa.',
-        'network_error' => 'Sem ligacao a internet. Verifique a conexao e tente de novo.',
+        'network_error' =>
+          'Nao foi possivel enviar o cadastro ao escritorio. Tente de novo; se estiver em 127.0.0.1, a Function Firebase precisa permitir essa origem.',
         'api_waking' =>
           'O servidor esta a iniciar (pode demorar 1 min). Aguarde e envie de novo.',
         'api_not_deployed' =>
@@ -442,7 +514,6 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
   @override
   String planName(String id) => switch (id) {
         'mei' => 'Básico Microempreendedor Individual (MEI)',
-        'fidelizado' => 'Básico Fidelizado (MEI)',
         'essencial' => 'Planos Contábeis Essencial',
         'standard' => 'Planos Contábeis Intermediário',
         'avancado' => 'Planos Contábeis Avançado',
@@ -453,18 +524,6 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
   List<String> planItems(String id) => switch (id) {
         'mei' => const <String>[
             'Para Microempreendedor Individual (MEI)',
-            'Autocontabilidade no aplicativo',
-            'Livro Caixa',
-            'Contas a receber e a pagar',
-            'Obrigações do mês',
-            'Assistente de inteligência artificial',
-            'Emissão de notas fiscais eletrônicas',
-            'Até 5 notas fiscais (NFs) por mês',
-            'Sem empregados com carteira assinada',
-            'Sem contador assinando os livros',
-          ],
-        'fidelizado' => const <String>[
-            'Para Microempreendedor Individual (MEI) que permanece com o escritório',
             'Autocontabilidade no aplicativo',
             'Livro Caixa',
             'Contas a receber e a pagar',
@@ -596,7 +655,7 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
 
   @override
   String get stepABody =>
-      'The table is office fees (boleto/CNPJ). The Google Play app is a separate charge.';
+      'The table is office fees (boleto/CNPJ).';
 
   @override
   String get stepBTitle => 'B. Send the request by email';
@@ -606,18 +665,18 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
       'The office confirms the plan. Band changes, add-ons, upgrade or downgrade: suporte@perfectgestdev.com.';
 
   @override
-  String get stepCTitle => 'C. Subscribe to the app and ask for enablement';
+  String get stepCTitle => 'C. Send the registration';
 
   @override
   String get stepCBody =>
-      'App subscription on Play: R\$ 19.99/month or R\$ 239.88/year. Then contact the office to enable data sending.';
+      'The office receives the fee request and confirms the plan. After registration, you download the app to follow your accounting in real time.';
 
   @override
   String get plansTitle => 'Plans';
 
   @override
   String get plansLead =>
-      'Office fees in this table: boleto/CNPJ, agreed when you hire. Google Play charges only for the software.';
+      'Office fees in this table: boleto/CNPJ, agreed when you hire.';
 
   @override
   String get plansGroupMei => 'Individual Microentrepreneur (MEI) — no accountant follow-up';
@@ -627,7 +686,7 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
 
   @override
   String get playNote =>
-      'Subscribe to the app on Google Play: R\$ 19.99/month or R\$ 239.88/year. Contabil+ and Basic MEI plans: this page or suporte@perfectgestdev.com.';
+      'Contabil+ and Basic MEI plans: fees on this page or suporte@perfectgestdev.com.';
 
   @override
   String get extrasTitle => 'Extras (CNPJ boleto)';
@@ -702,7 +761,7 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
   String get faixaLabel => 'Plan band';
 
   @override
-  String get extraFolha => 'Payroll (R\$ 99.99/month)';
+  String get extraFolha => 'Accountant runs payroll (R\$ 99.99/month)';
 
   @override
   String get extraIr => 'Income tax (R\$ 49.99/year)';
@@ -711,10 +770,22 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
   String get extraA1 => 'A1 QualityCert certificate (R\$ 119.99/year)';
 
   @override
-  String get officeTotalLabel => '';
+  String get officeTotalLabel => '12 monthly installments';
 
   @override
-  String officeTotalHint(String boleto) => '';
+  String officeTotalHint(String monthly) =>
+      'Fees + payroll add-on (if hired): 12 installments of $monthly, with automatic renewal.';
+
+  @override
+  String proposalFirstBoleto(String amount) =>
+      'A1 and income tax (if hired) go on the first boleto. First boleto amount: $amount.';
+
+  @override
+  String get proposalA1Rule => 'The A1 certificate is renewed every 12 months.';
+
+  @override
+  String get proposalIrRule =>
+      'Income tax is charged in the income-tax month of the following year.';
 
   @override
   String get consentPrefix => 'I have read and accept the ';
@@ -733,15 +804,58 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
   String get submittingLabel => 'Sending...';
 
   @override
-  String get successTitle => 'Request received';
+  String get proposalTitle => 'Proposal summary';
+
+  @override
+  String get proposalSend => 'Send the proposal to the office';
+
+  @override
+  String get proposalBack => 'Back to the form';
+
+  @override
+  String get proposalHonorariosLabel => 'Fees on CNPJ boleto';
+
+  @override
+  String proposalNfObs(String monthly) =>
+      'Every month a tax invoice and a fee boleto will be issued in the amount of $monthly.';
+
+  @override
+  String get proposalParcelar12 => 'Pay fees in 12 installments';
+
+  @override
+  String proposalParcelarHint(String monthly) =>
+      '12 installments of $monthly, with automatic renewal.';
+
+  @override
+  String get proposalRenewal => 'The accounting-fee plan renews automatically.';
+
+  @override
+  String get proposalCancel =>
+      'To cancel, give 30 days\' notice so billing can stop. Without that notice, charges run proportionally until the day services end.';
+
+  @override
+  String get proposalSla => 'The office replies within 1 business day.';
+
+  @override
+  String get successTitle => 'Submission completed successfully';
 
   @override
   String get successBody =>
-      'We received your request. The office confirms the plan, explains payment when you hire, and tells you when you may subscribe to the app. '
-      'You are not alone: support and a licensed accountant on plans with follow-up.';
+      'Registration received. The office confirms the fee plan. Download ContabilGest on Google Play: it is the connection tool to follow your accounting in real time.';
 
   @override
-  String get subscribeApp => 'Subscribe to the app';
+  String get successPlayNote =>
+      'On Google Play: R\$ 19.99/month or a one-time payment of R\$ 239.88.';
+
+  @override
+  String successCopyNote(String email) =>
+      'We sent a copy of this registration to $email.';
+
+  @override
+  String get subscribeApp => 'Download the app on Play Store';
+
+  @override
+  String get playStoreLinkHint => 'Play Store link (exclusive office tool):';
 
   @override
   String get backHome => 'Back to home';
@@ -773,9 +887,9 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
   @override
   List<FunilFaqItem> get faq => const <FunilFaqItem>[
         FunilFaqItem(
-          question: 'When do I subscribe on Google Play?',
+          question: 'How does the fee contract work?',
           body:
-              'When you subscribe to the app. Then contact the office to enable data sending. Explore the app first, with no rush.',
+              'The request is the office fee contract (boleto/CNPJ). After registration, you download the app on Google Play to follow your accounting in real time.',
         ),
         FunilFaqItem(
           question: 'What exclusive features does the app bring?',
@@ -849,7 +963,8 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
         'tipo_required' => 'Select MEI or ME.',
         'crc_required' => 'Select with or without accountant follow-up.',
         'faixa_required' => 'Select a plan band.',
-        'network_error' => 'No internet connection. Check the network and try again.',
+        'network_error' =>
+          'Could not send the registration. Try again; on 127.0.0.1 the Firebase Function must allow that origin.',
         'api_waking' => 'The server is starting (up to 1 min). Wait and send again.',
         'api_not_deployed' =>
           'Service temporarily unavailable. Write to contabilidade@perfectgestdev.com.',
@@ -861,7 +976,6 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
   @override
   String planName(String id) => switch (id) {
         'mei' => 'Basic Individual Microentrepreneur (MEI)',
-        'fidelizado' => 'Basic Loyalty (MEI)',
         'essencial' => 'Accounting Plans Essential',
         'standard' => 'Accounting Plans Intermediate',
         'avancado' => 'Accounting Plans Advanced',
@@ -872,18 +986,6 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
   List<String> planItems(String id) => switch (id) {
         'mei' => const <String>[
             'For Individual Microentrepreneurs (MEI)',
-            'Self-accounting in the app',
-            'Cash book',
-            'Accounts receivable and payable',
-            'Monthly duties',
-            'Artificial intelligence assistant',
-            'Electronic invoices',
-            'Up to 5 invoices (NFs) per month',
-            'No employees on the payroll',
-            'No accountant signing the books',
-          ],
-        'fidelizado' => const <String>[
-            'For Individual Microentrepreneurs (MEI) who stay with the office',
             'Self-accounting in the app',
             'Cash book',
             'Accounts receivable and payable',
@@ -1015,7 +1117,7 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
 
   @override
   String get stepABody =>
-      'La tabla es de honorarios del despacho (boleto/CNPJ). La aplicación en Google Play es otro cobro.';
+      'La tabla es de honorarios del despacho (boleto/CNPJ).';
 
   @override
   String get stepBTitle => 'B. Envíe el pedido por correo';
@@ -1025,18 +1127,18 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
       'El despacho confirma el plan. Cambios de franja, extras, upgrade o downgrade: suporte@perfectgestdev.com.';
 
   @override
-  String get stepCTitle => 'C. Suscriba la app y pida la habilitación';
+  String get stepCTitle => 'C. Envíe el registro';
 
   @override
   String get stepCBody =>
-      'Suscripción de la aplicación en Play: R\$ 19,99/mes o R\$ 239,88/año. Después, contacte al despacho para habilitar el envío de datos.';
+      'El despacho recibe el pedido de honorarios y confirma el plan. Después del registro, usted descarga la aplicación para seguir la contabilidad en tiempo real.';
 
   @override
   String get plansTitle => 'Planes';
 
   @override
   String get plansLead =>
-      'Honorarios del despacho en esta tabla: boleto/CNPJ, combinados al contratar. Google Play cobra solo el software.';
+      'Honorarios del despacho en esta tabla: boleto/CNPJ, combinados al contratar.';
 
   @override
   String get plansGroupMei => 'Microemprendedor Individual (MEI) — sin seguimiento del contador';
@@ -1046,7 +1148,7 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
 
   @override
   String get playNote =>
-      'Suscribir la app en Google Play: R\$ 19,99/mes o R\$ 239,88/año. Planes Contabil+ y Básico MEI: esta página o suporte@perfectgestdev.com.';
+      'Planes Contabil+ y Básico MEI: honorarios en esta página o suporte@perfectgestdev.com.';
 
   @override
   String get extrasTitle => 'Extras (boleto CNPJ)';
@@ -1121,7 +1223,7 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
   String get faixaLabel => 'Franja';
 
   @override
-  String get extraFolha => 'Nómina (R\$ 99,99/mes)';
+  String get extraFolha => 'El contador hace la nómina (R\$ 99,99/mes)';
 
   @override
   String get extraIr => 'Impuesto sobre la renta (R\$ 49,99/año)';
@@ -1130,10 +1232,22 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
   String get extraA1 => 'Certificado A1 QualityCert (R\$ 119,99/año)';
 
   @override
-  String get officeTotalLabel => '';
+  String get officeTotalLabel => '12 cuotas mensuales';
 
   @override
-  String officeTotalHint(String boleto) => '';
+  String officeTotalHint(String monthly) =>
+      'Honorarios + nómina (si se contrata): 12 cuotas de $monthly, con renovación automática.';
+
+  @override
+  String proposalFirstBoleto(String amount) =>
+      'A1 e IR (si se contratan) entran en el primer boleto. Valor del primer boleto: $amount.';
+
+  @override
+  String get proposalA1Rule => 'El certificado A1 se renueva a los 12 meses.';
+
+  @override
+  String get proposalIrRule =>
+      'El IR se cobra en el mes del impuesto sobre la renta del año siguiente.';
 
   @override
   String get consentPrefix => 'He leido y acepto la ';
@@ -1152,15 +1266,58 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
   String get submittingLabel => 'Enviando...';
 
   @override
-  String get successTitle => 'Pedido recibido';
+  String get proposalTitle => 'Resumen de la propuesta';
+
+  @override
+  String get proposalSend => 'Enviar la propuesta al despacho';
+
+  @override
+  String get proposalBack => 'Volver al formulario';
+
+  @override
+  String get proposalHonorariosLabel => 'Honorarios en boleto CNPJ';
+
+  @override
+  String proposalNfObs(String monthly) =>
+      'Cada mes se emitirá una nota fiscal y un boleto de honorarios por el valor de $monthly.';
+
+  @override
+  String get proposalParcelar12 => 'Parcelar honorarios en 12 veces';
+
+  @override
+  String proposalParcelarHint(String monthly) =>
+      '12 cuotas de $monthly, con renovación automática.';
+
+  @override
+  String get proposalRenewal => 'El plan de honorarios se renueva automáticamente.';
+
+  @override
+  String get proposalCancel =>
+      'Para cancelar, avise con 30 días de antelación para interrumpir el cobro. Sin ese aviso, se cobra lo proporcional hasta el día en que cesen los servicios.';
+
+  @override
+  String get proposalSla => 'El despacho responde en 1 día hábil.';
+
+  @override
+  String get successTitle => 'Envío realizado con éxito';
 
   @override
   String get successBody =>
-      'Recibimos su pedido. El estudio confirma el plan, explica la forma de pago al contratar y avisa cuando pueda suscribir la app. '
-      'No está solo: soporte y contador habilitado en los planes con seguimiento.';
+      'Registro recibido. El despacho confirma el plan de honorarios. Descargue ContabilGest en Google Play: es la herramienta de conexión para seguir la contabilidad en tiempo real.';
 
   @override
-  String get subscribeApp => 'Suscribir la app';
+  String get successPlayNote =>
+      'En Google Play: R\$ 19,99/mes o pago único de R\$ 239,88.';
+
+  @override
+  String successCopyNote(String email) =>
+      'Enviamos una copia de este registro a $email.';
+
+  @override
+  String get subscribeApp => 'Descargar la app en Play Store';
+
+  @override
+  String get playStoreLinkHint => 'Enlace de Play Store (herramienta exclusiva del despacho):';
 
   @override
   String get backHome => 'Volver al inicio';
@@ -1192,9 +1349,9 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
   @override
   List<FunilFaqItem> get faq => const <FunilFaqItem>[
         FunilFaqItem(
-          question: 'Cuando suscribo en Google Play?',
+          question: 'Cómo funciona el contrato de honorarios?',
           body:
-              'Cuando vaya a suscribir la aplicación. Después, contacte al despacho para habilitar el envío de datos. Conozca la app primero, sin prisa.',
+              'El pedido es el contrato de honorarios del despacho (boleto/CNPJ). Después del registro, usted descarga la aplicación en Google Play para seguir la contabilidad en tiempo real.',
         ),
         FunilFaqItem(
           question: 'Qué trae de exclusivo la app?',
@@ -1268,7 +1425,8 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
         'tipo_required' => 'Seleccione MEI o ME.',
         'crc_required' => 'Seleccione con o sin seguimiento del contador.',
         'faixa_required' => 'Seleccione la franja.',
-        'network_error' => 'Sin conexion a internet. Verifique e intente de nuevo.',
+        'network_error' =>
+          'No se pudo enviar el registro. Intente de nuevo; en 127.0.0.1 la Function de Firebase debe permitir ese origen.',
         'api_waking' => 'El servidor esta iniciando (puede tardar 1 min). Espere y envie de nuevo.',
         'api_not_deployed' =>
           'Servicio temporalmente no disponible. Escriba a contabilidade@perfectgestdev.com.',
@@ -1280,7 +1438,6 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
   @override
   String planName(String id) => switch (id) {
         'mei' => 'Básico Microemprendedor Individual (MEI)',
-        'fidelizado' => 'Básico Fidelizado (MEI)',
         'essencial' => 'Planes Contables Esencial',
         'standard' => 'Planes Contables Intermedio',
         'avancado' => 'Planes Contables Avanzado',
@@ -1291,18 +1448,6 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
   List<String> planItems(String id) => switch (id) {
         'mei' => const <String>[
             'Para Microemprendedor Individual (MEI)',
-            'Autocontabilidad en la aplicación',
-            'Libro de caja',
-            'Cuentas por cobrar y por pagar',
-            'Obligaciones del mes',
-            'Asistente de inteligencia artificial',
-            'Notas fiscales electrónicas',
-            'Hasta 5 notas fiscales (NFs) por mes',
-            'Sin empleados con contrato formal',
-            'Sin contador que firme los libros',
-          ],
-        'fidelizado' => const <String>[
-            'Para Microemprendedor Individual (MEI) que permanece con el estudio',
             'Autocontabilidad en la aplicación',
             'Libro de caja',
             'Cuentas por cobrar y por pagar',

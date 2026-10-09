@@ -342,18 +342,18 @@ class _AppLocalizationsPt extends AppLocalizations {
       '--> Seus dados estão protegidos de acordo com a LGPD.';
   @override
   String get heroContabilPlansIntro =>
-      'Conheça nossos planos e escolha a modalidade ideal para o momento do seu negócio:';
+      'O aplicativo ContabilGest é a ferramenta de conexão: você acompanha a contabilidade em tempo real. Na Google Play: R\$ 19,99/mês ou pagamento à vista R\$ 239,88. Honorários do escritório:';
   @override
   String get heroContabilPlanBasicTitle => 'Plano Básico (Indicado para MEI):';
   @override
   String get heroContabilPlanBasicBody =>
-      'App + emissão de NF com certificado A1 (até 10 NF/mês). Autocontabilidade: sem assinatura contábil nos documentos. Plano nesta página /contabilidade ou suporte@perfectgestdev.com. A Google Play cobra só o aplicativo (R\$ 19,99/mês ou R\$ 239,88/ano no checkout da Play). Certificado A1 Quality é oferta avulsa.';
+      'Emissão de NF com certificado A1 (até 10 NF/mês). Autocontabilidade: sem assinatura contábil nos documentos. Honorários nesta página /contabilidade ou suporte@perfectgestdev.com. Certificado A1 Quality é oferta avulsa.';
   @override
   String get heroContabilPlanActiveTitle =>
       'Plano Contabil+ (indicado para ME):';
   @override
   String get heroContabilPlanActiveBody =>
-      'Três faixas (Essencial, Standard e Avançado): o contador responsável confere e assina os livros conforme o escopo. Honorários nesta página /contabilidade ou suporte@perfectgestdev.com. Certificado A1 Quality é oferta avulsa (R\$ 119,99/ano). A Google Play cobra só o aplicativo.';
+      'Três faixas (Essencial, Standard e Avançado): o contador responsável confere e assina os livros conforme o escopo. Honorários nesta página /contabilidade ou suporte@perfectgestdev.com. Certificado A1 Quality é oferta avulsa (R\$ 119,99/ano).';
   @override
   String get heroContabilFaqLink =>
       'Acesse Perguntas e respostas sobre o Aplicativo';
@@ -384,10 +384,11 @@ class _AppLocalizationsPt extends AppLocalizations {
   @override
   String get solContabilAppsTitle => 'PerfectGest ContabilGest';
   @override
-  String get solContabilAppsTagline => 'Livro caixa, IR com IA e conferência nos planos contratados';
+  String get solContabilAppsTagline =>
+      'Ferramenta de conexão: acompanhe a contabilidade em tempo real';
   @override
   String get solContabilAppsBody =>
-      'Configure a empresa, lance movimentos com chat e IA, prepare o IR e, nos planos contratados, envie o mês para conferência do contador responsável. Dados no dispositivo; uso diário offline por padrão.';
+      'O PerfectGest ContabilGest liga você ao escritório: lance movimentos, obrigações e notas no celular e acompanhe a contabilidade em tempo real. Na Google Play: R\$ 19,99/mês ou pagamento à vista R\$ 239,88. Honorários do escritório: /contabilidade.';
   @override
   String get solContabilAppsSupportPortalLabel => 'FAQ e políticas do app';
   @override
@@ -697,18 +698,18 @@ class _AppLocalizationsEn extends AppLocalizations {
       '--> Your data is protected in accordance with the LGPD.';
   @override
   String get heroContabilPlansIntro =>
-      'Get to know our plans and choose the option that fits your business right now:';
+      'The ContabilGest app is the connection tool: you follow your accounting in real time. On Google Play: R\$ 19.99/month or a one-time payment of R\$ 239.88. Office fees:';
   @override
   String get heroContabilPlanBasicTitle => 'Basic Plan (Recommended for MEI):';
   @override
   String get heroContabilPlanBasicBody =>
-      'App + invoice issuance with an A1 certificate (up to 10 invoices/month). Self-accounting: no accountant signature on documents. Plan on this page /contabilidade or suporte@perfectgestdev.com. Google Play charges only for the app (R\$ 19.99/month or R\$ 239.88/year at Play checkout). A1 Quality certificate is a separate offer.';
+      'Invoice issuance with an A1 certificate (up to 10 invoices/month). Self-accounting: no accountant signature on documents. Fees on this page /contabilidade or suporte@perfectgestdev.com. A1 Quality certificate is a separate offer.';
   @override
   String get heroContabilPlanActiveTitle =>
       'Contabil+ plan (recommended for ME):';
   @override
   String get heroContabilPlanActiveBody =>
-      'Three bands (Essential, Standard, and Advanced): the responsible accountant reviews and signs the books as contracted. Fees on this page /contabilidade or suporte@perfectgestdev.com. A1 Quality certificate is a separate offer (R\$ 119.99/year). Google Play charges only for the app.';
+      'Three bands (Essential, Standard, and Advanced): the responsible accountant reviews and signs the books as contracted. Fees on this page /contabilidade or suporte@perfectgestdev.com. A1 Quality certificate is a separate offer (R\$ 119.99/year).';
   @override
   String get heroContabilFaqLink => 'Open Questions and answers about the App';
   @override
@@ -738,10 +739,11 @@ class _AppLocalizationsEn extends AppLocalizations {
   @override
   String get solContabilAppsTitle => 'PerfectGest ContabilGest';
   @override
-  String get solContabilAppsTagline => 'Cash book, AI tax prep, and review on contracted plans';
+  String get solContabilAppsTagline =>
+      'Connection tool: follow your accounting in real time';
   @override
   String get solContabilAppsBody =>
-      'Set up your company, record entries via AI chat, prepare your tax return, and, on contracted plans, send the month to the responsible accountant for review. Data stays on the device; daily use is offline by default.';
+      'PerfectGest ContabilGest connects you to the office: record entries, duties, and invoices on your phone and follow your accounting in real time. On Google Play: R\$ 19.99/month or a one-time payment of R\$ 239.88. Office fees: /contabilidade.';
   @override
   String get solContabilAppsSupportPortalLabel => 'App FAQ and policies';
   @override
@@ -1051,18 +1053,18 @@ class _AppLocalizationsEs extends AppLocalizations {
       '--> Sus datos están protegidos de acuerdo con la LGPD.';
   @override
   String get heroContabilPlansIntro =>
-      'Conozca nuestros planes y elija la modalidad ideal para el momento de su negocio:';
+      'La aplicación ContabilGest es la herramienta de conexión: usted sigue la contabilidad en tiempo real. En Google Play: R\$ 19,99/mes o pago único de R\$ 239,88. Honorarios del despacho:';
   @override
   String get heroContabilPlanBasicTitle => 'Plan Básico (Indicada para MEI):';
   @override
   String get heroContabilPlanBasicBody =>
-      'App + emisión de NF con certificado A1 (hasta 10 NF/mes). Autocontabilidad: sin firma contable en los documentos. Plan en esta página /contabilidade o suporte@perfectgestdev.com. Google Play cobra solo la aplicación (R\$ 19,99/mes o R\$ 239,88/año en el checkout de Play). El certificado A1 Quality es oferta suelta.';
+      'Emisión de NF con certificado A1 (hasta 10 NF/mes). Autocontabilidad: sin firma contable en los documentos. Honorarios en esta página /contabilidade o suporte@perfectgestdev.com. El certificado A1 Quality es oferta suelta.';
   @override
   String get heroContabilPlanActiveTitle =>
       'Plan Contabil+ (indicado para ME):';
   @override
   String get heroContabilPlanActiveBody =>
-      'Tres franjas (Esencial, Standard y Avanzado): el contador responsable revisa y firma los libros según el alcance. Honorarios en esta página /contabilidade o suporte@perfectgestdev.com. El certificado A1 Quality es oferta suelta (R\$ 119,99/año). Google Play cobra solo la aplicación.';
+      'Tres franjas (Esencial, Standard y Avanzado): el contador responsable revisa y firma los libros según el alcance. Honorarios en esta página /contabilidade o suporte@perfectgestdev.com. El certificado A1 Quality es oferta suelta (R\$ 119,99/año).';
   @override
   String get heroContabilFaqLink =>
       'Acceda a Preguntas y respuestas sobre la Aplicación';
@@ -1093,10 +1095,11 @@ class _AppLocalizationsEs extends AppLocalizations {
   @override
   String get solContabilAppsTitle => 'PerfectGest ContabilGest';
   @override
-  String get solContabilAppsTagline => 'Libro de caja, IR con IA y revisión en los planes contratados';
+  String get solContabilAppsTagline =>
+      'Herramienta de conexión: siga la contabilidad en tiempo real';
   @override
   String get solContabilAppsBody =>
-      'Configure la empresa, registre movimientos con chat e IA, prepare el IR y, en los planes contratados, envíe el mes a revisión del contador responsable. Datos en el dispositivo; uso diario offline por defecto.';
+      'PerfectGest ContabilGest lo conecta con el despacho: registre movimientos, obligaciones y notas en el celular y siga la contabilidad en tiempo real. En Google Play: R\$ 19,99/mes o pago único de R\$ 239,88. Honorarios del despacho: /contabilidade.';
   @override
   String get solContabilAppsSupportPortalLabel => 'FAQ y políticas de la app';
   @override

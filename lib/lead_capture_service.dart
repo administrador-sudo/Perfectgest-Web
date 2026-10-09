@@ -6,10 +6,15 @@ import 'package:http/http.dart' as http;
 import 'lead_api_config.dart';
 
 class LeadCaptureResult {
-  const LeadCaptureResult({required this.ok, this.errorMessage});
+  const LeadCaptureResult({
+    required this.ok,
+    this.errorMessage,
+    this.copySent = false,
+  });
 
   final bool ok;
   final String? errorMessage;
+  final bool copySent;
 }
 
 class LeadCaptureService {
@@ -48,6 +53,7 @@ class LeadCaptureService {
     required bool consent,
     required String locale,
     String websiteHoneypot = '',
+    bool copiaUsuario = false,
   }) async {
     if (!consent) {
       return const LeadCaptureResult(
@@ -92,12 +98,22 @@ class LeadCaptureService {
               'consent': true,
               'locale': locale,
               'website': websiteHoneypot,
+              'copiaUsuario': copiaUsuario,
             }),
           )
           .timeout(const Duration(seconds: 90));
 
       if (response.statusCode >= 200 && response.statusCode < 300) {
-        return const LeadCaptureResult(ok: true);
+        var copySent = false;
+        try {
+          final decoded = jsonDecode(response.body);
+          if (decoded is Map && decoded['copySent'] == true) {
+            copySent = true;
+          }
+        } on Object {
+          copySent = false;
+        }
+        return LeadCaptureResult(ok: true, copySent: copySent);
       }
       if (response.statusCode == 503) {
         return const LeadCaptureResult(ok: false, errorMessage: 'api_unavailable');

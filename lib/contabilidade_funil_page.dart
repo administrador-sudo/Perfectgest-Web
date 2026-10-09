@@ -6,6 +6,7 @@ import 'asset_screenshot.dart';
 import 'brand_palette.dart';
 import 'company_legal.dart';
 import 'l10n/site_contabilidade_funil_texts.dart';
+import 'funil_firestore_service.dart';
 import 'lead_capture_service.dart';
 import 'locale_controller.dart';
 import 'metallic_site_shell.dart';
@@ -37,13 +38,16 @@ class FunilImg {
 const List<({String id, double monthly, bool highlight})> kFunilTiers =
     <({String id, double monthly, bool highlight})>[
   (id: 'mei', monthly: 40.00, highlight: false),
-  (id: 'fidelizado', monthly: 35.00, highlight: false),
   (id: 'essencial', monthly: 180.00, highlight: true),
   (id: 'standard', monthly: 280.00, highlight: false),
   (id: 'avancado', monthly: 380.00, highlight: false),
 ];
 
-bool _tierIsMei(String id) => id == 'mei' || id == 'fidelizado';
+const double kFunilFolhaMensal = 99.99;
+const double kFunilIrAno = 49.99;
+const double kFunilA1Ano = 119.99;
+
+bool _tierIsMei(String id) => id == 'mei';
 
 List<({String id, double monthly, bool highlight})> _tiersOf(String? tipo) {
   if (tipo == 'MEI') {
@@ -113,6 +117,13 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
     return 0;
   }
 
+  double get _boletoMensal => _faixaMensal + (_folha ? kFunilFolhaMensal : 0);
+
+  double get _extrasPrimeiroBoleto =>
+      (_a1 ? kFunilA1Ano : 0) + (_ir ? kFunilIrAno : 0);
+
+  double get _primeiroBoleto => _boletoMensal + _extrasPrimeiroBoleto;
+
   String _brl(double value) {
     return 'R\$ ${value.toStringAsFixed(2).replaceAll('.', ',')}';
   }
@@ -126,8 +137,15 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
         ? 'MEI sem contador'
         : (_crc == 'com' ? 'ME com contador' : 'ME sem contador');
     final line =
-        '[CONTABILIDADE] ${_tipo ?? '-'}; $acomp; $faixa; honorários boleto ${_brl(_faixaMensal)}/mês; '
-        'Folha ${_folha ? 'S' : 'N'}; IR ${_ir ? 'S' : 'N'}; A1 ${_a1 ? 'S' : 'N'}; '
+        '[CONTABILIDADE] ${_tipo ?? '-'}; $acomp; $faixa; honorários ${_brl(_faixaMensal)}/mês; '
+        'Folha ${_folha ? 'S ${_brl(kFunilFolhaMensal)}' : 'N'}; '
+        '12x S ${_brl(_boletoMensal)}/mês renovação automática; '
+        '1º boleto ${_brl(_primeiroBoleto)}'
+        '${_a1 || _ir ? ' (A1/IR no 1º boleto)' : ''}; '
+        'A1 ${_a1 ? 'S renovação 12 meses' : 'N'}; '
+        'IR ${_ir ? 'S cobrado no mês do IR do próximo ano' : 'N'}; '
+        'cancelamento 30 dias (senão proporcional até cessar); '
+        'resposta 1 dia útil; '
         'WhatsApp ${_digits(_whatsAppCtrl.text)}; CNPJ ${_digits(_cnpjCtrl.text)}; '
         'razão social ${_razaoCtrl.text.trim()}';
     return line.length <= 4000 ? line : line.substring(0, 4000);
@@ -168,49 +186,153 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
     }
   }
 
-  Future<void> _submit(SiteContabilidadeFunilTexts st) async {
-    if (_submitting) return;
-    setState(() {
-      _errorCode = null;
-    });
+  bool _formPronto() {
+    setState(() => _errorCode = null);
     if (_tipo == null) {
       setState(() => _errorCode = 'tipo_required');
-      return;
+      return false;
     }
     if (_tipo == 'ME' && _crc == null) {
       setState(() => _errorCode = 'crc_required');
-      return;
+      return false;
     }
     if (_faixaId == null) {
       setState(() => _errorCode = 'faixa_required');
-      return;
+      return false;
     }
     if (!_consent) {
       setState(() => _errorCode = 'consent_required');
-      return;
+      return false;
     }
-    if (!(_formKey.currentState?.validate() ?? false)) return;
+    if (!(_formKey.currentState?.validate() ?? false)) return false;
+    return true;
+  }
 
+  Future<void> _openProposal(SiteContabilidadeFunilTexts st) async {
+    if (_submitting) return;
+    if (!_formPronto()) return;
+    final mensal = _boletoMensal;
+    final primeiro = _primeiroBoleto;
+    await showDialog<void>(
+      context: context,
+      builder: (ctx) {
+        return Dialog(
+              backgroundColor: Colors.transparent,
+              insetPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+              child: SiteRaisedBlock(
+                padding: const EdgeInsets.all(20),
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 480, maxHeight: 640),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Text(st.proposalTitle, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 18)),
+                        const SizedBox(height: 12),
+                        _resumoLinha(st.fieldName, _nomeCtrl.text.trim()),
+                        _resumoLinha(st.fieldEmail, _emailCtrl.text.trim()),
+                        _resumoLinha(st.fieldWhatsApp, _whatsAppCtrl.text.trim()),
+                        _resumoLinha(st.fieldRazao, _razaoCtrl.text.trim()),
+                        _resumoLinha(st.fieldCnpj, _cnpjCtrl.text.trim()),
+                        _resumoLinha(st.tipoLabel, _tipo == 'MEI' ? st.tipoMei : st.tipoMe),
+                        _resumoLinha(st.faixaLabel, st.planName(_faixaId!)),
+                        _resumoLinha(st.proposalHonorariosLabel, '${_brl(_faixaMensal)}/${st.perMonth}'),
+                        if (_folha) _resumoLinha(st.extraFolha, '${_brl(kFunilFolhaMensal)}/${st.perMonth}'),
+                        if (_ir) _resumoLinha(st.extraIr, _brl(kFunilIrAno)),
+                        if (_a1) _resumoLinha(st.extraA1, _brl(kFunilA1Ano)),
+                        const SizedBox(height: 8),
+                        Text(st.officeTotalLabel, style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
+                        Text(
+                          st.officeTotalHint(_brl(mensal)),
+                          style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600, height: 1.35),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(st.proposalParcelarHint(_brl(mensal)), style: const TextStyle(fontSize: 13, height: 1.35)),
+                        const SizedBox(height: 6),
+                        Text(st.proposalNfObs(_brl(mensal)), style: const TextStyle(fontSize: 13, height: 1.35)),
+                        if (_a1 || _ir) ...[
+                          const SizedBox(height: 6),
+                          Text(st.proposalFirstBoleto(_brl(primeiro)), style: const TextStyle(fontSize: 13, height: 1.35)),
+                        ],
+                        if (_a1) ...[
+                          const SizedBox(height: 6),
+                          Text(st.proposalA1Rule, style: const TextStyle(fontSize: 13, height: 1.35)),
+                        ],
+                        if (_ir) ...[
+                          const SizedBox(height: 6),
+                          Text(st.proposalIrRule, style: const TextStyle(fontSize: 13, height: 1.35)),
+                        ],
+                        const SizedBox(height: 8),
+                        Text(st.proposalRenewal, style: const TextStyle(fontSize: 13, height: 1.4)),
+                        const SizedBox(height: 6),
+                        Text(st.proposalCancel, style: const TextStyle(fontSize: 13, height: 1.4)),
+                        const SizedBox(height: 6),
+                        Text(st.proposalSla, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w700)),
+                        const SizedBox(height: 16),
+                        sitePrimaryActionButton(
+                          context: context,
+                          label: st.proposalSend,
+                          onPressed: () {
+                            Navigator.of(ctx).pop();
+                            _submit(st);
+                          },
+                        ),
+                        TextButton(
+                          onPressed: () => Navigator.of(ctx).pop(),
+                          child: Text(st.proposalBack),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            );
+      },
+    );
+  }
+
+  Widget _resumoLinha(String label, String value) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 6),
+      child: Text('$label: $value', style: const TextStyle(fontSize: 13, height: 1.35)),
+    );
+  }
+
+  Future<void> _submit(SiteContabilidadeFunilTexts st) async {
+    if (_submitting) return;
     setState(() => _submitting = true);
     final comentario = _comentarioLinha();
     final locale = Localizations.localeOf(context).toLanguageTag();
-    final result = await LeadCaptureService.submit(
-      nome: _nomeCtrl.text,
-      email: _emailCtrl.text,
-      comentario: comentario,
-      consent: _consent,
-      locale: locale,
-      websiteHoneypot: _honeypotCtrl.text,
-    );
-    if (!mounted) return;
-    setState(() {
-      _submitting = false;
-      if (result.ok) {
-        _success = true;
-      } else {
-        _errorCode = result.errorMessage ?? 'server_error';
+    var result = const LeadCaptureResult(ok: false, errorMessage: 'server_error');
+    try {
+      result = await FunilFirestoreService.submit(
+        nome: _nomeCtrl.text,
+        email: _emailCtrl.text,
+        whatsapp: _digits(_whatsAppCtrl.text),
+        cnpj: _digits(_cnpjCtrl.text),
+        razaoSocial: _razaoCtrl.text,
+        regime: _tipo ?? '',
+        faixa: _faixaId ?? '',
+        boletoHonorarios: _boletoMensal,
+        folha: _folha,
+        ir: _ir,
+        a1: _a1,
+        consent: _consent,
+        locale: locale,
+        websiteHoneypot: _honeypotCtrl.text,
+      );
+    } finally {
+      if (mounted) {
+        setState(() {
+          _submitting = false;
+          if (result.ok) {
+            _success = true;
+          } else {
+            _errorCode = result.errorMessage ?? 'server_error';
+          }
+        });
       }
-    });
+    }
     if (result.ok) {
       await _openWhatsApp(comentario);
     }
@@ -326,7 +448,15 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                           const SizedBox(height: 20),
                           KeyedSubtree(
                             key: _formAnchorKey,
-                            child: _success ? _SuccessCard(st: st, onPlay: _openPlay, onHome: _goHome) : _buildForm(st),
+                            child: _success
+                                ? _SuccessCard(
+                                    st: st,
+                                    email: _emailCtrl.text.trim(),
+                                    playUrl: kPerfectGestContabilIProductUrl,
+                                    onPlay: _openPlay,
+                                    onHome: _goHome,
+                                  )
+                                : _buildForm(st),
                           ),
                           const SizedBox(height: 20),
                           _DemoBlock(st: st, onKnowApp: () => _scrollTo(_formAnchorKey)),
@@ -483,7 +613,9 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                 child: TextField(
                   controller: _honeypotCtrl,
                   autofillHints: const [],
-                  decoration: const InputDecoration(labelText: 'Website'),
+                  enableSuggestions: false,
+                  autocorrect: false,
+                  decoration: const InputDecoration(labelText: 'hp_site'),
                 ),
               ),
             ),
@@ -532,7 +664,7 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
             sitePrimaryActionButton(
               context: context,
               label: _submitting ? st.submittingLabel : st.submitLabel,
-              onPressed: _submitting ? () {} : () => _submit(st),
+              onPressed: _submitting ? () {} : () => _openProposal(st),
             ),
           ],
         ),
@@ -868,9 +1000,17 @@ class _PlansTable extends StatelessWidget {
 }
 
 class _SuccessCard extends StatelessWidget {
-  const _SuccessCard({required this.st, required this.onPlay, required this.onHome});
+  const _SuccessCard({
+    required this.st,
+    required this.email,
+    required this.playUrl,
+    required this.onPlay,
+    required this.onHome,
+  });
 
   final SiteContabilidadeFunilTexts st;
+  final String email;
+  final String playUrl;
   final VoidCallback onPlay;
   final VoidCallback onHome;
 
@@ -883,7 +1023,29 @@ class _SuccessCard extends StatelessWidget {
         children: [
           const Icon(Icons.check_circle_outline_rounded, color: kFunilGreen, size: 44),
           const SizedBox(height: 12),
-          Text(st.successBody),
+          Text(st.successBody, style: const TextStyle(height: 1.4)),
+          const SizedBox(height: 10),
+          Text(st.successPlayNote, style: const TextStyle(height: 1.4, fontWeight: FontWeight.w600)),
+          const SizedBox(height: 10),
+          Text(
+            st.successCopyNote(email),
+            style: const TextStyle(height: 1.4, fontWeight: FontWeight.w600),
+          ),
+          const SizedBox(height: 16),
+          Text(st.playStoreLinkHint, style: const TextStyle(fontSize: 13, height: 1.35)),
+          const SizedBox(height: 6),
+          InkWell(
+            onTap: onPlay,
+            child: Text(
+              playUrl,
+              style: const TextStyle(
+                fontSize: 13,
+                height: 1.35,
+                color: Color(0xFF1A56DB),
+                decoration: TextDecoration.underline,
+              ),
+            ),
+          ),
           const SizedBox(height: 16),
           sitePrimaryActionButton(context: context, label: st.subscribeApp, onPressed: onPlay),
           const SizedBox(height: 8),

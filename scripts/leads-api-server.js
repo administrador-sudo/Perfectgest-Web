@@ -116,6 +116,80 @@ const leadsLimiter = rateLimit({
   message: { error: 'rate_limited' },
 });
 
+const PLAY_CONTABIL_URL =
+  'https://play.google.com/store/apps/details?id=br.perfectgestcontabil.dev';
+
+function mailerReady() {
+  return Boolean(process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS);
+}
+
+function copyMailCopy({ nome, comentario, locale }) {
+  const loc = String(locale || 'pt').toLowerCase();
+  if (loc.startsWith('en')) {
+    return {
+      subject: 'Copy of your registration - Perfect Gest Dev',
+      text:
+        `Hello, ${nome}.\n\n` +
+        `This is a copy of the registration sent to the accounting office.\n\n` +
+        `${comentario}\n\n` +
+        `Exclusive office app on Google Play:\n${PLAY_CONTABIL_URL}\n`,
+    };
+  }
+  if (loc.startsWith('es')) {
+    return {
+      subject: 'Copia de su registro - Perfect Gest Dev',
+      text:
+        `Hola, ${nome}.\n\n` +
+        `Esta es una copia del registro enviado al despacho contable.\n\n` +
+        `${comentario}\n\n` +
+        `Herramienta exclusiva del despacho en Google Play:\n${PLAY_CONTABIL_URL}\n`,
+    };
+  }
+  return {
+    subject: 'Cópia do seu cadastro - Perfect Gest Dev',
+    text:
+      `Olá, ${nome}.\n\n` +
+      `Esta é uma cópia do cadastro enviado ao escritório de contabilidade.\n\n` +
+      `${comentario}\n\n` +
+      `Ferramenta exclusiva do escritório na Google Play:\n${PLAY_CONTABIL_URL}\n`,
+  };
+}
+
+async function sendUserCopy({ nome, email, comentario, locale }) {
+  if (!mailerReady()) {
+    console.warn('[leads-api] SMTP ausente — copia nao enviada');
+    return false;
+  }
+  let nodemailer;
+  try {
+    nodemailer = require('nodemailer');
+  } catch (err) {
+    console.warn('[leads-api] nodemailer indisponivel:', err.message);
+    return false;
+  }
+  const port = Number(process.env.SMTP_PORT || 465);
+  const transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST,
+    port,
+    secure: process.env.SMTP_SECURE !== 'false',
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
+    },
+  });
+  const { subject, text } = copyMailCopy({ nome, comentario, locale });
+  const from = process.env.MAIL_FROM || process.env.SMTP_USER;
+  const bcc = String(process.env.MAIL_BCC || '').trim();
+  await transporter.sendMail({
+    from,
+    to: email,
+    bcc: bcc || undefined,
+    subject,
+    text,
+  });
+  return true;
+}
+
 function looksLikeEmail(value) {
   if (typeof value !== 'string') return false;
   const trimmed = value.trim();
@@ -191,7 +265,15 @@ app.post('/api/leads', leadsLimiter, async (req, res) => {
     }
 
     const storage = await persistLead({ nome, email, comentario, locale });
-    res.status(201).json({ ok: true, storage });
+    let copySent = false;
+    if (body.copiaUsuario === true) {
+      try {
+        copySent = await sendUserCopy({ nome, email, comentario, locale });
+      } catch (mailErr) {
+        console.error('[leads-api] copia e-mail', mailErr);
+      }
+    }
+    res.status(201).json({ ok: true, storage, copySent });
   } catch (err) {
     console.error('[leads-api] POST /api/leads', err);
     res.status(500).json({ error: 'server_error' });
