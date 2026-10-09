@@ -232,29 +232,16 @@
         setTimeout(() => landing.remove(), 260);
       };
       window.addEventListener('flutter-first-frame', hide, { once: true });
-      const observer = new MutationObserver(() => {
-        if (document.querySelector('flt-glass-pane, flutter-view')) {
-          hide();
-          observer.disconnect();
-        }
-      });
-      observer.observe(document.body, { childList: true, subtree: true });
-      // web-server debug espera a extensao Dart Debug; sem ela o main nao corre.
+      // Nao esconder o splash so porque existe flt-glass-pane: no web-server
+      // o painel aparece vazio (tela branca) antes do primeiro frame.
       var armed = false;
       var bootWatch = setInterval(function () {
-        if (document.querySelector('flt-glass-pane, flutter-view')) {
-          clearInterval(bootWatch);
-          return;
-        }
         if (typeof window.$dartRunMain === 'function' && !armed) {
           armed = true;
-          clearInterval(bootWatch);
-          setTimeout(function () {
-            if (document.querySelector('flt-glass-pane, flutter-view')) return;
-            try { window.$dartRunMain(); } catch (err) {}
-          }, 1200);
+          try { window.$dartRunMain(); } catch (err) {}
         }
       }, 400);
+      setTimeout(function () { clearInterval(bootWatch); }, 20000);
     })();
   </script>
   <script src="flutter_bootstrap.js" async></script>

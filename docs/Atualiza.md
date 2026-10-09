@@ -2,6 +2,33 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-09 10:46] Funil no bundle + splash ate o primeiro frame
+
+### Contexto
+- Producao ainda POST no Postgres (part.js sem receberLeadFunil). /contabilidade no 8088 ficava branco: splash sumia ao aparecer flt-glass-pane vazio.
+
+### Arquivos alterados
+- lib/site_deferred_pages.dart
+- web/index.html
+- docs/Atualiza.md
+
+### O que foi feito
+- /contabilidade deixa de ser chunk diferido (POST Firestore no JS principal).
+- Splash so some no flutter-first-frame; $dartRunMain arranca sem esperar a extensao.
+
+### Risco de regressao
+- Bundle inicial um pouco maior. Funil deixa de depender de part.js.
+
+### Validacao executada
+- [ ] npm run publish-web
+- [ ] Recarregar /contabilidade (8088 e producao)
+
+### Resultado
+- Funil no mesmo JS que a Function receberLeadFunil.
+
+### Proximos passos recomendados
+- Hard refresh em /contabilidade. CRC aba Novo Cadastro.
+
 ## [2026-10-09 09:37] MEI: parcelado 12x40 + Fidelizado à vista
 
 ### Contexto

@@ -1,399 +1,345 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
-$__dart_deferred_initializers__.current=function(a,b,c,$){var J,A,C,F,D,G,H,B={
-bc_(d){return G.a9e(new B.aKr(d,null),x.q)},
-aKr:function aKr(d,e){this.a=d
-this.b=e},
-b5Y(d){switch(d.ai(x.l).r.f.gcA()){case"en":return E.Oe
-case"es":return E.Of
-case"pt":default:return E.Og}},
-as6:function as6(){},
-aGx:function aGx(){},
-aGv:function aGv(){},
-aGw:function aGw(){},
-aT9(d){return new B.l8(d,null)},
-l8:function l8(d,e){this.c=d
-this.a=e},
-a4q:function a4q(d,e,f,g,h){var _=this
+$__dart_deferred_initializers__.current=function(a,b,c,$){var J,A,B,C={
+aTj(d,e,f){var w,v,u,t,s,r,q
+if(d==e)return d
+if(d==null)return e.aX(f)
+if(e==null)return d.aX(1-f)
+w=A.aOp(d.a,d.mn(),e.a,e.mn(),f)
+v=A.lG(d.d,e.d,f)
+v.toString
+u=A.Z(d.e,e.e,f)
+u.toString
+u=Math.max(0,u)
+t=f<0.5
+s=t?d.f:e.f
+r=A.lG(d.r,e.r,f)
+q=A.Z(d.w,e.w,f)
+q.toString
+q=Math.max(0,q)
+t=t?d.c:e.c
+return new C.iV(v,u,s,r,q,w.a,w.b,t)},
+aU3(d,e,f){var w,v,u,t,s,r
+if(d==e)return d
+if(d==null)return e.aX(f)
+if(e==null)return d.aX(1-f)
+w=A.aOp(d.a,d.mn(),e.a,e.mn(),f)
+v=A.lG(d.d,e.d,f)
+v.toString
+u=A.Z(d.e,e.e,f)
+u.toString
+u=Math.max(0,u)
+t=A.Z(d.f,e.f,f)
+t.toString
+t=Math.max(0,t)
+s=f<0.5
+r=s?d.r:e.r
+s=s?d.c:e.c
+return new C.tb(v,u,t,r,w.a,w.b,s)},
+iV:function iV(d,e,f,g,h,i,j,k){var _=this
 _.d=d
 _.e=e
 _.f=f
 _.r=g
 _.w=h
-_.z=_.y=_.x=!1
-_.c=_.a=_.Q=null},
-aDF:function aDF(d){this.a=d},
-aDG:function aDG(d){this.a=d},
-aDH:function aDH(d){this.a=d},
-aDI:function aDI(d,e){this.a=d
-this.b=e},
-aDE:function aDE(d){this.a=d},
-aDz:function aDz(d){this.a=d},
-aDA:function aDA(d){this.a=d},
-aDB:function aDB(d){this.a=d},
-aDy:function aDy(d,e){this.a=d
-this.b=e},
-aDC:function aDC(d){this.a=d},
-aDD:function aDD(d,e){this.a=d
-this.b=e},
-aim(){var w=0,v=A.R(x.T),u,t=2,s=[],r,q,p,o,n,m,l
-var $async$aim=A.N(function(d,e){if(d===1){s.push(e)
-w=t}for(;;)switch(w){case 0:t=4
-o=C.c.hN(y.b,"/api/")
-w=7
-return A.T(B.bc_(A.dk(o>=0?C.c.a1(y.b,0,o)+"/health":"https://perfectgest-leads-api-2ztg.onrender.com/api/leads/health",0,null)).yQ(E.QL),$async$aim)
-case 7:r=e
-if(r.b===200){u=null
-w=1
-break}if(r.b===503){u="api_unavailable"
-w=1
-break}u="api_not_deployed"
-w=1
-break
-t=2
-w=6
-break
-case 4:t=3
-l=s.pop()
-m=A.av(l)
-if(m instanceof A.kz){u="api_not_deployed"
-w=1
-break}else if(x.L.b(m)){q=m
-p=J.ew(q)
-if(J.lI(p,"TimeoutException")||J.lI(p,"timed out")){u="api_waking"
-w=1
-break}u="api_not_deployed"
-w=1
-break}else throw l
-w=6
-break
-case 3:w=2
-break
-case 6:case 1:return A.P(u,v)
-case 2:return A.O(s.at(-1),v)}})
-return A.Q($async$aim,v)},
-RB(d,e,f,g,h,i){var w=!1
-return B.b3u(d,e,f,g,h,i)},
-b3u(a0,a1,a2,a3,a4,a5){var w=0,v=A.R(x.d),u,t=2,s=[],r,q,p,o,n,m,l,k,j,i,h,g,f,e,d
-var $async$RB=A.N(function(a7,a8){if(a7===1){s.push(a8)
-w=t}for(;;)switch(w){case 0:e=!1
-if(!a1){u=D.tH
-w=1
-break}r=C.c.da(a4)
-q=C.c.da(a2)
-if(J.cG(r)<2){u=D.tJ
-w=1
-break}if(!B.b3t(q)){u=D.tI
-w=1
-break}w=3
-return A.T(B.aim(),$async$RB)
-case 3:h=a8
-if(h==="api_waking")A.fY().$1("[LeadCapture] Cold start detectado \u2014 aguardando...")
-else if(h!=null){A.fY().$1("[LeadCapture] Health check falhou: "+h)
-u=new F.f4(!1,h)
-w=1
-break}t=5
-w=8
-return A.T(G.aP4(A.dk(y.b,0,null),C.ci.Dv(A.aA(["nome",r,"email",q,"comentario",C.c.da(a0),"consent",!0,"locale",a3,"website",a5,"copiaUsuario",e],x.N,x.K),null),D.Ev).yQ(E.R3),$async$RB)
-case 8:p=a8
-if(p.b>=200&&p.b<300){o=!1
-try{g=p
-n=C.ci.wZ(A.LV(A.LK(g.e)).f1(g.w),null)
-if(x.f.b(n)&&J.d(n.h(0,"copySent"),!0))o=!0}catch(a6){o=!1}u=new F.f4(!0,null)
-w=1
-break}if(p.b===503){u=E.Uj
-w=1
-break}if(p.b===404){u=E.tF
-w=1
-break}g=p
-A.fY().$1("[LeadCapture] HTTP "+p.b+": "+A.LV(A.LK(g.e)).f1(g.w))
-u=D.jO
-w=1
-break
-t=2
-w=7
-break
-case 5:t=4
-d=s.pop()
-g=A.av(d)
-if(g instanceof A.kz){m=g
-l=A.aT(d)
-A.fY().$1("[LeadCapture] ClientException: "+A.j(m)+"\n"+A.j(l))
-u=E.tF
-w=1
-break}else if(x.L.b(g)){k=g
-j=A.aT(d)
-i=J.ew(k)
-if(J.lI(i,"TimeoutException")||J.lI(i,"timed out")){u=D.tG
-w=1
-break}A.fY().$1("[LeadCapture] "+A.j(k)+"\n"+A.j(j))
-u=D.jN
-w=1
-break}else throw d
-w=7
-break
-case 4:w=2
-break
-case 7:case 1:return A.P(u,v)
-case 2:return A.O(s.at(-1),v)}})
-return A.Q($async$RB,v)},
-b3t(d){var w,v=d.length
-if(v<5||v>254)return!1
-w=C.c.hN(d,"@")
-if(w<=0||w>=v-1)return!1
-return C.c.jl(d,".",w+1)>w}},E
+_.a=i
+_.b=j
+_.c=k},
+ank:function ank(d){this.a=d},
+tb:function tb(d,e,f,g,h,i,j){var _=this
+_.d=d
+_.e=e
+_.f=f
+_.r=g
+_.a=h
+_.b=i
+_.c=j},
+asS:function asS(d){this.a=d},
+E1:function E1(d,e,f,g,h,i,j){var _=this
+_.bP=d
+_.cs=e
+_.B=null
+_.a2=f
+_.an=g
+_.t$=h
+_.dy=i
+_.b=_.fy=null
+_.c=0
+_.y=_.d=null
+_.z=!0
+_.Q=null
+_.as=!1
+_.at=null
+_.ay=$
+_.ch=j
+_.CW=!1
+_.cx=$
+_.cy=!0
+_.db=!1
+_.dx=$},
+Qr:function Qr(d,e,f,g){var _=this
+_.e=d
+_.f=e
+_.c=f
+_.a=g},
+b3X(){return new C.r8(null)},
+r8:function r8(d){this.a=d},
+al3:function al3(){},
+al4:function al4(){},
+aXx(d){var w=null,v=A.b([new A.bc(0,B.L,B.h.af(0.5),B.f,6)],x.r)
+return A.ev(A.cB(D.SX,B.h,w,d*0.72),B.z,new A.bz(w,w,w,w,v,D.agT,B.iK),d,w,w,d)},
+TO:function TO(d){this.a=d},
+TN:function TN(d,e){this.c=d
+this.a=e},
+a_M:function a_M(d){this.a=d},
+a19:function a19(d){this.a=d},
+a31:function a31(d){this.a=d},
+a_N:function a_N(d){this.a=d},
+a1a:function a1a(d){this.a=d},
+a6p:function a6p(d){this.a=d},
+b2X(d,e,f,g,h,i,j,k){var w
+if(f.length!==g.length)A.a2(A.bJ(y.a,null))
+if(j!=null)w=j.j(0,d)&&k===0
+else w=!0
+if(w){$.a1()
+w=new A.N8(d,e,f,g,h,null)
+w.zT()
+return w}else{$.a1()
+w=new A.N6(j,k,d,e,f,g,h,null)
+w.zT()
+return w}}},D
 J=c[1]
 A=c[0]
-C=c[2]
-F=c[13]
-D=c[20]
-G=c[14]
-H=c[15]
-B=a.updateHolder(c[5],B)
-E=c[26]
-B.as6.prototype={}
-B.aGx.prototype={
-gey(){return"Pre-cadastro Perfect Gest Dev"},
-gi5(){return"Pre-cadastro"},
-gP9(){return"Deixe seu contato"},
-gPY(){return"Informe nome e e-mail para receber novidades sobre PerfectGest e solu\xe7\xf5es Perfect Gest Dev."},
-gRp(){return"Parte deste pr\xe9-cadastro destina-se a convites para o nosso programa de pr\xe9-lan\xe7amento: acesso integral \xe0s vers\xf5es em desenvolvimento dos aplicativos, com oportunidade de testar funcionalidades em antecipa\xe7\xe3o e contribuir com feedback que orienta a evolu\xe7\xe3o do produto antes do lan\xe7amento p\xfablico."},
-gOq(){return"Nome"},
-gOp(){return"Seu nome completo"},
-gOo(){return"E-mail"},
-gOn(){return"seu@email.com"},
-gOm(){return"Coment\xe1rio"},
-gOl(){return"Opcional \u2014 como podemos ajudar?"},
-gpR(){return"Li e aceito a "},
-gpQ(){return"pol\xedtica de privacidade"},
-gpS(){return" e autorizo o contacto sobre novidades, convites de pr\xe9-lan\xe7amento e servi\xe7os indicados."},
-gp8(){return"Enviar pre-cadastro"},
-gp9(){return"Enviando\u2026"},
-gpb(){return"Pre-cadastro recebido"},
-gpa(){return"Obrigado! Entraremos em contacto em breve no e-mail informado."},
-iC(d){var w
-A:{if("consent_required"===d){w="Aceite a pol\xedtica de privacidade para continuar."
-break A}if("name_invalid"===d){w="Informe um nome v\xe1lido (m\xednimo 2 caracteres)."
-break A}if("email_invalid"===d){w="Informe um e-mail v\xe1lido."
-break A}if("network_error"===d){w="Sem liga\xe7\xe3o \xe0 internet. Verifique a sua conex\xe3o e tente novamente."
-break A}if("api_waking"===d){w="O servidor est\xe1 a iniciar (cold start \u2014 pode demorar at\xe9 1 min). Aguarde e envie novamente."
-break A}if("api_not_deployed"===d){w="O servi\xe7o de registos est\xe1 temporariamente indispon\xedvel. Envie um e-mail para suporte@perfectgestdev.com e registamos o seu contacto."
-break A}if("api_unavailable"===d){w="Servi\xe7o temporariamente indispon\xedvel. Tente mais tarde ou escreva para suporte@perfectgestdev.com."
-break A}if("api_unconfigured"===d){w="API de registos n\xe3o configurada. Contacte suporte@perfectgestdev.com."
-break A}w="N\xe3o foi poss\xedvel enviar agora. Tente novamente ou escreva para suporte@perfectgestdev.com."
-break A}return w},
-gMb(){return"Voltar ao in\xedcio"}}
-B.aGv.prototype={
-gey(){return"Pre-registration Perfect Gest Dev"},
-gi5(){return"Pre-registration"},
-gP9(){return"Leave your contact details"},
-gPY(){return"Enter your name and email to receive updates about PerfectGest and Perfect Gest Dev solutions."},
-gRp(){return"Pre-registration also enables us to invite selected participants to our pre-launch program: full access to in-development app builds, early feature testing, and feedback that helps shape the product before public release."},
-gOq(){return"Name"},
-gOp(){return"Your full name"},
-gOo(){return"Email"},
-gOn(){return"you@email.com"},
-gOm(){return"Comment"},
-gOl(){return"Optional \u2014 how can we help?"},
-gpR(){return"I have read and accept the "},
-gpQ(){return"privacy policy"},
-gpS(){return" and authorize contact about updates, pre-launch invitations, and the services mentioned."},
-gp8(){return"Submit pre-registration"},
-gp9(){return"Sending\u2026"},
-gpb(){return"Pre-registration received"},
-gpa(){return"Thank you! We will contact you soon at the email provided."},
-iC(d){var w
-A:{if("consent_required"===d){w="Please accept the privacy policy to continue."
-break A}if("name_invalid"===d){w="Enter a valid name (at least 2 characters)."
-break A}if("email_invalid"===d){w="Enter a valid email address."
-break A}if("network_error"===d){w="Could not reach the registration server. Check your connection or try again shortly."
-break A}if("api_waking"===d){w="The server is starting (free tier may take up to 1 minute). Wait and submit again."
-break A}if("api_not_deployed"===d){w="Registration service is not active yet. Email suporte@perfectgestdev.com or try later."
-break A}if("api_unavailable"===d){w="Service temporarily unavailable. Try again later."
-break A}if("api_unconfigured"===d){w="Lead API is not configured in this environment."
-break A}w="Could not submit right now. Try again or email suporte@perfectgestdev.com."
-break A}return w},
-gMb(){return"Back to home"}}
-B.aGw.prototype={
-gey(){return"Pre-registro Perfect Gest Dev"},
-gi5(){return"Pre-registro"},
-gP9(){return"Deje su contacto"},
-gPY(){return"Indique nombre y correo para recibir novedades sobre PerfectGest y soluciones Perfect Gest Dev."},
-gRp(){return"Parte de este pre-registro sirve para invitar a participantes seleccionados al programa de prelanzamiento: acceso completo a las versiones en desarrollo de las aplicaciones, prueba anticipada de funcionalidades y retroalimentaci\xf3n que orienta la evoluci\xf3n del producto antes del lanzamiento p\xfablico."},
-gOq(){return"Nombre"},
-gOp(){return"Su nombre completo"},
-gOo(){return"Correo electr\xf3nico"},
-gOn(){return"su@email.com"},
-gOm(){return"Comentario"},
-gOl(){return"Opcional \u2014 \xbfc\xf3mo podemos ayudar?"},
-gpR(){return"He le\xeddo y acepto la "},
-gpQ(){return"pol\xedtica de privacidad"},
-gpS(){return" y autorizo el contacto sobre novedades, invitaciones de prelanzamiento y los servicios indicados."},
-gp8(){return"Enviar pre-registro"},
-gp9(){return"Enviando\u2026"},
-gpb(){return"Pre-registro recibido"},
-gpa(){return"\xa1Gracias! Le contactaremos pronto en el correo indicado."},
-iC(d){var w
-A:{if("consent_required"===d){w="Acepte la pol\xedtica de privacidad para continuar."
-break A}if("name_invalid"===d){w="Indique un nombre v\xe1lido (m\xednimo 2 caracteres)."
-break A}if("email_invalid"===d){w="Indique un correo electr\xf3nico v\xe1lido."
-break A}if("network_error"===d){w="No se pudo contactar el servidor de registros. Verifique internet o intente de nuevo."
-break A}if("api_waking"===d){w="El servidor est\xe1 iniciando (el plan gratuito puede tardar 1 minuto). Espere e intente de nuevo."
-break A}if("api_not_deployed"===d){w="El servicio de registro a\xfan no est\xe1 activo. Escriba a suporte@perfectgestdev.com."
-break A}if("api_unavailable"===d){w="Servicio temporalmente no disponible. Intente m\xe1s tarde."
-break A}if("api_unconfigured"===d){w="La API de leads a\xfan no est\xe1 configurada."
-break A}w="No se pudo enviar ahora. Intente de nuevo o escriba a suporte@perfectgestdev.com."
-break A}return w},
-gMb(){return"Volver al inicio"}}
-B.l8.prototype={
-a8(){var w=$.as()
-return new B.a4q(new A.b2(null,x.m),new F.it(D.cN,w),new F.it(D.cN,w),new F.it(D.cN,w),new F.it(D.cN,w))}}
-B.a4q.prototype={
-ao(){this.aO()
-A.kj()
-A.e9("description","Pre-cadastro Perfect Gest Dev: deixe nome, e-mail e comentario para receber novidades sobre apps Flutter, web e integracoes Java.")
-A.e9("keywords","Perfect Gest Dev, pre-cadastro, newsletter, Flutter, software house, contato, leads")
-A.e9("robots","index, follow")
-A.d4("og:title","Pre-cadastro | Perfect Gest Dev")
-A.d4("og:description","Formulario rapido para acompanhar lancamentos e solucoes da Perfect Gest Dev.")
-A.d4("og:type","website")
-A.d4("og:locale","pt_BR")
-b.G.document.title="Pre-cadastro | Perfect Gest Dev"},
-l(){var w=this,v=w.e,u=v.P$=$.as()
-v.O$=0
-v=w.f
-v.P$=u
-v.O$=0
-v=w.r
-v.P$=u
-v.O$=0
-v=w.w
-v.P$=u
-v.O$=0
-A.pJ()
-w.aA()},
-BK(d){return this.asK(d)},
-asK(d){var w=0,v=A.R(x.H),u,t=this,s,r,q,p
-var $async$BK=A.N(function(e,f){if(e===1)return A.O(f,v)
-for(;;)switch(w){case 0:if(t.y){w=1
-break}t.a7(new B.aDF(t))
-if(!t.x){t.a7(new B.aDG(t))
-w=1
-break}s=t.d.gU()
-s=s==null?null:s.z1()
-if(s!==!0){w=1
-break}t.a7(new B.aDH(t))
-r=t.c.ai(x.l).r.f.kB("-")
-s=t.e.a.a
-q=t.f.a.a
-w=3
-return A.T(B.RB(t.r.a.a,t.x,q,r,s,t.w.a.a),$async$BK)
-case 3:p=f
-if(t.c==null){w=1
-break}t.a7(new B.aDI(t,p))
-case 1:return A.P(u,v)}})
-return A.Q($async$BK,v)},
-E(d){var w=this,v=null,u=A.x(d).ax,t=A.b7(d,C.aq,x.w).w.a.a<400?16:24,s=B.b5Y(d),r=s.gey(),q=A.x(d).ax.a===C.D?C.by:C.bf,p=s.gi5()
-p=H.aLg(d,v,w.a.c,p)
-return A.aH(v,v,v,A.j4(p,q,new A.jV(A.hb(A.dH(new A.cS(E.LY,w.z?w.af_(d,s,u):w.aeP(d,s,u),v),v,v),v,new A.a6(t,16,t,28),C.ad),v),v,v),!1,v,v,v,!1,v,v,v,v,v,v,v,v,v,r,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,C.o,v)},
-af_(d,e,f){var w=null
-return new A.mH(A.bf(A.b([A.cB(D.tp,f.b,w,48),C.bu,A.up(d,e.gpb(),w,20),C.aC,A.I(e.gpa(),w,w,w,w,A.nm(d,15,1.5),w,w),C.p1,A.aMn(A.I(e.gMb(),w,w,w,w,w,w,w),new B.aDE(d),w)],x.p),C.aH,C.n,C.q),18,C.jj,w)},
-aeP(d,e,f){var w,v,u,t,s,r,q,p,o=this,n=null,m=e.gP9()
-m=A.up(d,m,n,A.b7(d,C.aq,x.w).w.a.a<400?18:22)
-w=A.I(e.gPY(),n,n,n,n,A.nm(d,15,1.5),n,n)
-v=A.I(e.gRp(),n,n,n,n,A.nm(d,13.5,1.5).ax8(f.k3.af(0.82),1.5),n,n)
-u=e.gOq()
-u=o.WC(o.e,e.gOp(),D.Kg,u,new B.aDz(e))
-t=e.gOo()
-t=o.WC(o.f,e.gOn(),D.pb,t,new B.aDA(e))
-s=e.gOm()
-s=o.ahM(o.r,e.gOl(),C.lp,s,4,!1)
-r=A.Du(A.ca(F.aNz(n,C.ds,!1,n,!0,C.X,n,F.aXY(),o.w,n,n,n,n,n,2,E.TN,C.aM,!0,n,!0,n,!1,n,C.eI,n,n,n,n,n,n,n,n,1,n,n,!1,"\u2022",n,n,n,n,n,!1,n,n,!1,n,!0,n,D.ji,n,n,n,n,n,n,n,n,n,n,n,n,!0,C.bj,n,D.p7,n,n,n,n),0,n),0)
-q=o.x
-p=x.p
-q=A.b([u,C.ce,t,C.ce,s,r,C.bu,A.cV(A.b([F.aLV(n,!1,n,n,n,!1,n,n,o.y?n:new B.aDB(o),n,n,n,n,n,!1,q),A.eh(new A.aD(D.rE,A.hj(C.bk,A.b([A.I(e.gpR(),n,n,n,n,A.nm(d,13,1.5),n,n),A.hC(!1,n,!0,A.I(e.gpQ(),n,n,n,n,A.nm(d,13,1.5).axk(f.b,C.dC,C.a4),n,n),n,!0,n,n,n,n,n,n,n,n,n,new B.aDC(d),n,n,n,n,n,n,n),A.I(e.gpS(),n,n,n,n,A.nm(d,13,1.5),n,n)],p),C.cf,0,0),n),1)],p),C.I,C.n,C.q,0)],p)
-u=o.Q
-if(u!=null)C.b.Z(q,A.b([C.aC,A.I(e.iC(u),n,n,n,n,A.b4().$3$color$fontSize$fontWeight(f.fy,13,C.a4),n,n)],p))
-q.push(C.cq)
-u=o.y
-t=u?n:new B.aDD(o,e)
-s=u?A.ca(A.aQE(f.c,2),18,18):E.T7
-q.push(A.aMo(s,A.I(u?e.gp9():e.gp8(),n,n,n,n,n,n,n),t,n))
-return F.aRN(A.bf(A.b([m,C.Z,w,C.aC,v,C.cq,new A.mH(A.bf(q,C.aH,C.n,C.q),18,C.jj,n)],p),C.aH,C.n,C.q),o.d)},
-WD(d,e,f,g,h,i,j){var w=null,v=this.y,u=i?j:w
-return F.aUg(d,F.ahB(w,D.og,w,w,w,w,w,w,!0,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,e,w,w,w,w,w,!0,w,w,g,!0,!0,!1,w,w,w,w,w,w,w,w,w,w,w,w,w,w),!v,f,h,u)},
-WC(d,e,f,g,h){return this.WD(d,e,f,g,1,!0,h)},
-ahM(d,e,f,g,h,i){return this.WD(d,e,f,g,h,i,null)}}
-var z=a.updateTypes([])
-B.aKr.prototype={
-$1(d){return d.a_x("GET",this.a,this.b)},
-$S:220}
-B.aDF.prototype={
-$0(){var w=this.a
-w.Q=null
-w.z=!1},
-$S:0}
-B.aDG.prototype={
-$0(){return this.a.Q="consent_required"},
-$S:0}
-B.aDH.prototype={
-$0(){return this.a.y=!0},
-$S:0}
-B.aDI.prototype={
-$0(){var w,v=this.a
-v.y=!1
-w=this.b
-if(w.a){v.z=!0
-v.e.nv(D.p8)
-v.f.nv(D.p8)
-v.r.nv(D.p8)
-v.x=!1}else{w=w.b
-v.Q=w==null?"server_error":w}},
-$S:0}
-B.aDE.prototype={
-$0(){var w,v=this.a
-if(A.ce(v,!1).wF())A.ce(v,!1).ds()
-else{w=x.X
-A.ce(v,!1).a6o("/",w,w)}},
-$S:0}
-B.aDz.prototype={
-$1(d){if(C.c.da(d==null?"":d).length<2)return this.a.iC("name_invalid")
-return null},
-$S:46}
-B.aDA.prototype={
-$1(d){var w=C.c.da(d==null?"":d)
-if(!C.c.n(w,"@")||!C.c.n(w,"."))return this.a.iC("email_invalid")
-return null},
-$S:46}
-B.aDB.prototype={
-$1(d){var w=this.a
-return w.a7(new B.aDy(w,d))},
+B=c[2]
+C=a.updateHolder(c[6],C)
+D=c[16]
+C.iV.prototype={
+tG(d,e){var w=this,v=w.d.U(e).z2(d),u=d.geN(),t=w.mn(),s=w.KD(d,e),r=w.r
+r=r==null?null:r.U(e).z2(d)
+return C.b2X(v,w.e*u,w.a,t,w.f,s,r,w.w*d.geN())},
+o_(d){return this.tG(d,null)},
+aX(d){var w=this,v=w.a,u=A.a7(v).i("ah<1,r>")
+v=A.aa(new A.ah(v,new C.ank(d),u),u.i("aE.E"))
+return new C.iV(w.d,w.e,w.f,w.r,w.w,v,w.b,w.c)},
+dj(d,e){if(x.a.b(d))return C.aTj(d,this,e)
+return this.Hu(d,e)},
+dk(d,e){if(x.a.b(d))return C.aTj(this,d,e)
+return this.Hv(d,e)},
+j(d,e){var w=this
+if(e==null)return!1
+if(w===e)return!0
+if(J.U(e)!==A.q(w))return!1
+return e instanceof C.iV&&e.d.j(0,w.d)&&e.e===w.e&&e.f===w.f&&A.cv(e.a,w.a)&&A.cv(e.b,w.b)&&J.d(e.r,w.r)&&e.w===w.w},
+gD(d){var w=this,v=A.bB(w.a),u=w.b
+u=u==null?null:A.bB(u)
+return A.R(w.d,w.e,w.f,w.c,v,u,w.r,w.w,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a)},
+k(d){var w=this,v=A.b(["center: "+w.d.k(0),"radius: "+A.fS(w.e),"colors: "+A.j(w.a)],x.x),u=w.b
+if(u!=null)v.push("stops: "+A.j(u))
+v.push("tileMode: "+w.f.k(0))
+u=w.r
+if(u!=null)v.push("focal: "+u.k(0))
+v.push("focalRadius: "+A.fS(w.w))
+return"RadialGradient("+B.b.bJ(v,", ")+")"}}
+C.tb.prototype={
+tG(d,e){var w=this,v=w.d.U(e).z2(d),u=w.a,t=w.mn()
+w.KD(d,e)
+$.a1()
+v=new A.N9(v,u,t,w.r,w.e,w.f,null)
+v.zT()
+if(u.length!==t.length)A.a2(A.bJ(y.a,null))
+return v},
+aX(d){var w=this,v=w.a,u=A.a7(v).i("ah<1,r>")
+v=A.aa(new A.ah(v,new C.asS(d),u),u.i("aE.E"))
+return new C.tb(w.d,w.e,w.f,w.r,v,w.b,w.c)},
+dj(d,e){if(x.j.b(d))return C.aU3(d,this,e)
+return this.Hu(d,e)},
+dk(d,e){if(x.j.b(d))return C.aU3(this,d,e)
+return this.Hv(d,e)},
+j(d,e){var w=this
+if(e==null)return!1
+if(w===e)return!0
+if(J.U(e)!==A.q(w))return!1
+return e instanceof C.tb&&e.d.j(0,w.d)&&e.e===w.e&&e.f===w.f&&e.r===w.r&&A.cv(e.a,w.a)&&A.cv(e.b,w.b)},
+gD(d){var w=this,v=A.bB(w.a),u=w.b
+u=u==null?null:A.bB(u)
+return A.R(w.d,w.e,w.f,w.r,w.c,v,u,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a)},
+k(d){var w=this,v=A.b(["center: "+w.d.k(0),"startAngle: "+A.fS(w.e),"endAngle: "+A.fS(w.f),"colors: "+A.j(w.a)],x.x),u=w.b
+if(u!=null)v.push("stops: "+A.j(u))
+v.push("tileMode: "+w.r.k(0))
+return"SweepGradient("+B.b.bJ(v,", ")+")"}}
+C.E1.prototype={
+sSn(d){if(this.bP===d)return
+this.bP=d
+this.aa()},
+sPb(d){if(this.cs===d)return
+this.cs=d
+this.aa()},
+vF(d){var w=d.b*this.bP,v=d.d*this.cs
+return new A.a3(w,w,v,v)},
+bq(d){var w,v,u=this,t=u.t$
+if(t==null)w=u.U7(d)
+else{v=u.cs
+w=t.ae(B.aP,d*v,t.gbM())}t=u.bP
+return w/t},
+bo(d){var w,v,u=this,t=u.t$
+if(t==null)w=u.U5(d)
+else{v=u.cs
+w=t.ae(B.al,d*v,t.gbt())}t=u.bP
+return w/t},
+bp(d){var w,v,u=this,t=u.t$
+if(t==null)w=u.U6(d)
+else{v=u.bP
+w=t.ae(B.aQ,d*v,t.gbL())}t=u.cs
+return w/t},
+bn(d){var w,v,u=this,t=u.t$
+if(t==null)w=u.U4(d)
+else{v=u.bP
+w=t.ae(B.bn,d*v,t.gc1())}t=u.cs
+return w/t},
+cI(d){var w=this.t$
+if(w!=null)return d.be(w.ae(B.N,this.vF(d),w.gc4()))
+return d.be(this.vF(d).be(B.J))},
+d4(d,e){var w,v,u,t,s=this,r=s.t$
+if(r==null)return null
+w=s.vF(d)
+v=r.e9(w,e)
+if(v==null)return null
+u=r.ae(B.N,w,r.gc4())
+t=s.ae(B.N,d,s.gc4())
+return v+s.gyJ().iA(x.b.a(t.a_(0,u))).b},
+bK(){var w=this,v=w.t$,u=x.i
+if(v!=null){v.co(w.vF(u.a(A.p.prototype.ga9.call(w))),!0)
+w.fy=u.a(A.p.prototype.ga9.call(w)).be(w.t$.gu())
+w.ww()}else w.fy=u.a(A.p.prototype.ga9.call(w)).be(w.vF(u.a(A.p.prototype.ga9.call(w))).be(B.J))}}
+C.Qr.prototype={
+b_(d){var w=new C.E1(this.e,this.f,B.R,A.cQ(d),null,new A.aK(),A.af())
+w.aZ()
+w.sbd(null)
+return w},
+b9(d,e){e.sfp(B.R)
+e.sSn(this.e)
+e.sPb(this.f)
+e.sbF(A.cQ(d))}}
+C.r8.prototype={
+E(d){var w=null,v=A.b([new A.bc(4,B.L,B.bO.af(0.55),B.f,42),new A.bc(0,B.L,B.h.af(0.2),D.abz,18),new A.bc(0,B.L,B.m.af(0.7),D.aaX,28)],x.r),u=x.u
+return A.iZ(w,B.dl,A.f3(B.bx,A.b([D.aan,A.jN(!0,A.dF(A.h6(new A.cP(D.M0,A.be(A.b([A.dF(A.ev(A.aMC("imagens/brasao_perfectgestdev.png",B.R,w,w,w,B.cY,B.e3,w,240),B.z,new A.bz(w,w,w,w,v,w,B.M),w,w,w,w),w,w),B.Z,A.G("Refer\xeancia (render 3D)",w,w,w,w,A.b2().$2$color$fontSize(B.hi,11),w,w),B.eE,new C.TN(A.be(A.b([A.cS(A.b([A.ee(A.be(A.b([A.aKT("Perfect Gest Dev",30,4),A.cS(A.b([A.aXv("DEV",22,3.5),B.p_,C.aXx(24)],u),B.ef,B.n,B.q,0)],u),B.I,B.n,B.q),1),A.eP(!1,w,w,w,A.cB(B.nw,B.h.af(0.95),w,w),w,w,new C.al3(),w,w,w,"Voltar ao site")],u),B.a2,B.n,B.q,0),B.aw,A.G("Amostra v3 \u2014 UI com o mesmo brilho",w,w,w,w,A.b2().$4$color$fontSize$letterSpacing$shadows(B.cB,12,0.5,A.aKX(1)),w,w),B.bS,A.cS(A.b([A.aKT("PLAY",20,3),B.fR,C.aXx(20),B.p0,A.ee(A.aKT("Codificando o Amanh\xe3",20,3),1)],u),B.a2,B.n,B.q,0),B.aC,A.G("Cromado com bandas de luz, cobre polido, ouro ambiente e verniz \u2014 mais perto da vividez do badge acima.",w,w,w,w,A.b2().$5$color$fontSize$fontWeight$height$shadows(B.cB.af(0.95),14,B.aj,1.55,A.aKX(1.2)),w,w),B.eD,A.aXw(w,"Bot\xe3o cromado envernizado",new C.al4()),B.ce,A.G("Teste local (8080). Aprovar antes de aplicar ao site completo.",w,w,w,w,A.b2().$3$color$fontSize$fontStyle(B.hi,11,B.cZ),w,w)],u),B.aH,B.n,B.q),w)],u),B.a2,B.n,B.q),w),w,D.Rz,B.ad),w,w),!1,B.ab,!0)],u),B.X,B.ln,w),w,w)}}
+C.TO.prototype={
+E(d){var w=null,v=x.c
+return A.f3(B.bx,A.b([D.Qt,A.db(w,new A.bz(w,w,w,w,w,new C.iV(D.Lo,0.95,B.ar,w,0,A.b([B.bO.af(0.42),B.aG.af(0.18),B.u],v),D.vk,w),B.M),B.ai),A.db(w,new A.bz(w,w,w,w,w,new C.iV(D.Lj,0.7,B.ar,w,0,A.b([B.h.af(0.06),B.u],v),w,w),B.M),B.ai),new A.cV(B.cg,w,w,new C.Qr(1,0.38,A.db(w,new A.bz(w,w,w,w,w,new A.e_(B.bK,B.cg,B.ar,A.b([B.u,B.bO.af(0.12),B.m.af(0.75)],v),B.xz,w),B.M),B.ai),w),w),D.aak,D.aqE],x.u),B.X,B.ln,w)}}
+C.TN.prototype={
+E(d){var w=null,v=A.ch(22),u=A.b([new A.bc(2,B.L,B.bO.af(0.5),B.EQ,48),new A.bc(0,B.L,B.aG.af(0.35),B.kQ,28),new A.bc(0,B.L,B.m.af(0.85),D.aaU,24)],x.r),t=x.c
+return A.ev(A.ns(A.ch(18.88),A.f3(B.bx,A.b([A.and(0,A.db(w,new A.bz(w,w,w,w,w,new C.iV(D.Lk,1.05,B.ar,w,0,A.b([D.Pq,B.qU,B.dl],t),w,w),B.M),B.ai)),D.acP,D.acQ,A.ia(w,A.db(w,new A.bz(w,w,w,w,w,new A.e_(B.bK,B.cg,B.ar,A.b([B.h.af(0.42),B.h.af(0.16),B.h.af(0.04),B.u],t),D.a33,w),B.M),B.ai),165,w,0,0,0,w),A.ia(w,A.ev(w,B.z,new A.bz(w,w,w,A.ch(50),w,new C.iV(B.R,0.5,B.ar,w,0,A.b([B.h.af(0.72),B.h.af(0.22),B.u],t),D.vk,w),B.M),68,w,w,130),w,w,10,w,6,w),D.acN,A.and(0,A.db(w,new A.bz(w,w,w,w,w,new A.e_(D.Lm,D.Ll,B.ar,A.b([B.h.af(0.22),B.u,B.u,B.m.af(0.35)],t),D.a09,w),B.M),B.ai)),A.ia(0,A.db(w,new A.bz(w,w,w,w,w,new A.e_(B.bK,B.cg,B.ar,A.b([B.u,B.m.af(0.45)],t),w,w),B.M),B.ai),90,w,0,0,w,w),new A.aC(D.RF,this.c,w)],x.u),B.X,B.bT,w),B.bo),B.z,new A.bz(w,w,w,v,u,B.tO,B.M),w,w,D.RQ,w)}}
+C.a_M.prototype={
+E(d){var w=null
+return A.fB(A.fe(w,w,w,new C.a_N(w),B.ig),!0,w)}}
+C.a19.prototype={
+E(d){var w=null
+return A.fB(A.fe(w,w,w,new C.a1a(w),B.ig),!0,w)}}
+C.a31.prototype={
+E(d){var w=null
+return A.fB(A.fe(w,w,w,new C.a6p(w),B.ig),!0,w)}}
+C.a_N.prototype={
+aL(d,e){var w,v,u,t,s=e.a*0.5,r=e.b*0.42,q=e.geN()*0.55
+for(w=d.a,v=8;v<q;v+=5.5){$.a1()
+u=new A.hT(B.c_,B.bs,B.d9,B.dB,B.cj)
+u.b=B.b2
+u.c=0.9
+u.r=B.h.af(0.028+B.d.ca(v,22)*0.001).gq()
+t=u.ex()
+w.drawCircle(s,r,v,t)
+t.delete()}},
+el(d){return!1}}
+C.a1a.prototype={
+aL(d,e){var w,v,u,t=A.bX($.a1().r),s=e.b
+t.aG(new A.e1(0,s*0.08))
+w=e.a
+t.aG(new A.c4(w*0.42,0))
+t.aG(new A.c4(0,0))
+t.aG(new A.q4())
+v=A.aN()
+v.sno(new A.e_(B.cv,B.h7,B.ar,A.b([B.h.af(0.55),B.h.af(0.08),B.u],x.c),null,null).o_(new A.m(0,0,0+w*0.5,0+s*0.2)))
+d.eS(t,v)
+u=A.aN()
+u.r=B.h.af(0.35).gq()
+u.c=1.5
+u.b=B.b2
+d.kG(new A.f(4,4),new A.f(w*0.35,4),u)},
+el(d){return!1}}
+C.a6p.prototype={
+aL(d,e){var w,v,u,t,s=e.a,r=e.b,q=[new A.f(s*0.15,r*0.22),new A.f(s*0.82,r*0.18),new A.f(s*0.7,r*0.75)]
+for(s=x.c,r=d.a,w=0;w<3;++w){v=q[w]
+$.a1()
+u=new A.hT(B.c_,B.bs,B.d9,B.dB,B.cj)
+u.sno(new C.iV(B.R,0.5,B.ar,null,0,A.b([B.h.af(0.12),B.u],s),null,null).o_(A.l3(v,40)))
+t=u.ex()
+r.drawCircle(v.a,v.b,40,t)
+t.delete()}},
+el(d){return!1}}
+var z=a.updateTypes(["H(H)"])
+C.ank.prototype={
+$1(d){var w=A.z(null,d,this.a)
+w.toString
+return w},
 $S:53}
-B.aDy.prototype={
-$0(){return this.a.x=this.b===!0},
+C.asS.prototype={
+$1(d){var w=A.z(null,d,this.a)
+w.toString
+return w},
+$S:53}
+C.al3.prototype={
+$0(){return A.aP0()},
 $S:0}
-B.aDC.prototype={
-$0(){return A.ce(this.a,!1).lW("/politica-privacidade-site",x.X)},
-$S:0}
-B.aDD.prototype={
-$0(){return this.a.BK(this.b)},
-$S:0};(function inheritance(){var w=a.inheritMany,v=a.inherit
-w(A.hq,[B.aKr,B.aDz,B.aDA,B.aDB])
-v(B.as6,A.J)
-w(B.as6,[B.aGx,B.aGv,B.aGw])
-v(B.l8,A.M)
-v(B.a4q,A.U)
-w(A.i_,[B.aDF,B.aDG,B.aDH,B.aDI,B.aDE,B.aDy,B.aDC,B.aDD])})()
-A.ng(b.typeUniverse,JSON.parse('{"l8":{"M":[],"e":[]},"a4q":{"U":["l8"]}}'))
-var y={b:"https://perfectgest-leads-api-2ztg.onrender.com/api/leads"}
-var x=(function rtii(){var w=A.a2
-return{L:w("cl"),p:w("o<e>"),m:w("b2<vz>"),d:w("f4"),f:w("bk<@,@>"),w:w("f5"),K:w("J"),q:w("oK"),N:w("m"),l:w("kd"),X:w("J?"),T:w("m?"),H:w("~")}})();(function constants(){E.LY=new A.a4(0,520,0,1/0)
-E.Oe=new B.aGv()
-E.Of=new B.aGw()
-E.Og=new B.aGx()
-E.QL=new A.aV(12e6)
-E.R3=new A.aV(9e7)
-E.T7=new A.di(C.tq,18,null,null,null)
-E.TN=new F.qZ(null,null,null,"Website",null,null,null,null,null,null,null,null,null,null,null,null,!0,!0,!1,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,!0,null,null,null,null)
-E.tF=new F.f4(!1,"api_not_deployed")
-E.Uj=new F.f4(!1,"api_unavailable")})()};
-(a=>{a["WBuNPUchZp2uhqgcthTAUxixa/0="]=a.current})($__dart_deferred_initializers__);
+C.al4.prototype={
+$0(){},
+$S:0};(function installTearOffs(){var w=a._instance_1u
+var v
+w(v=C.E1.prototype,"gbM","bq",0)
+w(v,"gbt","bo",0)
+w(v,"gbL","bp",0)
+w(v,"gc1","bn",0)})();(function inheritance(){var w=a.inheritMany,v=a.inherit
+w(A.BS,[C.iV,C.tb])
+w(A.jo,[C.ank,C.asS])
+v(C.E1,A.DR)
+v(C.Qr,A.b0)
+w(A.Y,[C.r8,C.TO,C.TN,C.a_M,C.a19,C.a31])
+w(A.jp,[C.al3,C.al4])
+w(A.AU,[C.a_N,C.a1a,C.a6p])})()
+A.tW(b.typeUniverse,JSON.parse('{"E1":{"t":[],"aJ":["t"],"p":[],"an":[]},"Qr":{"b0":[],"ao":[],"e":[]},"r8":{"Y":[],"e":[]},"TO":{"Y":[],"e":[]},"TN":{"Y":[],"e":[]},"a_M":{"Y":[],"e":[]},"a19":{"Y":[],"e":[]},"a31":{"Y":[],"e":[]},"a_N":{"ae":[]},"a1a":{"ae":[]},"a6p":{"ae":[]}}'))
+var y={a:'"colors" and "colorStops" arguments must have equal length.'}
+var x={i:A.a4("a3"),r:A.a4("x<bc>"),c:A.a4("x<r>"),x:A.a4("x<n>"),u:A.a4("x<e>"),h:A.a4("x<H>"),b:A.a4("f"),a:A.a4("iV?"),j:A.a4("tb?")};(function constants(){var w=a.makeConstList
+D.Lj=new A.dv(-0.85,0.2)
+D.Lk=new A.dv(0.5,0.38)
+D.Ll=new A.dv(0.7,0.65)
+D.Lm=new A.dv(-1.1,-1)
+D.Lo=new A.dv(0.5,-0.35)
+D.M0=new A.a3(0,560,0,1/0)
+D.Pq=new A.r(1,0.22745098039215686,0.22745098039215686,0.22745098039215686,B.e)
+D.Li=new A.dv(0.55,0.95)
+D.Ph=new A.r(1,0.4196078431372549,0.3058823529411765,0.07058823529411765,B.e)
+D.OQ=new A.r(1,0.10196078431372549,0.0784313725490196,0.03137254901960784,B.e)
+D.a_9=w([D.Ph,D.OQ,B.dl,B.m],x.c)
+D.XR=w([0,0.28,0.55,1],x.h)
+D.acU=new C.iV(D.Li,1.45,B.ar,null,0,D.a_9,D.XR,null)
+D.M6=new A.bz(null,null,null,null,null,D.acU,B.M)
+D.Qt=new A.qg(D.M6,B.ai,null,null)
+D.Rz=new A.a6(20,24,20,24)
+D.RF=new A.a6(28,28,28,28)
+D.RQ=new A.a6(5.2,5.2,5.2,5.2)
+D.SX=new A.bA(983200,"MaterialIcons",!1)
+D.vk=w([0,0.35,1],x.h)
+D.a09=w([0,0.32,0.68,1],x.h)
+D.a33=w([0,0.25,0.55,1],x.h)
+D.aak=new A.vR(0.55,null)
+D.aan=new C.TO(null)
+D.aaU=new A.f(0,10)
+D.aaX=new A.f(0,14)
+D.abz=new A.f(-3,-4)
+D.aqc=new C.a19(null)
+D.acN=new A.iU(0,0,0,0,null,null,D.aqc,null)
+D.aq3=new C.a_M(null)
+D.acP=new A.iU(0,0,0,0,null,null,D.aq3,null)
+D.aal=new A.vR(1.1,null)
+D.acQ=new A.iU(0,0,0,0,null,null,D.aal,null)
+D.a_S=w([B.h,B.bO,B.aG,B.hi],x.c)
+D.agT=new C.tb(B.R,0,6.283185307179586,B.ar,D.a_S,null,null)
+D.aqE=new C.a31(null)})()};
+(a=>{a["f9FrGYVzIGb1IDTNfueIjq5q3BE="]=a.current})($__dart_deferred_initializers__);

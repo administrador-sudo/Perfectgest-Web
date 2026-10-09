@@ -1,212 +1,396 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
-$__dart_deferred_initializers__.current=function(a,b,c,$){var A,C,E,F,B={
-b5X(d){switch(d.ai(y.k).r.f.gcA()){case"en":return D.Ob
-case"es":return D.Oc
-case"pt":default:return D.Od}},
+$__dart_deferred_initializers__.current=function(a,b,c,$){var J,A,C,E,B={
+bbW(d){return A.a99(new B.aKq(d,null),x.q)},
+aKq:function aKq(d,e){this.a=d
+this.b=e},
+b5U(d){switch(d.ai(x.l).r.f.gcA()){case"en":return D.Oe
+case"es":return D.Of
+case"pt":default:return D.Og}},
 as5:function as5(){},
-aGu:function aGu(){},
-aGs:function aGs(){},
-aGt:function aGt(){},
-b4Q(d){return new B.oA(d,null)},
-oA:function oA(d,e){this.c=d
+aGx:function aGx(){},
+aGv:function aGv(){},
+aGw:function aGw(){},
+aT6(d){return new B.l0(d,null)},
+l0:function l0(d,e){this.c=d
 this.a=e},
-a4m:function a4m(){this.c=this.a=null},
-aDj:function aDj(d){this.a=d},
-aDk:function aDk(d,e,f,g,h){var _=this
-_.a=d
-_.b=e
-_.c=f
-_.d=g
-_.e=h},
-aDh:function aDh(d,e){this.a=d
+a4l:function a4l(d,e,f,g,h){var _=this
+_.d=d
+_.e=e
+_.f=f
+_.r=g
+_.w=h
+_.z=_.y=_.x=!1
+_.c=_.a=_.Q=null},
+aDF:function aDF(d){this.a=d},
+aDG:function aDG(d){this.a=d},
+aDH:function aDH(d){this.a=d},
+aDI:function aDI(d,e){this.a=d
 this.b=e},
-aDi:function aDi(d,e){this.a=d
+aDE:function aDE(d){this.a=d},
+aDz:function aDz(d){this.a=d},
+aDA:function aDA(d){this.a=d},
+aDB:function aDB(d){this.a=d},
+aDy:function aDy(d,e){this.a=d
 this.b=e},
-lx:function lx(d,e,f){this.c=d
-this.d=e
-this.a=f}},D,G
+aDC:function aDC(d){this.a=d},
+aDD:function aDD(d,e){this.a=d
+this.b=e},
+aii(){var w=0,v=A.Q(x.T),u,t=2,s=[],r,q,p,o,n,m,l
+var $async$aii=A.M(function(d,e){if(d===1){s.push(e)
+w=t}for(;;)switch(w){case 0:t=4
+o=C.c.hN(y.b,"/api/")
+w=7
+return A.T(B.bbW(A.di(o>=0?C.c.a1(y.b,0,o)+"/health":"https://perfectgest-leads-api-2ztg.onrender.com/api/leads/health",0,null)).yP(D.QM),$async$aii)
+case 7:r=e
+if(r.b===200){u=null
+w=1
+break}if(r.b===503){u="api_unavailable"
+w=1
+break}u="api_not_deployed"
+w=1
+break
+t=2
+w=6
+break
+case 4:t=3
+l=s.pop()
+m=A.av(l)
+if(m instanceof A.kw){u="api_not_deployed"
+w=1
+break}else if(x.L.b(m)){q=m
+p=J.es(q)
+if(J.lC(p,"TimeoutException")||J.lC(p,"timed out")){u="api_waking"
+w=1
+break}u="api_not_deployed"
+w=1
+break}else throw l
+w=6
+break
+case 3:w=2
+break
+case 6:case 1:return A.O(u,v)
+case 2:return A.N(s.at(-1),v)}})
+return A.P($async$aii,v)},
+Rv(d,e,f,g,h,i){var w=!1
+return B.b3p(d,e,f,g,h,i)},
+b3p(a0,a1,a2,a3,a4,a5){var w=0,v=A.Q(x.d),u,t=2,s=[],r,q,p,o,n,m,l,k,j,i,h,g,f,e,d
+var $async$Rv=A.M(function(a7,a8){if(a7===1){s.push(a8)
+w=t}for(;;)switch(w){case 0:e=!1
+if(!a1){u=C.tH
+w=1
+break}r=C.c.da(a4)
+q=C.c.da(a2)
+if(J.cF(r)<2){u=C.tJ
+w=1
+break}if(!B.b3o(q)){u=C.tI
+w=1
+break}w=3
+return A.T(B.aii(),$async$Rv)
+case 3:h=a8
+if(h==="api_waking")A.fT().$1("[LeadCapture] Cold start detectado \u2014 aguardando...")
+else if(h!=null){A.fT().$1("[LeadCapture] Health check falhou: "+h)
+u=new A.f0(!1,h)
+w=1
+break}t=5
+w=8
+return A.T(A.aP2(A.di(y.b,0,null),C.ci.Du(A.aA(["nome",r,"email",q,"comentario",C.c.da(a0),"consent",!0,"locale",a3,"website",a5,"copiaUsuario",e],x.N,x.K),null),C.Ev).yP(D.R4),$async$Rv)
+case 8:p=a8
+if(p.b>=200&&p.b<300){o=!1
+try{g=p
+n=C.ci.wZ(A.LP(A.LE(g.e)).f1(g.w),null)
+if(x.f.b(n)&&J.d(n.h(0,"copySent"),!0))o=!0}catch(a6){o=!1}u=new A.f0(!0,null)
+w=1
+break}if(p.b===503){u=D.Uk
+w=1
+break}if(p.b===404){u=D.tF
+w=1
+break}g=p
+A.fT().$1("[LeadCapture] HTTP "+p.b+": "+A.LP(A.LE(g.e)).f1(g.w))
+u=C.jO
+w=1
+break
+t=2
+w=7
+break
+case 5:t=4
+d=s.pop()
+g=A.av(d)
+if(g instanceof A.kw){m=g
+l=A.aS(d)
+A.fT().$1("[LeadCapture] ClientException: "+A.j(m)+"\n"+A.j(l))
+u=D.tF
+w=1
+break}else if(x.L.b(g)){k=g
+j=A.aS(d)
+i=J.es(k)
+if(J.lC(i,"TimeoutException")||J.lC(i,"timed out")){u=C.tG
+w=1
+break}A.fT().$1("[LeadCapture] "+A.j(k)+"\n"+A.j(j))
+u=C.jN
+w=1
+break}else throw d
+w=7
+break
+case 4:w=2
+break
+case 7:case 1:return A.O(u,v)
+case 2:return A.N(s.at(-1),v)}})
+return A.P($async$Rv,v)},
+b3o(d){var w,v=d.length
+if(v<5||v>254)return!1
+w=C.c.hN(d,"@")
+if(w<=0||w>=v-1)return!1
+return C.c.jl(d,".",w+1)>w}},D
+J=c[1]
 A=c[0]
 C=c[2]
 E=c[12]
-F=c[15]
-B=a.updateHolder(c[4],B)
-D=c[25]
-G=c[17]
+B=a.updateHolder(c[5],B)
+D=c[18]
 B.as5.prototype={}
-B.aGu.prototype={
-gey(){return"Politica de privacidade, dados, cookies e termos Perfect Gest Dev"},
-gi5(){return"Privacidade e termos"},
-gi7(){return"Perfect Gest Dev"},
-gkF(){return"Pol\xedtica de privacidade, dados pessoais, cookies e termos de uso"},
-qu(d){return"\xdaltima atualiza\xe7\xe3o: documento institucional. Em caso de d\xfavida sobre tratamento de dados, contacte: "+d+"."},
-goO(){return"1. Quem somos"},
-goN(){return"Este documento aplica-se ao site institucional https://perfectgestdev.com, operado por Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA). Somos uma software house de desenvolvimento mobile, web e desktop. Abrange cookies, medi\xe7\xe3o de audi\xeancia, formul\xe1rio de pr\xe9-cadastro e contacto neste site \u2014 n\xe3o o aplicativo m\xf3vel. Documenta\xe7\xe3o legal do produto PerfectGest (FAQ, privacidade, exclus\xe3o de dados e termos) n\xe3o faz parte deste documento \u2014 consulte a sec\xe7\xe3o Solu\xe7\xf5es deste site."},
-goQ(){return"2. Que dados podemos recolher"},
-goP(){return"\u2022 Dados t\xe9cnicos de navega\xe7\xe3o: endere\xe7o IP (muitas vezes truncado ou agregado pelo fornecedor de analytics), tipo de navegador, idioma, p\xe1ginas visitadas e hor\xe1rios aproximados.\n\u2022 Dados que nos enviar voluntariamente: por exemplo, se nos contactar por WhatsApp ou e-mail, o conte\xfado da mensagem e os metadados necess\xe1rios \xe0 comunica\xe7\xe3o.\n\u2022 Dados do formul\xe1rio de pr\xe9-cadastro (nome, e-mail, coment\xe1rio opcional e idioma): recolhidos apenas com consentimento expl\xedcito, transmitidos por HTTPS para base de dados gerida por n\xf3s (alojamento Render). Utilizamos estes dados para contacto comercial, convites ao programa de pr\xe9-lan\xe7amento (acesso a builds em desenvolvimento e recolha de feedback), novidades sobre produtos e resposta a pedidos. N\xe3o vendemos estes contactos a terceiros.\nN\xe3o vendemos listas de contactos nem dados pessoais a terceiros para fins comerciais independentes."},
-goS(){return"3. Cookies e tecnologias similares"},
-goR(){return"Utilizamos cookies e armazenamento local estritamente necess\xe1rios ao funcionamento do site e, quando ativado com o seu consentimento, cookies de medi\xe7\xe3o de audi\xeancia para compreender de forma agregada como o site \xe9 utilizado. Pode gerir ou apagar cookies nas defini\xe7\xf5es do seu navegador. Se recusar cookies de medi\xe7\xe3o, limitamos o envio de sinais de analytics conforme a configura\xe7\xe3o do seu browser e as nossas defini\xe7\xf5es de consentimento."},
-goU(){return"4. Medi\xe7\xe3o de audi\xeancia"},
-goT(){return"Quando activa a medi\xe7\xe3o de audi\xeancia, utilizamos um prestador externo de estat\xedsticas agregadas. O tratamento limita-se a dados t\xe9cnicos e agregados, sem venda de dados pessoais. Pode alterar a sua escolha a qualquer momento na sec\xe7\xe3o \xabGerenciar cookies\xbb do rodap\xe9 ou nesta p\xe1gina."},
-gGq(){return"5. Base legal e reten\xe7\xe3o"},
-gGp(){return"O tratamento de dados t\xe9cnicos e de medi\xe7\xe3o pode basear-se no interesse leg\xedtimo em melhorar o site e na execu\xe7\xe3o de medidas pr\xe9-contratuais ou contratuais quando nos contacta. O pr\xe9-cadastro baseia-se no seu consentimento, que pode revogar a qualquer momento (ver sec\xe7\xe3o 6). Conservamos mensagens de contacto e registos de pr\xe9-cadastro apenas pelo tempo necess\xe1rio \xe0 finalidade indicada ou at\xe9 pedido de elimina\xe7\xe3o, respeitando obriga\xe7\xf5es legais aplic\xe1veis."},
-gGs(){return"6. Os seus direitos"},
-Gr(d){return"No Brasil, aplica-se a Lei Geral de Prote\xe7\xe3o de Dados (LGPD, Lei 13.709/2018). Na Uni\xe3o Europeia, aplica-se o RGPD. Dependendo da lei aplic\xe1vel, poder\xe1 solicitar acesso, retifica\xe7\xe3o, apagamento, limita\xe7\xe3o, portabilidade ou oposi\xe7\xe3o ao tratamento dos seus dados pessoais, incluindo dados de pr\xe9-cadastro. Para exercer direitos ou quest\xf5es de privacidade, escreva para "+d+"."},
-gGu(){return"7. Termos de uso do site"},
-gGt(){return"O conte\xfado deste site (textos, identidade visual e materiais) destina-se a informa\xe7\xe3o sobre Perfect Gest Dev e os seus produtos. A reprodu\xe7\xe3o n\xe3o autorizada para fins comerciais pode ser proibida. Os links externos s\xe3o fornecidos por conveni\xeancia; n\xe3o controlamos sites de terceiros. O uso do site \xe9 por sua conta e risco, na medida permitida pela lei."},
-gNc(){return"Gerenciar cookies de medi\xe7\xe3o"},
-gNb(){return"Se aceitar, gravamos a sua escolha no navegador e, na pr\xf3xima carga da p\xe1gina, a medi\xe7\xe3o poder\xe1 operar apenas conforme o consentimento dado. Pode recusar ou revogar apagando os dados do site nas defini\xe7\xf5es do browser ou usando o bot\xe3o \xabRecusar\xbb abaixo."},
-gGM(){return"Prefer\xeancia gravada. Recarregue a p\xe1gina uma vez para aplicar a medi\xe7\xe3o."},
-gLX(){return"Aceitar medi\xe7\xe3o"},
-gLW(){return"Aceitar cookies de medi\xe7\xe3o"}}
-B.aGs.prototype={
-gey(){return"Perfect Gest Dev privacy policy, data, cookies and terms"},
-gi5(){return"Privacy and terms"},
-gi7(){return"Perfect Gest Dev"},
-gkF(){return"Privacy policy, personal data, cookies and terms of use"},
-qu(d){return"Last updated: institutional document. If you have questions about data processing, contact: "+d+"."},
-goO(){return"1. Who we are"},
-goN(){return"This document applies to the institutional website https://perfectgestdev.com, operated by Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA). We are a software house for mobile, web and desktop development. It covers cookies, audience measurement, the pre-registration form and contact on this site \u2014 not the mobile app. Legal documentation for the PerfectGest product (FAQ, privacy, data deletion and terms) is not part of this document \u2014 see the Solutions section of this site."},
-goQ(){return"2. Data we may collect"},
-goP(){return"\u2022 Technical browsing data: IP address (often truncated or aggregated by the analytics provider), browser type, language, pages visited and approximate times.\n\u2022 Data you send voluntarily: for example, if you contact us via WhatsApp or email, the message content and metadata needed for communication.\n\u2022 Pre-registration form data (name, email, optional comment and language): collected only with your explicit consent, sent over HTTPS to a database managed by us (Render hosting). We use this data for commercial contact, pre-launch program invitations (access to in-development builds and feedback collection), product updates and responding to requests. We do not sell these contacts to third parties.\nWe do not sell contact lists or personal data to third parties for independent commercial purposes."},
-goS(){return"3. Cookies and similar technologies"},
-goR(){return"We use cookies and local storage strictly necessary for the site to work and, when enabled with your consent, audience measurement cookies to understand in aggregate how the site is used. You can manage or delete cookies in your browser settings. If you decline measurement cookies, we limit analytics signals according to your browser configuration and our consent settings."},
-goU(){return"4. Audience measurement"},
-goT(){return"When you enable audience measurement, we use an external aggregated statistics provider. Processing is limited to technical and aggregated data; we do not sell personal data. You can change your choice at any time via \xabManage cookies\xbb in the footer or on this page."},
-gGq(){return"5. Legal basis and retention"},
-gGp(){return"Processing of technical and measurement data may rely on legitimate interest in improving the site and on pre-contractual or contractual measures when you contact us. Pre-registration relies on your consent, which you may withdraw at any time (see section 6). We keep contact messages and pre-registration records only as long as needed for the stated purpose or until a deletion request, subject to applicable legal obligations."},
-gGs(){return"6. Your rights"},
-Gr(d){return"In Brazil, the General Data Protection Law (LGPD, Law 13,709/2018) applies. In the European Union, the GDPR applies. Depending on applicable law, you may request access, rectification, erasure, restriction, portability or objection to processing of your personal data, including pre-registration data. To exercise rights or ask privacy questions, write to "+d+"."},
-gGu(){return"7. Website terms of use"},
-gGt(){return"The content of this site (text, visual identity and materials) is for information about Perfect Gest Dev and its products. Unauthorized reproduction for commercial purposes may be prohibited. External links are provided for convenience; we do not control third-party sites. You use the site at your own risk, to the extent permitted by law."},
-gNc(){return"Manage measurement cookies"},
-gNb(){return"If you accept, we store your choice in the browser and, on the next page load, measurement may run only according to your consent. You can decline or revoke by clearing site data in your browser settings or using \xabDecline\xbb below."},
-gGM(){return"Preference saved. Reload the page once to apply measurement."},
-gLX(){return"Accept measurement"},
-gLW(){return"Accept measurement cookies"}}
-B.aGt.prototype={
-gey(){return"Politica de privacidad, datos, cookies y terminos Perfect Gest Dev"},
-gi5(){return"Privacidad y terminos"},
-gi7(){return"Perfect Gest Dev"},
-gkF(){return"Politica de privacidad, datos personales, cookies y terminos de uso"},
-qu(d){return"Ultima actualizacion: documento institucional. Si tiene dudas sobre el tratamiento de datos, contacte: "+d+"."},
-goO(){return"1. Quienes somos"},
-goN(){return"Este documento se aplica al sitio institucional https://perfectgestdev.com, operado por Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA). Somos una software house de desarrollo movil, web y escritorio. Cubre cookies, medicion de audiencia, formulario de pre-registro y contacto en este sitio \u2014 no la aplicacion movil. La documentacion legal del producto PerfectGest (FAQ, privacidad, eliminacion de datos y terminos) no forma parte de este documento \u2014 consulte la seccion Soluciones de este sitio."},
-goQ(){return"2. Datos que podemos recopilar"},
-goP(){return"\u2022 Datos tecnicos de navegacion: direccion IP (a menudo truncada o agregada por el proveedor de analytics), tipo de navegador, idioma, paginas visitadas y horarios aproximados.\n\u2022 Datos que nos envie voluntariamente: por ejemplo, si nos contacta por WhatsApp o correo, el contenido del mensaje y los metadatos necesarios para la comunicacion.\n\u2022 Datos del formulario de pre-registro (nombre, correo, comentario opcional e idioma): recopilados solo con su consentimiento explicito, transmitidos por HTTPS a una base de datos gestionada por nosotros (alojamiento Render). Utilizamos estos datos para contacto comercial, invitaciones al programa de prelanzamiento (acceso a builds en desarrollo y recogida de retroalimentacion), novedades sobre productos y respuesta a solicitudes. No vendemos estos contactos a terceros.\nNo vendemos listas de contactos ni datos personales a terceros para fines comerciales independientes."},
-goS(){return"3. Cookies y tecnologias similares"},
-goR(){return"Utilizamos cookies y almacenamiento local estrictamente necesarios para el funcionamiento del sitio y, cuando esta activado con su consentimiento, cookies de medicion de audiencia para entender de forma agregada como se usa el sitio. Puede gestionar o borrar cookies en la configuracion del navegador. Si rechaza cookies de medicion, limitamos el envio de senales de analytics segun la configuracion del navegador y nuestras opciones de consentimiento."},
-goU(){return"4. Medicion de audiencia"},
-goT(){return"Cuando activa la medicion de audiencia, utilizamos un proveedor externo de estadisticas agregadas. El tratamiento se limita a datos tecnicos y agregados; no vendemos datos personales. Puede cambiar su eleccion en cualquier momento en \xabGestionar cookies\xbb del pie de pagina o en esta pagina."},
-gGq(){return"5. Base legal y conservacion"},
-gGp(){return"El tratamiento de datos tecnicos y de medicion puede basarse en el interes legitimo de mejorar el sitio y en medidas precontractuales o contractuales cuando nos contacta. El pre-registro se basa en su consentimiento, que puede revocar en cualquier momento (ver seccion 6). Conservamos los mensajes de contacto y registros de pre-registro solo el tiempo necesario para la finalidad indicada o hasta una solicitud de eliminacion, respetando obligaciones legales aplicables."},
-gGs(){return"6. Sus derechos"},
-Gr(d){return"En Brasil, se aplica la Ley General de Proteccion de Datos (LGPD, Ley 13.709/2018). En la Union Europea, se aplica el RGPD. Segun la ley aplicable, puede solicitar acceso, rectificacion, supresion, limitacion, portabilidad u oposicion al tratamiento de sus datos personales, incluidos datos de pre-registro. Para ejercer derechos o consultas de privacidad, escriba a "+d+"."},
-gGu(){return"7. Terminos de uso del sitio"},
-gGt(){return"El contenido de este sitio (textos, identidad visual y materiales) tiene fines informativos sobre Perfect Gest Dev y sus productos. La reproduccion no autorizada con fines comerciales puede estar prohibida. Los enlaces externos se ofrecen por conveniencia; no controlamos sitios de terceros. El uso del sitio es bajo su propio riesgo, en la medida permitida por la ley."},
-gNc(){return"Gestionar cookies de medicion"},
-gNb(){return"Si acepta, guardamos su eleccion en el navegador y, en la proxima carga de la pagina, la medicion puede operar solo segun el consentimiento dado. Puede rechazar o revocar borrando los datos del sitio en la configuracion del navegador o usando \xabRechazar\xbb abajo."},
-gGM(){return"Preferencia guardada. Recargue la pagina una vez para aplicar la medicion."},
-gLX(){return"Aceptar medicion"},
-gLW(){return"Aceptar cookies de medicion"}}
-B.oA.prototype={
-a8(){return new B.a4m()}}
-B.a4m.prototype={
+B.aGx.prototype={
+gey(){return"Pre-cadastro Perfect Gest Dev"},
+gi5(){return"Pre-cadastro"},
+gP9(){return"Deixe seu contato"},
+gPY(){return"Informe nome e e-mail para receber novidades sobre PerfectGest e solu\xe7\xf5es Perfect Gest Dev."},
+gRp(){return"Parte deste pr\xe9-cadastro destina-se a convites para o nosso programa de pr\xe9-lan\xe7amento: acesso integral \xe0s vers\xf5es em desenvolvimento dos aplicativos, com oportunidade de testar funcionalidades em antecipa\xe7\xe3o e contribuir com feedback que orienta a evolu\xe7\xe3o do produto antes do lan\xe7amento p\xfablico."},
+gOq(){return"Nome"},
+gOp(){return"Seu nome completo"},
+gOo(){return"E-mail"},
+gOn(){return"seu@email.com"},
+gOm(){return"Coment\xe1rio"},
+gOl(){return"Opcional \u2014 como podemos ajudar?"},
+gpR(){return"Li e aceito a "},
+gpQ(){return"pol\xedtica de privacidade"},
+gpS(){return" e autorizo o contacto sobre novidades, convites de pr\xe9-lan\xe7amento e servi\xe7os indicados."},
+gp8(){return"Enviar pre-cadastro"},
+gp9(){return"Enviando\u2026"},
+gpb(){return"Pre-cadastro recebido"},
+gpa(){return"Obrigado! Entraremos em contacto em breve no e-mail informado."},
+iC(d){var w
+A:{if("consent_required"===d){w="Aceite a pol\xedtica de privacidade para continuar."
+break A}if("name_invalid"===d){w="Informe um nome v\xe1lido (m\xednimo 2 caracteres)."
+break A}if("email_invalid"===d){w="Informe um e-mail v\xe1lido."
+break A}if("network_error"===d){w="Sem liga\xe7\xe3o \xe0 internet. Verifique a sua conex\xe3o e tente novamente."
+break A}if("api_waking"===d){w="O servidor est\xe1 a iniciar (cold start \u2014 pode demorar at\xe9 1 min). Aguarde e envie novamente."
+break A}if("api_not_deployed"===d){w="O servi\xe7o de registos est\xe1 temporariamente indispon\xedvel. Envie um e-mail para suporte@perfectgestdev.com e registamos o seu contacto."
+break A}if("api_unavailable"===d){w="Servi\xe7o temporariamente indispon\xedvel. Tente mais tarde ou escreva para suporte@perfectgestdev.com."
+break A}if("api_unconfigured"===d){w="API de registos n\xe3o configurada. Contacte suporte@perfectgestdev.com."
+break A}w="N\xe3o foi poss\xedvel enviar agora. Tente novamente ou escreva para suporte@perfectgestdev.com."
+break A}return w},
+gMb(){return"Voltar ao in\xedcio"}}
+B.aGv.prototype={
+gey(){return"Pre-registration Perfect Gest Dev"},
+gi5(){return"Pre-registration"},
+gP9(){return"Leave your contact details"},
+gPY(){return"Enter your name and email to receive updates about PerfectGest and Perfect Gest Dev solutions."},
+gRp(){return"Pre-registration also enables us to invite selected participants to our pre-launch program: full access to in-development app builds, early feature testing, and feedback that helps shape the product before public release."},
+gOq(){return"Name"},
+gOp(){return"Your full name"},
+gOo(){return"Email"},
+gOn(){return"you@email.com"},
+gOm(){return"Comment"},
+gOl(){return"Optional \u2014 how can we help?"},
+gpR(){return"I have read and accept the "},
+gpQ(){return"privacy policy"},
+gpS(){return" and authorize contact about updates, pre-launch invitations, and the services mentioned."},
+gp8(){return"Submit pre-registration"},
+gp9(){return"Sending\u2026"},
+gpb(){return"Pre-registration received"},
+gpa(){return"Thank you! We will contact you soon at the email provided."},
+iC(d){var w
+A:{if("consent_required"===d){w="Please accept the privacy policy to continue."
+break A}if("name_invalid"===d){w="Enter a valid name (at least 2 characters)."
+break A}if("email_invalid"===d){w="Enter a valid email address."
+break A}if("network_error"===d){w="Could not reach the registration server. Check your connection or try again shortly."
+break A}if("api_waking"===d){w="The server is starting (free tier may take up to 1 minute). Wait and submit again."
+break A}if("api_not_deployed"===d){w="Registration service is not active yet. Email suporte@perfectgestdev.com or try later."
+break A}if("api_unavailable"===d){w="Service temporarily unavailable. Try again later."
+break A}if("api_unconfigured"===d){w="Lead API is not configured in this environment."
+break A}w="Could not submit right now. Try again or email suporte@perfectgestdev.com."
+break A}return w},
+gMb(){return"Back to home"}}
+B.aGw.prototype={
+gey(){return"Pre-registro Perfect Gest Dev"},
+gi5(){return"Pre-registro"},
+gP9(){return"Deje su contacto"},
+gPY(){return"Indique nombre y correo para recibir novedades sobre PerfectGest y soluciones Perfect Gest Dev."},
+gRp(){return"Parte de este pre-registro sirve para invitar a participantes seleccionados al programa de prelanzamiento: acceso completo a las versiones en desarrollo de las aplicaciones, prueba anticipada de funcionalidades y retroalimentaci\xf3n que orienta la evoluci\xf3n del producto antes del lanzamiento p\xfablico."},
+gOq(){return"Nombre"},
+gOp(){return"Su nombre completo"},
+gOo(){return"Correo electr\xf3nico"},
+gOn(){return"su@email.com"},
+gOm(){return"Comentario"},
+gOl(){return"Opcional \u2014 \xbfc\xf3mo podemos ayudar?"},
+gpR(){return"He le\xeddo y acepto la "},
+gpQ(){return"pol\xedtica de privacidad"},
+gpS(){return" y autorizo el contacto sobre novedades, invitaciones de prelanzamiento y los servicios indicados."},
+gp8(){return"Enviar pre-registro"},
+gp9(){return"Enviando\u2026"},
+gpb(){return"Pre-registro recibido"},
+gpa(){return"\xa1Gracias! Le contactaremos pronto en el correo indicado."},
+iC(d){var w
+A:{if("consent_required"===d){w="Acepte la pol\xedtica de privacidad para continuar."
+break A}if("name_invalid"===d){w="Indique un nombre v\xe1lido (m\xednimo 2 caracteres)."
+break A}if("email_invalid"===d){w="Indique un correo electr\xf3nico v\xe1lido."
+break A}if("network_error"===d){w="No se pudo contactar el servidor de registros. Verifique internet o intente de nuevo."
+break A}if("api_waking"===d){w="El servidor est\xe1 iniciando (el plan gratuito puede tardar 1 minuto). Espere e intente de nuevo."
+break A}if("api_not_deployed"===d){w="El servicio de registro a\xfan no est\xe1 activo. Escriba a suporte@perfectgestdev.com."
+break A}if("api_unavailable"===d){w="Servicio temporalmente no disponible. Intente m\xe1s tarde."
+break A}if("api_unconfigured"===d){w="La API de leads a\xfan no est\xe1 configurada."
+break A}w="No se pudo enviar ahora. Intente de nuevo o escriba a suporte@perfectgestdev.com."
+break A}return w},
+gMb(){return"Volver al inicio"}}
+B.l0.prototype={
+a8(){var w=$.ar()
+return new B.a4l(new A.b5(null,x.m),new A.ik(C.cN,w),new A.ik(C.cN,w),new A.ik(C.cN,w),new A.ik(C.cN,w))}}
+B.a4l.prototype={
 ao(){this.aO()
-E.aWX()},
-l(){A.pJ()
-this.aA()},
-E(d){var x,w,v,u,t=null,s=A.x(d),r=A.b7(d,C.aq,y.h).w.a.a,q=r<400?16:24,p=A.c2(d,C.ay,y.p)
-p.toString
-x=B.b5X(d)
-w=x.gey()
-v=A.x(d).ax.a===C.D?C.by:C.bf
-u=x.gi5()
-return A.aH(t,t,t,A.j4(F.aLg(d,new B.aDj(d),this.a.c,u),v,new A.jV(A.l_(new B.aDk(q,x,s.ax,r,p)),t),t,t),!1,t,t,t,!1,t,t,t,t,t,t,t,t,t,w,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,C.o,t)}}
-B.lx.prototype={
-E(d){var x,w,v,u,t=null,s=A.x(d).ax,r=A.b7(d,C.aq,y.h).w.a.a,q=r<400?12:16,p=this.c,o=s.RG
-o=(o==null?s.k2:o).af(0.5)
-x=A.cj(14)
-w=s.ry
-if(w==null){w=s.p
-if(w==null)w=s.k3}w=A.h_(w.af(0.4),1)
-v=r<360
-u=v?15:16
-u=A.I(p,t,t,t,t,A.b4().$3$color$fontSize$fontWeight(s.b,u,C.ap),t,t)
-v=v?13:14
-return new A.aD(G.rC,A.aH(t,t,t,A.dd(new A.aD(new A.a6(q,16,q,18),A.bf(A.b([u,C.b3,A.I(this.d,t,t,t,t,A.b4().$3$color$fontSize$height(s.k3.af(0.88),v,1.55),t,t)],y.e),C.I,C.n,C.q),t),new A.bA(o,t,w,x,t,t,C.M),C.ai),!0,t,t,t,!1,t,t,t,t,t,t,t,t,t,p,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,C.o,t),t)}}
+A.kf()
+A.e5("description","Pre-cadastro Perfect Gest Dev: deixe nome, e-mail e comentario para receber novidades sobre apps Flutter, web e integracoes Java.")
+A.e5("keywords","Perfect Gest Dev, pre-cadastro, newsletter, Flutter, software house, contato, leads")
+A.e5("robots","index, follow")
+A.d2("og:title","Pre-cadastro | Perfect Gest Dev")
+A.d2("og:description","Formulario rapido para acompanhar lancamentos e solucoes da Perfect Gest Dev.")
+A.d2("og:type","website")
+A.d2("og:locale","pt_BR")
+b.G.document.title="Pre-cadastro | Perfect Gest Dev"},
+l(){var w=this,v=w.e,u=v.P$=$.ar()
+v.O$=0
+v=w.f
+v.P$=u
+v.O$=0
+v=w.r
+v.P$=u
+v.O$=0
+v=w.w
+v.P$=u
+v.O$=0
+A.px()
+w.aA()},
+BJ(d){return this.asK(d)},
+asK(d){var w=0,v=A.Q(x.H),u,t=this,s,r,q,p
+var $async$BJ=A.M(function(e,f){if(e===1)return A.N(f,v)
+for(;;)switch(w){case 0:if(t.y){w=1
+break}t.a7(new B.aDF(t))
+if(!t.x){t.a7(new B.aDG(t))
+w=1
+break}s=t.d.gT()
+s=s==null?null:s.z0()
+if(s!==!0){w=1
+break}t.a7(new B.aDH(t))
+r=t.c.ai(x.l).r.f.kB("-")
+s=t.e.a.a
+q=t.f.a.a
+w=3
+return A.T(B.Rv(t.r.a.a,t.x,q,r,s,t.w.a.a),$async$BJ)
+case 3:p=f
+if(t.c==null){w=1
+break}t.a7(new B.aDI(t,p))
+case 1:return A.O(u,v)}})
+return A.P($async$BJ,v)},
+E(d){var w=this,v=null,u=A.w(d).ax,t=A.b6(d,C.aq,x.w).w.a.a<400?16:24,s=B.b5U(d),r=s.gey(),q=A.w(d).ax.a===C.D?C.by:C.bf,p=s.gi5()
+p=E.aLf(d,v,w.a.c,p)
+return A.aG(v,v,v,A.iZ(p,q,new A.jR(A.h6(A.dF(new A.cP(D.LY,w.z?w.af_(d,s,u):w.aeP(d,s,u),v),v,v),v,new A.a6(t,16,t,28),C.ad),v),v,v),!1,v,v,v,!1,v,v,v,v,v,v,v,v,v,r,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,v,C.o,v)},
+af_(d,e,f){var w=null
+return new A.mA(A.be(A.b([A.cB(C.tp,f.b,w,48),C.bu,A.u8(d,e.gpb(),w,20),C.aC,A.G(e.gpa(),w,w,w,w,A.ng(d,15,1.5),w,w),C.p1,A.aMm(A.G(e.gMb(),w,w,w,w,w,w,w),new B.aDE(d),w)],x.p),C.aH,C.n,C.q),18,C.jj,w)},
+aeP(d,e,f){var w,v,u,t,s,r,q,p,o=this,n=null,m=e.gP9()
+m=A.u8(d,m,n,A.b6(d,C.aq,x.w).w.a.a<400?18:22)
+w=A.G(e.gPY(),n,n,n,n,A.ng(d,15,1.5),n,n)
+v=A.G(e.gRp(),n,n,n,n,A.ng(d,13.5,1.5).ax7(f.k3.af(0.82),1.5),n,n)
+u=e.gOq()
+u=o.WC(o.e,e.gOp(),C.Kg,u,new B.aDz(e))
+t=e.gOo()
+t=o.WC(o.f,e.gOn(),C.pb,t,new B.aDA(e))
+s=e.gOm()
+s=o.ahM(o.r,e.gOl(),C.lp,s,4,!1)
+r=A.Dh(A.c7(A.aNy(n,C.ds,!1,n,!0,C.X,n,A.aXU(),o.w,n,n,n,n,n,2,D.TO,C.aM,!0,n,!0,n,!1,n,C.eI,n,n,n,n,n,n,n,n,1,n,n,!1,"\u2022",n,n,n,n,n,!1,n,n,!1,n,!0,n,C.ji,n,n,n,n,n,n,n,n,n,n,n,n,!0,C.bj,n,C.p7,n,n,n,n),0,n),0)
+q=o.x
+p=x.p
+q=A.b([u,C.ce,t,C.ce,s,r,C.bu,A.cS(A.b([A.aLU(n,!1,n,n,n,!1,n,n,o.y?n:new B.aDB(o),n,n,n,n,n,!1,q),A.ee(new A.aC(C.rE,A.he(C.bk,A.b([A.G(e.gpR(),n,n,n,n,A.ng(d,13,1.5),n,n),A.hw(!1,n,!0,A.G(e.gpQ(),n,n,n,n,A.ng(d,13,1.5).axj(f.b,C.dC,C.a4),n,n),n,!0,n,n,n,n,n,n,n,n,n,new B.aDC(d),n,n,n,n,n,n,n),A.G(e.gpS(),n,n,n,n,A.ng(d,13,1.5),n,n)],p),C.cf,0,0),n),1)],p),C.I,C.n,C.q,0)],p)
+u=o.Q
+if(u!=null)C.b.Z(q,A.b([C.aC,A.G(e.iC(u),n,n,n,n,A.b2().$3$color$fontSize$fontWeight(f.fy,13,C.a4),n,n)],p))
+q.push(C.cq)
+u=o.y
+t=u?n:new B.aDD(o,e)
+s=u?A.c7(A.aQC(f.c,2),18,18):D.T8
+q.push(A.aMn(s,A.G(u?e.gp9():e.gp8(),n,n,n,n,n,n,n),t,n))
+return A.aRL(A.be(A.b([m,C.Z,w,C.aC,v,C.cq,new A.mA(A.be(q,C.aH,C.n,C.q),18,C.jj,n)],p),C.aH,C.n,C.q),o.d)},
+WD(d,e,f,g,h,i,j){var w=null,v=this.y,u=i?j:w
+return A.aUc(d,A.ahw(w,C.og,w,w,w,w,w,w,!0,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,e,w,w,w,w,w,!0,w,w,g,!0,!0,!1,w,w,w,w,w,w,w,w,w,w,w,w,w,w),!v,f,h,u)},
+WC(d,e,f,g,h){return this.WD(d,e,f,g,1,!0,h)},
+ahM(d,e,f,g,h,i){return this.WD(d,e,f,g,h,i,null)}}
 var z=a.updateTypes([])
-B.aDj.prototype={
-$0(){return A.ce(this.a,!1).ds()},
+B.aKq.prototype={
+$1(d){return d.a_x("GET",this.a,this.b)},
+$S:216}
+B.aDF.prototype={
+$0(){var w=this.a
+w.Q=null
+w.z=!1},
 $S:0}
-B.aDk.prototype={
-$2(b3,b4){var x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9=this,b0=null,b1="suporte@perfectgestdev.com",b2=b4.b
-b2=b2<1/0&&isFinite(b2)?b2:A.b7(b3,C.aq,y.h).w.a.a
-x=C.d.d3(b2<720?b2:720,200,720)
-w=a9.a
-v=a9.b
-u=a9.c
-t=u.b
-s=A.I(v.gi7(),b0,b0,b0,b0,A.b4().$4$color$fontSize$fontWeight$letterSpacing(t,13,C.ap,0.4),b0,b0)
-r=v.gkF()
-q=a9.d
-p=q<400
-o=p?18:22
-n=u.k3
-o=A.I(r,b0,b0,b0,b0,A.b4().$4$color$fontSize$fontWeight$height(n,o,C.ah,1.2),b0,b0)
-r=A.I(v.qu(b1),b0,b0,b0,b0,A.b4().$3$color$fontSize$height(n.af(0.72),13,1.45),b0,b0)
-m=v.goO()
-l=v.goN()
-k=v.goQ()
-j=v.goP()
-i=v.goS()
-h=v.goR()
-g=v.goU()
-f=v.goT()
-e=v.gGq()
-d=v.gGp()
-a0=v.gGs()
-a1=v.Gr(b1)
-a2=v.gGu()
-a3=v.gGt()
-a4=u.d
-t=(a4==null?t:a4).af(0.35)
-a4=A.cj(14)
-a5=u.ry
-if(a5==null){u=u.p
-if(u==null)u=n}else u=a5
-u=A.h_(u.af(0.45),1)
-p=p?14:16
-a5=A.I(v.gNc(),b0,b0,b0,b0,A.b4().$3$color$fontSize$fontWeight(n,14,C.ap),b0,b0)
-a6=A.I(v.gNb(),b0,b0,b0,b0,A.b4().$3$color$fontSize$height(n.af(0.8),12.5,1.45),b0,b0)
-a7=a9.e
-a8=y.e
-return A.hb(A.dH(new A.cS(new A.a4(0,x,0,1/0),A.bf(A.b([s,C.aw,o,C.b3,r,C.eD,new B.lx(m,l,b0),new B.lx(k,j,b0),new B.lx(i,h,b0),new B.lx(g,f,b0),new B.lx(e,d,b0),new B.lx(a0,a1,b0),new B.lx(a2,a3,b0),C.cq,A.dd(new A.aD(new A.a6(p,p,p,p),A.bf(A.b([a5,C.Z,a6,C.aC,A.hj(C.bk,A.b([A.aMo(D.T6,A.I(q<360?v.gLX():v.gLW(),b0,b0,b0,b0,b0,C.dY,b0),new B.aDh(b3,v),b0),new A.Dv(!1,new B.aDi(b3,a7),b0,b0,b0,b0,b0,b0,!1,b0,!0,b0,A.I(a7.gwO(),b0,b0,b0,b0,b0,b0,b0),b0)],a8),C.cf,8,8)],a8),C.aH,C.n,C.q),b0),new A.bA(t,b0,u,a4,b0,b0,C.M),C.ai),C.p1,A.I(a7.tf(A.mv(new A.eB(Date.now(),0,!1))),b0,b0,b0,b0,A.b4().$2$color$fontSize(n.af(0.65),12),C.dY,b0)],a8),C.I,C.n,C.q),b0),b0,b0),b0,new A.a6(w,16,w,28),C.ad)},
-$S:121}
-B.aDh.prototype={
-$0(){var x,w=null
-A.aXq()
-x=this.a
-if(x.e==null)return
-x.ai(y.f).f.GG(A.asq(w,w,w,w,C.ih,C.X,w,A.I(this.b.gGM(),w,w,w,w,w,w,w),w,C.jg,w,w,w,w,w,w,w,w,w,w))},
+B.aDG.prototype={
+$0(){return this.a.Q="consent_required"},
 $S:0}
-B.aDi.prototype={
-$0(){var x,w=null
-A.aXe()
-x=this.a
-if(x.e==null)return
-x.ai(y.f).f.GG(A.asq(w,w,w,w,C.ih,C.X,w,A.I(this.b.gwO(),w,w,w,w,w,w,w),w,C.jg,w,w,w,w,w,w,w,w,w,w))},
-$S:0};(function inheritance(){var x=a.inherit,w=a.inheritMany
-x(B.as5,A.J)
-w(B.as5,[B.aGu,B.aGs,B.aGt])
-x(B.oA,A.M)
-x(B.a4m,A.U)
-w(A.i_,[B.aDj,B.aDh,B.aDi])
-x(B.aDk,A.lV)
-x(B.lx,A.Y)})()
-A.ng(b.typeUniverse,JSON.parse('{"oA":{"M":[],"e":[]},"a4m":{"U":["oA"]},"lx":{"Y":[],"e":[]}}'))
-var y={p:A.a2("fD"),e:A.a2("o<e>"),h:A.a2("f5"),k:A.a2("kd"),f:A.a2("yR")};(function constants(){D.Ob=new B.aGs()
-D.Oc=new B.aGt()
-D.Od=new B.aGu()
-D.Su=new A.bB(57690,"MaterialIcons",!1)
-D.T6=new A.di(D.Su,20,null,null,null)})()};
-(a=>{a["+btOuxXvlcruzHMfJtNWdvRvmeU="]=a.current})($__dart_deferred_initializers__);
+B.aDH.prototype={
+$0(){return this.a.y=!0},
+$S:0}
+B.aDI.prototype={
+$0(){var w,v=this.a
+v.y=!1
+w=this.b
+if(w.a){v.z=!0
+v.e.nv(C.p8)
+v.f.nv(C.p8)
+v.r.nv(C.p8)
+v.x=!1}else{w=w.b
+v.Q=w==null?"server_error":w}},
+$S:0}
+B.aDE.prototype={
+$0(){var w,v=this.a
+if(A.cb(v,!1).wF())A.cb(v,!1).ds()
+else{w=x.X
+A.cb(v,!1).a6o("/",w,w)}},
+$S:0}
+B.aDz.prototype={
+$1(d){if(C.c.da(d==null?"":d).length<2)return this.a.iC("name_invalid")
+return null},
+$S:47}
+B.aDA.prototype={
+$1(d){var w=C.c.da(d==null?"":d)
+if(!C.c.n(w,"@")||!C.c.n(w,"."))return this.a.iC("email_invalid")
+return null},
+$S:47}
+B.aDB.prototype={
+$1(d){var w=this.a
+return w.a7(new B.aDy(w,d))},
+$S:49}
+B.aDy.prototype={
+$0(){return this.a.x=this.b===!0},
+$S:0}
+B.aDC.prototype={
+$0(){return A.cb(this.a,!1).lW("/politica-privacidade-site",x.X)},
+$S:0}
+B.aDD.prototype={
+$0(){return this.a.BJ(this.b)},
+$S:0};(function inheritance(){var w=a.inheritMany,v=a.inherit
+w(A.jo,[B.aKq,B.aDz,B.aDA,B.aDB])
+v(B.as5,A.L)
+w(B.as5,[B.aGx,B.aGv,B.aGw])
+v(B.l0,A.S)
+v(B.a4l,A.V)
+w(A.jp,[B.aDF,B.aDG,B.aDH,B.aDI,B.aDE,B.aDy,B.aDC,B.aDD])})()
+A.tW(b.typeUniverse,JSON.parse('{"l0":{"S":[],"e":[]},"a4l":{"V":["l0"]}}'))
+var y={b:"https://perfectgest-leads-api-2ztg.onrender.com/api/leads"}
+var x=(function rtii(){var w=A.a4
+return{L:w("cq"),p:w("x<e>"),m:w("b5<vl>"),d:w("f0"),f:w("bl<@,@>"),w:w("fH"),K:w("L"),q:w("rR"),N:w("n"),l:w("lp"),X:w("L?"),T:w("n?"),H:w("~")}})();(function constants(){D.LY=new A.a3(0,520,0,1/0)
+D.Oe=new B.aGv()
+D.Of=new B.aGw()
+D.Og=new B.aGx()
+D.QM=new A.aU(12e6)
+D.R4=new A.aU(9e7)
+D.T8=new A.dg(C.tq,18,null,null,null)
+D.TO=new A.qK(null,null,null,"Website",null,null,null,null,null,null,null,null,null,null,null,null,!0,!0,!1,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,!0,null,null,null,null)
+D.tF=new A.f0(!1,"api_not_deployed")
+D.Uk=new A.f0(!1,"api_unavailable")})()};
+(a=>{a["IFrV8LDPZu4MEWW8LLXsC6+cJnk="]=a.current})($__dart_deferred_initializers__);
