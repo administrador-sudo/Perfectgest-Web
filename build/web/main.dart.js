@@ -101139,7 +101139,7 @@ gEG(){return"Taxas de \xf3rg\xe3os na abertura e na transforma\xe7\xe3o MEI para
 gqE(){return"m\xeas"},
 gyg(){return"ano"},
 gMx(){return"\xc0 vista anual"},
-gyi(){return"12 \xd7 R$ 40,00 = R$ 480,00. \xc0 vista R$ 456,99 (desconto de R$ 23,01)."},
+gyi(){return"(desconto de R$ 23,01)."},
 F1(a){return"Honor\xe1rios \xe0 vista anual: "+a+"."},
 F3(a){return"Uma vez ao ano ser\xe1 emitida uma nota fiscal e um boleto de honor\xe1rios no valor de "+a+"."},
 gLi(){return"R$ 119,99/ano"},

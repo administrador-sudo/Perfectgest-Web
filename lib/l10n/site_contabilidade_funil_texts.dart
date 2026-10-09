@@ -256,7 +256,7 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
 
   @override
   String get planMeiDesconto =>
-      '12 × R\$ 40,00 = R\$ 480,00. À vista R\$ 456,99 (desconto de R\$ 23,01).';
+      '(desconto de R\$ 23,01).';
 
   @override
   String proposalMeiAvista(String annual) =>
