@@ -124,6 +124,20 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
 
   double get _primeiroBoleto => _boletoMensal + _extrasPrimeiroBoleto;
 
+  String _itens12(SiteContabilidadeFunilTexts st) {
+    final parts = <String>[st.itemHonorarios];
+    if (_folha) parts.add(st.itemFolha);
+    return parts.join(' + ');
+  }
+
+  String _itensPrimeiro(SiteContabilidadeFunilTexts st) {
+    final parts = <String>[st.itemHonorarios];
+    if (_folha) parts.add(st.itemFolha);
+    if (_a1) parts.add(st.itemA1);
+    if (_ir) parts.add(st.itemIr);
+    return parts.join(' + ');
+  }
+
   String _brl(double value) {
     return 'R\$ ${value.toStringAsFixed(2).replaceAll('.', ',')}';
   }
@@ -139,9 +153,8 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
     final line =
         '[CONTABILIDADE] ${_tipo ?? '-'}; $acomp; $faixa; honorários ${_brl(_faixaMensal)}/mês; '
         'Folha ${_folha ? 'S ${_brl(kFunilFolhaMensal)}' : 'N'}; '
-        '12x S ${_brl(_boletoMensal)}/mês renovação automática; '
-        '1º boleto ${_brl(_primeiroBoleto)}'
-        '${_a1 || _ir ? ' (A1/IR no 1º boleto)' : ''}; '
+        '12x S ${_brl(_boletoMensal)}/mês (${_itens12(st)}); '
+        '1ª NF e boleto ${_brl(_primeiroBoleto)} (${_itensPrimeiro(st)}); '
         'A1 ${_a1 ? 'S renovação 12 meses' : 'N'}; '
         'IR ${_ir ? 'S cobrado no mês do IR do próximo ano' : 'N'}; '
         'cancelamento 30 dias (senão proporcional até cessar); '
@@ -149,6 +162,45 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
         'WhatsApp ${_digits(_whatsAppCtrl.text)}; CNPJ ${_digits(_cnpjCtrl.text)}; '
         'razão social ${_razaoCtrl.text.trim()}';
     return line.length <= 4000 ? line : line.substring(0, 4000);
+  }
+
+  String _aceiteEmFmt() {
+    final a = DateTime.now();
+    String d2(int n) => n.toString().padLeft(2, '0');
+    return '${d2(a.day)}/${d2(a.month)}/${a.year} ${d2(a.hour)}:${d2(a.minute)}';
+  }
+
+  String _fichaProposta(SiteContabilidadeFunilTexts st) {
+    final mensal = _boletoMensal;
+    final primeiro = _primeiroBoleto;
+    final linhas = <String>[
+      st.proposalTitle,
+      '${st.fieldName}: ${_nomeCtrl.text.trim()}',
+      '${st.fieldEmail}: ${_emailCtrl.text.trim()}',
+      '${st.fieldWhatsApp}: ${_whatsAppCtrl.text.trim()}',
+      '${st.fieldRazao}: ${_razaoCtrl.text.trim()}',
+      '${st.fieldCnpj}: ${_cnpjCtrl.text.trim()}',
+      '${st.tipoLabel}: ${_tipo == 'MEI' ? st.tipoMei : st.tipoMe}',
+      '${st.faixaLabel}: ${_faixaId == null ? '-' : st.planName(_faixaId!)}',
+      '${st.proposalHonorariosLabel}: ${_brl(_faixaMensal)}/${st.perMonth}',
+      if (_folha) '${st.extraFolha}: ${_brl(kFunilFolhaMensal)}/${st.perMonth}',
+      if (_ir) '${st.extraIr}: ${_brl(kFunilIrAno)}',
+      if (_a1) '${st.extraA1}: ${_brl(kFunilA1Ano)}',
+      st.officeTotalLabel,
+      st.officeTotalHint(_itens12(st), _brl(mensal)),
+      st.proposalParcelarHint(_brl(mensal)),
+      st.proposalFirstNfBoleto(_itensPrimeiro(st), _brl(primeiro)),
+      st.proposalNfObs(_brl(mensal)),
+      if (_a1) st.proposalA1Rule,
+      if (_ir) st.proposalIrRule,
+      st.proposalRenewal,
+      st.proposalCancel,
+      st.proposalSla,
+      st.proposalAceiteCobranca,
+      'Aceite em: ${_aceiteEmFmt()}',
+    ];
+    final text = linhas.join('\n');
+    return text.length <= 8000 ? text : text.substring(0, 8000);
   }
 
   Future<void> _openExternal(String url) async {
@@ -243,17 +295,15 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                         const SizedBox(height: 8),
                         Text(st.officeTotalLabel, style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
                         Text(
-                          st.officeTotalHint(_brl(mensal)),
+                          st.officeTotalHint(_itens12(st), _brl(mensal)),
                           style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600, height: 1.35),
                         ),
                         const SizedBox(height: 8),
                         Text(st.proposalParcelarHint(_brl(mensal)), style: const TextStyle(fontSize: 13, height: 1.35)),
                         const SizedBox(height: 6),
-                        Text(st.proposalNfObs(_brl(mensal)), style: const TextStyle(fontSize: 13, height: 1.35)),
-                        if (_a1 || _ir) ...[
-                          const SizedBox(height: 6),
-                          Text(st.proposalFirstBoleto(_brl(primeiro)), style: const TextStyle(fontSize: 13, height: 1.35)),
-                        ],
+                        _fraseRelevo(st.proposalFirstNfBoleto(_itensPrimeiro(st), _brl(primeiro))),
+                        const SizedBox(height: 8),
+                        _fraseRelevo(st.proposalNfObs(_brl(mensal))),
                         if (_a1) ...[
                           const SizedBox(height: 6),
                           Text(st.proposalA1Rule, style: const TextStyle(fontSize: 13, height: 1.35)),
@@ -268,6 +318,11 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                         Text(st.proposalCancel, style: const TextStyle(fontSize: 13, height: 1.4)),
                         const SizedBox(height: 6),
                         Text(st.proposalSla, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w700)),
+                        const SizedBox(height: 12),
+                        Text(
+                          st.proposalAceiteCobranca,
+                          style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w800, height: 1.35),
+                        ),
                         const SizedBox(height: 16),
                         sitePrimaryActionButton(
                           context: context,
@@ -291,6 +346,21 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
     );
   }
 
+  Widget _fraseRelevo(String text) {
+    return Container(
+      padding: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: const Color(0xFFF5E6C8),
+        border: Border.all(color: kFunilGreen, width: 1.5),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Text(
+        text,
+        style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w800, height: 1.35),
+      ),
+    );
+  }
+
   Widget _resumoLinha(String label, String value) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 6),
@@ -302,6 +372,7 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
     if (_submitting) return;
     setState(() => _submitting = true);
     final comentario = _comentarioLinha();
+    final ficha = _fichaProposta(st);
     final locale = Localizations.localeOf(context).toLanguageTag();
     var result = const LeadCaptureResult(ok: false, errorMessage: 'server_error');
     try {
@@ -314,6 +385,9 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
         regime: _tipo ?? '',
         faixa: _faixaId ?? '',
         boletoHonorarios: _boletoMensal,
+        primeiroBoleto: _primeiroBoleto,
+        fichaProposta: ficha,
+        aceiteCobranca: true,
         folha: _folha,
         ir: _ir,
         a1: _a1,

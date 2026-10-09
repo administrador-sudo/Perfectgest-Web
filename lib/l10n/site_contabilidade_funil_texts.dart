@@ -74,8 +74,12 @@ abstract class SiteContabilidadeFunilTexts {
   String get extraIr;
   String get extraA1;
   String get officeTotalLabel;
-  String officeTotalHint(String monthly);
-  String proposalFirstBoleto(String amount);
+  String get itemHonorarios;
+  String get itemFolha;
+  String get itemA1;
+  String get itemIr;
+  String officeTotalHint(String items, String monthly);
+  String proposalFirstNfBoleto(String items, String amount);
   String get proposalA1Rule;
   String get proposalIrRule;
   String get consentPrefix;
@@ -93,6 +97,7 @@ abstract class SiteContabilidadeFunilTexts {
   String get proposalRenewal;
   String get proposalCancel;
   String get proposalSla;
+  String get proposalAceiteCobranca;
   String get successTitle;
   String get successBody;
   String get successPlayNote;
@@ -309,12 +314,24 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
   String get officeTotalLabel => '12 parcelas mensais';
 
   @override
-  String officeTotalHint(String monthly) =>
-      'Honorários + Contador faz a folha (se contratado): 12 parcelas de $monthly, com renovação automática.';
+  String get itemHonorarios => 'Honorários';
 
   @override
-  String proposalFirstBoleto(String amount) =>
-      'A1 e IR (se contratados) entram no primeiro boleto. Valor do primeiro boleto: $amount.';
+  String get itemFolha => 'Contador faz a folha';
+
+  @override
+  String get itemA1 => 'A1';
+
+  @override
+  String get itemIr => 'IR';
+
+  @override
+  String officeTotalHint(String items, String monthly) =>
+      '$items: 12 parcelas de $monthly, com renovação automática.';
+
+  @override
+  String proposalFirstNfBoleto(String items, String amount) =>
+      'Primeira NF e primeiro boleto: $amount ($items).';
 
   @override
   String get proposalA1Rule => 'O certificado A1 é renovado em 12 meses.';
@@ -371,6 +388,10 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
 
   @override
   String get proposalSla => 'O escritório responde em 1 dia útil.';
+
+  @override
+  String get proposalAceiteCobranca =>
+      'Ao enviar esta ficha, você estará aceitando a cobrança.';
 
   @override
   String get successTitle => 'Envio realizado com sucesso';
@@ -773,12 +794,24 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
   String get officeTotalLabel => '12 monthly installments';
 
   @override
-  String officeTotalHint(String monthly) =>
-      'Fees + payroll add-on (if hired): 12 installments of $monthly, with automatic renewal.';
+  String get itemHonorarios => 'Fees';
 
   @override
-  String proposalFirstBoleto(String amount) =>
-      'A1 and income tax (if hired) go on the first boleto. First boleto amount: $amount.';
+  String get itemFolha => 'Accountant runs payroll';
+
+  @override
+  String get itemA1 => 'A1';
+
+  @override
+  String get itemIr => 'Income tax';
+
+  @override
+  String officeTotalHint(String items, String monthly) =>
+      '$items: 12 installments of $monthly, with automatic renewal.';
+
+  @override
+  String proposalFirstNfBoleto(String items, String amount) =>
+      'First tax invoice and first boleto: $amount ($items).';
 
   @override
   String get proposalA1Rule => 'The A1 certificate is renewed every 12 months.';
@@ -835,6 +868,10 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
 
   @override
   String get proposalSla => 'The office replies within 1 business day.';
+
+  @override
+  String get proposalAceiteCobranca =>
+      'By sending this form, you accept the charges.';
 
   @override
   String get successTitle => 'Submission completed successfully';
@@ -1235,12 +1272,24 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
   String get officeTotalLabel => '12 cuotas mensuales';
 
   @override
-  String officeTotalHint(String monthly) =>
-      'Honorarios + nómina (si se contrata): 12 cuotas de $monthly, con renovación automática.';
+  String get itemHonorarios => 'Honorarios';
 
   @override
-  String proposalFirstBoleto(String amount) =>
-      'A1 e IR (si se contratan) entran en el primer boleto. Valor del primer boleto: $amount.';
+  String get itemFolha => 'El contador hace la nómina';
+
+  @override
+  String get itemA1 => 'A1';
+
+  @override
+  String get itemIr => 'IR';
+
+  @override
+  String officeTotalHint(String items, String monthly) =>
+      '$items: 12 cuotas de $monthly, con renovación automática.';
+
+  @override
+  String proposalFirstNfBoleto(String items, String amount) =>
+      'Primera NF y primer boleto: $amount ($items).';
 
   @override
   String get proposalA1Rule => 'El certificado A1 se renueva a los 12 meses.';
@@ -1297,6 +1346,10 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
 
   @override
   String get proposalSla => 'El despacho responde en 1 día hábil.';
+
+  @override
+  String get proposalAceiteCobranca =>
+      'Al enviar esta ficha, usted estará aceptando el cobro.';
 
   @override
   String get successTitle => 'Envío realizado con éxito';

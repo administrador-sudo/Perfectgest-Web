@@ -2,6 +2,61 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-09 08:41] Ficha em relevo + Firebase com aceite
+
+### Contexto
+- Destacar NF/boleto no pop e gravar a ficha completa no Firestore com aceite da cobranca.
+
+### Arquivos alterados
+- lib/contabilidade_funil_page.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- lib/funil_firestore_service.dart
+- S-App-ContabilGest/firebase/functions/crcAdminLeadsFunil.js
+- docs/Atualiza.md
+
+### O que foi feito
+- Frases de primeira NF/boleto e NF mensal em negrito e bloco dourado.
+- Texto de aceite antes de Enviar (PT/EN/ES).
+- POST `fichaProposta`, `aceiteCobranca`, `primeiroBoleto`. Function guarda e inclui no e-mail de suporte.
+
+### Risco de regressao
+- Function no ar so atualiza apos `.\deploy-receber-lead-funil.ps1`.
+
+### Validacao executada
+- [x] 8088 reiniciado.
+- [ ] Deploy da Function.
+
+### Resultado
+- Pop com relevo e aceite; ficha pronta para o Firestore.
+
+### Proximos passos recomendados
+- Deploy da Function. Sem publish do site.
+
+## [2026-10-09 08:30] Pop: cobranca so do que foi marcado
+
+### Contexto
+- O pop dizia «se contratado». Passa a listar so os itens clicados.
+
+### Arquivos alterados
+- lib/contabilidade_funil_page.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- 12x e primeira NF/boleto com honorario + Folha + A1 + IR somente se marcados.
+
+### Risco de regressao
+- Baixo: copy do pop.
+
+### Validacao executada
+- [x] 8088 reiniciado.
+
+### Resultado
+- Pop descreve o plano real.
+
+### Proximos passos recomendados
+- Conferir o pop em /contabilidade.
+
 ## [2026-10-09 08:20] Pop: soma 12x + extras no 1o boleto
 
 ### Contexto
@@ -81,6 +136,14 @@ Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs,
 
 ### Proximos passos recomendados
 - Recarregar 8088. Sem publish.
+
+## [2026-10-09] Funil: data/hora do aceite na ficha
+
+### Contexto
+- A ficha de proposta já ia no POST. Falta data/hora no texto do documento.
+
+### O que mudou
+- `lib/contabilidade_funil_page.dart`: linha `Aceite em: dd/MM/yyyy HH:mm` em `_fichaProposta`.
 
 ## [2026-10-09] Funil: CSP *.run.app + publish obrigatório
 
