@@ -137,6 +137,14 @@ Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs,
 ### Proximos passos recomendados
 - Recarregar 8088. Sem publish.
 
+## [2026-10-09] Funil: R\$ na successBody (publish-web)
+
+### Contexto
+- `dart2js` falhava: `R$ 19,00` em string Dart.
+
+### O que mudou
+- `lib/l10n/site_contabilidade_funil_texts.dart`: `R\$ 19,99/mês`.
+
 ## [2026-10-09] Funil: data/hora do aceite na ficha
 
 ### Contexto

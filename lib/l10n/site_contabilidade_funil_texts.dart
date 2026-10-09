@@ -370,7 +370,7 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
 
   @override
   String proposalNfObs(String monthly) =>
-      'Todo mês será emitida uma nota fiscal e um boleto de honorários no valor de $monthly.';
+      'Nos meses Subsequentes será emitida uma nota fiscal e um boleto de honorários no valor de $monthly.';
 
   @override
   String get proposalParcelar12 => 'Parcelar honorários em 12 vezes';
@@ -398,7 +398,7 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
 
   @override
   String get successBody =>
-      'Cadastro recebido. O escritório confirma o plano de honorários. Baixe o ContabilGest na Google Play: é a ferramenta de conexão para acompanhar a contabilidade em tempo real.';
+      'Cadastro recebido. O escritório confirma o plano de honorários. \nBaixe o ContabilGest na Google Play (Assinatura R\$ 19,99/mês): \nÉ a ferramenta de conexão necessária para realizar e acompanhar a contabilidade em tempo real.';
 
   @override
   String get successPlayNote =>

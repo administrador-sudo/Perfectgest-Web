@@ -4481,14 +4481,14 @@ gFi(){return"Resumo da proposta"},
 gRi(){return"Enviar a proposta para o escrit\xf3rio"},
 gRh(){return"Voltar ao formul\xe1rio"},
 gFc(){return"Honor\xe1rios no boleto CNPJ"},
-Fe(d){return"Todo m\xeas ser\xe1 emitida uma nota fiscal e um boleto de honor\xe1rios no valor de "+d+"."},
+Fe(d){return"Nos meses Subsequentes ser\xe1 emitida uma nota fiscal e um boleto de honor\xe1rios no valor de "+d+"."},
 Ff(d){return"12 parcelas de "+d+", com renova\xe7\xe3o autom\xe1tica."},
 gFg(){return"O plano de honor\xe1rios tem renova\xe7\xe3o autom\xe1tica."},
 gFa(){return"Para cancelar, avise com 30 dias de anteced\xeancia para interromper a cobran\xe7a. Sem esse aviso, cobra-se o proporcional at\xe9 o dia em que cessarem os servi\xe7os."},
 gFh(){return"O escrit\xf3rio responde em 1 dia \xfatil."},
 gF9(){return"Ao enviar esta ficha, voc\xea estar\xe1 aceitando a cobran\xe7a."},
 gpd(){return"Envio realizado com sucesso"},
-gpc(){return"Cadastro recebido. O escrit\xf3rio confirma o plano de honor\xe1rios. Baixe o ContabilGest na Google Play: \xe9 a ferramenta de conex\xe3o para acompanhar a contabilidade em tempo real."},
+gpc(){return"Cadastro recebido. O escrit\xf3rio confirma o plano de honor\xe1rios. \nBaixe o ContabilGest na Google Play (Assinatura R$ 19,99/m\xeas): \n\xc9 a ferramenta de conex\xe3o necess\xe1ria para realizar e acompanhar a contabilidade em tempo real."},
 gHj(){return"Na Google Play: R$ 19,99/m\xeas ou pagamento \xe0 vista R$ 239,88."},
 Hi(d){return"Enviamos uma c\xf3pia deste cadastro para "+d+"."},
 gHg(){return"Baixar o app na Play Store"},
@@ -5857,4 +5857,4 @@ w($,"bh2","aPG",()=>C.h.bm(0.5))
 w($,"bg7","aPy",()=>B.e0(C.cW))
 w($,"bg8","aZo",()=>B.e0(C.cC))
 w($,"bg9","aZp",()=>B.eI(0,0.5,x.i))})()};
-(a=>{a["MLeOfWAnGeZmXYKZkeDK55VqwQY="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["7omZ+mNbyDiRYxUKK++Wx57pMnQ="]=a.current})($__dart_deferred_initializers__);
