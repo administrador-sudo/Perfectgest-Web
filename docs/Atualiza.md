@@ -2,6 +2,67 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-09 09:37] MEI: parcelado 12x40 + Fidelizado à vista
+
+### Contexto
+- O Básico MEI parcelado tinha sido substituido. Voltam os dois planos.
+
+### Arquivos alterados
+- lib/contabilidade_funil_page.dart
+- lib/funil_firestore_service.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- lib/l10n/site_contabilgest_faq_texts.dart
+- lib/l10n/app_localizations.dart
+- lib/l10n/app_pt.arb, app_en.arb, app_es.arb
+- S-App-ContabilGest/firebase/functions/crcAdminLeadsFunil.js
+- docs/Atualiza.md
+
+### O que foi feito
+- Básico Microempreendedor Individual (MEI): 12 × R$ 40,00.
+- Básico Fidelizado (MEI): segunda opção, R$ 456,99 à vista anual.
+
+### Risco de regressao
+- Function no ar so atualiza apos deploy.
+
+### Validacao executada
+- [x] 8088 reiniciado.
+
+### Resultado
+- Dois planos MEI no funil.
+
+### Proximos passos recomendados
+- Conferir os dois cards em /contabilidade.
+
+## [2026-10-09 09:26] Básico Fidelizado (MEI) à vista R$ 456,99
+
+### Contexto
+- O plano MEI passava R$ 40,00/mês. Passa a R$ 456,99 à vista anual (12 × 40,00 = 480,00, desconto de 23,01).
+
+### Arquivos alterados
+- lib/contabilidade_funil_page.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- lib/l10n/site_contabilgest_faq_texts.dart
+- lib/l10n/app_localizations.dart
+- lib/l10n/app_pt.arb, app_en.arb, app_es.arb
+- S-App-ContabilGest/firebase/functions/crcAdminLeadsFunil.js
+- docs/Atualiza.md
+
+### O que foi feito
+- Card, dropdown, pop, ficha e Firebase com 456,99/ano.
+- Nome Básico Fidelizado (MEI) no funil, home e FAQ.
+
+### Risco de regressao
+- Function no ar so atualiza apos deploy.
+
+### Validacao executada
+- [x] 8088 reiniciado.
+
+### Resultado
+- MEI à vista anual com desconto.
+
+### Proximos passos recomendados
+- Conferir o card em /contabilidade. Deploy da Function.
+
 ## [2026-10-09 08:41] Ficha em relevo + Firebase com aceite
 
 ### Contexto

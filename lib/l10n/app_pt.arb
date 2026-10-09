@@ -115,7 +115,7 @@
   "@heroContabilPlansIntro": { "description": "Introducao aos planos do app contabil" },
   "heroContabilPlanBasicTitle": "Plano Básico (Indicado para MEI):",
   "@heroContabilPlanBasicTitle": { "description": "Titulo do plano basico MEI" },
-  "heroContabilPlanBasicBody": "Emissão de NF com certificado A1 (até 10 NF/mês). Autocontabilidade: sem assinatura contábil nos documentos. Honorários nesta página /contabilidade ou suporte@perfectgestdev.com. Certificado A1 Quality é oferta avulsa.",
+  "heroContabilPlanBasicBody": "Emissão de NF com certificado A1 (até 10 NF/mês). Autocontabilidade: sem assinatura contábil nos documentos. Honorários: 12 × R$ 40,00 ou Básico Fidelizado à vista anual R$ 456,99 (desconto sobre R$ 480,00). Pedido em /contabilidade ou suporte@perfectgestdev.com. Certificado A1 Quality é oferta avulsa.",
   "@heroContabilPlanBasicBody": { "description": "Descricao do plano basico MEI" },
   "heroContabilPlanActiveTitle": "Plano Contabil+ (indicado para ME):",
   "@heroContabilPlanActiveTitle": { "description": "Titulo do plano contabilidade ativa ME" },

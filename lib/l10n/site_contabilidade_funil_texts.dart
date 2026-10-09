@@ -52,6 +52,11 @@ abstract class SiteContabilidadeFunilTexts {
   String get extrasBody;
   String get organsNote;
   String get perMonth;
+  String get perYear;
+  String get colBoletoAvista;
+  String get planMeiDesconto;
+  String proposalMeiAvista(String annual);
+  String proposalNfObsMei(String annual);
   String get a1Price;
   String get a1Body;
   String get paymentLaterNote;
@@ -227,7 +232,7 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
 
   @override
   String get playNote =>
-      'Planos Contabil+ e Básico MEI: honorários nesta página ou suporte@perfectgestdev.com.';
+      'Planos Contabil+, Básico MEI (12 × R\$ 40,00) e Básico Fidelizado (MEI) à vista R\$ 456,99: honorários nesta página ou suporte@perfectgestdev.com.';
 
   @override
   String get extrasTitle => 'Extras (boleto CNPJ)';
@@ -242,6 +247,24 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
 
   @override
   String get perMonth => 'mês';
+
+  @override
+  String get perYear => 'ano';
+
+  @override
+  String get colBoletoAvista => 'À vista anual';
+
+  @override
+  String get planMeiDesconto =>
+      '12 × R\$ 40,00 = R\$ 480,00. À vista R\$ 456,99 (desconto de R\$ 23,01).';
+
+  @override
+  String proposalMeiAvista(String annual) =>
+      'Honorários à vista anual: $annual.';
+
+  @override
+  String proposalNfObsMei(String annual) =>
+      'Uma vez ao ano será emitida uma nota fiscal e um boleto de honorários no valor de $annual.';
 
   @override
   String get a1Price => 'R\$ 119,99/ano';
@@ -428,6 +451,7 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
         'welcome' => 'Tela inicial: conhecer o app sem pagar',
         'accountant' => 'Planos Contábeis com contador ativo',
         'mei' => 'Básico Microempreendedor Individual (MEI): só o app (autocontabilidade)',
+        'fidelizado' => 'Básico Fidelizado (MEI): à vista anual com desconto',
         'tabletNfe' => 'Tablet: emitir NFS-e e painel financeiro',
         'home' => 'Inicio: checklist do mes e saldo',
         'close' => 'Fecho do mes: graficos e Livro Caixa',
@@ -456,7 +480,7 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
         FunilFaqItem(
           question: 'Básico ou planos contábeis com contador ativo?',
           body:
-              'Básico MEI: autocontabilidade no app. Planos com contador ativo: sistema com IA e contador habilitado assinando os livros. Essencial é o mais escolhido por ME. Mudança de plano: suporte@perfectgestdev.com.',
+              'Básico Microempreendedor Individual (MEI): 12 parcelas de R\$ 40,00. Básico Fidelizado (MEI): à vista anual R\$ 456,99 (12 × R\$ 40,00 = R\$ 480,00, desconto de R\$ 23,01). Autocontabilidade no app. Planos com contador ativo: sistema com IA e contador habilitado assinando os livros. Essencial é o mais escolhido por ME. Mudança de plano: suporte@perfectgestdev.com.',
         ),
         FunilFaqItem(
           question: 'Há uma equipe de contabilistas?',
@@ -535,6 +559,7 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
   @override
   String planName(String id) => switch (id) {
         'mei' => 'Básico Microempreendedor Individual (MEI)',
+        'fidelizado' => 'Básico Fidelizado (MEI)',
         'essencial' => 'Planos Contábeis Essencial',
         'standard' => 'Planos Contábeis Intermediário',
         'avancado' => 'Planos Contábeis Avançado',
@@ -545,6 +570,20 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
   List<String> planItems(String id) => switch (id) {
         'mei' => const <String>[
             'Para Microempreendedor Individual (MEI)',
+            'Honorários em 12 parcelas de R\$ 40,00',
+            'Autocontabilidade no aplicativo',
+            'Livro Caixa',
+            'Contas a receber e a pagar',
+            'Obrigações do mês',
+            'Assistente de inteligência artificial',
+            'Emissão de notas fiscais eletrônicas',
+            'Até 5 notas fiscais (NFs) por mês',
+            'Sem empregados com carteira assinada',
+            'Sem contador assinando os livros',
+          ],
+        'fidelizado' => const <String>[
+            'Para Microempreendedor Individual (MEI)',
+            'Honorários à vista anual R\$ 456,99 (12 × R\$ 40,00 = R\$ 480,00, desconto de R\$ 23,01)',
             'Autocontabilidade no aplicativo',
             'Livro Caixa',
             'Contas a receber e a pagar',
@@ -707,7 +746,7 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
 
   @override
   String get playNote =>
-      'Contabil+ and Basic MEI plans: fees on this page or suporte@perfectgestdev.com.';
+      'Contabil+, Basic MEI (12 × R\$ 40.00) and Basic Loyalty (MEI) cash R\$ 456.99: fees on this page or suporte@perfectgestdev.com.';
 
   @override
   String get extrasTitle => 'Extras (CNPJ boleto)';
@@ -722,6 +761,24 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
 
   @override
   String get perMonth => 'month';
+
+  @override
+  String get perYear => 'year';
+
+  @override
+  String get colBoletoAvista => 'Annual cash';
+
+  @override
+  String get planMeiDesconto =>
+      '12 × R\$ 40.00 = R\$ 480.00. Cash R\$ 456.99 (R\$ 23.01 off).';
+
+  @override
+  String proposalMeiAvista(String annual) =>
+      'Annual cash fees: $annual.';
+
+  @override
+  String proposalNfObsMei(String annual) =>
+      'Once a year a tax invoice and a fee boleto will be issued in the amount of $annual.';
 
   @override
   String get a1Price => 'R\$ 119.99/year';
@@ -908,6 +965,7 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
         'welcome' => 'Welcome screen: try the app at no charge',
         'accountant' => 'Accounting plans with an active accountant',
         'mei' => 'Basic Individual Microentrepreneur (MEI): app only (self-accounting)',
+        'fidelizado' => 'Basic Loyalty (MEI): annual cash with discount',
         'tabletNfe' => 'Tablet: issue NFS-e and financial panel',
         'home' => 'Home: month checklist and balance',
         'close' => 'Month close: charts and cash book',
@@ -936,7 +994,7 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
         FunilFaqItem(
           question: 'Basic or accounting plans with an active accountant?',
           body:
-              'Basic MEI: self-accounting in the app. Plans with an active accountant: AI system and a licensed accountant signing the books. Essential is the most chosen plan for ME. Plan changes: suporte@perfectgestdev.com.',
+              'Basic Individual Microentrepreneur (MEI): 12 installments of R\$ 40.00. Basic Loyalty (MEI): annual cash R\$ 456.99 (12 × R\$ 40.00 = R\$ 480.00, R\$ 23.01 off). Self-accounting in the app. Plans with an active accountant: AI system and a licensed accountant signing the books. Essential is the most chosen plan for ME. Plan changes: suporte@perfectgestdev.com.',
         ),
         FunilFaqItem(
           question: 'Is there a team of accountants?',
@@ -1013,6 +1071,7 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
   @override
   String planName(String id) => switch (id) {
         'mei' => 'Basic Individual Microentrepreneur (MEI)',
+        'fidelizado' => 'Basic Loyalty (MEI)',
         'essencial' => 'Accounting Plans Essential',
         'standard' => 'Accounting Plans Intermediate',
         'avancado' => 'Accounting Plans Advanced',
@@ -1023,6 +1082,20 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
   List<String> planItems(String id) => switch (id) {
         'mei' => const <String>[
             'For Individual Microentrepreneurs (MEI)',
+            'Fees in 12 installments of R\$ 40.00',
+            'Self-accounting in the app',
+            'Cash book',
+            'Accounts receivable and payable',
+            'Monthly duties',
+            'Artificial intelligence assistant',
+            'Electronic invoices',
+            'Up to 5 invoices (NFs) per month',
+            'No employees on the payroll',
+            'No accountant signing the books',
+          ],
+        'fidelizado' => const <String>[
+            'For Individual Microentrepreneurs (MEI)',
+            'Annual cash fees R\$ 456.99 (12 × R\$ 40.00 = R\$ 480.00, R\$ 23.01 off)',
             'Self-accounting in the app',
             'Cash book',
             'Accounts receivable and payable',
@@ -1185,7 +1258,7 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
 
   @override
   String get playNote =>
-      'Planes Contabil+ y Básico MEI: honorarios en esta página o suporte@perfectgestdev.com.';
+      'Planes Contabil+, Básico MEI (12 × R\$ 40,00) y Básico Fidelizado (MEI) al contado R\$ 456,99: honorarios en esta página o suporte@perfectgestdev.com.';
 
   @override
   String get extrasTitle => 'Extras (boleto CNPJ)';
@@ -1200,6 +1273,24 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
 
   @override
   String get perMonth => 'mes';
+
+  @override
+  String get perYear => 'año';
+
+  @override
+  String get colBoletoAvista => 'Al contado anual';
+
+  @override
+  String get planMeiDesconto =>
+      '12 × R\$ 40,00 = R\$ 480,00. Al contado R\$ 456,99 (descuento de R\$ 23,01).';
+
+  @override
+  String proposalMeiAvista(String annual) =>
+      'Honorarios al contado anual: $annual.';
+
+  @override
+  String proposalNfObsMei(String annual) =>
+      'Una vez al año se emitirá una nota fiscal y un boleto de honorarios por el valor de $annual.';
 
   @override
   String get a1Price => 'R\$ 119,99/año';
@@ -1386,6 +1477,7 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
         'welcome' => 'Pantalla inicial: conocer la app sin costo',
         'accountant' => 'Planes contables con contador activo',
         'mei' => 'Básico Microemprendedor Individual (MEI): solo la app (autocontabilidad)',
+        'fidelizado' => 'Básico Fidelizado (MEI): al contado anual con descuento',
         'tabletNfe' => 'Tablet: emitir NFS-e y panel financiero',
         'home' => 'Inicio: checklist del mes y saldo',
         'close' => 'Cierre del mes: graficos y libro de caja',
@@ -1414,7 +1506,7 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
         FunilFaqItem(
           question: 'Básico o planes contables con contador activo?',
           body:
-              'Básico MEI: autocontabilidad en la app. Planes con contador activo: sistema con IA y contador habilitado que firma los libros. Esencial es el más elegido por ME. Cambio de plan: suporte@perfectgestdev.com.',
+              'Básico Microemprendedor Individual (MEI): 12 cuotas de R\$ 40,00. Básico Fidelizado (MEI): al contado anual R\$ 456,99 (12 × R\$ 40,00 = R\$ 480,00, descuento de R\$ 23,01). Autocontabilidad en la app. Planes con contador activo: sistema con IA y contador habilitado que firma los libros. Esencial es el más elegido por ME. Cambio de plan: suporte@perfectgestdev.com.',
         ),
         FunilFaqItem(
           question: 'Hay un equipo de contadores?',
@@ -1491,6 +1583,7 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
   @override
   String planName(String id) => switch (id) {
         'mei' => 'Básico Microemprendedor Individual (MEI)',
+        'fidelizado' => 'Básico Fidelizado (MEI)',
         'essencial' => 'Planes Contables Esencial',
         'standard' => 'Planes Contables Intermedio',
         'avancado' => 'Planes Contables Avanzado',
@@ -1501,6 +1594,20 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
   List<String> planItems(String id) => switch (id) {
         'mei' => const <String>[
             'Para Microemprendedor Individual (MEI)',
+            'Honorarios en 12 cuotas de R\$ 40,00',
+            'Autocontabilidad en la aplicación',
+            'Libro de caja',
+            'Cuentas por cobrar y por pagar',
+            'Obligaciones del mes',
+            'Asistente de inteligencia artificial',
+            'Notas fiscales electrónicas',
+            'Hasta 5 notas fiscales (NFs) por mes',
+            'Sin empleados con contrato formal',
+            'Sin contador que firme los libros',
+          ],
+        'fidelizado' => const <String>[
+            'Para Microemprendedor Individual (MEI)',
+            'Honorarios al contado anual R\$ 456,99 (12 × R\$ 40,00 = R\$ 480,00, descuento de R\$ 23,01)',
             'Autocontabilidad en la aplicación',
             'Libro de caja',
             'Cuentas por cobrar y por pagar',

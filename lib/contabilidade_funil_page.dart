@@ -38,16 +38,28 @@ class FunilImg {
 const List<({String id, double monthly, bool highlight})> kFunilTiers =
     <({String id, double monthly, bool highlight})>[
   (id: 'mei', monthly: 40.00, highlight: false),
+  (id: 'fidelizado', monthly: 40.00, highlight: false),
   (id: 'essencial', monthly: 180.00, highlight: true),
   (id: 'standard', monthly: 280.00, highlight: false),
   (id: 'avancado', monthly: 380.00, highlight: false),
 ];
 
+const double kFunilMeiAnual = 456.99;
 const double kFunilFolhaMensal = 99.99;
 const double kFunilIrAno = 49.99;
 const double kFunilA1Ano = 119.99;
 
-bool _tierIsMei(String id) => id == 'mei';
+bool _tierIsFidelizado(String id) => id == 'fidelizado';
+bool _tierIsMei(String id) => id == 'mei' || _tierIsFidelizado(id);
+
+String _precoFaixa(
+  ({String id, double monthly, bool highlight}) t,
+  SiteContabilidadeFunilTexts st,
+  String Function(double) brl,
+) {
+  if (_tierIsFidelizado(t.id)) return '${brl(kFunilMeiAnual)}/${st.perYear}';
+  return '${brl(t.monthly)}/${st.perMonth}';
+}
 
 List<({String id, double monthly, bool highlight})> _tiersOf(String? tipo) {
   if (tipo == 'MEI') {
@@ -110,6 +122,8 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
     super.dispose();
   }
 
+  bool get _meiFidelizado => _tierIsFidelizado(_faixaId ?? '');
+
   double get _faixaMensal {
     for (final t in kFunilTiers) {
       if (t.id == _faixaId) return t.monthly;
@@ -117,14 +131,26 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
     return 0;
   }
 
-  double get _boletoMensal => _faixaMensal + (_folha ? kFunilFolhaMensal : 0);
+  double get _boletoMensal {
+    final folha = _folha ? kFunilFolhaMensal : 0.0;
+    if (_meiFidelizado) return folha;
+    return _faixaMensal + folha;
+  }
 
   double get _extrasPrimeiroBoleto =>
       (_a1 ? kFunilA1Ano : 0) + (_ir ? kFunilIrAno : 0);
 
-  double get _primeiroBoleto => _boletoMensal + _extrasPrimeiroBoleto;
+  double get _primeiroBoleto {
+    if (_meiFidelizado) {
+      return kFunilMeiAnual + _boletoMensal + _extrasPrimeiroBoleto;
+    }
+    return _boletoMensal + _extrasPrimeiroBoleto;
+  }
 
   String _itens12(SiteContabilidadeFunilTexts st) {
+    if (_meiFidelizado) {
+      return _folha ? st.itemFolha : '';
+    }
     final parts = <String>[st.itemHonorarios];
     if (_folha) parts.add(st.itemFolha);
     return parts.join(' + ');
@@ -151,9 +177,9 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
         ? 'MEI sem contador'
         : (_crc == 'com' ? 'ME com contador' : 'ME sem contador');
     final line =
-        '[CONTABILIDADE] ${_tipo ?? '-'}; $acomp; $faixa; honorários ${_brl(_faixaMensal)}/mês; '
+        '[CONTABILIDADE] ${_tipo ?? '-'}; $acomp; $faixa; honorários ${_meiFidelizado ? '${_brl(kFunilMeiAnual)} à vista/ano' : '${_brl(_faixaMensal)}/mês'}; '
         'Folha ${_folha ? 'S ${_brl(kFunilFolhaMensal)}' : 'N'}; '
-        '12x S ${_brl(_boletoMensal)}/mês (${_itens12(st)}); '
+        '${_meiFidelizado && !_folha ? '12x N; ' : '12x S ${_brl(_boletoMensal)}/mês (${_itens12(st)}); '}'
         '1ª NF e boleto ${_brl(_primeiroBoleto)} (${_itensPrimeiro(st)}); '
         'A1 ${_a1 ? 'S renovação 12 meses' : 'N'}; '
         'IR ${_ir ? 'S cobrado no mês do IR do próximo ano' : 'N'}; '
@@ -182,15 +208,18 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
       '${st.fieldCnpj}: ${_cnpjCtrl.text.trim()}',
       '${st.tipoLabel}: ${_tipo == 'MEI' ? st.tipoMei : st.tipoMe}',
       '${st.faixaLabel}: ${_faixaId == null ? '-' : st.planName(_faixaId!)}',
-      '${st.proposalHonorariosLabel}: ${_brl(_faixaMensal)}/${st.perMonth}',
+      '${st.proposalHonorariosLabel}: ${_meiFidelizado ? '${_brl(kFunilMeiAnual)}/${st.perYear}' : '${_brl(_faixaMensal)}/${st.perMonth}'}',
+      if (_meiFidelizado) st.planMeiDesconto,
       if (_folha) '${st.extraFolha}: ${_brl(kFunilFolhaMensal)}/${st.perMonth}',
       if (_ir) '${st.extraIr}: ${_brl(kFunilIrAno)}',
       if (_a1) '${st.extraA1}: ${_brl(kFunilA1Ano)}',
       st.officeTotalLabel,
-      st.officeTotalHint(_itens12(st), _brl(mensal)),
-      st.proposalParcelarHint(_brl(mensal)),
+      if (_meiFidelizado && !_folha) st.proposalMeiAvista(_brl(kFunilMeiAnual)),
+      if (!_meiFidelizado || _folha) st.officeTotalHint(_itens12(st), _brl(mensal)),
+      if (!_meiFidelizado || _folha) st.proposalParcelarHint(_brl(mensal)),
       st.proposalFirstNfBoleto(_itensPrimeiro(st), _brl(primeiro)),
-      st.proposalNfObs(_brl(mensal)),
+      if (_meiFidelizado) st.proposalNfObsMei(_brl(kFunilMeiAnual)),
+      if (!_meiFidelizado) st.proposalNfObs(_brl(mensal)),
       if (_a1) st.proposalA1Rule,
       if (_ir) st.proposalIrRule,
       st.proposalRenewal,
@@ -288,22 +317,44 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                         _resumoLinha(st.fieldCnpj, _cnpjCtrl.text.trim()),
                         _resumoLinha(st.tipoLabel, _tipo == 'MEI' ? st.tipoMei : st.tipoMe),
                         _resumoLinha(st.faixaLabel, st.planName(_faixaId!)),
-                        _resumoLinha(st.proposalHonorariosLabel, '${_brl(_faixaMensal)}/${st.perMonth}'),
+                        _resumoLinha(
+                          st.proposalHonorariosLabel,
+                          _meiFidelizado
+                              ? '${_brl(kFunilMeiAnual)}/${st.perYear}'
+                              : '${_brl(_faixaMensal)}/${st.perMonth}',
+                        ),
+                        if (_meiFidelizado)
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 6),
+                            child: Text(st.planMeiDesconto, style: const TextStyle(fontSize: 13, height: 1.35)),
+                          ),
                         if (_folha) _resumoLinha(st.extraFolha, '${_brl(kFunilFolhaMensal)}/${st.perMonth}'),
                         if (_ir) _resumoLinha(st.extraIr, _brl(kFunilIrAno)),
                         if (_a1) _resumoLinha(st.extraA1, _brl(kFunilA1Ano)),
                         const SizedBox(height: 8),
                         Text(st.officeTotalLabel, style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
-                        Text(
-                          st.officeTotalHint(_itens12(st), _brl(mensal)),
-                          style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600, height: 1.35),
-                        ),
-                        const SizedBox(height: 8),
-                        Text(st.proposalParcelarHint(_brl(mensal)), style: const TextStyle(fontSize: 13, height: 1.35)),
+                        if (_meiFidelizado && !_folha) ...[
+                          Text(
+                            st.proposalMeiAvista(_brl(kFunilMeiAnual)),
+                            style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600, height: 1.35),
+                          ),
+                        ],
+                        if (!_meiFidelizado || _folha) ...[
+                          Text(
+                            st.officeTotalHint(_itens12(st), _brl(mensal)),
+                            style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600, height: 1.35),
+                          ),
+                          const SizedBox(height: 8),
+                          Text(st.proposalParcelarHint(_brl(mensal)), style: const TextStyle(fontSize: 13, height: 1.35)),
+                        ],
                         const SizedBox(height: 6),
                         _fraseRelevo(st.proposalFirstNfBoleto(_itensPrimeiro(st), _brl(primeiro))),
                         const SizedBox(height: 8),
-                        _fraseRelevo(st.proposalNfObs(_brl(mensal))),
+                        _fraseRelevo(
+                          _meiFidelizado
+                              ? st.proposalNfObsMei(_brl(kFunilMeiAnual))
+                              : st.proposalNfObs(_brl(mensal)),
+                        ),
                         if (_a1) ...[
                           const SizedBox(height: 6),
                           Text(st.proposalA1Rule, style: const TextStyle(fontSize: 13, height: 1.35)),
@@ -384,7 +435,7 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
         razaoSocial: _razaoCtrl.text,
         regime: _tipo ?? '',
         faixa: _faixaId ?? '',
-        boletoHonorarios: _boletoMensal,
+        boletoHonorarios: _meiFidelizado ? kFunilMeiAnual : _boletoMensal,
         primeiroBoleto: _primeiroBoleto,
         fichaProposta: ficha,
         aceiteCobranca: true,
@@ -673,7 +724,7 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                 for (final t in _tiersOf(_tipo))
                   DropdownMenuItem(
                     value: t.id,
-                    child: Text('${st.planName(t.id)} · ${_brl(t.monthly)}/${st.perMonth}'),
+                    child: Text('${st.planName(t.id)} · ${_precoFaixa(t, st, _brl)}'),
                   ),
               ],
               onChanged: _submitting ? null : (v) => setState(() => _faixaId = v),
@@ -1031,10 +1082,22 @@ class _PlansTable extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Text(
-                        '${brl(t.monthly)}/${st.perMonth}',
+                        _precoFaixa(t, st, brl),
                         style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 16),
                       ),
-                      Text(st.colBoleto, style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w600)),
+                      Text(
+                        _tierIsFidelizado(t.id) ? st.colBoletoAvista : st.colBoleto,
+                        style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w600),
+                      ),
+                      if (_tierIsFidelizado(t.id))
+                        SizedBox(
+                          width: 160,
+                          child: Text(
+                            st.planMeiDesconto,
+                            textAlign: TextAlign.end,
+                            style: const TextStyle(fontSize: 10, height: 1.25),
+                          ),
+                        ),
                     ],
                   ),
                 ],

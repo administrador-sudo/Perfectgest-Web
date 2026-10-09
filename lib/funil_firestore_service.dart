@@ -11,7 +11,10 @@ class FunilFirestoreService {
   static const url =
       'https://southamerica-east1-perfectgest-contabilgest.cloudfunctions.net/receberLeadFunil';
 
-  static String faixaApi(String id) => id == 'mei' ? 'basico' : id;
+  static String faixaApi(String id) {
+    if (id == 'mei') return 'basico';
+    return id;
+  }
 
   static Future<LeadCaptureResult> submit({
     required String nome,
@@ -50,6 +53,7 @@ class FunilFirestoreService {
     final faixaNorm = faixaApi(faixa.trim().toLowerCase());
     const okFaixa = {
       'basico',
+      'fidelizado',
       'essencial',
       'standard',
       'avancado',

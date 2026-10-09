@@ -347,7 +347,7 @@ class _AppLocalizationsPt extends AppLocalizations {
   String get heroContabilPlanBasicTitle => 'Plano Básico (Indicado para MEI):';
   @override
   String get heroContabilPlanBasicBody =>
-      'Emissão de NF com certificado A1 (até 10 NF/mês). Autocontabilidade: sem assinatura contábil nos documentos. Honorários nesta página /contabilidade ou suporte@perfectgestdev.com. Certificado A1 Quality é oferta avulsa.';
+      'Emissão de NF com certificado A1 (até 10 NF/mês). Autocontabilidade: sem assinatura contábil nos documentos. Honorários: 12 × R\$ 40,00 ou Básico Fidelizado à vista anual R\$ 456,99 (desconto sobre R\$ 480,00). Pedido em /contabilidade ou suporte@perfectgestdev.com. Certificado A1 Quality é oferta avulsa.';
   @override
   String get heroContabilPlanActiveTitle =>
       'Plano Contabil+ (indicado para ME):';
@@ -703,7 +703,7 @@ class _AppLocalizationsEn extends AppLocalizations {
   String get heroContabilPlanBasicTitle => 'Basic Plan (Recommended for MEI):';
   @override
   String get heroContabilPlanBasicBody =>
-      'Invoice issuance with an A1 certificate (up to 10 invoices/month). Self-accounting: no accountant signature on documents. Fees on this page /contabilidade or suporte@perfectgestdev.com. A1 Quality certificate is a separate offer.';
+      'Invoice issuance with an A1 certificate (up to 10 invoices/month). Self-accounting: no accountant signature on documents. Fees: 12 × R\$ 40.00 or Basic Loyalty annual cash R\$ 456.99 (off R\$ 480.00). Order on /contabilidade or suporte@perfectgestdev.com. A1 Quality certificate is a separate offer.';
   @override
   String get heroContabilPlanActiveTitle =>
       'Contabil+ plan (recommended for ME):';
@@ -1058,7 +1058,7 @@ class _AppLocalizationsEs extends AppLocalizations {
   String get heroContabilPlanBasicTitle => 'Plan Básico (Indicada para MEI):';
   @override
   String get heroContabilPlanBasicBody =>
-      'Emisión de NF con certificado A1 (hasta 10 NF/mes). Autocontabilidad: sin firma contable en los documentos. Honorarios en esta página /contabilidade o suporte@perfectgestdev.com. El certificado A1 Quality es oferta suelta.';
+      'Emisión de NF con certificado A1 (hasta 10 NF/mes). Autocontabilidad: sin firma contable en los documentos. Honorarios: 12 × R\$ 40,00 o Básico Fidelizado al contado anual R\$ 456,99 (descuento sobre R\$ 480,00). Pedido en /contabilidade o suporte@perfectgestdev.com. El certificado A1 Quality es oferta suelta.';
   @override
   String get heroContabilPlanActiveTitle =>
       'Plan Contabil+ (indicado para ME):';
