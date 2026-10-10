@@ -1596,6 +1596,8 @@ class _HeroContabilIntro extends StatelessWidget {
         gold3d(l10n.heroContabilPlanActiveTitle, subtitleStyle),
         const SizedBox(height: 6),
         gold3d(l10n.heroContabilPlanActiveBody, bodyStyle, compact: true),
+        const SizedBox(height: 12),
+        const A1QualityCertCard(),
         const SizedBox(height: 14),
         Align(
           alignment: Alignment.centerLeft,

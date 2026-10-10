@@ -58,7 +58,32 @@ abstract class SiteContabilidadeFunilTexts {
   String proposalMeiAvista(String annual);
   String proposalNfObsMei(String annual);
   String get a1Price;
+  String get a1VideoTitle;
   String get a1Body;
+  String get a1BuyCta;
+  String get a1PopTitle;
+  String a1StepOf(int n, int total);
+  String get a1StepTipo;
+  String get a1TipoPj;
+  String get a1TipoPf;
+  String get a1Next;
+  String get a1Back;
+  String get a1Send;
+  String get a1Sending;
+  String get a1FieldCpf;
+  String get a1FieldPhone;
+  String get a1FieldCep;
+  String get a1FieldLogradouro;
+  String get a1FieldNumero;
+  String get a1FieldBairro;
+  String get a1FieldComplemento;
+  String get a1FieldCidade;
+  String get a1FieldUf;
+  String get a1Avisos;
+  String get a1Consent;
+  String get a1Success;
+  String get a1LinkQuality;
+  String get a1LinkAr;
   String get paymentLaterNote;
   String get urgencyNote;
   String get formTitle;
@@ -270,8 +295,89 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
   String get a1Price => 'R\$ 119,99/ano';
 
   @override
+  String get a1VideoTitle => 'Videoconferência 24h';
+
+  @override
   String get a1Body =>
-      'Certificado A1 QualityCert: emita NFS-e e NF-e com segurança, direto no app.';
+      'Emita ou renove o seu Certificado Digital a qualquer hora e lugar. Na QualityCert, o processo é rápido, simples e seguro, ideal para quem valoriza a praticidade sem abrir mão da proteção.';
+
+  @override
+  String get a1BuyCta => 'Adquirir certificado A1 QualityCert — R\$ 119,99/ano';
+
+  @override
+  String get a1PopTitle => 'Certificado A1 QualityCert';
+
+  @override
+  String a1StepOf(int n, int total) => 'Passo $n de $total';
+
+  @override
+  String get a1StepTipo => 'Tipo de pessoa';
+
+  @override
+  String get a1TipoPj => 'PJ — e-CNPJ';
+
+  @override
+  String get a1TipoPf => 'PF — e-CPF';
+
+  @override
+  String get a1Next => 'Continuar';
+
+  @override
+  String get a1Back => 'Voltar';
+
+  @override
+  String get a1Send => 'Enviar cadastro';
+
+  @override
+  String get a1Sending => 'Enviando...';
+
+  @override
+  String get a1FieldCpf => 'CPF';
+
+  @override
+  String get a1FieldPhone => 'Telefone';
+
+  @override
+  String get a1FieldCep => 'CEP';
+
+  @override
+  String get a1FieldLogradouro => 'Logradouro';
+
+  @override
+  String get a1FieldNumero => 'Número';
+
+  @override
+  String get a1FieldBairro => 'Bairro';
+
+  @override
+  String get a1FieldComplemento => 'Complemento (opcional)';
+
+  @override
+  String get a1FieldCidade => 'Cidade';
+
+  @override
+  String get a1FieldUf => 'UF';
+
+  @override
+  String get a1Avisos =>
+      'Pode solicitar para outro titular: o certificado é pessoal ou empresarial e deve estar vinculado ao solicitante.\n'
+      'Após o envio, o titular tem 30 dias para a videochamada de habilitação e o download para instalação.\n'
+      'Conferência QualityCert: plantão 24 horas, segunda a sexta. A PerfectGest não garante prazos de terceiros.\n'
+      'Este cadastro não é o certificado. O arquivo .pfx só nasce na habilitação ICP-Brasil.';
+
+  @override
+  String get a1Consent =>
+      'Li e aceito a politica de privacidade e autorizo o contato sobre o certificado A1 QualityCert.';
+
+  @override
+  String get a1Success =>
+      'Solicitação recebida. O escritório entra em contato. A habilitação é na QualityCert.';
+
+  @override
+  String get a1LinkQuality => 'Site QualityCert';
+
+  @override
+  String get a1LinkAr => 'Conferência AR QualityCert';
 
   @override
   String get paymentLaterNote =>
@@ -480,12 +586,12 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
         FunilFaqItem(
           question: 'Básico ou planos contábeis com contador ativo?',
           body:
-              'Básico Microempreendedor Individual (MEI): 12 parcelas de R\$ 40,00. Básico Fidelizado (MEI): à vista anual R\$ 456,99 (12 × R\$ 40,00 = R\$ 480,00, desconto de R\$ 23,01). Autocontabilidade no app. Planos com contador ativo: sistema com IA e contador habilitado assinando os livros. Essencial é o mais escolhido por ME. Mudança de plano: suporte@perfectgestdev.com.',
+              'Básico Microempreendedor Individual (MEI): 12 parcelas de R\$ 40,00. Básico Fidelizado (MEI): à vista anual R\$ 456,99, desconto de R\$ 23,01). Autocontabilidade no app. Planos com contador ativo: sistema com IA e contador habilitado assinando os livros. Essencial é o mais escolhido por ME. Mudança de plano: suporte@perfectgestdev.com.',
         ),
         FunilFaqItem(
-          question: 'Há uma equipe de contabilistas?',
+          question: 'Quem cuida da contabilidade?',
           body:
-              'Não. Há um contador habilitado e um sistema inteligente; você acompanha no aplicativo em tempo real (com a habilitação, os dados chegam ao escritório).',
+              'Há um Programador/Contador certificado que trabalhao com um sistema fechado de IA ativa que auxilia na solução dos problemas e cuida das obrigalções.\nVocê acompanha no aplicativo em tempo real, os dados da sua contabilidade são processados no seu tele-movel, \n No dia 01 você envia para conferência os livros, esses livros são checados eletronicamente por meio de inteligencia artifivial em um circuito fechado, em seguida é devolvido os livros assinados para você arquivar.',
         ),
       ];
 
@@ -544,6 +650,15 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
         'tipo_required' => 'Selecione MEI ou ME.',
         'crc_required' => 'Selecione com ou sem acompanhamento do contador.',
         'faixa_required' => 'Selecione a faixa.',
+        'tipo_pessoa_invalid' => 'Selecione PJ (e-CNPJ) ou PF (e-CPF).',
+        'cpf_invalid' => 'Informe um CPF com 11 digitos.',
+        'telefone_invalid' => 'Informe um telefone com 10 ou 11 digitos.',
+        'cep_invalid' => 'Informe um CEP com 8 digitos.',
+        'logradouro_invalid' => 'Informe o logradouro.',
+        'numero_invalid' => 'Informe o numero.',
+        'bairro_invalid' => 'Informe o bairro.',
+        'cidade_invalid' => 'Informe a cidade.',
+        'estado_invalid' => 'Informe a UF com 2 letras.',
         'network_error' =>
           'Nao foi possivel enviar o cadastro ao escritorio. Tente de novo; se estiver em 127.0.0.1, a Function Firebase precisa permitir essa origem.',
         'api_waking' =>
@@ -784,8 +899,89 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
   String get a1Price => 'R\$ 119.99/year';
 
   @override
+  String get a1VideoTitle => 'Video conference 24h';
+
+  @override
   String get a1Body =>
-      'A1 QualityCert certificate: issue NFS-e and NF-e securely, right in the app.';
+      'Issue or renew your digital certificate anytime, anywhere. At QualityCert the process is fast, simple and secure, for those who value convenience without giving up protection.';
+
+  @override
+  String get a1BuyCta => 'Get A1 QualityCert certificate — R\$ 119.99/year';
+
+  @override
+  String get a1PopTitle => 'A1 QualityCert certificate';
+
+  @override
+  String a1StepOf(int n, int total) => 'Step $n of $total';
+
+  @override
+  String get a1StepTipo => 'Person type';
+
+  @override
+  String get a1TipoPj => 'Company — e-CNPJ';
+
+  @override
+  String get a1TipoPf => 'Individual — e-CPF';
+
+  @override
+  String get a1Next => 'Continue';
+
+  @override
+  String get a1Back => 'Back';
+
+  @override
+  String get a1Send => 'Send registration';
+
+  @override
+  String get a1Sending => 'Sending...';
+
+  @override
+  String get a1FieldCpf => 'CPF';
+
+  @override
+  String get a1FieldPhone => 'Phone';
+
+  @override
+  String get a1FieldCep => 'Postal code';
+
+  @override
+  String get a1FieldLogradouro => 'Street';
+
+  @override
+  String get a1FieldNumero => 'Number';
+
+  @override
+  String get a1FieldBairro => 'District';
+
+  @override
+  String get a1FieldComplemento => 'Complement (optional)';
+
+  @override
+  String get a1FieldCidade => 'City';
+
+  @override
+  String get a1FieldUf => 'State (UF)';
+
+  @override
+  String get a1Avisos =>
+      'You may request for another holder: the certificate is personal or corporate and must be tied to the applicant.\n'
+      'After sending, the holder has 30 days for the enablement video call and the download.\n'
+      'QualityCert conference: 24-hour desk, Monday to Friday. PerfectGest does not guarantee third-party deadlines.\n'
+      'This form is not the certificate. The .pfx file is created only at ICP-Brasil enablement.';
+
+  @override
+  String get a1Consent =>
+      'I have read the privacy policy and authorize contact about the A1 QualityCert certificate.';
+
+  @override
+  String get a1Success =>
+      'Request received. The office will contact you. Enablement is at QualityCert.';
+
+  @override
+  String get a1LinkQuality => 'QualityCert website';
+
+  @override
+  String get a1LinkAr => 'QualityCert AR conference';
 
   @override
   String get paymentLaterNote =>
@@ -1058,6 +1254,15 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
         'tipo_required' => 'Select MEI or ME.',
         'crc_required' => 'Select with or without accountant follow-up.',
         'faixa_required' => 'Select a plan band.',
+        'tipo_pessoa_invalid' => 'Select company (e-CNPJ) or individual (e-CPF).',
+        'cpf_invalid' => 'Enter an 11-digit CPF.',
+        'telefone_invalid' => 'Enter a phone with 10 or 11 digits.',
+        'cep_invalid' => 'Enter an 8-digit postal code.',
+        'logradouro_invalid' => 'Enter the street.',
+        'numero_invalid' => 'Enter the number.',
+        'bairro_invalid' => 'Enter the district.',
+        'cidade_invalid' => 'Enter the city.',
+        'estado_invalid' => 'Enter a 2-letter state code.',
         'network_error' =>
           'Could not send the registration. Try again; on 127.0.0.1 the Firebase Function must allow that origin.',
         'api_waking' => 'The server is starting (up to 1 min). Wait and send again.',
@@ -1296,8 +1501,89 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
   String get a1Price => 'R\$ 119,99/año';
 
   @override
+  String get a1VideoTitle => 'Videoconferencia 24h';
+
+  @override
   String get a1Body =>
-      'Certificado A1 QualityCert: emita NFS-e y NF-e con seguridad, directo en la app.';
+      'Emita o renueve su Certificado Digital a cualquier hora y lugar. En QualityCert el proceso es rápido, simple y seguro, ideal para quien valora la practicidad sin renunciar a la protección.';
+
+  @override
+  String get a1BuyCta => 'Adquirir certificado A1 QualityCert — R\$ 119,99/año';
+
+  @override
+  String get a1PopTitle => 'Certificado A1 QualityCert';
+
+  @override
+  String a1StepOf(int n, int total) => 'Paso $n de $total';
+
+  @override
+  String get a1StepTipo => 'Tipo de persona';
+
+  @override
+  String get a1TipoPj => 'PJ — e-CNPJ';
+
+  @override
+  String get a1TipoPf => 'PF — e-CPF';
+
+  @override
+  String get a1Next => 'Continuar';
+
+  @override
+  String get a1Back => 'Volver';
+
+  @override
+  String get a1Send => 'Enviar registro';
+
+  @override
+  String get a1Sending => 'Enviando...';
+
+  @override
+  String get a1FieldCpf => 'CPF';
+
+  @override
+  String get a1FieldPhone => 'Teléfono';
+
+  @override
+  String get a1FieldCep => 'CEP';
+
+  @override
+  String get a1FieldLogradouro => 'Calle';
+
+  @override
+  String get a1FieldNumero => 'Número';
+
+  @override
+  String get a1FieldBairro => 'Barrio';
+
+  @override
+  String get a1FieldComplemento => 'Complemento (opcional)';
+
+  @override
+  String get a1FieldCidade => 'Ciudad';
+
+  @override
+  String get a1FieldUf => 'UF';
+
+  @override
+  String get a1Avisos =>
+      'Puede solicitar para otro titular: el certificado es personal o empresarial y debe estar vinculado al solicitante.\n'
+      'Tras el envío, el titular tiene 30 días para la videollamada de habilitación y la descarga.\n'
+      'Conferencia QualityCert: plantón 24 horas, lunes a viernes. PerfectGest no garantiza plazos de terceros.\n'
+      'Este registro no es el certificado. El archivo .pfx nace solo en la habilitación ICP-Brasil.';
+
+  @override
+  String get a1Consent =>
+      'Leí y acepto la politica de privacidad y autorizo el contacto sobre el certificado A1 QualityCert.';
+
+  @override
+  String get a1Success =>
+      'Solicitud recibida. El despacho entra en contacto. La habilitación es en QualityCert.';
+
+  @override
+  String get a1LinkQuality => 'Sitio QualityCert';
+
+  @override
+  String get a1LinkAr => 'Conferencia AR QualityCert';
 
   @override
   String get paymentLaterNote =>
@@ -1570,6 +1856,15 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
         'tipo_required' => 'Seleccione MEI o ME.',
         'crc_required' => 'Seleccione con o sin seguimiento del contador.',
         'faixa_required' => 'Seleccione la franja.',
+        'tipo_pessoa_invalid' => 'Seleccione PJ (e-CNPJ) o PF (e-CPF).',
+        'cpf_invalid' => 'Indique un CPF con 11 digitos.',
+        'telefone_invalid' => 'Indique un telefono con 10 o 11 digitos.',
+        'cep_invalid' => 'Indique un CEP con 8 digitos.',
+        'logradouro_invalid' => 'Indique la calle.',
+        'numero_invalid' => 'Indique el numero.',
+        'bairro_invalid' => 'Indique el barrio.',
+        'cidade_invalid' => 'Indique la ciudad.',
+        'estado_invalid' => 'Indique la UF con 2 letras.',
         'network_error' =>
           'No se pudo enviar el registro. Intente de nuevo; en 127.0.0.1 la Function de Firebase debe permitir ese origen.',
         'api_waking' => 'El servidor esta iniciando (puede tardar 1 min). Espere y envie de nuevo.',

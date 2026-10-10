@@ -18,10 +18,10 @@
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Boas práticas de segurança e privacidade (complementar cabeçalhos HTTP no servidor em produção) -->
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin">
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
   <!-- CSP: Flutter Web + gtag adiado (pp_analytics.js) + fontes locais -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.gstatic.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob: https:; connect-src 'self' https://perfectgest-leads-api-2ztg.onrender.com https://southamerica-east1-perfectgest-contabilgest.cloudfunctions.net https://*.run.app https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://www.googletagmanager.com https://www.gstatic.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;">
@@ -215,13 +215,17 @@
         landing.remove();
         return;
       }
+      var hidden = false;
       const hide = () => {
+        if (hidden) return;
+        hidden = true;
         landing.setAttribute('aria-hidden', 'true');
         landing.setAttribute('aria-busy', 'false');
         landing.classList.add('hidden');
         setTimeout(() => landing.remove(), 260);
       };
       window.addEventListener('flutter-first-frame', hide, { once: true });
+      setTimeout(hide, 8000);
       // Nao esconder o splash so porque existe flt-glass-pane: no web-server
       // o painel aparece vazio (tela branca) antes do primeiro frame.
       var armed = false;

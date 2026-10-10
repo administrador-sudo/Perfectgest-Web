@@ -6,6 +6,8 @@ import 'asset_screenshot.dart';
 import 'brand_palette.dart';
 import 'company_legal.dart';
 import 'l10n/site_contabilidade_funil_texts.dart';
+import 'a1_quality_cert_pop.dart';
+import 'funil_a1_service.dart';
 import 'funil_firestore_service.dart';
 import 'lead_capture_service.dart';
 import 'locale_controller.dart';
@@ -33,6 +35,7 @@ class FunilImg {
   static const menu = '$kFunilImgDir/Screenshot_20261008-165818.jpg';
   static const invoices = '$kFunilImgDir/Screenshot_20261008-165926.jpg';
   static const phoneNfe = '$kFunilImgDir/phone_nfe.jpeg';
+  static const qualityCert = '$kFunilImgDir/certificado_quality.png';
 }
 
 const List<({String id, double monthly, bool highlight})> kFunilTiers =
@@ -302,6 +305,71 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
     );
   }
 
+  String _textoFaixa(SiteContabilidadeFunilTexts st) {
+    for (final t in _tiersOf(_tipo)) {
+      if (t.id == _faixaId) {
+        return '${st.planName(t.id)} · ${_precoFaixa(t, st, _brl)}';
+      }
+    }
+    return '';
+  }
+
+  Future<void> _escolherFaixa(SiteContabilidadeFunilTexts st) async {
+    final escolhido = await showDialog<String>(
+      context: context,
+      builder: (ctx) {
+        return SimpleDialog(
+          title: Text(st.faixaLabel),
+          children: [
+            for (final t in _tiersOf(_tipo))
+              SimpleDialogOption(
+                onPressed: () => Navigator.of(ctx).pop(t.id),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 6),
+                  child: Text('${st.planName(t.id)} · ${_precoFaixa(t, st, _brl)}'),
+                ),
+              ),
+          ],
+        );
+      },
+    );
+    if (escolhido != null && mounted) setState(() => _faixaId = escolhido);
+  }
+
+  Widget _campoFaixa(SiteContabilidadeFunilTexts st) {
+    return InkWell(
+      onTap: _submitting ? null : () => _escolherFaixa(st),
+      child: InputDecorator(
+        isEmpty: _textoFaixa(st).isEmpty,
+        decoration: InputDecoration(
+          labelText: st.faixaLabel,
+          border: const OutlineInputBorder(),
+          contentPadding: const EdgeInsets.fromLTRB(12, 14, 4, 14),
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Expanded(
+              child: SizedBox(
+                height: 40,
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    _textoFaixa(st),
+                    maxLines: 2,
+                    softWrap: true,
+                    style: const TextStyle(fontSize: 14, height: 1.25),
+                  ),
+                ),
+              ),
+            ),
+            const Icon(Icons.arrow_drop_down),
+          ],
+        ),
+      ),
+    );
+  }
+
   bool _formPronto() {
     setState(() => _errorCode = null);
     if (_tipo == null) {
@@ -509,13 +577,17 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
       child: SiteBackgroundShell(
         child: Scaffold(
           backgroundColor: Colors.transparent,
+          floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
           floatingActionButton: narrow
-              ? FloatingActionButton.extended(
-                  backgroundColor: cs.primary,
-                  foregroundColor: cs.onPrimary,
-                  onPressed: () => _openWhatsApp(),
-                  icon: const Icon(Icons.chat_rounded),
-                  label: Text(st.whatsAppFab),
+              ? SizedBox(
+                  height: 48,
+                  child: FloatingActionButton.extended(
+                    backgroundColor: cs.primary,
+                    foregroundColor: cs.onPrimary,
+                    onPressed: () => _openWhatsApp(),
+                    icon: const Icon(Icons.chat_rounded),
+                    label: Text(st.whatsAppFab),
+                  ),
                 )
               : null,
           body: Column(
@@ -590,6 +662,13 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                             child: _PlansTable(
                               st: st,
                               brl: _brl,
+                              a1PrefillOf: () => FunilA1Prefill(
+                                nome: _nomeCtrl.text,
+                                email: _emailCtrl.text,
+                                telefone: _whatsAppCtrl.text,
+                                cnpj: _cnpjCtrl.text,
+                                razao: _razaoCtrl.text,
+                              ),
                               onChoose: (id) {
                                 setState(() {
                                   _faixaId = id;
@@ -716,23 +795,7 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
               _addonCheck(label: st.extraA1, value: _a1, onChanged: (v) => setState(() => _a1 = v ?? false)),
             ],
             const SizedBox(height: 8),
-            DropdownButtonFormField<String>(
-              key: ValueKey<String>('${_tipo ?? ''}|${_faixaId ?? ''}'),
-              initialValue: _faixaId,
-              decoration: InputDecoration(
-                labelText: st.faixaLabel,
-                border: const OutlineInputBorder(),
-                isDense: true,
-              ),
-              items: [
-                for (final t in _tiersOf(_tipo))
-                  DropdownMenuItem(
-                    value: t.id,
-                    child: Text('${st.planName(t.id)} · ${_precoFaixa(t, st, _brl)}'),
-                  ),
-              ],
-              onChanged: _submitting ? null : (v) => setState(() => _faixaId = v),
-            ),
+            _campoFaixa(st),
             if (_tipo != 'ME')
               _addonCheck(label: st.extraA1, value: _a1, onChanged: (v) => setState(() => _a1 = v ?? false)),
             Opacity(
@@ -1008,11 +1071,17 @@ class _Step extends StatelessWidget {
 }
 
 class _PlansTable extends StatelessWidget {
-  const _PlansTable({required this.st, required this.brl, required this.onChoose});
+  const _PlansTable({
+    required this.st,
+    required this.brl,
+    required this.onChoose,
+    this.a1PrefillOf,
+  });
 
   final SiteContabilidadeFunilTexts st;
   final String Function(double) brl;
   final ValueChanged<String> onChoose;
+  final FunilA1Prefill Function()? a1PrefillOf;
 
   @override
   Widget build(BuildContext context) {
@@ -1030,19 +1099,7 @@ class _PlansTable extends StatelessWidget {
           Text(st.plansGroupMe, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 15)),
           const SizedBox(height: 8),
           for (final t in kFunilTiers.where((t) => !_tierIsMei(t.id))) _planCard(t),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-            decoration: BoxDecoration(
-              color: kFunilA1Purple.withValues(alpha: 0.12),
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Text(
-              '${st.a1Seal} · ${st.a1Price}',
-              style: const TextStyle(color: kFunilA1Purple, fontWeight: FontWeight.w800),
-            ),
-          ),
-          const SizedBox(height: 8),
-          Text(st.a1Body),
+          A1QualityCertCard(prefillOf: a1PrefillOf),
           const SizedBox(height: 8),
           Text(st.playNote, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600)),
           const SizedBox(height: 12),
@@ -1442,6 +1499,79 @@ class _FunilFooter extends StatelessWidget {
         ),
         TextButton(onPressed: onHome, child: Text(st.backHome)),
       ],
+    );
+  }
+}
+
+class A1QualityCertCard extends StatelessWidget {
+  const A1QualityCertCard({super.key, this.prefillOf});
+
+  final FunilA1Prefill Function()? prefillOf;
+
+  @override
+  Widget build(BuildContext context) {
+    final st = SiteContabilidadeFunilTexts.of(context);
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: const Color(0xFFF8FAF9),
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(color: kFunilA1Purple, width: 1.6),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(12, 12, 12, 12),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Image.asset(
+                FunilImg.qualityCert,
+                height: 44,
+                width: 180,
+                fit: BoxFit.contain,
+                alignment: Alignment.centerLeft,
+                filterQuality: FilterQuality.high,
+              ),
+              const SizedBox(height: 8),
+              Text(
+                st.a1Seal,
+                style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 16),
+              ),
+              Text(
+                st.a1VideoTitle,
+                style: const TextStyle(
+                  color: kFunilA1Purple,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 13,
+                ),
+              ),
+              Text(
+                st.a1Price,
+                style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 16),
+              ),
+              const SizedBox(height: 8),
+              Text(st.a1Body, style: const TextStyle(fontSize: 13, height: 1.35)),
+              const SizedBox(height: 12),
+              FilledButton(
+                style: FilledButton.styleFrom(
+                  backgroundColor: kFunilA1Purple,
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                ),
+                onPressed: () => showA1QualityCertPop(
+                  context,
+                  prefill: prefillOf?.call() ?? const FunilA1Prefill(),
+                ),
+                child: Text(
+                  st.a1BuyCta,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(fontWeight: FontWeight.w700, height: 1.25),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

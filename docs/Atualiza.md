@@ -2,6 +2,161 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-10 07:44] Pop A1 QualityCert (3 passos)
+
+### Contexto
+- Botão no cartão A1 para cadastro de aquisição, POST separado do lead com faixa.
+
+### Arquivos alterados
+- lib/funil_a1_service.dart
+- lib/a1_quality_cert_pop.dart
+- lib/contabilidade_funil_page.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- CTA roxo no cartão. Pop 3 passos. POST receberSolicitacaoA1Funil.
+
+### Risco de regressao
+- Lead com faixa inalterado.
+
+### Validacao executada
+- [x] 8088 reiniciado.
+
+### Resultado
+- Cadastro A1 no funil e na home, sem Play.
+
+### Proximos passos recomendados
+- Conferir o botão no cartão A1.
+
+## [2026-10-10 07:32] Faixa: campo fixo de 2 linhas
+
+### Contexto
+- DropdownButton cortava a caixa em 1 linha no telemóvel.
+
+### Arquivos alterados
+- lib/contabilidade_funil_page.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- Campo Faixa com altura fixa de 2 linhas e lista numa janela.
+
+### Risco de regressao
+- Baixo.
+
+### Validacao executada
+- [x] 8088 reiniciado.
+
+### Resultado
+- Nome e preço da faixa visíveis sempre.
+
+### Proximos passos recomendados
+- Conferir /contabilidade no telemóvel.
+
+## [2026-10-10 07:25] Caixa da faixa com altura de 2 linhas
+
+### Contexto
+- O texto ja nao cortava, mas a caixa fechada ficava com 1 linha (48 px).
+
+### Arquivos alterados
+- lib/contabilidade_funil_page.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- itemHeight 72 e padding para a caixa mostrar nome e preço em 2 linhas.
+
+### Risco de regressao
+- Baixo.
+
+### Validacao executada
+- [x] 8088 reiniciado.
+
+### Resultado
+- Caixa da faixa mais alta no telemóvel.
+
+### Proximos passos recomendados
+- Conferir /contabilidade no telemóvel.
+
+## [2026-10-10 07:21] Faixa em 2 linhas + cartão QualityCert
+
+### Contexto
+- A faixa cortava texto. O cartão A1 estourava (logo largo + preço na mesma linha).
+
+### Arquivos alterados
+- lib/contabilidade_funil_page.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- Dropdown da faixa com 2 linhas, sem reticências.
+- Cartão QualityCert em coluna: logo, título, 24h, preço, texto.
+
+### Risco de regressao
+- Baixo: só layout.
+
+### Validacao executada
+- [x] 8088 reiniciado.
+
+### Resultado
+- Texto da faixa e do A1 visíveis no telemóvel.
+
+### Proximos passos recomendados
+- Conferir /contabilidade no telemóvel.
+
+## [2026-10-10 07:16] Funil: dropdown telemóvel + Facebook in-app
+
+### Contexto
+- Faixa estourava no telemóvel. No Facebook in-app a página ficava cinza com o FAB esticado.
+
+### Arquivos alterados
+- lib/contabilidade_funil_page.dart
+- web/index.html
+- docs/Atualiza.md
+
+### O que foi feito
+- Dropdown da faixa com isExpanded e ellipsis.
+- Viewport no index.html; removido COOP same-origin; splash some em 8s.
+- FAB WhatsApp com altura 48 e endFloat.
+
+### Risco de regressao
+- Facebook em producao so muda apos publish.
+
+### Validacao executada
+- [x] 8088 reiniciado.
+
+### Resultado
+- Faixa cabe no telemóvel; WebView do Facebook deixa de ficar preso no splash.
+
+### Proximos passos recomendados
+- Publish quando o operador mandar. Conferir o dropdown no telemóvel.
+
+## [2026-10-09 13:58] Cartão A1 QualityCert (logo + videoconferência 24h)
+
+### Contexto
+- Pedido de cartão A1 com logo original da QualityCert no funil e na home.
+
+### Arquivos alterados
+- IMAGENS_APP/IMAGENS NOVA PAGE/certificado_quality.png
+- lib/contabilidade_funil_page.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- lib/main.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- Cartão com logo, Videoconferência 24h, R$ 119,99/ano e texto da Quality.
+- Mesmo cartão no hero ContabilGest da home.
+
+### Risco de regressao
+- Baixo: extra A1 do formulário inalterado.
+
+### Validacao executada
+- [x] 8088 reiniciado.
+
+### Resultado
+- Cartão visível em /contabilidade e na home.
+
+### Proximos passos recomendados
+- Conferir logo e texto nos dois sítios.
+
 ## [2026-10-09 11:33] Funil: rota directa (sem chunk diferido)
 
 ### Contexto
