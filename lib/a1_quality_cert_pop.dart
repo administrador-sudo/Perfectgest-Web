@@ -163,6 +163,7 @@ class _A1QualityCertPopState extends State<_A1QualityCertPop> {
       cidade: _cidCtrl.text,
       estado: _ufCtrl.text,
       consent: true,
+      pixA1Informado: true,
     );
     if (!mounted) return;
     setState(() {

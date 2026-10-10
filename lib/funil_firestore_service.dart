@@ -33,6 +33,8 @@ class FunilFirestoreService {
     required bool a1,
     required bool consent,
     required String locale,
+    bool pixHonorariosInformado = false,
+    double valorPixHonorarios = 0,
     String websiteHoneypot = '',
   }) async {
     if (!consent) {
@@ -79,6 +81,8 @@ class FunilFirestoreService {
       'a1': a1,
       'locale': locale,
       'consent': true,
+      'pixHonorariosInformado': pixHonorariosInformado,
+      'valorPixHonorarios': valorPixHonorarios,
       'hp_site': websiteHoneypot,
     });
 

@@ -2,6 +2,20 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-10 09:40] Tiquete PIX A1 + honorarios
+
+### Contexto
+- CTA A1 abre tiquete PIX R$ 119,99 (brasao + QR + copia e cola); Paguei abre o cadastro QualityCert.
+- Formulario: botao honorarios/servicos com o mesmo tiquete (faixa + extras). Sem PSP.
+
+### Arquivos alterados
+- lib/funil_pix_emv.dart
+- lib/funil_pix_ticket_pop.dart
+- lib/contabilidade_funil_page.dart
+- lib/funil_firestore_service.dart
+- lib/funil_a1_service.dart
+- pubspec.yaml (qr_flutter)
+
 ## [2026-10-10 07:44] Pop A1 QualityCert (3 passos)
 
 ### Contexto

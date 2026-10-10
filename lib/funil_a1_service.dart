@@ -42,6 +42,7 @@ class FunilA1Service {
     required String cidade,
     required String estado,
     required bool consent,
+    bool pixA1Informado = true,
     String complemento = '',
     String websiteHoneypot = '',
   }) async {
@@ -110,6 +111,7 @@ class FunilA1Service {
       'cidade': cid,
       'estado': uf,
       'consent': true,
+      'pixA1Informado': pixA1Informado,
       'website': websiteHoneypot,
     });
 

@@ -9,6 +9,7 @@ import 'l10n/site_contabilidade_funil_texts.dart';
 import 'a1_quality_cert_pop.dart';
 import 'funil_a1_service.dart';
 import 'funil_firestore_service.dart';
+import 'funil_pix_ticket_pop.dart';
 import 'lead_capture_service.dart';
 import 'locale_controller.dart';
 import 'metallic_site_shell.dart';
@@ -101,6 +102,7 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
   bool _consent = false;
   bool _submitting = false;
   bool _success = false;
+  bool _pixHonorariosInformado = false;
   String? _errorCode;
 
   @override
@@ -169,6 +171,32 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
 
   String _brl(double value) {
     return 'R\$ ${value.toStringAsFixed(2).replaceAll('.', ',')}';
+  }
+
+  Future<void> _abrirPixHonorarios(SiteContabilidadeFunilTexts st) async {
+    if (_tipo == null || _faixaId == null) {
+      setState(() => _errorCode = 'faixa_required');
+      return;
+    }
+    final linhas = <FunilPixLinha>[
+      FunilPixLinha(
+        descricao: st.planName(_faixaId!),
+        valor: _meiFidelizado ? kFunilMeiAnual : _faixaMensal,
+      ),
+      if (_folha)
+        FunilPixLinha(descricao: st.extraFolha, valor: kFunilFolhaMensal),
+      if (_ir) FunilPixLinha(descricao: st.extraIr, valor: kFunilIrAno),
+      if (_a1) FunilPixLinha(descricao: st.extraA1, valor: kFunilA1Ano),
+    ];
+    final ok = await showFunilPixTicket(
+      context: context,
+      titulo: 'Honorarios / Servicos',
+      linhas: linhas,
+      txidPrefixo: 'HON',
+    );
+    if (ok && mounted) {
+      setState(() => _pixHonorariosInformado = true);
+    }
   }
 
   String _digits(String raw) => raw.replaceAll(RegExp(r'\D'), '');
@@ -547,6 +575,8 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
         a1: _a1,
         consent: _consent,
         locale: locale,
+        pixHonorariosInformado: _pixHonorariosInformado,
+        valorPixHonorarios: _pixHonorariosInformado ? _primeiroBoleto : 0,
         websiteHoneypot: _honeypotCtrl.text,
       );
     } finally {
@@ -852,6 +882,15 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                 style: const TextStyle(color: Color(0xFFB3261E), fontWeight: FontWeight.w600),
               ),
             ],
+            const SizedBox(height: 12),
+            OutlinedButton.icon(
+              onPressed: _submitting ? null : () => _abrirPixHonorarios(st),
+              icon: const Icon(Icons.qr_code_2, size: 18),
+              label: const Text(
+                'Pagar assinatura do plano (Honorários / Serviços)',
+                textAlign: TextAlign.center,
+              ),
+            ),
             const SizedBox(height: 16),
             sitePrimaryActionButton(
               context: context,
@@ -1558,10 +1597,24 @@ class A1QualityCertCard extends StatelessWidget {
                   foregroundColor: Colors.white,
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
                 ),
-                onPressed: () => showA1QualityCertPop(
-                  context,
-                  prefill: prefillOf?.call() ?? const FunilA1Prefill(),
-                ),
+                onPressed: () async {
+                  final pago = await showFunilPixTicket(
+                    context: context,
+                    titulo: 'Certificado A1 QualityCert',
+                    linhas: const [
+                      FunilPixLinha(
+                        descricao: 'Certificado A1 QualityCert',
+                        valor: kFunilA1Ano,
+                      ),
+                    ],
+                    txidPrefixo: 'A1',
+                  );
+                  if (!context.mounted || !pago) return;
+                  await showA1QualityCertPop(
+                    context,
+                    prefill: prefillOf?.call() ?? const FunilA1Prefill(),
+                  );
+                },
                 child: Text(
                   st.a1BuyCta,
                   textAlign: TextAlign.center,
