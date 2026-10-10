@@ -2,80 +2,125 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
-## [2026-10-10 11:07] Funil: sem MEI/extras abaixo do A1
+## [2026-10-10 11:47] Enquadramento: overflow do dropdown
 
 ### Contexto
-- Abaixo do cartao A1 QualityCert havia recap MEI, lista de extras e nota de orgaos.
+- Opcao Abertura estourava o campo (faixa amarela) no funil.
 
 ### Arquivos alterados
 - lib/contabilidade_funil_page.dart
 - docs/Atualiza.md
 
 ### O que foi feito
-- Removidos playNote, extrasTitle/extrasBody e organsNote de _PlansTable. Permanece paymentLaterNote. Formulario e cartoes de plano intactos.
+- Selected item com largura limitada, ellipsis 2 linhas; itens do menu 3 linhas. Sem TextOverflow.visible.
 
 ### Risco de regressao
 - Baixo.
 
 ### Validacao executada
+- [x] 8088: Abertura selecionada no campo, sem faixa amarela.
+
+### Resultado
+- Campo Enquadramento sem overflow.
+
+### Proximos passos recomendados
+- Publish-web em andamento.
+
+## [2026-10-10 11:07] Funil: sem MEI/extras abaixo do A1
+
+### Contexto
+
+- Abaixo do cartao A1 QualityCert havia recap MEI, lista de extras e nota de orgaos.
+
+### Arquivos alterados
+
+- lib/contabilidade_funil_page.dart
+- docs/Atualiza.md
+
+### O que foi feito
+
+- Removidos playNote, extrasTitle/extrasBody e organsNote de _PlansTable. Permanece paymentLaterNote. Formulario e cartoes de plano intactos.
+
+### Risco de regressao
+
+- Baixo.
+
+### Validacao executada
+
 - [x] 8088 reiniciado; /contabilidade: A1 seguido so da nota de pagamento.
 
 ### Resultado
+
 - Cartao A1 seguido so da nota de pagamento.
 
 ### Proximos passos recomendados
+
 - Nenhum.
 
 ## [2026-10-10 10:48] Enquadramento: plano ou servico avulso
 
 ### Contexto
+
 - Uma so caixa seletora: Plano MEI, Plano ME, Abertura R$ 490, Transformacao MEI→ME R$ 350, Viabilidade R$ 100.
 
 ### Arquivos alterados
+
 - lib/contabilidade_funil_page.dart
 - lib/l10n/site_contabilidade_funil_texts.dart
 - lib/funil_firestore_service.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Avulso desliga faixas/add-ons/CRC; PIX uma linha; CNPJ nao obrigatorio; POST enquadramento.
 
 ### Risco de regressao
+
 - Medio (formulario + Function).
 
 ### Validacao executada
+
 - Pendente: 8088 + deploy receberLeadFunil,listarLeadsFunilCrc. Sem publish-web.
 
 ## [2026-10-10 10:22] WhatsApp so no selo do tiquete
 
 ### Contexto
+
 - WhatsApp aparecia no topo e no selo.
 
 ### Arquivos alterados
+
 - lib/funil_pix_ticket_pop.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Removido do cabecalho; permanece no selo de autenticidade.
 
 ### Risco de regressao
+
 - Baixo.
 
 ### Validacao executada
+
 - [x] 8088 reiniciado.
 
 ### Resultado
+
 - Cabecalho so CNPJ, endereco e e-mail.
 
 ### Proximos passos recomendados
+
 - Abrir o comprovante no funil.
 
 ## [2026-10-10 10:20] WhatsApp, selo e headers no tiquete PIX
 
 ### Contexto
+
 - Tiquete de compra/cobranca sem WhatsApp 54 99973-0205 nem selo da empresa.
 
 ### Arquivos alterados
+
 - lib/funil_pix_ticket_pop.dart
 - lib/l10n/site_contabilidade_funil_texts.dart
 - web/index.html
@@ -84,37 +129,47 @@ Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs,
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - WhatsApp so no tiquete. Selo com CNPJ, txid e CRC do PIX. CSP frame-ancestors e headers.
 
 ### Risco de regressao
+
 - FAB do site permanece 51 98904-5442.
 
 ### Validacao executada
+
 - [x] 8088 reiniciado.
 
 ### Resultado
+
 - Tiquete A1 e honorarios com contato e selo da empresa.
 
 ### Proximos passos recomendados
+
 - Conferir o tiquete no funil. Headers HTTP no Render so apos publish.
 
 ## [2026-10-10 10:35] Comprovante nos cadastros A1 e escritorio
+
 - Botao Anexar comprovante de pagamento (sem dizer opcional). POST com base64 se houver. CRC abre o ficheiro.
 
 ## [2026-10-10 10:00] A1 avulso nao entra no PIX de honorarios
+
 - Paguei no cartao marca FunilPixSessao.a1PagoAvulso; check A1 bloqueado; tiquete do plano sem 119,99.
 - CTA: Adquirir so o certificado A1. Reiniciar 8088.
 
 ## [2026-10-10 09:55] 8088 reiniciado com tiquete PIX
+
 - Flutter run antigo na 8088 nao tinha o tiquete. Processo encerrado e `flutter run -d web-server --web-hostname 127.0.0.1 --web-port 8088` no Web_perfectgest.
 
 ## [2026-10-10 09:40] Tiquete PIX A1 + honorarios
 
 ### Contexto
+
 - CTA A1 abre tiquete PIX R$ 119,99 (brasao + QR + copia e cola); Paguei abre o cadastro QualityCert.
 - Formulario: botao honorarios/servicos com o mesmo tiquete (faixa + extras). Sem PSP.
 
 ### Arquivos alterados
+
 - lib/funil_pix_emv.dart
 - lib/funil_pix_ticket_pop.dart
 - lib/contabilidade_funil_page.dart
@@ -125,9 +180,11 @@ Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs,
 ## [2026-10-10 07:44] Pop A1 QualityCert (3 passos)
 
 ### Contexto
+
 - Botão no cartão A1 para cadastro de aquisição, POST separado do lead com faixa.
 
 ### Arquivos alterados
+
 - lib/funil_a1_service.dart
 - lib/a1_quality_cert_pop.dart
 - lib/contabilidade_funil_page.dart
@@ -135,126 +192,161 @@ Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs,
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - CTA roxo no cartão. Pop 3 passos. POST receberSolicitacaoA1Funil.
 
 ### Risco de regressao
+
 - Lead com faixa inalterado.
 
 ### Validacao executada
+
 - [x] 8088 reiniciado.
 
 ### Resultado
+
 - Cadastro A1 no funil e na home, sem Play.
 
 ### Proximos passos recomendados
+
 - Conferir o botão no cartão A1.
 
 ## [2026-10-10 07:32] Faixa: campo fixo de 2 linhas
 
 ### Contexto
+
 - DropdownButton cortava a caixa em 1 linha no telemóvel.
 
 ### Arquivos alterados
+
 - lib/contabilidade_funil_page.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Campo Faixa com altura fixa de 2 linhas e lista numa janela.
 
 ### Risco de regressao
+
 - Baixo.
 
 ### Validacao executada
+
 - [x] 8088 reiniciado.
 
 ### Resultado
+
 - Nome e preço da faixa visíveis sempre.
 
 ### Proximos passos recomendados
+
 - Conferir /contabilidade no telemóvel.
 
 ## [2026-10-10 07:25] Caixa da faixa com altura de 2 linhas
 
 ### Contexto
+
 - O texto ja nao cortava, mas a caixa fechada ficava com 1 linha (48 px).
 
 ### Arquivos alterados
+
 - lib/contabilidade_funil_page.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - itemHeight 72 e padding para a caixa mostrar nome e preço em 2 linhas.
 
 ### Risco de regressao
+
 - Baixo.
 
 ### Validacao executada
+
 - [x] 8088 reiniciado.
 
 ### Resultado
+
 - Caixa da faixa mais alta no telemóvel.
 
 ### Proximos passos recomendados
+
 - Conferir /contabilidade no telemóvel.
 
 ## [2026-10-10 07:21] Faixa em 2 linhas + cartão QualityCert
 
 ### Contexto
+
 - A faixa cortava texto. O cartão A1 estourava (logo largo + preço na mesma linha).
 
 ### Arquivos alterados
+
 - lib/contabilidade_funil_page.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Dropdown da faixa com 2 linhas, sem reticências.
 - Cartão QualityCert em coluna: logo, título, 24h, preço, texto.
 
 ### Risco de regressao
+
 - Baixo: só layout.
 
 ### Validacao executada
+
 - [x] 8088 reiniciado.
 
 ### Resultado
+
 - Texto da faixa e do A1 visíveis no telemóvel.
 
 ### Proximos passos recomendados
+
 - Conferir /contabilidade no telemóvel.
 
 ## [2026-10-10 07:16] Funil: dropdown telemóvel + Facebook in-app
 
 ### Contexto
+
 - Faixa estourava no telemóvel. No Facebook in-app a página ficava cinza com o FAB esticado.
 
 ### Arquivos alterados
+
 - lib/contabilidade_funil_page.dart
 - web/index.html
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Dropdown da faixa com isExpanded e ellipsis.
 - Viewport no index.html; removido COOP same-origin; splash some em 8s.
 - FAB WhatsApp com altura 48 e endFloat.
 
 ### Risco de regressao
+
 - Facebook em producao so muda apos publish.
 
 ### Validacao executada
+
 - [x] 8088 reiniciado.
 
 ### Resultado
+
 - Faixa cabe no telemóvel; WebView do Facebook deixa de ficar preso no splash.
 
 ### Proximos passos recomendados
+
 - Publish quando o operador mandar. Conferir o dropdown no telemóvel.
 
 ## [2026-10-09 13:58] Cartão A1 QualityCert (logo + videoconferência 24h)
 
 ### Contexto
+
 - Pedido de cartão A1 com logo original da QualityCert no funil e na home.
 
 ### Arquivos alterados
+
 - IMAGENS_APP/IMAGENS NOVA PAGE/certificado_quality.png
 - lib/contabilidade_funil_page.dart
 - lib/l10n/site_contabilidade_funil_texts.dart
@@ -262,108 +354,136 @@ Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs,
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Cartão com logo, Videoconferência 24h, R$ 119,99/ano e texto da Quality.
 - Mesmo cartão no hero ContabilGest da home.
 
 ### Risco de regressao
+
 - Baixo: extra A1 do formulário inalterado.
 
 ### Validacao executada
+
 - [x] 8088 reiniciado.
 
 ### Resultado
+
 - Cartão visível em /contabilidade e na home.
 
 ### Proximos passos recomendados
+
 - Conferir logo e texto nos dois sítios.
 
 ## [2026-10-09 11:33] Funil: rota directa (sem chunk diferido)
 
 ### Contexto
+
 - Home abria; /contabilidade mostrava "Erro ao carregar a página" (loader diferido no DDC/cache).
 
 ### Arquivos alterados
+
 - lib/main.dart
 - lib/site_deferred_pages.dart
 - lib/contabilidade_funil_page.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Rota /contabilidade monta ContabilidadeFunilPage no main, sem FutureBuilder.
 - Tipo MEI/ME sem RadioGroup (evita crash no Flutter web).
 - Loader diferido das outras paginas ganha "Tentar de novo".
 
 ### Risco de regressao
+
 - Baixo. Funil deixa de depender de part.js.
 
 ### Validacao executada
+
 - [ ] publish-web (comando ao operador)
 - [ ] Reiniciar 8088
 
 ### Resultado
+
 - Funil nao passa pelo "Erro ao carregar a página".
 
 ### Proximos passos recomendados
+
 - publish-web e reiniciar flutter run 8088.
 
 ## [2026-10-09 11:10] Tela branca em /contabilidade (splash removido)
 
 ### Contexto
+
 - `__ppSkipLoadingShell` incluia `/contabilidade`. O splash saia na hora; o Flutter ainda nao pintava (branco/preto no Chrome).
 
 ### Arquivos alterados
+
 - web/index.html
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - /contabilidade, FAQ, pre-cadastro e politicas SPA deixam de saltar o splash. So paginas HTML estaticas (Clinica III, PerfectGest I, Contabil I) saltam.
 
 ### Risco de regressao
+
 - Rotas Flutter mostram o "Carregando..." ate o primeiro frame.
 
 ### Validacao executada
+
 - [ ] publish-web (comando ao operador)
 - [ ] Reiniciar 8088 e hard refresh /contabilidade
 
 ### Resultado
+
 - Splash fica ate o Flutter pintar o funil.
 
 ### Proximos passos recomendados
+
 - npm run publish-web. Reiniciar flutter run na 8088.
 
 ## [2026-10-09 10:46] Funil no bundle + splash ate o primeiro frame
 
 ### Contexto
+
 - Producao ainda POST no Postgres (part.js sem receberLeadFunil). /contabilidade no 8088 ficava branco: splash sumia ao aparecer flt-glass-pane vazio.
 
 ### Arquivos alterados
+
 - lib/site_deferred_pages.dart
 - web/index.html
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - /contabilidade deixa de ser chunk diferido (POST Firestore no JS principal).
 - Splash so some no flutter-first-frame; $dartRunMain arranca sem esperar a extensao.
 
 ### Risco de regressao
+
 - Bundle inicial um pouco maior. Funil deixa de depender de part.js.
 
 ### Validacao executada
+
 - [ ] npm run publish-web
 - [ ] Recarregar /contabilidade (8088 e producao)
 
 ### Resultado
+
 - Funil no mesmo JS que a Function receberLeadFunil.
 
 ### Proximos passos recomendados
+
 - Hard refresh em /contabilidade. CRC aba Novo Cadastro.
 
 ## [2026-10-09 09:37] MEI: parcelado 12x40 + Fidelizado à vista
 
 ### Contexto
+
 - O Básico MEI parcelado tinha sido substituido. Voltam os dois planos.
 
 ### Arquivos alterados
+
 - lib/contabilidade_funil_page.dart
 - lib/funil_firestore_service.dart
 - lib/l10n/site_contabilidade_funil_texts.dart
@@ -374,27 +494,34 @@ Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs,
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Básico Microempreendedor Individual (MEI): 12 × R$ 40,00.
 - Básico Fidelizado (MEI): segunda opção, R$ 456,99 à vista anual.
 
 ### Risco de regressao
+
 - Function no ar so atualiza apos deploy.
 
 ### Validacao executada
+
 - [x] 8088 reiniciado.
 
 ### Resultado
+
 - Dois planos MEI no funil.
 
 ### Proximos passos recomendados
+
 - Conferir os dois cards em /contabilidade.
 
 ## [2026-10-09 09:26] Básico Fidelizado (MEI) à vista R$ 456,99
 
 ### Contexto
+
 - O plano MEI passava R$ 40,00/mês. Passa a R$ 456,99 à vista anual (12 × 40,00 = 480,00, desconto de 23,01).
 
 ### Arquivos alterados
+
 - lib/contabilidade_funil_page.dart
 - lib/l10n/site_contabilidade_funil_texts.dart
 - lib/l10n/site_contabilgest_faq_texts.dart
@@ -404,27 +531,34 @@ Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs,
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Card, dropdown, pop, ficha e Firebase com 456,99/ano.
 - Nome Básico Fidelizado (MEI) no funil, home e FAQ.
 
 ### Risco de regressao
+
 - Function no ar so atualiza apos deploy.
 
 ### Validacao executada
+
 - [x] 8088 reiniciado.
 
 ### Resultado
+
 - MEI à vista anual com desconto.
 
 ### Proximos passos recomendados
+
 - Conferir o card em /contabilidade. Deploy da Function.
 
 ## [2026-10-09 08:41] Ficha em relevo + Firebase com aceite
 
 ### Contexto
+
 - Destacar NF/boleto no pop e gravar a ficha completa no Firestore com aceite da cobranca.
 
 ### Arquivos alterados
+
 - lib/contabilidade_funil_page.dart
 - lib/l10n/site_contabilidade_funil_texts.dart
 - lib/funil_firestore_service.dart
@@ -432,105 +566,133 @@ Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs,
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Frases de primeira NF/boleto e NF mensal em negrito e bloco dourado.
 - Texto de aceite antes de Enviar (PT/EN/ES).
 - POST `fichaProposta`, `aceiteCobranca`, `primeiroBoleto`. Function guarda e inclui no e-mail de suporte.
 
 ### Risco de regressao
+
 - Function no ar so atualiza apos `.\deploy-receber-lead-funil.ps1`.
 
 ### Validacao executada
+
 - [x] 8088 reiniciado.
 - [ ] Deploy da Function.
 
 ### Resultado
+
 - Pop com relevo e aceite; ficha pronta para o Firestore.
 
 ### Proximos passos recomendados
+
 - Deploy da Function. Sem publish do site.
 
 ## [2026-10-09 08:30] Pop: cobranca so do que foi marcado
 
 ### Contexto
+
 - O pop dizia «se contratado». Passa a listar so os itens clicados.
 
 ### Arquivos alterados
+
 - lib/contabilidade_funil_page.dart
 - lib/l10n/site_contabilidade_funil_texts.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - 12x e primeira NF/boleto com honorario + Folha + A1 + IR somente se marcados.
 
 ### Risco de regressao
+
 - Baixo: copy do pop.
 
 ### Validacao executada
+
 - [x] 8088 reiniciado.
 
 ### Resultado
+
 - Pop descreve o plano real.
 
 ### Proximos passos recomendados
+
 - Conferir o pop em /contabilidade.
 
 ## [2026-10-09 08:20] Pop: soma 12x + extras no 1o boleto
 
 ### Contexto
+
 - O pop listava honorario e extras sem declarar 12x nem o 1o boleto.
 
 ### Arquivos alterados
+
 - lib/contabilidade_funil_page.dart
 - lib/l10n/site_contabilidade_funil_texts.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Honorario + Folha em 12 parcelas. A1 e IR no primeiro boleto; A1 12 meses; IR no mes do IR do ano seguinte.
 
 ### Risco de regressao
+
 - Baixo: so pop e comentario do lead.
 
 ### Validacao executada
+
 - [x] 8088 reiniciado.
 
 ### Resultado
+
 - Pop soma e explica cobranca.
 
 ### Proximos passos recomendados
+
 - Conferir o pop em /contabilidade.
 
 ## [2026-10-09 08:06] Funil local: CORS Firebase bloqueava 127.0.0.1
 
 ### Contexto
+
 - O POST da Function funciona. O browser em 8088 nao recebe Access-Control-Allow-Origin.
 
 ### Arquivos alterados
+
 - S-App-ContabilGest/firebase/functions/crcAdminLeadsFunil.js (ORIGINS)
 - lib/l10n/site_contabilidade_funil_texts.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - CORS inclui 127.0.0.1:8088 e localhost. Copy de erro deixa de dizer "sem internet".
 
 ### Risco de regressao
+
 - Precisa `firebase deploy --only functions:receberLeadFunil`.
 
 ### Validacao executada
+
 - [x] POST sem Origin: 200 ok.
 - [ ] Deploy da Function.
 
 ### Resultado
+
 - Site local envia depois do deploy.
 
 ### Proximos passos recomendados
+
 - Rodar o script de deploy da Function.
 
 ## [2026-10-09 07:57] Play 19,99 / a vista; funil so honorarios
 
 ### Contexto
+
 - O site misturava R$ 239,88/ano com honorarios. Play oficial: 19,99/mes ou a vista 239,88.
 
 ### Arquivos alterados
+
 - lib/l10n/app_pt.arb, app_en.arb, app_es.arb, app_localizations.dart
 - lib/l10n/site_contabilgest_faq_texts.dart
 - lib/l10n/site_contabilidade_funil_texts.dart
@@ -538,53 +700,66 @@ Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs,
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Vitrine: ContabilGest como ferramenta de conexao em tempo real; Play so 19,99/mes ou a vista 239,88.
 - Funil: tabela/FAQ so honorarios; cadastro segue no Firebase; sucesso com link Play.
 
 ### Risco de regressao
+
 - Baixo: so copy. POST Firestore inalterado.
 
 ### Validacao executada
+
 - [x] Sem 239,88/ano no lib.
 - [x] 8088 reiniciado.
 
 ### Resultado
+
 - Play e honorarios separados.
 
 ### Proximos passos recomendados
+
 - Recarregar 8088. Sem publish.
 
-## [2026-10-09] Funil: R\$ na successBody (publish-web)
+## [2026-10-09] Funil: R na successBody (publish-web)
 
 ### Contexto
+
 - `dart2js` falhava: `R$ 19,00` em string Dart.
 
 ### O que mudou
+
 - `lib/l10n/site_contabilidade_funil_texts.dart`: `R\$ 19,99/mês`.
 
 ## [2026-10-09] Funil: data/hora do aceite na ficha
 
 ### Contexto
+
 - A ficha de proposta já ia no POST. Falta data/hora no texto do documento.
 
 ### O que mudou
+
 - `lib/contabilidade_funil_page.dart`: linha `Aceite em: dd/MM/yyyy HH:mm` em `_fichaProposta`.
 
 ## [2026-10-09] Funil: CSP *.run.app + publish obrigatório
 
 ### Contexto
+
 - O form no ar ainda não chega ao CRC: HTML publicado sem cloudfunctions. Dart local já POSTa na Function.
 
 ### O que mudou
+
 - `web/index.html` `connect-src`: Function + `https://*.run.app`.
 - Falta `npm run publish-web` (gera `build/web` e push). Sem isto o browser continua a bloquear.
 
 ## [2026-10-09] Funil: timeout 20s + finally + honeypot hp_site
 
 ### Contexto
+
 - Botão ficava em «enviando» (3×60s). CSP no ar ainda precisa de publish.
 
 ### O que mudou
+
 - `lib/funil_firestore_service.dart`: timeout 20s; 1 retry só em timeout; sem retry de Failed to fetch; `hp_site`; `skipped` não conta como sucesso.
 - `lib/contabilidade_funil_page.dart`: `_submit` com try/finally.
 - Function `receberLeadFunil`: honeypot `hp_site` ou `website`.
@@ -592,17 +767,21 @@ Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs,
 ## [2026-10-09] Funil: CSP permite Function Firebase
 
 ### Contexto
+
 - O browser bloqueava o POST (`Failed to fetch` / «Sem ligacao a internet»). `connect-src` só tinha a API Postgres.
 
 ### O que mudou
+
 - `web/index.html`: `connect-src` inclui `https://southamerica-east1-perfectgest-contabilgest.cloudfunctions.net`.
 
 ## [2026-10-09] Funil: MEI só R$ 40 (sem Fidelizado)
 
 ### Contexto
+
 - Havia duas faixas MEI (40 e Fidelizado 35). Fica só MEI mensalidade R$ 40,00.
 
 ### Arquivos
+
 - lib/contabilidade_funil_page.dart
 - lib/l10n/site_contabilidade_funil_texts.dart
 - lib/funil_firestore_service.dart
@@ -610,17 +789,21 @@ Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs,
 ## [2026-10-09] Funil /contabilidade → Firestore (receberLeadFunil)
 
 ### Contexto
+
 - O POST ia para Postgres (`kLeadsApiUrl`). O CRC Novo Cadastro só lê Firestore.
 
 ### O que mudou
+
 - `lib/funil_firestore_service.dart`: POST JSON na Function `receberLeadFunil`; retry 2× só em rede/timeout; sucesso só com `ok: true`.
 - `lib/contabilidade_funil_page.dart`: deixa de usar `LeadCaptureService`. Pré-cadastro geral continua no Postgres.
 
 ### Impacto / risco
+
 - Sem deploy da Function no Firebase, o form falha (não mostra sucesso).
 - CORS só `perfectgestdev.com` / `www` — teste local pode falhar.
 
 ### Rollback
+
 - Voltar `_submit` para `LeadCaptureService.submit`.
 
 ## Regras de uso (obrigatorio para proximas IAs)
@@ -634,34 +817,43 @@ Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs,
 ## [2026-10-09 00:33] Tela branca apos splash (web-server debug)
 
 ### Contexto
+
 - O splash sumia aos 7s e o Flutter debug nao chamava main sem a extensao Dart Debug.
 
 ### Arquivos alterados
+
 - web/index.html
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Splash fica ate o primeiro frame. Se o main nao arrancar, o site chama `$dartRunMain`.
 
 ### Risco de regressao
+
 - Baixo: so o shell HTML de carregamento.
 
 ### Validacao executada
+
 - [x] Forcar `$dartRunMain` pintou a home.
 - [x] 8088 reiniciado. A home abre apos o splash.
 
 ### Resultado
+
 - Home deixa de ficar em branco apos o carregamento.
 
 ### Proximos passos recomendados
-- Recarregar http://127.0.0.1:8088/ sem cache.
+
+- Recarregar [http://127.0.0.1:8088/](http://127.0.0.1:8088/) sem cache.
 
 ## [2026-10-08 23:25] Sucesso do cadastro, copia de e-mail e link Play
 
 ### Contexto
+
 - Depois do envio: mensagem de sucesso, copia no e-mail do usuario e link da Play Store.
 
 ### Arquivos alterados
+
 - lib/contabilidade_funil_page.dart
 - lib/l10n/site_contabilidade_funil_texts.dart
 - lib/lead_capture_service.dart
@@ -672,127 +864,162 @@ Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs,
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Tela "Envio realizado com sucesso", nota de copia no e-mail e URL da Play (app exclusivo).
 - API envia a copia se SMTP estiver no Render.
 
 ### Risco de regressao
+
 - Medio: e-mail so sai apos SMTP + deploy da API de leads.
 
 ### Validacao executada
+
 - [x] Web-server 8088 reiniciado.
 
 ### Resultado
+
 - Sucesso e link Play no funil. Copia de e-mail depende de SMTP.
 
 ### Proximos passos recomendados
+
 - Rodar scripts/configurar-smtp-leads.ps1 e publicar a API de leads.
 
 ## [2026-10-08 23:14] Pop de proposta so honorarios (NF e boleto mensal)
 
 ### Contexto
+
 - O pop e contrato de escritorio: sem Play/app; sem total anual.
 
 ### Arquivos alterados
+
 - lib/contabilidade_funil_page.dart
 - lib/l10n/site_contabilidade_funil_texts.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Obs. de NF e boleto todo mes no valor da mensalidade. 12x sem soma anual.
 
 ### Risco de regressao
+
 - Baixo: so copy do dialog.
 
 ### Validacao executada
+
 - [x] Web-server 8088 reiniciado.
 
 ### Resultado
+
 - Pop mostra so honorario mensal.
 
 ### Proximos passos recomendados
+
 - Conferir o pop em /contabilidade.
 
 ## [2026-10-08 23:05] Pop de proposta no funil (12x, 30 dias, 1 dia util)
 
 ### Contexto
-- Quero este plano abre resumo antes do envio ao escritorio.
+
+- Enviar para o escritorio abre resumo antes do envio ao escritorio.
 
 ### Arquivos alterados
+
 - lib/contabilidade_funil_page.dart
 - lib/l10n/site_contabilidade_funil_texts.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Dialog com cadastro, boleto, Play a parte, opcao 12x, renovacao automatica, cancelamento 30 dias, SLA 1 dia util. Enviar proposta dispara o lead.
 
 ### Risco de regressao
+
 - Medio: fluxo de envio do formulario.
 
 ### Validacao executada
+
 - [x] Web-server 8088 reiniciado (compile ok).
 
 ### Resultado
+
 - Proposta so sai depois da confirmacao no pop.
 
 ### Proximos passos recomendados
+
 - Conferir /contabilidade formulario.
 
 ## [2026-10-08 22:19] Rodape do funil aponta para paginas oficiais contabil-i
 
 ### Contexto
+
 - Links legais do funil devem abrir as URLs oficiais do app.
 
 ### Arquivos alterados
+
 - lib/contabilidade_funil_page.dart
 - lib/l10n/site_contabilidade_funil_texts.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Privacidade, termos, exclusao e FAQ abrem perfectgestdev.com/contabil-i-*. Privacidade do site permanece na rota local.
 
 ### Risco de regressao
+
 - Baixo: so o rodape.
 
 ### Validacao executada
+
 - [x] Web-server 8088 reiniciado (compile ok).
 
 ### Resultado
+
 - Rodape do funil usa as 4 URLs oficiais do app.
 
 ### Proximos passos recomendados
+
 - Conferir /contabilidade.
 
 ## [2026-10-08 21:49] Honorarios boleto CNPJ no funil (menos Play 19,99)
 
 ### Contexto
+
 - Tabela do funil passa a mostrar honorarios do escritorio: MEI 40, Fidelizado 35, Essencial 180, Standard 280, Avancado 380.
 
 ### Arquivos alterados
+
 - lib/contabilidade_funil_page.dart
 - lib/l10n/site_contabilidade_funil_texts.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - kFunilTiers com valores de boleto. Extras NF/CLT/abertura/MEI-ME visiveis. Play continua 19,99/239,88 a parte.
 
 ### Risco de regressao
+
 - Baixo: so precos e copy da tabela.
 
 ### Validacao executada
+
 - [x] Web-server 8088 reiniciado (compile ok).
 
 ### Resultado
+
 - Coluna da direita = boleto CNPJ.
 
 ### Proximos passos recomendados
+
 - Conferir /contabilidade.
 
 ## [2026-10-08 21:39] Duas cobrancas: Play = app, planos = escritorio
 
 ### Contexto
+
 - Briefing: FAQ /faq-contabilgest (16), funil so F1-F4, hero sem checkout de Contabil+.
 
 ### Arquivos alterados
+
 - lib/l10n/site_contabilgest_faq_texts.dart
 - lib/l10n/site_contabilidade_funil_texts.dart
 - lib/contabilidade_funil_page.dart
@@ -803,56 +1030,70 @@ Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs,
 - docs/Atualiza.md
 
 ### O que foi feito
-- 16 FAQs da vitrine: Play so do app; planos/habilitacao via suporte@perfectgestdev.com.
+
+- 16 FAQs da vitrine: Play so do app; planos/habilitacao via [suporte@perfectgestdev.com](mailto:suporte@perfectgestdev.com).
 - Funil: 4 FAQs; Conhecer vai ao cadastro; nota Play 19,99/239,88; CTA Assinar o app.
 - Hero Básico/Contabil+: honorarios em /contabilidade, nao checkout Play.
 
 ### Risco de regressao
+
 - Medio: copy comercial e fluxo do funil.
 
 ### Validacao executada
+
 - [x] Web-server 8088 reiniciado (compile ok).
 
 ### Resultado
+
 - Duas cobrancas separadas no site. contabil-i-* intocado.
 - Pendencias: publish so com ordem expressa.
 
 ### Proximos passos recomendados
+
 - Publish so com ordem expressa.
 
 ## [2026-10-08 20:50] FAQ do funil com perguntas da pagina do aplicativo
 
 ### Contexto
+
 - Pedido: incrementar Perguntas frequentes de /contabilidade com as Q&A de /faq-contabilgest, sem repetir.
 
 ### Arquivos alterados
+
 - lib/contabilidade_funil_page.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Mantidas as 5 FAQs do funil.
 - Acrescentadas 15 da pagina do app; omitidas «O que é o app?» e «O ContabilGest é um app oficial do governo?» (e equivalentes EN/ES).
 - Links oficiais no ExpansionTile de fontes oficiais.
 
 ### Risco de regressao
+
 - Baixo: so a seccao FAQ do funil.
 
 ### Validacao executada
+
 - [x] Web-server 8088 reiniciado (compile ok).
 
 ### Resultado
+
 - 20 perguntas no funil; pagina /faq-contabilgest inalterada.
 - Pendencias: publish so com ordem expressa.
 
 ### Proximos passos recomendados
+
 - Publish so com ordem expressa.
 
 ## [2026-10-08 19:58] Home clara, CTA ContabilGest e funil com visual da vitrine
 
 ### Contexto
+
 - Pedido: abrir o site em modo claro; CTA Conhecer o aplicativo para /contabilidade; funil com placa PERFECTGESTDEV e blocos 3D ouro; titulo em duas linhas.
 
 ### Arquivos alterados
+
 - lib/main.dart
 - lib/contabilidade_funil_page.dart
 - lib/l10n/app_pt.arb
@@ -865,236 +1106,297 @@ Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs,
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - ThemeMode.light; splash e theme-color claros.
 - ContabilGest: Conhecer o aplicativo → /contabilidade. PerfectGest I inalterado.
 - Funil: SiteBackgroundShell, SiteHeroWordmark, SiteRaisedBlock; segunda linha do titulo a 13 px.
 
 ### Risco de regressao
+
 - Medio: tema inicial e CTA da home. Funil herda o tema da vitrine.
 
 ### Validacao executada
+
 - [x] Web-server 8088 reiniciado.
 - [x] Home em modo claro; /contabilidade com placa PerfectGestDev, bloco ouro 3D e titulo em duas linhas.
 
 ### Resultado
+
 - Home clara; landing com visual da vitrine.
 - Pendencias: publish so com ordem expressa.
 
 ### Proximos passos recomendados
+
 - Publish so com ordem expressa.
 
 ## [2026-10-08 18:41] Funil: imagens maiores e zoom com pinca
 
 ### Contexto
+
 - Pedido: fotos maiores; toque abre zoom com pinca para focar um ponto.
 
 ### Arquivos alterados
+
 - lib/contabilidade_funil_page.dart
 - lib/l10n/site_contabilidade_funil_texts.dart
 - IMAGENS_APP/IMAGENS NOVA PAGE/phone_nfe.jpeg
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - _FunilShot 560 px (welcome 640); icone de zoom; dialogo InteractiveViewer 1x-5x.
 - Ficheiro WhatsApp renomeado para phone_nfe.jpeg.
 
 ### Risco de regressao
+
 - Baixo: so funil. Home nao alterada.
 
 ### Validacao executada
+
 - [x] Web-server 8088 reiniciado.
 
 ### Resultado
+
 - Capturas maiores e ampliaveis no toque.
 - Pendencias: publish so com ordem expressa.
 
 ### Proximos passos recomendados
+
 - Conferir `/contabilidade` e toque/pinca nas fotos.
 
 ## [2026-10-08 18:29] Publish Render: funil /contabilidade
 
 ### Contexto
+
 - Pedido: publicar o site na Web.
 
 ### Arquivos alterados
+
 - scripts/publish-web.cjs
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Inclusao de `IMAGENS_APP/IMAGENS NOVA PAGE` no git add do publish.
 - Execucao de `publicar_site_render.ps1` (build web + push main).
 
 ### Risco de regressao
+
 - Medio: deploy substitui o site em producao.
 
 ### Validacao executada
-- [ ] Aguardar Render e abrir https://perfectgestdev.com/contabilidade
+
+- [ ] Aguardar Render e abrir [https://perfectgestdev.com/contabilidade](https://perfectgestdev.com/contabilidade)
 
 ### Resultado
+
 - Funil isolado enviado para producao.
 - Pendencias: confirmar URL apos o deploy.
 
 ### Proximos passos recomendados
+
 - Validar em janela anonima `/contabilidade`.
 
 ## [2026-10-08 18:25] Funil: Básicos MEI com 5 NFs
 
 ### Contexto
+
 - Pedido: só Básico e Básico Fidelizado (MEI) passam de 10 para 5 notas fiscais (NFs).
 
 ### Arquivos alterados
+
 - lib/l10n/site_contabilidade_funil_texts.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - mei e fidelizado: Até 5 notas fiscais (NFs) por mês (PT/EN/ES).
 - Essencial permanece em 10.
 
 ### Risco de regressao
+
 - Baixo: so copy dos dois cartoes MEI.
 
 ### Validacao executada
+
 - [x] Web-server 8088 reiniciado.
 
 ### Resultado
+
 - Limite 5 NFs nos dois Básicos.
 - Pendencias: nenhuma.
 
 ### Proximos passos recomendados
+
 - Nao publicar ate ordem expressa.
 
 ## [2026-10-08 18:12] Funil: FAQ equipe e IR por ano
 
 ### Contexto
+
 - Pedido: nova resposta da FAQ da equipe; add-on de Imposto de renda com /ano.
 
 ### Arquivos alterados
+
 - lib/l10n/site_contabilidade_funil_texts.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - FAQ: um contador habilitado + sistema inteligente, acompanhamento em tempo real no app (PT/EN/ES).
 - extraIr: R$ 49,99/ano.
 
 ### Risco de regressao
+
 - Baixo: so copy.
 
 ### Validacao executada
+
 - [x] Web-server 8088 reiniciado.
 
 ### Resultado
+
 - FAQ e add-on IR atualizados.
 - Pendencias: nenhuma.
 
 ### Proximos passos recomendados
+
 - Nao publicar ate ordem expressa.
 
 ## [2026-10-08 18:07] Funil: add-on no acompanhamento do contador
 
 ### Contexto
+
 - Pedido: em Acompanhamento do contador, assinalar add-on com valores entre parenteses; A1 junto dessas opcoes.
 
 ### Arquivos alterados
+
 - lib/contabilidade_funil_page.dart
 - lib/l10n/site_contabilidade_funil_texts.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Em ME: checkboxes Folha (R$ 99,99/mes), Imposto de renda (R$ 49,99) e A1 (R$ 119,99/ano).
 - Em MEI: A1 permanece disponivel. Precos os ja documentados no funil.
 
 ### Risco de regressao
+
 - Baixo: so formulario do funil.
 
 ### Validacao executada
+
 - [x] Web-server 8088 reiniciado.
 
 ### Resultado
+
 - Add-on e A1 no bloco do contador (ME).
 - Pendencias: nenhuma.
 
 ### Proximos passos recomendados
+
 - Nao publicar ate ordem expressa.
 
 ## [2026-10-08 18:03] Funil: siglas oficiais MEI e ME entre parenteses
 
 ### Contexto
+
 - Pedido: apos Microempreendedor Individual colocar (MEI); apos Microempresa colocar (ME); siglas oficiais entre parenteses.
 
 ### Arquivos alterados
+
 - lib/l10n/site_contabilidade_funil_texts.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Nome por extenso + sigla oficial (MEI)/(ME) em PT, EN e ES (cartoes, enquadramento, FAQ e provas).
 
 ### Risco de regressao
+
 - Baixo: so copy.
 
 ### Validacao executada
+
 - [x] Web-server 8088 reiniciado para aplicar Dart.
 
 ### Resultado
+
 - Siglas oficiais visiveis junto ao nome.
 - Pendencias: nenhuma.
 
 ### Proximos passos recomendados
+
 - Nao publicar ate ordem expressa.
 
 ## [2026-10-08 17:53] Funil: servicos em lista e numerais nos cartoes
 
 ### Contexto
+
 - Pedido: cartoes em lista; numeros em numeral (10, 20, 30, 2, 4); aplicar na pagina porque F5 nao recarrega Dart no web-server.
 
 ### Arquivos alterados
+
 - lib/l10n/site_contabilidade_funil_texts.dart
 - lib/contabilidade_funil_page.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - `planDetail` substituido por `planItems` (lista PT/EN/ES).
 - Cartoes renderizam itens com marcador.
 - Web-server 8088 reiniciado (F5 nao basta).
 
 ### Risco de regressao
+
 - Baixo: so copy e layout dos cartoes.
 
 ### Validacao executada
+
 - [x] Web-server 8088 reiniciado; HTTP 200 em `/contabilidade`
 
 ### Resultado
+
 - Servicos em lista; limites em 10/20/30 e 2/4.
 - Pendencias: nenhuma.
 
 ### Proximos passos recomendados
+
 - Nao publicar ate ordem expressa.
 
 ## [2026-10-08 17:58] Funil: enquadramento MEI/ME sem Mei com contador
 
 ### Contexto
+
 - Pedido: apresentacao de enquadramento confusa; acompanhamento do contador so ao clicar ME; MEI nao tem MEI com contador.
 
 ### Arquivos alterados
+
 - lib/contabilidade_funil_page.dart
 - lib/l10n/site_contabilidade_funil_texts.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - MEI esconde o bloco do contador e filtra faixas mei/fidelizado.
 - ME mostra acompanhamento do contador (planos essenciais/intermediario/avancado).
 - Cartoes agrupados em MEI vs ME.
 
 ### Risco de regressao
+
 - Baixo: so fluxo do formulario e agrupamento dos cartoes.
 
 ### Validacao executada
+
 - [x] Web-server 8088 reiniciado (Dart nao atualiza com F5)
 
 ### Resultado
+
 - Nao ha combinacao MEI + contador no formulario.
 - Pendencias: nenhuma.
 
 ### Proximos passos recomendados
+
 - Nao publicar ate ordem expressa.
 
 ## Estado atual consolidado
@@ -1182,175 +1484,219 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 ## [2026-10-08 17:48] Funil: subtitulo menor no hero
 
 ### Contexto
+
 - Pedido: subtitulo em letra menor que o titulo.
 - Escopo: estilo de `heroLead` em `contabilidade_funil_page.dart`.
 
 ### Arquivos alterados
+
 - lib/contabilidade_funil_page.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Subtitulo a 13 px, peso regular, tinta mais suave; titulo permanece 26 px em negrito.
 
 ### Risco de regressao
+
 - Baixo.
 
 ### Validacao executada
+
 - [ ] Recarregar `/contabilidade`
 
 ### Resultado
+
 - Hierarquia titulo/subtitulo mais clara.
 - Pendencias: nenhuma.
 
 ### Proximos passos recomendados
+
 - Hot reload no web-server (r).
 
 ## [2026-10-08 17:39] Funil: descricoes completas nos cartoes de plano
 
 ### Contexto
+
 - Pedido: cartoes sucintos, sem abreviacoes, com tudo o que cada plano oferece.
 - Escopo: planName e planDetail PT/EN/ES.
 
 ### Arquivos alterados
+
 - lib/l10n/site_contabilidade_funil_texts.dart
 - lib/contabilidade_funil_page.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Cada cartao lista servicos do aplicativo, limites de notas e empregados, e se ha contador assinando os livros.
 
 ### Risco de regressao
+
 - Baixo: so copy dos cartoes.
 
 ### Validacao executada
+
 - [ ] Conferir cartoes em `/contabilidade`
 
 ### Resultado
+
 - Descricoes completas sem NF/CLT/ME.
 - Pendencias: nenhuma.
 
 ### Proximos passos recomendados
+
 - Hot reload local.
 
 ## [2026-10-08 17:34] Funil: planos otimistas (assinatura + A1)
 
 ### Contexto
+
 - Pedido: nao assustar com muitas cobrancas; nao falar em boleto; destacar vantagens do app.
 - Escopo: tabela, formulario e copy PT/EN/ES do funil.
 
 ### Arquivos alterados
+
 - lib/contabilidade_funil_page.dart
 - lib/l10n/site_contabilidade_funil_texts.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - So assinatura mensal dos planos (59,99 / 54,99 / 199,99 / 299,99 / 399,99) e A1 119,99/ano.
 - Removidos extras (folha, IR, NF, CLT, abertura) e linguagem de boleto.
 - Funcoes e FAQ falam de servicos exclusivos; pagamento na contratacao.
 
 ### Risco de regressao
+
 - Baixo: so funil. Lead interno ainda envia faixa e A1 S/N.
 
 ### Validacao executada
+
 - [ ] Conferir `/contabilidade` no browser
 
 ### Resultado
+
 - Pagina mais leve e otimista.
 - Pendencias: nenhuma.
 
 ### Proximos passos recomendados
+
 - Hot reload no web-server local.
 
 ## [2026-10-08 17:30] Funil: titulo e subtitulo do hero
 
 ### Contexto
+
 - Pedido: titulo (app + IA + contador + NFS-e/NF-e em tempo real) e subtitulo (servicos de contabilidade).
 - Escopo: heroHeadline e heroLead em PT/EN/ES.
 
 ### Arquivos alterados
+
 - lib/l10n/site_contabilidade_funil_texts.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Hero passa a vender o app com IA, contador ativo, suporte e controle de NFs; subtitulo lista contas, pro-labore, lucros, folha e IR.
 
 ### Risco de regressao
+
 - Baixo: so copy do hero.
 
 ### Validacao executada
+
 - [ ] Conferir `/contabilidade` no browser
 
 ### Resultado
+
 - Titulo e subtitulo atualizados.
 - Pendencias: nenhuma.
 
 ### Proximos passos recomendados
+
 - Hot reload no web-server local.
 
 ## [2026-10-08 17:25] Funil /contabilidade: copy CRC em linguagem clara
 
 ### Contexto
+
 - Pedido: tirar jargao CRC da landing; visitor nao conhece o app.
 - Escopo: so `site_contabilidade_funil_texts.dart` PT/EN/ES.
 
 ### Arquivos alterados
+
 - lib/l10n/site_contabilidade_funil_texts.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - «Planos Contábeis com contador ativo»; «Escritório com sistema de gerenciamento digital».
 - CRC de marketing → sistema de gerenciamento digital por IA + contador habilitado assinando os livros.
 - CRC-RS RS-011403/O mantido só como identificação legal.
 
 ### Risco de regressao
+
 - Baixo: só copy visível do funil.
 
 ### Validacao executada
+
 - [x] Grep CRC no funil: só CRC-RS legal
 
 ### Resultado
+
 - Landing explica o serviço sem jargão interno.
 - Pendencias: nenhuma.
 
 ### Proximos passos recomendados
+
 - Conferir no browser local.
 
 ## [2026-10-08 17:08] Funil /contabilidade: screenshots modo claro
 
 ### Contexto
+
 - Pedido: trocar fotos de apresentacao do funil por imagens claras em `IMAGENS_APP/IMAGENS NOVA PAGE`.
 - Escopo: classificar e colocar por seccao; nao mexer na home.
 
 ### Arquivos alterados
+
 - pubspec.yaml
 - lib/contabilidade_funil_page.dart
 - lib/l10n/site_contabilidade_funil_texts.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Hero: tela inicial; prova CRC: contador no fluxo; funcoes: menu; passos: MEI sem contador; demo: celular NFS-e, tablet, inicio, fecho, obrigacoes, notas.
 
 ### Risco de regressao
+
 - Baixo: so assets do funil. Home continua com screenshots antigos.
 
 ### Validacao executada
+
 - [ ] Hot restart do `flutter run` (pubspec assets)
 - [ ] Conferir `/contabilidade` no browser
 
 ### Resultado
+
 - Funil usa as 10 fotos claras da pasta indicada.
 - Pendencias: restart local se o web-server ja estava a correr.
 
 ### Proximos passos recomendados
+
 - Confirmar no browser; publish so com ordem.
 
 ## [2026-10-08 16:38] Funil isolado /contabilidade
 
 ### Contexto
+
 - Pedido: landing isolada para honorarios CNPJ + demo ContabilGest; Play R$ 19,99 so no fim; fora do menu da vitrine.
 - Escopo: rota `/contabilidade`, copy PT/EN/ES, form para API de leads existente, SEO noindex. Sem publish.
 
 ### Arquivos alterados
+
 - lib/contabilidade_funil_page.dart
 - lib/l10n/site_contabilidade_funil_texts.dart
 - lib/main.dart
@@ -1365,33 +1711,40 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Pagina propria (fundo claro, verde #1B5E4B), sem metallic_site_shell nem item de menu.
 - Lead com prefixo `[CONTABILIDADE]` e abertura WhatsApp; Assinar o app so no ecrã de sucesso.
 
 ### Risco de regressao
+
 - Baixo: so um `case` novo em `main.dart`; NavigationBar intacto.
 - Pontos sensiveis: rewrite Render so vale no proximo publish.
 
 ### Validacao executada
+
 - [x] Analise estatica/lint (`flutter analyze` nos ficheiros novos/tocados: 0 issues)
 - [x] Build local (`flutter run -d web-server` porta 8088)
 - [x] Teste manual: `/contabilidade` funil + tabela 40/35/180/280/380; home menu inalterado (Home/Solutions/Portfolio/About/Contact); robots `noindex, nofollow` no funil e `index, follow` na home
 - [x] Outros: sem publish; POST de lead nao disparado no browser (evita lead real na API)
 
 ### Resultado
+
 - Rota local `/contabilidade` com funil completo; home inalterada.
 - Pendencias: publish Render quando o operador autorizar.
 
 ### Proximos passos recomendados
+
 - Confirmar no browser local e, se ok, `.\scripts\publicar_site_render.ps1`.
 
 ## [2026-10-02 17:25] Titulos PerfectGest (nome da Play)
 
 ### Contexto
+
 - Pedido: titulo no site deve usar o nome da Play Store «PerfectGest».
 - Escopo: constante do produto, titulos legais HTML (h1/aba) e textos que interpolam o nome.
 
 ### Arquivos alterados
+
 - lib/company_legal.dart
 - lib/l10n/play_store_app_legal_texts.dart
 - scripts/perfectgest-i-legal-data.cjs
@@ -1400,29 +1753,36 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - `kProductPerfectGestIName` e `PRODUCT` dos HTML legais: PerfectGest (URLs `/perfectgest-i-*` iguais).
 
 ### Risco de regressao
+
 - Baixo: so nome visivel nos titulos.
 - Pontos sensiveis: HTML em producao so muda no proximo deploy Render.
 
 ### Validacao executada
+
 - [x] HTML preview gerado com titulos «— PerfectGest»
 
 ### Resultado
+
 - Titulos legais e vitrine passam a usar PerfectGest.
 - Pendencias: deploy Render para as paginas `/perfectgest-i-*` publicas.
 
 ### Proximos passos recomendados
+
 - Publicar no Render quando o operador autorizar.
 
 ## [2026-10-02 16:50] Vitrine: textos PerfectGest e ContabilGest alinhados
 
 ### Contexto
+
 - Pedido: corrigir textos da vitrine sobre PerfectGest e ContabilGest usando as politicas `/contabil-i-*` e a instrucao do operador para PerfectGest.
 - Escopo: Hero, Solucoes e rodape Sobre (PT/EN/ES). HTML legais nao alterados.
 
 ### Arquivos alterados
+
 - lib/l10n/app_pt.arb
 - lib/l10n/app_en.arb
 - lib/l10n/app_es.arb
@@ -1431,81 +1791,96 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Hero ContabilGest: sem «unico app», emissao relampago, termometro, radar automatico, time de contadores ou A1 de oferta. Planos Básico e Contabil+; 1 contador responsavel.
 - PerfectGest na vitrine: nome sem «I», gratuito, convite ao ContabilGest.
 - Captions e rodape Sobre: nome PerfectGest ContabilGest; botao sem citar loja.
 
 ### Risco de regressao
+
 - Baixo: so strings; layout inalterado.
 - Pontos sensiveis: textos longos no Hero; politicas HTML `/perfectgest-i-*` ainda podem mencionar Plano Pro (fora deste lote).
 
 ### Validacao executada
+
 - [x] Browser Home (Hero EN + Solucoes EN): textos novos visiveis
 - [x] Browser Sobre: `aboutFooterOffer` e botao «Get PerfectGest ContabilGest»
 - [x] HTML `/contabil-i-*` e `/perfectgest-i-*` nao editados
 
 ### Resultado
+
 - Comportamento esperado: vitrine descreve ContabilGest como nas politicas; PerfectGest gratuito e propaganda do ContabilGest.
 - Pendencias: pre-cadastro/politica do site/devolucao ainda citam PerfectGest I (operador nao autorizou).
 
 ### Proximos passos recomendados
+
 - Conferir visual no browser apos hot reload / deploy.
 - Decidir se HTML `/perfectgest-i-*` deve deixar de citar Plano Pro.
 
 ## [2026-09-27] Rodape Sobre: ofertas NFS-e/NF-e/livros + Play ContabilGest; nome fantasia
 
-
 ### Contexto
+
 - Pedido: mesmo bloco do banner PerfectGest no rodape da pagina de apresentacao (Sobre). Nome fantasia visivel; razao social/CNPJ fora deste destaque.
 
 ### O que foi feito
+
 - `lib/company_legal_strip.dart`: mostra `kCompanyFantasyName`.
 - `lib/main.dart` (`_SobreNosLegalFooter`): oferta NFS-e/NF-e/livros + botao Play ContabilGest.
 - `lib/l10n/app_localizations.dart`: `aboutFooterOffer` / `aboutFooterDownload` PT/EN/ES.
 
 ### Arquivos alterados
+
 - lib/company_legal_strip.dart
 - lib/main.dart
 - lib/l10n/app_localizations.dart
 
 ### Risco de regressao
+
 - Baixo: so rodape Sobre e texto do strip; paginas legais inalteradas neste passo (salvo sync PerfectGest-I se corrido).
 
 ### Validacao executada
-- [ ] Operador: conferir Sobre no browser local; Play abre; sem push Render ate ordem expressa.
 
+- [ ] Operador: conferir Sobre no browser local; Play abre; sem push Render ate ordem expressa.
 
 ## [2026-07-23 10:33] Fix pre-cadastro — erro "não foi possível conectar com o servidor"
 
 ### Contexto
+
 - Pedido: formulário de pré-cadastro mostra erro de ligação ao servidor.
 - Causa raiz: `ClientException` → `network_error`; servidor Render possivelmente inactivo/não deployado.
 
 ### O que foi feito
+
 - `lib/lead_capture_service.dart`: health check rápido (12 s) antes do POST; distingue `api_not_deployed` / `api_waking` / `api_unavailable` sem depender do POST de 90 s.
 - `ClientException` no POST mapeado para `api_not_deployed` (mais preciso que `network_error`).
 - `lib/l10n/site_pre_cadastro_texts.dart`: mensagens PT mais claras com e-mail de suporte como fallback.
 - `scripts/diagnostico_leads_api.ps1`: script PS1 para o operador verificar DNS, `/health` e POST ao servidor Render.
 
 ### Arquivos alterados
+
 - lib/lead_capture_service.dart
 - lib/l10n/site_pre_cadastro_texts.dart
 - scripts/diagnostico_leads_api.ps1
 
 ### Risco de regressao
+
 - Baixo: health check adiciona ~12 s de espera extra só em caso de cold start real.
 
 ### Validacao executada
+
 - [ ] Operador deve correr `diagnostico_leads_api.ps1` para confirmar estado do Render
 - [ ] Se Render OK: build + deploy; se não: recriar serviço (ver docs/RENDER_LEADS_POSTGRES.md)
 
 ## [2026-07-23 10:28] Rename produto — PerfectGest ContabilSigilo → ContabilGest
 
 ### Contexto
+
 - Pedido: alterar nome visível do app no bloco Soluções (App/Web) da home.
 - Escopo: constante central + localizações PT/EN/ES.
 
 ### Arquivos alterados
+
 - lib/company_legal.dart
 - lib/l10n/app_localizations.dart
 - lib/l10n/app_pt.arb
@@ -1513,34 +1888,42 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - lib/l10n/app_es.arb
 
 ### O que foi feito
+
 - `kProductPerfectGestContabilIName` → `'PerfectGest ContabilGest'`.
 - `solContabilAppsTitle` e `solPreviewContabilTabletLancar` actualizados nos 3 idiomas (PT/EN/ES) em `app_localizations.dart` e nos ARBs.
 
 ### Risco de regressao
+
 - Baixo: alteração textual sem impacto de fluxo.
 
 ### Validacao executada
+
 - [ ] Build web + validação visual no browser
 
 ## [2026-05-06 08:08] Inicializacao do acompanhamento continuo
 
 ### Contexto
+
 - Pedido: criar o arquivo descrito em `.cursorrules` e iniciar acompanhamento da evolucao do site.
 - Escopo: base documental para continuidade entre IAs.
 
 ### Arquivos alterados
+
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Criado o arquivo de rastreabilidade tecnica do site.
 - Definido modelo padrao de registro para futuras entregas.
 - Incluidas regras operacionais para prevenir perda de contexto e regressao.
 
 ### Risco de regressao
+
 - Baixo: alteracao apenas documental, sem impacto em runtime.
 - Pontos sensiveis: disciplina de atualizacao do arquivo em cada tarefa tecnica.
 
 ### Validacao executada
+
 - [x] Revisao manual da estrutura e clareza do documento
 - [ ] Analise estatica/lint
 - [ ] Build local
@@ -1548,25 +1931,30 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - [x] Sem alteracao de codigo executavel
 
 ### Resultado
+
 - Comportamento esperado apos a mudanca: proximas IAs conseguem entender historico, decisoes e riscos antes de alterar codigo.
 - Pendencias: comecar a preencher este registro a cada nova entrega tecnica.
 
 ### Proximos passos recomendados
+
 - Incluir uma nova entrada apos cada mudanca em codigo/infra/documentacao critica.
 - Padronizar checklist minimo de validacao por tipo de alteracao.
 
 ## [2026-05-06 08:11] Verificacao funcional e correcao de build
 
 ### Contexto
+
 - Pedido: verificar se o codigo estava funcional e corrigir se necessario.
 - Escopo: restaurar pipeline de analise, teste e build web release.
 
 ### Arquivos alterados
+
 - pubspec.yaml
 - lib/elastic_service.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Corrigidos caminhos de assets movidos para `imagens/` no `pubspec.yaml`.
 - Removida referencia de asset inexistente `assets/logo_PerfectPro_leve_cropped.png`.
 - Adicionada dependencia `http` e posteriormente fixada em `1.5.0` por crash do `dart2js` com `1.6.0` no SDK atual.
@@ -1574,30 +1962,36 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - Reexecutados `flutter analyze`, `flutter test` e `flutter build web --release`.
 
 ### Risco de regressao
+
 - Baixo: mudancas concentradas em configuracao de assets e logs de servico.
 - Pontos sensiveis: ao atualizar Flutter/Dart, revalidar se fixacao do `http` ainda e necessaria.
 
 ### Validacao executada
+
 - [x] Analise estatica/lint
 - [x] Build local
 - [x] Teste manual do fluxo impactado
 - [x] Outros: `flutter test` passou com sucesso
 
 ### Resultado
+
 - Comportamento esperado apos a mudanca: projeto volta a compilar e gerar build web release sem erro de asset.
 - Pendencias: considerar upgrade de SDK para remover necessidade de pin de dependencia no futuro.
 
 ### Proximos passos recomendados
+
 - Testar navegacao das paginas principais no build gerado em `build/web`.
 - Planejar janela de atualizacao de Flutter/Dart e revalidar `http` em versao mais nova.
 
 ## [2026-05-06 09:07] Renomeacao publica do site para PerfectGest I
 
 ### Contexto
+
 - Pedido: alterar o nome visivel ao publico para "PerfectGest I" em todo o site.
 - Escopo: textos de interface, titulos/metatags SEO e manifesto web.
 
 ### Arquivos alterados
+
 - web/index.html
 - web/manifest.json
 - lib/main.dart
@@ -1607,171 +2001,207 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Atualizado nome exibido na interface publica da home, politica e textos de contato.
 - Atualizados titulos e descricoes SEO (Open Graph e document title) para "PerfectGest I".
 - Atualizado `web/manifest.json` (`name` e `short_name`) para refletir a nova marca no PWA.
 - Atualizado `web/index.html` (title, og:title e apple-mobile-web-app-title).
 
 ### Risco de regressao
+
 - Baixo: mudanca textual sem alteracao de fluxo funcional.
 - Pontos sensiveis: manter consistencia da marca em novos textos futuros.
 
 ### Validacao executada
+
 - [x] Analise estatica/lint
 - [ ] Build local
 - [ ] Teste manual do fluxo impactado
 - [x] Outros: checagem de lints da IDE sem erros nos arquivos alterados
 
 ### Resultado
+
 - Comportamento esperado apos a mudanca: nome publico do site exibido como "PerfectGest I" em UI e metadados principais.
 - Pendencias: validar visualmente no browser os pontos de UI alterados.
 
 ### Proximos passos recomendados
+
 - Regerar `build/web` e recarregar o navegador para confirmar titulo e manifesto atualizados.
 - Revisar documentos externos/marketing para padronizar a nova marca quando aplicavel.
 
 ## [2026-05-07 07:58] Ajuste de ordem e tipografia no primeiro bloco
 
 ### Contexto
+
 - Pedido: corrigir a ordem das frases no primeiro bloco da home e ajustar o nome principal.
 - Escopo: secao Hero em `lib/main.dart`.
 
 ### Arquivos alterados
+
 - lib/main.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Alterado o texto principal do Hero de `PerfectGest I` para `PerfectGest`.
 - Ajustado o tamanho da fonte de `PerfectGest` para o mesmo tamanho da frase `Inovacao em Flutter, Java e SDKs`.
 - Reordenado o bloco para exibir `Inovacao em Flutter, Java e SDKs` imediatamente abaixo de `PerfectGest`.
 
 ### Risco de regressao
+
 - Baixo: alteracao textual e de ordem visual no Hero, sem mudanca de fluxo.
 - Pontos sensiveis: validar em mobile e desktop para garantir hierarquia visual esperada.
 
 ### Validacao executada
+
 - [x] Revisao manual do trecho alterado
 - [ ] Analise estatica/lint
 - [ ] Build local
 - [ ] Teste manual do fluxo impactado
 
 ### Resultado
+
 - Comportamento esperado apos a mudanca: primeiro bloco da home exibe a ordem solicitada e nome sem sufixo `I`.
 - Pendencias: validacao visual em navegador para confirmar percepcao de tamanho e espacos.
 
 ### Proximos passos recomendados
+
 - Executar `flutter run -d chrome` e validar o Hero em breakpoints desktop/mobile.
 - Se necessario, ajustar `fontWeight` para reforcar contraste mantendo o mesmo `fontSize`.
 
 ## [2026-05-07 08:00] Padronizacao visual de tipografia no Hero
 
 ### Contexto
+
 - Pedido: igualar visualmente o tamanho do texto descritivo principal ao da frase iniciada por "Software house...".
 - Escopo: ajuste tipografico no primeiro bloco da home.
 
 ### Arquivos alterados
+
 - lib/main.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Mantido o `fontSize` existente e padronizada a fonte do texto descritivo para `GoogleFonts.inter`, alinhando com a frase "Software house...".
 - Aplicado o ajuste nos dois ramos visuais do Hero (com e sem `ShaderMask`), para consistencia em claro/escuro e com/sem animacao.
 
 ### Risco de regressao
+
 - Baixo: alteracao apenas tipografica local no Hero.
 - Pontos sensiveis: revisar legibilidade em telas compactas.
 
 ### Validacao executada
+
 - [x] Revisao manual do trecho alterado
 - [ ] Analise estatica/lint
 - [ ] Build local
 - [ ] Teste manual do fluxo impactado
 
 ### Resultado
+
 - Comportamento esperado apos a mudanca: texto descritivo com proporcao visual equivalente ao bloco "Software house...", sem discrepancia de fonte.
 - Pendencias: validar no navegador o resultado final em desktop e mobile.
 
 ### Proximos passos recomendados
+
 - Executar `flutter run -d chrome` e validar o primeiro bloco em diferentes larguras.
 - Se ainda houver percepcao de diferenca, ajustar apenas `fontWeight` mantendo o mesmo `fontSize`.
 
 ## [2026-05-07 08:16] Reversao da ultima alteracao tipografica no primeiro bloco
 
 ### Contexto
+
 - Pedido: desfazer a ultima alteracao no 1o bloco e manter `PerfectGest` como esta.
 - Escopo: texto descritivo principal do Hero em `lib/main.dart`.
 
 ### Arquivos alterados
+
 - lib/main.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Revertida a alteracao tipografica do texto "Criamos apps Flutter, sistemas web e integracoes Java/SDK...".
 - Restaurado `TextStyle` original nesse texto (ramos com e sem `ShaderMask`).
 - Mantido `PerfectGest` sem qualquer mudanca.
 
 ### Risco de regressao
+
 - Baixo: reversao pontual de estilo visual.
 - Pontos sensiveis: confirmar visual no navegador apos hot reload.
 
 ### Validacao executada
+
 - [x] Revisao manual do trecho alterado
 - [ ] Analise estatica/lint
 - [ ] Build local
 - [ ] Teste manual do fluxo impactado
 
 ### Resultado
+
 - Comportamento esperado apos a mudanca: 1o bloco volta ao estado anterior da tipografia do texto descritivo, mantendo o titulo `PerfectGest`.
 - Pendencias: validacao visual final no browser.
 
 ### Proximos passos recomendados
+
 - Aplicar hot reload e verificar o Hero em desktop/mobile.
 
 ## [2026-05-07 08:44] Troca de imagens no bloco Solucoes (App/Web)
 
 ### Contexto
+
 - Pedido: trocar as imagens internas do bloco `Solucoes (App/Web)` pelas novas da pasta `IMAGENS_APP/Screenshot`.
 - Escopo: cards de mockup em `AnimatedSolutionsSectionContent`.
 
 ### Arquivos alterados
+
 - lib/main.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Atualizadas as duas referencias de `imageAsset` dos dispositivos para:
   - `IMAGENS_APP/Screenshot/PerfectGest (1).png`
   - `IMAGENS_APP/Screenshot/PerfectGest (2).png`
 - Mantidas as configuracoes de dimensao/posicionamento e fallback para reduzir risco visual.
 
 ### Risco de regressao
+
 - Baixo: alteracao apenas de caminho de assets.
 - Pontos sensiveis: nomes com espacos e parenteses exigem correspondencia exata no asset.
 
 ### Validacao executada
+
 - [x] Revisao manual dos caminhos no codigo
 - [ ] Analise estatica/lint
 - [ ] Build local
 - [ ] Teste manual do fluxo impactado
 
 ### Resultado
+
 - Comportamento esperado apos a mudanca: bloco `Solucoes (App/Web)` renderiza as novas imagens `PerfectGest (1)` e `PerfectGest (2)`.
 - Pendencias: validar renderizacao no navegador com hot reload ou novo build web.
 
 ### Proximos passos recomendados
+
 - Abrir o site localmente e confirmar crop/enquadramento dos dois mockups.
 - Se houver corte indesejado, ajustar `imageLeft`, `imageTop`, `imageWidth` e `imageHeight`.
 
 ## [2026-05-07 09:04] Correcao de compilacao Web apos troca de assets
 
 ### Contexto
+
 - Pedido: erro ao compilar `lib/main.dart` para Web e site sem atualizar no servidor.
 - Escopo: manifesto de assets em `pubspec.yaml`.
 
 ### Arquivos alterados
+
 - pubspec.yaml
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Corrigidas as referencias de assets antigas removidas da pasta `IMAGENS_APP/Screenshot`.
 - Atualizado para os novos ficheiros:
   - `IMAGENS_APP/Screenshot/PerfectGest (1).png`
@@ -1779,34 +2209,41 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - Mantida a entrada `IMAGENS_APP/` e ajustadas entradas explicitas para evitar falha de compilacao.
 
 ### Risco de regressao
+
 - Baixo: alteracao apenas em declaracao de assets.
 - Pontos sensiveis: nomes com espacos/parenteses exigem quote e caminho exato.
 
 ### Validacao executada
+
 - [x] Reproducao do erro de compilacao
 - [x] Revisao manual do `pubspec.yaml`
 - [ ] Build local completo
 - [ ] Teste manual do fluxo impactado
 
 ### Resultado
+
 - Comportamento esperado apos a mudanca: compilacao web volta a funcionar sem erro de asset ausente.
 - Pendencias: subir servidor limpo e validar visualmente o bloco `Solucoes (App/Web)`.
 
 ### Proximos passos recomendados
+
 - Executar `flutter run -d web-server --web-hostname=0.0.0.0 --web-port=8100`.
 - Fazer `Ctrl + F5` no navegador para invalidar cache.
 
 ## [2026-05-07 09:37] Equalizacao de tamanho visual no texto principal do Hero
 
 ### Contexto
+
 - Pedido: deixar a frase "Criamos apps Flutter, sistemas web e integracoes Java/SDK..." com o mesmo tamanho da frase "Software house especializada...".
 - Escopo: tipografia do bloco Hero em `lib/main.dart`.
 
 ### Arquivos alterados
+
 - lib/main.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Padronizada a frase "Criamos apps..." para o mesmo estilo base da frase "Software house...":
   - `GoogleFonts.inter`
   - `fontSize: heroSubtitleSize`
@@ -1814,100 +2251,121 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - Aplicado nos dois caminhos de renderizacao (com `ShaderMask` e sem `ShaderMask`).
 
 ### Risco de regressao
+
 - Baixo: ajuste local de tipografia sem impacto funcional.
 - Pontos sensiveis: validacao visual em tela pequena e grande.
 
 ### Validacao executada
+
 - [x] Revisao manual do trecho alterado
 - [ ] Analise estatica/lint
 - [ ] Build local
 - [ ] Teste manual do fluxo impactado
 
 ### Resultado
+
 - Comportamento esperado apos a mudanca: as duas frases ficam com o mesmo tamanho visual.
 - Pendencias: confirmar no navegador com refresh forcado.
 
 ### Proximos passos recomendados
+
 - Recarregar `http://localhost:8100` com `Ctrl + F5`.
 - Se desejar mais destaque mantendo tamanho, ajustar apenas contraste/cor.
 
 ## [2026-05-07 10:07] Inclusao do GA4 com novo ID no site
 
 ### Contexto
+
 - Pedido: incluir o snippet Google tag (`gtag.js`) nas paginas do site com ID `G-N4BVXV4HBC` e continuar a publicacao.
 - Escopo: `web/index.html` (entrada base do Flutter Web).
 
 ### Arquivos alterados
+
 - web/index.html
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Removida a injecao customizada anterior de GA baseada em localStorage/consentimento.
 - Inserido snippet direto solicitado:
   - script async `gtag/js?id=G-N4BVXV4HBC`
   - `gtag('config', 'G-N4BVXV4HBC')`
 
 ### Risco de regressao
+
 - Medio: mudanca no fluxo de medicao/cookies (de condicional para carregamento direto).
 - Pontos sensiveis: revisar conformidade de consentimento conforme politica vigente.
 
 ### Validacao executada
+
 - [x] Revisao manual do `index.html`
 - [ ] Analise estatica/lint
 - [ ] Build local
 - [ ] Teste manual do fluxo impactado
 
 ### Resultado
+
 - Comportamento esperado apos a mudanca: GA4 inicializa diretamente no carregamento da pagina com o novo Measurement ID.
 - Pendencias: concluir publish e validar eventos no GA4 DebugView/Realtime.
 
 ### Proximos passos recomendados
+
 - Executar publicacao e validar carregamento do `gtag/js` no browser.
 - Confirmar recebimento de evento `page_view` no GA4.
 
 ## [2026-05-07 11:12] Reposicionamento do snippet GA4 para o head
 
 ### Contexto
+
 - Pedido: corrigir posicao do codigo do Analytics para ficar antes de `</head>`.
 - Escopo: `web/index.html`.
 
 ### Arquivos alterados
+
 - web/index.html
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Movido o snippet GA4 (`gtag.js` + `gtag('config', 'G-N4BVXV4HBC')`) do `body` para o `head`.
 - Posicionado imediatamente antes do fechamento `</head>`, conforme solicitado.
 
 ### Risco de regressao
+
 - Baixo: ajuste de posicionamento de script sem mudanca de ID/config.
 - Pontos sensiveis: validar disparo de `page_view` no GA4 apos deploy.
 
 ### Validacao executada
+
 - [x] Revisao manual do `index.html`
 - [ ] Analise estatica/lint
 - [ ] Build local
 - [ ] Teste manual do fluxo impactado
 
 ### Resultado
+
 - Comportamento esperado apos a mudanca: Analytics carregado na fase correta do documento (`head`).
 - Pendencias: publicar e validar eventos em Realtime/DebugView.
 
 ### Proximos passos recomendados
+
 - Publicar novamente e fazer `Ctrl + F5` no browser.
 - Confirmar o request para `googletagmanager.com/gtag/js?id=G-N4BVXV4HBC`.
 
 ## [2026-05-07 11:32] Correcao de pipeline para Render (build/web atualizado)
 
 ### Contexto
+
 - Pedido: corrigir conflito de atualizacao no online, onde Render publica `build/web/index.html` e o fonte atual fica em `web/index.html`.
 - Escopo: script de publicacao `scripts/publish-web.cjs`.
 
 ### Arquivos alterados
+
 - scripts/publish-web.cjs
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Ajustado parser de `--msg` para aceitar mensagens com espacos sem quebrar o comando.
 - Atualizado `git add` do script para incluir explicitamente artefatos de deploy:
   - `build/web`
@@ -1915,100 +2373,121 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - Mantidos tambem os ficheiros-fonte (`lib`, `web`, `pubspec*`, `.gitignore`, `docs/Atualiza.md`).
 
 ### Risco de regressao
+
 - Baixo: ajuste de automacao de publicacao.
 - Pontos sensiveis: confirmar se o fluxo de deploy no Render continua apontando para `build/web`.
 
 ### Validacao executada
+
 - [x] Revisao manual do script alterado
 - [ ] Execucao de publish completo
 - [ ] Validacao online no Render
 - [ ] Teste manual do fluxo impactado
 
 ### Resultado
+
 - Comportamento esperado apos a mudanca: cada publicacao leva `build/web` atualizado para o remoto, eliminando divergencia entre `web/index.html` fonte e artefato servido no Render.
 - Pendencias: executar publish e validar o online.
 
 ### Proximos passos recomendados
+
 - Rodar `npm run publish-web -- --msg="fix: ajuste render build web"`.
 - Aguardar deploy do Render e testar em janela anonima.
 
 ## [2026-05-07 11:32] Ajuste final no publish para incluir build ignorado
 
 ### Contexto
+
 - Pedido: corrigir conflito de atualizacao no Render.
 - Escopo: garantir staging de `build/web` mesmo com `build/` no `.gitignore`.
 
 ### Arquivos alterados
+
 - scripts/publish-web.cjs
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Adicionado passo explicito no script:
   - `git add -A -f build/web`
 - Mantido `git add -A` dos ficheiros-fonte para acompanhar o artefato compilado.
 
 ### Risco de regressao
+
 - Baixo: ajuste de automacao de commit/deploy.
 - Pontos sensiveis: aumento de diff no commit por incluir artefatos web.
 
 ### Validacao executada
+
 - [x] Reproducao do erro de staging de build ignorado
 - [x] Revisao manual do script
 - [ ] Publicacao completa apos ajuste
 - [ ] Validacao online no Render
 
 ### Resultado
+
 - Comportamento esperado apos a mudanca: publicacao passa a incluir `build/web/index.html` atualizado no remoto.
 - Pendencias: reexecutar publish e verificar o deploy do Render.
 
 ### Proximos passos recomendados
+
 - Executar novamente `npm run publish-web -- --msg="fix: ajuste render build web"`.
 - Testar no online com cache limpo.
 
 ## [2026-05-07 11:32] Correcao da ordem de staging no script de publish
 
 ### Contexto
+
 - Pedido: resolver bloqueio final de publish por conflito com `.gitignore` em `build/`.
 - Escopo: `scripts/publish-web.cjs`.
 
 ### Arquivos alterados
+
 - scripts/publish-web.cjs
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Removido `build/web` do primeiro `git add -A` (sem `-f`) para evitar erro imediato.
 - Mantido o passo dedicado `git add -A -f build/web` como unica etapa de staging dos artefatos ignorados.
 
 ### Risco de regressao
+
 - Baixo: ajuste de ordem operacional no script.
 - Pontos sensiveis: tempo alto de compilacao web durante publish.
 
 ### Validacao executada
+
 - [x] Reproducao do erro
 - [x] Ajuste no script
 - [ ] Publish completo apos correcao
 - [ ] Validacao no Render
 
 ### Resultado
+
 - Comportamento esperado apos a mudanca: script deixa de falhar no staging e conclui commit/push com `build/web` atualizado.
 - Pendencias: reexecutar publicacao.
 
 ### Proximos passos recomendados
+
 - Rodar novamente o publish com mensagem curta sem caracteres especiais.
 - Validar deploy no Render apos push.
 
 ## [2026-05-07 12:51] Pacote de otimizacao Core Web Vitals (LCP/SI)
 
 ### Contexto
+
 - Pedido: aplicar pacote de otimizacao focado em LCP e Speed Index no `Web_app`.
 - Escopo: `lib/main.dart` e `web/index.html`.
 
 ### Arquivos alterados
+
 - lib/main.dart
 - web/index.html
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Reduzido custo de runtime inicial na Web:
   - `allowRichMotion()` agora retorna `false` em ambiente web para evitar loops/efeitos pesados no primeiro paint.
 - Implementado adiamento de secoes pesadas abaixo da dobra:
@@ -2019,36 +2498,43 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
   - remocao automatica ao `flutter-first-frame`/deteccao do `flt-glass-pane`.
 
 ### Risco de regressao
+
 - Medio: mudanca de comportamento visual (menos animacoes no web e carregamento progressivo de secoes).
 - Pontos sensiveis: validar UX da transicao skeleton -> conteudo real.
 
 ### Validacao executada
+
 - [x] Revisao manual dos pontos alterados
 - [x] Lint sem erros nos ficheiros alterados
 - [ ] Build web local completo
 - [ ] Reavaliacao PSI/Lighthouse apos deploy
 
 ### Resultado
+
 - Comportamento esperado apos a mudanca: menor custo de render inicial, melhora de Speed Index e maior consistencia de LCP no PSI/Lighthouse.
 - Pendencias: publicar e comparar metricas antes/depois (Desktop e Mobile).
 
 ### Proximos passos recomendados
+
 - Publicar novo build no Render.
 - Rodar PageSpeed Insights 3x (desktop/mobile) e comparar mediana de LCP/SI.
 
 ## [2026-05-07 12:54] Sincronizacao offline/online no mesmo artefato (build/web)
 
 ### Contexto
+
 - Pedido: garantir que servidor local atualize igual ao online, lendo as mudancas na mesma pasta com `F5`.
 - Escopo: pipeline de build/publicacao e servidor local de preview.
 
 ### Arquivos alterados
+
 - scripts/publish-web.cjs
 - scripts/serve-build-web.cjs
 - package.json
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Padronizado build de deploy com `--pwa-strategy=none` para reduzir cache agressivo de service worker.
 - Criado servidor local dedicado ao artefato final `build/web`:
   - script `scripts/serve-build-web.cjs` (Express);
@@ -2059,128 +2545,155 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
   - `local:web:sync` (build + serve na mesma pasta `build/web`).
 
 ### Risco de regressao
+
 - Baixo: alteracao em automacao/servidor local.
 - Pontos sensiveis: confirmar que ambiente de deploy nao depende de service worker anterior.
 
 ### Validacao executada
+
 - [x] Revisao manual dos scripts alterados
 - [ ] Execucao local de `npm run local:web:sync`
 - [ ] Validacao de refresh com `F5` no servidor local
 - [ ] Novo deploy e validacao no Render
 
 ### Resultado
+
 - Comportamento esperado apos a mudanca: offline e online passam a refletir o mesmo artefato (`build/web`) e o `F5` local recarrega as mudancas sem ficar preso em cache antigo.
 - Pendencias: rodar o novo comando local e validar no browser.
 
 ### Proximos passos recomendados
+
 - Executar `npm run local:web:sync`.
 - Depois publicar e validar online em aba anonima.
 
 ## [2026-05-07 12:54] Correcao de compatibilidade do servidor local (Express 5)
 
 ### Contexto
+
 - Pedido: manter sincronia offline/online com refresh simples.
 - Escopo: servidor local `scripts/serve-build-web.cjs`.
 
 ### Arquivos alterados
+
 - scripts/serve-build-web.cjs
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Corrigido fallback de rota SPA:
   - de `app.get('*', ...)` para `app.use(...)`
 - Ajuste necessario por mudanca de parsing de rotas no Express 5.
 
 ### Risco de regressao
+
 - Baixo: ajuste pontual de roteamento fallback.
 - Pontos sensiveis: confirmar abertura direta de subrotas (SPA).
 
 ### Validacao executada
+
 - [x] Reproducao do erro local no servidor
 - [x] Correcao no script
 - [ ] Subida final do servidor
 - [ ] Teste manual com `F5`
 
 ### Resultado
+
 - Comportamento esperado apos a mudanca: servidor local sobe corretamente e serve `build/web` com fallback SPA.
 - Pendencias: iniciar servidor e validar no browser.
 
 ### Proximos passos recomendados
+
 - Rodar `npm run serve:web:sync` apos build.
 - Validar `F5` e navegacao de rotas.
 
 ## [2026-05-07 13:24] Remocao do mockup iPhone 15 Pro em Solucoes (App/Web)
 
 ### Contexto
+
 - Pedido: retirar a tela com nome "iPhone 15 Pro" no bloco `Solucoes (App/Web)`.
 - Escopo: composicao visual dos mockups em `lib/main.dart`.
 
 ### Arquivos alterados
+
 - lib/main.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Removido o segundo `DeviceFrame` com titulo `iPhone 15 Pro`.
 - Mantido apenas o mockup `Android 14` no bloco de dispositivos.
 
 ### Risco de regressao
+
 - Baixo: alteracao de layout sem impacto funcional.
 - Pontos sensiveis: revisar espacamento visual com apenas um card.
 
 ### Validacao executada
+
 - [x] Revisao manual do trecho alterado
 - [ ] Analise estatica/lint
 - [ ] Build local
 - [ ] Teste manual do fluxo impactado
 
 ### Resultado
+
 - Comportamento esperado apos a mudanca: bloco `Solucoes (App/Web)` exibe somente um mockup, sem card `iPhone 15 Pro`.
 - Pendencias: validacao visual no navegador.
 
 ### Proximos passos recomendados
+
 - Atualizar no browser com `F5`.
 - Ajustar alinhamento do card, se desejar centralizar visualmente.
 
 ## [2026-05-07 13:26] Troca da imagem do mockup restante para PerfectGest (2)
 
 ### Contexto
+
 - Pedido: trocar a imagem da tela restante no bloco `Solucoes (App/Web)` para `PerfectGest (2)`.
 - Escopo: `DeviceFrame` unico em `lib/main.dart`.
 
 ### Arquivos alterados
+
 - lib/main.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Alterado `imageAsset` do mockup restante de:
   - `IMAGENS_APP/Screenshot/PerfectGest (1).png`
   para:
   - `IMAGENS_APP/Screenshot/PerfectGest (2).png`
 
 ### Risco de regressao
+
 - Baixo: alteracao apenas de referencia de asset.
 - Pontos sensiveis: verificar enquadramento/crop da nova imagem.
 
 ### Validacao executada
+
 - [x] Revisao manual do caminho alterado
 - [ ] Analise estatica/lint
 - [ ] Build local
 - [ ] Teste manual do fluxo impactado
 
 ### Resultado
+
 - Comportamento esperado apos a mudanca: bloco `Solucoes (App/Web)` exibe a imagem `PerfectGest (2)` no unico mockup.
 - Pendencias: validacao visual no navegador.
 
 ### Proximos passos recomendados
+
 - Recarregar com `F5` em `http://localhost:8100`.
 
 ## [2026-05-07 13:31] Padronizacao global de nome para PerfectGest
 
 ### Contexto
+
 - Pedido: alterar a palavra/nome `PerfectGest I` para `PerfectGest` em todos os textos do site.
 - Escopo: UI, textos institucionais e metadados SEO/PWA.
 
 ### Arquivos alterados
+
 - lib/main.dart
 - lib/politica_page.dart
 - lib/tecnologias_page.dart
@@ -2190,39 +2703,47 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Substituido `PerfectGest I` por `PerfectGest` em textos exibidos na interface.
 - Atualizados titulos/descricoes SEO e Open Graph com o novo nome.
 - Atualizados `title` HTML e nome/short_name do manifesto web.
 
 ### Risco de regressao
+
 - Baixo: mudanca textual e de metadados, sem alteracao de logica.
 - Pontos sensiveis: cache de navegador e manifesto podem exigir refresh forte.
 
 ### Validacao executada
+
 - [x] Revisao manual dos arquivos alterados
 - [x] Busca global em `lib/` e `web/` sem ocorrencias remanescentes de `PerfectGest I`
 - [ ] Build local
 - [ ] Teste manual no navegador
 
 ### Resultado
+
 - Comportamento esperado apos a mudanca: nome `PerfectGest` padronizado em todo o site.
 - Pendencias: validar no browser com `Ctrl + F5` (incluindo titulo da aba e textos institucionais).
 
 ### Proximos passos recomendados
+
 - Rebuild local (`npm run build:web:sync`) e atualizar no `localhost`.
 - Publicar no remoto para refletir online.
 
 ## [2026-05-07 14:37] Ajuste de TBT/CLS com carregamento progressivo por interacao
 
 ### Contexto
+
 - Pedido: diagnostico de performance com foco em thread principal/TBT, tarefas longas e CLS.
 - Escopo: estrategia de carregamento inicial da home em `lib/main.dart`.
 
 ### Arquivos alterados
+
 - lib/main.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Removido carregamento automatico temporizado das secoes pesadas apos 900ms.
 - Alterado para carregar secoes pesadas somente por interacao real:
   - scroll (`offset > 48`) ou navegacao para ancora.
@@ -2234,34 +2755,41 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - Reutilizados `GlobalKey`s nas secoes placeholder para manter navegacao consistente antes da hidratacao completa.
 
 ### Risco de regressao
+
 - Medio: alteracao de comportamento de carregamento progressivo.
 - Pontos sensiveis: validar experiencia ao clicar no menu antes de scroll.
 
 ### Validacao executada
+
 - [x] Revisao manual da logica e layout
 - [ ] Build local
 - [ ] Teste manual de navegacao por ancora
 - [ ] Reavaliacao PSI/Lighthouse
 
 ### Resultado
+
 - Comportamento esperado apos a mudanca: menos carga inicial na thread principal, menor TBT e menor CLS no primeiro carregamento.
 - Pendencias: medir novamente no PSI (mobile) e comparar TBT/SI/CLS.
 
 ### Proximos passos recomendados
+
 - Executar `npm run build:web:sync`.
 - Testar menu e scroll no `localhost` e depois rodar PSI.
 
 ## [2026-05-07 15:51] Endurecimento de seguranca web (CSP/COOP/clickjacking)
 
 ### Contexto
+
 - Pedido: tratar alertas de seguranca (CSP eficaz, COOP, clickjacking, riscos de XSS).
 - Escopo: cabecalho HTML em `web/index.html`.
 
 ### Arquivos alterados
+
 - web/index.html
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Adicionado `Cross-Origin-Opener-Policy` via meta:
   - `same-origin`
 - Endurecida CSP existente com diretivas de mitigacao:
@@ -2271,32 +2799,38 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - Mantidas diretivas necessarias para Flutter Web + GA4.
 
 ### Risco de regressao
+
 - Baixo/Medio: politicas mais restritivas podem afetar embeds em `iframe` caso existam.
 - Pontos sensiveis: se o site precisar ser embutido em outro dominio, ajustar `frame-ancestors`.
 
 ### Validacao executada
+
 - [x] Revisao manual do `index.html`
 - [ ] Build local
 - [ ] Verificacao de console no browser apos deploy
 - [ ] Re-scan de seguranca
 
 ### Resultado
+
 - Comportamento esperado apos a mudanca: baseline de seguranca mais forte para XSS/clickjacking e isolamento de origem.
 - Pendencias: configurar cabecalhos HTTP no Render para cobertura completa (X-Frame-Options/Trusted-Types em nivel de servidor).
 
 ### Proximos passos recomendados
+
 - Rodar `npm run build:web:sync` e publicar.
 - Validar novamente o diagnostico de seguranca.
 
 ## [2026-05-07 22:23] Criacao de subpaginas legais dedicadas
 
 ### Contexto
+
 - Pedido: criar 2 subpaginas sem navegacao, com os titulos:
   - "Política de Privacidade PerfectGest I"
   - "Política de exclusão de Dados PerfectGest I"
 - Escopo: novas paginas Flutter Web e documentos em `docs/`.
 
 ### Arquivos alterados
+
 - lib/main.dart
 - lib/legal_subpages.dart
 - docs/Politica_Privacidade_PerfectGest_I.md
@@ -2304,6 +2838,7 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Criadas duas paginas Flutter Web dedicadas, sem entrada no menu principal:
   - `/politica-privacidade-perfectgest-i`
   - `/politica-exclusao-dados-perfectgest-i`
@@ -2315,34 +2850,41 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - Registradas rotas nomeadas no `MaterialApp` para permitir acesso direto via URL.
 
 ### Risco de regressao
+
 - Baixo: novas rotas sem alteracao de fluxo principal.
 - Pontos sensiveis: garantir que URLs sejam comunicadas corretamente nas configuracoes externas (Play Console, politicas, etc.).
 
 ### Validacao executada
+
 - [x] Revisao manual dos arquivos novos/alterados
 - [ ] Build web local completo
 - [ ] Teste manual de acesso direto as rotas
 
 ### Resultado
+
 - Comportamento esperado apos a mudanca: duas subpaginas legais acessiveis por URL, com rodape que repete o nome da pagina e fornece link para ela mesma.
 - Pendencias: publicar novo build e validar no Render.
 
 ### Proximos passos recomendados
+
 - Executar `npm run build:web:sync` e depois `npm run publish-web`.
 - Expor as novas URLs nas politicas/console conforme necessidade.
 
 ## [2026-05-07 22:43] Isolamento total das subpaginas legais
 
 ### Contexto
+
 - Pedido: nas subpaginas legais nao exibir quadro "Carregando experiencia web..." e remover navegacao para o restante do site.
 - Escopo: `web/index.html` e `lib/legal_subpages.dart`.
 
 ### Arquivos alterados
+
 - web/index.html
 - lib/legal_subpages.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Adicionado bypass do loading shell para rotas legais:
   - `/politica-privacidade-perfectgest-i`
   - `/politica-exclusao-dados-perfectgest-i`
@@ -2350,34 +2892,41 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - Mantido apenas o conteudo da pagina e o rodape com link para a propria URL (como solicitado).
 
 ### Risco de regressao
+
 - Baixo: alteracao pontual de UX em rotas especificas.
 - Pontos sensiveis: validar acesso direto por URL no localhost e no online.
 
 ### Validacao executada
+
 - [x] Revisao manual dos trechos alterados
 - [ ] Build local
 - [ ] Teste manual das duas URLs
 
 ### Resultado
+
 - Comportamento esperado apos a mudanca: paginas legais abrem diretas, sem loading shell e sem navegacao com o resto do site.
 - Pendencias: rebuild/publicacao para refletir no servidor.
 
 ### Proximos passos recomendados
+
 - Executar `npm run build:web:sync`.
 - Testar as duas rotas no localhost.
 
 ## [2026-05-07 23:01] Conteudo juridico nas subpaginas e reforco visual no Hero
 
 ### Contexto
+
 - Pedido: aplicar o conteudo atualizado dos arquivos de politica em formato juridico nas paginas dedicadas e reativar efeito visual de letras coloridas no primeiro bloco.
 - Escopo: `lib/legal_subpages.dart` e `lib/main.dart`.
 
 ### Arquivos alterados
+
 - lib/legal_subpages.dart
 - lib/main.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Substituido o texto resumido das duas subpaginas por estrutura juridica em secoes numeradas, baseada no conteudo de:
   - `docs/Politica_Privacidade_PerfectGest_I.md`
   - `docs/Politica_Exclusao_Dados_PerfectGest_I.md`
@@ -2385,65 +2934,79 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - Reforcado o efeito de letras coloridas no Hero principal com gradiente neon (ciano/magenta/verde) nas frases de destaque.
 
 ### Risco de regressao
+
 - Baixo: alteracoes de conteudo e estilo visual.
 - Pontos sensiveis: validar legibilidade em modo claro/escuro.
 
 ### Validacao executada
+
 - [x] Revisao manual dos textos e estilos
 - [ ] Build local
 - [ ] Validacao visual no localhost
 
 ### Resultado
+
 - Comportamento esperado apos a mudanca: subpaginas com texto juridico completo e bloco inicial da home com letras coloridas destacadas.
 - Pendencias: rebuild/publicacao para refletir no servidor.
 
 ### Proximos passos recomendados
+
 - Executar `npm run build:web:sync`.
 - Validar no localhost e depois publicar no online.
 
 ## [2026-05-07 23:17] Reativacao de movimento no gradiente e sombra do Hero
 
 ### Contexto
+
 - Pedido: reativar movimento colorido nas letras do primeiro bloco e sombra colorida animada abaixo do bloco principal.
 - Escopo: secao Hero em `lib/main.dart`.
 
 ### Arquivos alterados
+
 - lib/main.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Reativado loop do `AnimationController` do Hero mesmo no modo de decoracao estatica.
 - Reintroduzida rotacao animada do gradiente (`GradientRotation`) nas frases destacadas.
 - Intensificada a sombra colorida do container com camada adicional e `offset` vertical animado para efeito de brilho em movimento na base do bloco.
 
 ### Risco de regressao
+
 - Medio: aumento de efeitos visuais pode elevar custo de render em dispositivos fracos.
 - Pontos sensiveis: monitorar TBT/SI no mobile apos deploy.
 
 ### Validacao executada
+
 - [x] Revisao manual do trecho alterado
 - [ ] Build local
 - [ ] Validacao visual no localhost
 
 ### Resultado
+
 - Comportamento esperado apos a mudanca: gradiente de letras com movimento perceptivel e sombra neon animada abaixo do Hero.
 - Pendencias: rebuild e validacao no navegador.
 
 ### Proximos passos recomendados
+
 - Rodar `npm run build:web:sync`.
 - Fazer `Ctrl + F5` e validar em desktop/mobile.
 
 ## [2026-05-07 23:22] Correcao do link Parceiros tecnologicos na politica
 
 ### Contexto
+
 - Pedido: no bloco "4. Google Analytics e serviços Google", o botão "Parceiros tecnológicos" deve abrir a página interna de parceiros tecnológicos, e não a URL do Google.
 - Escopo: `lib/politica_page.dart`.
 
 ### Arquivos alterados
+
 - lib/politica_page.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Ajustado o item "Parceiros tecnológicos" para navegação interna via `Navigator` para `TecnologiasPage`.
 - Mantidos os links externos de "Privacidade Google" e "Cookies Google".
 - Evoluída a estrutura de links (`_PoliticaLink`) para suportar:
@@ -2451,29 +3014,35 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
   - ação interna (`onTap`)
 
 ### Risco de regressao
+
 - Baixo: ajuste pontual de ação de botão.
 - Pontos sensiveis: validar no web e mobile o comportamento do botão.
 
 ### Validacao executada
+
 - [x] Revisao manual da implementacao
 - [ ] Build local
 - [ ] Teste manual do bloco 4 na pagina de politica
 
 ### Resultado
+
 - Comportamento esperado apos a mudanca: botão "Parceiros tecnológicos" abre a página interna correspondente.
 - Pendencias: rebuild e validação no localhost.
 
 ### Proximos passos recomendados
+
 - Executar `npm run build:web:sync`.
 - Testar a navegação a partir da página de política.
 
 ## [2026-05-08 10:55] Fase 1 i18n: infraestrutura, autodeteccao e botao de idioma
 
 ### Contexto
+
 - Pedido: implementar i18n via flutter_localizations + ficheiros .arb com suporte EN/ES e autodeteccao do idioma do browser, sem alterar textos visiveis ainda (Fase 1 do plano acordado).
 - Escopo: pubspec, MaterialApp, controlador de idioma, persistencia em localStorage, selector no cabecalho, sincronia do `<html lang>`.
 
 ### Arquivos alterados
+
 - pubspec.yaml (sem alteracao final; reverti `generate: true` para nao depender do codegen nesta fase)
 - l10n.yaml (novo, comentado/desativado; documenta como reativar codegen na Fase 2)
 - lib/l10n/app_pt.arb (novo)
@@ -2489,6 +3058,7 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Criada classe `AppLocalizations` (manual) com 5 chaves base para Fase 1 (`languageMenuTooltip`, `languageNamePortuguese`, `languageNameEnglish`, `languageNameSpanish`, `languageFollowSystem`).
 - `MaterialApp` ligado ao i18n com 3 locais suportados: `pt`, `en`, `es`. `localeResolutionCallback` faz autodeteccao via `languageCode` do browser/sistema; fallback `pt`.
 - Criado `LocaleController` (`ValueNotifier<Locale?>`); `null` => seguir sistema; escolha manual persistida em `localStorage` (chave `pp_locale`) na Web.
@@ -2497,10 +3067,12 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - Textos visiveis do site permanecem em PT (Fase 1). A selecao de idioma ja afeta os textos do framework Material/Cupertino e a chave do AppLocalizations usada no proprio menu.
 
 ### Risco de regressao
+
 - Baixo/Medio: alteracao no `MaterialApp` (passa a ter delegates/supportedLocales/locale). Sem alteracao de UI fora do header.
 - Pontos sensiveis: confirmar que rotas legais e Navigator.push continuam a funcionar; confirmar que persistencia em `localStorage` nao interfere com banner de cookies.
 
 ### Validacao executada
+
 - [x] Lint sem erros nos ficheiros alterados (ReadLints)
 - [x] `flutter pub get`
 - [x] `flutter analyze` (0 lints novos; 2 avisos pre-existentes: import `flutter_web_plugins` e `heroTitleSize` nao usado)
@@ -2508,12 +3080,14 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - [ ] Teste manual no navegador com `Accept-Language` em `en` e `es`
 
 ### Correcao tardia (mesma entrega)
+
 - Removido `l10n.yaml` (ficheiro de comentarios). Causava erro no build:
   - `Expected ...l10n.yaml to contain a map, instead was null`
   - O target `gen_localizations` e ativado pela mera presenca do YAML, nao precisa de `generate: true` no `pubspec.yaml`.
 - Para reativar codegen na Fase 2, recriar `l10n.yaml` com chaves validas (`arb-dir`, `template-arb-file`, etc.) e adicionar `generate: true`.
 
 ### Resultado
+
 - Comportamento esperado apos a mudanca:
   - Browser em PT => UI continua em PT (mesmo comportamento de hoje).
   - Browser em EN/ES => Material widgets em EN/ES; site continua em PT (textos hard-coded ate Fase 2 migrar para `AppLocalizations`).
@@ -2525,16 +3099,19 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
   - Fase 4: localizar `seo_meta_*.dart` (titulos/descricoes/og:locale) por idioma e adicionar `<link rel="alternate" hreflang>` em `web/index.html`.
 
 ### Proximos passos recomendados
+
 - Confirmar Fase 1 visualmente (botao no header e troca de idioma), depois iniciar Fase 2 (migracao incremental por seccao).
 - Avaliar migrar para codegen oficial (`l10n.yaml` + `generate: true`) quando ultrapassarmos ~30 chaves traduzidas.
 
 ## [2026-05-08] Fase 3 parcial — paginas legais e tecnologias (i18n)
 
 ### Contexto
+
 - Pedido: continuar entrega apos validacao; avancar i18n em conteudo extenso.
 - Escopo: dependencia `flutter_web_plugins`; chave `navBack`; politica do site completa PT/EN/ES; pagina Tecnologias completa; titulos Play Store + data; correcao lint `depend_on_referenced_packages`.
 
 ### Arquivos alterados
+
 - pubspec.yaml (`flutter_web_plugins` do SDK)
 - lib/l10n/app_localizations.dart, lib/l10n/app_pt.arb, app_en.arb, app_es.arb (`navBack`)
 - lib/l10n/site_policy_privacy_texts.dart (novo)
@@ -2546,35 +3123,42 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Declarada dependencia direta `flutter_web_plugins` para eliminar aviso `depend_on_referenced_packages` em `main.dart`.
 - Textos longos da politica do site movidos para `SitePolicyPrivacyTexts` (PT/EN/ES); `PoliticaPrivacidadePage` usa `AppLocalizations` para chrome (voltar, tema, links Google, copyright) e textos legais por locale.
 - `TecnologiasPage`: hero, 15 cards tecnicos e rotulo "Conceito aplicado" via `SiteTecnologiasTexts`; AppBar e tooltips via `AppLocalizations`.
 - `legal_subpages`: titulos das duas politicas PerfectGest I e linha "Ultima atualizacao" via `PlayStoreAppLegalTexts` (corpos das seccoes permanecem em PT).
 
 ### Risco de regressao
+
 - Baixo/Medio: alteracao de textos legais em EN/ES (revisao humana recomendada).
 - Pontos sensiveis: scroll inicial por `initialTopic` na pagina Tecnologias (chaves nos primeiros 4 cards mantidas).
 
 ### Validacao executada
+
 - [x] `flutter pub get`
 - [x] `dart analyze` nos ficheiros alterados (0 issues)
 - [ ] `flutter build web --release` (nao executado nesta sessao por tempo)
 
 ### Pendencias
+
 - Fase 4: SEO dinamico e hreflang.
 
 ## [2026-05-08] Fase 3 final — corpos das politicas Play Store i18n
 
 ### Contexto
+
 - Pedido: continuar Fase 3.
 - Escopo: migrar os textos das seccoes das duas politicas PerfectGest I (Play Store) para PT/EN/ES.
 
 ### Arquivos alterados
+
 - lib/l10n/play_store_app_legal_texts.dart (estendido com `LegalSectionText` + listas PT/EN/ES)
 - lib/legal_subpages.dart (renderiza secoes a partir das listas localizadas)
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Adicionada classe simples `LegalSectionText` (heading + body) e listas const por idioma para:
   - `privacyPolicySections` (7 secoes)
   - `dataDeletionPolicySections` (4 secoes)
@@ -2582,24 +3166,29 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - Titulos e linha "Ultima atualizacao" ja eram localizados desde a entrega anterior; agora todo o conteudo destas paginas e i18n.
 
 ### Risco de regressao
+
 - Baixo: estrutura visual mantida, apenas fonte das strings mudou.
 - Pontos sensiveis: textos juridicos EN/ES sao traducoes funcionais; revisao humana recomendada antes de publicacao oficial em outros mercados.
 
 ### Validacao executada
+
 - [x] `dart analyze lib/legal_subpages.dart lib/l10n/play_store_app_legal_texts.dart` (No issues found!)
 - [ ] Build web release / teste no browser pelos 3 idiomas (a fazer pelo utilizador).
 
 ### Resultado
+
 - Fase 3 (paginas com texto extenso) concluida: `politica_page.dart`, `tecnologias_page.dart` e `legal_subpages.dart` totalmente i18n PT/EN/ES.
 - Proximo: Fase 4 (SEO localizado + `link rel="alternate" hreflang"`).
 
 ## [2026-05-26] Rodape legal LTDA (Play Console / verificacao PJ)
 
 ### Contexto
+
 - Pedido: expor identificacao da organizacao no site (home e Sobre) para alinhar com cadastro Google Play PJ.
 - Escopo: widget reutilizavel + i18n PT/EN/ES; CNPJ oculto ate valor autorizado pelo operador.
 
 ### Arquivos alterados
+
 - lib/company_legal.dart
 - lib/company_legal_strip.dart
 - lib/main.dart
@@ -2608,30 +3197,36 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Constantes publicas: razao social LTDA, morada Caxias do Sul, e-mail `administrador@perfectgestdev.com`, URLs FAQ e privacidade (Google Sites).
 - `CompanyLegalStrip` no rodape da home (`_HomeComplianceFooter`) e em Sobre (`_SobreNosLegalFooter`).
 - Chaves i18n: `footerCompanyLegalSemantics`, `footerCompanyCnpjLabel`, `footerCompanyContactLabel`, `footerCompanyEmailBtn`, `footerLinkAppFaq`, `footerLinkAppPrivacy`.
 
 ### Risco de regressao
+
 - Baixo: adicao visual no rodape; links externos e mailto.
 - Pontos sensiveis: CNPJ vazio (linha nao renderizada); deploy Render necessario para Play ver o site atualizado.
 
 ### Validacao executada
+
 - [x] `flutter analyze` nos ficheiros alterados (0 issues)
 - [ ] Build web release / deploy Render
 - [ ] Teste manual home + Sobre nos 3 idiomas
 
 ### Pendencias
+
 - Operador informar CNPJ para preencher `kCompanyCnpj` em `lib/company_legal.dart`.
 - Deploy `npm run build:web:sync` (ou pipeline habitual) apos aprovacao.
 
 ## [2026-05-26] CNPJ e D-U-N-S no rodape legal
 
 ### Contexto
+
 - Pedido: dados da organizacao (imagens Play / cadastro).
 - Escopo: preencher identificadores fiscais no rodape.
 
 ### Arquivos alterados
+
 - lib/company_legal.dart
 - lib/company_legal_strip.dart
 - lib/l10n/app_pt.arb, app_en.arb, app_es.arb
@@ -2639,25 +3234,30 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - CNPJ: `66.889.409/0001-19`
 - D-U-N-S: `582645270`
 - Label i18n `footerCompanyDunsLabel` (PT/EN/ES).
 
 ### Validacao executada
+
 - [x] `flutter analyze` (0 issues)
 - [ ] Deploy Render
 
 ## [2026-05-27] Rodape legal compacto e largura alinhada
 
 ### Contexto
+
 - Pedido: manter so o necessario (sem politicas do app); alinhar largura ao corpo; Sobre com rodape fixo compacto.
 
 ### Arquivos alterados
+
 - lib/company_legal.dart, lib/company_legal_strip.dart, lib/site_layout.dart, lib/main.dart
 - lib/l10n/app_pt.arb, app_en.arb, app_es.arb, app_localizations.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Removidos links FAQ/privacidade do app e URLs Google Sites do rodape.
 - LTDA: nome, morada, CNPJ · D-U-N-S · e-mail (linha compacta).
 - Home: bloco com mesma margem/largura que `SectionCard` (padding 24, largura total).
@@ -2665,15 +3265,18 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - Separador visual entre dados da empresa e bloco «Privacidade de dados e cookies» (home).
 
 ### Validacao executada
+
 - [x] `flutter analyze` (0 issues)
 - [ ] Deploy Render
 
 ## [2026-05-27] Solucoes (App/Web) — vitrine marketing 2 phones + 2 tablets
 
 ### Contexto
+
 - Pedido: alinhar secao Solucoes ao programa de marketing; +3 telas (1 celular, 2 tablet) no padrao `DeviceFrame`.
 
 ### Arquivos alterados
+
 - lib/main.dart
 - pubspec.yaml
 - IMAGENS_APP/Screenshot/phone_03_inicio.png
@@ -2682,93 +3285,113 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Vitrine com 4 mockups: inicio (phone), orcamentos (phone), inicio (tablet), orcamentos (tablet).
 - Capturas da mesma base das artes Play Store (`LOGO/Telas` e `LOGO/Telas_tablet`).
 - Moldura tablet `Android tablet` (228x308) distinta do celular `Android 14`.
 
 ### Validacao executada
+
 - [x] `flutter analyze lib/main.dart` (0 issues)
 - [ ] Validacao visual / deploy
 
 ## [2026-05-27] Solucoes — ampliar captura ao clique
 
 ### Contexto
+
 - Pedido: ao clicar no mockup da vitrine, expandir imagem para ver detalhes.
 
 ### Arquivos alterados
+
 - lib/solution_screenshot_preview.dart (novo)
 - lib/main.dart (`DeviceFrame.previewCaption`, dialogo com `InteractiveViewer`)
 - lib/l10n/app_pt.arb, app_en.arb, app_es.arb, app_localizations.dart
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Toque/clique no mockup abre dialogo com captura em tamanho grande e zoom.
 - Icone de ampliar no canto; tooltip e textos PT/EN/ES.
 
 ### Validacao executada
+
 - [x] `flutter analyze` (0 issues)
 - [ ] Deploy / teste no browser
 
 ## [2026-05-27] Novo logotipo PerfectGest (tema claro / escuro)
 
 ### Contexto
+
 - Pedido: substituir logo do site por icones fornecidos (claro e escuro).
 
 ### Arquivos alterados
+
 - imagens/logo_perfectgest_light.png, logo_perfectgest_dark.png
 - lib/site_brand_logo.dart, lib/main.dart (cabecalho)
 - lib/l10n/*, pubspec.yaml, scripts/publish-web.cjs
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - `SiteBrandLogo` escolhe asset conforme `Theme.of(context).brightness`.
 - Cabecalho usa logo 40x40; fallback cruzado se asset falhar.
 
 ### Validacao executada
+
 - [x] `flutter analyze` (0 issues)
 - [ ] Deploy / alternar tema no browser
 
 ## [2026-05-27] Cabecalho — imagem PerfectGestDev no lugar do logo + nome
 
 ### Contexto
+
 - Pedido: remover logo do site e texto `PerfectGest`, usando uma unica imagem clicavel com o mesmo link do nome.
 
 ### Arquivos alterados
+
 - lib/main.dart
 - imagens/brand_plate_perfectgestdev.png
 - scripts/publish-web.cjs
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Cabeçalho agora usa apenas `imagens/brand_plate_perfectgestdev.png` como marca.
 - Mantido o comportamento do clique (abre a URL do site) e semantica do link.
 
 ### Validacao executada
+
 - [x] `flutter analyze lib/main.dart` (0 issues)
 - [ ] Deploy / validacao visual no browser
 
 ## [2026-05-28] Google Site Verification (meta tag)
 
 ### Contexto
+
 - Pedido: inserir tag HTML de verificação Google no `<head>` antes do `<body>`.
 
 ### Arquivos alterados
+
 - web/index.html
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Adicionada `<meta name="google-site-verification" ...>` no `web/index.html`.
 
 ### Validacao executada
+
 - [x] `flutter analyze` (0 issues)
 
 ## [2026-05-28] Politica de devolucao (Merchant Center)
 
 ### Contexto
+
 - Pedido: criar pagina publica de politica de devolucao/reembolso para verificacao do Merchant Center.
 - Observacao: o site e vitrine; vendas ocorrem fora do site (ex.: Google Play).
 
 ### Arquivos alterados
+
 - lib/devolucao_page.dart
 - lib/l10n/site_returns_policy_texts.dart
 - lib/main.dart
@@ -2776,35 +3399,43 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - docs/Atualiza.md
 
 ### O que foi feito
+
 - Nova rota `/politica-devolucao` com texto PT/EN/ES e contacto de suporte.
 - `web/index.html` inclui a rota na lista de paths legais que abrem sem loading shell.
 
 ### Validacao executada
+
 - [x] `flutter analyze` (0 issues)
 
 ## [2026-05-28] 404 em rotas SPA no Render
 
 ### Contexto
+
 - Operador: deploy OK no Render mas `/politica-devolucao` inacessivel (404).
 
 ### Diagnostico
+
 - `curl -I .../politica-devolucao` → HTTP 404 do Render (nao e bug da rota Flutter).
 - Home `/` funciona; faltam regras de rewrite no static site.
 
 ### Mitigacao
+
 - `docs/RENDER_SPA_REWRITE.md`: regra obrigatoria no dashboard Render (`/*` → `/index.html`, Rewrite).
 - `lib/devolucao_page.dart`: botao voltar com fallback para raiz quando nao ha historico (acesso direto por URL).
 
 ## [2026-05-28] Download ao abrir /politica-devolucao
 
 ### Causa
+
 - Deploy anterior criou ficheiro **sem extensao** `politica-devolucao` no `build/web`; Render serviu com MIME errado → browser descarrega.
 
 ### Correcao
+
 - `scripts/spa-legal-paths.cjs` passa a **remover** esses ficheiros apos o build (nao os cria).
 - Manter rewrite Render `/*` -> `/index.html` (Rewrite) e novo `publish-web`.
 
 ### Arquivos alterados
+
 - docs/RENDER_SPA_REWRITE.md
 - lib/devolucao_page.dart
 - docs/Atualiza.md
@@ -2812,12 +3443,15 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 ## [2026-05-31] Rodapé — remover CNPJ, D-U-N-S e e-mail
 
 ### Pedido
+
 - Retirar do rodapé a linha `CNPJ · D-U-N-S · administrador@perfectgestdev.com`.
 
 ### O que ficou no rodapé
+
 - Razão social LTDA + localização (Caxias do Sul — RS — Brasil).
 
 ### Arquivos alterados
+
 - lib/company_legal_strip.dart
 - lib/company_legal.dart
 - lib/l10n/app_pt.arb, app_en.arb, app_es.arb
@@ -2825,20 +3459,24 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - docs/Atualiza.md
 
 ### Validação
+
 - [x] `flutter analyze` (0 issues)
 - [ ] Build web + deploy Render para refletir no site publicado
 
 ## [2026-05-29] Política de devolução — identificação da empresa abaixo do copyright
 
 ### Pedido
+
 - Colocar razão social, CNPJ, telefone e localização **abaixo** da linha de direitos reservados em `/politica-devolucao`.
 
 ### O que foi feito
+
 - Novo widget `CompanyLegalPolicyFooter` com dados de `company_legal.dart`.
 - Rótulos PT/EN/ES em `site_returns_policy_texts.dart` (`Contato com Empresa:` / `Company contact:` / `Contacto con la empresa:`).
 - Rodapé da home (`CompanyLegalStrip`) inalterado — sem CNPJ.
 
 ### Arquivos alterados
+
 - lib/company_legal.dart
 - lib/company_legal_policy_footer.dart
 - lib/devolucao_page.dart
@@ -2846,106 +3484,129 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - docs/Atualiza.md
 
 ### Validação
+
 - [x] `flutter analyze` (0 issues)
 - [ ] Build web + deploy Render
 
 ## [2026-05-29] Telefone — código internacional +55
 
 ### Pedido
+
 - Acrescentar `+55` na frente do telefone no rodapé da política de devolução.
 
 ### Arquivos alterados
+
 - lib/company_legal.dart (`kCompanyContactPhone` → `+55 51 989045442`)
 
 ## [2026-05-29] Política de devolução — ordem do rodapé
 
 ### Pedido
+
 - Dados da empresa primeiro; frase de direitos reservados **abaixo**.
 
 ### Arquivos alterados
+
 - lib/devolucao_page.dart
 - docs/Atualiza.md
 
 ## [2026-05-29] Política de devolução — tamanho do nome PerfectGest
 
 ### Pedido
+
 - «PerfectGest» no topo com o mesmo tamanho dos títulos das secções (15px / w800).
 
 ### Arquivos alterados
+
 - lib/devolucao_page.dart
 - docs/Atualiza.md
 
 ## [2026-05-29] Coerencia de marcas — Perfect Gest Dev / LTDA / PerfectGest I
 
 ### Pedido
+
 - Site = nome fantasia **Perfect Gest Dev**; razao social **PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA**; **PerfectGest I** = produto (app Play Store).
 
 ### O que foi feito
+
 - Constantes centralizadas em `company_legal.dart` (`kCompanyFantasyName`, `kProductPerfectGestIName`).
 - Site, SEO, footer, hero, politicas do site e contacto passam a **Perfect Gest Dev**.
 - Politicas Play Store e mockups de app mantem **PerfectGest I** como produto; controlador = fantasia + LTDA.
 - Dominio unificado para `perfectgest-web-desenvolvedor-apps.onrender.com`.
 
 ### Arquivos alterados
+
 - lib/company_legal.dart, lib/main.dart, lib/metallic_site_shell.dart, lib/metallic_preview_page.dart, lib/politica_page.dart
 - lib/l10n/site_policy_privacy_texts.dart, site_returns_policy_texts.dart, play_store_app_legal_texts.dart, site_tecnologias_texts.dart
 - lib/l10n/app_pt.arb, app_en.arb, app_es.arb, app_localizations.dart, lib/seo_meta_web.dart
 - web/index.html, web/sitemap.xml, web/robots.txt, docs/Atualiza.md
 
 ### Validacao
+
 - [x] `flutter analyze` (0 issues)
 
 ## [2026-06-08] Escopo IA — somente Web_perfectgest
 
 ### Pedido (operador Marcos)
+
 - Até segunda ordem: **todas** as alterações de código/docs **somente** em `webs/Web_perfectgest/`.
 - **Não** misturar com `apps/PerfectGest-I/`, `Clinica/`, `ClinicaGestAndroid/`, etc.
 
 ### Contexto lido
+
 - `docs/Prompt_IA.md` — conduta (respostas curtas, PT+EN+ES, secção «Resumo»).
 - `.cursorrules` — ler ficheiro antes de alterar; UI estática só com ordem; planeamento em `docs/Atualiza.md`.
 - Pacote Flutter: `perfectpro_web` · deploy Render · docs legais espelham app PerfectGest I.
 
 ### Nota para IAs
+
 - Entrada canónica: `docs/Prompt_IA.md` + «Estado actual consolidado» neste ficheiro.
 
 ### Arquivos alterados
+
 - docs/Atualiza.md
 
 ### Validacao
+
 - [x] Leitura Prompt_IA + .cursorrules
 - [ ] N/A (sem build nesta entrega)
 
 ## [2026-06-08] Caminhos canónicos — Web_app → Web_perfectgest
 
 ### Pedido
+
 - Corrigir apontamentos legados `webs/Web_app/` e `apps/novo_app/` nos docs de entrada IA.
 
 ### O que foi feito
+
 - `docs/Prompt_IA.md` reescrito para site Flutter Web (`perfectpro_web`), escopo `Web_perfectgest`, app relacionado `PerfectGest-I`.
 - «Estado actual consolidado» em `docs/Atualiza.md` actualizado.
 - `docs/FICHA_TECNICA_SITE.md` — raiz e referências corrigidas.
 
 ### Arquivos alterados
+
 - docs/Prompt_IA.md
 - docs/Atualiza.md
 - docs/FICHA_TECNICA_SITE.md
 - docs/Checklist_critico.md
 
 ### Validacao
+
 - [x] Grep sem `Web_app` nos três ficheiros de entrada (histórico antigo em Atualiza mantido)
 
 ## [2026-06-08] Pre-cadastro de leads — pagina publica + API
 
 ### Pedido
+
 - Formulario simples (nome, e-mail, comentario opcional) com consentimento LGPD.
 - URL publica para redes sociais e campanhas.
 - Backend Node + PostgreSQL no Render (credenciais so no servidor).
 
 ### URL publica
+
 - `https://perfectgest-web-desenvolvedor-apps.onrender.com/pre-cadastro`
 
 ### O que foi feito
+
 - Rota Flutter `/pre-cadastro` com pagina deferred, SEO dedicado e item no header (desktop + menu compact).
 - Chip «Pre-cadastro» na seccao Contato (mobile).
 - `LeadCaptureService` POST para API configuravel via `--dart-define=LEADS_API_URL=...`.
@@ -2953,11 +3614,13 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - `spa-legal-paths.cjs` gera `pre-cadastro.html`; sitemap e docs Render actualizados.
 
 ### Deploy pendente (operador)
+
 - Render Static Site: regra Rewrite `/pre-cadastro` → `/pre-cadastro.html`.
 - Render Web Service `perfectgest-leads-api`: `npm run server:leads`, env `DATABASE_URL` + `ALLOWED_ORIGINS`.
 - Build web com URL da API quando o servico estiver no ar.
 
 ### Arquivos alterados
+
 - lib/pre_cadastro_page.dart, lib/lead_capture_service.dart, lib/lead_api_config.dart, lib/site_public_urls.dart
 - lib/site_deferred_pages.dart, lib/main.dart, lib/seo_meta_web.dart, lib/seo_meta_stub.dart
 - lib/l10n/site_pre_cadastro_texts.dart, app_pt.arb, app_en.arb, app_es.arb, app_localizations.dart
@@ -2965,14 +3628,17 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - web/sitemap.xml, docs/RENDER_SPA_REWRITE.md, docs/Atualiza.md
 
 ### Validacao
+
 - [x] `flutter analyze` (ficheiros do pre-cadastro)
 
 ## [2026-06-08] Conformidade Play Console + Microsoft Store
 
 ### Pedido
+
 - Verificar alinhamento das politicas legais com Google Play Console e Microsoft Store.
 
 ### Auditoria (antes das correcoes)
+
 - Politica do site sem URL publica dedicada.
 - Pre-cadastro com consentimento apontando para politica da **app**, nao do site.
 - Site sem mencao a dados de pre-cadastro nem LGPD explicita.
@@ -2980,6 +3646,7 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - Sitemap incompleto; Checklist_critico desatualizado.
 
 ### Correcoes aplicadas
+
 - Nova rota publica `/politica-privacidade-site` (PT/EN/ES, SEO, sitemap, spa-legal-paths).
 - Textos do site: pre-cadastro, LGPD, links para politicas da app.
 - Textos da app: Google Play **e** Microsoft Store (privacidade, billing, assinaturas).
@@ -2987,90 +3654,109 @@ Preencher esta secao ao final de cada entrega relevante. Quando nao houver dado,
 - `docs/Checklist_critico.md` — tabela URLs Play + Microsoft Partner Center.
 
 ### URLs para colar nas lojas
+
 - App privacidade: `https://perfectgest-web-desenvolvedor-apps.onrender.com/politica-privacidade-perfectgest-i`
 - App exclusao: `https://perfectgest-web-desenvolvedor-apps.onrender.com/politica-exclusao-dados-perfectgest-i`
 - Site privacidade: `https://perfectgest-web-desenvolvedor-apps.onrender.com/politica-privacidade-site`
 
 ### Pendente (operador)
+
 - Render rewrite `/politica-privacidade-site` → `.html`
 - Play Console Data safety espelhar Firebase + pre-cadastro se aplicavel
 - Partner Center: privacy URL + declaracao de recolha conforme capabilities MSIX
 
 ### Arquivos alterados
+
 - lib/site_public_urls.dart, lib/site_deferred_pages.dart, lib/main.dart, lib/pre_cadastro_page.dart
 - lib/l10n/site_policy_privacy_texts.dart, lib/l10n/play_store_app_legal_texts.dart
 - web/sitemap.xml, web/index.html, scripts/spa-legal-paths.cjs
 - docs/RENDER_SPA_REWRITE.md, docs/Checklist_critico.md, docs/Atualiza.md
 
 ### Validacao
+
 - [x] `flutter analyze` (politicas + rotas)
 
 ## [2026-06-08] Pre-cadastro — Opção B (PostgreSQL Render)
 
 ### Pedido
+
 - Receber cadastros apenas em base de dados persistente (sem e-mail automatico).
 
 ### O que foi feito
+
 - `render.yaml`: Postgres `perfectgest-leads-db` + Web Service `perfectgest-leads-api` com `DATABASE_URL` ligado.
 - API exige Postgres em producao (Render); ficheiro local so em dev.
 - `scripts/export-leads.cjs` + `npm run export:leads` → CSV em `exports/`.
 - Guia operador: `docs/RENDER_LEADS_POSTGRES.md` (PSQL, DBeaver, SQL de consulta e LGPD delete).
 
 ### Como consultar cadastros
+
 ```sql
 SELECT id, nome, email, comentario, locale, created_at
 FROM site_leads ORDER BY created_at DESC;
 ```
 
 ### Pendente (operador)
+
 - Render → **New → Blueprint** (ou criar Postgres + Web Service manualmente).
 - Validar `/health` com `"storage":"postgres"`.
 - Testar envio em `/pre-cadastro`.
 
 ### Arquivos alterados
+
 - render.yaml, scripts/leads-api-server.js, scripts/export-leads.cjs, exports/.gitignore
 - package.json, lib/lead_api_config.dart, docs/RENDER_LEADS_POSTGRES.md, docs/Atualiza.md
 
 ### Validacao
+
 - [x] API local com file fallback (dev)
 - [ ] Postgres Render + formulario em producao (operador)
 
 ## [2026-06-08] Pre-cadastro — CSP bloqueava API (fix)
 
 ### Problema
+
 - `/health` OK mas formulário falhava: CSP `connect-src` não incluía `perfectgest-leads-api.onrender.com`.
 
 ### Correcção
+
 - `web/index.html`: `connect-src` + URL da API de leads.
 - `publish-web` commit `6120371`.
 
 ### Validacao
+
 - [x] POST API 201 com Postgres
 - [x] CORS preflight OK
 
 ## [2026-06-08] Header compacto em mobile / janela estreita (Opcao 1)
 
 ### Pedido
+
 - Menu superior visivel abaixo de 980px (telefone, PWA, PC com janela estreita).
 
 ### O que foi feito
+
 - `SiteHeader` sempre visivel; modo compacto (<980px) com Home a esquerda, icones + menu hamburger a direita (inclui Pre-cadastro).
 - Barra inferior mantida para atalhos de seccao.
 - Removido botao flutuante de tema (ja no header).
 - Espacamento superior uniforme (`headerHeight + 12`).
 
 ### Arquivos alterados
+
 - lib/main.dart, docs/Atualiza.md
 
 ### Validacao
+
 - [x] `flutter analyze lib/main.dart`
 
 ## [2026-06-12] Dominio canónico perfectgestdev.com + alinhamento Microsoft Store
 
 ### Contexto
+
 - Pedido: corrigir desalinhamentos (domínio onrender, e-mail Gmail vs corporativo) para conformidade Partner Center / Microsoft Store.
 
 ### Arquivos alterados
+
 - lib/site_public_urls.dart, lib/company_legal.dart, lib/app_theme.dart, lib/main.dart
 - lib/l10n/site_policy_privacy_texts.dart, lib/l10n/play_store_app_legal_texts.dart, lib/l10n/site_pre_cadastro_texts.dart
 - web/sitemap.xml, web/robots.txt
@@ -3078,116 +3764,141 @@ FROM site_leads ORDER BY created_at DESC;
 - docs/Checklist_critico.md, docs/Politica_Privacidade_PerfectGest_I.md, docs/Politica_Exclusao_Dados_PerfectGest_I.md
 
 ### O que foi feito
+
 - `kSitePublicOrigin` → `https://perfectgestdev.com`; contacto único `suporte@perfectgestdev.com` (PT/EN/ES).
 - Políticas app: CNPJ, crash reporting, e-mail corporativo; sitemap/robots actualizados.
 - API leads: CORS default inclui `perfectgestdev.com` (+ onrender espelho).
 
 ### Pendencias (operador)
+
 - Deploy `npm run publish-web` + Render `ALLOWED_ORIGINS` no serviço `perfectgest-leads-api` se ainda não actualizado no dashboard.
 
 ### Validacao
+
 - [x] `dart analyze` ficheiros alterados
 
 ## [2026-06-12] Site vitrine — separar legal do site vs app (Google Sites)
 
 ### Contexto
+
 - Pedido: site = vitrine da empresa; PerfectGest I só em Soluções; políticas da app no Google Sites (canónico).
 
 ### Arquivos alterados
+
 - lib/app_legal_urls.dart (novo), lib/site_public_urls.dart, lib/main.dart, lib/site_deferred_pages.dart
 - lib/l10n/site_policy_privacy_texts.dart, lib/l10n/app_localizations.dart
 - scripts/spa-legal-paths.cjs, web/sitemap.xml, web/index.html
 - docs/Checklist_critico.md, docs/RENDER_SPA_REWRITE.md, docs/Atualiza.md
 
 ### O que foi feito
+
 - Removidas páginas Flutter duplicadas da app; rotas legadas → redirect HTML para Google Sites.
 - Política do site só cobre cookies/pré-cadastro/analytics; links externos no rodapé e em Soluções.
 - Sitemap sem URLs de política da app.
 
 ### Validacao
+
 - [ ] Deploy `npm run publish-web` + teste redirects legados
 
 ## [2026-06-12] Documentação do site — vitrine vs app, domínio canónico
 
 ### Contexto
+
 - Pedido: actualizar documentação alinhada à reorganização (site empresa, app no Google Sites).
 
 ### Arquivos alterados
+
 - README.md, docs/README.md (novo índice), docs/PROJETO_SITE.md (reescrito)
 - docs/Prompt_IA.md, docs/FICHA_TECNICA_SITE.md, docs/Checklist_critico.md
 - docs/CheckPlay.md, docs/RENDER_SPA_REWRITE.md, docs/RENDER_LEADS_POSTGRES.md
 - docs/Politica_Privacidade_PerfectGest_I.md, docs/Politica_Exclusao_Dados_PerfectGest_I.md
 
 ### O que foi feito
+
 - Índice central em `docs/README.md`; `PROJETO_SITE.md` descreve arquitectura actual.
 - URLs de teste e CORS apontam para `perfectgestdev.com`.
 - Políticas app marcadas como referência interna; canónico = Google Sites.
 
 ### Validacao
+
 - [x] Revisão manual de links e consistência com `lib/site_public_urls.dart` / `lib/app_legal_urls.dart`
 
 ## [2026-06-12] Site neutro — sem citar lojas de distribuição
 
 ### Contexto
+
 - Pedido: site perfectgestdev = vitrine; compromisso com utilizadores; não tomar partido de Microsoft/Play Store no site; conformidade mantida no portal externo.
 
 ### Arquivos alterados
+
 - lib/company_legal.dart, lib/app_legal_urls.dart, lib/app_theme.dart, lib/main.dart
 - lib/l10n/app_localizations.dart, app_pt/en/es.arb, site_returns_policy_texts.dart
 - docs/PROJETO_SITE.md, docs/Checklist_critico.md, docs/Atualiza.md
 
 ### O que foi feito
+
 - Botão Soluções: «Obter o aplicativo» (ícone download); URL de distribuição só no código.
 - Política de devoluções e rodapé: linguagem neutra («canal de aquisição», portal de suporte do produto).
 - Documentação interna distingue site neutro vs portal legal para consolas.
 
 ### Validacao
+
 - [x] `flutter analyze` + deploy
 
 ## [2026-06-12] Rodape vitrine — sem politicas da app + deploy alinhado
 
 ### Contexto
+
 - Pedido: politicas da app so na secao Solucoes; rodape = site only; documentacao + publish.
 
 ### Arquivos alterados
+
 - lib/main.dart, lib/l10n/app_localizations.dart, app_pt/en/es.arb
 - docs/* (README, PROJETO_SITE, FICHA_TECNICA, Checklist, Atualiza, etc.)
 - scripts/publish-web.cjs (stage docs/ + README no commit de deploy)
 
 ### O que foi feito
+
 - Removidos do rodape: FAQ app, privacidade app, exclusao app.
 - Rodape: politica do site + cookies Google; texto aponta Solucoes para PerfectGest I.
 - Deploy vitrine neutra + redirects legados + reorganizacao Solucoes.
 
 ### Validacao
+
 - [x] `flutter analyze`
 - [x] `npm run publish-web` → Render main
 
 ## [2026-06-12] Rodape neutro — Etica e Compliance sem marcas Google
 
 ### Contexto
+
 - Pedido: rodape sem Google/Microsoft/lojas; apenas Politicas de Privacidade, Gerenciar cookies, Etica e Compliance; compromisso com utilizador.
 
 ### Arquivos alterados
+
 - lib/main.dart, lib/politica_page.dart, lib/site_deferred_pages.dart, lib/seo_meta_web.dart
 - lib/l10n/app_localizations.dart, app_pt/en/es.arb, site_policy_privacy_texts.dart
 - docs/FICHA_TECNICA_SITE.md, docs/PROJETO_SITE.md, docs/Atualiza.md
 
 ### O que foi feito
+
 - Removidos links policies.google.com do rodape e da pagina de politica.
 - Rodape: tres links internos (privacidade, cookies, devolucoes/compliance).
 - Banner e politica do site: linguagem neutra (medicao de audiencia, sem nomes de fornecedor).
 
 ### Validacao
+
 - [x] `flutter analyze`
 - [x] `npm run publish-web` / commit `af962d4` → Render main
 
 ## [2026-06-16] Políticas PerfectGest-Clinica III — páginas isoladas (PT/EN/ES)
 
 ### Contexto
+
 - Pedido: publicar 3 políticas do app Windows no domínio perfectgestdev.com, sem alterar a vitrine; acesso só por URL directa; links entre as 3 páginas; sem navegação para o site.
 
 ### Arquivos alterados
+
 - lib/l10n/clinica_iii_legal_texts.dart (novo)
 - lib/clinica_iii_legal_pages.dart (novo)
 - lib/company_legal.dart, lib/site_public_urls.dart
@@ -3196,32 +3907,38 @@ FROM site_leads ORDER BY created_at DESC;
 - docs/RENDER_SPA_REWRITE.md, docs/Checklist_critico.md, docs/Atualiza.md
 
 ### O que foi feito
+
 - Três rotas SPA: privacidade, termos, dados de saúde/LGPD (`…-clinica-iii`).
 - Casca isolada: idioma PT/EN/ES + rodapé interno entre as 3; sem voltar à home nem rodapé da vitrine.
 - Cabeçalho legal com CNPJ, razão social e papéis LGPD (controlador clínica / operador Perfect Gest Dev).
 - Constantes públicas em `site_public_urls.dart` para Partner Center e app MSIX.
 
 ### URLs canónicas
+
 - `https://perfectgestdev.com/politica-privacidade-clinica-iii`
 - `https://perfectgestdev.com/termos-clinica-iii`
 - `https://perfectgestdev.com/dados-saude-lgpd-clinica-iii`
 
 ### Pendencias (operador)
+
 - [x] Push `main` commit `c916bf2` → Render (deploy automático)
 - [ ] Três rewrites no Render se ainda não existirem (ver `docs/RENDER_SPA_REWRITE.md`)
 - [ ] Partner Center: colar URL de privacidade (e termos se pedido)
 
 ### Validacao
+
 - [x] `flutter analyze` ficheiros novos
 - [ ] Teste manual das 3 URLs em janela anónima após deploy Render concluir
 
 ## [2026-06-16] Políticas PerfectGest I no domínio (futuro — app continua Google Sites)
 
 ### Contexto
+
 - Pedido: páginas legais PerfectGest I em perfectgestdev.com, modelo Clinica III (HTML estático PT/EN/ES), independentes da vitrine.
 - **App Android:** canónico permanece Google Sites (`lib/app_legal_urls.dart`); rotas legadas `/politica-privacidade-perfectgest-i` mantêm redirect.
 
 ### Arquivos novos/alterados
+
 - `scripts/perfectgest-i-legal-data.cjs`, `scripts/perfectgest-i-static-html.cjs`
 - `lib/l10n/perfectgest_i_legal_texts.dart`, `lib/perfectgest_i_legal_pages.dart`
 - `lib/site_public_urls.dart`, `lib/app_legal_urls.dart` (URLs futuras no domínio)
@@ -3229,64 +3946,77 @@ FROM site_leads ORDER BY created_at DESC;
 - `docs/RENDER_SPA_REWRITE.md`
 
 ### URLs (domínio — referência futura)
+
 - `https://perfectgestdev.com/perfectgest-i-politica-privacidade`
 - `https://perfectgestdev.com/perfectgest-i-termos`
 - `https://perfectgestdev.com/perfectgest-i-exclusao-dados`
 - `https://perfectgestdev.com/perfectgest-i-faq`
 
 ### Pendências (operador)
+
 - [ ] Quatro rewrites no Render (ver `RENDER_SPA_REWRITE.md`)
 - [ ] `npm run publish-web` após validação local
 - [ ] Migrar app (`legal_urls.dart`) só quando decidir trocar canónico de Google Sites → domínio
 
 ### Validação
+
 - [ ] `flutter analyze`
 - [ ] `node scripts/perfectgest-i-static-html.cjs` após `flutter build web`
 
 ## [2026-06-21] Políticas PerfectGest-Contabil I — sync mobile → site
 
 ### Contexto
+
 - Pedido: actualizar textos legais publicados no domínio a partir de `apps/Contabilidade_Clientes/mobile/docs/politicas/*.md`, conservando formato HTML estático trílingue (PT/EN/ES).
 
 ### Alterações
+
 - `node scripts/contabil-i-sync-legal-from-md.cjs` — PT regenerado (privacidade com IA Gemini, AES-256-CBC, NF emitidas; FAQ com planos Básico/Com Contador/Anual+A1 e módulos IR/Assistente IA).
 - `scripts/contabil-i-legal-en-es.cjs` — EN/ES alinhados ao PT actualizado.
 - `scripts/contabil-i-legal-data.cjs` — gerado; data «Última atualização: 20/06/2026».
 - Preview: `exports/contabil-i-legal-preview/contabil-i-*.html` (4 páginas).
 
 ### URLs (Google Play)
+
 - `https://perfectgestdev.com/contabil-i-politica-privacidade`
 - `https://perfectgestdev.com/contabil-i-termos`
 - `https://perfectgestdev.com/contabil-i-exclusao-dados`
 - `https://perfectgestdev.com/contabil-i-faq`
 
 ### Pendências (operador)
+
 - [ ] `npm run publish-web` para publicar em produção (integra sync + HTML em `build/web` via `spa-legal-paths.cjs`)
 
 ### Validação
+
 - [x] Sync PT: privacy=11, terms=16, deletion=9, faq=28 secções
 - [x] Preview HTML com Gemini, AES-256, planos FAQ actualizados (PT/EN/ES)
 
 ## [2026-06-21] Republicação páginas legais Contabil I (build/web)
 
 ### Alterações
+
 - Termos PT: 17 secções (4 planos, IR/Assistente IA, AES-256); EN/ES actualizados em `contabil-i-legal-en-es.cjs`.
 - Data unificada: **21/06/2026** (PT/EN/ES).
 - `node scripts/contabil-i-sync-legal-from-md.cjs` + `spa-legal-paths.cjs` → `build/web/contabil-i-*.html` (4 páginas).
 - Preview: `exports/contabil-i-legal-preview/contabil-i-*.html`.
 
 ### Pendências (operador)
+
 - [ ] `npm run publish-web -- --msg="docs(contabil-i): republicar políticas legais 21/06/2026"` para commit + push Render
 
 ### Validação
+
 - [x] `contabil-i-termos.html`: Básico Mensal, `contabil_i_basico_anual`, secção IR com IA (PT/EN/ES)
 
 ## [2026-06-28] Rebrand visual — paleta logo PerfectGestDev
 
 ### Contexto
+
 - Alinhar vitrine Flutter Web às cores do logo `imagens/Logo_da_Empreesa_PerfectGestDev.jpg` (prata, ouro, carvão).
 
 ### Alterações
+
 - `lib/brand_palette.dart` — tokens canónicos, gradientes hero, `ColorScheme` dark/light.
 - `lib/app_theme.dart` — modo claro suave (sem teal); dark via `BrandPalette`.
 - `lib/metallic_style.dart` — `MetallicPalette` delega a `BrandPalette`.
@@ -3295,12 +4025,15 @@ FROM site_leads ORDER BY created_at DESC;
 - `web/manifest.json` — `theme_color` `#D4AF37`.
 
 ### Fora de escopo
+
 - Páginas legais HTML estático (`contabil-i-*`, etc.) — mantidas preto/branco.
 
 ### Pendências (operador)
+
 - [ ] `npm run publish-web` para produção
 
 ### Validação
+
 - [x] `flutter analyze` (1 info pré-existente em tool/)
 - [x] `flutter build web --release`
 - [ ] Smoke: home dark/light, hero glow, shell loading (operador)
@@ -3308,41 +4041,53 @@ FROM site_leads ORDER BY created_at DESC;
 ## [2026-08-18] Hero: bloco Setor de Contabilidade
 
 ### Contexto
+
 - Pedido: na pagina principal, colocar apresentacao do setor de contabilidade logo abaixo do wordmark, com visual de corpo da pagina (sem gradiente do hero), e descer os textos Flutter/Java/SDK.
 
 ### Alteracoes
+
 - `lib/l10n/app_pt.arb`, `lib/l10n/app_en.arb`, `lib/l10n/app_es.arb` — chaves `heroContabil*`.
 - `lib/l10n/app_localizations.dart` — getters PT/EN/ES.
 - `lib/main.dart` — `_HeroContabilIntro` (Inter, `onSurface`, sem ShaderMask) apos o wordmark; headlines atuais mantidas abaixo com gradiente.
 
 ### Fora de escopo
+
 - `web/index.html` casca estatica e `lib/seo_meta_web.dart` (pitch software house).
 - Seccao Solucoes e deploy.
 
 ### Risco
+
 - Copy afirma emissao de NFS-e/NF-e; paginas legais do PerfectGest I dizem o contrario. Texto entra como enviado pelo operador.
 
 ### Rollback
+
 - Remover `_HeroContabilIntro` do `HeroSection` e as chaves `heroContabil*`.
 
 ### Validacao
+
 - [ ] Smoke home PT/EN/ES: wordmark → bloco contabil (sem glow) → headlines Flutter com gradiente
 
 ### [2026-08-18] Hero contabil: suporte e CTA
+
 - Incluidos titulos maiores (`heroContabilMoreThanApp`, `heroContabilNoRisk` a 22px) e bullets de suporte/crescimento, Android e LGPD.
 - `lib/main.dart`, `lib/l10n/app_pt.arb`, `lib/l10n/app_en.arb`, `lib/l10n/app_es.arb`, `lib/l10n/app_localizations.dart`.
 
 ### [2026-08-18] Hero contabil: planos e FAQ
+
 - Planos Basico (MEI) e Contabilidade Ativa (ME) apos o aviso LGPD.
 - Link `heroContabilFaqLink` aponta para SPA `/faq-contabilgest` (nao substitui `/contabil-i-faq` legal Play).
 
 ### [2026-08-18] Script publish home Render
+
 - `scripts/publicar_home_render.ps1` - atalho para o publish completo.
 
 ### [2026-08-18] Pagina FAQ ContabilGest (formato vitrine)
+
 - Nova rota SPA `/faq-contabilgest`: `lib/contabilgest_faq_page.dart` + `lib/l10n/site_contabilgest_faq_texts.dart` (PT/EN/ES).
 - `scripts/legal-routes.cjs`, `web/index.html`, `web/sitemap.xml`, `docs/RENDER_SPA_REWRITE.md`.
+
 ### [2026-08-18] FAQ ContabilGest: emissao A1 e rodape
+
 - Blocos NFS-e/NF-e (Básico, Contabil+ e login/senha) passam a exigir certificado A1 e autorizacoes do portal.
 - Rodape da pagina: `CompanyLegalPolicyFooter` + copyright (`aboutFooterCopyright`).
 - Home contabil: titulos em ouro (`BrandPalette.goldWarm`); emojis substituidos por `-->`.
@@ -3351,8 +4096,8 @@ FROM site_leads ORDER BY created_at DESC;
 - Titulo visivel ContabilGest: `ContabilGest - Gestão Contabil` (EN/ES equivalentes).
 - Hero: wordmark 90% da largura da tela; `heroAppsQualityTitle` e planos com letra maior; titulos sem ShaderMask 3D (cor ouro mantida).
 
-
 ### [2026-08-18] Script publish site completo Render
+
 - `scripts/publicar_site_render.ps1` - build web + legais + FAQ SPA + push `origin main`.
 - Correcao Windows: `publish-web.cjs` chama `dart`/`flutter` via `cmd.exe` (evita EINVAL em .bat).
 - Correcao dart2js: `R\$` em `heroContabilBulletLimit` (PT) - `$` nao interpola.
@@ -3360,54 +4105,65 @@ FROM site_leads ORDER BY created_at DESC;
 ## [2026-08-18] Modelo Word PPP INSS (papel, 2017)
 
 ### Contexto
+
 - Pedido: passar a limpo PPP de 2017 (aposentadoria INSS), assinar de novo como representante legal da empresa do vinculo.
 - Empresa do PPP **nao** e a PerfectGest; o arquivo so e guardado em `docs/`.
 
 ### Arquivos
+
 - `docs/PPP_INSS_Modelo_Atual.docx`
 - `scripts/generate_ppp_word.py`
 
 ### O que foi feito
+
 - Modelo Anexo XVII (IN PRES/INSS 128/2022 / IN 133/2022), campos em branco.
 - Empresa, trabalhador, exposicao e assinatura para preencher; checklist de transcricao.
 
 ### Risco
+
 - Baixo (documento interno, fora do site). Nao substitui PPP-e (periodos a partir de 01/01/2023) nem LTCAT.
 
 ### Validacao
+
 - [x] Geracao do .docx
 - [ ] Operador preenche e assina
 
 ## [2026-08-25] Hero contabil: texto 3D ouro
 
 ### Contexto
+
 - Pedido: bloco SETOR DE CONTABILIDADE estava plano e nao combinava com os outros blocos da home.
 
 ### Arquivos
+
 - `lib/metallic_style.dart` — `metallicGoldText` com `height`/`compact`; wrap; sem recorte especular em paragrafo.
 - `lib/main.dart` — `_HeroContabilIntro` usa ouro 3D (titulos e corpo); FAQ permanece link.
 
 ### Risco
+
 - Baixo. Modo claro inalterado (sem chrome). Copy e tamanhos iguais.
 
 ### Validacao
+
 - [ ] Smoke home: bloco contabil 3D; FAQ clicavel; modo claro legivel
 
 ## [2026-08-25] Home: 3D no resto do hero, solucoes e botoes
 
 ### Contexto
+
 - Pedido: textos apos SETOR DE CONTABILIDADE (qualidade/Flutter, ContabilGest, PerfectGest I) iguais ao 3D do primeiro bloco; FAQ e botoes clicaveis com relevo.
 
 ### Arquivos
+
 - `lib/metallic_style.dart` — `metallicGoldOutlinedButton`; icone no `metallicPolishedButton`.
 - `lib/metallic_site_shell.dart` — `siteMetallicGoldText`, `siteMetallicOutlinedButton`.
 - `lib/main.dart` — hero qualidade/headlines/FAQ; botoes e hashtags das solucoes.
 - `lib/solutions_product_showcase.dart` — titulos e corpo 3D.
 
 ### Risco
+
 - Baixo. InkWell nos botoes 3D; FAQ continua `TextButton`.
 
 ### Validacao
+
 - [ ] Smoke: FAQ hero; Obter app + FAQ politicas; textos 3D
-
-

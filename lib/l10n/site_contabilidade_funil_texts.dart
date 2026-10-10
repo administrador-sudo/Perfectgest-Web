@@ -194,7 +194,7 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
   String get ctaSeePlans => 'Ver planos';
 
   @override
-  String get ctaChoosePlan => 'Quero este plano';
+  String get ctaChoosePlan => 'Enviar Cadastro para o escritório';
 
   @override
   String get proofTitle => 'Escritório com sistema de gerenciamento digital em Caxias do Sul/RS';
@@ -505,7 +505,7 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
       ' e autorizo o contato sobre honorarios e o app PerfectGest ContabilGest.';
 
   @override
-  String get submitLabel => 'Quero este plano';
+  String get submitLabel => 'Enviar Cadastro para o Escritório';
 
   @override
   String get submittingLabel => 'Enviando...';

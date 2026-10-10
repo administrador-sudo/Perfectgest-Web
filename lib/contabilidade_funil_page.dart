@@ -920,10 +920,11 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
               decoration: InputDecoration(
                 labelText: st.tipoLabel,
                 border: const OutlineInputBorder(),
-                contentPadding: const EdgeInsets.fromLTRB(12, 12, 8, 12),
+                isDense: true,
+                contentPadding: const EdgeInsets.fromLTRB(12, 14, 8, 14),
               ),
               initialValue: _enquadramento,
-              hint: Text(st.tipoLabel),
+              hint: Text(st.tipoLabel, overflow: TextOverflow.ellipsis),
               selectedItemBuilder: (ctx) {
                 return [
                   for (final id in const [
@@ -933,14 +934,13 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                     'transformacao_mei_me',
                     'viabilidade',
                   ])
-                    Align(
-                      alignment: Alignment.centerLeft,
+                    SizedBox(
+                      width: double.infinity,
                       child: Text(
                         st.enquadramentoNome(id),
                         maxLines: 2,
-                        softWrap: true,
-                        overflow: TextOverflow.visible,
-                        style: const TextStyle(fontSize: 14, height: 1.25),
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(fontSize: 13, height: 1.25),
                       ),
                     ),
                 ];
@@ -957,10 +957,9 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                     value: id,
                     child: Text(
                       st.enquadramentoNome(id),
-                      maxLines: 2,
-                      softWrap: true,
-                      overflow: TextOverflow.visible,
-                      style: const TextStyle(fontSize: 14, height: 1.25),
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(fontSize: 13, height: 1.3),
                     ),
                   ),
               ],
