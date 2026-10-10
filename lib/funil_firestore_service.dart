@@ -117,7 +117,7 @@ class FunilFirestoreService {
               },
               body: body,
             )
-            .timeout(const Duration(seconds: 20));
+            .timeout(const Duration(seconds: 60));
         final code = response.statusCode;
         if (code == 400) {
           return LeadCaptureResult(
@@ -156,7 +156,8 @@ class FunilFirestoreService {
       final decoded = jsonDecode(raw);
       if (decoded is! Map || decoded['ok'] != true) return false;
       if (decoded['skipped'] != null) return false;
-      return true;
+      if (decoded['gravado'] == false) return false;
+      return decoded['gravado'] == true || decoded['id'] != null;
     } on Object {
       return false;
     }

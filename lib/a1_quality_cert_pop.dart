@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import 'funil_a1_service.dart';
 import 'funil_comprovante_pick.dart';
@@ -179,10 +178,6 @@ class _A1QualityCertPopState extends State<_A1QualityCertPop> {
         _erro = result.errorMessage ?? 'server_error';
       }
     });
-  }
-
-  Future<void> _open(String url) async {
-    await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
   }
 
   Widget _campo({
@@ -400,17 +395,6 @@ class _A1QualityCertPopState extends State<_A1QualityCertPop> {
         const SizedBox(height: 12),
         Text(st.a1Success, style: const TextStyle(fontSize: 14, height: 1.4)),
         const SizedBox(height: 16),
-        TextButton(
-          onPressed: () => _open('https://qualitycert.com.br/'),
-          child: Text(st.a1LinkQuality),
-        ),
-        TextButton(
-          onPressed: () => _open(
-            'https://arqualitycert.acsoluti.com.br/site/solicitarcertificado_a',
-          ),
-          child: Text(st.a1LinkAr),
-        ),
-        const SizedBox(height: 8),
         FilledButton(
           style: FilledButton.styleFrom(
             backgroundColor: _a1Roxo,
