@@ -45,6 +45,9 @@ class FunilA1Service {
     bool pixA1Informado = true,
     String complemento = '',
     String websiteHoneypot = '',
+    String comprovanteNome = '',
+    String comprovanteMime = '',
+    String comprovanteBase64 = '',
   }) async {
     if (!consent) {
       return const LeadCaptureResult(ok: false, errorMessage: 'consent_required');
@@ -113,6 +116,11 @@ class FunilA1Service {
       'consent': true,
       'pixA1Informado': pixA1Informado,
       'website': websiteHoneypot,
+      if (comprovanteBase64.isNotEmpty) ...{
+        'comprovanteNome': comprovanteNome,
+        'comprovanteMime': comprovanteMime,
+        'comprovanteBase64': comprovanteBase64,
+      },
     });
 
     LeadCaptureResult? last;

@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'company_legal.dart';
 import 'funil_pix_emv.dart';
+
+/// WhatsApp do tiquete PIX (A1 e honorarios). Nao substitui o FAB do site.
+const String kPixTicketWhatsAppDigits = '5554999730205';
+
+/// Paguei no cartão A1 nesta visita do Flutter (mesmo load).
+class FunilPixSessao {
+  FunilPixSessao._();
+  static bool a1PagoAvulso = false;
+}
 
 class FunilPixLinha {
   const FunilPixLinha({required this.descricao, required this.valor});
@@ -32,6 +42,7 @@ Future<bool> showFunilPixTicket({
       linhas: linhas,
       total: total,
       payload: payload,
+      txid: txid,
     ),
   );
   return ok == true;
@@ -43,15 +54,27 @@ class _FunilPixTicketDialog extends StatelessWidget {
     required this.linhas,
     required this.total,
     required this.payload,
+    required this.txid,
   });
 
   final String titulo;
   final List<FunilPixLinha> linhas;
   final double total;
   final String payload;
+  final String txid;
+
+  String get _crc =>
+      payload.length >= 4 ? payload.substring(payload.length - 4) : '';
 
   String _brl(double v) =>
       'R\$ ${v.toStringAsFixed(2).replaceAll('.', ',')}';
+
+  Future<void> _abrirWhatsApp() async {
+    await launchUrl(
+      Uri.parse('https://wa.me/$kPixTicketWhatsAppDigits'),
+      mode: LaunchMode.externalApplication,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -214,6 +237,67 @@ class _FunilPixTicketDialog extends StatelessWidget {
                             icon: const Icon(Icons.copy, size: 16),
                             label: const Text('Copiar codigo'),
                           ),
+                        ),
+                        const Divider(height: 18),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Image.asset(
+                              kSiteBrandEmblemAsset,
+                              width: 28,
+                              height: 28,
+                              filterQuality: FilterQuality.medium,
+                            ),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Text(
+                                'Selo PerfectGest - Contabilidade',
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.w800,
+                                  fontSize: 13,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 6),
+                        Text(
+                          kCompanyLegalName,
+                          style: const TextStyle(
+                            fontSize: 11,
+                            fontWeight: FontWeight.w700,
+                            height: 1.35,
+                          ),
+                        ),
+                        Text(
+                          'CNPJ $kCompanyCnpj',
+                          style: const TextStyle(fontSize: 11, height: 1.35),
+                        ),
+                        InkWell(
+                          onTap: _abrirWhatsApp,
+                          child: Text(
+                            'WhatsApp (54) 99973-0205',
+                            style: const TextStyle(
+                              fontSize: 11,
+                              height: 1.35,
+                              fontWeight: FontWeight.w700,
+                              color: Color(0xFF1B7A4A),
+                              decoration: TextDecoration.underline,
+                            ),
+                          ),
+                        ),
+                        Text(
+                          'Autenticacao $txid',
+                          style: const TextStyle(fontSize: 11, height: 1.35),
+                        ),
+                        Text(
+                          'CRC PIX $_crc',
+                          style: const TextStyle(fontSize: 11, height: 1.35),
+                        ),
+                        const SizedBox(height: 6),
+                        Text(
+                          'Cobranca PIX. Paguei so avanca o funil; nao confirma o banco.',
+                          style: const TextStyle(fontSize: 11, height: 1.4),
                         ),
                       ],
                     ),

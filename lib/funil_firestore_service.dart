@@ -33,9 +33,14 @@ class FunilFirestoreService {
     required bool a1,
     required bool consent,
     required String locale,
+    String enquadramento = '',
     bool pixHonorariosInformado = false,
     double valorPixHonorarios = 0,
+    bool pixA1Informado = false,
     String websiteHoneypot = '',
+    String comprovanteNome = '',
+    String comprovanteMime = '',
+    String comprovanteBase64 = '',
   }) async {
     if (!consent) {
       return const LeadCaptureResult(ok: false, errorMessage: 'consent_required');
@@ -52,7 +57,14 @@ class FunilFirestoreService {
     if (cnpjDigits.isNotEmpty && cnpjDigits.length != 14) {
       return const LeadCaptureResult(ok: false, errorMessage: 'cnpj_invalid');
     }
-    final faixaNorm = faixaApi(faixa.trim().toLowerCase());
+    final eq = enquadramento.trim().toLowerCase();
+    const okAvulso = {
+      'abertura',
+      'transformacao_mei_me',
+      'viabilidade',
+    };
+    final avulso = okAvulso.contains(eq);
+    final faixaNorm = avulso ? eq : faixaApi(faixa.trim().toLowerCase());
     const okFaixa = {
       'basico',
       'fidelizado',
@@ -60,7 +72,7 @@ class FunilFirestoreService {
       'standard',
       'avancado',
     };
-    if (!okFaixa.contains(faixaNorm)) {
+    if (!avulso && !okFaixa.contains(faixaNorm)) {
       return const LeadCaptureResult(ok: false, errorMessage: 'faixa_required');
     }
 
@@ -70,8 +82,9 @@ class FunilFirestoreService {
       'whatsapp': whatsapp.trim(),
       'cnpj': cnpjDigits,
       'razaoSocial': razaoSocial.trim(),
-      'regime': regime.trim().toUpperCase(),
+      'regime': avulso ? eq : regime.trim().toUpperCase(),
       'faixa': faixaNorm,
+      'enquadramento': eq.isEmpty ? faixaNorm : eq,
       'boletoHonorarios': boletoHonorarios,
       'primeiroBoleto': primeiroBoleto,
       'fichaProposta': fichaProposta.trim(),
@@ -83,7 +96,13 @@ class FunilFirestoreService {
       'consent': true,
       'pixHonorariosInformado': pixHonorariosInformado,
       'valorPixHonorarios': valorPixHonorarios,
+      'pixA1Informado': pixA1Informado,
       'hp_site': websiteHoneypot,
+      if (comprovanteBase64.isNotEmpty) ...{
+        'comprovanteNome': comprovanteNome,
+        'comprovanteMime': comprovanteMime,
+        'comprovanteBase64': comprovanteBase64,
+      },
     });
 
     LeadCaptureResult? last;

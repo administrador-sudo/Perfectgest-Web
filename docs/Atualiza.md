@@ -2,6 +2,112 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-10 11:07] Funil: sem MEI/extras abaixo do A1
+
+### Contexto
+- Abaixo do cartao A1 QualityCert havia recap MEI, lista de extras e nota de orgaos.
+
+### Arquivos alterados
+- lib/contabilidade_funil_page.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- Removidos playNote, extrasTitle/extrasBody e organsNote de _PlansTable. Permanece paymentLaterNote. Formulario e cartoes de plano intactos.
+
+### Risco de regressao
+- Baixo.
+
+### Validacao executada
+- [x] 8088 reiniciado; /contabilidade: A1 seguido so da nota de pagamento.
+
+### Resultado
+- Cartao A1 seguido so da nota de pagamento.
+
+### Proximos passos recomendados
+- Nenhum.
+
+## [2026-10-10 10:48] Enquadramento: plano ou servico avulso
+
+### Contexto
+- Uma so caixa seletora: Plano MEI, Plano ME, Abertura R$ 490, Transformacao MEI→ME R$ 350, Viabilidade R$ 100.
+
+### Arquivos alterados
+- lib/contabilidade_funil_page.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- lib/funil_firestore_service.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- Avulso desliga faixas/add-ons/CRC; PIX uma linha; CNPJ nao obrigatorio; POST enquadramento.
+
+### Risco de regressao
+- Medio (formulario + Function).
+
+### Validacao executada
+- Pendente: 8088 + deploy receberLeadFunil,listarLeadsFunilCrc. Sem publish-web.
+
+## [2026-10-10 10:22] WhatsApp so no selo do tiquete
+
+### Contexto
+- WhatsApp aparecia no topo e no selo.
+
+### Arquivos alterados
+- lib/funil_pix_ticket_pop.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- Removido do cabecalho; permanece no selo de autenticidade.
+
+### Risco de regressao
+- Baixo.
+
+### Validacao executada
+- [x] 8088 reiniciado.
+
+### Resultado
+- Cabecalho so CNPJ, endereco e e-mail.
+
+### Proximos passos recomendados
+- Abrir o comprovante no funil.
+
+## [2026-10-10 10:20] WhatsApp, selo e headers no tiquete PIX
+
+### Contexto
+- Tiquete de compra/cobranca sem WhatsApp 54 99973-0205 nem selo da empresa.
+
+### Arquivos alterados
+- lib/funil_pix_ticket_pop.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- web/index.html
+- web/_headers
+- docs/RENDER_CACHE_HEADERS.md
+- docs/Atualiza.md
+
+### O que foi feito
+- WhatsApp so no tiquete. Selo com CNPJ, txid e CRC do PIX. CSP frame-ancestors e headers.
+
+### Risco de regressao
+- FAB do site permanece 51 98904-5442.
+
+### Validacao executada
+- [x] 8088 reiniciado.
+
+### Resultado
+- Tiquete A1 e honorarios com contato e selo da empresa.
+
+### Proximos passos recomendados
+- Conferir o tiquete no funil. Headers HTTP no Render so apos publish.
+
+## [2026-10-10 10:35] Comprovante nos cadastros A1 e escritorio
+- Botao Anexar comprovante de pagamento (sem dizer opcional). POST com base64 se houver. CRC abre o ficheiro.
+
+## [2026-10-10 10:00] A1 avulso nao entra no PIX de honorarios
+- Paguei no cartao marca FunilPixSessao.a1PagoAvulso; check A1 bloqueado; tiquete do plano sem 119,99.
+- CTA: Adquirir so o certificado A1. Reiniciar 8088.
+
+## [2026-10-10 09:55] 8088 reiniciado com tiquete PIX
+- Flutter run antigo na 8088 nao tinha o tiquete. Processo encerrado e `flutter run -d web-server --web-hostname 127.0.0.1 --web-port 8088` no Web_perfectgest.
+
 ## [2026-10-10 09:40] Tiquete PIX A1 + honorarios
 
 ### Contexto

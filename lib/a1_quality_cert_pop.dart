@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'funil_a1_service.dart';
+import 'funil_comprovante_pick.dart';
 import 'l10n/site_contabilidade_funil_texts.dart';
 
 const Color _a1Roxo = Color(0xFF7A2E9A);
@@ -30,6 +31,7 @@ class _A1QualityCertPopState extends State<_A1QualityCertPop> {
   int _passo = 1;
   String _tipo = 'PJ';
   bool _consent = false;
+  FunilComprovanteArquivo? _comp;
   bool _enviando = false;
   bool _ok = false;
   String? _erro;
@@ -164,6 +166,9 @@ class _A1QualityCertPopState extends State<_A1QualityCertPop> {
       estado: _ufCtrl.text,
       consent: true,
       pixA1Informado: true,
+      comprovanteNome: _comp?.nome ?? '',
+      comprovanteMime: _comp?.mime ?? '',
+      comprovanteBase64: _comp?.base64 ?? '',
     );
     if (!mounted) return;
     setState(() {
@@ -313,6 +318,27 @@ class _A1QualityCertPopState extends State<_A1QualityCertPop> {
           _campo(controller: _compCtrl, label: st.a1FieldComplemento),
           _campo(controller: _cidCtrl, label: st.a1FieldCidade),
           _campo(controller: _ufCtrl, label: st.a1FieldUf, maxLen: 2),
+          OutlinedButton.icon(
+            onPressed: _enviando
+                ? null
+                : () async {
+                    try {
+                      final arq = await escolherComprovanteFunil();
+                      if (arq != null) setState(() => _comp = arq);
+                    } on StateError catch (e) {
+                      setState(() => _erro = e.message);
+                    }
+                  },
+            icon: const Icon(Icons.attach_file, size: 18),
+            label: Text(
+              _comp == null ? st.comprovanteAnexar : st.comprovanteTrocar,
+            ),
+          ),
+          if (_comp != null)
+            Padding(
+              padding: const EdgeInsets.only(top: 4, bottom: 8),
+              child: Text(_comp!.nome, style: const TextStyle(fontSize: 12)),
+            ),
           CheckboxListTile(
             contentPadding: EdgeInsets.zero,
             value: _consent,

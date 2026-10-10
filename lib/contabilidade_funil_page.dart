@@ -8,6 +8,7 @@ import 'company_legal.dart';
 import 'l10n/site_contabilidade_funil_texts.dart';
 import 'a1_quality_cert_pop.dart';
 import 'funil_a1_service.dart';
+import 'funil_comprovante_pick.dart';
 import 'funil_firestore_service.dart';
 import 'funil_pix_ticket_pop.dart';
 import 'lead_capture_service.dart';
@@ -52,6 +53,14 @@ const double kFunilMeiAnual = 456.99;
 const double kFunilFolhaMensal = 99.99;
 const double kFunilIrAno = 49.99;
 const double kFunilA1Ano = 119.99;
+const double kFunilAbertura = 490.00;
+const double kFunilTransformacao = 350.00;
+const double kFunilViabilidade = 100.00;
+const Set<String> kEnquadramentoAvulso = {
+  'abertura',
+  'transformacao_mei_me',
+  'viabilidade',
+};
 
 bool _tierIsFidelizado(String id) => id == 'fidelizado';
 bool _tierIsMei(String id) => id == 'mei' || _tierIsFidelizado(id);
@@ -94,6 +103,7 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
   final _honeypotCtrl = TextEditingController();
 
   String? _tipo;
+  String? _enquadramento;
   String? _crc;
   String? _faixaId = 'essencial';
   bool _folha = false;
@@ -103,6 +113,7 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
   bool _submitting = false;
   bool _success = false;
   bool _pixHonorariosInformado = false;
+  FunilComprovanteArquivo? _comp;
   String? _errorCode;
 
   @override
@@ -127,6 +138,26 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
     super.dispose();
   }
 
+  bool get _servicoAvulso =>
+      kEnquadramentoAvulso.contains(_enquadramento ?? '');
+
+  double get _precoAvulso {
+    switch (_enquadramento) {
+      case 'abertura':
+        return kFunilAbertura;
+      case 'transformacao_mei_me':
+        return kFunilTransformacao;
+      case 'viabilidade':
+        return kFunilViabilidade;
+      default:
+        return 0;
+    }
+  }
+
+  bool get _a1PagoAvulso => FunilPixSessao.a1PagoAvulso;
+
+  bool get _incluiA1NoHonorarios => _a1 && !_a1PagoAvulso;
+
   bool get _meiFidelizado => _tierIsFidelizado(_faixaId ?? '');
 
   double get _faixaMensal {
@@ -143,7 +174,7 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
   }
 
   double get _extrasPrimeiroBoleto =>
-      (_a1 ? kFunilA1Ano : 0) + (_ir ? kFunilIrAno : 0);
+      (_incluiA1NoHonorarios ? kFunilA1Ano : 0) + (_ir ? kFunilIrAno : 0);
 
   double get _primeiroBoleto {
     if (_meiFidelizado) {
@@ -164,7 +195,7 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
   String _itensPrimeiro(SiteContabilidadeFunilTexts st) {
     final parts = <String>[st.itemHonorarios];
     if (_folha) parts.add(st.itemFolha);
-    if (_a1) parts.add(st.itemA1);
+    if (_incluiA1NoHonorarios) parts.add(st.itemA1);
     if (_ir) parts.add(st.itemIr);
     return parts.join(' + ');
   }
@@ -173,7 +204,41 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
     return 'R\$ ${value.toStringAsFixed(2).replaceAll('.', ',')}';
   }
 
+  void _setEnquadramento(String id) {
+    setState(() => _enquadramento = id);
+    if (id == 'mei') {
+      _setTipo('MEI');
+    } else if (id == 'me') {
+      _setTipo('ME');
+    } else {
+      setState(() {
+        _tipo = null;
+        _crc = null;
+        _folha = false;
+        _ir = false;
+        _a1 = false;
+      });
+    }
+  }
+
   Future<void> _abrirPixHonorarios(SiteContabilidadeFunilTexts st) async {
+    if (_servicoAvulso) {
+      final ok = await showFunilPixTicket(
+        context: context,
+        titulo: st.enquadramentoNome(_enquadramento!),
+        linhas: [
+          FunilPixLinha(
+            descricao: st.enquadramentoNome(_enquadramento!),
+            valor: _precoAvulso,
+          ),
+        ],
+        txidPrefixo: 'SRV',
+      );
+      if (ok && mounted) {
+        setState(() => _pixHonorariosInformado = true);
+      }
+      return;
+    }
     if (_tipo == null || _faixaId == null) {
       setState(() => _errorCode = 'faixa_required');
       return;
@@ -186,7 +251,8 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
       if (_folha)
         FunilPixLinha(descricao: st.extraFolha, valor: kFunilFolhaMensal),
       if (_ir) FunilPixLinha(descricao: st.extraIr, valor: kFunilIrAno),
-      if (_a1) FunilPixLinha(descricao: st.extraA1, valor: kFunilA1Ano),
+      if (_incluiA1NoHonorarios)
+        FunilPixLinha(descricao: st.extraA1, valor: kFunilA1Ano),
     ];
     final ok = await showFunilPixTicket(
       context: context,
@@ -203,6 +269,14 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
 
   String _comentarioLinha() {
     final st = SiteContabilidadeFunilTexts.of(context);
+    if (_servicoAvulso) {
+      final line =
+          '[CONTABILIDADE] ${st.enquadramentoNome(_enquadramento!)}; '
+          '${_brl(_precoAvulso)}; '
+          'WhatsApp ${_digits(_whatsAppCtrl.text)}; CNPJ ${_digits(_cnpjCtrl.text)}; '
+          'razão social ${_razaoCtrl.text.trim()}';
+      return line.length <= 4000 ? line : line.substring(0, 4000);
+    }
     final faixa = _faixaId == null ? '-' : st.planName(_faixaId!);
     final acomp = _tipo == 'MEI'
         ? 'MEI sem contador'
@@ -212,7 +286,7 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
         'Folha ${_folha ? 'S ${_brl(kFunilFolhaMensal)}' : 'N'}; '
         '${_meiFidelizado && !_folha ? '12x N; ' : '12x S ${_brl(_boletoMensal)}/mês (${_itens12(st)}); '}'
         '1ª NF e boleto ${_brl(_primeiroBoleto)} (${_itensPrimeiro(st)}); '
-        'A1 ${_a1 ? 'S renovação 12 meses' : 'N'}; '
+        'A1 ${_a1 || _a1PagoAvulso ? 'S ${_a1PagoAvulso ? 'PIX avulso' : 'renovação 12 meses'}' : 'N'}; '
         'IR ${_ir ? 'S cobrado no mês do IR do próximo ano' : 'N'}; '
         'cancelamento 30 dias (senão proporcional até cessar); '
         'resposta 1 dia útil; '
@@ -237,22 +311,35 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
       '${st.fieldWhatsApp}: ${_whatsAppCtrl.text.trim()}',
       '${st.fieldRazao}: ${_razaoCtrl.text.trim()}',
       '${st.fieldCnpj}: ${_cnpjCtrl.text.trim()}',
-      '${st.tipoLabel}: ${_tipo == 'MEI' ? st.tipoMei : st.tipoMe}',
-      '${st.faixaLabel}: ${_faixaId == null ? '-' : st.planName(_faixaId!)}',
-      '${st.proposalHonorariosLabel}: ${_meiFidelizado ? '${_brl(kFunilMeiAnual)}/${st.perYear}' : '${_brl(_faixaMensal)}/${st.perMonth}'}',
-      if (_meiFidelizado) st.planMeiDesconto,
-      if (_folha) '${st.extraFolha}: ${_brl(kFunilFolhaMensal)}/${st.perMonth}',
-      if (_ir) '${st.extraIr}: ${_brl(kFunilIrAno)}',
-      if (_a1) '${st.extraA1}: ${_brl(kFunilA1Ano)}',
-      st.officeTotalLabel,
-      if (_meiFidelizado && !_folha) st.proposalMeiAvista(_brl(kFunilMeiAnual)),
-      if (!_meiFidelizado || _folha) st.officeTotalHint(_itens12(st), _brl(mensal)),
-      if (!_meiFidelizado || _folha) st.proposalParcelarHint(_brl(mensal)),
-      st.proposalFirstNfBoleto(_itensPrimeiro(st), _brl(primeiro)),
-      if (_meiFidelizado) st.proposalNfObsMei(_brl(kFunilMeiAnual)),
-      if (!_meiFidelizado) st.proposalNfObs(_brl(mensal)),
-      if (_a1) st.proposalA1Rule,
-      if (_ir) st.proposalIrRule,
+      '${st.tipoLabel}: ${_enquadramento == null ? '-' : st.enquadramentoNome(_enquadramento!)}',
+      if (_servicoAvulso) '${st.proposalHonorariosLabel}: ${_brl(_precoAvulso)}',
+      if (!_servicoAvulso)
+        '${st.faixaLabel}: ${_faixaId == null ? '-' : st.planName(_faixaId!)}',
+      if (!_servicoAvulso)
+        '${st.proposalHonorariosLabel}: ${_meiFidelizado ? '${_brl(kFunilMeiAnual)}/${st.perYear}' : '${_brl(_faixaMensal)}/${st.perMonth}'}',
+      if (!_servicoAvulso && _meiFidelizado) st.planMeiDesconto,
+      if (!_servicoAvulso && _folha)
+        '${st.extraFolha}: ${_brl(kFunilFolhaMensal)}/${st.perMonth}',
+      if (!_servicoAvulso && _ir) '${st.extraIr}: ${_brl(kFunilIrAno)}',
+      if (!_servicoAvulso && _incluiA1NoHonorarios)
+        '${st.extraA1}: ${_brl(kFunilA1Ano)}',
+      if (!_servicoAvulso && _a1PagoAvulso)
+        'A1 já no PIX do certificado (nao soma no plano)',
+      if (!_servicoAvulso) st.officeTotalLabel,
+      if (!_servicoAvulso && _meiFidelizado && !_folha)
+        st.proposalMeiAvista(_brl(kFunilMeiAnual)),
+      if (!_servicoAvulso && (!_meiFidelizado || _folha))
+        st.officeTotalHint(_itens12(st), _brl(mensal)),
+      if (!_servicoAvulso && (!_meiFidelizado || _folha))
+        st.proposalParcelarHint(_brl(mensal)),
+      if (!_servicoAvulso)
+        st.proposalFirstNfBoleto(_itensPrimeiro(st), _brl(primeiro)),
+      if (!_servicoAvulso && _meiFidelizado)
+        st.proposalNfObsMei(_brl(kFunilMeiAnual)),
+      if (!_servicoAvulso && !_meiFidelizado) st.proposalNfObs(_brl(mensal)),
+      if (!_servicoAvulso && (_incluiA1NoHonorarios || _a1PagoAvulso))
+        st.proposalA1Rule,
+      if (!_servicoAvulso && _ir) st.proposalIrRule,
       st.proposalRenewal,
       st.proposalCancel,
       st.proposalSla,
@@ -314,23 +401,6 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
         }
       }
     });
-  }
-
-  Widget _tipoLinha({
-    required String label,
-    required bool selected,
-    required VoidCallback? onTap,
-  }) {
-    return ListTile(
-      contentPadding: EdgeInsets.zero,
-      dense: true,
-      title: Text(label),
-      leading: Icon(
-        selected ? Icons.radio_button_checked : Icons.radio_button_off,
-        color: kFunilGreen,
-      ),
-      onTap: onTap,
-    );
   }
 
   String _textoFaixa(SiteContabilidadeFunilTexts st) {
@@ -400,6 +470,18 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
 
   bool _formPronto() {
     setState(() => _errorCode = null);
+    if (_enquadramento == null) {
+      setState(() => _errorCode = 'tipo_required');
+      return false;
+    }
+    if (_servicoAvulso) {
+      if (!_consent) {
+        setState(() => _errorCode = 'consent_required');
+        return false;
+      }
+      if (!(_formKey.currentState?.validate() ?? false)) return false;
+      return true;
+    }
     if (_tipo == null) {
       setState(() => _errorCode = 'tipo_required');
       return false;
@@ -446,22 +528,36 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                         _resumoLinha(st.fieldWhatsApp, _whatsAppCtrl.text.trim()),
                         _resumoLinha(st.fieldRazao, _razaoCtrl.text.trim()),
                         _resumoLinha(st.fieldCnpj, _cnpjCtrl.text.trim()),
-                        _resumoLinha(st.tipoLabel, _tipo == 'MEI' ? st.tipoMei : st.tipoMe),
-                        _resumoLinha(st.faixaLabel, st.planName(_faixaId!)),
+                        _resumoLinha(
+                          st.tipoLabel,
+                          _enquadramento == null
+                              ? '-'
+                              : st.enquadramentoNome(_enquadramento!),
+                        ),
+                        if (!_servicoAvulso)
+                          _resumoLinha(st.faixaLabel, st.planName(_faixaId!)),
                         _resumoLinha(
                           st.proposalHonorariosLabel,
-                          _meiFidelizado
-                              ? '${_brl(kFunilMeiAnual)}/${st.perYear}'
-                              : '${_brl(_faixaMensal)}/${st.perMonth}',
+                          _servicoAvulso
+                              ? _brl(_precoAvulso)
+                              : (_meiFidelizado
+                                  ? '${_brl(kFunilMeiAnual)}/${st.perYear}'
+                                  : '${_brl(_faixaMensal)}/${st.perMonth}'),
                         ),
-                        if (_meiFidelizado)
+                        if (!_servicoAvulso && _meiFidelizado)
                           Padding(
                             padding: const EdgeInsets.only(bottom: 6),
                             child: Text(st.planMeiDesconto, style: const TextStyle(fontSize: 13, height: 1.35)),
                           ),
-                        if (_folha) _resumoLinha(st.extraFolha, '${_brl(kFunilFolhaMensal)}/${st.perMonth}'),
-                        if (_ir) _resumoLinha(st.extraIr, _brl(kFunilIrAno)),
-                        if (_a1) _resumoLinha(st.extraA1, _brl(kFunilA1Ano)),
+                        if (!_servicoAvulso && _folha)
+                          _resumoLinha(st.extraFolha, '${_brl(kFunilFolhaMensal)}/${st.perMonth}'),
+                        if (!_servicoAvulso && _ir)
+                          _resumoLinha(st.extraIr, _brl(kFunilIrAno)),
+                        if (!_servicoAvulso && _incluiA1NoHonorarios)
+                          _resumoLinha(st.extraA1, _brl(kFunilA1Ano)),
+                        if (!_servicoAvulso && _a1PagoAvulso)
+                          _resumoLinha('A1', 'já no PIX do certificado'),
+                        if (!_servicoAvulso) ...[
                         const SizedBox(height: 8),
                         Text(st.officeTotalLabel, style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
                         if (_meiFidelizado && !_folha) ...[
@@ -486,13 +582,14 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                               ? st.proposalNfObsMei(_brl(kFunilMeiAnual))
                               : st.proposalNfObs(_brl(mensal)),
                         ),
-                        if (_a1) ...[
+                        if (_incluiA1NoHonorarios || _a1PagoAvulso) ...[
                           const SizedBox(height: 6),
                           Text(st.proposalA1Rule, style: const TextStyle(fontSize: 13, height: 1.35)),
                         ],
                         if (_ir) ...[
                           const SizedBox(height: 6),
                           Text(st.proposalIrRule, style: const TextStyle(fontSize: 13, height: 1.35)),
+                        ],
                         ],
                         const SizedBox(height: 8),
                         Text(st.proposalRenewal, style: const TextStyle(fontSize: 13, height: 1.4)),
@@ -564,20 +661,29 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
         whatsapp: _digits(_whatsAppCtrl.text),
         cnpj: _digits(_cnpjCtrl.text),
         razaoSocial: _razaoCtrl.text,
-        regime: _tipo ?? '',
-        faixa: _faixaId ?? '',
-        boletoHonorarios: _meiFidelizado ? kFunilMeiAnual : _boletoMensal,
-        primeiroBoleto: _primeiroBoleto,
+        regime: _tipo ?? (_enquadramento ?? ''),
+        faixa: _servicoAvulso ? (_enquadramento ?? '') : (_faixaId ?? ''),
+        boletoHonorarios: _servicoAvulso
+            ? _precoAvulso
+            : (_meiFidelizado ? kFunilMeiAnual : _boletoMensal),
+        primeiroBoleto: _servicoAvulso ? _precoAvulso : _primeiroBoleto,
+        enquadramento: _enquadramento ?? '',
         fichaProposta: ficha,
         aceiteCobranca: true,
         folha: _folha,
         ir: _ir,
-        a1: _a1,
+        a1: _a1 || _a1PagoAvulso,
+        pixA1Informado: _a1PagoAvulso,
         consent: _consent,
         locale: locale,
         pixHonorariosInformado: _pixHonorariosInformado,
-        valorPixHonorarios: _pixHonorariosInformado ? _primeiroBoleto : 0,
+        valorPixHonorarios: _pixHonorariosInformado
+            ? (_servicoAvulso ? _precoAvulso : _primeiroBoleto)
+            : 0,
         websiteHoneypot: _honeypotCtrl.text,
+        comprovanteNome: _comp?.nome ?? '',
+        comprovanteMime: _comp?.mime ?? '',
+        comprovanteBase64: _comp?.base64 ?? '',
       );
     } finally {
       if (mounted) {
@@ -692,6 +798,7 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                             child: _PlansTable(
                               st: st,
                               brl: _brl,
+                              onPixA1Pago: () => setState(() => _a1 = false),
                               a1PrefillOf: () => FunilA1Prefill(
                                 nome: _nomeCtrl.text,
                                 email: _emailCtrl.text,
@@ -794,21 +901,76 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
               controller: _cnpjCtrl,
               label: st.fieldCnpj,
               keyboard: TextInputType.number,
-              validator: (v) => _digits(v ?? '').length != 14 ? st.errorForCode('cnpj_invalid') : null,
+              validator: (v) {
+                final d = _digits(v ?? '');
+                if (_servicoAvulso) {
+                  if (d.isNotEmpty && d.length != 14) {
+                    return st.errorForCode('cnpj_invalid');
+                  }
+                  return null;
+                }
+                return d.length != 14 ? st.errorForCode('cnpj_invalid') : null;
+              },
             ),
             const SizedBox(height: 16),
-            Text(st.tipoLabel, style: const TextStyle(fontWeight: FontWeight.w700)),
-            _tipoLinha(
-              label: st.tipoMei,
-              selected: _tipo == 'MEI',
-              onTap: _submitting ? null : () => _setTipo('MEI'),
+            DropdownButtonFormField<String>(
+              key: ValueKey(_enquadramento ?? 'eq'),
+              isExpanded: true,
+              itemHeight: null,
+              decoration: InputDecoration(
+                labelText: st.tipoLabel,
+                border: const OutlineInputBorder(),
+                contentPadding: const EdgeInsets.fromLTRB(12, 12, 8, 12),
+              ),
+              initialValue: _enquadramento,
+              hint: Text(st.tipoLabel),
+              selectedItemBuilder: (ctx) {
+                return [
+                  for (final id in const [
+                    'mei',
+                    'me',
+                    'abertura',
+                    'transformacao_mei_me',
+                    'viabilidade',
+                  ])
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        st.enquadramentoNome(id),
+                        maxLines: 2,
+                        softWrap: true,
+                        overflow: TextOverflow.visible,
+                        style: const TextStyle(fontSize: 14, height: 1.25),
+                      ),
+                    ),
+                ];
+              },
+              items: [
+                for (final id in const [
+                  'mei',
+                  'me',
+                  'abertura',
+                  'transformacao_mei_me',
+                  'viabilidade',
+                ])
+                  DropdownMenuItem(
+                    value: id,
+                    child: Text(
+                      st.enquadramentoNome(id),
+                      maxLines: 2,
+                      softWrap: true,
+                      overflow: TextOverflow.visible,
+                      style: const TextStyle(fontSize: 14, height: 1.25),
+                    ),
+                  ),
+              ],
+              onChanged: _submitting
+                  ? null
+                  : (v) {
+                      if (v != null) _setEnquadramento(v);
+                    },
             ),
-            _tipoLinha(
-              label: st.tipoMe,
-              selected: _tipo == 'ME',
-              onTap: _submitting ? null : () => _setTipo('ME'),
-            ),
-            if (_tipo == 'ME') ...[
+            if (!_servicoAvulso && _tipo == 'ME') ...[
               const SizedBox(height: 8),
               Text(st.crcLabel, style: const TextStyle(fontWeight: FontWeight.w700)),
               Padding(
@@ -822,12 +984,19 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                 ),
               _addonCheck(label: st.extraFolha, value: _folha, onChanged: (v) => setState(() => _folha = v ?? false)),
               _addonCheck(label: st.extraIr, value: _ir, onChanged: (v) => setState(() => _ir = v ?? false)),
-              _addonCheck(label: st.extraA1, value: _a1, onChanged: (v) => setState(() => _a1 = v ?? false)),
+              _addonA1(st),
             ],
-            const SizedBox(height: 8),
-            _campoFaixa(st),
-            if (_tipo != 'ME')
-              _addonCheck(label: st.extraA1, value: _a1, onChanged: (v) => setState(() => _a1 = v ?? false)),
+            if (!_servicoAvulso) ...[
+              const SizedBox(height: 8),
+              IgnorePointer(
+                ignoring: _servicoAvulso,
+                child: Opacity(
+                  opacity: _servicoAvulso ? 0.4 : 1,
+                  child: _campoFaixa(st),
+                ),
+              ),
+              if (_tipo != 'ME') _addonA1(st),
+            ],
             Opacity(
               opacity: 0,
               child: SizedBox(
@@ -884,6 +1053,28 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
             ],
             const SizedBox(height: 12),
             OutlinedButton.icon(
+              onPressed: _submitting
+                  ? null
+                  : () async {
+                      try {
+                        final arq = await escolherComprovanteFunil();
+                        if (arq != null) setState(() => _comp = arq);
+                      } on StateError catch (e) {
+                        setState(() => _errorCode = e.message);
+                      }
+                    },
+              icon: const Icon(Icons.attach_file, size: 18),
+              label: Text(
+                _comp == null ? st.comprovanteAnexar : st.comprovanteTrocar,
+              ),
+            ),
+            if (_comp != null)
+              Padding(
+                padding: const EdgeInsets.only(top: 4),
+                child: Text(_comp!.nome, style: const TextStyle(fontSize: 12)),
+              ),
+            const SizedBox(height: 8),
+            OutlinedButton.icon(
               onPressed: _submitting ? null : () => _abrirPixHonorarios(st),
               icon: const Icon(Icons.qr_code_2, size: 18),
               label: const Text(
@@ -900,6 +1091,24 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _addonA1(SiteContabilidadeFunilTexts st) {
+    if (_a1PagoAvulso) {
+      return CheckboxListTile(
+        contentPadding: EdgeInsets.zero,
+        dense: true,
+        controlAffinity: ListTileControlAffinity.leading,
+        title: const Text('A1 já no PIX do certificado'),
+        value: false,
+        onChanged: null,
+      );
+    }
+    return _addonCheck(
+      label: st.extraA1,
+      value: _a1,
+      onChanged: (v) => setState(() => _a1 = v ?? false),
     );
   }
 
@@ -1115,12 +1324,14 @@ class _PlansTable extends StatelessWidget {
     required this.brl,
     required this.onChoose,
     this.a1PrefillOf,
+    this.onPixA1Pago,
   });
 
   final SiteContabilidadeFunilTexts st;
   final String Function(double) brl;
   final ValueChanged<String> onChoose;
   final FunilA1Prefill Function()? a1PrefillOf;
+  final VoidCallback? onPixA1Pago;
 
   @override
   Widget build(BuildContext context) {
@@ -1138,17 +1349,10 @@ class _PlansTable extends StatelessWidget {
           Text(st.plansGroupMe, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 15)),
           const SizedBox(height: 8),
           for (final t in kFunilTiers.where((t) => !_tierIsMei(t.id))) _planCard(t),
-          A1QualityCertCard(prefillOf: a1PrefillOf),
-          const SizedBox(height: 8),
-          Text(st.playNote, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600)),
-          const SizedBox(height: 12),
-          Text(st.extrasTitle, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 15)),
-          const SizedBox(height: 6),
-          Text(st.extrasBody),
-          if (st.organsNote.isNotEmpty) ...[
-            const SizedBox(height: 8),
-            Text(st.organsNote, style: const TextStyle(fontSize: 13)),
-          ],
+          A1QualityCertCard(
+            prefillOf: a1PrefillOf,
+            onPixA1Pago: onPixA1Pago,
+          ),
           const SizedBox(height: 8),
           Text(st.paymentLaterNote, style: const TextStyle(fontSize: 13)),
         ],
@@ -1543,9 +1747,10 @@ class _FunilFooter extends StatelessWidget {
 }
 
 class A1QualityCertCard extends StatelessWidget {
-  const A1QualityCertCard({super.key, this.prefillOf});
+  const A1QualityCertCard({super.key, this.prefillOf, this.onPixA1Pago});
 
   final FunilA1Prefill Function()? prefillOf;
+  final VoidCallback? onPixA1Pago;
 
   @override
   Widget build(BuildContext context) {
@@ -1610,6 +1815,8 @@ class A1QualityCertCard extends StatelessWidget {
                     txidPrefixo: 'A1',
                   );
                   if (!context.mounted || !pago) return;
+                  FunilPixSessao.a1PagoAvulso = true;
+                  onPixA1Pago?.call();
                   await showA1QualityCertPop(
                     context,
                     prefill: prefillOf?.call() ?? const FunilA1Prefill(),

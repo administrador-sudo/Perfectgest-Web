@@ -24,6 +24,12 @@ Ficheiro de referência: [`web/_headers`](../web/_headers) (copiado para `build/
 | `/assets/*` | Cache-Control | `public, max-age=31536000, immutable` |
 | `/icons/*` | Cache-Control | `public, max-age=31536000, immutable` |
 | `/` | Cache-Control | `public, max-age=0, must-revalidate` |
+| `/*` | X-Frame-Options | `DENY` |
+| `/*` | X-Content-Type-Options | `nosniff` |
+| `/*` | Referrer-Policy | `strict-origin-when-cross-origin` |
+| `/*` | Permissions-Policy | `camera=(), microphone=(), geolocation=(), payment=()` |
+
+O `_headers` do repositório já inclui esses quatro cabeçalhos de segurança em `/*`. Confirme no dashboard se o Render os aplica; se não, cadastre as mesmas linhas em **Settings → HTTP Headers**. Sem isso, o anti-iframe do funil fica só no CSP do `index.html`.
 
 ### Opção B — Ficheiro `_headers` no artefacto
 

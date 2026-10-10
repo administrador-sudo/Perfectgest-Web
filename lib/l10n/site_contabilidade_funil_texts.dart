@@ -70,6 +70,8 @@ abstract class SiteContabilidadeFunilTexts {
   String get a1Back;
   String get a1Send;
   String get a1Sending;
+  String get comprovanteAnexar;
+  String get comprovanteTrocar;
   String get a1FieldCpf;
   String get a1FieldPhone;
   String get a1FieldCep;
@@ -96,6 +98,7 @@ abstract class SiteContabilidadeFunilTexts {
   String get tipoLabel;
   String get tipoMei;
   String get tipoMe;
+  String enquadramentoNome(String id);
   String get crcLabel;
   String get crcYes;
   String get crcNo;
@@ -264,7 +267,7 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
 
   @override
   String get extrasBody =>
-      'NF extra R\$ 12,99 · CLT extra R\$ 39,99/mês · Folha R\$ 99,99/mês · IR R\$ 49,99/ano · A1 R\$ 119,99/ano · Abertura de empresa R\$ 490,00 · MEI para ME R\$ 350,00.';
+      'NF extra R\$ 12,99 · CLT extra R\$ 39,99/mês · Folha R\$ 99,99/mês · IR R\$ 49,99/ano · A1 R\$ 119,99/ano · Abertura de ME, SLU, LTDA, EI no Simples Nacional R\$ 490,00 · MEI para ME R\$ 350,00 · Viabilidade (Avaliação de Abertura / alteração) R\$ 100,00.';
 
   @override
   String get organsNote =>
@@ -302,7 +305,7 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
       'Emita ou renove o seu Certificado Digital a qualquer hora e lugar. Na QualityCert, o processo é rápido, simples e seguro, ideal para quem valoriza a praticidade sem abrir mão da proteção.';
 
   @override
-  String get a1BuyCta => 'Adquirir certificado A1 QualityCert — R\$ 119,99/ano';
+  String get a1BuyCta => 'Adquirir só o certificado A1';
 
   @override
   String get a1PopTitle => 'Certificado A1 QualityCert';
@@ -327,6 +330,10 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
 
   @override
   String get a1Send => 'Enviar cadastro';
+  @override
+  String get comprovanteAnexar => 'Anexar comprovante de pagamento';
+  @override
+  String get comprovanteTrocar => 'Trocar comprovante';
 
   @override
   String get a1Sending => 'Enviando...';
@@ -417,6 +424,24 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
 
   @override
   String get tipoMe => 'Microempresa (ME)';
+
+  @override
+  String enquadramentoNome(String id) {
+    switch (id) {
+      case 'mei':
+        return 'Plano MEI';
+      case 'me':
+        return 'Plano ME';
+      case 'abertura':
+        return 'Abertura de ME, SLU, LTDA, EI no Simples Nacional (R\$ 490,00)';
+      case 'transformacao_mei_me':
+        return 'Transformação de MEI para ME (R\$ 350,00)';
+      case 'viabilidade':
+        return 'Viabilidade (Avaliação de Abertura / alteração) (R\$ 100,00)';
+      default:
+        return id;
+    }
+  }
 
   @override
   String get crcLabel => 'Acompanhamento do contador';
@@ -659,6 +684,8 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
         'bairro_invalid' => 'Informe o bairro.',
         'cidade_invalid' => 'Informe a cidade.',
         'estado_invalid' => 'Informe a UF com 2 letras.',
+        'file_too_large' => 'O comprovante deve ter no maximo 2 MB.',
+        'file_type' => 'Use PDF, JPG ou PNG.',
         'network_error' =>
           'Nao foi possivel enviar o cadastro ao escritorio. Tente de novo; se estiver em 127.0.0.1, a Function Firebase precisa permitir essa origem.',
         'api_waking' =>
@@ -868,7 +895,7 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
 
   @override
   String get extrasBody =>
-      'Extra invoice R\$ 12.99 · Extra CLT R\$ 39.99/month · Payroll R\$ 99.99/month · Income tax R\$ 49.99/year · A1 R\$ 119.99/year · Company opening R\$ 490.00 · MEI to ME R\$ 350.00.';
+      'Extra invoice R\$ 12.99 · Extra CLT R\$ 39.99/month · Payroll R\$ 99.99/month · Income tax R\$ 49.99/year · A1 R\$ 119.99/year · Company opening R\$ 490.00 · MEI to ME R\$ 350.00 · Viability (opening / change review) R\$ 100.00.';
 
   @override
   String get organsNote =>
@@ -906,7 +933,7 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
       'Issue or renew your digital certificate anytime, anywhere. At QualityCert the process is fast, simple and secure, for those who value convenience without giving up protection.';
 
   @override
-  String get a1BuyCta => 'Get A1 QualityCert certificate — R\$ 119.99/year';
+  String get a1BuyCta => 'Get only the A1 certificate';
 
   @override
   String get a1PopTitle => 'A1 QualityCert certificate';
@@ -931,6 +958,10 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
 
   @override
   String get a1Send => 'Send registration';
+  @override
+  String get comprovanteAnexar => 'Attach payment receipt';
+  @override
+  String get comprovanteTrocar => 'Replace receipt';
 
   @override
   String get a1Sending => 'Sending...';
@@ -1014,13 +1045,31 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
   String get fieldCnpj => 'CNPJ';
 
   @override
-  String get tipoLabel => 'Company type';
+  String get tipoLabel => 'Classification';
 
   @override
   String get tipoMei => 'Individual Microentrepreneur (MEI)';
 
   @override
   String get tipoMe => 'Microenterprise (ME)';
+
+  @override
+  String enquadramentoNome(String id) {
+    switch (id) {
+      case 'mei':
+        return 'MEI plan';
+      case 'me':
+        return 'ME plan';
+      case 'abertura':
+        return 'Company opening (R\$ 490.00)';
+      case 'transformacao_mei_me':
+        return 'MEI to ME conversion (R\$ 350.00)';
+      case 'viabilidade':
+        return 'Viability (opening / change review) (R\$ 100.00)';
+      default:
+        return id;
+    }
+  }
 
   @override
   String get crcLabel => 'Accountant follow-up';
@@ -1263,6 +1312,8 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
         'bairro_invalid' => 'Enter the district.',
         'cidade_invalid' => 'Enter the city.',
         'estado_invalid' => 'Enter a 2-letter state code.',
+        'file_too_large' => 'The receipt must be 2 MB or smaller.',
+        'file_type' => 'Use PDF, JPG or PNG.',
         'network_error' =>
           'Could not send the registration. Try again; on 127.0.0.1 the Firebase Function must allow that origin.',
         'api_waking' => 'The server is starting (up to 1 min). Wait and send again.',
@@ -1470,7 +1521,7 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
 
   @override
   String get extrasBody =>
-      'NF extra R\$ 12,99 · CLT extra R\$ 39,99/mes · Nómina R\$ 99,99/mes · IR R\$ 49,99/año · A1 R\$ 119,99/año · Apertura de empresa R\$ 490,00 · MEI a ME R\$ 350,00.';
+      'NF extra R\$ 12,99 · CLT extra R\$ 39,99/mes · Nómina R\$ 99,99/mes · IR R\$ 49,99/año · A1 R\$ 119,99/año · Apertura de empresa R\$ 490,00 · MEI a ME R\$ 350,00 · Viabilidad (evaluación de apertura / alteración) R\$ 100,00.';
 
   @override
   String get organsNote =>
@@ -1508,7 +1559,7 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
       'Emita o renueve su Certificado Digital a cualquier hora y lugar. En QualityCert el proceso es rápido, simple y seguro, ideal para quien valora la practicidad sin renunciar a la protección.';
 
   @override
-  String get a1BuyCta => 'Adquirir certificado A1 QualityCert — R\$ 119,99/año';
+  String get a1BuyCta => 'Adquirir solo el certificado A1';
 
   @override
   String get a1PopTitle => 'Certificado A1 QualityCert';
@@ -1533,6 +1584,10 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
 
   @override
   String get a1Send => 'Enviar registro';
+  @override
+  String get comprovanteAnexar => 'Adjuntar comprobante de pago';
+  @override
+  String get comprovanteTrocar => 'Cambiar comprobante';
 
   @override
   String get a1Sending => 'Enviando...';
@@ -1616,13 +1671,31 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
   String get fieldCnpj => 'CNPJ';
 
   @override
-  String get tipoLabel => 'Tipo de empresa';
+  String get tipoLabel => 'Encuadramiento';
 
   @override
   String get tipoMei => 'Microemprendedor Individual (MEI)';
 
   @override
   String get tipoMe => 'Microempresa (ME)';
+
+  @override
+  String enquadramentoNome(String id) {
+    switch (id) {
+      case 'mei':
+        return 'Plan MEI';
+      case 'me':
+        return 'Plan ME';
+      case 'abertura':
+        return 'Apertura de empresa (R\$ 490,00)';
+      case 'transformacao_mei_me':
+        return 'Transformación de MEI a ME (R\$ 350,00)';
+      case 'viabilidade':
+        return 'Viabilidad (evaluación de apertura / alteración) (R\$ 100,00)';
+      default:
+        return id;
+    }
+  }
 
   @override
   String get crcLabel => 'Seguimiento del contador';
@@ -1865,6 +1938,8 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
         'bairro_invalid' => 'Indique el barrio.',
         'cidade_invalid' => 'Indique la ciudad.',
         'estado_invalid' => 'Indique la UF con 2 letras.',
+        'file_too_large' => 'El comprobante debe tener como maximo 2 MB.',
+        'file_type' => 'Use PDF, JPG o PNG.',
         'network_error' =>
           'No se pudo enviar el registro. Intente de nuevo; en 127.0.0.1 la Function de Firebase debe permitir ese origen.',
         'api_waking' => 'El servidor esta iniciando (puede tardar 1 min). Espere y envie de nuevo.',
