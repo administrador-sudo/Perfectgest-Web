@@ -99,6 +99,7 @@ abstract class SiteContabilidadeFunilTexts {
   String get tipoMei;
   String get tipoMe;
   String enquadramentoNome(String id);
+  String enquadramentoQuadro(String id);
   String get crcLabel;
   String get crcYes;
   String get crcNo;
@@ -440,6 +441,20 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
         return 'Viabilidade (Avaliação de Abertura / alteração) (R\$ 100,00)';
       default:
         return id;
+    }
+  }
+
+  @override
+  String enquadramentoQuadro(String id) {
+    switch (id) {
+      case 'abertura':
+        return 'Abertura de ME, SLU, LTDA, EI\nno Simples Nacional (R\$ 490,00)';
+      case 'transformacao_mei_me':
+        return 'Transformação de MEI para ME\n(R\$ 350,00)';
+      case 'viabilidade':
+        return 'Viabilidade (Avaliação de Abertura / alteração)\n(R\$ 100,00)';
+      default:
+        return enquadramentoNome(id);
     }
   }
 
@@ -1072,6 +1087,20 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
   }
 
   @override
+  String enquadramentoQuadro(String id) {
+    switch (id) {
+      case 'abertura':
+        return 'Company opening\n(R\$ 490.00)';
+      case 'transformacao_mei_me':
+        return 'MEI to ME conversion\n(R\$ 350.00)';
+      case 'viabilidade':
+        return 'Viability (opening / change review)\n(R\$ 100.00)';
+      default:
+        return enquadramentoNome(id);
+    }
+  }
+
+  @override
   String get crcLabel => 'Accountant follow-up';
 
   @override
@@ -1694,6 +1723,20 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
         return 'Viabilidad (evaluación de apertura / alteración) (R\$ 100,00)';
       default:
         return id;
+    }
+  }
+
+  @override
+  String enquadramentoQuadro(String id) {
+    switch (id) {
+      case 'abertura':
+        return 'Apertura de empresa\n(R\$ 490,00)';
+      case 'transformacao_mei_me':
+        return 'Transformación de MEI a ME\n(R\$ 350,00)';
+      case 'viabilidade':
+        return 'Viabilidad (evaluación de apertura / alteración)\n(R\$ 100,00)';
+      default:
+        return enquadramentoNome(id);
     }
   }
 

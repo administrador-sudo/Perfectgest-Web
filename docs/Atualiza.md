@@ -2,6 +2,30 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-10 11:54] Enquadramento: quadro com duas linhas
+
+### Contexto
+- O campo fechado ficava com uma linha; texto longo precisava de duas.
+
+### Arquivos alterados
+- lib/contabilidade_funil_page.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- PopupMenuButton + InputDecorator com altura 44 (duas linhas). Labels longos com quebra (`enquadramentoQuadro`). PIX/POST seguem em uma linha.
+
+### Risco de regressao
+- Baixo.
+
+### Validacao executada
+- [x] 8089: Abertura em duas linhas no quadro, sem overflow.
+
+### Resultado
+- Quadro do enquadramento com duas linhas.
+
+### Proximos passos recomendados
+- Republicar depois desta correcao (o publish anterior compilou a versao de 1 linha).
+
 ## [2026-10-10 11:47] Enquadramento: overflow do dropdown
 
 ### Contexto

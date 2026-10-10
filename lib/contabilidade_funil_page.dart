@@ -913,39 +913,13 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
               },
             ),
             const SizedBox(height: 16),
-            DropdownButtonFormField<String>(
-              key: ValueKey(_enquadramento ?? 'eq'),
-              isExpanded: true,
-              itemHeight: null,
-              decoration: InputDecoration(
-                labelText: st.tipoLabel,
-                border: const OutlineInputBorder(),
-                isDense: true,
-                contentPadding: const EdgeInsets.fromLTRB(12, 14, 8, 14),
-              ),
+            PopupMenuButton<String>(
+              enabled: !_submitting,
+              tooltip: st.tipoLabel,
               initialValue: _enquadramento,
-              hint: Text(st.tipoLabel, overflow: TextOverflow.ellipsis),
-              selectedItemBuilder: (ctx) {
-                return [
-                  for (final id in const [
-                    'mei',
-                    'me',
-                    'abertura',
-                    'transformacao_mei_me',
-                    'viabilidade',
-                  ])
-                    SizedBox(
-                      width: double.infinity,
-                      child: Text(
-                        st.enquadramentoNome(id),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(fontSize: 13, height: 1.25),
-                      ),
-                    ),
-                ];
-              },
-              items: [
+              position: PopupMenuPosition.under,
+              onSelected: _setEnquadramento,
+              itemBuilder: (ctx) => [
                 for (final id in const [
                   'mei',
                   'me',
@@ -953,21 +927,38 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                   'transformacao_mei_me',
                   'viabilidade',
                 ])
-                  DropdownMenuItem(
+                  PopupMenuItem(
                     value: id,
                     child: Text(
-                      st.enquadramentoNome(id),
-                      maxLines: 3,
+                      st.enquadramentoQuadro(id),
+                      maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(fontSize: 13, height: 1.3),
                     ),
                   ),
               ],
-              onChanged: _submitting
-                  ? null
-                  : (v) {
-                      if (v != null) _setEnquadramento(v);
-                    },
+              child: InputDecorator(
+                isEmpty: _enquadramento == null,
+                decoration: InputDecoration(
+                  labelText: st.tipoLabel,
+                  border: const OutlineInputBorder(),
+                  contentPadding: const EdgeInsets.fromLTRB(12, 12, 8, 12),
+                  suffixIcon: const Icon(Icons.arrow_drop_down),
+                ),
+                child: SizedBox(
+                  height: 44,
+                  width: double.infinity,
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      _enquadramento == null ? '' : st.enquadramentoQuadro(_enquadramento!),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(fontSize: 13, height: 1.3),
+                    ),
+                  ),
+                ),
+              ),
             ),
             if (!_servicoAvulso && _tipo == 'ME') ...[
               const SizedBox(height: 8),
