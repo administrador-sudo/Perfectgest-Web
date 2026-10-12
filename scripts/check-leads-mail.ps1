@@ -8,7 +8,7 @@ try {
   Write-Output $_.Exception.Message
 }
 
-Write-Output '=== 2) MAIL-CHECK (SMTP no Render, sem enviar e-mail) ==='
+Write-Output '=== 2) MAIL-CHECK ==='
 try {
   Invoke-RestMethod -Uri "$base/api/mail-check" -TimeoutSec 25 | ConvertTo-Json -Compress
 } catch {
@@ -16,11 +16,8 @@ try {
 }
 
 Write-Output '=== 3) Conferir no Render Environment ==='
-Write-Output 'SMTP_HOST=smtp.gmail.com'
-Write-Output 'SMTP_PORT=587'
-Write-Output 'SMTP_SECURE=false'
-Write-Output 'SMTP_USER=perfectpro.sac@gmail.com'
-Write-Output 'SMTP_PASS=senha de app 16 letras (sem espaco visivel)'
-Write-Output 'MAIL_FROM=perfectpro.sac@gmail.com'
+Write-Output 'RESEND_API_KEY=re_... (obrigatorio no Free)'
+Write-Output 'MAIL_FROM=Perfect Gest Dev <leads@perfectgestdev.com>'
 Write-Output 'MAIL_BCC=perfectpro.sac@gmail.com'
-Write-Output 'Esperado no mail-check: mailerReady true, gmailMode true, verifyOk true'
+Write-Output 'Esperado: resendMode true, verifyOk true'
+Write-Output 'MAIL_FROM nao pode ser gmail.com no Resend — dominio verificado no painel Resend.'

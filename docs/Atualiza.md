@@ -2,6 +2,32 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-12 13:59] Leads-api: envio via Resend HTTPS
+
+### Contexto
+- SMTP Gmail no Render Free: verify_timeout_15s. Operador escolheu HTTPS.
+
+### Arquivos alterados
+- scripts/leads-api-server.js
+- scripts/check-leads-mail.ps1
+- render.yaml
+- docs/Atualiza.md
+
+### O que foi feito
+- Se RESEND_API_KEY existe, POST https://api.resend.com/emails. mail-check testa a chave.
+
+### Risco de regressao
+- MAIL_FROM tem de ser dominio verificado no Resend (nao gmail.com).
+
+### Validacao executada
+- Pendente: chave + publish + mail-check.
+
+### Resultado
+- SMTP fica de fallback.
+
+### Proximos passos recomendados
+- Criar chave Resend, MAIL_FROM @perfectgestdev.com, publish-web, Manual Deploy 6v1e.
+
 ## [2026-10-12 13:48] mail-check + IPv4 no SMTP Gmail
 
 ### Contexto

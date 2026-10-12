@@ -96,3 +96,5 @@ services:
         sync: false
       - key: MAIL_BCC
         sync: false
+      - key: RESEND_API_KEY
+        sync: false

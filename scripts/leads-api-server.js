@@ -123,8 +123,60 @@ const leadsLimiter = rateLimit({
 const PLAY_CONTABIL_URL =
   'https://play.google.com/store/apps/details?id=br.perfectgestcontabil.dev';
 
+function resendReady() {
+  return Boolean(String(process.env.RESEND_API_KEY || '').trim());
+}
+
 function mailerReady() {
-  return Boolean(process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS);
+  return (
+    resendReady() ||
+    Boolean(process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS)
+  );
+}
+
+function splitAddresses(raw) {
+  return String(raw || '')
+    .split(',')
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+
+async function sendResend({ from, to, subject, text }) {
+  const key = String(process.env.RESEND_API_KEY || '').trim();
+  const response = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${key}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      from,
+      to: splitAddresses(to),
+      subject,
+      text,
+    }),
+    signal: AbortSignal.timeout(20000),
+  });
+  if (!response.ok) {
+    const body = await response.text();
+    throw new Error(`resend_${response.status}: ${body.slice(0, 180)}`);
+  }
+  return true;
+}
+
+async function sendMailMessage({ from, to, subject, text }) {
+  if (resendReady()) {
+    return sendResend({ from, to, subject, text });
+  }
+  try {
+    require('nodemailer');
+  } catch (err) {
+    console.warn('[leads-api] nodemailer indisponivel:', err.message);
+    return false;
+  }
+  const transporter = createTransporter();
+  await transporter.sendMail({ from, to, subject, text });
+  return true;
 }
 
 function copyMailCopy({ nome, comentario, locale }) {
@@ -197,18 +249,11 @@ function createTransporter() {
 
 async function notifyOffice({ nome, email, comentario, locale }) {
   if (!mailerReady()) {
-    console.warn('[leads-api] SMTP ausente — escritorio nao notificado');
-    return false;
-  }
-  try {
-    require('nodemailer');
-  } catch (err) {
-    console.warn('[leads-api] nodemailer indisponivel:', err.message);
+    console.warn('[leads-api] SMTP/Resend ausente — escritorio nao notificado');
     return false;
   }
   const from = process.env.MAIL_FROM || process.env.SMTP_USER;
-  const transporter = createTransporter();
-  await transporter.sendMail({
+  return sendMailMessage({
     from,
     to: officeAddress(),
     subject: `[Lead site] ${nome}`,
@@ -219,30 +264,16 @@ async function notifyOffice({ nome, email, comentario, locale }) {
       `Idioma: ${locale || 'pt'}\n\n` +
       `${comentario || '(sem comentario)'}\n`,
   });
-  return true;
 }
 
 async function sendUserCopy({ nome, email, comentario, locale }) {
   if (!mailerReady()) {
-    console.warn('[leads-api] SMTP ausente — copia nao enviada');
-    return false;
-  }
-  try {
-    require('nodemailer');
-  } catch (err) {
-    console.warn('[leads-api] nodemailer indisponivel:', err.message);
+    console.warn('[leads-api] SMTP/Resend ausente — copia nao enviada');
     return false;
   }
   const { subject, text } = copyMailCopy({ nome, comentario, locale });
   const from = process.env.MAIL_FROM || process.env.SMTP_USER;
-  const transporter = createTransporter();
-  await transporter.sendMail({
-    from,
-    to: email,
-    subject,
-    text,
-  });
-  return true;
+  return sendMailMessage({ from, to: email, subject, text });
 }
 
 function looksLikeEmail(value) {
@@ -269,6 +300,8 @@ app.get('/api/mail-check', leadsLimiter, async (_req, res) => {
   const report = {
     ok: false,
     mailerReady: mailerReady(),
+    resendMode: resendReady(),
+    resendKeySet: resendReady(),
     smtpHost: host || null,
     smtpUser: user || null,
     smtpPassSet: Boolean(String(process.env.SMTP_PASS || '').trim()),
@@ -281,22 +314,32 @@ app.get('/api/mail-check', leadsLimiter, async (_req, res) => {
     verifyMs: 0,
     verifyError: null,
   };
-  if (!report.mailerReady) {
-    report.verifyError = 'smtp_not_ready';
-    res.status(200).json(report);
-    return;
-  }
   const started = Date.now();
   try {
-    const transporter = createTransporter();
-    await Promise.race([
-      transporter.verify(),
-      new Promise((_, reject) => {
-        setTimeout(() => reject(new Error('verify_timeout_15s')), 15000);
-      }),
-    ]);
-    report.verifyOk = true;
-    report.ok = true;
+    if (resendReady()) {
+      const response = await fetch('https://api.resend.com/domains', {
+        headers: { Authorization: `Bearer ${String(process.env.RESEND_API_KEY).trim()}` },
+        signal: AbortSignal.timeout(12000),
+      });
+      if (!response.ok) {
+        const body = await response.text();
+        throw new Error(`resend_${response.status}: ${body.slice(0, 160)}`);
+      }
+      report.verifyOk = true;
+      report.ok = true;
+    } else if (report.mailerReady) {
+      const transporter = createTransporter();
+      await Promise.race([
+        transporter.verify(),
+        new Promise((_, reject) => {
+          setTimeout(() => reject(new Error('verify_timeout_15s')), 15000);
+        }),
+      ]);
+      report.verifyOk = true;
+      report.ok = true;
+    } else {
+      report.verifyError = 'smtp_or_resend_not_ready';
+    }
   } catch (err) {
     report.verifyError = String(err && err.message ? err.message : err).slice(0, 200);
   }
