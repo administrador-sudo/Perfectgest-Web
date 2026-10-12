@@ -2,6 +2,31 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-12 10:53] Site aponta para leads-api-6v1e
+
+### Contexto
+- SMTP configurado no servico Render perfectgest-leads-api-6v1e. A URL antiga 2ztg nao acordava.
+
+### Arquivos alterados
+- lib/lead_api_config.dart
+- web/index.html
+- docs/Atualiza.md
+
+### O que foi feito
+- kLeadsApiUrl e CSP connect-src passaram para https://perfectgest-leads-api-6v1e.onrender.com
+
+### Risco de regressao
+- Medio ate publish-web: producao ainda chama 2ztg.
+
+### Validacao executada
+- POST de diagnostico na API 6v1e.
+
+### Resultado
+- Site local passa a usar 6v1e apos hot restart.
+
+### Proximos passos recomendados
+- Conferir caixa suporte@. npm run publish-web quando o POST responder ok.
+
 ## [2026-10-12 10:35] Funil Conhecer app: e-mail para suporte@
 
 ### Contexto
