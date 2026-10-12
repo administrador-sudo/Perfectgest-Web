@@ -123,8 +123,17 @@ const leadsLimiter = rateLimit({
 const PLAY_CONTABIL_URL =
   'https://play.google.com/store/apps/details?id=br.perfectgestcontabil.dev';
 
+function readEnv(name) {
+  const wanted = String(name).trim();
+  if (process.env[wanted]) return String(process.env[wanted]).trim();
+  const hit = Object.keys(process.env).find(
+    (k) => k.trim().toUpperCase() === wanted.toUpperCase(),
+  );
+  return hit ? String(process.env[hit] || '').trim() : '';
+}
+
 function resendReady() {
-  return Boolean(String(process.env.RESEND_API_KEY || '').trim());
+  return Boolean(readEnv('RESEND_API_KEY'));
 }
 
 function mailerReady() {
@@ -142,7 +151,7 @@ function splitAddresses(raw) {
 }
 
 async function sendResend({ from, to, subject, text }) {
-  const key = String(process.env.RESEND_API_KEY || '').trim();
+  const key = readEnv('RESEND_API_KEY');
   const response = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: {
@@ -302,6 +311,9 @@ app.get('/api/mail-check', leadsLimiter, async (_req, res) => {
     mailerReady: mailerReady(),
     resendMode: resendReady(),
     resendKeySet: resendReady(),
+    resendEnvNames: Object.keys(process.env)
+      .filter((k) => /resend/i.test(k))
+      .map((k) => k.trim()),
     smtpHost: host || null,
     smtpUser: user || null,
     smtpPassSet: Boolean(String(process.env.SMTP_PASS || '').trim()),
@@ -318,7 +330,7 @@ app.get('/api/mail-check', leadsLimiter, async (_req, res) => {
   try {
     if (resendReady()) {
       const response = await fetch('https://api.resend.com/domains', {
-        headers: { Authorization: `Bearer ${String(process.env.RESEND_API_KEY).trim()}` },
+        headers: { Authorization: `Bearer ${readEnv('RESEND_API_KEY')}` },
         signal: AbortSignal.timeout(12000),
       });
       if (!response.ok) {
@@ -438,6 +450,7 @@ const port = Number(process.env.PORT) || 10000;
 
 app.listen(port, '0.0.0.0', () => {
   console.log(`[leads-api] listening on ${port}`);
+  console.log(`[leads-api] resendKeySet: ${resendReady()}`);
   console.log(`[leads-api] CORS: ${allowedOrigins.join(', ')}`);
   if (pgPool) {
     console.log('[leads-api] storage: postgres (site_leads)');

@@ -2,6 +2,30 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-12 14:24] mail-check: detectar RESEND_API_KEY com nome irregular
+
+### Contexto
+- Painel tem re_; processo Live resendKeySet false.
+
+### Arquivos alterados
+- scripts/leads-api-server.js
+- docs/Atualiza.md
+
+### O que foi feito
+- Ler env ignorando maiusculas/espaco. mail-check lista nomes RESEND. Log no boot.
+
+### Risco de regressao
+- Baixo.
+
+### Validacao executada
+- GET mail-check apos live: resendKeySet false.
+
+### Resultado
+- Precisa publish + Manual Deploy.
+
+### Proximos passos recomendados
+- publish-web; Logs da 6v1e: resendKeySet true/false.
+
 ## [2026-10-12 13:59] Leads-api: envio via Resend HTTPS
 
 ### Contexto
