@@ -1,6 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'brand_palette.dart';
+import 'company_legal.dart';
 import 'l10n/site_contabilidade_funil_texts.dart';
 import 'lead_capture_service.dart';
 import 'site_public_urls.dart';
@@ -76,13 +80,21 @@ class _FunilConhecerAppPopState extends State<_FunilConhecerAppPop> {
       _erro = null;
     });
     final locale = Localizations.localeOf(context).toLanguageTag();
-    await LeadCaptureService.submit(
-      nome: nome,
-      email: email,
-      comentario: '[FUNIL CONHECER APP] WhatsApp $whats',
-      consent: true,
-      locale: locale,
-      websiteHoneypot: _hpCtrl.text,
+    unawaited(
+      LeadCaptureService.submit(
+        nome: nome,
+        email: email,
+        comentario: '[FUNIL CONHECER APP] WhatsApp $whats',
+        consent: true,
+        locale: locale,
+        websiteHoneypot: _hpCtrl.text,
+        copiaUsuario: true,
+      ),
+    );
+    await launchUrl(
+      Uri.parse(kPerfectGestContabilIProductUrl),
+      mode: LaunchMode.externalApplication,
+      webOnlyWindowName: '_blank',
     );
     if (!mounted) return;
     Navigator.of(context).pop(

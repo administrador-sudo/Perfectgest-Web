@@ -79,7 +79,7 @@ services:
           name: perfectgest-leads-db
           property: connectionString
       - key: ALLOWED_ORIGINS
-        value: https://perfectgestdev.com,https://www.perfectgestdev.com,https://perfectgest-web-desenvolvedor-apps.onrender.com
+        value: https://perfectgestdev.com,https://www.perfectgestdev.com,https://perfectgest-web-desenvolvedor-apps.onrender.com,http://localhost:8080,http://127.0.0.1:8080,http://localhost:8088,http://127.0.0.1:8088,http://localhost:8090,http://127.0.0.1:8090
       - key: NODE_VERSION
         value: "20"
       - key: SMTP_HOST

@@ -4,11 +4,11 @@ adi(){var x=0,w=A.O(y.f),v=1,u=[],t,s,r,q,p,o,n
 var $async$adi=A.K(function(d,e){if(d===1){u.push(e)
 x=v}for(;;)switch(x){case 0:v=3
 A.eL().$1("Acordando o servidor Render... aguarde.")
-r=A.d_("https://onrender.com",0,null)
+r=A.cU("https://onrender.com",0,null)
 q=y.g
 p=A.az(["Content-Type","application/json"],q,q)
 x=6
-return A.Q(A.aKw(r,B.bO.xl(A.az(["mensagem","Teste de iniciante com sucesso!","usuario","PerfectProAdmin","data_envio",new A.ei(Date.now(),0,!1).aDH()],q,q),null),p),$async$adi)
+return A.Q(A.aKw(r,B.bO.xj(A.az(["mensagem","Teste de iniciante com sucesso!","usuario","PerfectProAdmin","data_envio",new A.ei(Date.now(),0,!1).aDH()],q,q),null),p),$async$adi)
 case 6:t=e
 if(t.b===200){A.eL().$1("Sucesso: o dado chegou no Elastic.")
 r=t
@@ -34,4 +34,4 @@ B=c[2]
 C=a.updateHolder(c[9],C)
 var z=a.updateTypes([])
 var y={g:A.a2("l"),f:A.a2("~")}};
-(a=>{a["cp60zWu40AW7kq4XfIB0GYHJfU0="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["8LpqvNVRqxaaMzzixIMWiWPQsfg="]=a.current})($__dart_deferred_initializers__);

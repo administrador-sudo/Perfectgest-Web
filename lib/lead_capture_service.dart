@@ -74,13 +74,12 @@ class LeadCaptureService {
     }
 
     // Health check rápido — distingue "servidor inexistente" de "timeout no POST".
+    // Em falha (CORS local / cold start) ainda tenta o POST.
     final healthError = await _checkHealth();
     if (healthError == 'api_waking') {
-      // Servidor a arrancar — espera e tenta o POST normalmente (cold start).
       debugPrint('[LeadCapture] Cold start detectado — aguardando...');
     } else if (healthError != null) {
-      debugPrint('[LeadCapture] Health check falhou: $healthError');
-      return LeadCaptureResult(ok: false, errorMessage: healthError);
+      debugPrint('[LeadCapture] Health check falhou: $healthError — tentando POST');
     }
 
     try {

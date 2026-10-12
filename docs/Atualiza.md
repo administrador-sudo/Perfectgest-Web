@@ -2,6 +2,58 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-12 10:35] Funil Conhecer app: e-mail para suporte@
+
+### Contexto
+- Teste anterior nao chegou e-mail em suporte@: a API so persistia no Postgres. E-mail so saia com copiaUsuario, e o pop nao pedia copia.
+
+### Arquivos alterados
+- scripts/leads-api-server.js
+- lib/funil_conhecer_app_pop.dart
+- lib/lead_capture_service.dart
+- render.yaml
+- docs/Atualiza.md
+
+### O que foi feito
+- Todo POST /api/leads notifica suporte@ (MAIL_TO / MAIL_BCC / fallback). Copia ao visitante no Conhecer o app. CORS local 8088/8090. Health nao bloqueia o POST.
+
+### Risco de regressao
+- Medio: so vale depois de republicar o Web Service perfectgest-leads-api no Render.
+
+### Validacao executada
+- Health da API em cold start; POST de diagnostico a seguir.
+
+### Resultado
+- Sem deploy da API, o teste local nao dispara e-mail ao escritorio.
+
+### Proximos passos recomendados
+- Deploy da leads-api no Render. Conferir SMTP e MAIL_BCC=suporte@perfectgestdev.com.
+
+## [2026-10-12 10:27] Funil: pop Conhecer o app nao trava no envio
+
+### Contexto
+- Ir para download ficava em Enviando e nao abria a Play.
+
+### Arquivos alterados
+- lib/funil_conhecer_app_pop.dart
+- lib/contabilidade_funil_page.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- POST do lead em segundo plano. Play abre na hora (nova aba) no clique; depois fecha o pop e preenche o formulario.
+
+### Risco de regressao
+- Baixo.
+
+### Validacao executada
+- Pendente: clicar Ir para download no funil.
+
+### Resultado
+- Download nao depende da API de leads.
+
+### Proximos passos recomendados
+- Republicar.
+
 ## [2026-10-12 10:20] Funil: Conhecer o app separado do plano
 
 ### Contexto

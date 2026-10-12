@@ -36,6 +36,10 @@ const DEFAULT_ORIGINS = [
   'https://perfectgest-web-desenvolvedor-apps.onrender.com',
   'http://localhost:8080',
   'http://127.0.0.1:8080',
+  'http://localhost:8088',
+  'http://127.0.0.1:8088',
+  'http://localhost:8090',
+  'http://127.0.0.1:8090',
 ];
 
 const allowedOrigins = (process.env.ALLOWED_ORIGINS || DEFAULT_ORIGINS.join(','))
@@ -155,20 +159,16 @@ function copyMailCopy({ nome, comentario, locale }) {
   };
 }
 
-async function sendUserCopy({ nome, email, comentario, locale }) {
-  if (!mailerReady()) {
-    console.warn('[leads-api] SMTP ausente — copia nao enviada');
-    return false;
-  }
-  let nodemailer;
-  try {
-    nodemailer = require('nodemailer');
-  } catch (err) {
-    console.warn('[leads-api] nodemailer indisponivel:', err.message);
-    return false;
-  }
+function officeAddress() {
+  return String(
+    process.env.MAIL_TO || process.env.MAIL_BCC || 'suporte@perfectgestdev.com',
+  ).trim();
+}
+
+function createTransporter() {
+  const nodemailer = require('nodemailer');
   const port = Number(process.env.SMTP_PORT || 465);
-  const transporter = nodemailer.createTransport({
+  return nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port,
     secure: process.env.SMTP_SECURE !== 'false',
@@ -177,13 +177,52 @@ async function sendUserCopy({ nome, email, comentario, locale }) {
       pass: process.env.SMTP_PASS,
     },
   });
+}
+
+async function notifyOffice({ nome, email, comentario, locale }) {
+  if (!mailerReady()) {
+    console.warn('[leads-api] SMTP ausente — escritorio nao notificado');
+    return false;
+  }
+  try {
+    require('nodemailer');
+  } catch (err) {
+    console.warn('[leads-api] nodemailer indisponivel:', err.message);
+    return false;
+  }
+  const from = process.env.MAIL_FROM || process.env.SMTP_USER;
+  const transporter = createTransporter();
+  await transporter.sendMail({
+    from,
+    to: officeAddress(),
+    subject: `[Lead site] ${nome}`,
+    text:
+      `Novo lead no site Perfect Gest Dev.\n\n` +
+      `Nome: ${nome}\n` +
+      `E-mail: ${email}\n` +
+      `Idioma: ${locale || 'pt'}\n\n` +
+      `${comentario || '(sem comentario)'}\n`,
+  });
+  return true;
+}
+
+async function sendUserCopy({ nome, email, comentario, locale }) {
+  if (!mailerReady()) {
+    console.warn('[leads-api] SMTP ausente — copia nao enviada');
+    return false;
+  }
+  try {
+    require('nodemailer');
+  } catch (err) {
+    console.warn('[leads-api] nodemailer indisponivel:', err.message);
+    return false;
+  }
   const { subject, text } = copyMailCopy({ nome, comentario, locale });
   const from = process.env.MAIL_FROM || process.env.SMTP_USER;
-  const bcc = String(process.env.MAIL_BCC || '').trim();
+  const transporter = createTransporter();
   await transporter.sendMail({
     from,
     to: email,
-    bcc: bcc || undefined,
     subject,
     text,
   });
@@ -265,6 +304,12 @@ app.post('/api/leads', leadsLimiter, async (req, res) => {
     }
 
     const storage = await persistLead({ nome, email, comentario, locale });
+    let officeSent = false;
+    try {
+      officeSent = await notifyOffice({ nome, email, comentario, locale });
+    } catch (mailErr) {
+      console.error('[leads-api] e-mail escritorio', mailErr);
+    }
     let copySent = false;
     if (body.copiaUsuario === true) {
       try {
@@ -273,7 +318,7 @@ app.post('/api/leads', leadsLimiter, async (req, res) => {
         console.error('[leads-api] copia e-mail', mailErr);
       }
     }
-    res.status(201).json({ ok: true, storage, copySent });
+    res.status(201).json({ ok: true, storage, copySent, officeSent });
   } catch (err) {
     console.error('[leads-api] POST /api/leads', err);
     res.status(500).json({ error: 'server_error' });

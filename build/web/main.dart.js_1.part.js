@@ -53,7 +53,7 @@ u=y.e
 v=A.b([A.r(this.c,s,s,s,s,A.b0().$3$color$fontSize$fontWeight(v,15,B.a5),s,s),B.M,A.r(this.d,s,s,s,s,A.b0().$3$color$fontSize$height(v.ae(0.8),13.5,1.55),s,s)],u)
 t=this.e
 if(t!=null)B.b.V(v,A.b([B.aK,A.fY(B.bj,t,B.cf,6,10)],u))
-return new A.an(B.rM,A.cV(new A.an(new A.a1(q,q,q,q),A.aV(v,B.F,B.n,B.o),s),new A.bE(p,s,w,x,s,s,B.R),B.ad),s)}}
+return new A.an(B.rM,A.cW(new A.an(new A.a1(q,q,q,q),A.aV(v,B.F,B.n,B.o),s),new A.bE(p,s,w,x,s,s,B.R),B.ad),s)}}
 C.Io.prototype={
 D(d){var x=null
 return A.eb(A.r(this.c,x,x,x,x,A.b0().$1$fontWeight(B.a3),x,x),this.d,x)}}
@@ -74,7 +74,7 @@ u.push(D.K5)
 return A.eZ(A.dy(new A.cK(new A.a5(0,x,0,1/0),A.aV(u,B.F,B.n,B.o),p),p,p),p,new A.a1(w,16,w,28),B.a6)},
 $S:131}
 C.aD_.prototype={
-$0(){return A.jo(A.d_("mailto:suporte@perfectgestdev.com",0,null),B.cP,null)},
+$0(){return A.iv(A.cU("mailto:suporte@perfectgestdev.com",0,null),B.cy,null)},
 $S:0};(function inheritance(){var x=a.inherit,w=a.inheritMany
 x(C.oj,A.T)
 x(C.a3D,A.V)
@@ -83,4 +83,4 @@ x(C.aD_,A.jx)
 w(A.Y,[C.tE,C.Io])})()
 A.tK(b.typeUniverse,JSON.parse('{"Io":{"Y":[],"e":[]},"oj":{"T":[],"e":[]},"a3D":{"V":["oj"]},"tE":{"Y":[],"e":[]}}'))
 var y={p:A.a2("fE"),e:A.a2("u<e>"),n:A.a2("u<Io>"),h:A.a2("fR")}};
-(a=>{a["A2Kxyi/05dtk3TkbfSSSgIoz8Iw="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["9q5Jdni59I9fO6tA35gINHXKai4="]=a.current})($__dart_deferred_initializers__);

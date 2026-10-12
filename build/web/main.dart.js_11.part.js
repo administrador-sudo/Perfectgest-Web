@@ -115,7 +115,7 @@ u=p.b
 t=x.u
 s=C.b([C.r(r.c,q,q,q,q,C.b0().$3$color$fontSize$fontWeight(u,15.5,D.a9),q,q),D.au,D.lv,C.r(r.f,q,q,q,q,C.b0().$4$color$fontSize$fontWeight$height(u.ae(0.9),12.8,D.a9,1.4),q,q),C.r(r.d,q,q,q,q,C.b0().$3$color$fontSize$height(p.k3.ae(0.84),12.8,1.45),q,q)],t)
 D.b.V(s,C.b([D.M,C.r(r.e,q,q,q,q,C.b0().$4$color$fontSize$fontWeight$height(u.ae(0.92),12.8,D.a3,1.45),q,q)],t))
-return new C.an(D.mV,C.cV(new C.an(A.Rd,C.aV(s,D.F,D.n,D.o),q),new C.bE(o,q,v,w,q,q,D.R),D.ad),q)}}
+return new C.an(D.mV,C.cW(new C.an(A.Rd,C.aV(s,D.F,D.n,D.o),q),new C.bE(o,q,v,w,q,q,D.R),D.ad),q)}}
 var z=a.updateTypes([])
 B.aGB.prototype={
 $1(d){return this.a.ar3()},
@@ -135,7 +135,7 @@ v(B.aGA,C.jx)
 v(B.a6_,C.Y)})()
 C.tK(b.typeUniverse,JSON.parse('{"oK":{"T":[],"e":[]},"a60":{"V":["oK"]},"a6_":{"Y":[],"e":[]}}'))
 var y={c:"Parceiros tecnol\xf3gicos | Perfect Gest Dev"}
-var x={F:C.a2("fE"),d:C.a2("iJ<V<T>>"),c:C.a2("u<bP>"),u:C.a2("u<e>"),z:C.a2("b5<V<T>>"),x:C.a2("fR"),w:C.a2("l"),h:C.a2("lp")};(function constants(){var w=a.makeConstList
+var x={F:C.a2("fE"),d:C.a2("iK<V<T>>"),c:C.a2("u<bP>"),u:C.a2("u<e>"),z:C.a2("b5<V<T>>"),x:C.a2("fR"),w:C.a2("l"),h:C.a2("lp")};(function constants(){var w=a.makeConstList
 A.Mj=new C.a5(0,760,0,1/0)
 A.O5=new B.aG7()
 A.O6=new B.aG8()
@@ -189,4 +189,4 @@ A.al9=new B.bP("Analytics and consent (GA4)","Measurement with Google Analytics 
 A.al_=new B.bP("Clean architecture and maintenance","We prioritize organized code, reusable components and separation of concerns to support continuous product evolution, fewer bugs and lower maintenance cost.","Practical example: a new subscription feature is added by reusing components and reducing QA effort.")
 A.akL=new B.bP("HTTP integrations and external services","We integrate external APIs and data services for real business flows, including back-end endpoints and observability services, ensuring operational reliability and metric-driven evolution.","Practical example: we monitor API latency and errors in production to act before customers are impacted.")
 A.a9p=w([A.akP,A.akA,A.akW,A.akU,A.akC,A.akN,A.akZ,A.akR,A.akJ,A.al5,A.al6,A.akX,A.al9,A.al_,A.akL],x.c)})()};
-(a=>{a["qiGegsyAqPkcXRl+tiiPJn5w0vo="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["rRiGx/TMdkqBm+mDD2fujvIt6Bk="]=a.current})($__dart_deferred_initializers__);

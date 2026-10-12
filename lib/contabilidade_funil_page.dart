@@ -366,7 +366,6 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
       _emailCtrl.text = dados.email;
       _whatsAppCtrl.text = dados.whatsapp;
     });
-    await _openPlay();
   }
 
   Future<void> _openWhatsApp([String? text]) async {

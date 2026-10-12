@@ -67,7 +67,7 @@ u=j.length
 if(u!==0){r=C.b([D.aK],r)
 for(q=0;q<u;++q){p=j[q]
 o=C.oM(D.c1,n,n,n,n,n,n,n,n,n,n,D.G,D.a8,n,n,n,n,D.e3,n,n)
-r.push(new C.an(D.bD,new C.cN(D.c1,n,n,C.eb(C.r(p.a,n,n,n,n,C.b0().$5$color$decoration$fontSize$fontWeight$height(t,D.de,v?13:14,D.a3,1.45),n,n),new B.ayM(p),o),n),n))}D.b.V(s,r)}return new C.an(G.rN,C.aF(n,n,n,C.cV(new C.an(new C.a1(k,16,k,18),C.aV(s,D.F,D.n,D.o),n),new C.bE(h,n,w,x,n,n,D.R),D.ad),!0,n,n,!1,n,!1,n,n,n,n,n,n,n,n,i,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,D.p,n),n)}}
+r.push(new C.an(D.bD,new C.cN(D.c1,n,n,C.eb(C.r(p.a,n,n,n,n,C.b0().$5$color$decoration$fontSize$fontWeight$height(t,D.de,v?13:14,D.a3,1.45),n,n),new B.ayM(p),o),n),n))}D.b.V(s,r)}return new C.an(G.rN,C.aF(n,n,n,C.cW(new C.an(new C.a1(k,16,k,18),C.aV(s,D.F,D.n,D.o),n),new C.bE(h,n,w,x,n,n,D.R),D.ad),!0,n,n,!1,n,!1,n,n,n,n,n,n,n,n,i,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,D.p,n),n)}}
 B.lc.prototype={}
 B.bI.prototype={}
 B.arc.prototype={}
@@ -113,7 +113,7 @@ r.push(E.K5)
 return C.eZ(C.dy(new C.cK(new C.a5(0,x,0,1/0),C.aV(r,D.F,D.n,D.o),n),n,n),n,new C.a1(w,16,w,28),D.a6)},
 $S:131}
 B.ayM.prototype={
-$0(){return C.jo(C.d_(this.a.b,0,null),D.cP,"_blank")},
+$0(){return C.iv(C.cU(this.a.b,0,null),D.cy,"_blank")},
 $S:0};(function inheritance(){var x=a.inherit,w=a.inheritMany
 x(B.nt,C.T)
 x(B.a_n,C.V)
@@ -187,4 +187,4 @@ A.ajB=new B.bI("Como altero meu plano (faixa, downgrade ou extras como folha e I
 A.aj8=new B.bI("O app avisa antes da renova\xe7\xe3o?","Quando a Play informar a data do ciclo da assinatura do aplicativo, o app pode avisar at\xe9 30 dias antes. Sem data da Play, n\xe3o h\xe1 prazo inventado \u2014 consulte Play \u2192 Assinaturas. Honor\xe1rios e plano cont\xe1bil: com o escrit\xf3rio.",A.V)
 A.aiZ=new B.bI("A assinatura da Play j\xe1 libera tudo?","N\xe3o. A Play libera o acesso ao aplicativo. Para sincroniza\xe7\xe3o, envio de dados ao escrit\xf3rio e fun\xe7\xf5es online, contacte o escrit\xf3rio depois de assinar. Sem habilita\xe7\xe3o, voc\xea entra no app, mas sem envio ao CRC e sem contato com o escrit\xf3rio.",A.V)
 A.aa5=x([A.aje,A.ajm,A.aj0,A.ajt,A.aiY,A.aj2,A.ajf,A.ajj,A.aju,A.ajz,A.ajd,A.aj9,A.ajc,A.ajB,A.aj8,A.aiZ],y.a)})()};
-(a=>{a["zjMb7pns+JkS9m2jEyk6pMUNXag="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["TRdxCVCP6m1A0iRDTdFtqaoKES0="]=a.current})($__dart_deferred_initializers__);
