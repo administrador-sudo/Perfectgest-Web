@@ -1,29 +1,29 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
 $__dart_deferred_initializers__.current=function(a,b,c,$){var C,D,E,F,G,B={
-b0k(d){return new B.nt(d,null)},
+b0y(d){return new B.nt(d,null)},
 nt:function nt(d,e){this.c=d
 this.a=e},
-a_j:function a_j(){this.c=this.a=null},
-awz:function awz(d,e,f,g){var _=this
+a_n:function a_n(){this.c=this.a=null},
+awE:function awE(d,e,f,g){var _=this
 _.a=d
 _.b=e
 _.c=f
 _.d=g},
-a0J:function a0J(d,e){this.c=d
+a0N:function a0N(d,e){this.c=d
 this.a=e},
-ayH:function ayH(d){this.a=d},
-b5k(d){switch(d.ak(y.h).r.f.gcB()){case"en":return A.NM
-case"es":return A.NN
-case"pt":default:return A.NO}},
+ayM:function ayM(d){this.a=d},
+b5y(d){switch(d.ak(y.h).r.f.gcB()){case"en":return A.NR
+case"es":return A.NS
+case"pt":default:return A.NT}},
 lc:function lc(d,e){this.a=d
 this.b=e},
 bI:function bI(d,e,f){this.a=d
 this.b=e
 this.c=f},
-ar6:function ar6(){},
-aFu:function aFu(){},
-aFs:function aFs(){},
-aFt:function aFt(){}},A
+arc:function arc(){},
+aFJ:function aFJ(){},
+aFH:function aFH(){},
+aFI:function aFI(){}},A
 C=c[0]
 D=c[2]
 E=c[15]
@@ -32,8 +32,8 @@ G=c[13]
 B=a.updateHolder(c[8],B)
 A=c[14]
 B.nt.prototype={
-ab(){return new B.a_j()}}
-B.a_j.prototype={
+aa(){return new B.a_n()}}
+B.a_n.prototype={
 aq(){this.aQ()
 C.kl()
 C.ec("description","Perguntas e respostas PerfectGest ContabilGest: MEI, Livro Caixa, NFS-e, planos, assinatura Google Play e fontes oficiais.")
@@ -44,147 +44,147 @@ C.d0("og:description","FAQ do PerfectGest ContabilGest: o que e o app, internet,
 C.d0("og:type","article")
 C.d0("og:locale","pt_BR")
 b.G.document.title="Perguntas e respostas | ContabilGest"},
-l(){C.pl()
-this.aM()},
-D(d){var x=null,w=C.w(d),v=C.b1(d,D.at,y.x).w.a.a,u=v<400?16:24,t=B.b5k(d),s=t.geB(),r=C.w(d).ax.a===D.E?D.bB:D.bj,q=t.gi5()
-return C.aF(x,x,x,C.ia(F.aKA(d,x,this.a.c,q),r,new C.jX(C.kS(new B.awz(u,t,w.ax,v)),x),x,x,x),!1,x,x,!1,x,!1,x,x,x,x,x,x,x,x,s,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,D.p,x)}}
-B.a0J.prototype={
+l(){C.pn()
+this.aK()},
+D(d){var x=null,w=C.w(d),v=C.b1(d,D.at,y.x).w.a.a,u=v<400?16:24,t=B.b5y(d),s=t.geB(),r=C.w(d).ax.a===D.E?D.bB:D.bm,q=t.gi5()
+return C.aF(x,x,x,C.ia(F.aKR(d,x,this.a.c,q),r,new C.jX(C.kS(new B.awE(u,t,w.ax,v)),x),x,x,x),!1,x,x,!1,x,!1,x,x,x,x,x,x,x,x,s,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,D.p,x)}}
+B.a0N.prototype={
 D(d){var x,w,v,u,t,s,r,q,p,o,n=null,m=C.w(d).ax,l=C.b1(d,D.at,y.x).w.a.a,k=l<400?12:16,j=this.c,i=j.a,h=m.RG
 h=(h==null?m.k2:h).ae(0.5)
-x=C.c8(14)
+x=C.c4(14)
 w=m.ry
 if(w==null){w=m.p
-if(w==null)w=m.k3}w=C.fi(w.ae(0.4),1)
+if(w==null)w=m.k3}w=C.fj(w.ae(0.4),1)
 v=l<360
 u=v?15:16
 t=m.b
-u=C.v(i,n,n,n,n,C.b0().$3$color$fontSize$fontWeight(t,u,D.a8),n,n)
+u=C.r(i,n,n,n,n,C.b0().$3$color$fontSize$fontWeight(t,u,D.a9),n,n)
 s=v?13:14
 r=y.u
-s=C.b([u,D.b_,C.v(j.b,n,n,n,n,C.b0().$3$color$fontSize$height(m.k3.ae(0.88),s,1.55),n,n)],r)
+s=C.b([u,D.aK,C.r(j.b,n,n,n,n,C.b0().$3$color$fontSize$height(m.k3.ae(0.88),s,1.55),n,n)],r)
 j=j.c
 u=j.length
-if(u!==0){r=C.b([D.b_],r)
+if(u!==0){r=C.b([D.aK],r)
 for(q=0;q<u;++q){p=j[q]
-o=C.oK(D.c0,n,n,n,n,n,n,n,n,n,n,D.G,D.a7,n,n,n,n,D.e1,n,n)
-r.push(new C.an(D.bD,new C.cM(D.c0,n,n,C.eb(C.v(p.a,n,n,n,n,C.b0().$5$color$decoration$fontSize$fontWeight$height(t,D.da,v?13:14,D.a3,1.45),n,n),new B.ayH(p),o),n),n))}D.b.V(s,r)}return new C.an(G.rK,C.aF(n,n,n,C.cV(new C.an(new C.a1(k,16,k,18),C.aY(s,D.F,D.n,D.o),n),new C.bE(h,n,w,x,n,n,D.Q),D.ad),!0,n,n,!1,n,!1,n,n,n,n,n,n,n,n,i,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,D.p,n),n)}}
+o=C.oM(D.c1,n,n,n,n,n,n,n,n,n,n,D.G,D.a8,n,n,n,n,D.e3,n,n)
+r.push(new C.an(D.bD,new C.cN(D.c1,n,n,C.eb(C.r(p.a,n,n,n,n,C.b0().$5$color$decoration$fontSize$fontWeight$height(t,D.de,v?13:14,D.a3,1.45),n,n),new B.ayM(p),o),n),n))}D.b.V(s,r)}return new C.an(G.rN,C.aF(n,n,n,C.cV(new C.an(new C.a1(k,16,k,18),C.aV(s,D.F,D.n,D.o),n),new C.bE(h,n,w,x,n,n,D.R),D.ad),!0,n,n,!1,n,!1,n,n,n,n,n,n,n,n,i,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,D.p,n),n)}}
 B.lc.prototype={}
 B.bI.prototype={}
-B.ar6.prototype={}
-B.aFu.prototype={
+B.arc.prototype={}
+B.aFJ.prototype={
 geB(){return"Perguntas e respostas PerfectGest ContabilGest"},
 gi5(){return"Perguntas e respostas"},
 gi7(){return"PerfectGest ContabilGest"},
 gkB(){return"Perguntas e respostas sobre o Aplicativo"},
-gQc(){return A.aa0}}
-B.aFs.prototype={
+gQj(){return A.aa5}}
+B.aFH.prototype={
 geB(){return"Questions and answers PerfectGest ContabilGest"},
 gi5(){return"Questions and answers"},
 gi7(){return"PerfectGest ContabilGest"},
 gkB(){return"Questions and answers about the App"},
-gQc(){return A.a8A}}
-B.aFt.prototype={
+gQj(){return A.a8F}}
+B.aFI.prototype={
 geB(){return"Preguntas y respuestas PerfectGest ContabilGest"},
 gi5(){return"Preguntas y respuestas"},
 gi7(){return"PerfectGest ContabilGest"},
 gkB(){return"Preguntas y respuestas sobre la Aplicaci\xf3n"},
-gQc(){return A.a2v}}
+gQj(){return A.a2A}}
 var z=a.updateTypes([])
-B.awz.prototype={
+B.awE.prototype={
 $2(d,e){var x,w,v,u,t,s,r,q,p,o=this,n=null,m=e.b
 m=m<1/0&&isFinite(m)?m:C.b1(d,D.at,y.x).w.a.a
 x=D.d.d5(m<720?m:720,200,720)
 w=o.a
 v=o.b
 u=o.c
-t=C.v(v.gi7(),n,n,n,n,C.b0().$4$color$fontSize$fontWeight$letterSpacing(u.b,13,D.a8,0.4),n,n)
+t=C.r(v.gi7(),n,n,n,n,C.b0().$4$color$fontSize$fontWeight$letterSpacing(u.b,13,D.a9,0.4),n,n)
 s=v.gkB()
 r=o.d<400?18:22
 u=u.k3
-r=C.b([t,D.av,C.v(s,n,n,n,n,C.b0().$4$color$fontSize$fontWeight$height(u,r,D.a5,1.2),n,n),D.eR],y.u)
-for(v=v.gQc(),q=0;q<16;++q)r.push(new B.a0J(v[q],n))
-r.push(D.cc)
-r.push(E.rl)
-r.push(D.eS)
-p=C.c5(d,D.aB,y.F)
+r=C.b([t,D.au,C.r(s,n,n,n,n,C.b0().$4$color$fontSize$fontWeight$height(u,r,D.a5,1.2),n,n),D.eU],y.u)
+for(v=v.gQj(),q=0;q<16;++q)r.push(new B.a0N(v[q],n))
+r.push(D.cd)
+r.push(E.ro)
+r.push(D.eV)
+p=C.c6(d,D.aC,y.F)
 p.toString
-r.push(C.v(p.t_(C.l2(new C.ei(Date.now(),0,!1))),n,n,n,n,C.b0().$3$color$fontSize$fontWeight(u.ae(0.7),12,D.a3),n,n))
-r.push(E.K2)
-return C.f6(C.dw(new C.cN(new C.a6(0,x,0,1/0),C.aY(r,D.F,D.n,D.o),n),n,n),n,new C.a1(w,16,w,28),D.ac)},
-$S:133}
-B.ayH.prototype={
-$0(){return C.jo(C.d_(this.a.b,0,null),D.cN,"_blank")},
+r.push(C.r(p.t1(C.l2(new C.ei(Date.now(),0,!1))),n,n,n,n,C.b0().$3$color$fontSize$fontWeight(u.ae(0.7),12,D.a3),n,n))
+r.push(E.K5)
+return C.eZ(C.dy(new C.cK(new C.a5(0,x,0,1/0),C.aV(r,D.F,D.n,D.o),n),n,n),n,new C.a1(w,16,w,28),D.a6)},
+$S:131}
+B.ayM.prototype={
+$0(){return C.jo(C.d_(this.a.b,0,null),D.cP,"_blank")},
 $S:0};(function inheritance(){var x=a.inherit,w=a.inheritMany
 x(B.nt,C.T)
-x(B.a_j,C.W)
-x(B.awz,C.pT)
-x(B.a0J,C.Y)
-x(B.ayH,C.jx)
-w(C.Q,[B.lc,B.bI,B.ar6])
-w(B.ar6,[B.aFu,B.aFs,B.aFt])})()
-C.tH(b.typeUniverse,JSON.parse('{"nt":{"T":[],"e":[]},"a_j":{"W":["nt"]},"a0J":{"Y":[],"e":[]}}'))
-var y={F:C.a4("fE"),a:C.a4("t<bI>"),g:C.a4("t<lc>"),u:C.a4("t<e>"),x:C.a4("fR"),h:C.a4("lp")};(function constants(){var x=a.makeConstList
-A.NM=new B.aFs()
-A.NN=new B.aFt()
-A.NO=new B.aFu()
-A.U=x([],y.g)
-A.ajb=new B.bI("\xbfQu\xe9 es la app?","PerfectGest ContabilGest es la herramienta de conexi\xf3n con el usuario: usted sigue en tiempo real la contabilidad de la empresa (Libro de caja, NFS-e, NF-e y obligaciones) y, cuando el despacho habilita las funciones, los datos llegan al CRC. El uso diario en el aparato es offline por defecto. En Google Play: R$ 19,99/mes o pago \xfanico de R$ 239,88. El env\xedo al despacho y las funciones online existen despu\xe9s de la habilitaci\xf3n.",A.U)
-A.ajn=new B.bI("\xbfContabilGest es una app oficial del gobierno?","No. Es un producto privado de Perfect Gest Dev (CNPJ 66.889.409/0001-19). No estamos afiliados ni respaldados por la Receita Federal, eSocial, FGTS Digital o prefecturas. La fuente oficial de obligaciones y gu\xedas es siempre el portal del gobierno.",A.U)
-A.ajE=new B.lc("Simples / PGDAS / DAS","https://www8.receita.fazenda.gov.br/SimplesNacional/")
-A.ajI=new B.lc("MEI (Portal do Empreendedor)","https://www.gov.br/empresas-e-negocios/pt-br/empreendedor")
-A.ajF=new B.lc("eSocial","https://www.esocial.gov.br/")
-A.ajC=new B.lc("e-CAC / DCTFWeb","https://cav.receita.fazenda.gov.br/")
-A.ajD=new B.lc("FGTS Digital","https://www.gov.br/trabalho-e-emprego/pt-br/servicos/empregador/fgtsdigital")
-A.ajH=new B.lc("NFS-e Nacional","https://www.gov.br/nfse/pt-br")
-A.ajG=new B.lc("IRPF","https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda")
-A.nX=x([A.ajE,A.ajI,A.ajF,A.ajC,A.ajD,A.ajH,A.ajG],y.g)
-A.ajq=new B.bI("\xbfCu\xe1les son las fuentes oficiales?","Use siempre los portales del gobierno.",A.nX)
-A.ajy=new B.bI("\xbfNecesito internet?","- Registrar, cerrar el mes y generar PDF: no\n- Suscribir o restaurar la compra de la aplicaci\xf3n en Google Play: s\xed\n- Enviar datos al despacho, certificado A1 y Asistente IA: s\xed, y solo despu\xe9s de la habilitaci\xf3n por el despacho\n- Abrir portales del gobierno (DAS, eSocial, DCTFWeb, FGTS Digital, prefectura): s\xed",A.U)
-A.ajA=new B.bI("\xbfLa app sustituye a mi contador?","No. La aplicaci\xf3n organiza los datos y, con la habilitaci\xf3n, los env\xeda al despacho. En los planes con seguimiento, un contador habilitado revisa y firma los libros. En el B\xe1sico MEI usted opera en la app, a su ritmo, y sigue siendo responsable de revisar lo que usa. En cualquier plan, revise PDF, recibos de sueldo y comunicaciones antes de usarlos.",A.U)
-A.aiR=new B.bI("\xbfLa app env\xeda declaraciones sola a los portales del gobierno?","No. La app no transmite sola en eSocial, DCTFWeb, FGTS Digital, DAS o prefectura. Quien env\xeda en esos portales es usted o el contador, en el servicio contratado. Con la habilitaci\xf3n, la app transmite los datos del usuario al despacho (CRC), no al gobierno.",A.U)
-A.aiX=new B.bI("\xbfC\xf3mo emito NFS-e / NF-e en el plan B\xe1sico?","La emisi\xf3n exige certificado A1 del emisor y las autorizaciones del portal (prefectura, NFS-e Nacional y/o SEFAZ). Usuario y contrase\xf1a del portal municipal no sustituyen el A1. Sin habilitaci\xf3n del despacho, la suscripci\xf3n de Play no basta para emitir.",A.U)
-A.aj6=new B.bI("\xbfC\xf3mo emito NFS-e / NF-e con Contabil+ o paquete con contador?","Flujo homologado: NFS-e con A1 del despacho + poder (CRC); NF-e con A1 del emisor en SEFAZ. El contador apoya autorizaciones y emisi\xf3n en el alcance contratado. Usuario y contrase\xf1a de portal no sustituyen el A1. La habilitaci\xf3n es del despacho, no una mejora en Google Play.",A.U)
-A.aj5=new B.bI("\xbfLa NF-e de venta acepta usuario/contrase\xf1a del portal?","No. SEFAZ exige certificado A1 (firma y conexi\xf3n) para NF-e. Usuario y contrase\xf1a de portal no autorizan NF-e, ni en el plan B\xe1sico ni en los planes con contador.",A.U)
-A.ajv=new B.bI("\xbfLa app mueve dinero de mi cuenta?","No. No accede al banco ni hace transferencias.",A.U)
-A.aj_=new B.bI("\xbfPuedo usarla sin suscribirme?","- Demostraci\xf3n (\xabConocer la app\xbb): navegar men\xfas y pantallas\n- Suscripci\xf3n en Google Play: acceso a la aplicaci\xf3n\n- Funciones plenas (env\xedo al despacho y funciones online): despu\xe9s de Play, contacte al despacho para habilitar; sin eso, Play solo abre la app\n- Oferta solo certificado A1 (suelto), cuando est\xe9 indicada: no incluye el uso completo del Libro de caja / app\n\nCompra de la aplicaci\xf3n: pantalla de suscripci\xf3n de Play, o Recuperar la cuenta / Restaurar compra. Plan contable: despacho / suporte@perfectgestdev.com.",A.U)
-A.aj2=new B.bI("Suscripciones (pol\xedtica Google Play)","Esto vale solo para la suscripci\xf3n de la aplicaci\xf3n, no para el plan contable.\nCobro, renovaci\xf3n y cancelaci\xf3n: Google Play. Renovaci\xf3n autom\xe1tica hasta cancelar en Play \u2192 Pagos y suscripciones \u2192 Suscripciones. Desinstalar la app no cancela. Reembolsos: pol\xedtica de Google Play. Sin prueba gratuita, salvo campa\xf1a en Play Console. Precio oficial: el del checkout en Play. El plan (franja, extras, upgrade/downgrade) lo gestiona el despacho, no Play.",A.U)
-A.ajg=new B.bI("\xbfC\xf3mo restauro una compra?","M\xe1s \u2192 Suscripci\xf3n Google Play \u2192 Restaurar compra (o Recuperar la cuenta / \xabYa tengo cuenta\xbb). Eso restaura solo la suscripci\xf3n de la aplicaci\xf3n. Plan y habilitaci\xf3n: despacho / suporte@perfectgestdev.com.",A.U)
-A.ajl=new B.bI("\xbfC\xf3mo cambio mi plan (franja, downgrade o extras como n\xf3mina e IR)?","Todo cambio de plan se pide por correo a suporte@perfectgestdev.com. El despacho gestiona las franjas y los extras (el upgrade aplica; el downgrade al final del ciclo). Google Play no cambia Esencial, Standard o Avanzado.",A.U)
-A.ajr=new B.bI("\xbfLa app avisa antes de la renovaci\xf3n?","Cuando Play informe la fecha del ciclo de la suscripci\xf3n de la aplicaci\xf3n, la app puede avisar hasta 30 d\xedas antes. Sin fecha de Play, no hay plazo inventado \u2014 consulte Play \u2192 Suscripciones. Honorarios y plan contable: con el despacho.",A.U)
-A.aj0=new B.bI("\xbfLa suscripci\xf3n de Play ya libera todo?","No. Play libera el acceso a la aplicaci\xf3n. Para sincronizaci\xf3n, env\xedo de datos al despacho y funciones online, contacte al despacho despu\xe9s de suscribirse. Sin habilitaci\xf3n, usted entra en la app, pero sin env\xedo al CRC y sin contacto con el despacho.",A.U)
-A.a2v=x([A.ajb,A.ajn,A.ajq,A.ajy,A.ajA,A.aiR,A.aiX,A.aj6,A.aj5,A.ajv,A.aj_,A.aj2,A.ajg,A.ajl,A.ajr,A.aj0],y.a)
-A.ajk=new B.bI("What is the app?","PerfectGest ContabilGest is the connection tool: you follow your company accounting in real time (Cash Book, NFS-e, NF-e, and tax duties) and, when the office enables the functions, that data reaches the CRC. Daily use on the device is offline by default. On Google Play: R$ 19.99/month or a one-time payment of R$ 239.88. Sending data to the office and online functions exist after enablement.",A.U)
-A.ajm=new B.bI("Is ContabilGest an official government app?","No. It is a private product of Perfect Gest Dev (CNPJ 66.889.409/0001-19). We are not affiliated with or endorsed by the Federal Revenue Service, eSocial, FGTS Digital, or city halls. The official source of obligations and guides is always the government portal.",A.U)
-A.ajz=new B.bI("What are the official sources?","Always use government portals.",A.nX)
-A.aiS=new B.bI("Do I need the internet?","- Record entries, close the month, and generate PDF: no\n- Subscribe or restore the app purchase on Google Play: yes\n- Send data to the office, A1 certificate, and AI Assistant: yes, and only after the office enables those functions\n- Open government portals (DAS, eSocial, DCTFWeb, FGTS Digital, city hall): yes",A.U)
-A.ajj=new B.bI("Does the app replace my accountant?","No. The app organizes the data and, once enabled, sends it to the office. On plans with follow-up, a licensed accountant reviews and signs the books. On Basic MEI you operate in the app at your own pace and remain responsible for checking what you use. On any plan, check PDFs, payslips, and notices before using them.",A.U)
-A.ajf=new B.bI("Does the app file returns on government portals by itself?","No. The app does not transmit by itself to eSocial, DCTFWeb, FGTS Digital, DAS, or city hall. You or the accountant, under the contracted service, send filings on those portals. Once enabled, the app transmits the user's data to the accounting office (CRC), not to the government.",A.U)
-A.ajd=new B.bI("How do I issue NFS-e / NF-e on the Basic plan?","Issuance requires the issuer A1 certificate and the portal authorizations (city hall, National NFS-e and/or SEFAZ). Municipal portal username and password do not replace the A1. Without office enablement, a Play subscription is not enough to issue invoices.",A.U)
-A.aiV=new B.bI("How do I issue NFS-e / NF-e with Contabil+ or an accountant package?","Approved flow: NFS-e with the office A1 plus power of attorney (CRC); NF-e with the issuer A1 at SEFAZ. The accountant supports authorizations and issuance in the contracted scope. Portal login and password do not replace the A1. Enablement is done by the office, not as a Google Play upgrade.",A.U)
-A.aiZ=new B.bI("Does a sales NF-e accept portal login/password?","No. SEFAZ requires an A1 certificate (signature and connection) for NF-e. Portal login and password do not authorize NF-e, neither on the Basic plan nor on plans with an accountant.",A.U)
-A.ajt=new B.bI("Does the app move money from my bank account?","No. It does not access your bank or make transfers.",A.U)
-A.aj1=new B.bI("Can I use it without a subscription?",'- Demo ("See the app"): browse menus and screens\n- Google Play subscription: access to the app\n- Full functions (sending data to the office and online features): after Play, contact the office to enable them; without that, Play only opens the app\n- A1 certificate-only offer (standalone), when shown: does not include full Cash Book / app use\n\nApp purchase: Play subscription screen, or Recover account / Restore purchase. Accounting plan: the office / suporte@perfectgestdev.com.',A.U)
-A.aji=new B.bI("Subscriptions (Google Play policy)","This applies only to the app subscription, not to the accounting plan.\nBilling, renewal, and cancellation: Google Play. Auto-renews until you cancel in Play \u2192 Payments and subscriptions \u2192 Subscriptions. Uninstalling the app does not cancel. Refunds: Google Play policy. No free trial unless a Play Console campaign says so. Official price: the Play checkout price. The plan (band, add-ons, upgrade/downgrade) is managed by the office, not by Play.",A.U)
-A.ajc=new B.bI("How do I restore a purchase?",'More \u2192 Google Play Subscription \u2192 Restore purchase (or Recover account / "I already have an account"). This restores only the app subscription. Plan and enablement: the office / suporte@perfectgestdev.com.',A.U)
-A.ajs=new B.bI("How do I change my plan (band, downgrade, or add-ons such as payroll and income tax)?","Every plan change is requested by email to suporte@perfectgestdev.com. The office manages bands and add-ons (upgrade applies; downgrade at the end of the cycle). Google Play does not switch Essential, Standard, or Advanced.",A.U)
-A.ajB=new B.bI("Does the app warn before renewal?","When Play provides the app subscription cycle date, the app may warn up to 30 days ahead. Without a Play date, there is no invented deadline \u2014 check Play \u2192 Subscriptions. Accounting fees and plan: with the office.",A.U)
-A.ajx=new B.bI("Does a Play subscription already unlock everything?","No. Play unlocks access to the app. For sync, sending data to the office, and online functions, contact the office after you subscribe. Without enablement you can open the app, but with no data sent to the CRC and no office contact.",A.U)
-A.a8A=x([A.ajk,A.ajm,A.ajz,A.aiS,A.ajj,A.ajf,A.ajd,A.aiV,A.aiZ,A.ajt,A.aj1,A.aji,A.ajc,A.ajs,A.ajB,A.ajx],y.a)
-A.aj9=new B.bI("O que \xe9 o app?","O PerfectGest ContabilGest \xe9 a ferramenta de conex\xe3o com o usu\xe1rio: voc\xea acompanha em tempo real a contabilidade da empresa (Livro Caixa, NFS-e, NF-e e obriga\xe7\xf5es) e, quando o escrit\xf3rio habilita as fun\xe7\xf5es, os dados chegam ao CRC. O uso di\xe1rio no aparelho \xe9 offline por padr\xe3o. Na Google Play: R$ 19,99/m\xeas. O envio ao escrit\xf3rio e as fun\xe7\xf5es online existem depois da habilita\xe7\xe3o.",A.U)
-A.ajh=new B.bI("O ContabilGest \xe9 um app oficial do governo?","N\xe3o. \xc9 um produto privado da Perfect Gest Dev (CNPJ 66.889.409/0001-19). N\xe3o somos afiliados nem endossados pela Receita Federal, eSocial, FGTS Digital ou prefeituras. A fonte oficial de obriga\xe7\xf5es e guias \xe9 sempre o portal do governo.",A.U)
-A.aiW=new B.bI("Quais s\xe3o as fontes oficiais?","Use sempre os portais do governo.",A.nX)
-A.ajo=new B.bI("Preciso de internet?","- Lan\xe7ar, fechar o m\xeas e gerar PDF: n\xe3o\n- Assinar ou restaurar a compra do aplicativo na Google Play: sim\n- Enviar dados ao escrit\xf3rio, certificado A1 e Assistente IA: sim, e s\xf3 depois da habilita\xe7\xe3o pelo escrit\xf3rio\n- Abrir portais do governo (DAS, eSocial, DCTFWeb, FGTS Digital, prefeitura): sim",A.U)
-A.aiT=new B.bI("O app substitui meu contador?","N\xe3o. O aplicativo organiza os dados e, com a habilita\xe7\xe3o, envia-os ao escrit\xf3rio. Nos planos com acompanhamento, um contador habilitado revisa e assina os livros. No B\xe1sico MEI voc\xea opera no app, no seu ritmo, e continua respons\xe1vel por conferir o que usa. Em qualquer plano, confira PDFs, holerites e comunica\xe7\xf5es antes de usar.",A.U)
-A.aiY=new B.bI("O app envia declara\xe7\xf5es sozinho aos portais do governo?","N\xe3o. O app n\xe3o transmite sozinho no eSocial, DCTFWeb, FGTS Digital, DAS ou prefeitura. Quem envia nesses portais \xe9 voc\xea ou o contador, no servi\xe7o contratado. Com a habilita\xe7\xe3o, o app transmite os dados do usu\xe1rio para o escrit\xf3rio (CRC), n\xe3o para o governo.",A.U)
-A.aja=new B.bI("Como emito NFS-e / NF-e no plano B\xe1sico?","A emiss\xe3o exige certificado A1 do emitente e as autoriza\xe7\xf5es do portal (prefeitura, NFS-e Nacional e/ou SEFAZ). Login e senha do portal municipal n\xe3o substituem o A1. Sem habilita\xe7\xe3o do escrit\xf3rio, a assinatura da Play n\xe3o basta para emitir.",A.U)
-A.aje=new B.bI("Como emito NFS-e / NF-e com Contabil+ ou pacote com contador?","Fluxo homologado: NFS-e com A1 do escrit\xf3rio + procura\xe7\xe3o (CRC); NF-e com A1 do emitente na SEFAZ. O contador apoia autoriza\xe7\xf5es e emiss\xe3o no escopo contratado. Login e senha de portal n\xe3o substituem o A1. A habilita\xe7\xe3o \xe9 do escrit\xf3rio, n\xe3o um upgrade na Google Play.",A.U)
-A.ajp=new B.bI("A NF-e de venda aceita login/senha do portal?","N\xe3o. A SEFAZ exige certificado A1 (assinatura e liga\xe7\xe3o) para NF-e. Login e senha de portal n\xe3o autorizam NF-e, nem no plano B\xe1sico nem nos planos com contador.",A.U)
-A.aju=new B.bI("O app movimenta dinheiro da minha conta?","N\xe3o. N\xe3o acessa banco nem faz transfer\xeancias.",A.U)
-A.aj8=new B.bI("Posso usar sem assinar?","- Demonstra\xe7\xe3o (\xabConhecer o app\xbb): navegar menus e telas\n- Assinatura na Google Play: acesso ao aplicativo\n- Fun\xe7\xf5es plenas (envio ao escrit\xf3rio e fun\xe7\xf5es online): depois da Play, contacte o escrit\xf3rio para habilitar; sem isso, a Play s\xf3 abre o app\n- Oferta s\xf3 certificado A1 (avulso), quando indicada: n\xe3o inclui o uso completo do Livro Caixa / app\n\nCompra do aplicativo: tela de assinatura da Play, ou Recuperar a conta / Restaurar compra. Plano cont\xe1bil: escrit\xf3rio / suporte@perfectgestdev.com.",A.U)
-A.aj4=new B.bI("Assinaturas (pol\xedtica Google Play)","Isto vale s\xf3 para a assinatura do aplicativo, n\xe3o para o plano cont\xe1bil.\nCobran\xe7a, renova\xe7\xe3o e cancelamento: Google Play. Renova\xe7\xe3o autom\xe1tica at\xe9 cancelar em Play \u2192 Pagamentos e assinaturas \u2192 Assinaturas. Desinstalar o app n\xe3o cancela. Reembolsos: pol\xedtica da Google Play. Sem teste gratuito, salvo campanha na Play Console. Pre\xe7o oficial: o do checkout na Play. O plano (faixa, extras, upgrade/downgrade) \xe9 gerido pelo escrit\xf3rio, n\xe3o pela Play.",A.U)
-A.aj7=new B.bI("Como restauro uma compra?","Mais \u2192 Assinatura Google Play \u2192 Restaurar compra (ou Recuperar a conta / \xabJ\xe1 tenho conta\xbb). Isso restaura s\xf3 a assinatura do aplicativo. Plano e habilita\xe7\xe3o: escrit\xf3rio / suporte@perfectgestdev.com.",A.U)
-A.ajw=new B.bI("Como altero meu plano (faixa, downgrade ou extras como folha e IR)?","Toda altera\xe7\xe3o de plano \xe9 pedida por e-mail a suporte@perfectgestdev.com. O escrit\xf3rio gere as faixas e os extras (upgrade aplica; downgrade no fim do ciclo). A Google Play n\xe3o troca Essencial, Standard ou Avan\xe7ado.",A.U)
-A.aj3=new B.bI("O app avisa antes da renova\xe7\xe3o?","Quando a Play informar a data do ciclo da assinatura do aplicativo, o app pode avisar at\xe9 30 dias antes. Sem data da Play, n\xe3o h\xe1 prazo inventado \u2014 consulte Play \u2192 Assinaturas. Honor\xe1rios e plano cont\xe1bil: com o escrit\xf3rio.",A.U)
-A.aiU=new B.bI("A assinatura da Play j\xe1 libera tudo?","N\xe3o. A Play libera o acesso ao aplicativo. Para sincroniza\xe7\xe3o, envio de dados ao escrit\xf3rio e fun\xe7\xf5es online, contacte o escrit\xf3rio depois de assinar. Sem habilita\xe7\xe3o, voc\xea entra no app, mas sem envio ao CRC e sem contato com o escrit\xf3rio.",A.U)
-A.aa0=x([A.aj9,A.ajh,A.aiW,A.ajo,A.aiT,A.aiY,A.aja,A.aje,A.ajp,A.aju,A.aj8,A.aj4,A.aj7,A.ajw,A.aj3,A.aiU],y.a)})()};
-(a=>{a["nzZ5H50G727GqRWOrmdtxQ0exFI="]=a.current})($__dart_deferred_initializers__);
+x(B.a_n,C.V)
+x(B.awE,C.pV)
+x(B.a0N,C.Y)
+x(B.ayM,C.jx)
+w(C.R,[B.lc,B.bI,B.arc])
+w(B.arc,[B.aFJ,B.aFH,B.aFI])})()
+C.tK(b.typeUniverse,JSON.parse('{"nt":{"T":[],"e":[]},"a_n":{"V":["nt"]},"a0N":{"Y":[],"e":[]}}'))
+var y={F:C.a2("fE"),a:C.a2("u<bI>"),g:C.a2("u<lc>"),u:C.a2("u<e>"),x:C.a2("fR"),h:C.a2("lp")};(function constants(){var x=a.makeConstList
+A.NR=new B.aFH()
+A.NS=new B.aFI()
+A.NT=new B.aFJ()
+A.V=x([],y.g)
+A.ajg=new B.bI("\xbfQu\xe9 es la app?","PerfectGest ContabilGest es la herramienta de conexi\xf3n con el usuario: usted sigue en tiempo real la contabilidad de la empresa (Libro de caja, NFS-e, NF-e y obligaciones) y, cuando el despacho habilita las funciones, los datos llegan al CRC. El uso diario en el aparato es offline por defecto. En Google Play: R$ 19,99/mes o pago \xfanico de R$ 239,88. El env\xedo al despacho y las funciones online existen despu\xe9s de la habilitaci\xf3n.",A.V)
+A.ajs=new B.bI("\xbfContabilGest es una app oficial del gobierno?","No. Es un producto privado de Perfect Gest Dev (CNPJ 66.889.409/0001-19). No estamos afiliados ni respaldados por la Receita Federal, eSocial, FGTS Digital o prefecturas. La fuente oficial de obligaciones y gu\xedas es siempre el portal del gobierno.",A.V)
+A.ajJ=new B.lc("Simples / PGDAS / DAS","https://www8.receita.fazenda.gov.br/SimplesNacional/")
+A.ajN=new B.lc("MEI (Portal do Empreendedor)","https://www.gov.br/empresas-e-negocios/pt-br/empreendedor")
+A.ajK=new B.lc("eSocial","https://www.esocial.gov.br/")
+A.ajH=new B.lc("e-CAC / DCTFWeb","https://cav.receita.fazenda.gov.br/")
+A.ajI=new B.lc("FGTS Digital","https://www.gov.br/trabalho-e-emprego/pt-br/servicos/empregador/fgtsdigital")
+A.ajM=new B.lc("NFS-e Nacional","https://www.gov.br/nfse/pt-br")
+A.ajL=new B.lc("IRPF","https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda")
+A.o_=x([A.ajJ,A.ajN,A.ajK,A.ajH,A.ajI,A.ajM,A.ajL],y.g)
+A.ajv=new B.bI("\xbfCu\xe1les son las fuentes oficiales?","Use siempre los portales del gobierno.",A.o_)
+A.ajD=new B.bI("\xbfNecesito internet?","- Registrar, cerrar el mes y generar PDF: no\n- Suscribir o restaurar la compra de la aplicaci\xf3n en Google Play: s\xed\n- Enviar datos al despacho, certificado A1 y Asistente IA: s\xed, y solo despu\xe9s de la habilitaci\xf3n por el despacho\n- Abrir portales del gobierno (DAS, eSocial, DCTFWeb, FGTS Digital, prefectura): s\xed",A.V)
+A.ajF=new B.bI("\xbfLa app sustituye a mi contador?","No. La aplicaci\xf3n organiza los datos y, con la habilitaci\xf3n, los env\xeda al despacho. En los planes con seguimiento, un contador habilitado revisa y firma los libros. En el B\xe1sico MEI usted opera en la app, a su ritmo, y sigue siendo responsable de revisar lo que usa. En cualquier plan, revise PDF, recibos de sueldo y comunicaciones antes de usarlos.",A.V)
+A.aiW=new B.bI("\xbfLa app env\xeda declaraciones sola a los portales del gobierno?","No. La app no transmite sola en eSocial, DCTFWeb, FGTS Digital, DAS o prefectura. Quien env\xeda en esos portales es usted o el contador, en el servicio contratado. Con la habilitaci\xf3n, la app transmite los datos del usuario al despacho (CRC), no al gobierno.",A.V)
+A.aj1=new B.bI("\xbfC\xf3mo emito NFS-e / NF-e en el plan B\xe1sico?","La emisi\xf3n exige certificado A1 del emisor y las autorizaciones del portal (prefectura, NFS-e Nacional y/o SEFAZ). Usuario y contrase\xf1a del portal municipal no sustituyen el A1. Sin habilitaci\xf3n del despacho, la suscripci\xf3n de Play no basta para emitir.",A.V)
+A.ajb=new B.bI("\xbfC\xf3mo emito NFS-e / NF-e con Contabil+ o paquete con contador?","Flujo homologado: NFS-e con A1 del despacho + poder (CRC); NF-e con A1 del emisor en SEFAZ. El contador apoya autorizaciones y emisi\xf3n en el alcance contratado. Usuario y contrase\xf1a de portal no sustituyen el A1. La habilitaci\xf3n es del despacho, no una mejora en Google Play.",A.V)
+A.aja=new B.bI("\xbfLa NF-e de venta acepta usuario/contrase\xf1a del portal?","No. SEFAZ exige certificado A1 (firma y conexi\xf3n) para NF-e. Usuario y contrase\xf1a de portal no autorizan NF-e, ni en el plan B\xe1sico ni en los planes con contador.",A.V)
+A.ajA=new B.bI("\xbfLa app mueve dinero de mi cuenta?","No. No accede al banco ni hace transferencias.",A.V)
+A.aj4=new B.bI("\xbfPuedo usarla sin suscribirme?","- Demostraci\xf3n (\xabConocer la app\xbb): navegar men\xfas y pantallas\n- Suscripci\xf3n en Google Play: acceso a la aplicaci\xf3n\n- Funciones plenas (env\xedo al despacho y funciones online): despu\xe9s de Play, contacte al despacho para habilitar; sin eso, Play solo abre la app\n- Oferta solo certificado A1 (suelto), cuando est\xe9 indicada: no incluye el uso completo del Libro de caja / app\n\nCompra de la aplicaci\xf3n: pantalla de suscripci\xf3n de Play, o Recuperar la cuenta / Restaurar compra. Plan contable: despacho / suporte@perfectgestdev.com.",A.V)
+A.aj7=new B.bI("Suscripciones (pol\xedtica Google Play)","Esto vale solo para la suscripci\xf3n de la aplicaci\xf3n, no para el plan contable.\nCobro, renovaci\xf3n y cancelaci\xf3n: Google Play. Renovaci\xf3n autom\xe1tica hasta cancelar en Play \u2192 Pagos y suscripciones \u2192 Suscripciones. Desinstalar la app no cancela. Reembolsos: pol\xedtica de Google Play. Sin prueba gratuita, salvo campa\xf1a en Play Console. Precio oficial: el del checkout en Play. El plan (franja, extras, upgrade/downgrade) lo gestiona el despacho, no Play.",A.V)
+A.ajl=new B.bI("\xbfC\xf3mo restauro una compra?","M\xe1s \u2192 Suscripci\xf3n Google Play \u2192 Restaurar compra (o Recuperar la cuenta / \xabYa tengo cuenta\xbb). Eso restaura solo la suscripci\xf3n de la aplicaci\xf3n. Plan y habilitaci\xf3n: despacho / suporte@perfectgestdev.com.",A.V)
+A.ajq=new B.bI("\xbfC\xf3mo cambio mi plan (franja, downgrade o extras como n\xf3mina e IR)?","Todo cambio de plan se pide por correo a suporte@perfectgestdev.com. El despacho gestiona las franjas y los extras (el upgrade aplica; el downgrade al final del ciclo). Google Play no cambia Esencial, Standard o Avanzado.",A.V)
+A.ajw=new B.bI("\xbfLa app avisa antes de la renovaci\xf3n?","Cuando Play informe la fecha del ciclo de la suscripci\xf3n de la aplicaci\xf3n, la app puede avisar hasta 30 d\xedas antes. Sin fecha de Play, no hay plazo inventado \u2014 consulte Play \u2192 Suscripciones. Honorarios y plan contable: con el despacho.",A.V)
+A.aj5=new B.bI("\xbfLa suscripci\xf3n de Play ya libera todo?","No. Play libera el acceso a la aplicaci\xf3n. Para sincronizaci\xf3n, env\xedo de datos al despacho y funciones online, contacte al despacho despu\xe9s de suscribirse. Sin habilitaci\xf3n, usted entra en la app, pero sin env\xedo al CRC y sin contacto con el despacho.",A.V)
+A.a2A=x([A.ajg,A.ajs,A.ajv,A.ajD,A.ajF,A.aiW,A.aj1,A.ajb,A.aja,A.ajA,A.aj4,A.aj7,A.ajl,A.ajq,A.ajw,A.aj5],y.a)
+A.ajp=new B.bI("What is the app?","PerfectGest ContabilGest is the connection tool: you follow your company accounting in real time (Cash Book, NFS-e, NF-e, and tax duties) and, when the office enables the functions, that data reaches the CRC. Daily use on the device is offline by default. On Google Play: R$ 19.99/month or a one-time payment of R$ 239.88. Sending data to the office and online functions exist after enablement.",A.V)
+A.ajr=new B.bI("Is ContabilGest an official government app?","No. It is a private product of Perfect Gest Dev (CNPJ 66.889.409/0001-19). We are not affiliated with or endorsed by the Federal Revenue Service, eSocial, FGTS Digital, or city halls. The official source of obligations and guides is always the government portal.",A.V)
+A.ajE=new B.bI("What are the official sources?","Always use government portals.",A.o_)
+A.aiX=new B.bI("Do I need the internet?","- Record entries, close the month, and generate PDF: no\n- Subscribe or restore the app purchase on Google Play: yes\n- Send data to the office, A1 certificate, and AI Assistant: yes, and only after the office enables those functions\n- Open government portals (DAS, eSocial, DCTFWeb, FGTS Digital, city hall): yes",A.V)
+A.ajo=new B.bI("Does the app replace my accountant?","No. The app organizes the data and, once enabled, sends it to the office. On plans with follow-up, a licensed accountant reviews and signs the books. On Basic MEI you operate in the app at your own pace and remain responsible for checking what you use. On any plan, check PDFs, payslips, and notices before using them.",A.V)
+A.ajk=new B.bI("Does the app file returns on government portals by itself?","No. The app does not transmit by itself to eSocial, DCTFWeb, FGTS Digital, DAS, or city hall. You or the accountant, under the contracted service, send filings on those portals. Once enabled, the app transmits the user's data to the accounting office (CRC), not to the government.",A.V)
+A.aji=new B.bI("How do I issue NFS-e / NF-e on the Basic plan?","Issuance requires the issuer A1 certificate and the portal authorizations (city hall, National NFS-e and/or SEFAZ). Municipal portal username and password do not replace the A1. Without office enablement, a Play subscription is not enough to issue invoices.",A.V)
+A.aj_=new B.bI("How do I issue NFS-e / NF-e with Contabil+ or an accountant package?","Approved flow: NFS-e with the office A1 plus power of attorney (CRC); NF-e with the issuer A1 at SEFAZ. The accountant supports authorizations and issuance in the contracted scope. Portal login and password do not replace the A1. Enablement is done by the office, not as a Google Play upgrade.",A.V)
+A.aj3=new B.bI("Does a sales NF-e accept portal login/password?","No. SEFAZ requires an A1 certificate (signature and connection) for NF-e. Portal login and password do not authorize NF-e, neither on the Basic plan nor on plans with an accountant.",A.V)
+A.ajy=new B.bI("Does the app move money from my bank account?","No. It does not access your bank or make transfers.",A.V)
+A.aj6=new B.bI("Can I use it without a subscription?",'- Demo ("See the app"): browse menus and screens\n- Google Play subscription: access to the app\n- Full functions (sending data to the office and online features): after Play, contact the office to enable them; without that, Play only opens the app\n- A1 certificate-only offer (standalone), when shown: does not include full Cash Book / app use\n\nApp purchase: Play subscription screen, or Recover account / Restore purchase. Accounting plan: the office / suporte@perfectgestdev.com.',A.V)
+A.ajn=new B.bI("Subscriptions (Google Play policy)","This applies only to the app subscription, not to the accounting plan.\nBilling, renewal, and cancellation: Google Play. Auto-renews until you cancel in Play \u2192 Payments and subscriptions \u2192 Subscriptions. Uninstalling the app does not cancel. Refunds: Google Play policy. No free trial unless a Play Console campaign says so. Official price: the Play checkout price. The plan (band, add-ons, upgrade/downgrade) is managed by the office, not by Play.",A.V)
+A.ajh=new B.bI("How do I restore a purchase?",'More \u2192 Google Play Subscription \u2192 Restore purchase (or Recover account / "I already have an account"). This restores only the app subscription. Plan and enablement: the office / suporte@perfectgestdev.com.',A.V)
+A.ajx=new B.bI("How do I change my plan (band, downgrade, or add-ons such as payroll and income tax)?","Every plan change is requested by email to suporte@perfectgestdev.com. The office manages bands and add-ons (upgrade applies; downgrade at the end of the cycle). Google Play does not switch Essential, Standard, or Advanced.",A.V)
+A.ajG=new B.bI("Does the app warn before renewal?","When Play provides the app subscription cycle date, the app may warn up to 30 days ahead. Without a Play date, there is no invented deadline \u2014 check Play \u2192 Subscriptions. Accounting fees and plan: with the office.",A.V)
+A.ajC=new B.bI("Does a Play subscription already unlock everything?","No. Play unlocks access to the app. For sync, sending data to the office, and online functions, contact the office after you subscribe. Without enablement you can open the app, but with no data sent to the CRC and no office contact.",A.V)
+A.a8F=x([A.ajp,A.ajr,A.ajE,A.aiX,A.ajo,A.ajk,A.aji,A.aj_,A.aj3,A.ajy,A.aj6,A.ajn,A.ajh,A.ajx,A.ajG,A.ajC],y.a)
+A.aje=new B.bI("O que \xe9 o app?","O PerfectGest ContabilGest \xe9 a ferramenta de conex\xe3o com o usu\xe1rio: voc\xea acompanha em tempo real a contabilidade da empresa (Livro Caixa, NFS-e, NF-e e obriga\xe7\xf5es) e, quando o escrit\xf3rio habilita as fun\xe7\xf5es, os dados chegam ao CRC. O uso di\xe1rio no aparelho \xe9 offline por padr\xe3o. Na Google Play: R$ 19,99/m\xeas. O envio ao escrit\xf3rio e as fun\xe7\xf5es online existem depois da habilita\xe7\xe3o.",A.V)
+A.ajm=new B.bI("O ContabilGest \xe9 um app oficial do governo?","N\xe3o. \xc9 um produto privado da Perfect Gest Dev (CNPJ 66.889.409/0001-19). N\xe3o somos afiliados nem endossados pela Receita Federal, eSocial, FGTS Digital ou prefeituras. A fonte oficial de obriga\xe7\xf5es e guias \xe9 sempre o portal do governo.",A.V)
+A.aj0=new B.bI("Quais s\xe3o as fontes oficiais?","Use sempre os portais do governo.",A.o_)
+A.ajt=new B.bI("Preciso de internet?","- Lan\xe7ar, fechar o m\xeas e gerar PDF: n\xe3o\n- Assinar ou restaurar a compra do aplicativo na Google Play: sim\n- Enviar dados ao escrit\xf3rio, certificado A1 e Assistente IA: sim, e s\xf3 depois da habilita\xe7\xe3o pelo escrit\xf3rio\n- Abrir portais do governo (DAS, eSocial, DCTFWeb, FGTS Digital, prefeitura): sim",A.V)
+A.aiY=new B.bI("O app substitui meu contador?","N\xe3o. O aplicativo organiza os dados e, com a habilita\xe7\xe3o, envia-os ao escrit\xf3rio. Nos planos com acompanhamento, um contador habilitado revisa e assina os livros. No B\xe1sico MEI voc\xea opera no app, no seu ritmo, e continua respons\xe1vel por conferir o que usa. Em qualquer plano, confira PDFs, holerites e comunica\xe7\xf5es antes de usar.",A.V)
+A.aj2=new B.bI("O app envia declara\xe7\xf5es sozinho aos portais do governo?","N\xe3o. O app n\xe3o transmite sozinho no eSocial, DCTFWeb, FGTS Digital, DAS ou prefeitura. Quem envia nesses portais \xe9 voc\xea ou o contador, no servi\xe7o contratado. Com a habilita\xe7\xe3o, o app transmite os dados do usu\xe1rio para o escrit\xf3rio (CRC), n\xe3o para o governo.",A.V)
+A.ajf=new B.bI("Como emito NFS-e / NF-e no plano B\xe1sico?","A emiss\xe3o exige certificado A1 do emitente e as autoriza\xe7\xf5es do portal (prefeitura, NFS-e Nacional e/ou SEFAZ). Login e senha do portal municipal n\xe3o substituem o A1. Sem habilita\xe7\xe3o do escrit\xf3rio, a assinatura da Play n\xe3o basta para emitir.",A.V)
+A.ajj=new B.bI("Como emito NFS-e / NF-e com Contabil+ ou pacote com contador?","Fluxo homologado: NFS-e com A1 do escrit\xf3rio + procura\xe7\xe3o (CRC); NF-e com A1 do emitente na SEFAZ. O contador apoia autoriza\xe7\xf5es e emiss\xe3o no escopo contratado. Login e senha de portal n\xe3o substituem o A1. A habilita\xe7\xe3o \xe9 do escrit\xf3rio, n\xe3o um upgrade na Google Play.",A.V)
+A.aju=new B.bI("A NF-e de venda aceita login/senha do portal?","N\xe3o. A SEFAZ exige certificado A1 (assinatura e liga\xe7\xe3o) para NF-e. Login e senha de portal n\xe3o autorizam NF-e, nem no plano B\xe1sico nem nos planos com contador.",A.V)
+A.ajz=new B.bI("O app movimenta dinheiro da minha conta?","N\xe3o. N\xe3o acessa banco nem faz transfer\xeancias.",A.V)
+A.ajd=new B.bI("Posso usar sem assinar?","- Demonstra\xe7\xe3o (\xabConhecer o app\xbb): navegar menus e telas\n- Assinatura na Google Play: acesso ao aplicativo\n- Fun\xe7\xf5es plenas (envio ao escrit\xf3rio e fun\xe7\xf5es online): depois da Play, contacte o escrit\xf3rio para habilitar; sem isso, a Play s\xf3 abre o app\n- Oferta s\xf3 certificado A1 (avulso), quando indicada: n\xe3o inclui o uso completo do Livro Caixa / app\n\nCompra do aplicativo: tela de assinatura da Play, ou Recuperar a conta / Restaurar compra. Plano cont\xe1bil: escrit\xf3rio / suporte@perfectgestdev.com.",A.V)
+A.aj9=new B.bI("Assinaturas (pol\xedtica Google Play)","Isto vale s\xf3 para a assinatura do aplicativo, n\xe3o para o plano cont\xe1bil.\nCobran\xe7a, renova\xe7\xe3o e cancelamento: Google Play. Renova\xe7\xe3o autom\xe1tica at\xe9 cancelar em Play \u2192 Pagamentos e assinaturas \u2192 Assinaturas. Desinstalar o app n\xe3o cancela. Reembolsos: pol\xedtica da Google Play. Sem teste gratuito, salvo campanha na Play Console. Pre\xe7o oficial: o do checkout na Play. O plano (faixa, extras, upgrade/downgrade) \xe9 gerido pelo escrit\xf3rio, n\xe3o pela Play.",A.V)
+A.ajc=new B.bI("Como restauro uma compra?","Mais \u2192 Assinatura Google Play \u2192 Restaurar compra (ou Recuperar a conta / \xabJ\xe1 tenho conta\xbb). Isso restaura s\xf3 a assinatura do aplicativo. Plano e habilita\xe7\xe3o: escrit\xf3rio / suporte@perfectgestdev.com.",A.V)
+A.ajB=new B.bI("Como altero meu plano (faixa, downgrade ou extras como folha e IR)?","Toda altera\xe7\xe3o de plano \xe9 pedida por e-mail a suporte@perfectgestdev.com. O escrit\xf3rio gere as faixas e os extras (upgrade aplica; downgrade no fim do ciclo). A Google Play n\xe3o troca Essencial, Standard ou Avan\xe7ado.",A.V)
+A.aj8=new B.bI("O app avisa antes da renova\xe7\xe3o?","Quando a Play informar a data do ciclo da assinatura do aplicativo, o app pode avisar at\xe9 30 dias antes. Sem data da Play, n\xe3o h\xe1 prazo inventado \u2014 consulte Play \u2192 Assinaturas. Honor\xe1rios e plano cont\xe1bil: com o escrit\xf3rio.",A.V)
+A.aiZ=new B.bI("A assinatura da Play j\xe1 libera tudo?","N\xe3o. A Play libera o acesso ao aplicativo. Para sincroniza\xe7\xe3o, envio de dados ao escrit\xf3rio e fun\xe7\xf5es online, contacte o escrit\xf3rio depois de assinar. Sem habilita\xe7\xe3o, voc\xea entra no app, mas sem envio ao CRC e sem contato com o escrit\xf3rio.",A.V)
+A.aa5=x([A.aje,A.ajm,A.aj0,A.ajt,A.aiY,A.aj2,A.ajf,A.ajj,A.aju,A.ajz,A.ajd,A.aj9,A.ajc,A.ajB,A.aj8,A.aiZ],y.a)})()};
+(a=>{a["zjMb7pns+JkS9m2jEyk6pMUNXag="]=a.current})($__dart_deferred_initializers__);

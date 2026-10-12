@@ -31,8 +31,13 @@ abstract class SiteContabilidadeFunilTexts {
   String get heroLead;
   String get heroLeadOffice;
   String get ctaKnowApp;
+  String get ctaAssinarPlano;
   String get ctaSeePlans;
   String get ctaChoosePlan;
+  String get conhecerPopTitle;
+  String get conhecerPopLead;
+  String get conhecerPopDownload;
+  String get conhecerPopSending;
   String get proofTitle;
   String get proofBody;
   String get featuresTitle;
@@ -197,7 +202,23 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
   String get ctaKnowApp => 'Conhecer o app';
 
   @override
+  String get ctaAssinarPlano => 'Assinar plano com o contador';
+
+  @override
   String get ctaSeePlans => 'Ver planos';
+
+  @override
+  String get conhecerPopTitle => 'Conhecer o app ContabilGest';
+
+  @override
+  String get conhecerPopLead =>
+      'Deixe seu contato. Em seguida você vai para o download na Google Play. Não é o cadastro do plano do escritório.';
+
+  @override
+  String get conhecerPopDownload => 'Ir para download';
+
+  @override
+  String get conhecerPopSending => 'Enviando...';
 
   @override
   String get ctaChoosePlan => 'Enviar Cadastro para o escritório';
@@ -859,7 +880,23 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
   String get ctaKnowApp => 'Try the app';
 
   @override
+  String get ctaAssinarPlano => 'Sign up for the accountant plan';
+
+  @override
   String get ctaSeePlans => 'See plans';
+
+  @override
+  String get conhecerPopTitle => 'Try the ContabilGest app';
+
+  @override
+  String get conhecerPopLead =>
+      'Leave your contact. Next you go to the Google Play download. This is not the office plan signup.';
+
+  @override
+  String get conhecerPopDownload => 'Go to download';
+
+  @override
+  String get conhecerPopSending => 'Sending...';
 
   @override
   String get ctaChoosePlan => 'I want this plan';
@@ -1519,7 +1556,23 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
   String get ctaKnowApp => 'Conocer la app';
 
   @override
+  String get ctaAssinarPlano => 'Firmar el plan con el contador';
+
+  @override
   String get ctaSeePlans => 'Ver planes';
+
+  @override
+  String get conhecerPopTitle => 'Conocer la app ContabilGest';
+
+  @override
+  String get conhecerPopLead =>
+      'Deje su contacto. Enseguida irá a la descarga en Google Play. No es el registro del plan del despacho.';
+
+  @override
+  String get conhecerPopDownload => 'Ir a la descarga';
+
+  @override
+  String get conhecerPopSending => 'Enviando...';
 
   @override
   String get ctaChoosePlan => 'Quiero este plan';

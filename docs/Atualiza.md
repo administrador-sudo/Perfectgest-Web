@@ -2,6 +2,32 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-12 10:20] Funil: Conhecer o app separado do plano
+
+### Contexto
+- Conhecer o app ia para o cadastro/pagamento.
+
+### Arquivos alterados
+- lib/funil_conhecer_app_pop.dart
+- lib/contabilidade_funil_page.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- Pop com nome, e-mail, WhatsApp e privacidade; POST LeadCaptureService [FUNIL CONHECER APP]; depois Play. Assinar plano vai ao formulario. Ver planos permanece. Prefill do cadastro.
+
+### Risco de regressao
+- Medio (CTA + lead).
+
+### Validacao executada
+- Pendente: conferir pop e os tres botoes.
+
+### Resultado
+- Intencao de app e de plano separadas.
+
+### Proximos passos recomendados
+- Conferir /contabilidade e publicar.
+
 ## [2026-10-12 09:31] Funil: aviso do hero e cartao Fidelizado
 
 ### Contexto

@@ -7,6 +7,7 @@ import 'brand_palette.dart';
 import 'company_legal.dart';
 import 'l10n/site_contabilidade_funil_texts.dart';
 import 'a1_quality_cert_pop.dart';
+import 'funil_conhecer_app_pop.dart';
 import 'funil_a1_service.dart';
 import 'funil_comprovante_pick.dart';
 import 'funil_firestore_service.dart';
@@ -356,6 +357,17 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
   }
 
   Future<void> _openPlay() => _openExternal(kPerfectGestContabilIProductUrl);
+
+  Future<void> _abrirConhecerApp() async {
+    final dados = await showFunilConhecerAppPop(context);
+    if (dados == null || !mounted) return;
+    setState(() {
+      _nomeCtrl.text = dados.nome;
+      _emailCtrl.text = dados.email;
+      _whatsAppCtrl.text = dados.whatsapp;
+    });
+    await _openPlay();
+  }
 
   Future<void> _openWhatsApp([String? text]) async {
     final uri = text == null || text.isEmpty
@@ -741,7 +753,8 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                           _HeroBlock(
                             st: st,
                             onLogo: _goHome,
-                            onKnowApp: () => _scrollTo(_formAnchorKey),
+                            onKnowApp: _abrirConhecerApp,
+                            onAssinarPlano: () => _scrollTo(_formAnchorKey),
                             onSeePlans: () => _scrollTo(_planosKey),
                           ),
                           const SizedBox(height: 28),
@@ -835,7 +848,7 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                                 : _buildForm(st),
                           ),
                           const SizedBox(height: 20),
-                          _DemoBlock(st: st, onKnowApp: () => _scrollTo(_formAnchorKey)),
+                          _DemoBlock(st: st, onKnowApp: _abrirConhecerApp),
                           const SizedBox(height: 20),
                           _FaqBlock(st: st),
                           const SizedBox(height: 28),
@@ -1201,12 +1214,14 @@ class _HeroBlock extends StatelessWidget {
     required this.st,
     required this.onLogo,
     required this.onKnowApp,
+    required this.onAssinarPlano,
     required this.onSeePlans,
   });
 
   final SiteContabilidadeFunilTexts st;
   final VoidCallback onLogo;
   final VoidCallback onKnowApp;
+  final VoidCallback onAssinarPlano;
   final VoidCallback onSeePlans;
 
   @override
@@ -1259,6 +1274,12 @@ class _HeroBlock extends StatelessWidget {
             runSpacing: 10,
             children: [
               sitePrimaryActionButton(context: context, label: st.ctaKnowApp, onPressed: onKnowApp),
+              siteMetallicOutlinedButton(
+                context: context,
+                label: st.ctaAssinarPlano,
+                onPressed: onAssinarPlano,
+                icon: Icons.assignment_ind_outlined,
+              ),
               siteMetallicOutlinedButton(context: context, label: st.ctaSeePlans, onPressed: onSeePlans, icon: Icons.list_alt_rounded),
             ],
           ),
