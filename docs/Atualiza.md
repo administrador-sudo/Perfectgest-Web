@@ -2,6 +2,31 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-12 13:48] mail-check + IPv4 no SMTP Gmail
+
+### Contexto
+- 5579587 Live; POST SMTP pendurou 70s (codigo novo, Gmail nao conecta).
+
+### Arquivos alterados
+- scripts/leads-api-server.js
+- scripts/check-leads-mail.ps1
+- docs/Atualiza.md
+
+### O que foi feito
+- GET /api/mail-check. family IPv4. POST corta SMTP em 40s e devolve mailError.
+
+### Risco de regressao
+- Baixo.
+
+### Validacao executada
+- POST 5579587: health ok, timeout 70s.
+
+### Resultado
+- Precisa publish + Manual Deploy 6v1e. Depois rodar check-leads-mail.ps1.
+
+### Proximos passos recomendados
+- publish-web e Manual Deploy latest na 6v1e.
+
 ## [2026-10-12 13:33] Gmail: reverter nodemailer 10 (teste nao chegou)
 
 ### Contexto

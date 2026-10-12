@@ -179,6 +179,7 @@ function createTransporter() {
   if (isGmail) {
     return nodemailer.createTransport({
       service: 'gmail',
+      family: 4,
       auth: { user, pass },
       ...timeouts,
     });
@@ -187,6 +188,7 @@ function createTransporter() {
   return nodemailer.createTransport({
     host,
     port,
+    family: 4,
     secure: process.env.SMTP_SECURE !== 'false',
     auth: { user, pass },
     ...timeouts,
@@ -260,6 +262,48 @@ app.get('/', (_req, res) => {
   });
 });
 
+app.get('/api/mail-check', leadsLimiter, async (_req, res) => {
+  const host = String(process.env.SMTP_HOST || '').trim();
+  const user = String(process.env.SMTP_USER || '').trim();
+  const from = String(process.env.MAIL_FROM || process.env.SMTP_USER || '').trim();
+  const report = {
+    ok: false,
+    mailerReady: mailerReady(),
+    smtpHost: host || null,
+    smtpUser: user || null,
+    smtpPassSet: Boolean(String(process.env.SMTP_PASS || '').trim()),
+    smtpPort: String(process.env.SMTP_PORT || '') || null,
+    smtpSecure: process.env.SMTP_SECURE || null,
+    mailFrom: from || null,
+    mailBcc: officeAddress() || null,
+    gmailMode: /gmail/i.test(host) || /@gmail\.com$/i.test(user),
+    verifyOk: false,
+    verifyMs: 0,
+    verifyError: null,
+  };
+  if (!report.mailerReady) {
+    report.verifyError = 'smtp_not_ready';
+    res.status(200).json(report);
+    return;
+  }
+  const started = Date.now();
+  try {
+    const transporter = createTransporter();
+    await Promise.race([
+      transporter.verify(),
+      new Promise((_, reject) => {
+        setTimeout(() => reject(new Error('verify_timeout_15s')), 15000);
+      }),
+    ]);
+    report.verifyOk = true;
+    report.ok = true;
+  } catch (err) {
+    report.verifyError = String(err && err.message ? err.message : err).slice(0, 200);
+  }
+  report.verifyMs = Date.now() - started;
+  res.status(200).json(report);
+});
+
 app.get('/health', async (_req, res) => {
   try {
     if (pgPool) {
@@ -321,14 +365,19 @@ app.post('/api/leads', leadsLimiter, async (req, res) => {
     let officeSent = false;
     let mailError;
     try {
-      officeSent = await notifyOffice({ nome, email, comentario, locale });
+      officeSent = await Promise.race([
+        notifyOffice({ nome, email, comentario, locale }),
+        new Promise((_, reject) => {
+          setTimeout(() => reject(new Error('smtp_timeout_40s')), 40000);
+        }),
+      ]);
       if (!officeSent) mailError = 'smtp_not_ready';
     } catch (mailErr) {
       mailError = String(mailErr && mailErr.message ? mailErr.message : mailErr).slice(0, 180);
       console.error('[leads-api] e-mail escritorio', mailErr);
     }
     let copySent = false;
-    if (body.copiaUsuario === true) {
+    if (body.copiaUsuario === true && officeSent) {
       try {
         copySent = await sendUserCopy({ nome, email, comentario, locale });
       } catch (mailErr) {
