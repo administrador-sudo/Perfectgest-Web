@@ -81,7 +81,7 @@ class _SiteContabilgestFaqTextsPt extends SiteContabilgestFaqTexts {
         SiteFaqItem(
           question: 'O que é o app?',
           body:
-              'O PerfectGest ContabilGest é a ferramenta de conexão com o usuário: você acompanha em tempo real a contabilidade da empresa (Livro Caixa, NFS-e, NF-e e obrigações) e, quando o escritório habilita as funções, os dados chegam ao CRC. O uso diário no aparelho é offline por padrão. Na Google Play: R\$ 19,99/mês ou pagamento à vista R\$ 239,88. O envio ao escritório e as funções online existem depois da habilitação.',
+              'O PerfectGest ContabilGest é a ferramenta de conexão com o usuário: você acompanha em tempo real a contabilidade da empresa (Livro Caixa, NFS-e, NF-e e obrigações) e, quando o escritório habilita as funções, os dados chegam ao CRC. O uso diário no aparelho é offline por padrão. Na Google Play: R\$ 19,99/mês. O envio ao escritório e as funções online existem depois da habilitação.',
         ),
         SiteFaqItem(
           question: 'O ContabilGest é um app oficial do governo?',

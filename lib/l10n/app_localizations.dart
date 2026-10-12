@@ -342,12 +342,12 @@ class _AppLocalizationsPt extends AppLocalizations {
       '--> Seus dados estão protegidos de acordo com a LGPD.';
   @override
   String get heroContabilPlansIntro =>
-      'O aplicativo ContabilGest é a ferramenta de conexão: você acompanha a contabilidade em tempo real. Na Google Play: R\$ 19,99/mês ou pagamento à vista R\$ 239,88. Honorários do escritório:';
+      'O aplicativo ContabilGest é a ferramenta de conexão: você acompanha a contabilidade em tempo real. Na Google Play: R\$ 19,99/mês.';
   @override
   String get heroContabilPlanBasicTitle => 'Plano Básico (Indicado para MEI):';
   @override
   String get heroContabilPlanBasicBody =>
-      'Emissão de NF com certificado A1 (até 10 NF/mês). Autocontabilidade: sem assinatura contábil nos documentos. Honorários: 12 × R\$ 40,00 ou Básico Fidelizado à vista anual R\$ 456,99 (desconto sobre R\$ 480,00). Pedido em /contabilidade ou suporte@perfectgestdev.com. Certificado A1 Quality é oferta avulsa.';
+      'Emissão de NF com certificado A1 (até 10 NF/mês). Autocontabilidade: sem assinatura contábil nos documentos. Honorários: 12 × R\$ 40,00, Mais assinatura do App R\$ 19,99 | e-mail: suporte@perfectgestdev.com. Certificado A1 Quality é oferta avulsa.';
   @override
   String get heroContabilPlanActiveTitle =>
       'Plano Contabil+ (indicado para ME):';
@@ -388,7 +388,7 @@ class _AppLocalizationsPt extends AppLocalizations {
       'Ferramenta de conexão: acompanhe a contabilidade em tempo real';
   @override
   String get solContabilAppsBody =>
-      'O PerfectGest ContabilGest liga você ao escritório: lance movimentos, obrigações e notas no celular e acompanhe a contabilidade em tempo real. Na Google Play: R\$ 19,99/mês ou pagamento à vista R\$ 239,88. Honorários do escritório: /contabilidade.';
+      'O PerfectGest ContabilGest liga você ao escritório: lance movimentos, obrigações e notas no celular e acompanhe a contabilidade em tempo real. Na Google Play: R\$ 19,99/mês.';
   @override
   String get solContabilAppsSupportPortalLabel => 'FAQ e políticas do app';
   @override

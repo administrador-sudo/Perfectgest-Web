@@ -2,6 +2,79 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-12 08:41] Funil: textos MEI, suporte e NFs na Faixa
+
+### Contexto
+- Pedido: frases MEI, suporte Avancado e NFs livres no nome da Faixa.
+
+### Arquivos alterados
+- lib/l10n/site_contabilidade_funil_texts.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- MEI: carteira do trabalhador + nota Folha extra; extras de contador via Suporte. Avancado: Solicitacoes pelo Suporte. Faixa ME com 10/20/30 NFs livres.
+
+### Risco de regressao
+- Baixo.
+
+### Validacao executada
+- Pendente: conferir cartoes e campo Faixa.
+
+### Resultado
+- Copy atualizado em PT/EN/ES.
+
+### Proximos passos recomendados
+- npm run publish-web.
+
+## [2026-10-12 08:24] Funil: nota A1 sob emissao de NFs
+
+### Contexto
+- Pedido: abaixo de emissao de notas fiscais, letra menor sobre o certificado A1.
+
+### Arquivos alterados
+- lib/l10n/site_contabilidade_funil_texts.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- Em todos os cartoes: nota "( Para emissao de Notas fiscais e necessario ter o certificado A1)".
+
+### Risco de regressao
+- Baixo.
+
+### Validacao executada
+- Pendente: conferir cartoes no funil.
+
+### Resultado
+- Nota menor abaixo da frase de NFs.
+
+### Proximos passos recomendados
+- Conferir /contabilidade.
+
+## [2026-10-12 08:20] Funil: notas Folha e IR nos cartoes
+
+### Contexto
+- Pedido: nota menor sob empregados (ME) e item IR PF em todos os cartoes.
+
+### Arquivos alterados
+- lib/l10n/site_contabilidade_funil_texts.dart
+- lib/contabilidade_funil_page.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- ME: nota Folha abaixo de empregados. Todos os cartoes: Imposto de Renda (IR PF) com nota menor.
+
+### Risco de regressao
+- Baixo.
+
+### Validacao executada
+- Pendente: conferir cartoes ME no funil.
+
+### Resultado
+- Notas menores abaixo da frase, sem alterar o formulario.
+
+### Proximos passos recomendados
+- Conferir /contabilidade nos planos ME.
+
 ## [2026-10-10 11:54] Enquadramento: quadro com duas linhas
 
 ### Contexto

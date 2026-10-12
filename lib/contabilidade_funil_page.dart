@@ -1409,9 +1409,7 @@ class _PlansTable extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text('·  ', style: TextStyle(color: kFunilGreen, fontWeight: FontWeight.w800, fontSize: 13, height: 1.35)),
-                      Expanded(
-                        child: Text(item, style: const TextStyle(fontSize: 13, height: 1.35)),
-                      ),
+                      Expanded(child: _planItemLines(item)),
                     ],
                   ),
                 ),
@@ -1426,6 +1424,21 @@ class _PlansTable extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _planItemLines(String item) {
+    final lines = item.split('\n');
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(lines.first, style: const TextStyle(fontSize: 13, height: 1.35)),
+        if (lines.length > 1)
+          Text(
+            lines[1],
+            style: const TextStyle(fontSize: 11, height: 1.3, color: Color(0xFF5A635E)),
+          ),
+      ],
     );
   }
 }

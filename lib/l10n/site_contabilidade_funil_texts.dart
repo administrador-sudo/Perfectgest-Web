@@ -571,7 +571,7 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
 
   @override
   String get successPlayNote =>
-      'Na Google Play: R\$ 19,99/mês ou pagamento à vista R\$ 239,88.';
+      'Na Google Play: R\$ 19,99/mês';
 
   @override
   String successCopyNote(String email) =>
@@ -717,11 +717,23 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
   String planName(String id) => switch (id) {
         'mei' => 'Básico Microempreendedor Individual (MEI)',
         'fidelizado' => 'Básico Fidelizado (MEI)',
-        'essencial' => 'Planos Contábeis Essencial',
-        'standard' => 'Planos Contábeis Intermediário',
-        'avancado' => 'Planos Contábeis Avançado',
+        'essencial' => 'Planos Contábeis Essencial (10 NFs livres para emitir)',
+        'standard' => 'Planos Contábeis Intermediário (20 NFs livres para emitir)',
+        'avancado' => 'Planos Contábeis Avançado (30 NFs livres para emitir)',
         _ => id,
       };
+
+  static const _noteFolha =
+      '( Contratar / Incluir o serviço de "Contador Faz a Folha" junto com o plano.)';
+  static const _noteIr =
+      '( Contratar / Incluir o serviço de "Imposto de Renda" junto com o plano.)';
+  static const _noteA1 =
+      '( Para emissão de Notas fiscais é necessário ter o certificado A1)';
+  static const _itemIr = 'Imposto de Renda (IR PF)\n$_noteIr';
+  static const _itemNf = 'Emissão de notas fiscais eletrônicas\n$_noteA1';
+  static const _itemCarteiraMei =
+      'Assinatura de carteira do trabalhador\n(Solicitar no suporte, serviço de Folha extra adicional para MEI)';
+  static const _itemContadorMei = 'Serviços extras de contador contatar Suporte';
 
   @override
   List<String> planItems(String id) => switch (id) {
@@ -733,10 +745,11 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
             'Contas a receber e a pagar',
             'Obrigações do mês',
             'Assistente de inteligência artificial',
-            'Emissão de notas fiscais eletrônicas',
+            _itemNf,
             'Até 5 notas fiscais (NFs) por mês',
-            'Sem empregados com carteira assinada',
-            'Sem contador assinando os livros',
+            _itemCarteiraMei,
+            _itemIr,
+            _itemContadorMei,
           ],
         'fidelizado' => const <String>[
             'Para Microempreendedor Individual (MEI)',
@@ -746,10 +759,11 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
             'Contas a receber e a pagar',
             'Obrigações do mês',
             'Assistente de inteligência artificial',
-            'Emissão de notas fiscais eletrônicas',
+            _itemNf,
             'Até 5 notas fiscais (NFs) por mês',
-            'Sem empregados com carteira assinada',
-            'Sem contador assinando os livros',
+            _itemCarteiraMei,
+            _itemIr,
+            _itemContadorMei,
           ],
         'essencial' => const <String>[
             'Para Microempresa (ME)',
@@ -759,10 +773,11 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
             'Retirada de lucros',
             'Obrigações do mês',
             'Assistente de inteligência artificial',
-            'Emissão de notas fiscais eletrônicas',
+            _itemNf,
             'Contador habilitado confere o mês e assina os livros',
             'Até 10 notas fiscais por mês',
-            '0 empregados com carteira assinada neste plano',
+            '0 empregados com carteira assinada neste plano\n$_noteFolha',
+            _itemIr,
             'Suporte do escritório',
           ],
         'standard' => const <String>[
@@ -773,10 +788,11 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
             'Retirada de lucros',
             'Obrigações do mês',
             'Assistente de inteligência artificial',
-            'Emissão de notas fiscais eletrônicas',
+            _itemNf,
             'Contador habilitado confere o mês e assina os livros',
             'Até 20 notas fiscais por mês',
-            'Até 2 empregados com carteira assinada',
+            'Até 2 empregados com carteira assinada\n$_noteFolha',
+            _itemIr,
             'Suporte do escritório',
           ],
         'avancado' => const <String>[
@@ -787,11 +803,12 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
             'Retirada de lucros',
             'Obrigações do mês',
             'Assistente de inteligência artificial',
-            'Emissão de notas fiscais eletrônicas',
+            _itemNf,
             'Contador habilitado confere o mês e assina os livros',
             'Até 30 notas fiscais por mês',
-            'Até 4 empregados com carteira assinada',
-            'Suporte próximo do escritório',
+            'Até 4 empregados com carteira assinada\n$_noteFolha',
+            _itemIr,
+            'Solicitações pelo Suporte',
           ],
         _ => const <String>[],
       };
@@ -1357,11 +1374,23 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
   String planName(String id) => switch (id) {
         'mei' => 'Basic Individual Microentrepreneur (MEI)',
         'fidelizado' => 'Basic Loyalty (MEI)',
-        'essencial' => 'Accounting Plans Essential',
-        'standard' => 'Accounting Plans Intermediate',
-        'avancado' => 'Accounting Plans Advanced',
+        'essencial' => 'Accounting Plans Essential (10 free NFs to issue)',
+        'standard' => 'Accounting Plans Intermediate (20 free NFs to issue)',
+        'avancado' => 'Accounting Plans Advanced (30 free NFs to issue)',
         _ => id,
       };
+
+  static const _noteFolha =
+      '( Hire / include the "Accountant does payroll" service with the plan.)';
+  static const _noteIr =
+      '( Hire / include the "Income tax" service with the plan.)';
+  static const _noteA1 =
+      '( To issue invoices you need an A1 certificate)';
+  static const _itemIr = 'Income tax (IR PF)\n$_noteIr';
+  static const _itemNf = 'Electronic invoices\n$_noteA1';
+  static const _itemCarteiraMei =
+      'Employee work-card registration\n(Request via support, extra payroll service additional for MEI)';
+  static const _itemContadorMei = 'Extra accountant services: contact Support';
 
   @override
   List<String> planItems(String id) => switch (id) {
@@ -1373,10 +1402,11 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
             'Accounts receivable and payable',
             'Monthly duties',
             'Artificial intelligence assistant',
-            'Electronic invoices',
+            _itemNf,
             'Up to 5 invoices (NFs) per month',
-            'No employees on the payroll',
-            'No accountant signing the books',
+            _itemCarteiraMei,
+            _itemIr,
+            _itemContadorMei,
           ],
         'fidelizado' => const <String>[
             'For Individual Microentrepreneurs (MEI)',
@@ -1386,10 +1416,11 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
             'Accounts receivable and payable',
             'Monthly duties',
             'Artificial intelligence assistant',
-            'Electronic invoices',
+            _itemNf,
             'Up to 5 invoices (NFs) per month',
-            'No employees on the payroll',
-            'No accountant signing the books',
+            _itemCarteiraMei,
+            _itemIr,
+            _itemContadorMei,
           ],
         'essencial' => const <String>[
             'For Microenterprise (ME)',
@@ -1399,10 +1430,11 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
             'Profit withdrawals',
             'Monthly duties',
             'Artificial intelligence assistant',
-            'Electronic invoices',
+            _itemNf,
             'Licensed accountant reviews the month and signs the books',
             'Up to 10 invoices per month',
-            '0 employees on the payroll in this plan',
+            '0 employees on the payroll in this plan\n$_noteFolha',
+            _itemIr,
             'Office support',
           ],
         'standard' => const <String>[
@@ -1413,10 +1445,11 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
             'Profit withdrawals',
             'Monthly duties',
             'Artificial intelligence assistant',
-            'Electronic invoices',
+            _itemNf,
             'Licensed accountant reviews the month and signs the books',
             'Up to 20 invoices per month',
-            'Up to 2 employees on the payroll',
+            'Up to 2 employees on the payroll\n$_noteFolha',
+            _itemIr,
             'Office support',
           ],
         'avancado' => const <String>[
@@ -1427,11 +1460,12 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
             'Profit withdrawals',
             'Monthly duties',
             'Artificial intelligence assistant',
-            'Electronic invoices',
+            _itemNf,
             'Licensed accountant reviews the month and signs the books',
             'Up to 30 invoices per month',
-            'Up to 4 employees on the payroll',
-            'Close office support',
+            'Up to 4 employees on the payroll\n$_noteFolha',
+            _itemIr,
+            'Support requests',
           ],
         _ => const <String>[],
       };
@@ -1997,39 +2031,53 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
   String planName(String id) => switch (id) {
         'mei' => 'Básico Microemprendedor Individual (MEI)',
         'fidelizado' => 'Básico Fidelizado (MEI)',
-        'essencial' => 'Planes Contables Esencial',
-        'standard' => 'Planes Contables Intermedio',
-        'avancado' => 'Planes Contables Avanzado',
+        'essencial' => 'Planes Contables Esencial (10 NFs libres para emitir)',
+        'standard' => 'Planes Contables Intermedio (20 NFs libres para emitir)',
+        'avancado' => 'Planes Contables Avanzado (30 NFs libres para emitir)',
         _ => id,
       };
+
+  static const _noteFolha =
+      '( Contratar / incluir el servicio de "Contador hace la nómina" junto con el plan.)';
+  static const _noteIr =
+      '( Contratar / incluir el servicio de "Impuesto de la renta" junto con el plan.)';
+  static const _noteA1 =
+      '( Para emitir notas fiscales es necesario tener el certificado A1)';
+  static const _itemIr = 'Impuesto de la renta (IR PF)\n$_noteIr';
+  static const _itemNf = 'Notas fiscales electrónicas\n$_noteA1';
+  static const _itemCarteiraMei =
+      'Alta de contrato laboral\n(Solicitar en el soporte, servicio de nómina extra adicional para MEI)';
+  static const _itemContadorMei = 'Servicios extras de contador: contactar Soporte';
 
   @override
   List<String> planItems(String id) => switch (id) {
         'mei' => const <String>[
             'Para Microemprendedor Individual (MEI)',
-            'Honorarios en 12 cuotas de R\$ 40,00',
+            'Honorarios en 12 cuotas de R\$ 40,00' ,
             'Autocontabilidad en la aplicación',
             'Libro de caja',
             'Cuentas por cobrar y por pagar',
             'Obligaciones del mes',
             'Asistente de inteligencia artificial',
-            'Notas fiscales electrónicas',
+            _itemNf,
             'Hasta 5 notas fiscales (NFs) por mes',
-            'Sin empleados con contrato formal',
-            'Sin contador que firme los libros',
+            _itemCarteiraMei,
+            _itemIr,
+            _itemContadorMei,
           ],
         'fidelizado' => const <String>[
             'Para Microemprendedor Individual (MEI)',
-            'Honorarios al contado anual R\$ 456,99 (12 × R\$ 40,00 = R\$ 480,00, descuento de R\$ 23,01)',
+            'Honorarios al contado anual R\$ 456,99 descuento de R\$ 23,01)',
             'Autocontabilidad en la aplicación',
             'Libro de caja',
             'Cuentas por cobrar y por pagar',
             'Obligaciones del mes',
             'Asistente de inteligencia artificial',
-            'Notas fiscales electrónicas',
+            _itemNf,
             'Hasta 5 notas fiscales (NFs) por mes',
-            'Sin empleados con contrato formal',
-            'Sin contador que firme los libros',
+            _itemCarteiraMei,
+            _itemIr,
+            _itemContadorMei,
           ],
         'essencial' => const <String>[
             'Para Microempresa (ME)',
@@ -2039,10 +2087,11 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
             'Retiro de utilidades',
             'Obligaciones del mes',
             'Asistente de inteligencia artificial',
-            'Notas fiscales electrónicas',
+            _itemNf,
             'Contador habilitado revisa el mes y firma los libros',
             'Hasta 10 notas fiscales por mes',
-            '0 empleados con contrato formal en este plan',
+            '0 empleados con contrato formal en este plan\n$_noteFolha',
+            _itemIr,
             'Soporte del estudio',
           ],
         'standard' => const <String>[
@@ -2053,10 +2102,11 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
             'Retiro de utilidades',
             'Obligaciones del mes',
             'Asistente de inteligencia artificial',
-            'Notas fiscales electrónicas',
+            _itemNf,
             'Contador habilitado revisa el mes y firma los libros',
             'Hasta 20 notas fiscales por mes',
-            'Hasta 2 empleados con contrato formal',
+            'Hasta 2 empleados con contrato formal\n$_noteFolha',
+            _itemIr,
             'Soporte del estudio',
           ],
         'avancado' => const <String>[
@@ -2067,11 +2117,12 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
             'Retiro de utilidades',
             'Obligaciones del mes',
             'Asistente de inteligencia artificial',
-            'Notas fiscales electrónicas',
+            _itemNf,
             'Contador habilitado revisa el mes y firma los libros',
             'Hasta 30 notas fiscales por mes',
-            'Hasta 4 empleados con contrato formal',
-            'Soporte cercano del estudio',
+            'Hasta 4 empleados con contrato formal\n$_noteFolha',
+            _itemIr,
+            'Solicitudes por el Soporte',
           ],
         _ => const <String>[],
       };
