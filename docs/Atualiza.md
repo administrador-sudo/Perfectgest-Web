@@ -2,6 +2,32 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-12 13:07] SMTP Gmail: timeout 12s no teste 2
+
+### Contexto
+- Teste 1 chegou. Teste 2 nao. MAIL_BCC com virgula nao foi a causa.
+- POST 6v1e: mailError Connection timeout (codigo novo com 12s).
+
+### Arquivos alterados
+- scripts/leads-api-server.js
+- docs/Atualiza.md
+
+### O que foi feito
+- Timeout SMTP 45s. POST responde na hora e o e-mail vai em segundo plano.
+
+### Risco de regressao
+- Medio ate republicar a 6v1e.
+
+### Validacao executada
+- POST diagnostico: officeSent false, Connection timeout ~25s.
+
+### Resultado
+- Virgula no MAIL_BCC e valida. Falha foi timeout SMTP.
+
+### Proximos passos recomendados
+- MAIL_BCC=perfectpro.sac@gmail.com,suporte@perfectgestdev.com
+- Republicar 6v1e.
+
 ## [2026-10-12 13:00] npm audit da leads-api: 0 vulnerabilidades
 
 ### Contexto
