@@ -2,6 +2,55 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-12 13:00] npm audit da leads-api: 0 vulnerabilidades
+
+### Contexto
+- Log do Render no deploy mostrava vulnerabilidades npm (nao impedia o e-mail).
+
+### Arquivos alterados
+- package.json
+- package-lock.json
+- docs/Atualiza.md
+
+### O que foi feito
+- npm audit fix + nodemailer 10.1.0. Audit local: 0 vulnerabilities.
+
+### Risco de regressao
+- Baixo. Nodemailer 10 no proximo deploy da 6v1e.
+
+### Validacao executada
+- npm audit: found 0 vulnerabilities.
+
+### Resultado
+- A linha vermelha some no proximo build. "packages looking for funding" nao e erro.
+
+### Proximos passos recomendados
+- npm run publish-web (leva package-lock e republica a API).
+
+## [2026-10-12 11:43] SMTP Zoho travava o POST (porta 465)
+
+### Contexto
+- Health 6v1e OK; POST /api/leads estourou 90s; e-mail nao chegou.
+
+### Arquivos alterados
+- scripts/leads-api-server.js
+- docs/Atualiza.md
+
+### O que foi feito
+- Timeout SMTP 12s; senha sem espacos; POST devolve mailError.
+
+### Risco de regressao
+- Baixo.
+
+### Validacao executada
+- POST diagnostico timeout 90s em smtp.zoho.com:465.
+
+### Resultado
+- Operador deve testar porta 587 / SMTP_SECURE=false no Render.
+
+### Proximos passos recomendados
+- Save+deploy 587; se falhar, smtp.zoho.com.br. Depois publish-web da API.
+
 ## [2026-10-12 10:53] Site aponta para leads-api-6v1e
 
 ### Contexto

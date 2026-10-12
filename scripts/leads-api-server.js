@@ -169,12 +169,15 @@ function createTransporter() {
   const nodemailer = require('nodemailer');
   const port = Number(process.env.SMTP_PORT || 465);
   return nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
+    host: String(process.env.SMTP_HOST || '').trim(),
     port,
     secure: process.env.SMTP_SECURE !== 'false',
+    connectionTimeout: 12000,
+    greetingTimeout: 12000,
+    socketTimeout: 15000,
     auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
+      user: String(process.env.SMTP_USER || '').trim(),
+      pass: String(process.env.SMTP_PASS || '').replace(/\s+/g, ''),
     },
   });
 }
@@ -305,9 +308,12 @@ app.post('/api/leads', leadsLimiter, async (req, res) => {
 
     const storage = await persistLead({ nome, email, comentario, locale });
     let officeSent = false;
+    let mailError;
     try {
       officeSent = await notifyOffice({ nome, email, comentario, locale });
+      if (!officeSent) mailError = 'smtp_not_ready';
     } catch (mailErr) {
+      mailError = String(mailErr && mailErr.message ? mailErr.message : mailErr).slice(0, 180);
       console.error('[leads-api] e-mail escritorio', mailErr);
     }
     let copySent = false;
@@ -318,7 +324,7 @@ app.post('/api/leads', leadsLimiter, async (req, res) => {
         console.error('[leads-api] copia e-mail', mailErr);
       }
     }
-    res.status(201).json({ ok: true, storage, copySent, officeSent });
+    res.status(201).json({ ok: true, storage, copySent, officeSent, mailError });
   } catch (err) {
     console.error('[leads-api] POST /api/leads', err);
     res.status(500).json({ error: 'server_error' });
