@@ -37,7 +37,7 @@ B.aFM.prototype={
 geB(){return"Politica de privacidade, dados, cookies e termos Perfect Gest Dev"},
 gi5(){return"Privacidade e termos"},
 gi7(){return"Perfect Gest Dev"},
-gkA(){return"Pol\xedtica de privacidade, dados pessoais, cookies e termos de uso"},
+gkB(){return"Pol\xedtica de privacidade, dados pessoais, cookies e termos de uso"},
 qj(d){return"\xdaltima atualiza\xe7\xe3o: documento institucional. Em caso de d\xfavida sobre tratamento de dados, contacte: "+d+"."},
 got(){return"1. Quem somos"},
 gos(){return"Este documento aplica-se ao site institucional https://perfectgestdev.com, operado por Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA). Somos uma software house de desenvolvimento mobile, web e desktop. Abrange cookies, medi\xe7\xe3o de audi\xeancia, formul\xe1rio de pr\xe9-cadastro e contacto neste site \u2014 n\xe3o o aplicativo m\xf3vel. Documenta\xe7\xe3o legal do produto PerfectGest (FAQ, privacidade, exclus\xe3o de dados e termos) n\xe3o faz parte deste documento \u2014 consulte a sec\xe7\xe3o Solu\xe7\xf5es deste site."},
@@ -62,7 +62,7 @@ B.aFK.prototype={
 geB(){return"Perfect Gest Dev privacy policy, data, cookies and terms"},
 gi5(){return"Privacy and terms"},
 gi7(){return"Perfect Gest Dev"},
-gkA(){return"Privacy policy, personal data, cookies and terms of use"},
+gkB(){return"Privacy policy, personal data, cookies and terms of use"},
 qj(d){return"Last updated: institutional document. If you have questions about data processing, contact: "+d+"."},
 got(){return"1. Who we are"},
 gos(){return"This document applies to the institutional website https://perfectgestdev.com, operated by Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA). We are a software house for mobile, web and desktop development. It covers cookies, audience measurement, the pre-registration form and contact on this site \u2014 not the mobile app. Legal documentation for the PerfectGest product (FAQ, privacy, data deletion and terms) is not part of this document \u2014 see the Solutions section of this site."},
@@ -87,7 +87,7 @@ B.aFL.prototype={
 geB(){return"Politica de privacidad, datos, cookies y terminos Perfect Gest Dev"},
 gi5(){return"Privacidad y terminos"},
 gi7(){return"Perfect Gest Dev"},
-gkA(){return"Politica de privacidad, datos personales, cookies y terminos de uso"},
+gkB(){return"Politica de privacidad, datos personales, cookies y terminos de uso"},
 qj(d){return"Ultima actualizacion: documento institucional. Si tiene dudas sobre el tratamiento de datos, contacte: "+d+"."},
 got(){return"1. Quienes somos"},
 gos(){return"Este documento se aplica al sitio institucional https://perfectgestdev.com, operado por Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA). Somos una software house de desarrollo movil, web y escritorio. Cubre cookies, medicion de audiencia, formulario de pre-registro y contacto en este sitio \u2014 no la aplicacion movil. La documentacion legal del producto PerfectGest (FAQ, privacidad, eliminacion de datos y terminos) no forma parte de este documento \u2014 consulte la seccion Soluciones de este sitio."},
@@ -131,9 +131,9 @@ if(w==null){w=s.p
 if(w==null)w=s.k3}w=A.fi(w.ae(0.4),1)
 v=r<360
 u=v?15:16
-u=A.v(p,t,t,t,t,A.b0().$3$color$fontSize$fontWeight(s.b,u,C.a7),t,t)
+u=A.v(p,t,t,t,t,A.b0().$3$color$fontSize$fontWeight(s.b,u,C.a8),t,t)
 v=v?13:14
-return new A.an(G.rK,A.aF(t,t,t,A.cV(new A.an(new A.a1(q,16,q,18),A.aY(A.b([u,C.b_,A.v(this.d,t,t,t,t,A.b0().$3$color$fontSize$height(s.k3.ae(0.88),v,1.55),t,t)],y.e),C.F,C.n,C.o),t),new A.bE(o,t,w,x,t,t,C.P),C.ad),!0,t,t,!1,t,!1,t,t,t,t,t,t,t,t,p,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,C.p,t),t)}}
+return new A.an(G.rK,A.aF(t,t,t,A.cV(new A.an(new A.a1(q,16,q,18),A.aY(A.b([u,C.b_,A.v(this.d,t,t,t,t,A.b0().$3$color$fontSize$height(s.k3.ae(0.88),v,1.55),t,t)],y.e),C.F,C.n,C.o),t),new A.bE(o,t,w,x,t,t,C.Q),C.ad),!0,t,t,!1,t,!1,t,t,t,t,t,t,t,t,p,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,C.p,t),t)}}
 var z=a.updateTypes([])
 B.aCP.prototype={
 $0(){return A.c0(this.a,!1).dh()},
@@ -146,13 +146,13 @@ w=a9.a
 v=a9.b
 u=a9.c
 t=u.b
-s=A.v(v.gi7(),b0,b0,b0,b0,A.b0().$4$color$fontSize$fontWeight$letterSpacing(t,13,C.a7,0.4),b0,b0)
-r=v.gkA()
+s=A.v(v.gi7(),b0,b0,b0,b0,A.b0().$4$color$fontSize$fontWeight$letterSpacing(t,13,C.a8,0.4),b0,b0)
+r=v.gkB()
 q=a9.d
 p=q<400
 o=p?18:22
 n=u.k3
-o=A.v(r,b0,b0,b0,b0,A.b0().$4$color$fontSize$fontWeight$height(n,o,C.a8,1.2),b0,b0)
+o=A.v(r,b0,b0,b0,b0,A.b0().$4$color$fontSize$fontWeight$height(n,o,C.a5,1.2),b0,b0)
 r=A.v(v.qj(b1),b0,b0,b0,b0,A.b0().$3$color$fontSize$height(n.ae(0.72),13,1.45),b0,b0)
 m=v.got()
 l=v.gos()
@@ -176,11 +176,11 @@ if(a5==null){u=u.p
 if(u==null)u=n}else u=a5
 u=A.fi(u.ae(0.45),1)
 p=p?14:16
-a5=A.v(v.gNi(),b0,b0,b0,b0,A.b0().$3$color$fontSize$fontWeight(n,14,C.a7),b0,b0)
+a5=A.v(v.gNi(),b0,b0,b0,b0,A.b0().$3$color$fontSize$fontWeight(n,14,C.a8),b0,b0)
 a6=A.v(v.gNh(),b0,b0,b0,b0,A.b0().$3$color$fontSize$height(n.ae(0.8),12.5,1.45),b0,b0)
 a7=a9.e
 a8=y.e
-return A.f6(A.dw(new A.cN(new A.a6(0,x,0,1/0),A.aY(A.b([s,C.av,o,C.b_,r,C.eR,new B.lq(m,l,b0),new B.lq(k,j,b0),new B.lq(i,h,b0),new B.lq(g,f,b0),new B.lq(e,d,b0),new B.lq(a0,a1,b0),new B.lq(a2,a3,b0),C.cx,A.cV(new A.an(new A.a1(p,p,p,p),A.aY(A.b([a5,C.Q,a6,C.aq,A.hj(C.bp,A.b([A.aLO(D.T8,A.v(q<360?v.gM4():v.gM3(),b0,b0,b0,b0,b0,C.cz,b0),new B.aCN(b3,v),b0),new A.CR(!1,new B.aCO(b3,a7),b0,b0,b0,b0,b0,b0,!1,b0,!0,b0,A.v(a7.gwY(),b0,b0,b0,b0,b0,b0,b0),b0)],a8),C.cm,8,8)],a8),C.an,C.n,C.o),b0),new A.bE(t,b0,u,a4,b0,b0,C.P),C.ad),C.pb,A.v(a7.t_(A.l2(new A.ei(Date.now(),0,!1))),b0,b0,b0,b0,A.b0().$2$color$fontSize(n.ae(0.65),12),C.cz,b0)],a8),C.F,C.n,C.o),b0),b0,b0),b0,new A.a1(w,16,w,28),C.ac)},
+return A.f6(A.dw(new A.cN(new A.a6(0,x,0,1/0),A.aY(A.b([s,C.av,o,C.b_,r,C.eR,new B.lq(m,l,b0),new B.lq(k,j,b0),new B.lq(i,h,b0),new B.lq(g,f,b0),new B.lq(e,d,b0),new B.lq(a0,a1,b0),new B.lq(a2,a3,b0),C.cx,A.cV(new A.an(new A.a1(p,p,p,p),A.aY(A.b([a5,C.P,a6,C.aq,A.hj(C.bp,A.b([A.aLO(D.T8,A.v(q<360?v.gM4():v.gM3(),b0,b0,b0,b0,b0,C.cz,b0),new B.aCN(b3,v),b0),new A.CR(!1,new B.aCO(b3,a7),b0,b0,b0,b0,b0,b0,!1,b0,!0,b0,A.v(a7.gwY(),b0,b0,b0,b0,b0,b0,b0),b0)],a8),C.cm,8,8)],a8),C.an,C.n,C.o),b0),new A.bE(t,b0,u,a4,b0,b0,C.Q),C.ad),C.pb,A.v(a7.t_(A.l2(new A.ei(Date.now(),0,!1))),b0,b0,b0,b0,A.b0().$2$color$fontSize(n.ae(0.65),12),C.cz,b0)],a8),C.F,C.n,C.o),b0),b0,b0),b0,new A.a1(w,16,w,28),C.ac)},
 $S:133}
 B.aCN.prototype={
 $0(){var x,w=null
@@ -209,4 +209,4 @@ D.NT=new B.aFL()
 D.NU=new B.aFM()
 D.Sq=new A.bf(57690,"MaterialIcons",!1)
 D.T8=new A.cF(D.Sq,20,null,null,null)})()};
-(a=>{a["D0u8jB2fOvID7dDQOJBZdda4IlQ="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["Gt1YCZUv1Jjjr88BpvixKXqhThk="]=a.current})($__dart_deferred_initializers__);

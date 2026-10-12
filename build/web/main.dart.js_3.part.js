@@ -15,13 +15,13 @@ A.MQ.prototype={
 D(d){var x,w=null,v=B.w(d),u=A.aT3(d)
 v=v.ax.k3
 x=B.b0().$3$color$fontSize$height(v.ae(0.72),11.5,1.4)
-return B.aY(B.b([B.v("PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA",w,w,w,w,B.b0().$4$color$fontSize$fontWeight$height(v.ae(0.85),12,D.a7,1.3),w,w),D.eT,B.v(u.gOz()+" 66.889.409/0001-19",w,w,w,w,x,w,w),D.ls,B.v(u.gOC()+" +55 51 989045442",w,w,w,w,x,w,w),D.ls,B.v("Caxias do Sul \u2014 RS \u2014 Brasil",w,w,w,w,x,w,w)],y.e),D.F,D.n,D.o)}}
+return B.aY(B.b([B.v("PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA",w,w,w,w,B.b0().$4$color$fontSize$fontWeight$height(v.ae(0.85),12,D.a8,1.3),w,w),D.eT,B.v(u.gOz()+" 66.889.409/0001-19",w,w,w,w,x,w,w),D.ls,B.v(u.gOC()+" +55 51 989045442",w,w,w,w,x,w,w),D.ls,B.v("Caxias do Sul \u2014 RS \u2014 Brasil",w,w,w,w,x,w,w)],y.e),D.F,D.n,D.o)}}
 A.ari.prototype={}
 A.aFS.prototype={
 geB(){return"Etica e compliance Perfect Gest Dev"},
 gi5(){return"\xc9tica e Compliance"},
 gi7(){return"Perfect Gest Dev"},
-gkA(){return"\xc9tica, conformidade e devolu\xe7\xf5es (site vitrine)"},
+gkB(){return"\xc9tica, conformidade e devolu\xe7\xf5es (site vitrine)"},
 qj(d){return"\xdaltima atualiza\xe7\xe3o: documento institucional. Para solicitar reembolso, cancelamento ou esclarecimentos sobre o produto PerfectGest, contacte: "+d+"."},
 got(){return"1. Escopo (site vitrine)"},
 gos(){return"Este site \xe9 a vitrine institucional de Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA), em https://perfectgestdev.com. As vendas e pagamentos do produto PerfectGest n\xe3o s\xe3o processados neste site \u2014 ocorrem no canal de distribui\xe7\xe3o oficial do produto ou por acordo comercial directo connosco. Publicamos esta pol\xedtica em favor da transpar\xeancia com o nosso p\xfablico e utilizadores."},
@@ -37,7 +37,7 @@ A.aFQ.prototype={
 geB(){return"Ethics and compliance Perfect Gest Dev"},
 gi5(){return"Ethics & Compliance"},
 gi7(){return"Perfect Gest Dev"},
-gkA(){return"Ethics, compliance and returns (showcase website)"},
+gkB(){return"Ethics, compliance and returns (showcase website)"},
 qj(d){return"Last updated: institutional document. To request a refund, cancellation, or clarification about PerfectGest, contact: "+d+"."},
 got(){return"1. Scope (showcase website)"},
 gos(){return"This website is the institutional showcase of Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA) at https://perfectgestdev.com. Sales and payments for PerfectGest are not processed on this site \u2014 they happen through the product's official distribution channel or a direct commercial agreement with us. We publish this policy for transparency with our audience and users."},
@@ -53,7 +53,7 @@ A.aFR.prototype={
 geB(){return"Etica y cumplimiento Perfect Gest Dev"},
 gi5(){return"\xc9tica y cumplimiento"},
 gi7(){return"Perfect Gest Dev"},
-gkA(){return"\xc9tica, cumplimiento y devoluciones (sitio vitrina)"},
+gkB(){return"\xc9tica, cumplimiento y devoluciones (sitio vitrina)"},
 qj(d){return"\xdaltima actualizaci\xf3n: documento institucional. Para solicitar reembolso, cancelaci\xf3n o aclaraciones sobre PerfectGest, contacte: "+d+"."},
 got(){return"1. Alcance (sitio vitrina)"},
 gos(){return"Este sitio es la vitrina institucional de Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA), en https://perfectgestdev.com. Las ventas y pagos del producto PerfectGest no se procesan en este sitio \u2014 ocurren en el canal de distribuci\xf3n oficial del producto o por acuerdo comercial directo con nosotros. Publicamos esta pol\xedtica en favor de la transparencia con nuestro p\xfablico y usuarios."},
@@ -75,4 +75,4 @@ C.NZ=new A.aFR()
 C.O_=new A.aFS()
 C.rl=new A.MQ(null)
 C.K2=new B.cZ(null,60,null,null)})()};
-(a=>{a["32kdb+ZeoSiOPGoV+sbNkgzTJDs="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["yHSgmsJdDVHH+SryEafjsQi+VCA="]=a.current})($__dart_deferred_initializers__);

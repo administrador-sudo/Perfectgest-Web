@@ -29,6 +29,7 @@ abstract class SiteContabilidadeFunilTexts {
   String get heroHeadline;
   String get heroHeadlineEmit;
   String get heroLead;
+  String get heroLeadOffice;
   String get ctaKnowApp;
   String get ctaSeePlans;
   String get ctaChoosePlan;
@@ -187,6 +188,10 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
   @override
   String get heroLead =>
       'Todos os serviços de contabilidade como: Contas a receber, contas a pagar, Pró-labore, Retirada de lucros, Folha de pagamento e Imposto de renda.';
+
+  @override
+  String get heroLeadOffice =>
+      'Para usar os serviços do escritório é necessário ter a assinatura do app e o plano do escritório de contabilidade.';
 
   @override
   String get ctaKnowApp => 'Conhecer o app';
@@ -753,7 +758,6 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
           ],
         'fidelizado' => const <String>[
             'Para Microempreendedor Individual (MEI)',
-            'Honorários à vista anual R\$ 456,99 (12 × R\$ 40,00 = R\$ 480,00, desconto de R\$ 23,01)',
             'Autocontabilidade no aplicativo',
             'Livro Caixa',
             'Contas a receber e a pagar',
@@ -846,6 +850,10 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
   @override
   String get heroLead =>
       'All accounting services such as: accounts receivable, accounts payable, owner drawings, profit withdrawals, payroll and income tax.';
+
+  @override
+  String get heroLeadOffice =>
+      'To use the office services you need the app subscription and the accounting office plan.';
 
   @override
   String get ctaKnowApp => 'Try the app';
@@ -1410,7 +1418,6 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
           ],
         'fidelizado' => const <String>[
             'For Individual Microentrepreneurs (MEI)',
-            'Annual cash fees R\$ 456.99 (12 × R\$ 40.00 = R\$ 480.00, R\$ 23.01 off)',
             'Self-accounting in the app',
             'Cash book',
             'Accounts receivable and payable',
@@ -1503,6 +1510,10 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
   @override
   String get heroLead =>
       'Todos los servicios de contabilidad como: cuentas por cobrar, cuentas por pagar, pro-labore, retiro de utilidades, nómina e impuesto de renta.';
+
+  @override
+  String get heroLeadOffice =>
+      'Para usar los servicios del despacho es necesario tener la suscripción de la app y el plan del despacho de contabilidad.';
 
   @override
   String get ctaKnowApp => 'Conocer la app';
@@ -2067,7 +2078,6 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
           ],
         'fidelizado' => const <String>[
             'Para Microemprendedor Individual (MEI)',
-            'Honorarios al contado anual R\$ 456,99 descuento de R\$ 23,01)',
             'Autocontabilidad en la aplicación',
             'Libro de caja',
             'Cuentas por cobrar y por pagar',

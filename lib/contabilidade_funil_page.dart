@@ -1248,6 +1248,11 @@ class _HeroBlock extends StatelessWidget {
             st.heroLead,
             style: siteBodyTextStyle(context, fontSize: 13, height: 1.4),
           ),
+          const SizedBox(height: 8),
+          Text(
+            st.heroLeadOffice,
+            style: siteBodyTextStyle(context, fontSize: 13, height: 1.4).copyWith(fontWeight: FontWeight.w800),
+          ),
           const SizedBox(height: 16),
           Wrap(
             spacing: 10,

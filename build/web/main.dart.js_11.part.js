@@ -38,26 +38,26 @@ B.bP.prototype={}
 B.arj.prototype={}
 B.aFV.prototype={
 geB(){return"Tecnologias Flutter e stack principal da Perfect Gest Dev"},
-gPS(){return"Stack Flutter e tecnologias da Perfect Gest Dev"},
+gPT(){return"Stack Flutter e tecnologias da Perfect Gest Dev"},
 gPN(){return"Nossa estrat\xe9gia t\xe9cnica conecta arquitetura, dados, experi\xeancia de utiliza\xe7\xe3o e opera\xe7\xe3o cont\xednua. Cada componente abaixo foi pensado para funcionar em conjunto, reduzindo riscos e acelerando entregas com qualidade previs\xedvel."},
 gPO(){return"Fluxo integrado: base t\xe9cnica s\xf3lida -> dados confi\xe1veis -> experi\xeancia consistente -> opera\xe7\xe3o mensur\xe1vel. Assim, cada decis\xe3o refor\xe7a a pr\xf3xima etapa e mant\xe9m coer\xeancia entre discurso comercial e execu\xe7\xe3o de produto."},
-gRe(){return"Diferenciais do Portf\xf3lio"},
+gRf(){return"Diferenciais do Portf\xf3lio"},
 gN2(){return"Conceito aplicado:"},
-gr1(){return A.a8F}}
+gr1(){return A.a8D}}
 B.aFT.prototype={
 geB(){return"Flutter technologies and Perfect Gest Dev core stack"},
-gPS(){return"Flutter stack and Perfect Gest Dev technologies"},
+gPT(){return"Flutter stack and Perfect Gest Dev technologies"},
 gPN(){return"Our technical strategy connects architecture, data, user experience and continuous operations. Each component below is designed to work together, reducing risk and accelerating predictable-quality delivery."},
 gPO(){return"Integrated flow: solid technical foundation -> reliable data -> consistent experience -> measurable operations. Each decision reinforces the next and keeps commercial narrative aligned with product execution."},
-gRe(){return"Portfolio differentiators"},
+gRf(){return"Portfolio differentiators"},
 gN2(){return"Applied concept:"},
 gr1(){return A.a9k}}
 B.aFU.prototype={
 geB(){return"Tecnologias Flutter y stack principal de Perfect Gest Dev"},
-gPS(){return"Stack Flutter y tecnologias de Perfect Gest Dev"},
+gPT(){return"Stack Flutter y tecnologias de Perfect Gest Dev"},
 gPN(){return"Nuestra estrategia tecnica conecta arquitectura, datos, experiencia de uso y operacion continua. Cada componente debajo esta pensado para funcionar junto, reducir riesgos y acelerar entregas con calidad previsible."},
 gPO(){return"Flujo integrado: base tecnica solida -> datos fiables -> experiencia consistente -> operacion medible. Asi, cada decision refuerza la siguiente y mantiene coherencia entre discurso comercial y ejecucion de producto."},
-gRe(){return"Diferenciales del portafolio"},
+gRf(){return"Diferenciales del portafolio"},
 gN2(){return"Concepto aplicado:"},
 gr1(){return A.a9g}}
 B.oI.prototype={
@@ -78,7 +78,7 @@ $.a2.k4$.push(new B.aGm(this))},
 l(){this.d.l()
 C.pl()
 this.aM()},
-aqU(){var w=this,v=C.az(["clean-arch",w.e,"seguranca",w.f,"escala",w.r,"full-stack",w.w],x.w,x.d).h(0,w.a.d),u=v==null?null:$.a2.ao$.x.h(0,v)
+aqV(){var w=this,v=C.az(["clean-arch",w.e,"seguranca",w.f,"escala",w.r,"full-stack",w.w],x.w,x.d).h(0,w.a.d),u=v==null?null:$.a2.ao$.x.h(0,v)
 if(u==null)return
 C.ap9(u,0.24,D.oH,D.dp,D.rD)},
 D(d){var w,v,u,t,s,r,q,p,o,n,m,l=this,k=null,j=C.w(d).ax,i=C.b1(d,D.at,x.x).w.a.a<400,h=i?16:24,g=C.c5(d,D.aB,x.F)
@@ -91,15 +91,15 @@ t=C.w(d).ax.a===D.E?D.bB:D.bj
 s=(C.w(d).ax.a===D.E?D.bB:D.bj).ae(0.96)
 r=C.eA(!1,k,k,k,C.ck(D.jL,j.b,k,k),k,k,new B.aGl(d),k,k,k,g.gEo())
 q=j.k3
-p=C.v(g.gEX(),k,k,k,k,C.b0().$2$color$fontWeight(q,D.a7),k,k)
+p=C.v(g.gEX(),k,k,k,k,C.b0().$2$color$fontWeight(q,D.a8),k,k)
 o=x.u
 n=C.b([],o)
 l.a.toString
 s=C.a9i(n,s,r,D.v,p)
-r=w.gPS()
-r=C.b([C.v(r,k,k,k,k,C.b0().$4$color$fontSize$fontWeight$height(q,i?22:26,D.a8,1.2),k,k),D.b_,C.v(w.gPN(),k,k,k,k,C.b0().$3$color$fontSize$height(q.ae(0.82),14,1.5),k,k),D.Q,C.v(w.gPO(),k,k,k,k,C.b0().$3$color$fontSize$height(q.ae(0.8),13.6,1.5),k,k),D.bU,C.v(w.gRe(),k,k,k,k,C.b0().$3$color$fontSize$fontWeight(q,18,D.a8),k,k),D.b_],o)
+r=w.gPT()
+r=C.b([C.v(r,k,k,k,k,C.b0().$4$color$fontSize$fontWeight$height(q,i?22:26,D.a5,1.2),k,k),D.b_,C.v(w.gPN(),k,k,k,k,C.b0().$3$color$fontSize$height(q.ae(0.82),14,1.5),k,k),D.P,C.v(w.gPO(),k,k,k,k,C.b0().$3$color$fontSize$height(q.ae(0.8),13.6,1.5),k,k),D.bU,C.v(w.gRf(),k,k,k,k,C.b0().$3$color$fontSize$fontWeight(q,18,D.a5),k,k),D.b_],o)
 for(m=0;w.gr1(),m<15;++m){i=C.b([],o)
-if(m===4)i.push(D.Q)
+if(m===4)i.push(D.P)
 q=m<4?v[m]:k
 p=w.gN2()
 i.push(new B.a5V(w.gr1()[m].a,w.gr1()[m].b,w.gr1()[m].c,p,q))
@@ -113,15 +113,15 @@ if(v==null){v=p.p
 if(v==null)v=p.k3}v=C.fi(v.ae(0.35),1)
 u=p.b
 t=x.u
-s=C.b([C.v(r.c,q,q,q,q,C.b0().$3$color$fontSize$fontWeight(u,15.5,D.a7),q,q),D.av,D.ls,C.v(r.f,q,q,q,q,C.b0().$4$color$fontSize$fontWeight$height(u.ae(0.9),12.8,D.a7,1.4),q,q),C.v(r.d,q,q,q,q,C.b0().$3$color$fontSize$height(p.k3.ae(0.84),12.8,1.45),q,q)],t)
-D.b.V(s,C.b([D.Q,C.v(r.e,q,q,q,q,C.b0().$4$color$fontSize$fontWeight$height(u.ae(0.92),12.8,D.a3,1.45),q,q)],t))
-return new C.an(D.mT,C.cV(new C.an(A.R8,C.aY(s,D.F,D.n,D.o),q),new C.bE(o,q,v,w,q,q,D.P),D.ad),q)}}
+s=C.b([C.v(r.c,q,q,q,q,C.b0().$3$color$fontSize$fontWeight(u,15.5,D.a8),q,q),D.av,D.ls,C.v(r.f,q,q,q,q,C.b0().$4$color$fontSize$fontWeight$height(u.ae(0.9),12.8,D.a8,1.4),q,q),C.v(r.d,q,q,q,q,C.b0().$3$color$fontSize$height(p.k3.ae(0.84),12.8,1.45),q,q)],t)
+D.b.V(s,C.b([D.P,C.v(r.e,q,q,q,q,C.b0().$4$color$fontSize$fontWeight$height(u.ae(0.92),12.8,D.a3,1.45),q,q)],t))
+return new C.an(D.mT,C.cV(new C.an(A.R8,C.aY(s,D.F,D.n,D.o),q),new C.bE(o,q,v,w,q,q,D.Q),D.ad),q)}}
 var z=a.updateTypes([])
 B.aGm.prototype={
-$1(d){return this.a.aqU()},
+$1(d){return this.a.aqV()},
 $S:3}
 B.aGl.prototype={
-$0(){return C.c0(this.a,!1).aCd(new B.aGk())},
+$0(){return C.c0(this.a,!1).aCf(new B.aGk())},
 $S:0}
 B.aGk.prototype={
 $1(d){return d.gu1()},
@@ -156,7 +156,7 @@ A.ala=new B.bP("Integra\xe7\xf5es web e SEO t\xe9cnico","Implementamos metatags 
 A.akw=new B.bP("Analytics e consentimento (GA4)","Medi\xe7\xe3o com Google Analytics 4 integrada ao fluxo de consentimento de cookies. Isso permite an\xe1lise de comportamento com respeito \xe0 privacidade e conformidade com pol\xedticas modernas de medi\xe7\xe3o.","Exemplo pr\xe1tico: funil de convers\xe3o registra apenas eventos consentidos e orienta ajustes de UX com base em dados reais.")
 A.akC=new B.bP("Arquitetura limpa e manuten\xe7\xe3o","Priorizamos c\xf3digo organizado, componentes reutiliz\xe1veis e separa\xe7\xe3o de responsabilidades para facilitar evolu\xe7\xe3o cont\xednua do produto, redu\xe7\xe3o de bugs e menor custo de manuten\xe7\xe3o.","Exemplo pr\xe1tico: nova funcionalidade de assinatura \xe9 inclu\xedda reaproveitando componentes e reduzindo esfor\xe7o de QA.")
 A.al6=new B.bP("Integra\xe7\xf5es HTTP e servi\xe7os externos","Integramos APIs externas e servi\xe7os de dados para fluxos reais de neg\xf3cio, incluindo endpoints de back-end e servi\xe7os de observabilidade, garantindo confiabilidade operacional e evolu\xe7\xe3o orientada a m\xe9tricas.","Exemplo pr\xe1tico: monitoramos lat\xeancia e erro das APIs em produ\xe7\xe3o para agir r\xe1pido antes de impactar clientes.")
-A.a8F=w([A.akW,A.al9,A.aku,A.akJ,A.akO,A.akQ,A.akN,A.alb,A.akD,A.akZ,A.al5,A.ala,A.akw,A.akC,A.al6],x.c)
+A.a8D=w([A.akW,A.al9,A.aku,A.akJ,A.akO,A.akQ,A.akN,A.alb,A.akD,A.akZ,A.al5,A.ala,A.akw,A.akC,A.al6],x.c)
 A.akH=new B.bP("Clean Arch","Aplicamos arquitectura limpia con separacion clara de responsabilidades, capas desacopladas y componentes reutilizables. Esto acelera la evolucion del producto, mejora pruebas y reduce coste de mantenimiento.","Ejemplo practico: al cambiar una regla de presupuesto, ajustamos solo la capa de dominio sin romper la interfaz ni integraciones externas.")
 A.akA=new B.bP("Seguridad","Adoptamos buenas practicas de seguridad en autenticacion, gestion de sesion, politicas de contenido web y proteccion de datos. El objetivo es reducir riesgo operativo y aumentar la confianza en produccion.","Ejemplo practico: protegemos rutas sensibles con validacion de sesion y aplicamos CSP en web para bloquear scripts no autorizados.")
 A.aky=new B.bP("Escala","Disenamos soluciones para crecer con el negocio, con foco en rendimiento, observabilidad e integracion de servicios. La arquitectura esta preparada para mas usuarios y nuevos modulos.","Ejemplo practico: en campanas estacionales ampliamos API y cache sin rehacer la app, manteniendo estabilidad en picos de trafico.")
@@ -189,4 +189,4 @@ A.al4=new B.bP("Analytics and consent (GA4)","Measurement with Google Analytics 
 A.akV=new B.bP("Clean architecture and maintenance","We prioritize organized code, reusable components and separation of concerns to support continuous product evolution, fewer bugs and lower maintenance cost.","Practical example: a new subscription feature is added by reusing components and reducing QA effort.")
 A.akG=new B.bP("HTTP integrations and external services","We integrate external APIs and data services for real business flows, including back-end endpoints and observability services, ensuring operational reliability and metric-driven evolution.","Practical example: we monitor API latency and errors in production to act before customers are impacted.")
 A.a9k=w([A.akK,A.akv,A.akR,A.akP,A.akx,A.akI,A.akU,A.akM,A.akE,A.al0,A.al1,A.akS,A.al4,A.akV,A.akG],x.c)})()};
-(a=>{a["7+jAdTEFRF98T2YEgKlNMJw9Kh4="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["M623UC2XnfMZCErKmurpYqixv/k="]=a.current})($__dart_deferred_initializers__);

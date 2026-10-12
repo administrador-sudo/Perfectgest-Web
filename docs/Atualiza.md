@@ -2,6 +2,31 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-12 09:31] Funil: aviso do hero e cartao Fidelizado
+
+### Contexto
+- Pedido: negrito abaixo do lead e tirar honorarios a vista da lista do Fidelizado.
+
+### Arquivos alterados
+- lib/l10n/site_contabilidade_funil_texts.dart
+- lib/contabilidade_funil_page.dart
+- docs/Atualiza.md
+
+### O que foi feito
+- heroLeadOffice em negrito. Removido o segundo item do cartao Básico Fidelizado (MEI); preco no cabecalho permanece.
+
+### Risco de regressao
+- Baixo.
+
+### Validacao executada
+- Pendente: conferir hero e cartao Fidelizado.
+
+### Resultado
+- Aviso de assinatura + plano visivel. Lista Fidelizado sem a linha de honorarios.
+
+### Proximos passos recomendados
+- npm run publish-web.
+
 ## [2026-10-12 08:41] Funil: textos MEI, suporte e NFs na Faixa
 
 ### Contexto
