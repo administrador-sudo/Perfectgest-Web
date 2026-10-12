@@ -2,6 +2,31 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-12 13:33] Gmail: reverter nodemailer 10 (teste nao chegou)
+
+### Contexto
+- Unico e-mail ok: 12:55 com nodemailer 7. Depois do audit (v10) + fila queued, POST ok e caixa vazia.
+
+### Arquivos alterados
+- scripts/leads-api-server.js
+- package.json
+- docs/Atualiza.md
+
+### O que foi feito
+- nodemailer 7.0.13. Gmail via service gmail. POST volta a devolver officeSent/mailError.
+
+### Risco de regressao
+- npm audit volta a marcar nodemailer. E-mail prioridade.
+
+### Validacao executada
+- POST pos-publish: queued true, e-mail nao chegou.
+
+### Resultado
+- Precisa publish-web de novo.
+
+### Proximos passos recomendados
+- npm run publish-web. Eu testo o POST e so confirmo com officeSent true.
+
 ## [2026-10-12 13:07] SMTP Gmail: timeout 12s no teste 2
 
 ### Contexto

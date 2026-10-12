@@ -167,18 +167,29 @@ function officeAddress() {
 
 function createTransporter() {
   const nodemailer = require('nodemailer');
+  const host = String(process.env.SMTP_HOST || '').trim();
+  const user = String(process.env.SMTP_USER || '').trim();
+  const pass = String(process.env.SMTP_PASS || '').replace(/\s+/g, '');
+  const timeouts = {
+    connectionTimeout: 45000,
+    greetingTimeout: 25000,
+    socketTimeout: 45000,
+  };
+  const isGmail = /gmail/i.test(host) || /@gmail\.com$/i.test(user);
+  if (isGmail) {
+    return nodemailer.createTransport({
+      service: 'gmail',
+      auth: { user, pass },
+      ...timeouts,
+    });
+  }
   const port = Number(process.env.SMTP_PORT || 465);
   return nodemailer.createTransport({
-    host: String(process.env.SMTP_HOST || '').trim(),
+    host,
     port,
     secure: process.env.SMTP_SECURE !== 'false',
-    connectionTimeout: 45000,
-    greetingTimeout: 20000,
-    socketTimeout: 45000,
-    auth: {
-      user: String(process.env.SMTP_USER || '').trim(),
-      pass: String(process.env.SMTP_PASS || '').replace(/\s+/g, ''),
-    },
+    auth: { user, pass },
+    ...timeouts,
   });
 }
 
@@ -307,24 +318,24 @@ app.post('/api/leads', leadsLimiter, async (req, res) => {
     }
 
     const storage = await persistLead({ nome, email, comentario, locale });
-    const copiaUsuario = body.copiaUsuario === true
-    res.status(201).json({ ok: true, storage, queued: true })
-    setImmediate(() => {
-      notifyOffice({ nome, email, comentario, locale })
-        .then((ok) => {
-          if (!ok) console.warn('[leads-api] escritorio nao enviado')
-        })
-        .catch((mailErr) => {
-          console.error('[leads-api] e-mail escritorio', mailErr)
-        })
-        .then(() => {
-          if (!copiaUsuario) return undefined
-          return sendUserCopy({ nome, email, comentario, locale })
-        })
-        .catch((mailErr) => {
-          console.error('[leads-api] copia e-mail', mailErr)
-        })
-    })
+    let officeSent = false;
+    let mailError;
+    try {
+      officeSent = await notifyOffice({ nome, email, comentario, locale });
+      if (!officeSent) mailError = 'smtp_not_ready';
+    } catch (mailErr) {
+      mailError = String(mailErr && mailErr.message ? mailErr.message : mailErr).slice(0, 180);
+      console.error('[leads-api] e-mail escritorio', mailErr);
+    }
+    let copySent = false;
+    if (body.copiaUsuario === true) {
+      try {
+        copySent = await sendUserCopy({ nome, email, comentario, locale });
+      } catch (mailErr) {
+        console.error('[leads-api] copia e-mail', mailErr);
+      }
+    }
+    res.status(201).json({ ok: true, storage, copySent, officeSent, mailError });
   } catch (err) {
     console.error('[leads-api] POST /api/leads', err);
     res.status(500).json({ error: 'server_error' });
