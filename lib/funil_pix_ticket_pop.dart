@@ -296,7 +296,7 @@ class _FunilPixTicketDialog extends StatelessWidget {
                         ),
                         const SizedBox(height: 6),
                         Text(
-                          'Cobranca PIX. Paguei so avanca o funil; nao confirma o banco.',
+                          'Cobranca PIX. Depois de pagar envie o comprovante.',
                           style: const TextStyle(fontSize: 11, height: 1.4),
                         ),
                       ],

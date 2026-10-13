@@ -100825,7 +100825,7 @@ f.push(A.r("Autenticacao "+m.r,l,l,l,l,B.pu,l,l))
 r=s.length
 f.push(A.r("CRC PIX "+(r>=4?B.c.cG(s,r-4):""),l,l,l,l,B.pu,l,l))
 f.push(B.au)
-f.push(A.r("Cobranca PIX. Paguei so avanca o funil; nao confirma o banco.",l,l,l,l,B.anB,l,l))
+f.push(A.r("Cobranca PIX. Depois de pagar envie o comprovante.",l,l,l,l,B.anB,l,l))
 return A.v1(l,l,new A.cK(B.M7,A.aV(A.b([A.df(A.eZ(A.cW(new A.an(B.n_,A.aV(f,B.ak,B.n,B.o),l),new A.bE(B.OE,l,i,h,l,l,B.R),B.ad),l,B.Rp,B.a6),1),new A.an(B.Rg,A.c7(A.b([A.eb(B.aqk,new A.azx(a),l),B.iq,A.nF(B.aqn,new A.azy(a),l)],g),B.S,B.n,B.o,0),l)],g),B.S,B.n,B.o),l),l,l,l,B.ju,l,l,l)}}
 A.azw.prototype={
 $0(){var s=0,r=A.O(t.H),q,p=this,o
@@ -101371,7 +101371,7 @@ gN8(){return"Conhecer o app ContabilGest"},
 gN6(){return"Deixe seu contato. Em seguida voc\xea vai para o download na Google Play. N\xe3o \xe9 o cadastro do plano do escrit\xf3rio."},
 gN5(){return"Ir para download"},
 gN7(){return"Enviando..."},
-gNE(){return"Enviar Cadastro para o escrit\xf3rio"},
+gNE(){return"Fazer Cadastro para o escrit\xf3rio"},
 gRs(){return"Escrit\xf3rio com sistema de gerenciamento digital em Caxias do Sul/RS"},
 gRr(){return"PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA atende Microempreendedor Individual (MEI) e Microempresa (ME). Sistema de gerenciamento digital por IA, com um contador habilitado assinando os livros oficiais (PAdES). Sem 13o do contabilista. N\xe3o \xe9 aplicativo do governo: portais oficiais continuam sendo a fonte das obriga\xe7\xf5es."},
 gOl(){return"O que o app faz"},
@@ -101421,7 +101421,7 @@ gLB(){return"UF"},
 gLo(){return"Pode solicitar para outro titular: o certificado \xe9 pessoal ou empresarial e deve estar vinculado ao solicitante.\nAp\xf3s o envio, o titular tem 30 dias para a videochamada de habilita\xe7\xe3o e o download para instala\xe7\xe3o.\nConfer\xeancia QualityCert: plant\xe3o 24 horas, segunda a sexta. A PerfectGest n\xe3o garante prazos de terceiros.\nEste cadastro n\xe3o \xe9 o certificado. O arquivo .pfx s\xf3 nasce na habilita\xe7\xe3o ICP-Brasil."},
 gLs(){return"Li e aceito a politica de privacidade e autorizo o contato sobre o certificado A1 QualityCert."},
 gLK(){return"Solicita\xe7\xe3o recebida. O escrit\xf3rio entra em contato. A habilita\xe7\xe3o \xe9 na QualityCert."},
-gR3(){return"A forma de pagamento \xe9 apresentada na contrata\xe7\xe3o, com clareza e sem pressa."},
+gR3(){return"A forma de pagamento PIX."},
 gSd(){return"Estamos prontos para receber voc\xea. Confirmamos o plano e os pr\xf3ximos passos assim que o pedido chegar."},
 gOU(){return"Escolher meu plano"},
 gOT(){return"Conte um pouco da empresa. O escrit\xf3rio confirma o plano e explica a forma de pagamento na contrata\xe7\xe3o."},
@@ -101459,7 +101459,7 @@ gF7(){return"O IR \xe9 cobrado no m\xeas do imposto de renda do pr\xf3ximo ano."
 gnK(){return"Li e aceito a "},
 gnJ(){return"politica de privacidade"},
 gnL(){return" e autorizo o contato sobre honorarios e o app PerfectGest ContabilGest."},
-goO(){return"Enviar Cadastro para o Escrit\xf3rio"},
+goO(){return"Escolher e ir para o cadastro"},
 goP(){return"Enviando..."},
 gFe(){return"Resumo da proposta"},
 gRt(){return"Enviar a proposta para o escrit\xf3rio"},
@@ -101474,7 +101474,7 @@ gF3(){return"Ao enviar esta ficha, voc\xea estar\xe1 aceitando a cobran\xe7a."},
 goR(){return"Envio realizado com sucesso"},
 goQ(){return"Cadastro recebido. O escrit\xf3rio confirma o plano de honor\xe1rios. \nBaixe o ContabilGest na Google Play (Assinatura R$ 19,99/m\xeas): \n\xc9 a ferramenta de conex\xe3o necess\xe1ria para realizar e acompanhar a contabilidade em tempo real."},
 gH8(){return"Na Google Play: R$ 19,99/m\xeas"},
-H7(a){return"Enviamos uma c\xf3pia deste cadastro para "+a+"."},
+H7(a){return"Enviamos uma c\xf3pia deste cadastro para "+a},
 gH5(){return"Baixar o app na Play Store"},
 gRd(){return"Link da Play Store (ferramenta exclusiva do escrit\xf3rio):"},
 gCj(){return"Voltar ao inicio"},

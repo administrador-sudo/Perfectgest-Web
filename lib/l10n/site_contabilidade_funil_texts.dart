@@ -221,7 +221,7 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
   String get conhecerPopSending => 'Enviando...';
 
   @override
-  String get ctaChoosePlan => 'Enviar Cadastro para o escritório';
+  String get ctaChoosePlan => 'Fazer Cadastro para o escritório';
 
   @override
   String get proofTitle => 'Escritório com sistema de gerenciamento digital em Caxias do Sul/RS';
@@ -415,7 +415,7 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
 
   @override
   String get paymentLaterNote =>
-      'A forma de pagamento é apresentada na contratação, com clareza e sem pressa.';
+      'A forma de pagamento PIX.';
 
   @override
   String get urgencyNote =>
@@ -546,7 +546,7 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
       ' e autorizo o contato sobre honorarios e o app PerfectGest ContabilGest.';
 
   @override
-  String get submitLabel => 'Enviar Cadastro para o Escritório';
+  String get submitLabel => 'Escolher e ir para o cadastro';
 
   @override
   String get submittingLabel => 'Enviando...';
@@ -601,7 +601,7 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
 
   @override
   String successCopyNote(String email) =>
-      'Enviamos uma cópia deste cadastro para $email.';
+      'Enviamos uma cópia deste cadastro para $email';
 
   @override
   String get subscribeApp => 'Baixar o app na Play Store';

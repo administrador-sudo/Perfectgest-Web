@@ -2,6 +2,33 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-13 07:54] Funil: texto do botao de envio do cadastro
+
+### Contexto
+
+- Botao PT do formulario dizia "Enviar Cadastro para o Escritorio".
+
+### Arquivos alterados
+
+- lib/l10n/site_contabilidade_funil_texts.dart
+- docs/Atualiza.md
+
+### O que foi feito
+
+- submitLabel PT: "Escolher e ir para o cadastro". EN/ES iguais.
+
+### Risco de regressao
+
+- Baixo (so texto PT).
+
+### Validacao executada
+
+- Troca local; publicacao pelo operador.
+
+### Resultado
+
+- Aguardando publish-web.
+
 ## [2026-10-13 07:29] Funil cadastro: pagar acima, anexar comprovante abaixo
 
 ### Contexto
@@ -19,36 +46,54 @@ Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs,
 - Anexar comprovante (e o nome do ficheiro) ficou imediatamente abaixo.
 - Enviar proposta permanece no fim.
 
+
+
 ### Risco de regressao
 
 - Baixo (so ordem visual).
+
+
 
 ### Validacao executada
 
 - Troca local no formulario; publicacao pelo operador.
 
+
+
 ### Resultado
 
 - Aguardando publish-web.
 
+
+
 ## [2026-10-12 14:24] mail-check: detectar RESEND_API_KEY com nome irregular
+
+
 
 ### Contexto
 
 - Painel tem re_; processo Live resendKeySet false.
+
+
 
 ### Arquivos alterados
 
 - scripts/leads-api-server.js
 - docs/Atualiza.md
 
+
+
 ### O que foi feito
 
 - Ler env ignorando maiusculas/espaco. mail-check lista nomes RESEND. Log no boot.
 
+
+
 ### Risco de regressao
 
 - Baixo.
+
+
 
 ### Validacao executada
 
@@ -2827,7 +2872,7 @@ Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs,
 ### O que foi feito
 
 - MEI esconde o bloco do contador e filtra faixas mei/fidelizado.
-- ME mostra acompanhamento do contador (planos essenciais/intermediario/avancado).
+- ME mostra acompanhamento do contador (planos essenciais/Standard/avancado).
 - Cartoes agrupados em MEI vs ME.
 
 
