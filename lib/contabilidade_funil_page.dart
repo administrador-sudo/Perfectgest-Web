@@ -1055,6 +1055,15 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
             ],
             const SizedBox(height: 12),
             OutlinedButton.icon(
+              onPressed: _submitting ? null : () => _abrirPixHonorarios(st),
+              icon: const Icon(Icons.qr_code_2, size: 18),
+              label: const Text(
+                'Pagar assinatura do plano (Honorários / Serviços)',
+                textAlign: TextAlign.center,
+              ),
+            ),
+            const SizedBox(height: 8),
+            OutlinedButton.icon(
               onPressed: _submitting
                   ? null
                   : () async {
@@ -1075,15 +1084,6 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                 padding: const EdgeInsets.only(top: 4),
                 child: Text(_comp!.nome, style: const TextStyle(fontSize: 12)),
               ),
-            const SizedBox(height: 8),
-            OutlinedButton.icon(
-              onPressed: _submitting ? null : () => _abrirPixHonorarios(st),
-              icon: const Icon(Icons.qr_code_2, size: 18),
-              label: const Text(
-                'Pagar assinatura do plano (Honorários / Serviços)',
-                textAlign: TextAlign.center,
-              ),
-            ),
             const SizedBox(height: 16),
             sitePrimaryActionButton(
               context: context,

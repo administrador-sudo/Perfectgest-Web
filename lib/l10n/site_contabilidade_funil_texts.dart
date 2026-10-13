@@ -744,7 +744,7 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
         'mei' => 'Básico Microempreendedor Individual (MEI)',
         'fidelizado' => 'Básico Fidelizado (MEI)',
         'essencial' => 'Planos Contábeis Essencial (10 NFs livres para emitir)',
-        'standard' => 'Planos Contábeis Intermediário (20 NFs livres para emitir)',
+        'standard' => 'Planos Contábeis Standard (20 NFs livres para emitir)',
         'avancado' => 'Planos Contábeis Avançado (30 NFs livres para emitir)',
         _ => id,
       };
