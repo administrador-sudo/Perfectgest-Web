@@ -88,6 +88,33 @@ class _CertificadoA1PageState extends State<CertificadoA1Page> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           SiteRaisedBlock(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                const SiteHeroWordmark(),
+                                const SizedBox(height: 14),
+                                Text(
+                                  st.a1ParceiroLead,
+                                  style: siteBodyTextStyle(
+                                    context,
+                                    fontSize: 14.5,
+                                    height: 1.45,
+                                  ),
+                                ),
+                                const SizedBox(height: 10),
+                                Text(
+                                  st.a1ParceiroValor,
+                                  style: siteBodyTextStyle(
+                                    context,
+                                    fontSize: 14.5,
+                                    height: 1.45,
+                                  ).copyWith(fontWeight: FontWeight.w700),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 20),
+                          SiteRaisedBlock(
                             borderColor: kFunilA1Purple,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -133,33 +160,6 @@ class _CertificadoA1PageState extends State<CertificadoA1Page> {
                                     fontSize: 14.5,
                                     height: 1.45,
                                   ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(height: 20),
-                          SiteRaisedBlock(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: [
-                                const SiteHeroWordmark(),
-                                const SizedBox(height: 14),
-                                Text(
-                                  st.a1ParceiroLead,
-                                  style: siteBodyTextStyle(
-                                    context,
-                                    fontSize: 14.5,
-                                    height: 1.45,
-                                  ),
-                                ),
-                                const SizedBox(height: 10),
-                                Text(
-                                  st.a1ParceiroValor,
-                                  style: siteBodyTextStyle(
-                                    context,
-                                    fontSize: 14.5,
-                                    height: 1.45,
-                                  ).copyWith(fontWeight: FontWeight.w700),
                                 ),
                               ],
                             ),

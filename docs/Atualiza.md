@@ -2,6 +2,33 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-13 12:28] A1_Certificado: wordmark PerfectGest no topo
+
+### Contexto
+
+- O quadro PERFECTGESTDEV estava depois do bloco QualityCert.
+
+### Arquivos alterados
+
+- lib/certificado_a1_page.dart
+- docs/Atualiza.md
+
+### O que foi feito
+
+- Ordem: quadro PerfectGest primeiro; depois o bloco do certificado A1.
+
+### Risco de regressao
+
+- Nenhum.
+
+### Validacao executada
+
+- Ordem dos widgets conferida no ficheiro.
+
+### Resultado
+
+- Aguardando publish-web.
+
 ## [2026-10-13 11:40] A1: comprovante de pagamento obrigatorio no PIX
 
 ### Contexto
