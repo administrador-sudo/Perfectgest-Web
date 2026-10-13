@@ -42,8 +42,7 @@ Future<FunilPixTicketResult> showFunilPixTicket({
   final txid =
       '$txidPrefixo${now.year}${d2(now.month)}${d2(now.day)}${d2(now.hour)}${d2(now.minute)}';
   final payload = FunilPixEmv.payload(valor: total, txid: txid);
-  final exigeComprovante = txidPrefixo == 'A1';
-  final ok = await showDialog<FunilPixTicketResult>(
+  final ok = await showDialog<bool>(
     context: context,
     barrierDismissible: false,
     builder: (ctx) => _FunilPixTicketDialog(
@@ -52,20 +51,18 @@ Future<FunilPixTicketResult> showFunilPixTicket({
       total: total,
       payload: payload,
       txid: txid,
-      exigeComprovante: exigeComprovante,
     ),
   );
-  return ok ?? const FunilPixTicketResult(pago: false);
+  return FunilPixTicketResult(pago: ok == true);
 }
 
-class _FunilPixTicketDialog extends StatefulWidget {
+class _FunilPixTicketDialog extends StatelessWidget {
   const _FunilPixTicketDialog({
     required this.titulo,
     required this.linhas,
     required this.total,
     required this.payload,
     required this.txid,
-    required this.exigeComprovante,
   });
 
   final String titulo;
@@ -73,19 +70,9 @@ class _FunilPixTicketDialog extends StatefulWidget {
   final double total;
   final String payload;
   final String txid;
-  final bool exigeComprovante;
 
-  @override
-  State<_FunilPixTicketDialog> createState() => _FunilPixTicketDialogState();
-}
-
-class _FunilPixTicketDialogState extends State<_FunilPixTicketDialog> {
-  FunilComprovanteArquivo? _comp;
-  String? _erroComp;
-
-  String get _crc => widget.payload.length >= 4
-      ? widget.payload.substring(widget.payload.length - 4)
-      : '';
+  String get _crc =>
+      payload.length >= 4 ? payload.substring(payload.length - 4) : '';
 
   String _brl(double v) =>
       'R\$ ${v.toStringAsFixed(2).replaceAll('.', ',')}';
@@ -96,36 +83,6 @@ class _FunilPixTicketDialogState extends State<_FunilPixTicketDialog> {
       mode: LaunchMode.externalApplication,
     );
   }
-
-  Future<void> _anexar() async {
-    setState(() => _erroComp = null);
-    try {
-      final arq = await escolherComprovanteFunil();
-      if (arq != null) setState(() => _comp = arq);
-    } on StateError catch (e) {
-      setState(() => _erroComp = e.message);
-    }
-  }
-
-  void _confirmarPago() {
-    if (widget.exigeComprovante && _comp == null) {
-      setState(() => _erroComp = 'comprovante_required');
-      return;
-    }
-    Navigator.pop(
-      context,
-      FunilPixTicketResult(pago: true, comprovante: _comp),
-    );
-  }
-
-  String _txtErroComp(String code) => switch (code) {
-        'file_too_large' =>
-          'O comprovante de pagamento deve ter no maximo 2 MB.',
-        'file_type' => 'Use PDF, JPG ou PNG.',
-        'comprovante_required' =>
-          'Anexe o comprovante de pagamento para confirmar.',
-        _ => 'Nao foi possivel anexar o comprovante de pagamento.',
-      };
 
   @override
   Widget build(BuildContext context) {
@@ -195,7 +152,7 @@ class _FunilPixTicketDialogState extends State<_FunilPixTicketDialog> {
                           ),
                         ),
                         Text(
-                          widget.titulo,
+                          titulo,
                           textAlign: TextAlign.center,
                           style: const TextStyle(
                             fontWeight: FontWeight.w800,
@@ -203,7 +160,7 @@ class _FunilPixTicketDialogState extends State<_FunilPixTicketDialog> {
                           ),
                         ),
                         const SizedBox(height: 10),
-                        for (final l in widget.linhas)
+                        for (final l in linhas)
                           Padding(
                             padding: const EdgeInsets.only(bottom: 6),
                             child: Row(
@@ -238,7 +195,7 @@ class _FunilPixTicketDialogState extends State<_FunilPixTicketDialog> {
                               ),
                             ),
                             Text(
-                              _brl(widget.total),
+                              _brl(total),
                               style: const TextStyle(
                                 fontWeight: FontWeight.w800,
                                 fontSize: 16,
@@ -249,7 +206,7 @@ class _FunilPixTicketDialogState extends State<_FunilPixTicketDialog> {
                         const SizedBox(height: 12),
                         Center(
                           child: QrImageView(
-                            data: widget.payload,
+                            data: payload,
                             size: 200,
                             backgroundColor: Colors.white,
                           ),
@@ -264,7 +221,7 @@ class _FunilPixTicketDialogState extends State<_FunilPixTicketDialog> {
                         ),
                         const SizedBox(height: 4),
                         SelectableText(
-                          widget.payload,
+                          payload,
                           style: const TextStyle(
                             fontSize: 10,
                             fontFamily: 'JetBrains Mono',
@@ -276,7 +233,7 @@ class _FunilPixTicketDialogState extends State<_FunilPixTicketDialog> {
                           child: TextButton.icon(
                             onPressed: () async {
                               await Clipboard.setData(
-                                ClipboardData(text: widget.payload),
+                                ClipboardData(text: payload),
                               );
                               if (!context.mounted) return;
                               ScaffoldMessenger.of(context).showSnackBar(
@@ -338,7 +295,7 @@ class _FunilPixTicketDialogState extends State<_FunilPixTicketDialog> {
                           ),
                         ),
                         Text(
-                          'Autenticacao ${widget.txid}',
+                          'Autenticacao $txid',
                           style: const TextStyle(fontSize: 11, height: 1.35),
                         ),
                         Text(
@@ -346,44 +303,10 @@ class _FunilPixTicketDialogState extends State<_FunilPixTicketDialog> {
                           style: const TextStyle(fontSize: 11, height: 1.35),
                         ),
                         const SizedBox(height: 6),
-                        Text(
-                          widget.exigeComprovante
-                              ? 'Cobranca PIX. Anexe o comprovante de pagamento (PDF, JPG ou PNG, maximo 2 MB).'
-                              : 'Cobranca PIX. Depois de pagar envie o comprovante.',
-                          style: const TextStyle(fontSize: 11, height: 1.4),
+                        const Text(
+                          'Cobranca PIX. Depois de pagar envie o comprovante.',
+                          style: TextStyle(fontSize: 11, height: 1.4),
                         ),
-                        if (widget.exigeComprovante) ...[
-                          const SizedBox(height: 10),
-                          OutlinedButton.icon(
-                            onPressed: _anexar,
-                            icon: const Icon(Icons.attach_file, size: 18),
-                            label: Text(
-                              _comp == null
-                                  ? 'Anexar comprovante de pagamento'
-                                  : 'Trocar comprovante de pagamento',
-                            ),
-                          ),
-                          if (_comp != null)
-                            Padding(
-                              padding: const EdgeInsets.only(top: 6),
-                              child: Text(
-                                _comp!.nome,
-                                style: const TextStyle(fontSize: 12),
-                              ),
-                            ),
-                          if (_erroComp != null)
-                            Padding(
-                              padding: const EdgeInsets.only(top: 6),
-                              child: Text(
-                                _txtErroComp(_erroComp!),
-                                style: const TextStyle(
-                                  color: Color(0xFFB00020),
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 12,
-                                ),
-                              ),
-                            ),
-                        ],
                       ],
                     ),
                   ),
@@ -395,15 +318,12 @@ class _FunilPixTicketDialogState extends State<_FunilPixTicketDialog> {
               child: Row(
                 children: [
                   TextButton(
-                    onPressed: () => Navigator.pop(
-                      context,
-                      const FunilPixTicketResult(pago: false),
-                    ),
+                    onPressed: () => Navigator.pop(context, false),
                     child: const Text('Voltar'),
                   ),
                   const Spacer(),
                   FilledButton(
-                    onPressed: _confirmarPago,
+                    onPressed: () => Navigator.pop(context, true),
                     child: const Text('Paguei'),
                   ),
                 ],

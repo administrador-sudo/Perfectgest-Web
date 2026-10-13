@@ -2,6 +2,64 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-13 12:54] A1_Certificado: anexo visivel nos cartoes e-CNPJ e e-CPF
+
+### Contexto
+
+- Em producao os cartoes so tinham Adquirir, sem comprovante visivel.
+
+### Arquivos alterados
+
+- lib/certificado_a1_page.dart
+- docs/Atualiza.md
+
+### O que foi feito
+
+- Cada cartao tem Anexar comprovante de pagamento (PDF/JPG/PNG, 2 MB). Adquirir exige o ficheiro; depois PIX e pop com prefill.
+
+### Risco de regressao
+
+- Baixo. CRC Dart e Functions nao mudam.
+
+### Validacao executada
+
+- dart analyze no ficheiro.
+
+### Resultado
+
+- Aguardando publish-web.
+
+## [2026-10-13 12:45] A1: anexo no primeiro ecran do pop
+
+### Contexto
+
+- Nos cartoes Adquirir o anexo nao aparecia: estava no passo 3 e no fundo do PIX.
+
+### Arquivos alterados
+
+- lib/a1_quality_cert_pop.dart
+- lib/funil_pix_ticket_pop.dart
+- lib/certificado_a1_page.dart
+- lib/contabilidade_funil_page.dart
+- docs/Atualiza.md
+
+### O que foi feito
+
+- Botao Anexar comprovante de pagamento no passo 1 do pop (cartoes e /contabilidade). Sem ficheiro nao avanca.
+- Passo 3 so consentimento e envio. PIX A1 so QR + Paguei.
+
+### Risco de regressao
+
+- Baixo. Honorarios PIX inalterado. CRC Dart e Functions nao mudam.
+
+### Validacao executada
+
+- dart analyze nos ficheiros alterados.
+
+### Resultado
+
+- Aguardando publish-web.
+
 ## [2026-10-13 12:28] A1_Certificado: wordmark PerfectGest no topo
 
 ### Contexto

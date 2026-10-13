@@ -119,6 +119,10 @@ class _A1QualityCertPopState extends State<_A1QualityCertPop> {
     setState(() => _erro = null);
     if (_tipoTravado) {
       if (_passo == 1) {
+        if (_comp == null) {
+          setState(() => _erro = 'comprovante_required');
+          return false;
+        }
         final e = _erroIdentidade();
         if (e != null) {
           setState(() => _erro = e);
@@ -141,6 +145,10 @@ class _A1QualityCertPopState extends State<_A1QualityCertPop> {
     if (_passo == 1) {
       if (_tipo != 'PJ' && _tipo != 'PF') {
         setState(() => _erro = 'tipo_pessoa_invalid');
+        return false;
+      }
+      if (_comp == null) {
+        setState(() => _erro = 'comprovante_required');
         return false;
       }
       setState(() => _passo = 2);
@@ -260,14 +268,19 @@ class _A1QualityCertPopState extends State<_A1QualityCertPop> {
         _campo(controller: _ufCtrl, label: st.a1FieldUf, maxLen: 2),
       ];
 
-  List<Widget> _camposEnvio(SiteContabilidadeFunilTexts st) => [
+  List<Widget> _camposComprovante(SiteContabilidadeFunilTexts st) => [
         OutlinedButton.icon(
           onPressed: _enviando
               ? null
               : () async {
                   try {
                     final arq = await escolherComprovanteFunil();
-                    if (arq != null) setState(() => _comp = arq);
+                    if (arq != null) {
+                      setState(() {
+                        _comp = arq;
+                        _erro = null;
+                      });
+                    }
                   } on StateError catch (e) {
                     setState(() => _erro = e.message);
                   }
@@ -277,11 +290,21 @@ class _A1QualityCertPopState extends State<_A1QualityCertPop> {
             _comp == null ? st.comprovanteAnexar : st.comprovanteTrocar,
           ),
         ),
-        if (_comp != null)
-          Padding(
-            padding: const EdgeInsets.only(top: 4, bottom: 8),
-            child: Text(_comp!.nome, style: const TextStyle(fontSize: 12)),
+        Padding(
+          padding: const EdgeInsets.only(top: 4, bottom: 8),
+          child: Text(
+            _comp == null
+                ? st.errorForCode('comprovante_required')
+                : _comp!.nome,
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: _comp == null ? FontWeight.w600 : FontWeight.w400,
+            ),
           ),
+        ),
+      ];
+
+  List<Widget> _camposEnvio(SiteContabilidadeFunilTexts st) => [
         CheckboxListTile(
           contentPadding: EdgeInsets.zero,
           value: _consent,
@@ -351,11 +374,15 @@ class _A1QualityCertPopState extends State<_A1QualityCertPop> {
         Text(_tituloPasso(st), style: const TextStyle(fontWeight: FontWeight.w700)),
         const SizedBox(height: 10),
         if (_tipoTravado) ...[
-          if (_passo == 1) ..._camposIdentidade(st),
+          if (_passo == 1) ...[
+            ..._camposComprovante(st),
+            ..._camposIdentidade(st),
+          ],
           if (_passo == 2) ..._camposEndereco(st),
           if (_passo == 3) ..._camposEnvio(st),
         ] else ...[
           if (_passo == 1) ...[
+            ..._camposComprovante(st),
             Text(st.a1StepTipo, style: const TextStyle(fontWeight: FontWeight.w700)),
             ListTile(
               contentPadding: EdgeInsets.zero,

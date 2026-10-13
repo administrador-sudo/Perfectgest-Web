@@ -1845,19 +1845,9 @@ class A1QualityCertCard extends StatelessWidget {
                   if (!context.mounted || !pix.pago) return;
                   FunilPixSessao.a1PagoAvulso = true;
                   onPixA1Pago?.call();
-                  final base = prefillOf?.call() ?? const FunilA1Prefill();
                   await showA1QualityCertPop(
                     context,
-                    prefill: FunilA1Prefill(
-                      nome: base.nome,
-                      email: base.email,
-                      telefone: base.telefone,
-                      cnpj: base.cnpj,
-                      razao: base.razao,
-                      tipoPessoa: base.tipoPessoa,
-                      tipoTravado: base.tipoTravado,
-                      comprovante: pix.comprovante,
-                    ),
+                    prefill: prefillOf?.call() ?? const FunilA1Prefill(),
                   );
                 },
                 child: Text(
