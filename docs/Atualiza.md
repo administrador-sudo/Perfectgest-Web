@@ -2,6 +2,73 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-13 11:40] A1: comprovante de pagamento obrigatorio no PIX
+
+### Contexto
+
+- CRC ja abre o comprovante se houver path. O tiquete PIX so pedia Paguei, sem anexo, e o CRC ficava sem ficheiro.
+
+### Arquivos alterados
+
+- lib/funil_pix_ticket_pop.dart
+- lib/funil_a1_service.dart
+- lib/a1_quality_cert_pop.dart
+- lib/certificado_a1_page.dart
+- lib/contabilidade_funil_page.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- docs/Atualiza.md
+
+### O que foi feito
+
+- PIX so com `txidPrefixo == A1`: anexar PDF/JPG/PNG (max. 2 MB). Paguei exige o ficheiro.
+- Honorarios PIX (`HON`/`SRV`) continua so pago, sem anexo A1.
+- Prefill do pop A1 em /contabilidade e /A1_Certificado recebe o comprovante. Envio POST exige o ficheiro (mesmo `receberSolicitacaoA1Funil`).
+- Copy publica: comprovante de pagamento. Sem a palavra funil.
+
+### Risco de regressao
+
+- Baixo. CRC Dart e Functions nao mudam.
+
+### Validacao executada
+
+- dart analyze nos ficheiros alterados.
+
+### Resultado
+
+- Aguardando publish-web.
+
+## [2026-10-13 10:58] A1_Certificado: quadro marca + pop 3 passos sem tipo
+
+### Contexto
+
+- Cartao e-CNPJ/e-CPF nao deve pedir de novo o tipo. Quadro PerfectGest com a mesma wordmark do funil.
+
+### Arquivos alterados
+
+- lib/certificado_a1_page.dart
+- lib/a1_quality_cert_pop.dart
+- lib/funil_a1_service.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- docs/Atualiza.md
+
+### O que foi feito
+
+- Quadro com SiteHeroWordmark (PERFECTGESTDEV.png) + texto de comercializacao e parceria.
+- Pop dos cartoes: Passo 1 cadastro, Passo 2 cadastro, Passo 3 cadastro e enviar. Tipo vem do cartao.
+- Funil /contabilidade mantem escolha PJ/PF.
+
+### Risco de regressao
+
+- Baixo.
+
+### Validacao executada
+
+- dart analyze nos ficheiros alterados.
+
+### Resultado
+
+- Aguardando publish-web.
+
 ## [2026-10-13 10:23] Pagina funil /A1_Certificado
 
 ### Contexto

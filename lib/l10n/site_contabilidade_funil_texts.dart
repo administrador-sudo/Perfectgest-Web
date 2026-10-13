@@ -69,6 +69,9 @@ abstract class SiteContabilidadeFunilTexts {
   String get a1BuyCta;
   String get a1PopTitle;
   String a1StepOf(int n, int total);
+  String get a1StepCadastro1;
+  String get a1StepCadastro2;
+  String get a1StepEnviar;
   String get a1StepTipo;
   String get a1TipoPj;
   String get a1TipoPf;
@@ -101,6 +104,8 @@ abstract class SiteContabilidadeFunilTexts {
   String get a1PageCardCnpj;
   String get a1PageCardCpf;
   String get a1PageLink;
+  String get a1ParceiroLead;
+  String get a1ParceiroValor;
   String get paymentLaterNote;
   String get urgencyNote;
   String get formTitle;
@@ -350,6 +355,15 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
   String a1StepOf(int n, int total) => 'Passo $n de $total';
 
   @override
+  String get a1StepCadastro1 => 'Passo 1 cadastro';
+
+  @override
+  String get a1StepCadastro2 => 'Passo 2 cadastro';
+
+  @override
+  String get a1StepEnviar => 'Passo 3 cadastro e enviar';
+
+  @override
   String get a1StepTipo => 'Tipo de pessoa';
 
   @override
@@ -474,6 +488,17 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
 
   @override
   String get a1PageLink => 'Ver o processo completo do certificado A1';
+
+  @override
+  String get a1ParceiroLead =>
+      'A PerfectGest comercializa o certificado digital A1 QualityCert. '
+      'Clientes do escritório de contabilidade têm preço competitivo; '
+      'também vendemos a terceiros — empresas, profissionais e quem ainda não é cliente.';
+
+  @override
+  String get a1ParceiroValor =>
+      'Valorizamos a parceria com clientes e associados: processo claro, '
+      'preço justo e o escritório ao lado até a ativação na QualityCert.';
 
   @override
   String get paymentLaterNote =>
@@ -789,6 +814,8 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
         'estado_invalid' => 'Informe a UF com 2 letras.',
         'file_too_large' => 'O comprovante deve ter no maximo 2 MB.',
         'file_type' => 'Use PDF, JPG ou PNG.',
+        'comprovante_required' =>
+          'Anexe o comprovante de pagamento (PDF, JPG ou PNG, maximo 2 MB).',
         'network_error' =>
           'Nao foi possivel enviar o cadastro ao escritorio. Tente de novo; se estiver em 127.0.0.1, a Function Firebase precisa permitir essa origem.',
         'api_waking' =>
@@ -1081,6 +1108,15 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
   String a1StepOf(int n, int total) => 'Step $n of $total';
 
   @override
+  String get a1StepCadastro1 => 'Step 1 registration';
+
+  @override
+  String get a1StepCadastro2 => 'Step 2 registration';
+
+  @override
+  String get a1StepEnviar => 'Step 3 registration and send';
+
+  @override
   String get a1StepTipo => 'Person type';
 
   @override
@@ -1205,6 +1241,17 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
 
   @override
   String get a1PageLink => 'See the full A1 certificate process';
+
+  @override
+  String get a1ParceiroLead =>
+      'PerfectGest sells the A1 QualityCert digital certificate. '
+      'Accounting-office clients get a competitive price; we also sell to third parties — '
+      'companies, professionals and anyone who is not yet a client.';
+
+  @override
+  String get a1ParceiroValor =>
+      'We value the partnership with clients and associates: a clear process, '
+      'fair pricing and the office with you until QualityCert activation.';
 
   @override
   String get paymentLaterNote =>
@@ -1520,6 +1567,8 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
         'estado_invalid' => 'Enter a 2-letter state code.',
         'file_too_large' => 'The receipt must be 2 MB or smaller.',
         'file_type' => 'Use PDF, JPG or PNG.',
+        'comprovante_required' =>
+          'Attach the payment receipt (PDF, JPG or PNG, 2 MB max).',
         'network_error' =>
           'Could not send the registration. Try again; on 127.0.0.1 the Firebase Function must allow that origin.',
         'api_waking' => 'The server is starting (up to 1 min). Wait and send again.',
@@ -1810,6 +1859,15 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
   String a1StepOf(int n, int total) => 'Paso $n de $total';
 
   @override
+  String get a1StepCadastro1 => 'Paso 1 cadastro';
+
+  @override
+  String get a1StepCadastro2 => 'Paso 2 cadastro';
+
+  @override
+  String get a1StepEnviar => 'Paso 3 cadastro y enviar';
+
+  @override
   String get a1StepTipo => 'Tipo de persona';
 
   @override
@@ -1934,6 +1992,17 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
 
   @override
   String get a1PageLink => 'Ver el proceso completo del certificado A1';
+
+  @override
+  String get a1ParceiroLead =>
+      'PerfectGest comercializa el certificado digital A1 QualityCert. '
+      'Los clientes del despacho de contabilidad tienen precio competitivo; '
+      'también vendemos a terceros — empresas, profesionales y quien aún no es cliente.';
+
+  @override
+  String get a1ParceiroValor =>
+      'Valoramos la alianza con clientes y asociados: proceso claro, '
+      'precio justo y el despacho al lado hasta la activación en QualityCert.';
 
   @override
   String get paymentLaterNote =>
@@ -2249,6 +2318,8 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
         'estado_invalid' => 'Indique la UF con 2 letras.',
         'file_too_large' => 'El comprobante debe tener como maximo 2 MB.',
         'file_type' => 'Use PDF, JPG o PNG.',
+        'comprovante_required' =>
+          'Adjunte el comprobante de pago (PDF, JPG o PNG, maximo 2 MB).',
         'network_error' =>
           'No se pudo enviar el registro. Intente de nuevo; en 127.0.0.1 la Function de Firebase debe permitir ese origen.',
         'api_waking' => 'El servidor esta iniciando (puede tardar 1 min). Espere y envie de nuevo.',

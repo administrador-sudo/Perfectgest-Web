@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
+import 'funil_comprovante_pick.dart';
 import 'lead_capture_service.dart';
 
 class FunilA1Prefill {
@@ -13,6 +14,8 @@ class FunilA1Prefill {
     this.cnpj = '',
     this.razao = '',
     this.tipoPessoa = 'PJ',
+    this.tipoTravado = false,
+    this.comprovante,
   });
 
   final String nome;
@@ -22,6 +25,9 @@ class FunilA1Prefill {
   final String razao;
   /// `PJ` (e-CNPJ) ou `PF` (e-CPF).
   final String tipoPessoa;
+  /// True quando o tipo já veio do cartão e-CNPJ/e-CPF.
+  final bool tipoTravado;
+  final FunilComprovanteArquivo? comprovante;
 }
 
 /// POST do cadastro A1 QualityCert → receberSolicitacaoA1Funil.

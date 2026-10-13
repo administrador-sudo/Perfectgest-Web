@@ -10,6 +10,7 @@ import 'l10n/site_contabilidade_funil_texts.dart';
 import 'locale_controller.dart';
 import 'metallic_site_shell.dart';
 import 'seo_meta_stub.dart' if (dart.library.html) 'seo_meta_web.dart' as seo_meta;
+import 'site_hero_wordmark.dart';
 import 'site_public_urls.dart';
 import 'site_surface.dart';
 
@@ -36,7 +37,7 @@ class _CertificadoA1PageState extends State<CertificadoA1Page> {
   }
 
   Future<void> _adquirir(String tipoPessoa) async {
-    final pago = await showFunilPixTicket(
+    final pix = await showFunilPixTicket(
       context: context,
       titulo: 'Certificado A1 QualityCert',
       linhas: const [
@@ -47,11 +48,15 @@ class _CertificadoA1PageState extends State<CertificadoA1Page> {
       ],
       txidPrefixo: 'A1',
     );
-    if (!mounted || !pago) return;
+    if (!mounted || !pix.pago) return;
     FunilPixSessao.a1PagoAvulso = true;
     await showA1QualityCertPop(
       context,
-      prefill: FunilA1Prefill(tipoPessoa: tipoPessoa),
+      prefill: FunilA1Prefill(
+        tipoPessoa: tipoPessoa,
+        tipoTravado: true,
+        comprovante: pix.comprovante,
+      ),
     );
   }
 
@@ -128,6 +133,33 @@ class _CertificadoA1PageState extends State<CertificadoA1Page> {
                                     fontSize: 14.5,
                                     height: 1.45,
                                   ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 20),
+                          SiteRaisedBlock(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                const SiteHeroWordmark(),
+                                const SizedBox(height: 14),
+                                Text(
+                                  st.a1ParceiroLead,
+                                  style: siteBodyTextStyle(
+                                    context,
+                                    fontSize: 14.5,
+                                    height: 1.45,
+                                  ),
+                                ),
+                                const SizedBox(height: 10),
+                                Text(
+                                  st.a1ParceiroValor,
+                                  style: siteBodyTextStyle(
+                                    context,
+                                    fontSize: 14.5,
+                                    height: 1.45,
+                                  ).copyWith(fontWeight: FontWeight.w700),
                                 ),
                               ],
                             ),

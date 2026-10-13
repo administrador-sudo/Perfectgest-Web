@@ -52,6 +52,7 @@ class _A1QualityCertPopState extends State<_A1QualityCertPop> {
     super.initState();
     final p = widget.prefill;
     _tipo = p.tipoPessoa.trim().toUpperCase() == 'PF' ? 'PF' : 'PJ';
+    _comp = p.comprovante;
     _docCtrl = TextEditingController(text: p.cnpj);
     _razaoCtrl = TextEditingController(
       text: p.razao.trim().isNotEmpty ? p.razao : p.nome,
@@ -79,8 +80,64 @@ class _A1QualityCertPopState extends State<_A1QualityCertPop> {
 
   String _digits(String raw) => FunilA1Service.digits(raw);
 
+  bool get _tipoTravado => widget.prefill.tipoTravado;
+
+  String _tituloPasso(SiteContabilidadeFunilTexts st) {
+    if (!_tipoTravado) return st.a1StepOf(_passo, 3);
+    return switch (_passo) {
+      1 => st.a1StepCadastro1,
+      2 => st.a1StepCadastro2,
+      _ => st.a1StepEnviar,
+    };
+  }
+
+  String? _erroIdentidade() {
+    final doc = _digits(_docCtrl.text);
+    if (_tipo == 'PJ' && doc.length != 14) return 'cnpj_invalid';
+    if (_tipo == 'PF' && doc.length != 11) return 'cpf_invalid';
+    if (_razaoCtrl.text.trim().length < 2) return 'razao_invalid';
+    final mail = _emailCtrl.text.trim();
+    if (!mail.contains('@') || !mail.contains('.')) return 'email_invalid';
+    final fone = _digits(_foneCtrl.text);
+    if (fone.length < 10 || fone.length > 11) return 'telefone_invalid';
+    return null;
+  }
+
+  String? _erroEndereco() {
+    if (_digits(_cepCtrl.text).length != 8) return 'cep_invalid';
+    if (_logCtrl.text.trim().isEmpty) return 'logradouro_invalid';
+    if (_numCtrl.text.trim().isEmpty) return 'numero_invalid';
+    if (_baiCtrl.text.trim().isEmpty) return 'bairro_invalid';
+    if (_cidCtrl.text.trim().isEmpty) return 'cidade_invalid';
+    if (!RegExp(r'^[A-Za-z]{2}$').hasMatch(_ufCtrl.text.trim())) {
+      return 'estado_invalid';
+    }
+    return null;
+  }
+
   bool _avanca(SiteContabilidadeFunilTexts st) {
     setState(() => _erro = null);
+    if (_tipoTravado) {
+      if (_passo == 1) {
+        final e = _erroIdentidade();
+        if (e != null) {
+          setState(() => _erro = e);
+          return false;
+        }
+        setState(() => _passo = 2);
+        return true;
+      }
+      if (_passo == 2) {
+        final e = _erroEndereco();
+        if (e != null) {
+          setState(() => _erro = e);
+          return false;
+        }
+        setState(() => _passo = 3);
+        return true;
+      }
+      return true;
+    }
     if (_passo == 1) {
       if (_tipo != 'PJ' && _tipo != 'PF') {
         setState(() => _erro = 'tipo_pessoa_invalid');
@@ -90,27 +147,9 @@ class _A1QualityCertPopState extends State<_A1QualityCertPop> {
       return true;
     }
     if (_passo == 2) {
-      final doc = _digits(_docCtrl.text);
-      if (_tipo == 'PJ' && doc.length != 14) {
-        setState(() => _erro = 'cnpj_invalid');
-        return false;
-      }
-      if (_tipo == 'PF' && doc.length != 11) {
-        setState(() => _erro = 'cpf_invalid');
-        return false;
-      }
-      if (_razaoCtrl.text.trim().length < 2) {
-        setState(() => _erro = 'razao_invalid');
-        return false;
-      }
-      final mail = _emailCtrl.text.trim();
-      if (!mail.contains('@') || !mail.contains('.')) {
-        setState(() => _erro = 'email_invalid');
-        return false;
-      }
-      final fone = _digits(_foneCtrl.text);
-      if (fone.length < 10 || fone.length > 11) {
-        setState(() => _erro = 'telefone_invalid');
+      final e = _erroIdentidade();
+      if (e != null) {
+        setState(() => _erro = e);
         return false;
       }
       setState(() => _passo = 3);
@@ -122,32 +161,17 @@ class _A1QualityCertPopState extends State<_A1QualityCertPop> {
   Future<void> _enviar(SiteContabilidadeFunilTexts st) async {
     if (_enviando) return;
     setState(() => _erro = null);
-    if (_digits(_cepCtrl.text).length != 8) {
-      setState(() => _erro = 'cep_invalid');
-      return;
-    }
-    if (_logCtrl.text.trim().isEmpty) {
-      setState(() => _erro = 'logradouro_invalid');
-      return;
-    }
-    if (_numCtrl.text.trim().isEmpty) {
-      setState(() => _erro = 'numero_invalid');
-      return;
-    }
-    if (_baiCtrl.text.trim().isEmpty) {
-      setState(() => _erro = 'bairro_invalid');
-      return;
-    }
-    if (_cidCtrl.text.trim().isEmpty) {
-      setState(() => _erro = 'cidade_invalid');
-      return;
-    }
-    if (!RegExp(r'^[A-Za-z]{2}$').hasMatch(_ufCtrl.text.trim())) {
-      setState(() => _erro = 'estado_invalid');
+    final eEnd = _erroEndereco();
+    if (eEnd != null) {
+      setState(() => _erro = eEnd);
       return;
     }
     if (!_consent) {
       setState(() => _erro = 'consent_required');
+      return;
+    }
+    if (_comp == null) {
+      setState(() => _erro = 'comprovante_required');
       return;
     }
     setState(() => _enviando = true);
@@ -203,6 +227,70 @@ class _A1QualityCertPopState extends State<_A1QualityCertPop> {
       ),
     );
   }
+
+  List<Widget> _camposIdentidade(SiteContabilidadeFunilTexts st) => [
+        _campo(
+          controller: _docCtrl,
+          label: _tipo == 'PJ' ? st.fieldCnpj : st.a1FieldCpf,
+          keyboard: TextInputType.number,
+        ),
+        _campo(
+          controller: _razaoCtrl,
+          label: _tipo == 'PJ' ? st.fieldRazao : st.fieldName,
+        ),
+        _campo(
+          controller: _emailCtrl,
+          label: st.fieldEmail,
+          keyboard: TextInputType.emailAddress,
+        ),
+        _campo(
+          controller: _foneCtrl,
+          label: st.a1FieldPhone,
+          keyboard: TextInputType.phone,
+        ),
+      ];
+
+  List<Widget> _camposEndereco(SiteContabilidadeFunilTexts st) => [
+        _campo(controller: _cepCtrl, label: st.a1FieldCep, keyboard: TextInputType.number),
+        _campo(controller: _logCtrl, label: st.a1FieldLogradouro),
+        _campo(controller: _numCtrl, label: st.a1FieldNumero),
+        _campo(controller: _baiCtrl, label: st.a1FieldBairro),
+        _campo(controller: _compCtrl, label: st.a1FieldComplemento),
+        _campo(controller: _cidCtrl, label: st.a1FieldCidade),
+        _campo(controller: _ufCtrl, label: st.a1FieldUf, maxLen: 2),
+      ];
+
+  List<Widget> _camposEnvio(SiteContabilidadeFunilTexts st) => [
+        OutlinedButton.icon(
+          onPressed: _enviando
+              ? null
+              : () async {
+                  try {
+                    final arq = await escolherComprovanteFunil();
+                    if (arq != null) setState(() => _comp = arq);
+                  } on StateError catch (e) {
+                    setState(() => _erro = e.message);
+                  }
+                },
+          icon: const Icon(Icons.attach_file, size: 18),
+          label: Text(
+            _comp == null ? st.comprovanteAnexar : st.comprovanteTrocar,
+          ),
+        ),
+        if (_comp != null)
+          Padding(
+            padding: const EdgeInsets.only(top: 4, bottom: 8),
+            child: Text(_comp!.nome, style: const TextStyle(fontSize: 12)),
+          ),
+        CheckboxListTile(
+          contentPadding: EdgeInsets.zero,
+          value: _consent,
+          activeColor: _a1Roxo,
+          onChanged: _enviando ? null : (v) => setState(() => _consent = v ?? false),
+          title: Text(st.a1Consent, style: const TextStyle(fontSize: 13)),
+          controlAffinity: ListTileControlAffinity.leading,
+        ),
+      ];
 
   @override
   Widget build(BuildContext context) {
@@ -260,89 +348,41 @@ class _A1QualityCertPopState extends State<_A1QualityCertPop> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text(st.a1StepOf(_passo, 3), style: const TextStyle(fontWeight: FontWeight.w700)),
+        Text(_tituloPasso(st), style: const TextStyle(fontWeight: FontWeight.w700)),
         const SizedBox(height: 10),
-        if (_passo == 1) ...[
-          Text(st.a1StepTipo, style: const TextStyle(fontWeight: FontWeight.w700)),
-          ListTile(
-            contentPadding: EdgeInsets.zero,
-            dense: true,
-            title: Text(st.a1TipoPj),
-            leading: Icon(
-              _tipo == 'PJ' ? Icons.radio_button_checked : Icons.radio_button_off,
-              color: _a1Roxo,
+        if (_tipoTravado) ...[
+          if (_passo == 1) ..._camposIdentidade(st),
+          if (_passo == 2) ..._camposEndereco(st),
+          if (_passo == 3) ..._camposEnvio(st),
+        ] else ...[
+          if (_passo == 1) ...[
+            Text(st.a1StepTipo, style: const TextStyle(fontWeight: FontWeight.w700)),
+            ListTile(
+              contentPadding: EdgeInsets.zero,
+              dense: true,
+              title: Text(st.a1TipoPj),
+              leading: Icon(
+                _tipo == 'PJ' ? Icons.radio_button_checked : Icons.radio_button_off,
+                color: _a1Roxo,
+              ),
+              onTap: _enviando ? null : () => setState(() => _tipo = 'PJ'),
             ),
-            onTap: _enviando ? null : () => setState(() => _tipo = 'PJ'),
-          ),
-          ListTile(
-            contentPadding: EdgeInsets.zero,
-            dense: true,
-            title: Text(st.a1TipoPf),
-            leading: Icon(
-              _tipo == 'PF' ? Icons.radio_button_checked : Icons.radio_button_off,
-              color: _a1Roxo,
+            ListTile(
+              contentPadding: EdgeInsets.zero,
+              dense: true,
+              title: Text(st.a1TipoPf),
+              leading: Icon(
+                _tipo == 'PF' ? Icons.radio_button_checked : Icons.radio_button_off,
+                color: _a1Roxo,
+              ),
+              onTap: _enviando ? null : () => setState(() => _tipo = 'PF'),
             ),
-            onTap: _enviando ? null : () => setState(() => _tipo = 'PF'),
-          ),
-        ],
-        if (_passo == 2) ...[
-          _campo(
-            controller: _docCtrl,
-            label: _tipo == 'PJ' ? st.fieldCnpj : st.a1FieldCpf,
-            keyboard: TextInputType.number,
-          ),
-          _campo(
-            controller: _razaoCtrl,
-            label: _tipo == 'PJ' ? st.fieldRazao : st.fieldName,
-          ),
-          _campo(
-            controller: _emailCtrl,
-            label: st.fieldEmail,
-            keyboard: TextInputType.emailAddress,
-          ),
-          _campo(
-            controller: _foneCtrl,
-            label: st.a1FieldPhone,
-            keyboard: TextInputType.phone,
-          ),
-        ],
-        if (_passo == 3) ...[
-          _campo(controller: _cepCtrl, label: st.a1FieldCep, keyboard: TextInputType.number),
-          _campo(controller: _logCtrl, label: st.a1FieldLogradouro),
-          _campo(controller: _numCtrl, label: st.a1FieldNumero),
-          _campo(controller: _baiCtrl, label: st.a1FieldBairro),
-          _campo(controller: _compCtrl, label: st.a1FieldComplemento),
-          _campo(controller: _cidCtrl, label: st.a1FieldCidade),
-          _campo(controller: _ufCtrl, label: st.a1FieldUf, maxLen: 2),
-          OutlinedButton.icon(
-            onPressed: _enviando
-                ? null
-                : () async {
-                    try {
-                      final arq = await escolherComprovanteFunil();
-                      if (arq != null) setState(() => _comp = arq);
-                    } on StateError catch (e) {
-                      setState(() => _erro = e.message);
-                    }
-                  },
-            icon: const Icon(Icons.attach_file, size: 18),
-            label: Text(
-              _comp == null ? st.comprovanteAnexar : st.comprovanteTrocar,
-            ),
-          ),
-          if (_comp != null)
-            Padding(
-              padding: const EdgeInsets.only(top: 4, bottom: 8),
-              child: Text(_comp!.nome, style: const TextStyle(fontSize: 12)),
-            ),
-          CheckboxListTile(
-            contentPadding: EdgeInsets.zero,
-            value: _consent,
-            activeColor: _a1Roxo,
-            onChanged: _enviando ? null : (v) => setState(() => _consent = v ?? false),
-            title: Text(st.a1Consent, style: const TextStyle(fontSize: 13)),
-            controlAffinity: ListTileControlAffinity.leading,
-          ),
+          ],
+          if (_passo == 2) ..._camposIdentidade(st),
+          if (_passo == 3) ...[
+            ..._camposEndereco(st),
+            ..._camposEnvio(st),
+          ],
         ],
         const SizedBox(height: 8),
         Text(st.a1Avisos, style: const TextStyle(fontSize: 12, height: 1.4)),

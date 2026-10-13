@@ -235,7 +235,7 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
         ],
         txidPrefixo: 'SRV',
       );
-      if (ok && mounted) {
+      if (ok.pago && mounted) {
         setState(() => _pixHonorariosInformado = true);
       }
       return;
@@ -261,7 +261,7 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
       linhas: linhas,
       txidPrefixo: 'HON',
     );
-    if (ok && mounted) {
+    if (ok.pago && mounted) {
       setState(() => _pixHonorariosInformado = true);
     }
   }
@@ -1831,7 +1831,7 @@ class A1QualityCertCard extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
                 ),
                 onPressed: () async {
-                  final pago = await showFunilPixTicket(
+                  final pix = await showFunilPixTicket(
                     context: context,
                     titulo: 'Certificado A1 QualityCert',
                     linhas: const [
@@ -1842,12 +1842,22 @@ class A1QualityCertCard extends StatelessWidget {
                     ],
                     txidPrefixo: 'A1',
                   );
-                  if (!context.mounted || !pago) return;
+                  if (!context.mounted || !pix.pago) return;
                   FunilPixSessao.a1PagoAvulso = true;
                   onPixA1Pago?.call();
+                  final base = prefillOf?.call() ?? const FunilA1Prefill();
                   await showA1QualityCertPop(
                     context,
-                    prefill: prefillOf?.call() ?? const FunilA1Prefill(),
+                    prefill: FunilA1Prefill(
+                      nome: base.nome,
+                      email: base.email,
+                      telefone: base.telefone,
+                      cnpj: base.cnpj,
+                      razao: base.razao,
+                      tipoPessoa: base.tipoPessoa,
+                      tipoTravado: base.tipoTravado,
+                      comprovante: pix.comprovante,
+                    ),
                   );
                 },
                 child: Text(
