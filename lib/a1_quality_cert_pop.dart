@@ -51,6 +51,7 @@ class _A1QualityCertPopState extends State<_A1QualityCertPop> {
   void initState() {
     super.initState();
     final p = widget.prefill;
+    _tipo = p.tipoPessoa.trim().toUpperCase() == 'PF' ? 'PF' : 'PJ';
     _docCtrl = TextEditingController(text: p.cnpj);
     _razaoCtrl = TextEditingController(
       text: p.razao.trim().isNotEmpty ? p.razao : p.nome,

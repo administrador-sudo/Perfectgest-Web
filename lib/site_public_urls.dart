@@ -20,6 +20,9 @@ const String kContabilgestFaqPath = '/faq-contabilgest';
 /// Funil isolado de honorários (sem menu da vitrine).
 const String kContabilidadePath = '/contabilidade';
 
+/// Funil isolado do certificado A1 QualityCert (sem menu da vitrine).
+const String kCertificadoA1Path = '/A1_Certificado';
+
 const String kPreCadastroPublicUrl = '$kSitePublicOrigin$kPreCadastroPath';
 
 const String kSitePrivacyPolicyPublicUrl = '$kSitePublicOrigin$kSitePrivacyPolicyPath';
@@ -29,6 +32,8 @@ const String kSiteReturnsPolicyPublicUrl = '$kSitePublicOrigin$kSiteReturnsPolic
 const String kContabilgestFaqPublicUrl = '$kSitePublicOrigin$kContabilgestFaqPath';
 
 const String kContabilidadePublicUrl = '$kSitePublicOrigin$kContabilidadePath';
+
+const String kCertificadoA1PublicUrl = '$kSitePublicOrigin$kCertificadoA1Path';
 
 /// Políticas do produto PerfectGest-Clinica III (consulta isolada — sem navegação da vitrine).
 const String kClinicaIIIPrivacyPolicyPath = '/politica-privacidade-clinica-iii';

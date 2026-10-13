@@ -1856,6 +1856,19 @@ class A1QualityCertCard extends StatelessWidget {
                   style: const TextStyle(fontWeight: FontWeight.w700, height: 1.25),
                 ),
               ),
+              TextButton(
+                onPressed: () =>
+                    Navigator.of(context).pushNamed(kCertificadoA1Path),
+                child: Text(
+                  st.a1PageLink,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
+                    color: kFunilA1Purple,
+                  ),
+                ),
+              ),
             ],
           ),
         ),

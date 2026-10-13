@@ -16,6 +16,9 @@ routes:
     source: /contabilidade
     destination: /contabilidade.html
   - type: rewrite
+    source: /A1_Certificado
+    destination: /A1_Certificado.html
+  - type: rewrite
     source: /politica-privacidade-clinica-iii
     destination: /politica-privacidade-clinica-iii.html
   - type: rewrite

@@ -16,6 +16,8 @@ void applyContabilgestFaqSeoMetaTags() {}
 
 void applyContabilidadeFunilSeoMetaTags() {}
 
+void applyCertificadoA1SeoMetaTags() {}
+
 void applyClinicaIiiLegalSeoMetaTags(String documentTitle) {}
 
 void applyPerfectGestILegalSeoMetaTags(String documentTitle) {}

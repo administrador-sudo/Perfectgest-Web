@@ -92,6 +92,15 @@ abstract class SiteContabilidadeFunilTexts {
   String get a1Success;
   String get a1LinkQuality;
   String get a1LinkAr;
+  String get a1PageSemantics;
+  String get a1PageHeroTitle;
+  String get a1PageHeroLead;
+  String get a1PageStepsTitle;
+  String a1PageStepTitle(int n);
+  String a1PageStepBody(int n);
+  String get a1PageCardCnpj;
+  String get a1PageCardCpf;
+  String get a1PageLink;
   String get paymentLaterNote;
   String get urgencyNote;
   String get formTitle;
@@ -412,6 +421,59 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
 
   @override
   String get a1LinkAr => 'Conferência AR QualityCert';
+
+  @override
+  String get a1PageSemantics =>
+      'Certificado digital A1 QualityCert PerfectGest';
+
+  @override
+  String get a1PageHeroTitle => 'Certificado digital A1 QualityCert';
+
+  @override
+  String get a1PageHeroLead =>
+      'Para o público em geral e para quem já usa o app ContabilGest. '
+      'Adquira o e-CNPJ ou o e-CPF com o escritório PerfectGest, '
+      'preencha o cadastro e ative na QualityCert.';
+
+  @override
+  String get a1PageStepsTitle => 'Como funciona a aquisição e a ativação';
+
+  @override
+  String a1PageStepTitle(int n) => switch (n) {
+        1 => '1. Adquira o certificado',
+        2 => '2. Preencha o cadastro',
+        3 => '3. O escritório envia à QualityCert',
+        4 => '4. Link de conferência',
+        5 => '5. Você ativa o certificado',
+        6 => '6. Horário da ativação',
+        _ => '',
+      };
+
+  @override
+  String a1PageStepBody(int n) => switch (n) {
+        1 =>
+          'Escolha e-CNPJ (pessoa jurídica) ou e-CPF (pessoa física) e pague o PIX de R\$ 119,99/ano com o escritório PerfectGest.',
+        2 =>
+          'O cadastro (cupom) é enviado ao escritório PerfectGest. Não é o arquivo .pfx.',
+        3 =>
+          'O escritório encaminha os dados ao sistema da QualityCert.',
+        4 =>
+          'A QualityCert libera o link de conferência. Esse link volta para você.',
+        5 =>
+          'Use o link para a habilitação. O arquivo .pfx só nasce nessa etapa ICP-Brasil.',
+        6 =>
+          'Conferência QualityCert: plantão 24 horas, segunda a sexta. A PerfectGest não garante prazos de terceiros.',
+        _ => '',
+      };
+
+  @override
+  String get a1PageCardCnpj => 'e-CNPJ (pessoa jurídica)';
+
+  @override
+  String get a1PageCardCpf => 'e-CPF (pessoa física)';
+
+  @override
+  String get a1PageLink => 'Ver o processo completo do certificado A1';
 
   @override
   String get paymentLaterNote =>
@@ -1092,6 +1154,59 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
   String get a1LinkAr => 'QualityCert AR conference';
 
   @override
+  String get a1PageSemantics =>
+      'A1 QualityCert digital certificate PerfectGest';
+
+  @override
+  String get a1PageHeroTitle => 'A1 QualityCert digital certificate';
+
+  @override
+  String get a1PageHeroLead =>
+      'For the general public and for ContabilGest app users. '
+      'Get the e-CNPJ or e-CPF with the PerfectGest office, '
+      'complete the form and activate at QualityCert.';
+
+  @override
+  String get a1PageStepsTitle => 'How purchase and activation work';
+
+  @override
+  String a1PageStepTitle(int n) => switch (n) {
+        1 => '1. Buy the certificate',
+        2 => '2. Fill in the form',
+        3 => '3. The office sends data to QualityCert',
+        4 => '4. Conference link',
+        5 => '5. You activate the certificate',
+        6 => '6. Activation hours',
+        _ => '',
+      };
+
+  @override
+  String a1PageStepBody(int n) => switch (n) {
+        1 =>
+          'Choose e-CNPJ (company) or e-CPF (individual) and pay PIX R\$ 119.99/year with the PerfectGest office.',
+        2 =>
+          'The form (coupon) is sent to the PerfectGest office. It is not the .pfx file.',
+        3 =>
+          'The office forwards the data to the QualityCert system.',
+        4 =>
+          'QualityCert issues the conference link. That link comes back to you.',
+        5 =>
+          'Use the link for enablement. The .pfx file is created only in that ICP-Brasil step.',
+        6 =>
+          'QualityCert conference: 24-hour desk, Monday to Friday. PerfectGest does not guarantee third-party deadlines.',
+        _ => '',
+      };
+
+  @override
+  String get a1PageCardCnpj => 'e-CNPJ (legal entity)';
+
+  @override
+  String get a1PageCardCpf => 'e-CPF (individual)';
+
+  @override
+  String get a1PageLink => 'See the full A1 certificate process';
+
+  @override
   String get paymentLaterNote =>
       'Payment details are presented when you hire, clearly and without rush.';
 
@@ -1766,6 +1881,59 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
 
   @override
   String get a1LinkAr => 'Conferencia AR QualityCert';
+
+  @override
+  String get a1PageSemantics =>
+      'Certificado digital A1 QualityCert PerfectGest';
+
+  @override
+  String get a1PageHeroTitle => 'Certificado digital A1 QualityCert';
+
+  @override
+  String get a1PageHeroLead =>
+      'Para el público en general y para quien ya usa la app ContabilGest. '
+      'Adquiera el e-CNPJ o el e-CPF con el despacho PerfectGest, '
+      'complete el cadastro y active en QualityCert.';
+
+  @override
+  String get a1PageStepsTitle => 'Cómo funciona la adquisición y la activación';
+
+  @override
+  String a1PageStepTitle(int n) => switch (n) {
+        1 => '1. Adquiera el certificado',
+        2 => '2. Complete el cadastro',
+        3 => '3. El despacho envía a QualityCert',
+        4 => '4. Enlace de conferencia',
+        5 => '5. Usted activa el certificado',
+        6 => '6. Horario de activación',
+        _ => '',
+      };
+
+  @override
+  String a1PageStepBody(int n) => switch (n) {
+        1 =>
+          'Elija e-CNPJ (persona jurídica) o e-CPF (persona física) y pague el PIX de R\$ 119,99/año con el despacho PerfectGest.',
+        2 =>
+          'El cadastro (cupón) se envía al despacho PerfectGest. No es el archivo .pfx.',
+        3 =>
+          'El despacho envía los datos al sistema de QualityCert.',
+        4 =>
+          'QualityCert libera el enlace de conferencia. Ese enlace vuelve a usted.',
+        5 =>
+          'Use el enlace para la habilitación. El archivo .pfx nace solo en esa etapa ICP-Brasil.',
+        6 =>
+          'Conferencia QualityCert: plantón 24 horas, lunes a viernes. PerfectGest no garantiza plazos de terceros.',
+        _ => '',
+      };
+
+  @override
+  String get a1PageCardCnpj => 'e-CNPJ (persona jurídica)';
+
+  @override
+  String get a1PageCardCpf => 'e-CPF (persona física)';
+
+  @override
+  String get a1PageLink => 'Ver el proceso completo del certificado A1';
 
   @override
   String get paymentLaterNote =>

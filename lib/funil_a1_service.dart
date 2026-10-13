@@ -12,6 +12,7 @@ class FunilA1Prefill {
     this.telefone = '',
     this.cnpj = '',
     this.razao = '',
+    this.tipoPessoa = 'PJ',
   });
 
   final String nome;
@@ -19,6 +20,8 @@ class FunilA1Prefill {
   final String telefone;
   final String cnpj;
   final String razao;
+  /// `PJ` (e-CNPJ) ou `PF` (e-CPF).
+  final String tipoPessoa;
 }
 
 /// POST do cadastro A1 QualityCert → receberSolicitacaoA1Funil.

@@ -62,6 +62,15 @@ const String _kOgDescriptionContabilidadeFunil =
     'Pedido de honorarios no CNPJ e demo do PerfectGest ContabilGest. Assinatura do app na Play so no fim.';
 const String _kDocumentTitleContabilidadeFunil = 'Contabilidade | Perfect Gest Dev';
 
+const String _kMetaDescriptionCertificadoA1 =
+    'Certificado digital A1 e-CNPJ e e-CPF QualityCert. PIX, cadastro ao escritorio PerfectGest e ativacao por videoconferencia.';
+const String _kMetaKeywordsCertificadoA1 =
+    'certificado A1, e-CNPJ, e-CPF, QualityCert, PerfectGest, PIX';
+const String _kOgTitleCertificadoA1 = 'Certificado A1 | Perfect Gest Dev';
+const String _kOgDescriptionCertificadoA1 =
+    'Adquira o A1 com o escritorio PerfectGest. Cadastro, PIX e ativacao QualityCert 24h de segunda a sexta.';
+const String _kDocumentTitleCertificadoA1 = 'Certificado A1 | Perfect Gest Dev';
+
 void _applyHomeSeoMetaTags() {
   _syncCanonicalFromLocation();
   _upsertMeta('description', _kMetaDescriptionHome);
@@ -156,6 +165,19 @@ void applyContabilidadeFunilSeoMetaTags() {
   _upsertMetaProperty('og:type', 'website');
   _upsertMetaProperty('og:locale', 'pt_BR');
   _setDocumentTitle(_kDocumentTitleContabilidadeFunil);
+}
+
+/// Funil isolado /A1_Certificado — nao indexar (link direto apenas).
+void applyCertificadoA1SeoMetaTags() {
+  _syncCanonicalFromLocation();
+  _upsertMeta('description', _kMetaDescriptionCertificadoA1);
+  _upsertMeta('keywords', _kMetaKeywordsCertificadoA1);
+  _upsertMeta('robots', 'noindex, nofollow');
+  _upsertMetaProperty('og:title', _kOgTitleCertificadoA1);
+  _upsertMetaProperty('og:description', _kOgDescriptionCertificadoA1);
+  _upsertMetaProperty('og:type', 'website');
+  _upsertMetaProperty('og:locale', 'pt_BR');
+  _setDocumentTitle(_kDocumentTitleCertificadoA1);
 }
 
 /// Meta das paginas legais PerfectGest-Clinica III (consulta isolada).

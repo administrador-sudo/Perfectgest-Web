@@ -2,6 +2,45 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-13 10:23] Pagina funil /A1_Certificado
+
+### Contexto
+
+- Publico e usuarios do app precisavam de uma pagina propria para adquirir e ativar o A1.
+
+### Arquivos alterados
+
+- lib/certificado_a1_page.dart
+- lib/site_public_urls.dart
+- lib/main.dart
+- lib/seo_meta_web.dart
+- lib/seo_meta_stub.dart
+- scripts/legal-routes.cjs
+- lib/funil_a1_service.dart
+- lib/a1_quality_cert_pop.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- lib/contabilidade_funil_page.dart
+- docs/Atualiza.md
+
+### O que foi feito
+
+- Rota `/A1_Certificado` (SPA slug A1_Certificado), noindex.
+- Hero QualityCert, 6 passos, cartoes e-CNPJ e e-CPF (R$ 119,99), PIX + pop existentes.
+- Prefill tipoPessoa no pop. Funil de honorarios mantem o pop e ganha link para a pagina.
+- Sem mudar FunilPixEmv nem o POST Firebase.
+
+### Risco de regressao
+
+- Baixo se o PIX e o cadastro A1 do funil continuarem iguais.
+
+### Validacao executada
+
+- Codigo local; publicacao pelo operador.
+
+### Resultado
+
+- Aguardando publish-web. URL: https://perfectgestdev.com/A1_Certificado
+
 ## [2026-10-13 07:54] Funil: texto do botao de envio do cadastro
 
 ### Contexto
