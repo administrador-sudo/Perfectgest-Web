@@ -516,6 +516,14 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
   Future<void> _openProposal(SiteContabilidadeFunilTexts st) async {
     if (_submitting) return;
     if (!_formPronto()) return;
+    if (!_pixHonorariosInformado) {
+      setState(() => _errorCode = 'pix_required');
+      return;
+    }
+    if (_comp == null) {
+      setState(() => _errorCode = 'comprovante_required');
+      return;
+    }
     final mensal = _boletoMensal;
     final primeiro = _primeiroBoleto;
     await showDialog<void>(
@@ -1062,28 +1070,30 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                 textAlign: TextAlign.center,
               ),
             ),
-            const SizedBox(height: 8),
-            OutlinedButton.icon(
-              onPressed: _submitting
-                  ? null
-                  : () async {
-                      try {
-                        final arq = await escolherComprovanteFunil();
-                        if (arq != null) setState(() => _comp = arq);
-                      } on StateError catch (e) {
-                        setState(() => _errorCode = e.message);
-                      }
-                    },
-              icon: const Icon(Icons.attach_file, size: 18),
-              label: Text(
-                _comp == null ? st.comprovanteAnexar : st.comprovanteTrocar,
+            if (_pixHonorariosInformado) ...[
+              const SizedBox(height: 8),
+              OutlinedButton.icon(
+                onPressed: _submitting
+                    ? null
+                    : () async {
+                        try {
+                          final arq = await escolherComprovanteFunil();
+                          if (arq != null) setState(() => _comp = arq);
+                        } on StateError catch (e) {
+                          setState(() => _errorCode = e.message);
+                        }
+                      },
+                icon: const Icon(Icons.attach_file, size: 18),
+                label: Text(
+                  _comp == null ? st.comprovanteAnexar : st.comprovanteTrocar,
+                ),
               ),
-            ),
-            if (_comp != null)
-              Padding(
-                padding: const EdgeInsets.only(top: 4),
-                child: Text(_comp!.nome, style: const TextStyle(fontSize: 12)),
-              ),
+              if (_comp != null)
+                Padding(
+                  padding: const EdgeInsets.only(top: 4),
+                  child: Text(_comp!.nome, style: const TextStyle(fontSize: 12)),
+                ),
+            ],
             const SizedBox(height: 16),
             sitePrimaryActionButton(
               context: context,

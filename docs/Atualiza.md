@@ -2,6 +2,37 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-13 13:16] Ordem: pagar PIX, depois anexar comprovante
+
+### Contexto
+
+- O comprovante so existe depois do pagamento. Os cartoes A1 pediam anexo antes de Adquirir.
+
+### Arquivos alterados
+
+- lib/certificado_a1_page.dart
+- lib/contabilidade_funil_page.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- docs/Atualiza.md
+
+### O que foi feito
+
+- /A1_Certificado: Adquirir abre o QR; apos Paguei o pop pede o comprovante no passo 1.
+- /contabilidade honorarios: Anexar so aparece depois de Paguei no PIX HON/SRV.
+- Cartao A1 do funil ja era PIX depois pop; inalterado nessa ordem.
+
+### Risco de regressao
+
+- Baixo. CRC Dart e Functions nao mudam.
+
+### Validacao executada
+
+- dart analyze nos ficheiros alterados.
+
+### Resultado
+
+- Aguardando publish-web.
+
 ## [2026-10-13 12:54] A1_Certificado: anexo visivel nos cartoes e-CNPJ e e-CPF
 
 ### Contexto

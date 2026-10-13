@@ -814,6 +814,8 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
         'estado_invalid' => 'Informe a UF com 2 letras.',
         'file_too_large' => 'O comprovante deve ter no maximo 2 MB.',
         'file_type' => 'Use PDF, JPG ou PNG.',
+        'pix_required' =>
+          'Pague a assinatura do plano (Honorarios / Servicos) e confirme Paguei.',
         'comprovante_required' =>
           'Anexe o comprovante de pagamento (PDF, JPG ou PNG, maximo 2 MB).',
         'network_error' =>
@@ -1567,6 +1569,8 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
         'estado_invalid' => 'Enter a 2-letter state code.',
         'file_too_large' => 'The receipt must be 2 MB or smaller.',
         'file_type' => 'Use PDF, JPG or PNG.',
+        'pix_required' =>
+          'Pay the plan fee (Honorarios / Servicos) and confirm Paguei.',
         'comprovante_required' =>
           'Attach the payment receipt (PDF, JPG or PNG, 2 MB max).',
         'network_error' =>
@@ -2318,6 +2322,8 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
         'estado_invalid' => 'Indique la UF con 2 letras.',
         'file_too_large' => 'El comprobante debe tener como maximo 2 MB.',
         'file_type' => 'Use PDF, JPG o PNG.',
+        'pix_required' =>
+          'Pague la suscripcion del plan (Honorarios / Servicos) y confirme Paguei.',
         'comprovante_required' =>
           'Adjunte el comprobante de pago (PDF, JPG o PNG, maximo 2 MB).',
         'network_error' =>

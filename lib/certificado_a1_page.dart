@@ -5,7 +5,6 @@ import 'a1_quality_cert_pop.dart';
 import 'company_legal.dart';
 import 'contabilidade_funil_page.dart';
 import 'funil_a1_service.dart';
-import 'funil_comprovante_pick.dart';
 import 'funil_pix_ticket_pop.dart';
 import 'l10n/site_contabilidade_funil_texts.dart';
 import 'locale_controller.dart';
@@ -37,10 +36,7 @@ class _CertificadoA1PageState extends State<CertificadoA1Page> {
     }
   }
 
-  Future<void> _adquirir(
-    String tipoPessoa,
-    FunilComprovanteArquivo comprovante,
-  ) async {
+  Future<void> _adquirir(String tipoPessoa) async {
     final pix = await showFunilPixTicket(
       context: context,
       titulo: 'Certificado A1 QualityCert',
@@ -56,11 +52,7 @@ class _CertificadoA1PageState extends State<CertificadoA1Page> {
     FunilPixSessao.a1PagoAvulso = true;
     await showA1QualityCertPop(
       context,
-      prefill: FunilA1Prefill(
-        tipoPessoa: tipoPessoa,
-        tipoTravado: true,
-        comprovante: comprovante,
-      ),
+      prefill: FunilA1Prefill(tipoPessoa: tipoPessoa, tipoTravado: true),
     );
   }
 
@@ -211,12 +203,12 @@ class _CertificadoA1PageState extends State<CertificadoA1Page> {
                           const SizedBox(height: 20),
                           _A1OfferCard(
                             titulo: st.a1PageCardCnpj,
-                            onAdquirir: (arq) => _adquirir('PJ', arq),
+                            onAdquirir: () => _adquirir('PJ'),
                           ),
                           const SizedBox(height: 12),
                           _A1OfferCard(
                             titulo: st.a1PageCardCpf,
-                            onAdquirir: (arq) => _adquirir('PF', arq),
+                            onAdquirir: () => _adquirir('PF'),
                           ),
                           const SizedBox(height: 28),
                           _A1Footer(st: st, onHome: _goHome),
@@ -234,38 +226,11 @@ class _CertificadoA1PageState extends State<CertificadoA1Page> {
   }
 }
 
-class _A1OfferCard extends StatefulWidget {
+class _A1OfferCard extends StatelessWidget {
   const _A1OfferCard({required this.titulo, required this.onAdquirir});
 
   final String titulo;
-  final Future<void> Function(FunilComprovanteArquivo comprovante) onAdquirir;
-
-  @override
-  State<_A1OfferCard> createState() => _A1OfferCardState();
-}
-
-class _A1OfferCardState extends State<_A1OfferCard> {
-  FunilComprovanteArquivo? _comp;
-  String? _erro;
-
-  Future<void> _anexar() async {
-    setState(() => _erro = null);
-    try {
-      final arq = await escolherComprovanteFunil();
-      if (arq != null) setState(() => _comp = arq);
-    } on StateError catch (e) {
-      setState(() => _erro = e.message);
-    }
-  }
-
-  Future<void> _adquirir() async {
-    final arq = _comp;
-    if (arq == null) {
-      setState(() => _erro = 'comprovante_required');
-      return;
-    }
-    await widget.onAdquirir(arq);
-  }
+  final VoidCallback onAdquirir;
 
   @override
   Widget build(BuildContext context) {
@@ -286,7 +251,7 @@ class _A1OfferCardState extends State<_A1OfferCard> {
           ),
           const SizedBox(height: 8),
           Text(
-            widget.titulo,
+            titulo,
             style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 16),
           ),
           Text(
@@ -296,38 +261,13 @@ class _A1OfferCardState extends State<_A1OfferCard> {
           const SizedBox(height: 8),
           Text(st.a1Body, style: const TextStyle(fontSize: 13, height: 1.35)),
           const SizedBox(height: 12),
-          OutlinedButton.icon(
-            onPressed: _anexar,
-            icon: const Icon(Icons.attach_file, size: 18),
-            label: Text(
-              _comp == null ? st.comprovanteAnexar : st.comprovanteTrocar,
-            ),
-          ),
-          if (_comp != null)
-            Padding(
-              padding: const EdgeInsets.only(top: 6),
-              child: Text(_comp!.nome, style: const TextStyle(fontSize: 12)),
-            ),
-          if (_erro != null)
-            Padding(
-              padding: const EdgeInsets.only(top: 6),
-              child: Text(
-                st.errorForCode(_erro!),
-                style: const TextStyle(
-                  color: Color(0xFFB00020),
-                  fontWeight: FontWeight.w700,
-                  fontSize: 12,
-                ),
-              ),
-            ),
-          const SizedBox(height: 12),
           FilledButton(
             style: FilledButton.styleFrom(
               backgroundColor: kFunilA1Purple,
               foregroundColor: Colors.white,
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
             ),
-            onPressed: _adquirir,
+            onPressed: onAdquirir,
             child: Text(
               st.a1BuyCta,
               textAlign: TextAlign.center,
