@@ -221,7 +221,7 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
   String get conhecerPopSending => 'Enviando...';
 
   @override
-  String get ctaChoosePlan => 'Fazer Cadastro para o escritório';
+  String get ctaChoosePlan => 'Escolher este, ir para o cadastro';
 
   @override
   String get proofTitle => 'Escritório com sistema de gerenciamento digital em Caxias do Sul/RS';
@@ -415,7 +415,7 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
 
   @override
   String get paymentLaterNote =>
-      'A forma de pagamento PIX.';
+      'Forma de pagamento PIX.';
 
   @override
   String get urgencyNote =>
@@ -546,7 +546,7 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
       ' e autorizo o contato sobre honorarios e o app PerfectGest ContabilGest.';
 
   @override
-  String get submitLabel => 'Escolher e ir para o cadastro';
+  String get submitLabel => 'Enviar a solicitação';
 
   @override
   String get submittingLabel => 'Enviando...';
@@ -593,7 +593,7 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
 
   @override
   String get successBody =>
-      'Cadastro recebido. O escritório confirma o plano de honorários. \nBaixe o ContabilGest na Google Play (Assinatura R\$ 19,99/mês): \nÉ a ferramenta de conexão necessária para realizar e acompanhar a contabilidade em tempo real.';
+      'Cadastro recebido. O escritório vai configurar o plano de honorários. \nBaixe o ContabilGest na Google Play (Assinatura R\$ 19,99/mês): \nO App é a ferramenta de conexão necessária para realizar e acompanhar a contabilidade em tempo real. \n "Entre em contato com o suporte do escritório para conclir as configurações do Aplicativo"';
 
   @override
   String get successPlayNote =>
