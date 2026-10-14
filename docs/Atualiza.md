@@ -2,6 +2,66 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-14 07:48] A1: selo de 215,00 por 119,99 (44%)
+
+### Contexto
+
+- No /A1_Certificado o valor precisa mostrar de/por e o percentual ja aplicado.
+
+### Arquivos alterados
+
+- lib/certificado_a1_page.dart
+- lib/contabilidade_funil_page.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- docs/Atualiza.md
+
+### O que foi feito
+
+- Selo hero e cartoes: R\$ 215,00 riscado, R\$ 119,99/ano, 44% (215→119,99). PIX continua 119,99.
+- Trilho da pagina A1 usa selo 44%. Funil /contabilidade permanece 33%.
+
+### Risco de regressao
+
+- Nenhum no POST/PIX.
+
+### Validacao executada
+
+- dart analyze nos ficheiros alterados.
+
+### Resultado
+
+- Aguardando publish-web.
+
+## [2026-10-14 07:44] Trilho promo 33% em /contabilidade e /A1_Certificado
+
+### Contexto
+
+- Banner lateral fixo: 33% ja no preco, convite ao time PerfectGestDev e a ContabilGest.
+
+### Arquivos alterados
+
+- lib/funil_promo_trilho.dart
+- lib/contabilidade_funil_page.dart
+- lib/certificado_a1_page.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- docs/Atualiza.md
+
+### O que foi feito
+
+- Trilho esquerdo (carvao/ouro/prata) acompanha o ecran. Copy PT/EN/ES. Precos PIX e honorarios inalterados.
+
+### Risco de regressao
+
+- Baixo. Padding extra a esquerda do scroll.
+
+### Validacao executada
+
+- dart analyze nos ficheiros alterados.
+
+### Resultado
+
+- Aguardando publish-web.
+
 ## [2026-10-13 13:16] Ordem: pagar PIX, depois anexar comprovante
 
 ### Contexto

@@ -12,6 +12,7 @@ import 'funil_a1_service.dart';
 import 'funil_comprovante_pick.dart';
 import 'funil_firestore_service.dart';
 import 'funil_pix_ticket_pop.dart';
+import 'funil_promo_trilho.dart';
 import 'lead_capture_service.dart';
 import 'locale_controller.dart';
 import 'metallic_site_shell.dart';
@@ -53,7 +54,9 @@ const List<({String id, double monthly, bool highlight})> kFunilTiers =
 const double kFunilMeiAnual = 456.99;
 const double kFunilFolhaMensal = 99.99;
 const double kFunilIrAno = 49.99;
+const double kFunilA1De = 215.00;
 const double kFunilA1Ano = 119.99;
+const int kFunilA1DescontoPct = 44;
 const double kFunilAbertura = 490.00;
 const double kFunilTransformacao = 350.00;
 const double kFunilViabilidade = 100.00;
@@ -745,12 +748,19 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                   ),
                 )
               : null,
-          body: Column(
+          body: Stack(
             children: [
-              _FunilHeader(st: st),
-              Expanded(
-                child: SingleChildScrollView(
-                  padding: EdgeInsets.fromLTRB(narrow ? 16 : 24, 20, narrow ? 16 : 24, 48),
+              Column(
+                children: [
+                  _FunilHeader(st: st),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      padding: EdgeInsets.fromLTRB(
+                        FunilPromoTrilho.recuoConteudo(context, narrow),
+                        20,
+                        narrow ? 16 : 24,
+                        48,
+                      ),
                   child: Center(
                     child: ConstrainedBox(
                       constraints: const BoxConstraints(maxWidth: 720),
@@ -864,6 +874,18 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                       ),
                     ),
                   ),
+                ),
+              ),
+                ],
+              ),
+              Positioned(
+                left: 0,
+                top: 0,
+                bottom: 0,
+                child: FunilPromoTrilho(
+                  texto: st.promoTrilhoTexto,
+                  selo: st.promoTrilhoSelo,
+                  jaNoPreco: st.promoTrilhoJaNoPreco,
                 ),
               ),
             ],

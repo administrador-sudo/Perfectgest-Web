@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'a1_quality_cert_pop.dart';
+import 'brand_palette.dart';
 import 'company_legal.dart';
 import 'contabilidade_funil_page.dart';
 import 'funil_a1_service.dart';
 import 'funil_pix_ticket_pop.dart';
+import 'funil_promo_trilho.dart';
 import 'l10n/site_contabilidade_funil_texts.dart';
 import 'locale_controller.dart';
 import 'metallic_site_shell.dart';
@@ -66,17 +68,19 @@ class _CertificadoA1PageState extends State<CertificadoA1Page> {
       child: SiteBackgroundShell(
         child: Scaffold(
           backgroundColor: Colors.transparent,
-          body: Column(
+          body: Stack(
             children: [
-              _A1Header(st: st),
-              Expanded(
-                child: SingleChildScrollView(
-                  padding: EdgeInsets.fromLTRB(
-                    narrow ? 16 : 24,
-                    20,
-                    narrow ? 16 : 24,
-                    48,
-                  ),
+              Column(
+                children: [
+                  _A1Header(st: st),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      padding: EdgeInsets.fromLTRB(
+                        FunilPromoTrilho.recuoConteudo(context, narrow),
+                        20,
+                        narrow ? 16 : 24,
+                        48,
+                      ),
                   child: Center(
                     child: ConstrainedBox(
                       constraints: const BoxConstraints(maxWidth: 720),
@@ -141,13 +145,7 @@ class _CertificadoA1PageState extends State<CertificadoA1Page> {
                                     fontSize: 14,
                                   ),
                                 ),
-                                Text(
-                                  st.a1Price,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.w800,
-                                    fontSize: 18,
-                                  ),
-                                ),
+                                const _A1PrecoSelo(destaque: true),
                                 const SizedBox(height: 10),
                                 Text(
                                   st.a1PageHeroLead,
@@ -218,9 +216,90 @@ class _CertificadoA1PageState extends State<CertificadoA1Page> {
                   ),
                 ),
               ),
+                ],
+              ),
+              Positioned(
+                left: 0,
+                top: 0,
+                bottom: 0,
+                child: FunilPromoTrilho(
+                  texto: st.promoTrilhoTexto,
+                  selo: st.a1SeloPct,
+                  jaNoPreco: st.promoTrilhoJaNoPreco,
+                ),
+              ),
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class _A1PrecoSelo extends StatelessWidget {
+  const _A1PrecoSelo({this.destaque = false});
+
+  final bool destaque;
+
+  @override
+  Widget build(BuildContext context) {
+    final st = SiteContabilidadeFunilTexts.of(context);
+    final precoSize = destaque ? 18.0 : 16.0;
+    return Semantics(
+      label: '${st.a1SeloDesconto} (${kFunilA1De.toStringAsFixed(2)} → ${kFunilA1Ano.toStringAsFixed(2)})',
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
+            spacing: 8,
+            runSpacing: 6,
+            children: [
+              Text(
+                st.a1PrecoDe,
+                style: TextStyle(
+                  fontSize: destaque ? 14 : 13,
+                  color: BrandPalette.silverDark,
+                  decoration: TextDecoration.lineThrough,
+                ),
+              ),
+              Text(
+                st.a1Price,
+                style: TextStyle(
+                  fontWeight: FontWeight.w800,
+                  fontSize: precoSize,
+                ),
+              ),
+              DecoratedBox(
+                decoration: BoxDecoration(
+                  color: BrandPalette.goldWarm,
+                  borderRadius: BorderRadius.circular(6),
+                  border: Border.all(color: BrandPalette.silverMid),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                  child: Text(
+                    st.a1SeloPct,
+                    style: const TextStyle(
+                      color: BrandPalette.charcoalDeep,
+                      fontWeight: FontWeight.w800,
+                      fontSize: 12,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 4),
+          Text(
+            st.a1SeloDesconto,
+            style: const TextStyle(
+              fontSize: 13,
+              fontWeight: FontWeight.w600,
+              height: 1.3,
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -254,10 +333,7 @@ class _A1OfferCard extends StatelessWidget {
             titulo,
             style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 16),
           ),
-          Text(
-            st.a1Price,
-            style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 16),
-          ),
+          const _A1PrecoSelo(),
           const SizedBox(height: 8),
           Text(st.a1Body, style: const TextStyle(fontSize: 13, height: 1.35)),
           const SizedBox(height: 12),

@@ -64,6 +64,9 @@ abstract class SiteContabilidadeFunilTexts {
   String proposalMeiAvista(String annual);
   String proposalNfObsMei(String annual);
   String get a1Price;
+  String get a1PrecoDe;
+  String get a1SeloPct;
+  String get a1SeloDesconto;
   String get a1VideoTitle;
   String get a1Body;
   String get a1BuyCta;
@@ -106,6 +109,9 @@ abstract class SiteContabilidadeFunilTexts {
   String get a1PageLink;
   String get a1ParceiroLead;
   String get a1ParceiroValor;
+  String get promoTrilhoTexto;
+  String get promoTrilhoSelo;
+  String get promoTrilhoJaNoPreco;
   String get paymentLaterNote;
   String get urgencyNote;
   String get formTitle;
@@ -339,6 +345,16 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
   String get a1Price => 'R\$ 119,99/ano';
 
   @override
+  String get a1PrecoDe => 'R\$ 215,00';
+
+  @override
+  String get a1SeloPct => '44%';
+
+  @override
+  String get a1SeloDesconto =>
+      'de R\$ 215,00 por R\$ 119,99 | desconto de 44%';
+
+  @override
   String get a1VideoTitle => 'Videoconferência 24h';
 
   @override
@@ -417,7 +433,6 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
 
   @override
   String get a1Avisos =>
-      'Pode solicitar para outro titular: o certificado é pessoal ou empresarial e deve estar vinculado ao solicitante.\n'
       'Após o envio, o titular tem 30 dias para a videochamada de habilitação e o download para instalação.\n'
       'Conferência QualityCert: plantão 24 horas, segunda a sexta. A PerfectGest não garante prazos de terceiros.\n'
       'Este cadastro não é o certificado. O arquivo .pfx só nasce na habilitação ICP-Brasil.';
@@ -428,7 +443,7 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
 
   @override
   String get a1Success =>
-      'Solicitação recebida. O escritório entra em contato. A habilitação é na QualityCert.';
+      'Solicitação recebida. \nO escritório vai entrar em contato. \nA habilitação é na QualityCert.';
 
   @override
   String get a1LinkQuality => 'Site QualityCert';
@@ -499,6 +514,17 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
   String get a1ParceiroValor =>
       'Valorizamos a parceria com clientes e associados: processo claro, '
       'preço justo e o escritório ao lado até a ativação na QualityCert.';
+
+  @override
+  String get promoTrilhoTexto =>
+      'Os 33% de desconto já estão aplicados. Junte-se ao time PerfectGestDev '
+      'e use a ferramenta exclusiva ContabilGest.';
+
+  @override
+  String get promoTrilhoSelo => '33%';
+
+  @override
+  String get promoTrilhoJaNoPreco => 'já no preço';
 
   @override
   String get paymentLaterNote =>
@@ -1094,6 +1120,16 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
   String get a1Price => 'R\$ 119.99/year';
 
   @override
+  String get a1PrecoDe => 'R\$ 215.00';
+
+  @override
+  String get a1SeloPct => '44%';
+
+  @override
+  String get a1SeloDesconto =>
+      'from R\$ 215.00 to R\$ 119.99 | 44% off';
+
+  @override
   String get a1VideoTitle => 'Video conference 24h';
 
   @override
@@ -1254,6 +1290,17 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
   String get a1ParceiroValor =>
       'We value the partnership with clients and associates: a clear process, '
       'fair pricing and the office with you until QualityCert activation.';
+
+  @override
+  String get promoTrilhoTexto =>
+      'The 33% discount is already applied. Join the PerfectGestDev team '
+      'and use the exclusive ContabilGest tool.';
+
+  @override
+  String get promoTrilhoSelo => '33%';
+
+  @override
+  String get promoTrilhoJaNoPreco => 'already in the price';
 
   @override
   String get paymentLaterNote =>
@@ -1847,6 +1894,16 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
   String get a1Price => 'R\$ 119,99/año';
 
   @override
+  String get a1PrecoDe => 'R\$ 215,00';
+
+  @override
+  String get a1SeloPct => '44%';
+
+  @override
+  String get a1SeloDesconto =>
+      'de R\$ 215,00 por R\$ 119,99 | descuento de 44%';
+
+  @override
   String get a1VideoTitle => 'Videoconferencia 24h';
 
   @override
@@ -2007,6 +2064,17 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
   String get a1ParceiroValor =>
       'Valoramos la alianza con clientes y asociados: proceso claro, '
       'precio justo y el despacho al lado hasta la activación en QualityCert.';
+
+  @override
+  String get promoTrilhoTexto =>
+      'El 33% de descuento ya está aplicado. Únase al equipo PerfectGestDev '
+      'y use la herramienta exclusiva ContabilGest.';
+
+  @override
+  String get promoTrilhoSelo => '33%';
+
+  @override
+  String get promoTrilhoJaNoPreco => 'ya en el precio';
 
   @override
   String get paymentLaterNote =>
