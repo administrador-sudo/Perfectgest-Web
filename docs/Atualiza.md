@@ -2,6 +2,37 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-14 08:05] Selo verde nos planos + copy do trilho
+
+### Contexto
+
+- Cartaoes de plano sem selo de desconto. Frase do trilho precisa de urgencia.
+
+### Arquivos alterados
+
+- lib/funil_promo_trilho.dart
+- lib/contabilidade_funil_page.dart
+- lib/certificado_a1_page.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- docs/Atualiza.md
+
+### O que foi feito
+
+- Selo redondo verde: planos 33%, cartoes A1 44%. Texto “Já com desconto de xx%”.
+- Trilho: “Garanta 33% de desconto imediato antes que o preço volte ao normal. Clique e aproveite!”
+
+### Risco de regressao
+
+- Baixo.
+
+### Validacao executada
+
+- dart analyze nos ficheiros alterados.
+
+### Resultado
+
+- Aguardando publish-web.
+
 ## [2026-10-14 07:48] A1: selo de 215,00 por 119,99 (44%)
 
 ### Contexto

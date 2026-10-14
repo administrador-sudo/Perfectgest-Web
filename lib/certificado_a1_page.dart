@@ -314,7 +314,9 @@ class _A1OfferCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final st = SiteContabilidadeFunilTexts.of(context);
-    return SiteRaisedBlock(
+    return FunilSeloDescontoVerde.sobre(
+      texto: st.seloJaComDesconto(kFunilA1DescontoPct),
+      child: SiteRaisedBlock(
       borderColor: kFunilA1Purple,
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
       child: Column(
@@ -351,6 +353,7 @@ class _A1OfferCard extends StatelessWidget {
             ),
           ),
         ],
+      ),
       ),
     );
   }

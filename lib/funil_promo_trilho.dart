@@ -2,6 +2,76 @@ import 'package:flutter/material.dart';
 
 import 'brand_palette.dart';
 
+const Color kFunilSeloVerde = Color(0xFF1B8A4A);
+
+/// Selo redondo verde no canto do cartão.
+class FunilSeloDescontoVerde extends StatelessWidget {
+  const FunilSeloDescontoVerde({
+    super.key,
+    required this.texto,
+    this.diametro = 84,
+  });
+
+  final String texto;
+  final double diametro;
+
+  static Widget sobre({required Widget child, required String texto}) {
+    return Stack(
+      clipBehavior: Clip.none,
+      children: [
+        child,
+        Positioned(
+          top: -10,
+          right: 4,
+          child: FunilSeloDescontoVerde(texto: texto),
+        ),
+      ],
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      label: texto,
+      child: SizedBox(
+        width: diametro,
+        height: diametro,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: kFunilSeloVerde,
+            shape: BoxShape.circle,
+            border: Border.all(color: Colors.white, width: 2.4),
+            boxShadow: [
+              BoxShadow(
+                color: kFunilSeloVerde.withValues(alpha: 0.35),
+                blurRadius: 8,
+                offset: const Offset(0, 2),
+              ),
+            ],
+          ),
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.all(8),
+              child: Text(
+                texto,
+                textAlign: TextAlign.center,
+                maxLines: 4,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w800,
+                  fontSize: 10,
+                  height: 1.15,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 /// Trilho promocional fixo à esquerda (carvão / ouro / prata).
 class FunilPromoTrilho extends StatelessWidget {
   const FunilPromoTrilho({

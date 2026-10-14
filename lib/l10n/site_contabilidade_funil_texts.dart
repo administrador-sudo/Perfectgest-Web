@@ -112,6 +112,7 @@ abstract class SiteContabilidadeFunilTexts {
   String get promoTrilhoTexto;
   String get promoTrilhoSelo;
   String get promoTrilhoJaNoPreco;
+  String seloJaComDesconto(int pct);
   String get paymentLaterNote;
   String get urgencyNote;
   String get formTitle;
@@ -517,14 +518,17 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
 
   @override
   String get promoTrilhoTexto =>
-      'Os 33% de desconto já estão aplicados. Junte-se ao time PerfectGestDev '
-      'e use a ferramenta exclusiva ContabilGest.';
+      '⚠️ Garanta 33% de desconto imediato antes que o preço volte ao normal. '
+      'Clique e aproveite! ⚡';
 
   @override
   String get promoTrilhoSelo => '33%';
 
   @override
   String get promoTrilhoJaNoPreco => 'já no preço';
+
+  @override
+  String seloJaComDesconto(int pct) => 'Já com desconto de $pct%';
 
   @override
   String get paymentLaterNote =>
@@ -1293,14 +1297,17 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
 
   @override
   String get promoTrilhoTexto =>
-      'The 33% discount is already applied. Join the PerfectGestDev team '
-      'and use the exclusive ContabilGest tool.';
+      '⚠️ Get 33% off right now before the price goes back to normal. '
+      'Tap and enjoy! ⚡';
 
   @override
   String get promoTrilhoSelo => '33%';
 
   @override
   String get promoTrilhoJaNoPreco => 'already in the price';
+
+  @override
+  String seloJaComDesconto(int pct) => 'Already $pct% off';
 
   @override
   String get paymentLaterNote =>
@@ -2067,14 +2074,17 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
 
   @override
   String get promoTrilhoTexto =>
-      'El 33% de descuento ya está aplicado. Únase al equipo PerfectGestDev '
-      'y use la herramienta exclusiva ContabilGest.';
+      '⚠️ Asegure el 33% de descuento inmediato antes de que el precio vuelva '
+      'a la normalidad. Toque y aproveche! ⚡';
 
   @override
   String get promoTrilhoSelo => '33%';
 
   @override
   String get promoTrilhoJaNoPreco => 'ya en el precio';
+
+  @override
+  String seloJaComDesconto(int pct) => 'Ya con descuento de $pct%';
 
   @override
   String get paymentLaterNote =>

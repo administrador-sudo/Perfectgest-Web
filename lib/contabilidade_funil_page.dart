@@ -57,6 +57,7 @@ const double kFunilIrAno = 49.99;
 const double kFunilA1De = 215.00;
 const double kFunilA1Ano = 119.99;
 const int kFunilA1DescontoPct = 44;
+const int kFunilPromoDescontoPct = 33;
 const double kFunilAbertura = 490.00;
 const double kFunilTransformacao = 350.00;
 const double kFunilViabilidade = 100.00;
@@ -1409,8 +1410,10 @@ class _PlansTable extends StatelessWidget {
 
   Widget _planCard(({String id, double monthly, bool highlight}) t) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 10),
-      child: DecoratedBox(
+      padding: const EdgeInsets.only(bottom: 10, top: 8),
+      child: FunilSeloDescontoVerde.sobre(
+        texto: st.seloJaComDesconto(kFunilPromoDescontoPct),
+        child: DecoratedBox(
         decoration: BoxDecoration(
           color: t.highlight ? const Color(0xFFE8F3EE) : const Color(0xFFF8FAF9),
           borderRadius: BorderRadius.circular(10),
@@ -1479,6 +1482,7 @@ class _PlansTable extends StatelessWidget {
               ),
             ],
           ),
+        ),
         ),
       ),
     );
@@ -1816,8 +1820,10 @@ class A1QualityCertCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final st = SiteContabilidadeFunilTexts.of(context);
     return Padding(
-      padding: const EdgeInsets.only(bottom: 10),
-      child: DecoratedBox(
+      padding: const EdgeInsets.only(bottom: 10, top: 8),
+      child: FunilSeloDescontoVerde.sobre(
+        texto: st.seloJaComDesconto(kFunilA1DescontoPct),
+        child: DecoratedBox(
         decoration: BoxDecoration(
           color: const Color(0xFFF8FAF9),
           borderRadius: BorderRadius.circular(10),
@@ -1903,6 +1909,7 @@ class A1QualityCertCard extends StatelessWidget {
               ),
             ],
           ),
+        ),
         ),
       ),
     );
