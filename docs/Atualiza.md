@@ -2,6 +2,36 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-14 08:31] Banner 2 linhas no topo; selo abaixo do preco
+
+### Contexto
+
+- Frase nova no ar, mas 1 linha. Selo verde ainda cobria o preco.
+
+### Arquivos alterados
+
+- lib/funil_promo_trilho.dart
+- lib/contabilidade_funil_page.dart
+- lib/certificado_a1_page.dart
+- docs/Atualiza.md
+
+### O que foi feito
+
+- Banner horizontal fixo abaixo do header, duas linhas, fonte 20,4.
+- Selo verde virou faixa compacta **abaixo** do valor, sem overlay.
+
+### Risco de regressao
+
+- Baixo.
+
+### Validacao executada
+
+- dart analyze nos ficheiros alterados.
+
+### Resultado
+
+- Aguardando publish-web.
+
 ## [2026-10-14 08:21] Selo fora da linha do preco
 
 ### Contexto

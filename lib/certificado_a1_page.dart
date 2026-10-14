@@ -68,19 +68,22 @@ class _CertificadoA1PageState extends State<CertificadoA1Page> {
       child: SiteBackgroundShell(
         child: Scaffold(
           backgroundColor: Colors.transparent,
-          body: Stack(
+          body: Column(
             children: [
-              Column(
-                children: [
-                  _A1Header(st: st),
-                  Expanded(
-                    child: SingleChildScrollView(
-                      padding: EdgeInsets.fromLTRB(
-                        FunilPromoTrilho.recuoConteudo(context, narrow),
-                        20,
-                        narrow ? 16 : 24,
-                        48,
-                      ),
+              _A1Header(st: st),
+              FunilPromoTrilho(
+                texto: st.promoTrilhoTexto,
+                selo: st.a1SeloPct,
+                jaNoPreco: st.promoTrilhoJaNoPreco,
+              ),
+              Expanded(
+                child: SingleChildScrollView(
+                  padding: EdgeInsets.fromLTRB(
+                    FunilPromoTrilho.recuoConteudo(context, narrow),
+                    20,
+                    narrow ? 16 : 24,
+                    48,
+                  ),
                   child: Center(
                     child: ConstrainedBox(
                       constraints: const BoxConstraints(maxWidth: 720),
@@ -214,18 +217,6 @@ class _CertificadoA1PageState extends State<CertificadoA1Page> {
                       ),
                     ),
                   ),
-                ),
-              ),
-                ],
-              ),
-              Positioned(
-                left: 0,
-                top: 0,
-                bottom: 0,
-                child: FunilPromoTrilho(
-                  texto: st.promoTrilhoTexto,
-                  selo: st.a1SeloPct,
-                  jaNoPreco: st.promoTrilhoJaNoPreco,
                 ),
               ),
             ],

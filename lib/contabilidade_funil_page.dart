@@ -749,19 +749,22 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                   ),
                 )
               : null,
-          body: Stack(
+          body: Column(
             children: [
-              Column(
-                children: [
-                  _FunilHeader(st: st),
-                  Expanded(
-                    child: SingleChildScrollView(
-                      padding: EdgeInsets.fromLTRB(
-                        FunilPromoTrilho.recuoConteudo(context, narrow),
-                        20,
-                        narrow ? 16 : 24,
-                        48,
-                      ),
+              _FunilHeader(st: st),
+              FunilPromoTrilho(
+                texto: st.promoTrilhoTexto,
+                selo: st.promoTrilhoSelo,
+                jaNoPreco: st.promoTrilhoJaNoPreco,
+              ),
+              Expanded(
+                child: SingleChildScrollView(
+                  padding: EdgeInsets.fromLTRB(
+                    FunilPromoTrilho.recuoConteudo(context, narrow),
+                    20,
+                    narrow ? 16 : 24,
+                    48,
+                  ),
                   child: Center(
                     child: ConstrainedBox(
                       constraints: const BoxConstraints(maxWidth: 720),
@@ -875,18 +878,6 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                       ),
                     ),
                   ),
-                ),
-              ),
-                ],
-              ),
-              Positioned(
-                left: 0,
-                top: 0,
-                bottom: 0,
-                child: FunilPromoTrilho(
-                  texto: st.promoTrilhoTexto,
-                  selo: st.promoTrilhoSelo,
-                  jaNoPreco: st.promoTrilhoJaNoPreco,
                 ),
               ),
             ],
@@ -1450,13 +1441,13 @@ class _PlansTable extends StatelessWidget {
                             style: const TextStyle(fontSize: 10, height: 1.25),
                           ),
                         ),
+                      const SizedBox(height: 6),
+                      FunilSeloDescontoVerde(
+                        texto: st.seloJaComDesconto(kFunilPromoDescontoPct),
+                      ),
                     ],
                   ),
                 ],
-              ),
-              const SizedBox(height: 10),
-              FunilSeloDescontoVerde(
-                texto: st.seloJaComDesconto(kFunilPromoDescontoPct),
               ),
               if (t.highlight)
                 Padding(
