@@ -93,19 +93,19 @@ class _FunilPromoTrilhoState extends State<FunilPromoTrilho> {
   Widget build(BuildContext context) {
     if (_fechado) return const SizedBox.shrink();
     const estilo = TextStyle(
-      color: BrandPalette.silverLight,
+      color: BrandPalette.silverPeak,
       fontWeight: FontWeight.w700,
       fontSize: 14.3,
       height: 1.25,
     );
     return Semantics(
-      label: '${widget.selo} ${widget.jaNoPreco}. ${widget.texto} ${widget.texto2}',
+      label: '${widget.selo} OFF. ${widget.texto} ${widget.texto2}',
       child: DecoratedBox(
         decoration: const BoxDecoration(
-          color: BrandPalette.charcoalDeep,
+          color: BrandPalette.goldWarm,
           border: Border(
-            top: BorderSide(color: BrandPalette.goldWarm, width: 1.6),
-            bottom: BorderSide(color: BrandPalette.silverMid, width: 1),
+            top: BorderSide(color: BrandPalette.silverMid, width: 1.6),
+            bottom: BorderSide(color: BrandPalette.silverPeak, width: 1),
           ),
         ),
         child: SafeArea(
@@ -142,13 +142,28 @@ class _FunilPromoTrilhoState extends State<FunilPromoTrilho> {
                   ),
                 ),
                 const SizedBox(width: 6),
-                Text(
-                  widget.selo,
-                  style: const TextStyle(
-                    color: BrandPalette.goldWarm,
-                    fontWeight: FontWeight.w800,
-                    fontSize: 16,
-                  ),
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      widget.selo,
+                      style: const TextStyle(
+                        color: BrandPalette.charcoalDeep,
+                        fontWeight: FontWeight.w800,
+                        fontSize: 16,
+                        height: 1,
+                      ),
+                    ),
+                    const Text(
+                      'OFF',
+                      style: TextStyle(
+                        color: BrandPalette.charcoalDeep,
+                        fontWeight: FontWeight.w800,
+                        fontSize: 10,
+                        height: 1,
+                      ),
+                    ),
+                  ],
                 ),
                 IconButton(
                   tooltip: 'Fechar',
@@ -156,7 +171,7 @@ class _FunilPromoTrilhoState extends State<FunilPromoTrilho> {
                     _timer?.cancel();
                     setState(() => _fechado = true);
                   },
-                  icon: const Icon(Icons.close, color: BrandPalette.silverLight, size: 20),
+                  icon: const Icon(Icons.close, color: BrandPalette.charcoalDeep, size: 20),
                   visualDensity: VisualDensity.compact,
                 ),
               ],

@@ -66,9 +66,9 @@ return new B.a6c(C.Eu(),new C.b5(w,v),new C.b5(w,v),new C.b5(w,v),new C.b5(w,v))
 B.a6c.prototype={
 ap(){this.aQ()
 C.jr()
-C.dI("description","Parceiros tecnol\xf3gicos e stack Flutter da Perfect Gest Dev: Clean Architecture, seguran\xe7a, escala, integra\xe7\xf5es e opera\xe7\xe3o cont\xednua.")
-C.dI("keywords","Perfect Gest Dev, tecnologias, Flutter, Dart, Java, Gradle, SDK, integra\xe7\xf5es, arquitetura limpa, seguran\xe7a, escala")
-C.dI("robots","index, follow")
+C.dJ("description","Parceiros tecnol\xf3gicos e stack Flutter da Perfect Gest Dev: Clean Architecture, seguran\xe7a, escala, integra\xe7\xf5es e opera\xe7\xe3o cont\xednua.")
+C.dJ("keywords","Perfect Gest Dev, tecnologias, Flutter, Dart, Java, Gradle, SDK, integra\xe7\xf5es, arquitetura limpa, seguran\xe7a, escala")
+C.dJ("robots","index, follow")
 C.cM("og:title",y.c)
 C.cM("og:description","Vis\xe3o t\xe9cnica do stack Perfect Gest Dev para mobile, web e desktop com foco em performance e previsibilidade.")
 C.cM("og:type","article")
@@ -81,7 +81,7 @@ this.aK()},
 arB(){var w=this,v=C.az(["clean-arch",w.e,"seguranca",w.f,"escala",w.r,"full-stack",w.w],x.w,x.d).h(0,w.a.d),u=v==null?null:$.a3.ao$.x.h(0,v)
 if(u==null)return
 C.aps(u,0.24,D.oN,D.dt,D.rK)},
-D(d){var w,v,u,t,s,r,q,p,o,n,m,l=this,k=null,j=C.w(d).ax,i=C.aZ(d,D.as,x.x).w.a.a<400,h=i?16:24,g=C.c7(d,D.aE,x.F)
+D(d){var w,v,u,t,s,r,q,p,o,n,m,l=this,k=null,j=C.w(d).ax,i=C.aZ(d,D.as,x.x).w.a.a<400,h=i?16:24,g=C.c7(d,D.aD,x.F)
 g.toString
 w=B.b6_(d)
 C.w(d)
@@ -97,13 +97,13 @@ n=C.b([],o)
 l.a.toString
 s=C.a9A(n,s,r,D.v,p)
 r=w.gQp()
-r=C.b([C.m(r,k,k,k,k,C.b1().$4$color$fontSize$fontWeight$height(q,i?22:26,D.Z,1.2),k,k),D.ax,C.m(w.gQj(),k,k,k,k,C.b1().$3$color$fontSize$height(q.ad(0.82),14,1.5),k,k),D.G,C.m(w.gQk(),k,k,k,k,C.b1().$3$color$fontSize$height(q.ad(0.8),13.6,1.5),k,k),D.bY,C.m(w.gRJ(),k,k,k,k,C.b1().$3$color$fontSize$fontWeight(q,18,D.Z),k,k),D.ax],o)
+r=C.b([C.m(r,k,k,k,k,C.b1().$4$color$fontSize$fontWeight$height(q,i?22:26,D.X,1.2),k,k),D.ax,C.m(w.gQj(),k,k,k,k,C.b1().$3$color$fontSize$height(q.ad(0.82),14,1.5),k,k),D.G,C.m(w.gQk(),k,k,k,k,C.b1().$3$color$fontSize$height(q.ad(0.8),13.6,1.5),k,k),D.bY,C.m(w.gRJ(),k,k,k,k,C.b1().$3$color$fontSize$fontWeight(q,18,D.X),k,k),D.ax],o)
 for(m=0;w.gr3(),m<15;++m){i=C.b([],o)
 if(m===4)i.push(D.G)
 q=m<4?v[m]:k
 p=w.gNz()
 i.push(new B.a6b(w.gr3()[m].a,w.gr3()[m].b,w.gr3()[m].c,p,q))
-D.b.S(r,i)}return C.aD(k,k,k,C.hH(s,t,new C.ja(C.eF(C.dm(new C.cG(A.Mt,C.aL(r,D.D,D.l,D.o),k),k,k),l.d,new C.a_(h,16,h,28),D.a8),k),k,k,k),!1,k,k,!1,k,!1,k,k,k,k,k,k,k,k,u,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,D.p,k)}}
+D.b.S(r,i)}return C.aD(k,k,k,C.hH(s,t,new C.ja(C.eF(C.dm(new C.cG(A.Mt,C.aK(r,D.D,D.l,D.o),k),k,k),l.d,new C.a_(h,16,h,28),D.a8),k),k,k,k),!1,k,k,!1,k,!1,k,k,k,k,k,k,k,k,u,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,D.p,k)}}
 B.a6b.prototype={
 D(d){var w,v,u,t,s,r=this,q=null,p=C.w(d).ax,o=p.RG
 o=(o==null?p.k2:o).ad(0.55)
@@ -115,7 +115,7 @@ u=p.b
 t=x.u
 s=C.b([C.m(r.c,q,q,q,q,C.b1().$3$color$fontSize$fontWeight(u,15.5,D.a4),q,q),D.ak,D.lz,C.m(r.f,q,q,q,q,C.b1().$4$color$fontSize$fontWeight$height(u.ad(0.9),12.8,D.a4,1.4),q,q),C.m(r.d,q,q,q,q,C.b1().$3$color$fontSize$height(p.k3.ad(0.84),12.8,1.45),q,q)],t)
 D.b.S(s,C.b([D.G,C.m(r.e,q,q,q,q,C.b1().$4$color$fontSize$fontWeight$height(u.ad(0.92),12.8,D.a2,1.45),q,q)],t))
-return new C.ah(D.mX,C.cN(new C.ah(A.Rv,C.aL(s,D.D,D.l,D.o),q),new C.bv(o,q,v,w,q,q,D.J),D.a9),q)}}
+return new C.ah(D.mX,C.cN(new C.ah(A.Rv,C.aK(s,D.D,D.l,D.o),q),new C.bv(o,q,v,w,q,q,D.K),D.a9),q)}}
 var z=a.updateTypes([])
 B.aGZ.prototype={
 $1(d){return this.a.arB()},
@@ -189,4 +189,4 @@ A.alv=new B.bQ("Analytics and consent (GA4)","Measurement with Google Analytics 
 A.all=new B.bQ("Clean architecture and maintenance","We prioritize organized code, reusable components and separation of concerns to support continuous product evolution, fewer bugs and lower maintenance cost.","Practical example: a new subscription feature is added by reusing components and reducing QA effort.")
 A.al6=new B.bQ("HTTP integrations and external services","We integrate external APIs and data services for real business flows, including back-end endpoints and observability services, ensuring operational reliability and metric-driven evolution.","Practical example: we monitor API latency and errors in production to act before customers are impacted.")
 A.a9K=w([A.ala,A.akW,A.alh,A.alf,A.akY,A.al8,A.alk,A.alc,A.al4,A.alr,A.als,A.ali,A.alv,A.all,A.al6],x.c)})()};
-(a=>{a["R+gzJHHepGTCcj/RCZeQ30c7yY8="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["ynIviyM03gTLIbAnU6LoSZH6pi4="]=a.current})($__dart_deferred_initializers__);

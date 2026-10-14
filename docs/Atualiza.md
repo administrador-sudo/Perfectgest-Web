@@ -2,6 +2,33 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-14 08:58] Banner fundo ouro, letras prata, 33% OFF preto
+
+### Contexto
+
+- Banner de rodape precisava de fundo dourado e 33% OFF em preto.
+
+### Arquivos alterados
+
+- lib/funil_promo_trilho.dart
+- docs/Atualiza.md
+
+### O que foi feito
+
+- Fundo goldWarm, frases em prata, 33% + OFF em preto abaixo.
+
+### Risco de regressao
+
+- Nenhum.
+
+### Validacao executada
+
+- dart analyze no banner.
+
+### Resultado
+
+- Aguardando publish-web.
+
 ## [2026-10-14 08:48] Banner no rodape, 7s, X, alerta vermelho
 
 ### Contexto
