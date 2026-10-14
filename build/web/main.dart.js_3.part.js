@@ -1,26 +1,26 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
 $__dart_deferred_initializers__.current=function(a,b,c,$){var B,D,A={N3:function N3(d){this.a=d},
-aTA(d){switch(d.aj(y.h).r.f.gcv()){case"en":return C.Oe
-case"es":return C.Of
-case"pt":default:return C.Og}},
-arz:function arz(){},
-aGp:function aGp(){},
-aGn:function aGn(){},
-aGo:function aGo(){}},C
+aTI(d){switch(d.aj(y.h).r.f.gcv()){case"en":return C.Od
+case"es":return C.Oe
+case"pt":default:return C.Of}},
+arA:function arA(){},
+aGu:function aGu(){},
+aGs:function aGs(){},
+aGt:function aGt(){}},C
 B=c[0]
 D=c[2]
 A=a.updateHolder(c[10],A)
 C=c[15]
 A.N3.prototype={
-D(d){var x,w=null,v=B.w(d),u=A.aTA(d)
+D(d){var x,w=null,v=B.w(d),u=A.aTI(d)
 v=v.ax.k3
 x=B.b1().$3$color$fontSize$height(v.ad(0.72),11.5,1.4)
-return B.aH(B.b([B.m("PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA",w,w,w,w,B.b1().$4$color$fontSize$fontWeight$height(v.ad(0.85),12,D.a4,1.3),w,w),D.dJ,B.m(u.gP9()+" 66.889.409/0001-19",w,w,w,w,x,w,w),D.lA,B.m(u.gPc()+" +55 51 989045442",w,w,w,w,x,w,w),D.lA,B.m("Caxias do Sul \u2014 RS \u2014 Brasil",w,w,w,w,x,w,w)],y.e),D.D,D.l,D.o)}}
-A.arz.prototype={}
-A.aGp.prototype={
+return B.aL(B.b([B.m("PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA",w,w,w,w,B.b1().$4$color$fontSize$fontWeight$height(v.ad(0.85),12,D.a4,1.3),w,w),D.dK,B.m(u.gPa()+" 66.889.409/0001-19",w,w,w,w,x,w,w),D.lz,B.m(u.gPd()+" +55 51 989045442",w,w,w,w,x,w,w),D.lz,B.m("Caxias do Sul \u2014 RS \u2014 Brasil",w,w,w,w,x,w,w)],y.e),D.D,D.l,D.o)}}
+A.arA.prototype={}
+A.aGu.prototype={
 geB(){return"Etica e compliance Perfect Gest Dev"},
-gi6(){return"\xc9tica e Compliance"},
-gi8(){return"Perfect Gest Dev"},
+gi5(){return"\xc9tica e Compliance"},
+gi7(){return"Perfect Gest Dev"},
 gkD(){return"\xc9tica, conformidade e devolu\xe7\xf5es (site vitrine)"},
 ql(d){return"\xdaltima atualiza\xe7\xe3o: documento institucional. Para solicitar reembolso, cancelamento ou esclarecimentos sobre o produto PerfectGest, contacte: "+d+"."},
 goy(){return"1. Escopo (site vitrine)"},
@@ -31,12 +31,12 @@ goC(){return"3. Produtos digitais, assinaturas e cancelamento"},
 goB(){return"Para produtos digitais e assinaturas, reembolso e cancelamento dependem do canal de aquisi\xe7\xe3o; cada canal tem fluxos e prazos pr\xf3prios. Independentemente do canal, pode contactar-nos: analisamos pedidos de forma imparcial e orientamos a melhor resolu\xe7\xe3o, incluindo falhas t\xe9cnicas comprovadas."},
 goE(){return"4. Como solicitar (passo a passo)"},
 goD(){return"1) Informe onde adquiriu o produto, data e comprovante.\n2) Descreva o motivo (arrependimento, cobran\xe7a indevida, defeito t\xe9cnico, etc.).\n3) Envie para o nosso e-mail de suporte.\nResponderemos com orienta\xe7\xf5es claras e, quando aplic\xe1vel, com o procedimento adequado ao seu caso."},
-gP9(){return"CNPJ:"},
-gPc(){return"Contato com Empresa:"}}
-A.aGn.prototype={
+gPa(){return"CNPJ:"},
+gPd(){return"Contato com Empresa:"}}
+A.aGs.prototype={
 geB(){return"Ethics and compliance Perfect Gest Dev"},
-gi6(){return"Ethics & Compliance"},
-gi8(){return"Perfect Gest Dev"},
+gi5(){return"Ethics & Compliance"},
+gi7(){return"Perfect Gest Dev"},
 gkD(){return"Ethics, compliance and returns (showcase website)"},
 ql(d){return"Last updated: institutional document. To request a refund, cancellation, or clarification about PerfectGest, contact: "+d+"."},
 goy(){return"1. Scope (showcase website)"},
@@ -47,12 +47,12 @@ goC(){return"3. Digital products, subscriptions, and cancellation"},
 goB(){return"For digital products and subscriptions, refunds and cancellation depend on the purchase channel; each channel has its own flows and timelines. Regardless of channel, you may contact us: we review requests impartially and guide the best resolution, including confirmed technical issues."},
 goE(){return"4. How to request (step by step)"},
 goD(){return"1) State where you purchased the product, date, and proof.\n2) Describe the reason (withdrawal, incorrect charge, technical defect, etc.).\n3) Send it to our support email.\nWe will reply with clear guidance and, when applicable, the right procedure for your case."},
-gP9(){return"CNPJ:"},
-gPc(){return"Company contact:"}}
-A.aGo.prototype={
+gPa(){return"CNPJ:"},
+gPd(){return"Company contact:"}}
+A.aGt.prototype={
 geB(){return"Etica y cumplimiento Perfect Gest Dev"},
-gi6(){return"\xc9tica y cumplimiento"},
-gi8(){return"Perfect Gest Dev"},
+gi5(){return"\xc9tica y cumplimiento"},
+gi7(){return"Perfect Gest Dev"},
 gkD(){return"\xc9tica, cumplimiento y devoluciones (sitio vitrina)"},
 ql(d){return"\xdaltima actualizaci\xf3n: documento institucional. Para solicitar reembolso, cancelaci\xf3n o aclaraciones sobre PerfectGest, contacte: "+d+"."},
 goy(){return"1. Alcance (sitio vitrina)"},
@@ -63,16 +63,16 @@ goC(){return"3. Productos digitales, suscripciones y cancelaci\xf3n"},
 goB(){return"Para productos digitales y suscripciones, reembolso y cancelaci\xf3n dependen del canal de adquisici\xf3n; cada canal tiene flujos y plazos propios. Independientemente del canal, puede contactarnos: revisamos solicitudes de forma imparcial y orientamos la mejor resoluci\xf3n, incluidas fallas t\xe9cnicas comprobadas."},
 goE(){return"4. C\xf3mo solicitar (paso a paso)"},
 goD(){return"1) Indique d\xf3nde adquiri\xf3 el producto, fecha y comprobante.\n2) Describa el motivo (desistimiento, cobro indebido, defecto t\xe9cnico, etc.).\n3) Env\xedelo a nuestro correo de soporte.\nResponderemos con orientaciones claras y, cuando aplique, con el procedimiento adecuado a su caso."},
-gP9(){return"CNPJ:"},
-gPc(){return"Contacto con la empresa:"}}
+gPa(){return"CNPJ:"},
+gPd(){return"Contacto con la empresa:"}}
 var z=a.updateTypes([]);(function inheritance(){var x=a.inherit,w=a.inheritMany
-x(A.N3,B.W)
-x(A.arz,B.R)
-w(A.arz,[A.aGp,A.aGn,A.aGo])})()
-B.tQ(b.typeUniverse,JSON.parse('{"N3":{"W":[],"e":[]}}'))
-var y={e:B.a2("u<e>"),h:B.a2("lq")};(function constants(){C.Oe=new A.aGn()
-C.Of=new A.aGo()
-C.Og=new A.aGp()
-C.rq=new A.N3(null)
-C.K9=new B.d0(null,60,null,null)})()};
-(a=>{a["x2VFzCGNSelaiJKFoGCup7TpQsE="]=a.current})($__dart_deferred_initializers__);
+x(A.N3,B.X)
+x(A.arA,B.R)
+w(A.arA,[A.aGu,A.aGs,A.aGt])})()
+B.tQ(b.typeUniverse,JSON.parse('{"N3":{"X":[],"e":[]}}'))
+var y={e:B.a2("u<e>"),h:B.a2("lq")};(function constants(){C.Od=new A.aGs()
+C.Oe=new A.aGt()
+C.Of=new A.aGu()
+C.rs=new A.N3(null)
+C.Ka=new B.cX(null,60,null,null)})()};
+(a=>{a["Ub9fzxFq1LCi5yQ8PkoUXAqimsM="]=a.current})($__dart_deferred_initializers__);

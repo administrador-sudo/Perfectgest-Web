@@ -2,6 +2,37 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-14 08:48] Banner no rodape, 7s, X, alerta vermelho
+
+### Contexto
+
+- Banner no topo, uma frase, sem fechar, emoji amarelo.
+
+### Arquivos alterados
+
+- lib/funil_promo_trilho.dart
+- lib/contabilidade_funil_page.dart
+- lib/certificado_a1_page.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- docs/Atualiza.md
+
+### O que foi feito
+
+- Banner no rodape da Column (nao cobre texto). Letra 14,3. Frases A/B a cada 7s.
+- Alerta Icons.warning_rounded vermelho vivo. Sem raio. X fecha. FAB sobe no funil estreito.
+
+### Risco de regressao
+
+- Baixo.
+
+### Validacao executada
+
+- dart analyze nos ficheiros alterados.
+
+### Resultado
+
+- Aguardando publish-web.
+
 ## [2026-10-14 08:31] Banner 2 linhas no topo; selo abaixo do preco
 
 ### Contexto

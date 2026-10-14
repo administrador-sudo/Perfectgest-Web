@@ -738,7 +738,9 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
           backgroundColor: Colors.transparent,
           floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
           floatingActionButton: narrow
-              ? SizedBox(
+              ? Padding(
+                  padding: const EdgeInsets.only(bottom: kFunilPromoRodapeReserva),
+                  child: SizedBox(
                   height: 48,
                   child: FloatingActionButton.extended(
                     backgroundColor: cs.primary,
@@ -747,16 +749,12 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                     icon: const Icon(Icons.chat_rounded),
                     label: Text(st.whatsAppFab),
                   ),
+                ),
                 )
               : null,
           body: Column(
             children: [
               _FunilHeader(st: st),
-              FunilPromoTrilho(
-                texto: st.promoTrilhoTexto,
-                selo: st.promoTrilhoSelo,
-                jaNoPreco: st.promoTrilhoJaNoPreco,
-              ),
               Expanded(
                 child: SingleChildScrollView(
                   padding: EdgeInsets.fromLTRB(
@@ -879,6 +877,12 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                     ),
                   ),
                 ),
+              ),
+              FunilPromoTrilho(
+                texto: st.promoTrilhoTexto,
+                texto2: st.promoTrilhoTexto2,
+                selo: st.promoTrilhoSelo,
+                jaNoPreco: st.promoTrilhoJaNoPreco,
               ),
             ],
           ),

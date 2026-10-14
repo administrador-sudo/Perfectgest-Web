@@ -110,6 +110,7 @@ abstract class SiteContabilidadeFunilTexts {
   String get a1ParceiroLead;
   String get a1ParceiroValor;
   String get promoTrilhoTexto;
+  String get promoTrilhoTexto2;
   String get promoTrilhoSelo;
   String get promoTrilhoJaNoPreco;
   String seloJaComDesconto(int pct);
@@ -518,8 +519,13 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
 
   @override
   String get promoTrilhoTexto =>
-      '⚠️ Garanta 33% de desconto imediato antes que o preço volte ao normal.\n'
-      'Clique e aproveite! ⚡';
+      'Garanta 33% de desconto! É por tempo limitado. Clique e aproveite '
+      'honorários e serviços com desconto, por 1 ano!';
+
+  @override
+  String get promoTrilhoTexto2 =>
+      'Em nosso programa de indicação você pode garantir o ano seguinte '
+      'sem aumento. Vem fazer parte do Time!';
 
   @override
   String get promoTrilhoSelo => '33%';
@@ -1297,8 +1303,13 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
 
   @override
   String get promoTrilhoTexto =>
-      '⚠️ Get 33% off right now before the price goes back to normal.\n'
-      'Tap and enjoy! ⚡';
+      'Get 33% off! It is for a limited time. Click and enjoy discounted '
+      'fees and services, for 1 year!';
+
+  @override
+  String get promoTrilhoTexto2 =>
+      'In our referral program you can lock in next year with no increase. '
+      'Come join the Team!';
 
   @override
   String get promoTrilhoSelo => '33%';
@@ -2074,8 +2085,13 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
 
   @override
   String get promoTrilhoTexto =>
-      '⚠️ Asegure el 33% de descuento inmediato antes de que el precio vuelva '
-      'a la normalidad.\nToque y aproveche! ⚡';
+      'Asegure el 33% de descuento! Es por tiempo limitado. Pulse y aproveche '
+      'honorarios y servicios con descuento, por 1 año!';
+
+  @override
+  String get promoTrilhoTexto2 =>
+      'En nuestro programa de indicación puede garantizar el año siguiente '
+      'sin aumento. Venga a formar parte del Team!';
 
   @override
   String get promoTrilhoSelo => '33%';

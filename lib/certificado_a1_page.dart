@@ -71,11 +71,6 @@ class _CertificadoA1PageState extends State<CertificadoA1Page> {
           body: Column(
             children: [
               _A1Header(st: st),
-              FunilPromoTrilho(
-                texto: st.promoTrilhoTexto,
-                selo: st.a1SeloPct,
-                jaNoPreco: st.promoTrilhoJaNoPreco,
-              ),
               Expanded(
                 child: SingleChildScrollView(
                   padding: EdgeInsets.fromLTRB(
@@ -218,6 +213,12 @@ class _CertificadoA1PageState extends State<CertificadoA1Page> {
                     ),
                   ),
                 ),
+              ),
+              FunilPromoTrilho(
+                texto: st.promoTrilhoTexto,
+                texto2: st.promoTrilhoTexto2,
+                selo: st.a1SeloPct,
+                jaNoPreco: st.promoTrilhoJaNoPreco,
               ),
             ],
           ),
