@@ -518,7 +518,7 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
 
   @override
   String get promoTrilhoTexto =>
-      '⚠️ Garanta 33% de desconto imediato antes que o preço volte ao normal. '
+      '⚠️ Garanta 33% de desconto imediato antes que o preço volte ao normal.\n'
       'Clique e aproveite! ⚡';
 
   @override
@@ -1297,7 +1297,7 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
 
   @override
   String get promoTrilhoTexto =>
-      '⚠️ Get 33% off right now before the price goes back to normal. '
+      '⚠️ Get 33% off right now before the price goes back to normal.\n'
       'Tap and enjoy! ⚡';
 
   @override
@@ -2075,7 +2075,7 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
   @override
   String get promoTrilhoTexto =>
       '⚠️ Asegure el 33% de descuento inmediato antes de que el precio vuelva '
-      'a la normalidad. Toque y aproveche! ⚡';
+      'a la normalidad.\nToque y aproveche! ⚡';
 
   @override
   String get promoTrilhoSelo => '33%';

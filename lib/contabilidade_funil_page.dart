@@ -1410,10 +1410,8 @@ class _PlansTable extends StatelessWidget {
 
   Widget _planCard(({String id, double monthly, bool highlight}) t) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 10, top: 8),
-      child: FunilSeloDescontoVerde.sobre(
-        texto: st.seloJaComDesconto(kFunilPromoDescontoPct),
-        child: DecoratedBox(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: DecoratedBox(
         decoration: BoxDecoration(
           color: t.highlight ? const Color(0xFFE8F3EE) : const Color(0xFFF8FAF9),
           borderRadius: BorderRadius.circular(10),
@@ -1456,6 +1454,10 @@ class _PlansTable extends StatelessWidget {
                   ),
                 ],
               ),
+              const SizedBox(height: 10),
+              FunilSeloDescontoVerde(
+                texto: st.seloJaComDesconto(kFunilPromoDescontoPct),
+              ),
               if (t.highlight)
                 Padding(
                   padding: const EdgeInsets.only(top: 4),
@@ -1482,7 +1484,6 @@ class _PlansTable extends StatelessWidget {
               ),
             ],
           ),
-        ),
         ),
       ),
     );
@@ -1820,10 +1821,8 @@ class A1QualityCertCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final st = SiteContabilidadeFunilTexts.of(context);
     return Padding(
-      padding: const EdgeInsets.only(bottom: 10, top: 8),
-      child: FunilSeloDescontoVerde.sobre(
-        texto: st.seloJaComDesconto(kFunilA1DescontoPct),
-        child: DecoratedBox(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: DecoratedBox(
         decoration: BoxDecoration(
           color: const Color(0xFFF8FAF9),
           borderRadius: BorderRadius.circular(10),
@@ -1858,6 +1857,13 @@ class A1QualityCertCard extends StatelessWidget {
               Text(
                 st.a1Price,
                 style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 16),
+              ),
+              const SizedBox(height: 8),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: FunilSeloDescontoVerde(
+                  texto: st.seloJaComDesconto(kFunilA1DescontoPct),
+                ),
               ),
               const SizedBox(height: 8),
               Text(st.a1Body, style: const TextStyle(fontSize: 13, height: 1.35)),
@@ -1909,7 +1915,6 @@ class A1QualityCertCard extends StatelessWidget {
               ),
             ],
           ),
-        ),
         ),
       ),
     );

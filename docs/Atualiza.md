@@ -2,6 +2,90 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-14 08:21] Selo fora da linha do preco
+
+### Contexto
+
+- O selo verde ainda cobria R\$ 456 no cartao Básico Fidelizado.
+
+### Arquivos alterados
+
+- lib/contabilidade_funil_page.dart
+- docs/Atualiza.md
+
+### O que foi feito
+
+- Selo numa linha abaixo do bloco titulo+preco, sem overlay.
+
+### Risco de regressao
+
+- Nenhum.
+
+### Validacao executada
+
+- dart analyze no cartao de planos.
+
+### Resultado
+
+- Aguardando publish-web.
+
+## [2026-10-14 08:20] Selo verde abaixo do preco
+
+### Contexto
+
+- O selo redondo cobria o preco no topo do cartao.
+
+### Arquivos alterados
+
+- lib/contabilidade_funil_page.dart
+- lib/certificado_a1_page.dart
+- lib/funil_promo_trilho.dart
+- docs/Atualiza.md
+
+### O que foi feito
+
+- Selo verde abaixo do valor nos planos e nos cartoes A1. Sem overlay em cima do preco.
+
+### Risco de regressao
+
+- Nenhum.
+
+### Validacao executada
+
+- dart analyze nos ficheiros alterados.
+
+### Resultado
+
+- Aguardando publish-web.
+
+## [2026-10-14 08:13] Trilho: letra +70% em duas linhas
+
+### Contexto
+
+- Banner lateral com letra pequena e uma so linha.
+
+### Arquivos alterados
+
+- lib/funil_promo_trilho.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- docs/Atualiza.md
+
+### O que foi feito
+
+- Texto do trilho em duas linhas; fonte 12→20,4 (+70%). Trilho mais largo para caber.
+
+### Risco de regressao
+
+- Padding esquerdo maior.
+
+### Validacao executada
+
+- dart analyze no trilho e l10n.
+
+### Resultado
+
+- Aguardando publish-web.
+
 ## [2026-10-14 08:05] Selo verde nos planos + copy do trilho
 
 ### Contexto

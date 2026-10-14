@@ -21,8 +21,8 @@ class FunilSeloDescontoVerde extends StatelessWidget {
       children: [
         child,
         Positioned(
-          top: -10,
-          right: 4,
+          bottom: 8,
+          right: 8,
           child: FunilSeloDescontoVerde(texto: texto),
         ),
       ],
@@ -86,7 +86,7 @@ class FunilPromoTrilho extends StatelessWidget {
   final String jaNoPreco;
 
   static double larguraDe(BuildContext context) {
-    return MediaQuery.sizeOf(context).width < 720 ? 24.0 : 32.0;
+    return MediaQuery.sizeOf(context).width < 720 ? 56.0 : 68.0;
   }
 
   static double recuoConteudo(BuildContext context, bool narrow) {
@@ -128,7 +128,7 @@ class FunilPromoTrilho extends StatelessWidget {
                       style: const TextStyle(
                         color: BrandPalette.goldWarm,
                         fontWeight: FontWeight.w800,
-                        fontSize: 11,
+                        fontSize: 19,
                         height: 1.05,
                       ),
                     ),
@@ -141,7 +141,7 @@ class FunilPromoTrilho extends StatelessWidget {
                       style: const TextStyle(
                         color: BrandPalette.silverLight,
                         fontWeight: FontWeight.w600,
-                        fontSize: 7,
+                        fontSize: 12,
                         height: 1.1,
                       ),
                     ),
@@ -162,14 +162,15 @@ class FunilPromoTrilho extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(horizontal: 8),
                             child: Text(
                               texto,
-                              maxLines: 1,
-                              softWrap: false,
+                              maxLines: 2,
+                              softWrap: true,
                               overflow: TextOverflow.fade,
                               style: const TextStyle(
                                 color: BrandPalette.silverLight,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 12,
-                                letterSpacing: 0.3,
+                                fontWeight: FontWeight.w700,
+                                fontSize: 20.4,
+                                height: 1.2,
+                                letterSpacing: 0.2,
                               ),
                             ),
                           ),

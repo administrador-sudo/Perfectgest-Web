@@ -270,25 +270,26 @@ class _A1PrecoSelo extends StatelessWidget {
                   fontSize: precoSize,
                 ),
               ),
-              DecoratedBox(
-                decoration: BoxDecoration(
-                  color: BrandPalette.goldWarm,
-                  borderRadius: BorderRadius.circular(6),
-                  border: Border.all(color: BrandPalette.silverMid),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                  child: Text(
-                    st.a1SeloPct,
-                    style: const TextStyle(
-                      color: BrandPalette.charcoalDeep,
-                      fontWeight: FontWeight.w800,
-                      fontSize: 12,
-                    ),
-                  ),
+            ],
+          ),
+          const SizedBox(height: 6),
+          DecoratedBox(
+            decoration: BoxDecoration(
+              color: BrandPalette.goldWarm,
+              borderRadius: BorderRadius.circular(6),
+              border: Border.all(color: BrandPalette.silverMid),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+              child: Text(
+                st.a1SeloPct,
+                style: const TextStyle(
+                  color: BrandPalette.charcoalDeep,
+                  fontWeight: FontWeight.w800,
+                  fontSize: 12,
                 ),
               ),
-            ],
+            ),
           ),
           const SizedBox(height: 4),
           Text(
@@ -314,9 +315,7 @@ class _A1OfferCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final st = SiteContabilidadeFunilTexts.of(context);
-    return FunilSeloDescontoVerde.sobre(
-      texto: st.seloJaComDesconto(kFunilA1DescontoPct),
-      child: SiteRaisedBlock(
+    return SiteRaisedBlock(
       borderColor: kFunilA1Purple,
       padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
       child: Column(
@@ -337,6 +336,13 @@ class _A1OfferCard extends StatelessWidget {
           ),
           const _A1PrecoSelo(),
           const SizedBox(height: 8),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: FunilSeloDescontoVerde(
+              texto: st.seloJaComDesconto(kFunilA1DescontoPct),
+            ),
+          ),
+          const SizedBox(height: 8),
           Text(st.a1Body, style: const TextStyle(fontSize: 13, height: 1.35)),
           const SizedBox(height: 12),
           FilledButton(
@@ -353,7 +359,6 @@ class _A1OfferCard extends StatelessWidget {
             ),
           ),
         ],
-      ),
       ),
     );
   }
