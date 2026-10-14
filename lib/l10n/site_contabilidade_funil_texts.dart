@@ -525,7 +525,7 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
 
   @override
   String get promoTrilhoTexto2 =>
-      'Em nosso programa de indicação você pode garantir o ano seguinte '
+      ' ===> Participe do programa de indicação evocê pode garantir o ano seguinte '
       'sem aumento. Vem fazer parte do Time!';
 
   @override

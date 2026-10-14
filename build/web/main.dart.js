@@ -101050,7 +101050,7 @@ if(!k.e)B.b.S(n,A.b([B.Ty,B.dg],o))
 m=k.e
 l=k.a
 n.push(A.cY(A.m(m?l.d:l.c,3,B.aN,j,j,B.anI,j,j),1))
-return A.aD(j,j,j,new A.cB(B.Mr,A.cN(A.ie(!0,A.fa(B.bD,A.b([new A.ah(B.Rq,A.bY(A.b([A.cY(A.aLP(A.bY(n,B.H,new A.eK(p,t.gT),B.l,B.o,0),B.R1,A.aOz(),B.ah,A.aOA()),1),B.dg,A.aK(A.b([A.m(k.a.e,j,j,j,j,B.an5,j,j),B.ar8],o),B.H,B.l,B.bJ)],o),B.H,j,B.l,B.o,0),j),A.ic(j,A.eb(!1,j,B.Mu,j,B.TM,j,j,new A.azS(k),B.RU,j,j,"Fechar"),j,j,j,0,0,j)],o),B.P,B.cj),!1,B.a6,!1),B.Mx,B.a9),j),!1,j,j,!1,j,!1,j,j,j,j,j,j,j,j,r+" OFF. "+q+" "+s,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,B.p,j)}}
+return A.aD(j,j,j,new A.cB(B.Mr,A.cN(A.ie(!0,A.fa(B.bD,A.b([new A.ah(B.Rq,A.bY(A.b([A.cY(A.aLP(A.bY(n,B.H,new A.eK(p,t.gT),B.l,B.o,0),B.R1,A.aOz(),B.ah,A.aOA()),1),B.dg,A.aK(A.b([A.m(k.a.e,j,j,j,j,B.an5,j,j),B.ar8],o),B.H,B.l,B.bJ)],o),B.H,j,B.l,B.o,0),j),A.ic(j,A.eb(!1,j,B.Mu,j,B.TM,j,j,new A.azS(k),B.RU,j,j,"Fechar"),j,j,j,0,0,j)],o),B.P,B.cj),!1,B.a6,!1),B.Mx,B.a9),j),!1,j,j,!1,j,!1,j,j,j,j,j,j,j,j,"At\xe9 "+r+" OFF. "+q+" "+s,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,j,B.p,j)}}
 A.azU.prototype={
 $1(a){var s=this.a
 if(s.c==null||s.d)return
@@ -101677,7 +101677,7 @@ gM0(){return"Ver o processo completo do certificado A1"},
 gM4(){return"A PerfectGest comercializa o certificado digital A1 QualityCert. Clientes do escrit\xf3rio de contabilidade t\xeam pre\xe7o competitivo; tamb\xe9m vendemos a terceiros \u2014 empresas, profissionais e quem ainda n\xe3o \xe9 cliente."},
 gM5(){return"Valorizamos a parceria com clientes e associados: processo claro, pre\xe7o justo e o escrit\xf3rio ao lado at\xe9 a ativa\xe7\xe3o na QualityCert."},
 gFn(){return"   Aten\xe7\xe3o: 33% de desconto nos planos! e 44% no Certificado A1 PF e PJ \n   \xc9 por tempo limitado. Venha para o Time e aproveite honor\xe1rios e servi\xe7os com desconto, por 1 ano!"},
-gFo(){return"Em nosso programa de indica\xe7\xe3o voc\xea pode garantir o ano seguinte sem aumento. Vem fazer parte do Time!"},
+gFo(){return" ===> Participe do programa de indica\xe7\xe3o evoc\xea pode garantir o ano seguinte sem aumento. Vem fazer parte do Time!"},
 gRP(){return"33%"},
 gFm(){return"j\xe1 no pre\xe7o"},
 v2(a){return""+a+"% OFF"},

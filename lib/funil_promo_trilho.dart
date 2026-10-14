@@ -99,7 +99,7 @@ class _FunilPromoTrilhoState extends State<FunilPromoTrilho> {
       height: 1.25,
     );
     return Semantics(
-      label: '${widget.selo} OFF. ${widget.texto} ${widget.texto2}',
+      label: 'Até ${widget.selo} OFF. ${widget.texto} ${widget.texto2}',
       child: ConstrainedBox(
         constraints: const BoxConstraints(maxHeight: 140),
         child: DecoratedBox(
