@@ -1,26 +1,26 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
 $__dart_deferred_initializers__.current=function(a,b,c,$){var A,C,E,F,B={
-b5Z(d){switch(d.aj(y.k).r.f.gcv()){case"en":return D.O9
-case"es":return D.Oa
-case"pt":default:return D.Ob}},
+b5V(d){switch(d.aj(y.k).r.f.gcv()){case"en":return D.O3
+case"es":return D.O4
+case"pt":default:return D.O5}},
 arz:function arz(){},
-aGp:function aGp(){},
-aGn:function aGn(){},
-aGo:function aGo(){},
-b4N(d){return new B.ol(d,null)},
+aGl:function aGl(){},
+aGj:function aGj(){},
+aGk:function aGk(){},
+b4J(d){return new B.ol(d,null)},
 ol:function ol(d,e){this.c=d
 this.a=e},
 a3Q:function a3Q(){this.c=this.a=null},
-aDs:function aDs(d){this.a=d},
-aDt:function aDt(d,e,f,g,h){var _=this
+aDo:function aDo(d){this.a=d},
+aDp:function aDp(d,e,f,g,h){var _=this
 _.a=d
 _.b=e
 _.c=f
 _.d=g
 _.e=h},
-aDq:function aDq(d,e){this.a=d
+aDm:function aDm(d,e){this.a=d
 this.b=e},
-aDr:function aDr(d,e){this.a=d
+aDn:function aDn(d,e){this.a=d
 this.b=e},
 lr:function lr(d,e,f){this.c=d
 this.d=e
@@ -33,7 +33,7 @@ B=a.updateHolder(c[4],B)
 D=c[17]
 G=c[13]
 B.arz.prototype={}
-B.aGp.prototype={
+B.aGl.prototype={
 geB(){return"Politica de privacidade, dados, cookies e termos Perfect Gest Dev"},
 gi5(){return"Privacidade e termos"},
 gi7(){return"Perfect Gest Dev"},
@@ -58,7 +58,7 @@ gNS(){return"Se aceitar, gravamos a sua escolha no navegador e, na pr\xf3xima ca
 gGU(){return"Prefer\xeancia gravada. Recarregue a p\xe1gina uma vez para aplicar a medi\xe7\xe3o."},
 gMC(){return"Aceitar medi\xe7\xe3o"},
 gMB(){return"Aceitar cookies de medi\xe7\xe3o"}}
-B.aGn.prototype={
+B.aGj.prototype={
 geB(){return"Perfect Gest Dev privacy policy, data, cookies and terms"},
 gi5(){return"Privacy and terms"},
 gi7(){return"Perfect Gest Dev"},
@@ -83,7 +83,7 @@ gNS(){return"If you accept, we store your choice in the browser and, on the next
 gGU(){return"Preference saved. Reload the page once to apply measurement."},
 gMC(){return"Accept measurement"},
 gMB(){return"Accept measurement cookies"}}
-B.aGo.prototype={
+B.aGk.prototype={
 geB(){return"Politica de privacidad, datos, cookies y terminos Perfect Gest Dev"},
 gi5(){return"Privacidad y terminos"},
 gi7(){return"Perfect Gest Dev"},
@@ -112,33 +112,33 @@ B.ol.prototype={
 a9(){return new B.a3Q()}}
 B.a3Q.prototype={
 ap(){this.aQ()
-E.aWI()},
+E.aWE()},
 l(){A.po()
 this.aK()},
 D(d){var x,w,v,u,t=null,s=A.w(d),r=A.aZ(d,C.as,y.h).w.a.a,q=r<400?16:24,p=A.c7(d,C.aD,y.p)
 p.toString
-x=B.b5Z(d)
+x=B.b5V(d)
 w=x.geB()
 v=A.w(d).ax.a===C.E?C.bw:C.bg
 u=x.gi5()
-return A.aD(t,t,t,A.hH(F.aLf(d,new B.aDs(d),this.a.c,u),v,new A.ja(A.kT(new B.aDt(q,x,s.ax,r,p)),t),t,t,t),!1,t,t,!1,t,!1,t,t,t,t,t,t,t,t,w,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,C.p,t)}}
+return A.aE(t,t,t,A.hH(F.aLb(d,new B.aDo(d),this.a.c,u),v,new A.ja(A.kT(new B.aDp(q,x,s.ax,r,p)),t),t,t,t),!1,t,t,!1,t,!1,t,t,t,t,t,t,t,t,w,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,C.p,t)}}
 B.lr.prototype={
 D(d){var x,w,v,u,t=null,s=A.w(d).ax,r=A.aZ(d,C.as,y.h).w.a.a,q=r<400?12:16,p=this.c,o=s.RG
 o=(o==null?s.k2:o).ad(0.5)
-x=A.bZ(14)
+x=A.bY(14)
 w=s.ry
 if(w==null){w=s.p
-if(w==null)w=s.k3}w=A.eQ(w.ad(0.4),1)
+if(w==null)w=s.k3}w=A.eP(w.ad(0.4),1)
 v=r<360
 u=v?15:16
-u=A.m(p,t,t,t,t,A.b1().$3$color$fontSize$fontWeight(s.b,u,C.a4),t,t)
+u=A.m(p,t,t,t,t,A.b1().$3$color$fontSize$fontWeight(s.b,u,C.a6),t,t)
 v=v?13:14
-return new A.ah(G.rR,A.aD(t,t,t,A.cN(new A.ah(new A.a_(q,16,q,18),A.aK(A.b([u,C.ax,A.m(this.d,t,t,t,t,A.b1().$3$color$fontSize$height(s.k3.ad(0.88),v,1.55),t,t)],y.e),C.D,C.l,C.o),t),new A.bv(o,t,w,x,t,t,C.K),C.a9),!0,t,t,!1,t,!1,t,t,t,t,t,t,t,t,p,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,C.p,t),t)}}
+return new A.aj(G.rQ,A.aE(t,t,t,A.cP(new A.aj(new A.a1(q,16,q,18),A.aL(A.b([u,C.ax,A.m(this.d,t,t,t,t,A.b1().$3$color$fontSize$height(s.k3.ad(0.88),v,1.55),t,t)],y.e),C.D,C.l,C.o),t),new A.bz(o,t,w,x,t,t,C.N),C.ac),!0,t,t,!1,t,!1,t,t,t,t,t,t,t,t,p,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,C.p,t),t)}}
 var z=a.updateTypes([])
-B.aDs.prototype={
+B.aDo.prototype={
 $0(){return A.bI(this.a,!1).d8()},
 $S:0}
-B.aDt.prototype={
+B.aDp.prototype={
 $2(b3,b4){var x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9=this,b0=null,b1="suporte@perfectgestdev.com",b2=b4.b
 b2=b2<1/0&&isFinite(b2)?b2:A.aZ(b3,C.as,y.h).w.a.a
 x=C.d.d5(b2<720?b2:720,200,720)
@@ -146,13 +146,13 @@ w=a9.a
 v=a9.b
 u=a9.c
 t=u.b
-s=A.m(v.gi7(),b0,b0,b0,b0,A.b1().$4$color$fontSize$fontWeight$letterSpacing(t,13,C.a4,0.4),b0,b0)
+s=A.m(v.gi7(),b0,b0,b0,b0,A.b1().$4$color$fontSize$fontWeight$letterSpacing(t,13,C.a6,0.4),b0,b0)
 r=v.gkD()
 q=a9.d
 p=q<400
 o=p?18:22
 n=u.k3
-o=A.m(r,b0,b0,b0,b0,A.b1().$4$color$fontSize$fontWeight$height(n,o,C.Z,1.2),b0,b0)
+o=A.m(r,b0,b0,b0,b0,A.b1().$4$color$fontSize$fontWeight$height(n,o,C.a0,1.2),b0,b0)
 r=A.m(v.ql(b1),b0,b0,b0,b0,A.b1().$3$color$fontSize$height(n.ad(0.72),13,1.45),b0,b0)
 m=v.goy()
 l=v.gox()
@@ -170,43 +170,43 @@ a2=v.gGD()
 a3=v.gGC()
 a4=u.d
 t=(a4==null?t:a4).ad(0.35)
-a4=A.bZ(14)
+a4=A.bY(14)
 a5=u.ry
 if(a5==null){u=u.p
 if(u==null)u=n}else u=a5
-u=A.eQ(u.ad(0.45),1)
+u=A.eP(u.ad(0.45),1)
 p=p?14:16
-a5=A.m(v.gNT(),b0,b0,b0,b0,A.b1().$3$color$fontSize$fontWeight(n,14,C.a4),b0,b0)
+a5=A.m(v.gNT(),b0,b0,b0,b0,A.b1().$3$color$fontSize$fontWeight(n,14,C.a6),b0,b0)
 a6=A.m(v.gNS(),b0,b0,b0,b0,A.b1().$3$color$fontSize$height(n.ad(0.8),12.5,1.45),b0,b0)
 a7=a9.e
 a8=y.e
-return A.eF(A.dm(new A.cB(new A.a5(0,x,0,1/0),A.aK(A.b([s,C.ak,o,C.ax,r,C.eY,new B.lr(m,l,b0),new B.lr(k,j,b0),new B.lr(i,h,b0),new B.lr(g,f,b0),new B.lr(e,d,b0),new B.lr(a0,a1,b0),new B.lr(a2,a3,b0),C.bZ,A.cN(new A.ah(new A.a_(p,p,p,p),A.aK(A.b([a5,C.G,a6,C.aa,A.fe(C.b6,A.b([A.aMt(D.TB,A.m(q<360?v.gMC():v.gMB(),b0,b0,b0,b0,b0,C.c0,b0),new B.aDq(b3,v),b0),new A.D4(!1,new B.aDr(b3,a7),b0,b0,b0,b0,b0,b0,!1,b0,!0,b0,A.m(a7.gx3(),b0,b0,b0,b0,b0,b0,b0),b0)],a8),C.c3,8,8)],a8),C.ab,C.l,C.o),b0),new A.bv(t,b0,u,a4,b0,b0,C.K),C.a9),C.ph,A.m(a7.t2(A.l3(new A.em(Date.now(),0,!1))),b0,b0,b0,b0,A.b1().$2$color$fontSize(n.ad(0.65),12),C.c0,b0)],a8),C.D,C.l,C.o),b0),b0,b0),b0,new A.a_(w,16,w,28),C.a8)},
-$S:132}
-B.aDq.prototype={
+return A.eF(A.dm(new A.cG(new A.a5(0,x,0,1/0),A.aL(A.b([s,C.aj,o,C.ax,r,C.eX,new B.lr(m,l,b0),new B.lr(k,j,b0),new B.lr(i,h,b0),new B.lr(g,f,b0),new B.lr(e,d,b0),new B.lr(a0,a1,b0),new B.lr(a2,a3,b0),C.bZ,A.cP(new A.aj(new A.a1(p,p,p,p),A.aL(A.b([a5,C.G,a6,C.a9,A.fd(C.b6,A.b([A.aMo(D.Tn,A.m(q<360?v.gMC():v.gMB(),b0,b0,b0,b0,b0,C.c0,b0),new B.aDm(b3,v),b0),new A.D4(!1,new B.aDn(b3,a7),b0,b0,b0,b0,b0,b0,!1,b0,!0,b0,A.m(a7.gx3(),b0,b0,b0,b0,b0,b0,b0),b0)],a8),C.c3,8,8)],a8),C.aa,C.l,C.o),b0),new A.bz(t,b0,u,a4,b0,b0,C.N),C.ac),C.pg,A.m(a7.t2(A.l3(new A.el(Date.now(),0,!1))),b0,b0,b0,b0,A.b1().$2$color$fontSize(n.ad(0.65),12),C.c0,b0)],a8),C.D,C.l,C.o),b0),b0,b0),b0,new A.a1(w,16,w,28),C.a8)},
+$S:131}
+B.aDm.prototype={
 $0(){var x,w=null
-A.aXb()
+A.aX7()
 x=this.a
 if(x.e==null)return
-x.aj(y.f).f.zu(A.arL(w,w,w,w,C.iw,C.P,w,A.m(this.b.gGU(),w,w,w,w,w,w,w),w,C.hG,w,w,w,w,w,w,w,w,w,w))},
+x.aj(y.f).f.zu(A.arL(w,w,w,w,C.iw,C.Q,w,A.m(this.b.gGU(),w,w,w,w,w,w,w),w,C.hG,w,w,w,w,w,w,w,w,w,w))},
 $S:0}
-B.aDr.prototype={
+B.aDn.prototype={
 $0(){var x,w=null
-A.aX_()
+A.aWW()
 x=this.a
 if(x.e==null)return
-x.aj(y.f).f.zu(A.arL(w,w,w,w,C.iw,C.P,w,A.m(this.b.gx3(),w,w,w,w,w,w,w),w,C.hG,w,w,w,w,w,w,w,w,w,w))},
+x.aj(y.f).f.zu(A.arL(w,w,w,w,C.iw,C.Q,w,A.m(this.b.gx3(),w,w,w,w,w,w,w),w,C.hG,w,w,w,w,w,w,w,w,w,w))},
 $S:0};(function inheritance(){var x=a.inherit,w=a.inheritMany
 x(B.arz,A.R)
-w(B.arz,[B.aGp,B.aGn,B.aGo])
+w(B.arz,[B.aGl,B.aGj,B.aGk])
 x(B.ol,A.T)
 x(B.a3Q,A.V)
-w(A.jB,[B.aDs,B.aDq,B.aDr])
-x(B.aDt,A.pY)
+w(A.jB,[B.aDo,B.aDm,B.aDn])
+x(B.aDp,A.pY)
 x(B.lr,A.X)})()
 A.tQ(b.typeUniverse,JSON.parse('{"ol":{"T":[],"e":[]},"a3Q":{"V":["ol"]},"lr":{"X":[],"e":[]}}'))
-var y={p:A.a2("fH"),e:A.a2("u<e>"),h:A.a2("fT"),k:A.a2("lq"),f:A.a2("yu")};(function constants(){D.O9=new B.aGn()
-D.Oa=new B.aGo()
-D.Ob=new B.aGp()
-D.SR=new A.bc(57690,"MaterialIcons",!1)
-D.TB=new A.cr(D.SR,20,null,null,null)})()};
-(a=>{a["tTAcCVSOdQn2LmpTGRe2phtkEkg="]=a.current})($__dart_deferred_initializers__);
+var y={p:A.a2("fH"),e:A.a2("u<e>"),h:A.a2("fT"),k:A.a2("lq"),f:A.a2("yu")};(function constants(){D.O3=new B.aGj()
+D.O4=new B.aGk()
+D.O5=new B.aGl()
+D.SF=new A.bf(57690,"MaterialIcons",!1)
+D.Tn=new A.cC(D.SF,20,null,null,null)})()};
+(a=>{a["LtbePvopc1BQ/W6p/xHfsgpYnZg="]=a.current})($__dart_deferred_initializers__);

@@ -44,7 +44,8 @@ class FunilSeloDescontoVerde extends StatelessWidget {
 }
 
 const Color kFunilPromoAlertaVermelho = Color(0xFFFF1744);
-const double kFunilPromoRodapeReserva = 56.0;
+const bool kFunilPromoBannerAtivo = false;
+const double kFunilPromoRodapeReserva = kFunilPromoBannerAtivo ? 56.0 : 0.0;
 
 /// Banner promocional no rodapé (carvão / ouro / prata).
 class FunilPromoTrilho extends StatefulWidget {
@@ -77,6 +78,7 @@ class _FunilPromoTrilhoState extends State<FunilPromoTrilho> {
   @override
   void initState() {
     super.initState();
+    if (!kFunilPromoBannerAtivo) return;
     _timer = Timer.periodic(const Duration(seconds: 7), (_) {
       if (!mounted || _fechado) return;
       setState(() => _fraseB = !_fraseB);
@@ -91,7 +93,7 @@ class _FunilPromoTrilhoState extends State<FunilPromoTrilho> {
 
   @override
   Widget build(BuildContext context) {
-    if (_fechado) return const SizedBox.shrink();
+    if (!kFunilPromoBannerAtivo || _fechado) return const SizedBox.shrink();
     const estilo = TextStyle(
       color: BrandPalette.silverPeak,
       fontWeight: FontWeight.w700,

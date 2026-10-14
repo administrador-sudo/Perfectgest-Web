@@ -2,6 +2,33 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-14 12:41] Banner promocional desativado
+
+### Contexto
+
+- Operador pediu para desligar o banner de rodape.
+
+### Arquivos alterados
+
+- lib/funil_promo_trilho.dart
+- docs/Atualiza.md
+
+### O que foi feito
+
+- `kFunilPromoBannerAtivo = false`. Cartoes e PIX intactos. Religa com true.
+
+### Risco de regressao
+
+- Nenhum.
+
+### Validacao executada
+
+- Flag conferida no widget.
+
+### Resultado
+
+- Aguardando publish-web.
+
 ## [2026-10-14 11:05] Cartoes honorarios: de/por com 33% so na vitrine
 
 ### Contexto
