@@ -1,23 +1,23 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
 $__dart_deferred_initializers__.current=function(a,b,c,$){var B,D,A={N3:function N3(d){this.a=d},
-aTI(d){switch(d.aj(y.h).r.f.gcv()){case"en":return C.Of
+aTJ(d){switch(d.aj(y.h).r.f.gcv()){case"en":return C.Of
 case"es":return C.Og
 case"pt":default:return C.Oh}},
-arA:function arA(){},
-aGu:function aGu(){},
-aGs:function aGs(){},
-aGt:function aGt(){}},C
+arB:function arB(){},
+aGv:function aGv(){},
+aGt:function aGt(){},
+aGu:function aGu(){}},C
 B=c[0]
 D=c[2]
 A=a.updateHolder(c[10],A)
 C=c[15]
 A.N3.prototype={
-D(d){var x,w=null,v=B.w(d),u=A.aTI(d)
+D(d){var x,w=null,v=B.w(d),u=A.aTJ(d)
 v=v.ax.k3
 x=B.b1().$3$color$fontSize$height(v.ad(0.72),11.5,1.4)
 return B.aK(B.b([B.m("PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA",w,w,w,w,B.b1().$4$color$fontSize$fontWeight$height(v.ad(0.85),12,D.a4,1.3),w,w),D.dK,B.m(u.gPa()+" 66.889.409/0001-19",w,w,w,w,x,w,w),D.lz,B.m(u.gPd()+" +55 51 989045442",w,w,w,w,x,w,w),D.lz,B.m("Caxias do Sul \u2014 RS \u2014 Brasil",w,w,w,w,x,w,w)],y.e),D.D,D.l,D.o)}}
-A.arA.prototype={}
-A.aGu.prototype={
+A.arB.prototype={}
+A.aGv.prototype={
 geB(){return"Etica e compliance Perfect Gest Dev"},
 gi5(){return"\xc9tica e Compliance"},
 gi7(){return"Perfect Gest Dev"},
@@ -33,7 +33,7 @@ goE(){return"4. Como solicitar (passo a passo)"},
 goD(){return"1) Informe onde adquiriu o produto, data e comprovante.\n2) Descreva o motivo (arrependimento, cobran\xe7a indevida, defeito t\xe9cnico, etc.).\n3) Envie para o nosso e-mail de suporte.\nResponderemos com orienta\xe7\xf5es claras e, quando aplic\xe1vel, com o procedimento adequado ao seu caso."},
 gPa(){return"CNPJ:"},
 gPd(){return"Contato com Empresa:"}}
-A.aGs.prototype={
+A.aGt.prototype={
 geB(){return"Ethics and compliance Perfect Gest Dev"},
 gi5(){return"Ethics & Compliance"},
 gi7(){return"Perfect Gest Dev"},
@@ -49,7 +49,7 @@ goE(){return"4. How to request (step by step)"},
 goD(){return"1) State where you purchased the product, date, and proof.\n2) Describe the reason (withdrawal, incorrect charge, technical defect, etc.).\n3) Send it to our support email.\nWe will reply with clear guidance and, when applicable, the right procedure for your case."},
 gPa(){return"CNPJ:"},
 gPd(){return"Company contact:"}}
-A.aGt.prototype={
+A.aGu.prototype={
 geB(){return"Etica y cumplimiento Perfect Gest Dev"},
 gi5(){return"\xc9tica y cumplimiento"},
 gi7(){return"Perfect Gest Dev"},
@@ -67,12 +67,12 @@ gPa(){return"CNPJ:"},
 gPd(){return"Contacto con la empresa:"}}
 var z=a.updateTypes([]);(function inheritance(){var x=a.inherit,w=a.inheritMany
 x(A.N3,B.X)
-x(A.arA,B.R)
-w(A.arA,[A.aGu,A.aGs,A.aGt])})()
+x(A.arB,B.R)
+w(A.arB,[A.aGv,A.aGt,A.aGu])})()
 B.tQ(b.typeUniverse,JSON.parse('{"N3":{"X":[],"e":[]}}'))
-var y={e:B.a2("u<e>"),h:B.a2("lq")};(function constants(){C.Of=new A.aGs()
-C.Og=new A.aGt()
-C.Oh=new A.aGu()
-C.rr=new A.N3(null)
-C.K9=new B.d1(null,60,null,null)})()};
-(a=>{a["Bfu1iFalVAbscH4S4fpT0PRpr0Q="]=a.current})($__dart_deferred_initializers__);
+var y={e:B.a2("u<e>"),h:B.a2("lq")};(function constants(){C.Of=new A.aGt()
+C.Og=new A.aGu()
+C.Oh=new A.aGv()
+C.rs=new A.N3(null)
+C.Ka=new B.d1(null,60,null,null)})()};
+(a=>{a["wWHqvsVN551qVqBv40pHYFW3vlo="]=a.current})($__dart_deferred_initializers__);

@@ -2,6 +2,34 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-14 11:05] Cartoes honorarios: de/por com 33% so na vitrine
+
+### Contexto
+
+- Mostrar de R\$ tabela por R\$ cobrado nos planos, sem mudar o PIX.
+
+### Arquivos alterados
+
+- lib/contabilidade_funil_page.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- docs/Atualiza.md
+
+### O que foi feito
+
+- Tabela = cobrado / 0,67 (33%). Exibicao riscada + de/por. kFunilTiers e kFunilMeiAnual inalterados na cobranca.
+
+### Risco de regressao
+
+- Nenhum no PIX/POST.
+
+### Validacao executada
+
+- dart analyze nos ficheiros alterados.
+
+### Resultado
+
+- Aguardando publish-web.
+
 ## [2026-10-14 09:19] Facebook in-app: rewrite A1 + splash Abrir no Chrome
 
 ### Contexto

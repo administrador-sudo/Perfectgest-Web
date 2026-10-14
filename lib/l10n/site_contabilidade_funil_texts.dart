@@ -114,6 +114,7 @@ abstract class SiteContabilidadeFunilTexts {
   String get promoTrilhoSelo;
   String get promoTrilhoJaNoPreco;
   String seloJaComDesconto(int pct);
+  String precoDePor(String de, String por);
   String get paymentLaterNote;
   String get urgencyNote;
   String get formTitle;
@@ -519,7 +520,7 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
 
   @override
   String get promoTrilhoTexto =>
-      'Garanta 33% de desconto! É por tempo limitado. Venha para o Time e aproveite '
+      '   Atenção: 33% de desconto nos planos! e 44% no Certificado A1 PF e PJ \n   É por tempo limitado. Venha para o Time e aproveite '
       'honorários e serviços com desconto, por 1 ano!';
 
   @override
@@ -534,7 +535,10 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
   String get promoTrilhoJaNoPreco => 'já no preço';
 
   @override
-  String seloJaComDesconto(int pct) => 'Já com desconto de $pct%';
+  String seloJaComDesconto(int pct) => '$pct% OFF';
+
+  @override
+  String precoDePor(String de, String por) => 'de $de por $por';
 
   @override
   String get paymentLaterNote =>
@@ -1321,6 +1325,9 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
   String seloJaComDesconto(int pct) => 'Already $pct% off';
 
   @override
+  String precoDePor(String de, String por) => 'from $de to $por';
+
+  @override
   String get paymentLaterNote =>
       'Payment details are presented when you hire, clearly and without rush.';
 
@@ -2101,6 +2108,9 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
 
   @override
   String seloJaComDesconto(int pct) => 'Ya con descuento de $pct%';
+
+  @override
+  String precoDePor(String de, String por) => 'de $de por $por';
 
   @override
   String get paymentLaterNote =>

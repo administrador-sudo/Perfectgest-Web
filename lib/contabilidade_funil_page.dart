@@ -70,6 +70,16 @@ const Set<String> kEnquadramentoAvulso = {
 bool _tierIsFidelizado(String id) => id == 'fidelizado';
 bool _tierIsMei(String id) => id == 'mei' || _tierIsFidelizado(id);
 
+double _cobradoFaixa(({String id, double monthly, bool highlight}) t) =>
+    _tierIsFidelizado(t.id) ? kFunilMeiAnual : t.monthly;
+
+/// Preço de tabela só para exibição (33% já no valor cobrado). Não usar no PIX.
+double _precoTabelaDe(double cobrado) {
+  return double.parse(
+    (cobrado / (1 - kFunilPromoDescontoPct / 100)).toStringAsFixed(2),
+  );
+}
+
 String _precoFaixa(
   ({String id, double monthly, bool highlight}) t,
   SiteContabilidadeFunilTexts st,
@@ -1429,8 +1439,24 @@ class _PlansTable extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Text(
+                        brl(_precoTabelaDe(_cobradoFaixa(t))),
+                        style: const TextStyle(
+                          fontSize: 13,
+                          color: BrandPalette.silverDark,
+                          decoration: TextDecoration.lineThrough,
+                        ),
+                      ),
+                      Text(
                         _precoFaixa(t, st, brl),
                         style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 16),
+                      ),
+                      Text(
+                        st.precoDePor(
+                          brl(_precoTabelaDe(_cobradoFaixa(t))),
+                          brl(_cobradoFaixa(t)),
+                        ),
+                        textAlign: TextAlign.end,
+                        style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600, height: 1.25),
                       ),
                       Text(
                         _tierIsFidelizado(t.id) ? st.colBoletoAvista : st.colBoleto,
