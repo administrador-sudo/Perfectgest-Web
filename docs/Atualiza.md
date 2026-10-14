@@ -2,6 +2,67 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-14 09:19] Facebook in-app: rewrite A1 + splash Abrir no Chrome
+
+### Contexto
+
+- /A1_Certificado no Facebook so mostrava a barra dourada. .html tambem falhava.
+
+### Arquivos alterados
+
+- render.yaml
+- docs/RENDER_SPA_REWRITE.md
+- web/index.html
+- scripts/publish-web.cjs
+- lib/funil_promo_trilho.dart
+- docs/Atualiza.md
+
+### O que foi feito
+
+- Rewrite `/A1_Certificado` -> `/A1_Certificado.html` no render.yaml.
+- CanvasKit local (`--no-web-resources-cdn`). Chrome inalterado.
+- No WebView Facebook/Instagram: splash nao some as 8s; botao Abrir no Chrome.
+- Banner com maxHeight 140 para nao virar faixa vertical.
+
+### Risco de regressao
+
+- Baixo no Chrome. Render Dashboard precisa da regra Rewrite.
+
+### Validacao executada
+
+- dart analyze no banner.
+
+### Resultado
+
+- Aguardando publish-web. No Render, confirmar Rewrite A1_Certificado.
+
+## [2026-10-14 09:08] Banner: OFF maior e X no canto
+
+### Contexto
+
+- OFF pequeno; X alinhado ao centro da barra.
+
+### Arquivos alterados
+
+- lib/funil_promo_trilho.dart
+- docs/Atualiza.md
+
+### O que foi feito
+
+- OFF em 18px, peso 900. X no canto superior direito.
+
+### Risco de regressao
+
+- Nenhum.
+
+### Validacao executada
+
+- dart analyze no banner.
+
+### Resultado
+
+- Aguardando publish-web.
+
 ## [2026-10-14 08:58] Banner fundo ouro, letras prata, 33% OFF preto
 
 ### Contexto

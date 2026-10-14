@@ -519,7 +519,7 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
 
   @override
   String get promoTrilhoTexto =>
-      'Garanta 33% de desconto! É por tempo limitado. Clique e aproveite '
+      'Garanta 33% de desconto! É por tempo limitado. Venha para o Time e aproveite '
       'honorários e serviços com desconto, por 1 ano!';
 
   @override

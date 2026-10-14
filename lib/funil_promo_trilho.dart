@@ -100,7 +100,9 @@ class _FunilPromoTrilhoState extends State<FunilPromoTrilho> {
     );
     return Semantics(
       label: '${widget.selo} OFF. ${widget.texto} ${widget.texto2}',
-      child: DecoratedBox(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxHeight: 140),
+        child: DecoratedBox(
         decoration: const BoxDecoration(
           color: BrandPalette.goldWarm,
           border: Border(
@@ -110,74 +112,85 @@ class _FunilPromoTrilhoState extends State<FunilPromoTrilho> {
         ),
         child: SafeArea(
           top: false,
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(10, 8, 4, 8),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: AnimatedSwitcher(
-                    duration: const Duration(milliseconds: 400),
-                    child: Row(
-                      key: ValueKey<bool>(_fraseB),
+          child: Stack(
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(10, 10, 36, 8),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: AnimatedSwitcher(
+                        duration: const Duration(milliseconds: 400),
+                        child: Row(
+                          key: ValueKey<bool>(_fraseB),
+                          children: [
+                            if (!_fraseB) ...[
+                              const Icon(
+                                Icons.warning_rounded,
+                                color: kFunilPromoAlertaVermelho,
+                                size: 22,
+                              ),
+                              const SizedBox(width: 8),
+                            ],
+                            Expanded(
+                              child: Text(
+                                _fraseB ? widget.texto2 : widget.texto,
+                                maxLines: 3,
+                                overflow: TextOverflow.ellipsis,
+                                style: estilo,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Column(
+                      mainAxisSize: MainAxisSize.min,
                       children: [
-                        if (!_fraseB) ...[
-                          const Icon(
-                            Icons.warning_rounded,
-                            color: kFunilPromoAlertaVermelho,
-                            size: 22,
+                        Text(
+                          widget.selo,
+                          style: const TextStyle(
+                            color: BrandPalette.charcoalDeep,
+                            fontWeight: FontWeight.w800,
+                            fontSize: 16,
+                            height: 1,
                           ),
-                          const SizedBox(width: 8),
-                        ],
-                        Expanded(
-                          child: Text(
-                            _fraseB ? widget.texto2 : widget.texto,
-                            maxLines: 3,
-                            overflow: TextOverflow.ellipsis,
-                            style: estilo,
+                        ),
+                        const Text(
+                          'OFF',
+                          style: TextStyle(
+                            color: BrandPalette.charcoalDeep,
+                            fontWeight: FontWeight.w900,
+                            fontSize: 18,
+                            height: 1,
+                            letterSpacing: 1.2,
                           ),
                         ),
                       ],
                     ),
-                  ),
-                ),
-                const SizedBox(width: 6),
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      widget.selo,
-                      style: const TextStyle(
-                        color: BrandPalette.charcoalDeep,
-                        fontWeight: FontWeight.w800,
-                        fontSize: 16,
-                        height: 1,
-                      ),
-                    ),
-                    const Text(
-                      'OFF',
-                      style: TextStyle(
-                        color: BrandPalette.charcoalDeep,
-                        fontWeight: FontWeight.w800,
-                        fontSize: 10,
-                        height: 1,
-                      ),
-                    ),
                   ],
                 ),
-                IconButton(
+              ),
+              Positioned(
+                top: 0,
+                right: 0,
+                child: IconButton(
                   tooltip: 'Fechar',
                   onPressed: () {
                     _timer?.cancel();
                     setState(() => _fechado = true);
                   },
-                  icon: const Icon(Icons.close, color: BrandPalette.charcoalDeep, size: 20),
-                  visualDensity: VisualDensity.compact,
+                  padding: const EdgeInsets.all(4),
+                  constraints: const BoxConstraints(minWidth: 32, minHeight: 32),
+                  icon: const Icon(Icons.close, color: BrandPalette.charcoalDeep, size: 18),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
+      ),
       ),
     );
   }

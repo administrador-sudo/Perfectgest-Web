@@ -70,7 +70,7 @@ if (!commitMessage) {
 }
 
 run('dart', ['run', 'tool/generate_brand_icons.dart']);
-run('flutter', ['build', 'web', '--release', '--pwa-strategy=none']);
+run('flutter', ['build', 'web', '--release', '--pwa-strategy=none', '--no-web-resources-cdn']);
 run('node', [path.join(__dirname, 'sync-brand-assets-to-build.cjs')]);
 run('node', [path.join(__dirname, 'spa-legal-paths.cjs')]);
 run('node', [path.join(__dirname, 'verify-legal-build.cjs')]);

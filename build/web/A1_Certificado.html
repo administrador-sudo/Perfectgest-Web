@@ -135,6 +135,21 @@
       font-size: 0.88rem;
       color: rgba(26, 26, 26, 0.84);
     }
+    #pp-static-landing .open-ext {
+      display: none;
+      margin-top: 16px;
+      padding: 12px 18px;
+      border: 0;
+      border-radius: 10px;
+      background: #d4af37;
+      color: #121212;
+      font-weight: 800;
+      font-size: 0.95rem;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    #pp-static-landing.show-ext .open-ext { display: inline-block; }
+    #pp-static-landing.show-ext .spinner { display: none; }
     #pp-static-landing .spinner {
       width: 16px;
       height: 16px;
@@ -203,8 +218,9 @@
       <p class="sub">Software house especializada em aplicativo mobile, plataforma web rapida (Core Web Vitals) e SEO tecnico para crescer no Google.</p>
       <p class="status" role="status" aria-live="polite">
         <span class="spinner" aria-hidden="true"></span>
-        <span>Carregando experiencia Web de alta performance...</span>
+        <span id="pp-load-status">Carregando experiencia Web de alta performance...</span>
       </p>
+      <a class="open-ext" id="pp-open-ext" href="https://perfectgestdev.com/">Abrir no Chrome</a>
     </main>
   </div>
   <script>
@@ -225,7 +241,32 @@
         setTimeout(() => landing.remove(), 260);
       };
       window.addEventListener('flutter-first-frame', hide, { once: true });
-      setTimeout(hide, 8000);
+      var ua = navigator.userAgent || '';
+      var inApp = /FBAN|FBAV|FB_IAB|FBIOS|Instagram|Line\/|Twitter|WhatsApp|MicroMessenger|BytedanceWebview/i.test(ua);
+      var openExt = document.getElementById('pp-open-ext');
+      if (openExt) {
+        openExt.href = (window.location.origin || 'https://perfectgestdev.com') + (window.location.pathname || '/') + (window.location.search || '');
+        openExt.addEventListener('click', function (ev) {
+          var path = (window.location.pathname || '/') + (window.location.search || '') + (window.location.hash || '');
+          var httpsUrl = (window.location.origin || 'https://perfectgestdev.com') + path;
+          if (/Android/i.test(ua)) {
+            ev.preventDefault();
+            window.location.href = 'intent://' + window.location.host + path + '#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url=' + encodeURIComponent(httpsUrl) + ';end';
+          }
+        });
+      }
+      if (!inApp) {
+        setTimeout(hide, 8000);
+      } else {
+        setTimeout(function () {
+          if (hidden) return;
+          landing.classList.add('show-ext');
+          var status = document.getElementById('pp-load-status');
+          if (status) {
+            status.textContent = 'Este navegador do Facebook nao abre o site completo. Toque em Abrir no Chrome.';
+          }
+        }, 4000);
+      }
       // Nao esconder o splash so porque existe flt-glass-pane: no web-server
       // o painel aparece vazio (tela branca) antes do primeiro frame.
       var armed = false;
