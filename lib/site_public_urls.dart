@@ -23,6 +23,9 @@ const String kContabilidadePath = '/contabilidade';
 /// Funil isolado do certificado A1 QualityCert (sem menu da vitrine).
 const String kCertificadoA1Path = '/A1_Certificado';
 
+/// Ferramenta isolada de orçamento de esquadrias (sem menu da vitrine).
+const String kOrcamentoPath = '/orcamento';
+
 const String kPreCadastroPublicUrl = '$kSitePublicOrigin$kPreCadastroPath';
 
 const String kSitePrivacyPolicyPublicUrl = '$kSitePublicOrigin$kSitePrivacyPolicyPath';

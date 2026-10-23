@@ -2,6 +2,190 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-23 17:33] /orcamento: PDF item m², vidro e total
+
+### Contexto
+
+- No PDF do item, sem mão de obra, comissão nem R$/m²; mostra m² da abertura, valor do vidro e total já com vidro.
+
+### Arquivos alterados
+
+- lib/orcamento_models.dart
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+
+### Decisoes
+
+- Pop e fórmula internos iguais. Linha extra do tipo de vidro (nome + m² − 5%) permanece.
+
+### Pendente / Proximo passo
+
+- Sem publish.
+
+## [2026-10-23 17:20] /orcamento: vidro R$/m² e valor na abertura
+
+### Contexto
+
+- Tabela de 11 tipos de vidro no quadro 3; pop escolhe o vidro; área do vidro = m² da abertura × 0,95; valor do vidro entra no total.
+
+### Arquivos alterados
+
+- lib/orcamento_models.dart
+- lib/orcamento_page.dart
+- lib/orcamento_item_pop.dart
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+
+### Decisoes
+
+- Comissão continua só sobre alumínio (material + mão de obra). Sem vidro: valorVidro = 0.
+- `precosVidro` persiste no JSON `pg_orcamento_v1` junto com `precosM2`.
+- Folha e PDF mostram linha do vidro; total já inclui o vidro.
+
+### Pendente / Proximo passo
+
+- Sem publish.
+
+## [2026-10-23 17:15] /orcamento: medidas mm e catálogo
+
+### Contexto
+
+- Medidas em milímetros; nomes da sacada motorizada; Lambri pivotante; remover Porta balcão.
+
+### Arquivos alterados
+
+- lib/orcamento_models.dart
+- lib/orcamento_item_pop.dart
+- lib/orcamento_page.dart
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+
+### O que foi feito
+
+- Largura/altura em mm; área = (L/1000)×(A/1000). JSON `larguraMm`/`alturaMm`; snapshot antigo em cm ×10.
+- Porta/janela sacada persiana motorizada. Porta pivotante Lambri largo e estreito. Porta balcão fora do catálogo.
+
+### Risco de regressao
+
+- Só `/orcamento`. Itens `porta_balcao` já no quadro 2 ficam até o operador apagar.
+
+### Validacao executada
+
+- `flutter test test/orcamento_formula_test.dart`
+
+### Resultado
+
+- Sem publish.
+
+## [2026-10-23 15:45] /orcamento: layout para celular
+
+### Contexto
+
+- A página de orçamento precisava abrir em telas pequenas.
+
+### Arquivos alterados
+
+- lib/orcamento_page.dart
+- lib/orcamento_item_pop.dart
+- docs/Atualiza.md
+
+### O que foi feito
+
+- Abaixo de 720px: uma coluna rolável (cadastro, catálogo, orçamento, R\$/m²). Campos em largura total. Botão + 44px. Arrastar com toque longo. Folha e pop empilhados.
+
+### Risco de regressao
+
+- Desktop (>=980px) mantém dois quadros lado a lado.
+
+### Validacao executada
+
+- dart analyze nos ficheiros alterados.
+
+### Resultado
+
+- Aguardando conferência no Chrome com viewport móvel. Sem publish.
+
+## [2026-10-23 15:40] /orcamento: grupos, tabela R$/m², validade e PDF
+
+### Contexto
+
+- Novos tipos de abertura, preço por m² na tabela (não no pop), validade no PDF e correção do Gerar PDF no Chrome.
+
+### Arquivos alterados
+
+- lib/orcamento_models.dart
+- lib/orcamento_page.dart
+- lib/orcamento_item_pop.dart
+- lib/orcamento_print_web.dart
+- lib/orcamento_print_stub.dart
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+
+### O que foi feito
+
+- Catálogo agrupado (correr, integradas, portas, maxim-ar, fixos) com os 15 tipos novos. Grafia veneziana.
+- Quadro 3: R\$/m² por abertura na mesma ordem; altera itens já no orçamento. Pop sem campo editável de preço.
+- Campo Válido até (padrão +15 dias) no cadastro, folha e PDF. Persistido no localStorage.
+- Gerar PDF via iframe srcdoc + print (sem data-URL bloqueado).
+
+### Risco de regressao
+
+- Só `/orcamento`. Funil/A1/menus intactos.
+
+### Validacao executada
+
+- `flutter test test/orcamento_formula_test.dart`
+
+### Resultado
+
+- Aguardando publish-web (só se o operador pedir). Abrir `/orcamento` e Gerar PDF no Chrome (Salvar como PDF).
+
+## [2026-10-23 13:30] Pagina isolada /orcamento (esquadrias v1)
+
+### Contexto
+
+- Ferramenta de desenvolvimento para orçamento de aberturas de alumínio. Acesso só por URL, sem menu.
+
+### Arquivos alterados
+
+- lib/orcamento_page.dart
+- lib/orcamento_models.dart
+- lib/orcamento_item_pop.dart
+- lib/orcamento_storage_web.dart
+- lib/orcamento_storage_stub.dart
+- lib/orcamento_print_web.dart
+- lib/orcamento_print_stub.dart
+- lib/main.dart
+- lib/site_public_urls.dart
+- lib/seo_meta_web.dart
+- lib/seo_meta_stub.dart
+- scripts/legal-routes.cjs
+- render.yaml
+- docs/generated-render-legal-routes.yaml
+- docs/RENDER_SPA_REWRITE.md
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+
+### O que foi feito
+
+- Rota `/orcamento` isolada (noindex), slug SPA `orcamento`, rewrite Render `/orcamento` -> `/orcamento.html`.
+- Dois quadros: catálogo de aberturas e local do orçamento (arrastar ou +). Clique no item abre pop (R$/m², medidas, m², cor, modelo, % mão de obra, % comissão, instalação, obs).
+- Cadastro da esquadria preenchido na hora (não usa company_legal). Botão Salvar grava cadastro + itens em localStorage `pg_orcamento_v1` e pré-preenche no próximo acesso.
+- Folha A4 na tela e Gerar PDF via HTML + print do browser. Rodapé fixo Perfect Gest Dev - divisão ferramentas digitais.
+- Paleta carvão / ouro / prata. Sem menu, sem Firebase, sem publish.
+
+### Risco de regressao
+
+- Rotas da vitrine e funil inalteradas. Menus sem link. PIX/A1 intocados.
+
+### Validacao executada
+
+- `flutter test test/orcamento_formula_test.dart` passou.
+
+### Resultado
+
+- Aguardando publish-web (só se o operador pedir). URL: /orcamento. No Render, confirmar rewrite `/orcamento` -> `/orcamento.html`.
+
 ## [2026-10-22 22:35] Funil: NF extra R$ 4,99 + obs pacote
 
 ### Contexto

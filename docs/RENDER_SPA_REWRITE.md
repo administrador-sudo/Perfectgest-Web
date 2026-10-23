@@ -26,6 +26,7 @@ Isto publica `politica-devolucao.html` (e as outras) e **remove** ficheiros sem 
 | `/pre-cadastro` | `/pre-cadastro.html` | **Rewrite** |
 | `/faq-contabilgest` | `/faq-contabilgest.html` | **Rewrite** (SPA Flutter — FAQ vitrine ContabilGest) |
 | `/A1_Certificado` | `/A1_Certificado.html` | **Rewrite** (SPA Flutter — certificado A1) |
+| `/orcamento` | `/orcamento.html` | **Rewrite** (SPA Flutter — orçamento de esquadrias, isolado) |
 | `/politica-privacidade-clinica-iii` | `/politica-privacidade-clinica-iii.html` | **Rewrite** (HTML estático — PerfectGest-Clinica III) |
 | `/termos-clinica-iii` | `/termos-clinica-iii.html` | **Rewrite** |
 | `/dados-saude-lgpd-clinica-iii` | `/dados-saude-lgpd-clinica-iii.html` | **Rewrite** (HTML estático — PerfectGest-Clinica III) |

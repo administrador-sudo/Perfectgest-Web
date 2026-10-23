@@ -6,6 +6,7 @@ const siteSpaPages = [
   'faq-contabilgest',
   'contabilidade',
   'A1_Certificado',
+  'orcamento',
 ];
 
 const clinicaIiiStaticSlugs = [

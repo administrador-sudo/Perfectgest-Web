@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Boas práticas de segurança e privacidade (complementar cabeçalhos HTTP no servidor em produção) -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+  <!-- CSP: Flutter Web + gtag adiado (pp_analytics.js) + fontes locais -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.gstatic.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob: https:; connect-src 'self' https://perfectgest-leads-api-6v1e.onrender.com https://southamerica-east1-perfectgest-contabilgest.cloudfunctions.net https://*.run.app https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://www.googletagmanager.com https://www.gstatic.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;">
+  <meta name="theme-color" content="#E8E8E8">
+  <meta name="description" content="Software house especialista em Flutter, Java e SDKs para apps mobile, web e desktop com alta performance.">
+  <meta name="keywords" content="Flutter, Java, SDK, PWA, SEO, Google Search Console, mobile, web, desktop">
+  <meta name="robots" content="index, follow">
+  <meta name="google-site-verification" content="zftG-b4ZxVLrLOTYSyybFDG_yNnoc7_uUTPfNaSOxqU">
+  <meta property="og:title" content="Codificando o Amanha, Hoje | PerfectGest">
+  <meta property="og:description" content="Inovacao em Flutter, Java e SDKs com foco em codigo limpo, escala e performance.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:image" content="icons/Icon-512.png">
+  <!-- Canonical alinhada ao host e path atuais (evita GSC "alternativa com canonical" em previews/staging). -->
+  <script>
+    (function () {
+      if (!document.head || !window.location || !window.location.origin) return;
+      var path = window.location.pathname || '/';
+      if (path.length > 1 && path.endsWith('/')) path = path.slice(0, -1);
+      var href = window.location.origin + (path === '/' ? '/' : path);
+      var link = document.createElement('link');
+      link.rel = 'canonical';
+      link.href = href;
+      document.head.appendChild(link);
+    })();
+  </script>
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="PerfectGest">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon (brasão PerfectGestDev — ICO + PNG) -->
+  <link rel="icon" href="favicon.ico" sizes="any"/>
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/Icon-192.png"/>
+
+  <title>Codificando o Amanha, Hoje | PerfectGest</title>
+  <link rel="manifest" href="manifest.json">
+  <!-- Descobre o bootstrap mais cedo (não bloqueia parsing; ajuda o browser a planear a rede) -->
+  <link rel="preload" href="flutter_bootstrap.js" as="script">
+  <link rel="preload" href="brasao-emblema.png" as="image" type="image/png">
+  <link rel="preload" href="perfectgestdev-wordmark.png" as="image" type="image/png">
+  <style>
+    #pp-static-landing {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      overflow-y: auto;
+      background: radial-gradient(ellipse 120% 80% at 50% 0%, #F5F5F5 0%, #E8E8E8 42%, #E0E0E0 100%);
+      color: #1A1A1A;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      transition: opacity 220ms ease;
+    }
+    #pp-static-landing.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    #pp-static-landing .wrap {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 28px 24px 40px;
+    }
+    #pp-static-landing .brand-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+    #pp-static-landing .brand-row img {
+      height: auto;
+      max-height: 120px;
+      width: auto;
+      max-width: min(280px, 88vw);
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    #pp-static-landing .brand {
+      display: none;
+    }
+    #pp-static-landing h1 {
+      margin: 0 0 12px;
+      font-size: clamp(1.35rem, 2.8vw, 1.75rem);
+      font-weight: 800;
+      line-height: 1.2;
+      color: #1A1A1A;
+    }
+    #pp-static-landing .lead {
+      margin: 0 0 14px;
+      font-size: clamp(0.95rem, 2vw, 1.05rem);
+      line-height: 1.55;
+      color: rgba(26, 26, 26, 0.88);
+      max-width: 720px;
+    }
+    #pp-static-landing .sub {
+      margin: 0 0 20px;
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: rgba(26, 26, 26, 0.72);
+      max-width: 680px;
+    }
+    #pp-static-landing .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.92);
+      font-size: 0.88rem;
+      color: rgba(26, 26, 26, 0.84);
+    }
+    #pp-static-landing .open-ext {
+      display: none;
+      margin-top: 16px;
+      padding: 12px 18px;
+      border: 0;
+      border-radius: 10px;
+      background: #d4af37;
+      color: #121212;
+      font-weight: 800;
+      font-size: 0.95rem;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    #pp-static-landing.show-ext .open-ext { display: inline-block; }
+    #pp-static-landing.show-ext .spinner { display: none; }
+    #pp-static-landing .spinner {
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(212, 175, 55, 0.25);
+      border-top-color: #d4af37;
+      border-radius: 50%;
+      animation: pp-spin 0.85s linear infinite;
+    }
+    @keyframes pp-spin {
+      to { transform: rotate(360deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #pp-static-landing .spinner { animation: none; border-top-color: #d4af37; }
+    }
+  </style>
+  <script>
+    (function () {
+      var path = (window.location && window.location.pathname ? window.location.pathname : '').toLowerCase();
+      var standaloneLegalPaths = [
+        '/politica-privacidade-clinica-iii',
+        '/termos-clinica-iii',
+        '/dados-saude-lgpd-clinica-iii',
+        '/perfectgest-i-politica-privacidade',
+        '/perfectgest-i-termos',
+        '/perfectgest-i-exclusao-dados',
+        '/perfectgest-i-faq',
+        '/contabil-i-politica-privacidade',
+        '/contabil-i-termos',
+        '/contabil-i-exclusao-dados',
+        '/contabil-i-faq',
+        '/politica-privacidade-clinica-iii.html',
+        '/termos-clinica-iii.html',
+        '/dados-saude-lgpd-clinica-iii.html',
+        '/perfectgest-i-politica-privacidade.html',
+        '/perfectgest-i-termos.html',
+        '/perfectgest-i-exclusao-dados.html',
+        '/perfectgest-i-faq.html',
+        '/contabil-i-politica-privacidade.html',
+        '/contabil-i-termos.html',
+        '/contabil-i-exclusao-dados.html',
+        '/contabil-i-faq.html',
+      ];
+      window.__ppSkipLoadingShell = standaloneLegalPaths.indexOf(path) >= 0;
+    })();
+  </script>
+  <!-- GA4: só após consentimento + idle (ver web/pp_analytics.js) -->
+  <script src="pp_analytics.js" defer></script>
+</head>
+<body>
+  <!--
+    You can customize the "flutter_bootstrap.js" script.
+    This is useful to provide a custom configuration to the Flutter loader
+    or to give the user feedback during the initialization process.
+
+    For more details:
+    * https://docs.flutter.dev/platform-integration/web/initialization
+  -->
+  <div id="pp-static-landing" aria-busy="true">
+    <main class="wrap" role="main">
+      <header class="brand-row" role="banner">
+        <img src="brasao-emblema.png" width="96" height="106" alt="Perfect Gest Dev" decoding="async" fetchpriority="high">
+        <p class="brand" aria-hidden="true">Perfect Gest Dev</p>
+      </header>
+      <h1>Inovacao em Flutter, Java e SDKs</h1>
+      <p class="lead">Criamos apps Flutter, sistemas web e integracoes Java/SDK com foco em performance, seguranca e escalabilidade para o seu negocio.</p>
+      <p class="sub">Software house especializada em aplicativo mobile, plataforma web rapida (Core Web Vitals) e SEO tecnico para crescer no Google.</p>
+      <p class="status" role="status" aria-live="polite">
+        <span class="spinner" aria-hidden="true"></span>
+        <span id="pp-load-status">Carregando experiencia Web de alta performance...</span>
+      </p>
+      <a class="open-ext" id="pp-open-ext" href="https://perfectgestdev.com/">Abrir no Chrome</a>
+    </main>
+  </div>
+  <script>
+    (function () {
+      const landing = document.getElementById('pp-static-landing');
+      if (!landing) return;
+      if (window.__ppSkipLoadingShell) {
+        landing.remove();
+        return;
+      }
+      var hidden = false;
+      const hide = () => {
+        if (hidden) return;
+        hidden = true;
+        landing.setAttribute('aria-hidden', 'true');
+        landing.setAttribute('aria-busy', 'false');
+        landing.classList.add('hidden');
+        setTimeout(() => landing.remove(), 260);
+      };
+      window.addEventListener('flutter-first-frame', hide, { once: true });
+      var ua = navigator.userAgent || '';
+      var inApp = /FBAN|FBAV|FB_IAB|FBIOS|Instagram|Line\/|Twitter|WhatsApp|MicroMessenger|BytedanceWebview/i.test(ua);
+      var openExt = document.getElementById('pp-open-ext');
+      if (openExt) {
+        openExt.href = (window.location.origin || 'https://perfectgestdev.com') + (window.location.pathname || '/') + (window.location.search || '');
+        openExt.addEventListener('click', function (ev) {
+          var path = (window.location.pathname || '/') + (window.location.search || '') + (window.location.hash || '');
+          var httpsUrl = (window.location.origin || 'https://perfectgestdev.com') + path;
+          if (/Android/i.test(ua)) {
+            ev.preventDefault();
+            window.location.href = 'intent://' + window.location.host + path + '#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url=' + encodeURIComponent(httpsUrl) + ';end';
+          }
+        });
+      }
+      if (!inApp) {
+        setTimeout(hide, 8000);
+      } else {
+        setTimeout(function () {
+          if (hidden) return;
+          landing.classList.add('show-ext');
+          var status = document.getElementById('pp-load-status');
+          if (status) {
+            status.textContent = 'Este navegador do Facebook nao abre o site completo. Toque em Abrir no Chrome.';
+          }
+        }, 4000);
+      }
+      // Nao esconder o splash so porque existe flt-glass-pane: no web-server
+      // o painel aparece vazio (tela branca) antes do primeiro frame.
+      var armed = false;
+      var bootWatch = setInterval(function () {
+        if (typeof window.$dartRunMain === 'function' && !armed) {
+          armed = true;
+          try { window.$dartRunMain(); } catch (err) {}
+        }
+      }, 400);
+      setTimeout(function () { clearInterval(bootWatch); }, 20000);
+    })();
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>

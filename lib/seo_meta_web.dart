@@ -71,6 +71,15 @@ const String _kOgDescriptionCertificadoA1 =
     'Adquira o A1 com o escritorio PerfectGest. Cadastro, PIX e ativacao QualityCert 24h de segunda a sexta.';
 const String _kDocumentTitleCertificadoA1 = 'Certificado A1 | Perfect Gest Dev';
 
+const String _kMetaDescriptionOrcamento =
+    'Ferramenta interna de orcamento de aberturas de aluminio. Pagina de desenvolvimento, acesso por URL direta.';
+const String _kMetaKeywordsOrcamento =
+    'orcamento, esquadrias, aluminio, Perfect Gest Dev';
+const String _kOgTitleOrcamento = 'Orcamento | Perfect Gest Dev';
+const String _kOgDescriptionOrcamento =
+    'Painel de orcamento de esquadrias. Ferramenta de desenvolvimento, nao indexar.';
+const String _kDocumentTitleOrcamento = 'Orcamento | Perfect Gest Dev';
+
 void _applyHomeSeoMetaTags() {
   _syncCanonicalFromLocation();
   _upsertMeta('description', _kMetaDescriptionHome);
@@ -178,6 +187,19 @@ void applyCertificadoA1SeoMetaTags() {
   _upsertMetaProperty('og:type', 'website');
   _upsertMetaProperty('og:locale', 'pt_BR');
   _setDocumentTitle(_kDocumentTitleCertificadoA1);
+}
+
+/// Ferramenta isolada /orcamento — nao indexar (URL direta apenas).
+void applyOrcamentoSeoMetaTags() {
+  _syncCanonicalFromLocation();
+  _upsertMeta('description', _kMetaDescriptionOrcamento);
+  _upsertMeta('keywords', _kMetaKeywordsOrcamento);
+  _upsertMeta('robots', 'noindex, nofollow');
+  _upsertMetaProperty('og:title', _kOgTitleOrcamento);
+  _upsertMetaProperty('og:description', _kOgDescriptionOrcamento);
+  _upsertMetaProperty('og:type', 'website');
+  _upsertMetaProperty('og:locale', 'pt_BR');
+  _setDocumentTitle(_kDocumentTitleOrcamento);
 }
 
 /// Meta das paginas legais PerfectGest-Clinica III (consulta isolada).
