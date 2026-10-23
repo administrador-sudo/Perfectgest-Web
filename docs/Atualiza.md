@@ -2,6 +2,33 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-22 22:35] Funil: NF extra R$ 4,99 + obs pacote
+
+### Contexto
+
+- Preco da NF extra na vitrine /contabilidade e nota de pacote por CNPJ.
+
+### Arquivos alterados
+
+- lib/l10n/site_contabilidade_funil_texts.dart
+- docs/Atualiza.md
+
+### O que foi feito
+
+- extrasBody PT/EN/ES: NF extra R\$ 4,99 e obs de pacote com valor fechado. Sem .arb duplicado. Demais extras e honorarios iguais.
+
+### Risco de regressao
+
+- Nenhum. So copy. Sem PIX/SKU.
+
+### Validacao executada
+
+- Tres getters extrasBody conferidos. app_*.arb sem extrasBody.
+
+### Resultado
+
+- Aguardando publish-web (so se o operador pedir).
+
 ## [2026-10-14 12:41] Banner promocional desativado
 
 ### Contexto

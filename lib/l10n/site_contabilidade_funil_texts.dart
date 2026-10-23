@@ -317,7 +317,7 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
 
   @override
   String get extrasBody =>
-      'NF extra R\$ 12,99 · CLT extra R\$ 39,99/mês · Folha R\$ 99,99/mês · IR R\$ 49,99/ano · A1 R\$ 119,99/ano · Abertura de ME, SLU, LTDA, EI no Simples Nacional R\$ 490,00 · MEI para ME R\$ 350,00 · Viabilidade (Avaliação de Abertura / alteração) R\$ 100,00.';
+      'NF extra R\$ 4,99 · Para volume grande de notas fiscais no mesmo CNPJ, o escritório pode estudar um pacote com valor fechado. · CLT extra R\$ 39,99/mês · Folha R\$ 99,99/mês · IR R\$ 49,99/ano · A1 R\$ 119,99/ano · Abertura de ME, SLU, LTDA, EI no Simples Nacional R\$ 490,00 · MEI para ME R\$ 350,00 · Viabilidade (Avaliação de Abertura / alteração) R\$ 100,00.';
 
   @override
   String get organsNote =>
@@ -1103,7 +1103,7 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
 
   @override
   String get extrasBody =>
-      'Extra invoice R\$ 12.99 · Extra CLT R\$ 39.99/month · Payroll R\$ 99.99/month · Income tax R\$ 49.99/year · A1 R\$ 119.99/year · Company opening R\$ 490.00 · MEI to ME R\$ 350.00 · Viability (opening / change review) R\$ 100.00.';
+      'Extra invoice R\$ 4.99 · For a large volume of invoices on the same CNPJ, the firm can study a closed-price package. · Extra CLT R\$ 39.99/month · Payroll R\$ 99.99/month · Income tax R\$ 49.99/year · A1 R\$ 119.99/year · Company opening R\$ 490.00 · MEI to ME R\$ 350.00 · Viability (opening / change review) R\$ 100.00.';
 
   @override
   String get organsNote =>
@@ -1888,7 +1888,7 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
 
   @override
   String get extrasBody =>
-      'NF extra R\$ 12,99 · CLT extra R\$ 39,99/mes · Nómina R\$ 99,99/mes · IR R\$ 49,99/año · A1 R\$ 119,99/año · Apertura de empresa R\$ 490,00 · MEI a ME R\$ 350,00 · Viabilidad (evaluación de apertura / alteración) R\$ 100,00.';
+      'NF extra R\$ 4,99 · Para un volumen grande de facturas en el mismo CNPJ, el despacho puede estudiar un paquete con valor cerrado. · CLT extra R\$ 39,99/mes · Nómina R\$ 99,99/mes · IR R\$ 49,99/año · A1 R\$ 119,99/año · Apertura de empresa R\$ 490,00 · MEI a ME R\$ 350,00 · Viabilidad (evaluación de apertura / alteración) R\$ 100,00.';
 
   @override
   String get organsNote =>
