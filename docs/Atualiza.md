@@ -2,6 +2,21 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-24 11:35] /orcamento: lista de vidro visível no pop
+
+### Contexto
+
+- O dropdown de vidro no pop ficava branco no Flutter web. Passa a abrir uma lista com texto carvão e rolagem.
+
+### Arquivos alterados
+
+- lib/orcamento_item_pop.dart
+- docs/Atualiza.md
+
+### Decisoes
+
+- Segundo pop com ListView (Sem vidro + tipos). Sem publish.
+
 ## [2026-10-24 11:26] /orcamento: PC página rolante e quadro 1 na altura da lista
 
 ### Contexto

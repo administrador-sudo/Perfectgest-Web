@@ -105,6 +105,65 @@ class _OrcamentoItemPopState extends State<_OrcamentoItemPop> {
     );
   }
 
+  String _rotuloVidro() {
+    if (_vidroId.isEmpty) return 'Sem vidro';
+    final tipo = vidroPorId(_vidroId);
+    if (tipo == null) return 'Sem vidro';
+    return '${tipo.nome} · ${formatBrl(widget.precosVidro[tipo.id] ?? 0)}/m²';
+  }
+
+  Future<void> _abrirListaVidro() async {
+    final escolhido = await showDialog<String>(
+      context: context,
+      barrierColor: BrandPalette.charcoalDeep.withValues(alpha: 0.72),
+      builder: (ctx) {
+        return AlertDialog(
+          backgroundColor: BrandPalette.silverLight,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+            side: const BorderSide(color: BrandPalette.goldWarm, width: 1.2),
+          ),
+          title: const Text(
+            'Vidro',
+            style: TextStyle(color: BrandPalette.charcoal, fontWeight: FontWeight.w700),
+          ),
+          content: SizedBox(
+            width: 420,
+            height: 320,
+            child: ListView(
+              children: [
+                ListTile(
+                  title: const Text('Sem vidro', style: TextStyle(color: BrandPalette.charcoal)),
+                  selected: _vidroId.isEmpty,
+                  selectedColor: BrandPalette.charcoal,
+                  selectedTileColor: BrandPalette.silverPeak,
+                  onTap: () => Navigator.pop(ctx, ''),
+                ),
+                for (final v in kOrcamentoVidros)
+                  ListTile(
+                    title: Text(
+                      v.nome,
+                      style: const TextStyle(color: BrandPalette.charcoal, fontWeight: FontWeight.w600),
+                    ),
+                    subtitle: Text(
+                      '${formatBrl(widget.precosVidro[v.id] ?? 0)}/m²',
+                      style: const TextStyle(color: BrandPalette.silverDark),
+                    ),
+                    selected: _vidroId == v.id,
+                    selectedColor: BrandPalette.charcoal,
+                    selectedTileColor: BrandPalette.silverPeak,
+                    onTap: () => Navigator.pop(ctx, v.id),
+                  ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+    if (escolhido == null || !mounted) return;
+    setState(() => _vidroId = escolhido);
+  }
+
   @override
   void dispose() {
     _largura.dispose();
@@ -216,24 +275,17 @@ class _OrcamentoItemPopState extends State<_OrcamentoItemPop> {
                       decoration: _dec('Instalação (R\$)'),
                       keyboardType: const TextInputType.numberWithOptions(decimal: true),
                     )),
-                    _w(280, DropdownButtonFormField<String>(
-                      value: _vidroId,
-                      isExpanded: true,
-                      decoration: _dec('Vidro'),
-                      dropdownColor: BrandPalette.silverPeak,
-                      style: const TextStyle(color: BrandPalette.charcoal, fontSize: 13),
-                      items: [
-                        const DropdownMenuItem(value: '', child: Text('Sem vidro')),
-                        for (final v in kOrcamentoVidros)
-                          DropdownMenuItem(
-                            value: v.id,
-                            child: Text(
-                              '${v.nome} · ${formatBrl(widget.precosVidro[v.id] ?? 0)}/m²',
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
-                      ],
-                      onChanged: (v) => setState(() => _vidroId = v ?? ''),
+                    _w(280, InkWell(
+                      onTap: _abrirListaVidro,
+                      child: InputDecorator(
+                        decoration: _dec('Vidro'),
+                        child: Text(
+                          _rotuloVidro(),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(color: BrandPalette.charcoal, fontSize: 13),
+                        ),
+                      ),
                     )),
                   ],
                 ),

@@ -45,7 +45,7 @@ const List<OrcamentoCatalogTipo> kOrcamentoCatalogo = [
   OrcamentoCatalogTipo(id: 'porta_correr', nome: 'Porta de correr', grupo: kGrupoPortasGiro, icon: Icons.sensor_door),
   OrcamentoCatalogTipo(id: 'maxim_ar', nome: 'Maxim-ar', grupo: kGrupoMaximOutros, icon: Icons.open_in_full),
   OrcamentoCatalogTipo(id: 'maxim_ar_dupla', nome: 'Janela maxim-ar dupla', grupo: kGrupoMaximOutros, icon: Icons.open_in_full),
-  OrcamentoCatalogTipo(id: 'basculante', nome: 'Basculante', grupo: kGrupoMaximOutros, icon: Icons.swap_vert),
+  OrcamentoCatalogTipo(id: 'basculante', nome: 'Maxim-ar tripla', grupo: kGrupoMaximOutros, icon: Icons.open_in_full),
   OrcamentoCatalogTipo(id: 'pivotante', nome: 'Pivotante', grupo: kGrupoMaximOutros, icon: Icons.rotate_right),
   OrcamentoCatalogTipo(id: 'batente', nome: 'Janela de batente', grupo: kGrupoMaximOutros, icon: Icons.crop_square),
   OrcamentoCatalogTipo(id: 'veneziana', nome: 'Veneziana', grupo: kGrupoMaximOutros, icon: Icons.view_week),
