@@ -2,6 +2,22 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-24 12:53] /orcamento: PDF instalação na linha do vidro
+
+### Contexto
+
+- Linha extra do PDF: tipo do vidro só se houver vidro; valor da instalação na mesma linha se houver.
+
+### Arquivos alterados
+
+- lib/orcamento_models.dart
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+
+### Pendente / Proximo passo
+
+- Sem publish.
+
 ## [2026-10-24 12:43] /orcamento: PDF linha abertura, vidro e total
 
 ### Contexto

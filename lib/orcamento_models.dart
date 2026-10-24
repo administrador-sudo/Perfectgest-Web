@@ -512,9 +512,13 @@ String orcamentoToPrintHtml({
   <td class="num">${formatBrl(it.valorVidro)}</td>
   <td class="num">${formatBrl(it.total)}</td>
 </tr>''');
-      if (it.vidroId.isNotEmpty) {
+      final extra = <String>[
+        if (it.vidroId.isNotEmpty) 'Vidro: ${htmlEsc(it.vidroNome)}',
+        if (it.instalacao > 0) 'Instalação: ${formatBrl(it.instalacao)}',
+      ];
+      if (extra.isNotEmpty) {
         linhas.writeln(
-          '<tr class="obs"><td></td><td colspan="6">Vidro: ${htmlEsc(it.vidroNome)}</td></tr>',
+          '<tr class="obs"><td></td><td colspan="6">${extra.join(' · ')}</td></tr>',
         );
       }
       if (it.obs.trim().isNotEmpty) {
