@@ -1098,7 +1098,7 @@ class _OrcamentoRodapeFerramenta extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
         child: Text(
-          '$kCompanyFantasyName - divisão ferramentas digitais · Todos os direitos reservados.\nCNPJ $kCompanyCnpj',
+          '$kCompanyFantasyName - Divisão Ferramentas Digitais · © Todos os Direitos Reservados.\nCNPJ $kCompanyCnpj',
           textAlign: TextAlign.center,
           style: const TextStyle(color: BrandPalette.silverMid, fontSize: 11, height: 1.35),
         ),

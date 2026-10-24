@@ -574,7 +574,7 @@ String orcamentoToPrintHtml({
   </table>
   <div class="totais"><div>Total do orçamento<br><strong>${formatBrl(total)}</strong></div></div>
   <footer class="tool">
-    Perfect Gest Dev - divisão ferramentas digitais · Todos os direitos reservados.<br>
+    PerfectGestDev - Divisão ferramentas Digitais · © Todos os Direitos Reservados.<br>
     CNPJ 66.889.409/0001-19
   </footer>
 </div>
