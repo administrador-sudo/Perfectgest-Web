@@ -1,18 +1,18 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
 $__dart_deferred_initializers__.current=function(a,b,c,$){var C,D,E,F,G,B={
-b7f(d){return new B.oE(d,null)},
+b7b(d){return new B.oE(d,null)},
 oE:function oE(d,e){this.c=d
 this.a=e},
-a2j:function a2j(){this.c=this.a=null},
-aB3:function aB3(d,e,f,g){var _=this
+a2i:function a2i(){this.c=this.a=null},
+aB2:function aB2(d,e,f,g){var _=this
 _.a=d
 _.b=e
 _.c=f
 _.d=g},
-a3P:function a3P(d,e){this.c=d
+a3O:function a3O(d,e){this.c=d
 this.a=e},
-aDN:function aDN(d){this.a=d},
-bco(d){switch(d.af(y.h).r.f.gcR()){case"en":return A.Pf
+aDL:function aDL(d){this.a=d},
+bck(d){switch(d.af(y.h).r.f.gcR()){case"en":return A.Pf
 case"es":return A.Pg
 case"pt":default:return A.Ph}},
 lQ:function lQ(d,e){this.a=d
@@ -20,10 +20,10 @@ this.b=e},
 bW:function bW(d,e,f){this.a=d
 this.b=e
 this.c=f},
-ava:function ava(){},
-aLB:function aLB(){},
+av9:function av9(){},
 aLz:function aLz(){},
-aLA:function aLA(){}},A
+aLx:function aLx(){},
+aLy:function aLy(){}},A
 C=c[0]
 D=c[2]
 E=c[15]
@@ -32,8 +32,8 @@ G=c[13]
 B=a.updateHolder(c[8],B)
 A=c[14]
 B.oE.prototype={
-aa(){return new B.a2j()}}
-B.a2j.prototype={
+aa(){return new B.a2i()}}
+B.a2i.prototype={
 ao(){this.aG()
 C.j5()
 C.dD("description","Perguntas e respostas PerfectGest ContabilGest: MEI, Livro Caixa, NFS-e, planos, assinatura Google Play e fontes oficiais.")
@@ -44,16 +44,16 @@ C.cI("og:description","FAQ do PerfectGest ContabilGest: o que e o app, internet,
 C.cI("og:type","article")
 C.cI("og:locale","pt_BR")
 b.G.document.title="Perguntas e respostas | ContabilGest"},
-l(){C.qy()
+l(){C.qx()
 this.aA()},
-B(d){var x=null,w=C.w(d),v=C.aK(d,D.ab,y.x).w.a.a,u=v<400?16:24,t=B.bco(d),s=t.gf7(),r=C.w(d).ax.a===D.J?D.bO:D.bw,q=t.giC()
-return C.aA(x,x,x,C.hF(F.aR5(d,x,this.a.c,q),r,new C.jB(C.kk(new B.aB3(u,t,w.ax,v)),x),x,x,x,x),!1,x,x,!1,x,!1,x,x,x,x,x,x,x,x,s,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,D.p,x)}}
-B.a3P.prototype={
+B(d){var x=null,w=C.w(d),v=C.aK(d,D.ab,y.x).w.a.a,u=v<400?16:24,t=B.bck(d),s=t.gf7(),r=C.w(d).ax.a===D.J?D.bO:D.bw,q=t.giD()
+return C.aA(x,x,x,C.hE(F.aR2(d,x,this.a.c,q),r,new C.jB(C.kk(new B.aB2(u,t,w.ax,v)),x),x,x,x,x),!1,x,x,!1,x,!1,x,x,x,x,x,x,x,x,s,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,D.p,x)}}
+B.a3O.prototype={
 B(d){var x,w,v,u,t,s,r,q,p,o,n=null,m=C.w(d).ax,l=C.aK(d,D.ab,y.x).w.a.a,k=l<400?12:16,j=this.c,i=j.a,h=m.RG
 h=(h==null?m.k2:h).ai(0.5)
 x=C.bx(14)
 w=m.ry
-if(w==null){w=m.n
+if(w==null){w=m.p
 if(w==null)w=m.k3}w=C.dW(w.ai(0.4),1)
 v=l<360
 u=v?15:16
@@ -67,30 +67,30 @@ u=j.length
 if(u!==0){r=C.b([D.at],r)
 for(q=0;q<u;++q){p=j[q]
 o=C.jE(D.bA,n,n,n,n,n,n,n,n,n,n,D.Q,D.ad,n,n,n,n,D.ej,n,n)
-r.push(new C.a5(D.bW,new C.cz(D.bA,n,n,C.d3(C.l(p.a,n,n,n,n,C.b9().$5$color$decoration$fontSize$fontWeight$height(t,D.dv,v?13:14,D.Z,1.45),n,n,n),new B.aDN(p),o),n),n))}D.b.S(s,r)}return new C.a5(G.tK,C.aA(n,n,n,C.ci(new C.a5(new C.V(k,16,k,18),C.av(s,D.C,D.j,D.m),n),new C.bp(h,n,w,x,n,n,D.I),D.a4),!0,n,n,!1,n,!1,n,n,n,n,n,n,n,n,i,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,D.p,n),n)}}
+r.push(new C.a5(D.bW,new C.cz(D.bA,n,n,C.d3(C.l(p.a,n,n,n,n,C.b9().$5$color$decoration$fontSize$fontWeight$height(t,D.dv,v?13:14,D.Z,1.45),n,n,n),new B.aDL(p),o),n),n))}D.b.S(s,r)}return new C.a5(G.tK,C.aA(n,n,n,C.ci(new C.a5(new C.V(k,16,k,18),C.av(s,D.C,D.j,D.m),n),new C.bp(h,n,w,x,n,n,D.I),D.a4),!0,n,n,!1,n,!1,n,n,n,n,n,n,n,n,i,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,D.p,n),n)}}
 B.lQ.prototype={}
 B.bW.prototype={}
-B.ava.prototype={}
-B.aLB.prototype={
+B.av9.prototype={}
+B.aLz.prototype={
 gf7(){return"Perguntas e respostas PerfectGest ContabilGest"},
-giC(){return"Perguntas e respostas"},
+giD(){return"Perguntas e respostas"},
 giF(){return"PerfectGest ContabilGest"},
 gln(){return"Perguntas e respostas sobre o Aplicativo"},
-gTn(){return A.ace}}
-B.aLz.prototype={
+gTl(){return A.ace}}
+B.aLx.prototype={
 gf7(){return"Questions and answers PerfectGest ContabilGest"},
-giC(){return"Questions and answers"},
+giD(){return"Questions and answers"},
 giF(){return"PerfectGest ContabilGest"},
 gln(){return"Questions and answers about the App"},
-gTn(){return A.aaN}}
-B.aLA.prototype={
+gTl(){return A.aaN}}
+B.aLy.prototype={
 gf7(){return"Preguntas y respuestas PerfectGest ContabilGest"},
-giC(){return"Preguntas y respuestas"},
+giD(){return"Preguntas y respuestas"},
 giF(){return"PerfectGest ContabilGest"},
 gln(){return"Preguntas y respuestas sobre la Aplicaci\xf3n"},
-gTn(){return A.a4F}}
+gTl(){return A.a4F}}
 var z=a.updateTypes([])
-B.aB3.prototype={
+B.aB2.prototype={
 $2(d,e){var x,w,v,u,t,s,r,q,p,o=this,n=null,m=e.b
 m=m<1/0&&isFinite(m)?m:C.aK(d,D.ab,y.x).w.a.a
 x=D.d.dA(m<720?m:720,200,720)
@@ -102,31 +102,31 @@ s=v.gln()
 r=o.d<400?18:22
 u=u.k3
 r=C.b([t,D.ah,C.l(s,n,n,n,n,C.b9().$4$color$fontSize$fontWeight$height(u,r,D.a1,1.2),n,n,n),D.fg],y.u)
-for(v=v.gTn(),q=0;q<16;++q)r.push(new B.a3P(v[q],n))
+for(v=v.gTl(),q=0;q<16;++q)r.push(new B.a3O(v[q],n))
 r.push(D.bH)
 r.push(E.th)
 r.push(D.en)
 p=C.bN(d,D.aQ,y.F)
 p.toString
-r.push(C.l(p.ut(C.b7(new C.cf(Date.now(),0,!1))),n,n,n,n,C.b9().$3$color$fontSize$fontWeight(u.ai(0.7),12,D.Z),n,n,n))
+r.push(C.l(p.us(C.b7(new C.cf(Date.now(),0,!1))),n,n,n,n,C.b9().$3$color$fontSize$fontWeight(u.ai(0.7),12,D.Z),n,n,n))
 r.push(E.Ld)
 return C.eP(C.dh(new C.ct(new C.a3(0,x,0,1/0),C.av(r,D.C,D.j,D.m),n),n,n),n,new C.V(w,16,w,28),D.X)},
 $S:141}
-B.aDN.prototype={
+B.aDL.prototype={
 $0(){return C.iq(C.d4(this.a.b,0,null),D.cA,"_blank")},
 $S:0};(function inheritance(){var x=a.inherit,w=a.inheritMany
 x(B.oE,C.S)
-x(B.a2j,C.U)
-x(B.aB3,C.r5)
-x(B.a3P,C.X)
-x(B.aDN,C.k6)
-w(C.O,[B.lQ,B.bW,B.ava])
-w(B.ava,[B.aLB,B.aLz,B.aLA])})()
-C.v3(b.typeUniverse,JSON.parse('{"oE":{"S":[],"e":[]},"a2j":{"U":["oE"]},"a3P":{"X":[],"e":[]}}'))
+x(B.a2i,C.U)
+x(B.aB2,C.r4)
+x(B.a3O,C.X)
+x(B.aDL,C.k6)
+w(C.O,[B.lQ,B.bW,B.av9])
+w(B.av9,[B.aLz,B.aLx,B.aLy])})()
+C.v2(b.typeUniverse,JSON.parse('{"oE":{"S":[],"e":[]},"a2i":{"U":["oE"]},"a3O":{"X":[],"e":[]}}'))
 var y={F:C.a1("h3"),a:C.a1("x<bW>"),g:C.a1("x<lQ>"),u:C.a1("x<e>"),x:C.a1("hg"),h:C.a1("m6")};(function constants(){var x=a.makeConstList
-A.Pf=new B.aLz()
-A.Pg=new B.aLA()
-A.Ph=new B.aLB()
+A.Pf=new B.aLx()
+A.Pg=new B.aLy()
+A.Ph=new B.aLz()
 A.a2=x([],y.g)
 A.ama=new B.bW("\xbfQu\xe9 es la app?","PerfectGest ContabilGest es la herramienta de conexi\xf3n con el usuario: usted sigue en tiempo real la contabilidad de la empresa (Libro de caja, NFS-e, NF-e y obligaciones) y, cuando el despacho habilita las funciones, los datos llegan al CRC. El uso diario en el aparato es offline por defecto. En Google Play: R$ 19,99/mes o pago \xfanico de R$ 239,88. El env\xedo al despacho y las funciones online existen despu\xe9s de la habilitaci\xf3n.",A.a2)
 A.amm=new B.bW("\xbfContabilGest es una app oficial del gobierno?","No. Es un producto privado de Perfect Gest Dev (CNPJ 66.889.409/0001-19). No estamos afiliados ni respaldados por la Receita Federal, eSocial, FGTS Digital o prefecturas. La fuente oficial de obligaciones y gu\xedas es siempre el portal del gobierno.",A.a2)
@@ -187,4 +187,4 @@ A.amv=new B.bW("Como altero meu plano (faixa, downgrade ou extras como folha e I
 A.am2=new B.bW("O app avisa antes da renova\xe7\xe3o?","Quando a Play informar a data do ciclo da assinatura do aplicativo, o app pode avisar at\xe9 30 dias antes. Sem data da Play, n\xe3o h\xe1 prazo inventado \u2014 consulte Play \u2192 Assinaturas. Honor\xe1rios e plano cont\xe1bil: com o escrit\xf3rio.",A.a2)
 A.alT=new B.bW("A assinatura da Play j\xe1 libera tudo?","N\xe3o. A Play libera o acesso ao aplicativo. Para sincroniza\xe7\xe3o, envio de dados ao escrit\xf3rio e fun\xe7\xf5es online, contacte o escrit\xf3rio depois de assinar. Sem habilita\xe7\xe3o, voc\xea entra no app, mas sem envio ao CRC e sem contato com o escrit\xf3rio.",A.a2)
 A.ace=x([A.am8,A.amg,A.alV,A.amn,A.alS,A.alX,A.am9,A.amd,A.amo,A.amt,A.am7,A.am3,A.am6,A.amv,A.am2,A.alT],y.a)})()};
-(a=>{a["apo9FAxiS08p6yQd6gzNyPPIQuI="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["TjvxBK8qYzoh0JHygOPjC04fYm0="]=a.current})($__dart_deferred_initializers__);

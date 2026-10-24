@@ -2,6 +2,45 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-24 12:43] /orcamento: PDF linha abertura, vidro e total
+
+### Contexto
+
+- PDF: linha principal com m², valor da abertura (sem vidro), valor do vidro e total; abaixo só o tipo do vidro e a obs, sem −5%.
+
+### Arquivos alterados
+
+- lib/orcamento_models.dart
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+
+### Decisoes
+
+- Getter `totalSemVidro`. Tipo do vidro sem percentual.
+
+### Pendente / Proximo passo
+
+- Sem publish.
+
+## [2026-10-24 12:36] /orcamento: PDF numa janela só
+
+### Contexto
+
+- iframe.contentWindow.print() no Chrome imprimia a página pai (branca) e depois o orçamento.
+
+### Arquivos alterados
+
+- lib/orcamento_print_web.dart
+- docs/Atualiza.md
+
+### Decisoes
+
+- Abre janela nova, escreve o HTML e o print roda só nela (sem iframe). Permitir pop-up se o browser bloquear.
+
+### Pendente / Proximo passo
+
+- Sem publish.
+
 ## [2026-10-24 11:53] /orcamento: PDF sem folha em branco
 
 ### Contexto

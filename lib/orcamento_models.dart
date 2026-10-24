@@ -247,7 +247,9 @@ class OrcamentoItem {
 
   String get vidroNome => vidroPorId(vidroId)?.nome ?? '';
 
-  double get total => material + maoObra + comissao + instalacao + valorVidro;
+  double get totalSemVidro => material + maoObra + comissao + instalacao;
+
+  double get total => totalSemVidro + valorVidro;
 
   OrcamentoItem copyWith({
     String? id,
@@ -495,7 +497,7 @@ String orcamentoToPrintHtml({
   final total = itens.fold<double>(0, (s, e) => s + e.total);
   final linhas = StringBuffer();
   if (itens.isEmpty) {
-    linhas.writeln('<tr><td colspan="6" class="empty">Nenhuma abertura no orçamento.</td></tr>');
+    linhas.writeln('<tr><td colspan="7" class="empty">Nenhuma abertura no orçamento.</td></tr>');
   } else {
     for (var i = 0; i < itens.length; i++) {
       final it = itens[i];
@@ -506,17 +508,18 @@ String orcamentoToPrintHtml({
   <td>${htmlEsc(it.nome)}<div class="sub">${htmlEsc(it.modelo)}${it.cor.isEmpty ? '' : ' · ${htmlEsc(it.cor)}'}</div></td>
   <td>$medidas</td>
   <td>${formatPtBrNumber(it.area, casas: 3)} m²</td>
+  <td class="num">${formatBrl(it.totalSemVidro)}</td>
   <td class="num">${formatBrl(it.valorVidro)}</td>
   <td class="num">${formatBrl(it.total)}</td>
 </tr>''');
       if (it.vidroId.isNotEmpty) {
         linhas.writeln(
-          '<tr class="obs"><td></td><td colspan="5">Vidro: ${htmlEsc(it.vidroNome)} · ${formatPtBrNumber(it.areaVidro, casas: 3)} m² (−5%)</td></tr>',
+          '<tr class="obs"><td></td><td colspan="6">Vidro: ${htmlEsc(it.vidroNome)}</td></tr>',
         );
       }
       if (it.obs.trim().isNotEmpty) {
         linhas.writeln(
-          '<tr class="obs"><td></td><td colspan="5">Obs.: ${htmlEsc(it.obs)}</td></tr>',
+          '<tr class="obs"><td></td><td colspan="6">Obs.: ${htmlEsc(it.obs)}</td></tr>',
         );
       }
     }
@@ -576,7 +579,7 @@ String orcamentoToPrintHtml({
   <table>
     <thead>
       <tr>
-        <th>#</th><th>Abertura</th><th>Medidas</th><th>m²</th><th>Vidro</th><th>Total</th>
+        <th>#</th><th>Abertura</th><th>Medidas</th><th>m²</th><th>Abertura</th><th>Vidro</th><th>Total</th>
       </tr>
     </thead>
     <tbody>
