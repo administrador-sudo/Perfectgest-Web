@@ -377,30 +377,29 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
     return ColoredBox(
       color: BrandPalette.charcoalDeep,
       child: Padding(
-        padding: EdgeInsets.fromLTRB(pad, 12, pad, 8),
-        child: Column(
-          children: [
-            _barraCadastro(),
-            const SizedBox(height: 12),
-            Expanded(
-              child: Column(
+        padding: EdgeInsets.fromLTRB(pad, 12, pad, 16),
+        child: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(child: _barraCadastro()),
+            const SliverToBoxAdapter(child: SizedBox(height: 12)),
+            SliverToBoxAdapter(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Expanded(flex: 5, child: _quadroCatalogo(fill: false)),
+                  const SizedBox(width: 14),
                   Expanded(
-                    flex: 5,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Expanded(flex: 5, child: _quadroCatalogo()),
-                        const SizedBox(width: 14),
-                        Expanded(flex: 6, child: _quadroOrcamento()),
-                      ],
+                    flex: 6,
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(minHeight: 320),
+                      child: _quadroOrcamento(fill: false),
                     ),
                   ),
-                  const SizedBox(height: 12),
-                  SizedBox(height: 250, child: _quadroPrecosM2()),
                 ],
               ),
             ),
+            const SliverToBoxAdapter(child: SizedBox(height: 12)),
+            SliverToBoxAdapter(child: _quadroPrecosM2(fill: false)),
           ],
         ),
       ),

@@ -1,28 +1,28 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
 $__dart_deferred_initializers__.current=function(a,b,c,$){var A,C,E,F,B={
-bdj(d){switch(d.ae(y.k).r.f.gcT()){case"en":return D.Qh
-case"es":return D.Qi
-case"pt":default:return D.Qj}},
+bdi(d){switch(d.ae(y.k).r.f.gcT()){case"en":return D.Qe
+case"es":return D.Qf
+case"pt":default:return D.Qg}},
 avU:function avU(){},
-aMG:function aMG(){},
-aME:function aME(){},
 aMF:function aMF(){},
-bc8(d){return new B.py(d,null)},
+aMD:function aMD(){},
+aME:function aME(){},
+bc7(d){return new B.py(d,null)},
 py:function py(d,e){this.c=d
 this.a=e},
 a79:function a79(){this.c=this.a=null},
-aJH:function aJH(d){this.a=d},
-aJI:function aJI(d,e,f,g,h){var _=this
+aJG:function aJG(d){this.a=d},
+aJH:function aJH(d,e,f,g,h){var _=this
 _.a=d
 _.b=e
 _.c=f
 _.d=g
 _.e=h},
+aJE:function aJE(d,e){this.a=d
+this.b=e},
 aJF:function aJF(d,e){this.a=d
 this.b=e},
-aJG:function aJG(d,e){this.a=d
-this.b=e},
-mh:function mh(d,e,f){this.c=d
+mi:function mi(d,e,f){this.c=d
 this.d=e
 this.a=f}},D,G
 A=c[0]
@@ -33,7 +33,7 @@ B=a.updateHolder(c[4],B)
 D=c[17]
 G=c[13]
 B.avU.prototype={}
-B.aMG.prototype={
+B.aMF.prototype={
 gfa(){return"Politica de privacidade, dados, cookies e termos Perfect Gest Dev"},
 giH(){return"Privacidade e termos"},
 giK(){return"Perfect Gest Dev"},
@@ -53,12 +53,12 @@ gJ3(){return"6. Os seus direitos"},
 J2(d){return"No Brasil, aplica-se a Lei Geral de Prote\xe7\xe3o de Dados (LGPD, Lei 13.709/2018). Na Uni\xe3o Europeia, aplica-se o RGPD. Dependendo da lei aplic\xe1vel, poder\xe1 solicitar acesso, retifica\xe7\xe3o, apagamento, limita\xe7\xe3o, portabilidade ou oposi\xe7\xe3o ao tratamento dos seus dados pessoais, incluindo dados de pr\xe9-cadastro. Para exercer direitos ou quest\xf5es de privacidade, escreva para "+d+"."},
 gJ5(){return"7. Termos de uso do site"},
 gJ4(){return"O conte\xfado deste site (textos, identidade visual e materiais) destina-se a informa\xe7\xe3o sobre Perfect Gest Dev e os seus produtos. A reprodu\xe7\xe3o n\xe3o autorizada para fins comerciais pode ser proibida. Os links externos s\xe3o fornecidos por conveni\xeancia; n\xe3o controlamos sites de terceiros. O uso do site \xe9 por sua conta e risco, na medida permitida pela lei."},
-gQB(){return"Gerenciar cookies de medi\xe7\xe3o"},
-gQA(){return"Se aceitar, gravamos a sua escolha no navegador e, na pr\xf3xima carga da p\xe1gina, a medi\xe7\xe3o poder\xe1 operar apenas conforme o consentimento dado. Pode recusar ou revogar apagando os dados do site nas defini\xe7\xf5es do browser ou usando o bot\xe3o \xabRecusar\xbb abaixo."},
+gQA(){return"Gerenciar cookies de medi\xe7\xe3o"},
+gQz(){return"Se aceitar, gravamos a sua escolha no navegador e, na pr\xf3xima carga da p\xe1gina, a medi\xe7\xe3o poder\xe1 operar apenas conforme o consentimento dado. Pode recusar ou revogar apagando os dados do site nas defini\xe7\xf5es do browser ou usando o bot\xe3o \xabRecusar\xbb abaixo."},
 gJn(){return"Prefer\xeancia gravada. Recarregue a p\xe1gina uma vez para aplicar a medi\xe7\xe3o."},
-gPh(){return"Aceitar medi\xe7\xe3o"},
-gPg(){return"Aceitar cookies de medi\xe7\xe3o"}}
-B.aME.prototype={
+gPg(){return"Aceitar medi\xe7\xe3o"},
+gPf(){return"Aceitar cookies de medi\xe7\xe3o"}}
+B.aMD.prototype={
 gfa(){return"Perfect Gest Dev privacy policy, data, cookies and terms"},
 giH(){return"Privacy and terms"},
 giK(){return"Perfect Gest Dev"},
@@ -78,12 +78,12 @@ gJ3(){return"6. Your rights"},
 J2(d){return"In Brazil, the General Data Protection Law (LGPD, Law 13,709/2018) applies. In the European Union, the GDPR applies. Depending on applicable law, you may request access, rectification, erasure, restriction, portability or objection to processing of your personal data, including pre-registration data. To exercise rights or ask privacy questions, write to "+d+"."},
 gJ5(){return"7. Website terms of use"},
 gJ4(){return"The content of this site (text, visual identity and materials) is for information about Perfect Gest Dev and its products. Unauthorized reproduction for commercial purposes may be prohibited. External links are provided for convenience; we do not control third-party sites. You use the site at your own risk, to the extent permitted by law."},
-gQB(){return"Manage measurement cookies"},
-gQA(){return"If you accept, we store your choice in the browser and, on the next page load, measurement may run only according to your consent. You can decline or revoke by clearing site data in your browser settings or using \xabDecline\xbb below."},
+gQA(){return"Manage measurement cookies"},
+gQz(){return"If you accept, we store your choice in the browser and, on the next page load, measurement may run only according to your consent. You can decline or revoke by clearing site data in your browser settings or using \xabDecline\xbb below."},
 gJn(){return"Preference saved. Reload the page once to apply measurement."},
-gPh(){return"Accept measurement"},
-gPg(){return"Accept measurement cookies"}}
-B.aMF.prototype={
+gPg(){return"Accept measurement"},
+gPf(){return"Accept measurement cookies"}}
+B.aME.prototype={
 gfa(){return"Politica de privacidad, datos, cookies y terminos Perfect Gest Dev"},
 giH(){return"Privacidad y terminos"},
 giK(){return"Perfect Gest Dev"},
@@ -103,27 +103,27 @@ gJ3(){return"6. Sus derechos"},
 J2(d){return"En Brasil, se aplica la Ley General de Proteccion de Datos (LGPD, Ley 13.709/2018). En la Union Europea, se aplica el RGPD. Segun la ley aplicable, puede solicitar acceso, rectificacion, supresion, limitacion, portabilidad u oposicion al tratamiento de sus datos personales, incluidos datos de pre-registro. Para ejercer derechos o consultas de privacidad, escriba a "+d+"."},
 gJ5(){return"7. Terminos de uso del sitio"},
 gJ4(){return"El contenido de este sitio (textos, identidad visual y materiales) tiene fines informativos sobre Perfect Gest Dev y sus productos. La reproduccion no autorizada con fines comerciales puede estar prohibida. Los enlaces externos se ofrecen por conveniencia; no controlamos sitios de terceros. El uso del sitio es bajo su propio riesgo, en la medida permitida por la ley."},
-gQB(){return"Gestionar cookies de medicion"},
-gQA(){return"Si acepta, guardamos su eleccion en el navegador y, en la proxima carga de la pagina, la medicion puede operar solo segun el consentimiento dado. Puede rechazar o revocar borrando los datos del sitio en la configuracion del navegador o usando \xabRechazar\xbb abajo."},
+gQA(){return"Gestionar cookies de medicion"},
+gQz(){return"Si acepta, guardamos su eleccion en el navegador y, en la proxima carga de la pagina, la medicion puede operar solo segun el consentimiento dado. Puede rechazar o revocar borrando los datos del sitio en la configuracion del navegador o usando \xabRechazar\xbb abajo."},
 gJn(){return"Preferencia guardada. Recargue la pagina una vez para aplicar la medicion."},
-gPh(){return"Aceptar medicion"},
-gPg(){return"Aceptar cookies de medicion"}}
+gPg(){return"Aceptar medicion"},
+gPf(){return"Aceptar cookies de medicion"}}
 B.py.prototype={
 a8(){return new B.a79()}}
 B.a79.prototype={
 am(){this.aF()
-E.b2J()},
+E.b2G()},
 l(){A.qE()
 this.aw()},
-B(d){var x,w,v,u,t=null,s=A.t(d),r=A.aK(d,C.aa,y.h).w.a.a,q=r<400?16:24,p=A.bM(d,C.aT,y.p)
+B(d){var x,w,v,u,t=null,s=A.t(d),r=A.aM(d,C.ad,y.h).w.a.a,q=r<400?16:24,p=A.bM(d,C.aT,y.p)
 p.toString
-x=B.bdj(d)
+x=B.bdi(d)
 w=x.gfa()
 v=A.t(d).ax.a===C.J?C.bP:C.bx
 u=x.giH()
-return A.ay(t,t,t,A.hI(F.aRT(d,new B.aJH(d),this.a.c,u),v,new A.jE(A.jo(new B.aJI(q,x,s.ax,r,p)),t),t,t,t,t),!1,t,t,!1,t,!1,t,t,t,t,t,t,t,t,w,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,C.p,t)}}
-B.mh.prototype={
-B(d){var x,w,v,u,t=null,s=A.t(d).ax,r=A.aK(d,C.aa,y.h).w.a.a,q=r<400?12:16,p=this.c,o=s.RG
+return A.ax(t,t,t,A.hI(F.aRS(d,new B.aJG(d),this.a.c,u),v,new A.jE(A.jo(new B.aJH(q,x,s.ax,r,p)),t),t,t,t,t),!1,t,t,!1,t,!1,t,t,t,t,t,t,t,t,w,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,C.p,t)}}
+B.mi.prototype={
+B(d){var x,w,v,u,t=null,s=A.t(d).ax,r=A.aM(d,C.ad,y.h).w.a.a,q=r<400?12:16,p=this.c,o=s.RG
 o=(o==null?s.k2:o).aj(0.5)
 x=A.bE(14)
 w=s.ry
@@ -131,28 +131,28 @@ if(w==null){w=s.n
 if(w==null)w=s.k3}w=A.dX(w.aj(0.4),1)
 v=r<360
 u=v?15:16
-u=A.m(p,t,t,t,t,A.ba().$3$color$fontSize$fontWeight(s.b,u,C.a2),t,t,t)
+u=A.m(p,t,t,t,t,A.ba().$3$color$fontSize$fontWeight(s.b,u,C.a1),t,t,t)
 v=v?13:14
-return new A.a5(G.u1,A.ay(t,t,t,A.cl(new A.a5(new A.V(q,16,q,18),A.at(A.b([u,C.au,A.m(this.d,t,t,t,t,A.ba().$3$color$fontSize$height(s.k3.aj(0.88),v,1.55),t,t,t)],y.e),C.C,C.j,C.m),t),new A.bj(o,t,w,x,t,t,C.G),C.a5),!0,t,t,!1,t,!1,t,t,t,t,t,t,t,t,p,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,C.p,t),t)}}
+return new A.a5(G.u1,A.ax(t,t,t,A.ck(new A.a5(new A.V(q,16,q,18),A.aw(A.b([u,C.au,A.m(this.d,t,t,t,t,A.ba().$3$color$fontSize$height(s.k3.aj(0.88),v,1.55),t,t,t)],y.e),C.C,C.j,C.m),t),new A.bj(o,t,w,x,t,t,C.G),C.a5),!0,t,t,!1,t,!1,t,t,t,t,t,t,t,t,p,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,C.p,t),t)}}
 var z=a.updateTypes([])
-B.aJH.prototype={
+B.aJG.prototype={
 $0(){return A.bB(this.a,!1).dH()},
 $S:0}
-B.aJI.prototype={
+B.aJH.prototype={
 $2(b3,b4){var x,w,v,u,t,s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,a0,a1,a2,a3,a4,a5,a6,a7,a8,a9=this,b0=null,b1="suporte@perfectgestdev.com",b2=b4.b
-b2=b2<1/0&&isFinite(b2)?b2:A.aK(b3,C.aa,y.h).w.a.a
+b2=b2<1/0&&isFinite(b2)?b2:A.aM(b3,C.ad,y.h).w.a.a
 x=C.d.dD(b2<720?b2:720,200,720)
 w=a9.a
 v=a9.b
 u=a9.c
 t=u.b
-s=A.m(v.giK(),b0,b0,b0,b0,A.ba().$4$color$fontSize$fontWeight$letterSpacing(t,13,C.a2,0.4),b0,b0,b0)
+s=A.m(v.giK(),b0,b0,b0,b0,A.ba().$4$color$fontSize$fontWeight$letterSpacing(t,13,C.a1,0.4),b0,b0,b0)
 r=v.glv()
 q=a9.d
 p=q<400
 o=p?18:22
 n=u.k3
-o=A.m(r,b0,b0,b0,b0,A.ba().$4$color$fontSize$fontWeight$height(n,o,C.a3,1.2),b0,b0,b0)
+o=A.m(r,b0,b0,b0,b0,A.ba().$4$color$fontSize$fontWeight$height(n,o,C.a2,1.2),b0,b0,b0)
 r=A.m(v.rJ(b1),b0,b0,b0,b0,A.ba().$3$color$fontSize$height(n.aj(0.72),13,1.45),b0,b0,b0)
 m=v.gpR()
 l=v.gpQ()
@@ -176,37 +176,37 @@ if(a5==null){u=u.n
 if(u==null)u=n}else u=a5
 u=A.dX(u.aj(0.45),1)
 p=p?14:16
-a5=A.m(v.gQB(),b0,b0,b0,b0,A.ba().$3$color$fontSize$fontWeight(n,14,C.a2),b0,b0,b0)
-a6=A.m(v.gQA(),b0,b0,b0,b0,A.ba().$3$color$fontSize$height(n.aj(0.8),12.5,1.45),b0,b0,b0)
+a5=A.m(v.gQA(),b0,b0,b0,b0,A.ba().$3$color$fontSize$fontWeight(n,14,C.a1),b0,b0,b0)
+a6=A.m(v.gQz(),b0,b0,b0,b0,A.ba().$3$color$fontSize$height(n.aj(0.8),12.5,1.45),b0,b0,b0)
 a7=a9.e
 a8=y.e
-return A.eR(A.di(new A.cw(new A.a0(0,x,0,1/0),A.at(A.b([s,C.ai,o,C.au,r,C.fm,new B.mh(m,l,b0),new B.mh(k,j,b0),new B.mh(i,h,b0),new B.mh(g,f,b0),new B.mh(e,d,b0),new B.mh(a0,a1,b0),new B.mh(a2,a3,b0),C.ch,A.cl(new A.a5(new A.V(p,p,p,p),A.at(A.b([a5,C.I,a6,C.af,A.el(C.b2,A.b([A.aT9(D.W5,A.m(q<360?v.gPh():v.gPg(),b0,b0,b0,b0,b0,C.bK,b0,b0),new B.aJF(b3,v),b0),new A.F3(!1,new B.aJG(b3,a7),b0,b0,b0,b0,b0,b0,!1,b0,!0,b0,A.m(a7.gyT(),b0,b0,b0,b0,b0,b0,b0,b0),b0)],a8),C.bL,8,8)],a8),C.a0,C.j,C.m),b0),new A.bj(t,b0,u,a4,b0,b0,C.G),C.a5),C.qd,A.m(a7.uE(A.b8(new A.ch(Date.now(),0,!1))),b0,b0,b0,b0,A.ba().$2$color$fontSize(n.aj(0.65),12),C.bK,b0,b0)],a8),C.C,C.j,C.m),b0),b0,b0),b0,new A.V(w,16,w,28),C.Y)},
+return A.eR(A.di(new A.cq(new A.a0(0,x,0,1/0),A.aw(A.b([s,C.ai,o,C.au,r,C.fm,new B.mi(m,l,b0),new B.mi(k,j,b0),new B.mi(i,h,b0),new B.mi(g,f,b0),new B.mi(e,d,b0),new B.mi(a0,a1,b0),new B.mi(a2,a3,b0),C.ch,A.ck(new A.a5(new A.V(p,p,p,p),A.aw(A.b([a5,C.I,a6,C.ah,A.el(C.b2,A.b([A.aT8(D.W5,A.m(q<360?v.gPg():v.gPf(),b0,b0,b0,b0,b0,C.bK,b0,b0),new B.aJE(b3,v),b0),new A.F3(!1,new B.aJF(b3,a7),b0,b0,b0,b0,b0,b0,!1,b0,!0,b0,A.m(a7.gyT(),b0,b0,b0,b0,b0,b0,b0,b0),b0)],a8),C.bL,8,8)],a8),C.a4,C.j,C.m),b0),new A.bj(t,b0,u,a4,b0,b0,C.G),C.a5),C.qe,A.m(a7.uE(A.b8(new A.cg(Date.now(),0,!1))),b0,b0,b0,b0,A.ba().$2$color$fontSize(n.aj(0.65),12),C.bK,b0,b0)],a8),C.C,C.j,C.m),b0),b0,b0),b0,new A.V(w,16,w,28),C.Y)},
 $S:139}
+B.aJE.prototype={
+$0(){var x,w=null
+A.b3d()
+x=this.a
+if(x.e==null)return
+x.ae(y.f).f.q6(A.Zg(w,w,w,w,C.jb,C.y,w,A.m(this.b.gJn(),w,w,w,w,w,w,w,w),w,C.ec,w,w,w,w,w,w,w,w,w,w))},
+$S:0}
 B.aJF.prototype={
 $0(){var x,w=null
-A.b3f()
+A.b3_()
 x=this.a
 if(x.e==null)return
-x.ae(y.f).f.q6(A.Zh(w,w,w,w,C.ja,C.y,w,A.m(this.b.gJn(),w,w,w,w,w,w,w,w),w,C.ec,w,w,w,w,w,w,w,w,w,w))},
-$S:0}
-B.aJG.prototype={
-$0(){var x,w=null
-A.b31()
-x=this.a
-if(x.e==null)return
-x.ae(y.f).f.q6(A.Zh(w,w,w,w,C.ja,C.y,w,A.m(this.b.gyT(),w,w,w,w,w,w,w,w),w,C.ec,w,w,w,w,w,w,w,w,w,w))},
+x.ae(y.f).f.q6(A.Zg(w,w,w,w,C.jb,C.y,w,A.m(this.b.gyT(),w,w,w,w,w,w,w,w),w,C.ec,w,w,w,w,w,w,w,w,w,w))},
 $S:0};(function inheritance(){var x=a.inherit,w=a.inheritMany
 x(B.avU,A.O)
-w(B.avU,[B.aMG,B.aME,B.aMF])
+w(B.avU,[B.aMF,B.aMD,B.aME])
 x(B.py,A.S)
 x(B.a79,A.U)
-w(A.ka,[B.aJH,B.aJF,B.aJG])
-x(B.aJI,A.rb)
-x(B.mh,A.W)})()
-A.vd(b.typeUniverse,JSON.parse('{"py":{"S":[],"d":[]},"a79":{"U":["py"]},"mh":{"W":[],"d":[]}}'))
-var y={p:A.a3("h5"),e:A.a3("y<d>"),h:A.a3("hi"),k:A.a3("me"),f:A.a3("Ae")};(function constants(){D.Qh=new B.aME()
-D.Qi=new B.aMF()
-D.Qj=new B.aMG()
+w(A.ka,[B.aJG,B.aJE,B.aJF])
+x(B.aJH,A.rb)
+x(B.mi,A.W)})()
+A.vd(b.typeUniverse,JSON.parse('{"py":{"S":[],"d":[]},"a79":{"U":["py"]},"mi":{"W":[],"d":[]}}'))
+var y={p:A.a3("h5"),e:A.a3("y<d>"),h:A.a3("hi"),k:A.a3("mf"),f:A.a3("Ae")};(function constants(){D.Qe=new B.aMD()
+D.Qf=new B.aME()
+D.Qg=new B.aMF()
 D.V8=new A.aP(57690,"MaterialIcons",!1)
 D.W5=new A.cA(D.V8,20,null,null,null)})()};
-(a=>{a["y7StWS+uL2kln5QRkm0EznfymdI="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["fOlBcY5hlwoEAXGKEzBPOuHqwLg="]=a.current})($__dart_deferred_initializers__);

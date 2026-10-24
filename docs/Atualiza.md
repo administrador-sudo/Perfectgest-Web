@@ -2,6 +2,25 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-24 11:26] /orcamento: PC página rolante e quadro 1 na altura da lista
+
+### Contexto
+
+- No PC os quadros 1 e 2 ficavam espremidos. A página passa a rolar; o quadro 1 usa a altura da lista de aberturas.
+
+### Arquivos alterados
+
+- lib/orcamento_page.dart
+- docs/Atualiza.md
+
+### Decisoes
+
+- Layout largo: CustomScrollView; 1 e 2 lado a lado (`fill: false`); quadro 3 abaixo.
+
+### Pendente / Proximo passo
+
+- Sem publish.
+
 ## [2026-10-24 08:46] /orcamento: temperados, ripados e vidros 8/10 mm
 
 ### Contexto
