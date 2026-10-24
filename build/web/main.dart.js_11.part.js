@@ -14,7 +14,7 @@ bcT(d,e){return new B.pV(e,d,null)},
 pV:function pV(d,e,f){this.c=d
 this.d=e
 this.a=f},
-a9i:function a9i(d,e,f,g,h){var _=this
+a9j:function a9j(d,e,f,g,h){var _=this
 _.d=d
 _.e=e
 _.f=f
@@ -24,7 +24,7 @@ _.c=_.a=null},
 aMu:function aMu(d){this.a=d},
 aMt:function aMt(d){this.a=d},
 aMs:function aMs(){},
-a9h:function a9h(d,e,f,g,h){var _=this
+a9i:function a9i(d,e,f,g,h){var _=this
 _.c=d
 _.d=e
 _.e=f
@@ -62,17 +62,17 @@ gQ5(){return"Concepto aplicado:"},
 gtp(){return A.abu}}
 B.pV.prototype={
 aa(){var w=null,v=x.z
-return new B.a9i(C.xV(0,w,w),new C.b2(w,v),new C.b2(w,v),new C.b2(w,v),new C.b2(w,v))}}
-B.a9i.prototype={
+return new B.a9j(C.xV(0,w,w),new C.b2(w,v),new C.b2(w,v),new C.b2(w,v),new C.b2(w,v))}}
+B.a9j.prototype={
 ao(){this.aG()
 C.j5()
 C.dD("description","Parceiros tecnol\xf3gicos e stack Flutter da Perfect Gest Dev: Clean Architecture, seguran\xe7a, escala, integra\xe7\xf5es e opera\xe7\xe3o cont\xednua.")
 C.dD("keywords","Perfect Gest Dev, tecnologias, Flutter, Dart, Java, Gradle, SDK, integra\xe7\xf5es, arquitetura limpa, seguran\xe7a, escala")
 C.dD("robots","index, follow")
-C.cH("og:title",y.c)
-C.cH("og:description","Vis\xe3o t\xe9cnica do stack Perfect Gest Dev para mobile, web e desktop com foco em performance e previsibilidade.")
-C.cH("og:type","article")
-C.cH("og:locale","pt_BR")
+C.cI("og:title",y.c)
+C.cI("og:description","Vis\xe3o t\xe9cnica do stack Perfect Gest Dev para mobile, web e desktop com foco em performance e previsibilidade.")
+C.cI("og:type","article")
+C.cI("og:locale","pt_BR")
 b.G.document.title=y.c
 $.a4.k4$.push(new B.aMu(this))},
 l(){this.d.l()
@@ -81,7 +81,7 @@ this.aA()},
 axI(){var w=this,v=C.aw(["clean-arch",w.e,"seguranca",w.f,"escala",w.r,"full-stack",w.w],x.w,x.d).h(0,w.a.d),u=v==null?null:$.a4.au$.x.h(0,v)
 if(u==null)return
 C.ate(u,0.24,D.px,D.dH,D.tC)},
-B(d){var w,v,u,t,s,r,q,p,o,n,m,l=this,k=null,j=C.w(d).ax,i=C.aK(d,D.ab,x.x).w.a.a<400,h=i?16:24,g=C.bN(d,D.aR,x.F)
+B(d){var w,v,u,t,s,r,q,p,o,n,m,l=this,k=null,j=C.w(d).ax,i=C.aK(d,D.ab,x.x).w.a.a<400,h=i?16:24,g=C.bN(d,D.aQ,x.F)
 g.toString
 w=B.bcr(d)
 C.w(d)
@@ -95,19 +95,19 @@ p=C.l(g.gHt(),k,k,k,k,C.b9().$2$color$fontWeight(q,D.a0),k,k,k)
 o=x.u
 n=C.b([],o)
 l.a.toString
-s=C.acQ(n,s,r,D.q,p)
+s=C.acR(n,s,r,D.q,p)
 r=w.gT2()
 r=C.b([C.l(r,k,k,k,k,C.b9().$4$color$fontSize$fontWeight$height(q,i?22:26,D.a1,1.2),k,k,k),D.at,C.l(w.gSX(),k,k,k,k,C.b9().$3$color$fontSize$height(q.ai(0.82),14,1.5),k,k,k),D.H,C.l(w.gSY(),k,k,k,k,C.b9().$3$color$fontSize$height(q.ai(0.8),13.6,1.5),k,k,k),D.ce,C.l(w.gUm(),k,k,k,k,C.b9().$3$color$fontSize$fontWeight(q,18,D.a1),k,k,k),D.at],o)
 for(m=0;w.gtp(),m<15;++m){i=C.b([],o)
 if(m===4)i.push(D.H)
 q=m<4?v[m]:k
 p=w.gQ5()
-i.push(new B.a9h(w.gtp()[m].a,w.gtp()[m].b,w.gtp()[m].c,p,q))
+i.push(new B.a9i(w.gtp()[m].a,w.gtp()[m].b,w.gtp()[m].c,p,q))
 D.b.S(r,i)}return C.aA(k,k,k,C.hF(s,t,new C.jB(C.eP(C.dh(new C.ct(A.NE,C.av(r,D.C,D.j,D.m),k),k,k),l.d,new C.V(h,16,h,28),D.X),k),k,k,k,k),!1,k,k,!1,k,!1,k,k,k,k,k,k,k,k,u,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,D.p,k)}}
-B.a9h.prototype={
+B.a9i.prototype={
 B(d){var w,v,u,t,s,r=this,q=null,p=C.w(d).ax,o=p.RG
 o=(o==null?p.k2:o).ai(0.55)
-w=C.by(14)
+w=C.bx(14)
 v=p.ry
 if(v==null){v=p.n
 if(v==null)v=p.k3}v=C.dW(v.ai(0.35),1)
@@ -121,7 +121,7 @@ B.aMu.prototype={
 $1(d){return this.a.axI()},
 $S:3}
 B.aMt.prototype={
-$0(){return C.bA(this.a,!1).aJL(new B.aMs())},
+$0(){return C.bz(this.a,!1).aJL(new B.aMs())},
 $S:0}
 B.aMs.prototype={
 $1(d){return d.gvE()},
@@ -129,11 +129,11 @@ $S:694};(function inheritance(){var w=a.inheritMany,v=a.inherit
 w(C.O,[B.c_,B.avm])
 w(B.avm,[B.aM1,B.aM_,B.aM0])
 v(B.pV,C.S)
-v(B.a9i,C.U)
+v(B.a9j,C.U)
 w(C.k5,[B.aMu,B.aMs])
 v(B.aMt,C.k6)
-v(B.a9h,C.X)})()
-C.v3(b.typeUniverse,JSON.parse('{"pV":{"S":[],"e":[]},"a9i":{"U":["pV"]},"a9h":{"X":[],"e":[]}}'))
+v(B.a9i,C.X)})()
+C.v3(b.typeUniverse,JSON.parse('{"pV":{"S":[],"e":[]},"a9j":{"U":["pV"]},"a9i":{"X":[],"e":[]}}'))
 var y={c:"Parceiros tecnol\xf3gicos | Perfect Gest Dev"}
 var x={F:C.a1("h3"),d:C.a1("ji<U<S>>"),c:C.a1("x<c_>"),u:C.a1("x<e>"),z:C.a1("b2<U<S>>"),x:C.a1("hg"),w:C.a1("n"),h:C.a1("m6")};(function constants(){var w=a.makeConstList
 A.NE=new C.a3(0,760,0,1/0)
@@ -189,4 +189,4 @@ A.aoe=new B.c_("Analytics and consent (GA4)","Measurement with Google Analytics 
 A.ao4=new B.c_("Clean architecture and maintenance","We prioritize organized code, reusable components and separation of concerns to support continuous product evolution, fewer bugs and lower maintenance cost.","Practical example: a new subscription feature is added by reusing components and reducing QA effort.")
 A.anQ=new B.c_("HTTP integrations and external services","We integrate external APIs and data services for real business flows, including back-end endpoints and observability services, ensuring operational reliability and metric-driven evolution.","Practical example: we monitor API latency and errors in production to act before customers are impacted.")
 A.aby=w([A.anU,A.anF,A.ao0,A.anZ,A.anH,A.anS,A.ao3,A.anW,A.anO,A.aoa,A.aob,A.ao1,A.aoe,A.ao4,A.anQ],x.c)})()};
-(a=>{a["cGMFvLrnxmES9XZ9f1FVo9MxU4c="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["lWh2+HItPLEbBnSGDxOuTcTDUaY="]=a.current})($__dart_deferred_initializers__);

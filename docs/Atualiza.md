@@ -2,6 +2,44 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-24 11:53] /orcamento: PDF sem folha em branco
+
+### Contexto
+
+- Gerar PDF abria primeiro a página do site quase em branco e depois o orçamento.
+
+### Arquivos alterados
+
+- lib/orcamento_print_web.dart
+- docs/Atualiza.md
+
+### Decisoes
+
+- Só chama print quando o iframe já tem `.sheet`. Iframe fora da tela (não 0×0, que no Chrome imprime a página pai).
+
+### Pendente / Proximo passo
+
+- Sem publish.
+
+## [2026-10-24 11:43] /orcamento: nomes completos nos cartões
+
+### Contexto
+
+- Nomes das aberturas nos cartões do quadro 1 não devem ser cortados.
+
+### Arquivos alterados
+
+- lib/orcamento_page.dart
+- docs/Atualiza.md
+
+### Decisoes
+
+- Cartão mais alto e largo; texto sem reticências; padding à direita para o +.
+
+### Pendente / Proximo passo
+
+- Sem publish.
+
 ## [2026-10-24 11:35] /orcamento: lista de vidro visível no pop
 
 ### Contexto

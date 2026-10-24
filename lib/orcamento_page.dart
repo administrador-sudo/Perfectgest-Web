@@ -556,10 +556,10 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
   Widget _quadroCatalogo({bool fill = true}) {
     final estreito = _estreito(context);
     final grid = SliverGridDelegateWithMaxCrossAxisExtent(
-      maxCrossAxisExtent: estreito ? 160 : 180,
+      maxCrossAxisExtent: estreito ? 176 : 210,
       mainAxisSpacing: 8,
       crossAxisSpacing: 8,
-      mainAxisExtent: estreito ? 108 : 118,
+      mainAxisExtent: estreito ? 156 : 172,
     );
     final corpo = fill
         ? CustomScrollView(
@@ -1126,13 +1126,13 @@ class _CatalogCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dragChild = SizedBox(width: double.infinity, child: _chip());
+    final dragChild = _chip();
     final drag = toqueLongo
         ? LongPressDraggable<OrcamentoCatalogTipo>(
             data: tipo,
             feedback: Material(
               color: Colors.transparent,
-              child: SizedBox(width: 156, child: _chip(dragging: true)),
+              child: SizedBox(width: 176, height: 156, child: _chip(dragging: true)),
             ),
             childWhenDragging: Opacity(opacity: 0.35, child: dragChild),
             child: dragChild,
@@ -1141,16 +1141,16 @@ class _CatalogCard extends StatelessWidget {
             data: tipo,
             feedback: Material(
               color: Colors.transparent,
-              child: SizedBox(width: 156, child: _chip(dragging: true)),
+              child: SizedBox(width: 196, height: 172, child: _chip(dragging: true)),
             ),
             childWhenDragging: Opacity(opacity: 0.35, child: dragChild),
             child: dragChild,
           );
     return SizedBox(
-      height: toqueLongo ? 108 : 118,
+      height: toqueLongo ? 156 : 172,
       child: Stack(
         children: [
-          drag,
+          Positioned.fill(child: drag),
           Positioned(
             top: 0,
             right: 0,
@@ -1175,35 +1175,36 @@ class _CatalogCard extends StatelessWidget {
   }
 
   Widget _chip({bool dragging = false}) {
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color: BrandPalette.silverPeak,
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: dragging ? BrandPalette.goldWarm : BrandPalette.silverMid),
-        boxShadow: dragging
-            ? const [BoxShadow(color: Color(0x66000000), blurRadius: 10, offset: Offset(0, 4))]
-            : null,
-      ),
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(8, 10, 8, 8),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(tipo.icon, color: BrandPalette.charcoal, size: 22),
-            const SizedBox(height: 6),
-            Text(
-              tipo.nome,
-              textAlign: TextAlign.center,
-              maxLines: 3,
-              overflow: TextOverflow.ellipsis,
-              style: const TextStyle(
-                color: BrandPalette.charcoal,
-                fontSize: 11,
-                fontWeight: FontWeight.w600,
-                height: 1.2,
+    return SizedBox.expand(
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: BrandPalette.silverPeak,
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(color: dragging ? BrandPalette.goldWarm : BrandPalette.silverMid),
+          boxShadow: dragging
+              ? const [BoxShadow(color: Color(0x66000000), blurRadius: 10, offset: Offset(0, 4))]
+              : null,
+        ),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(8, 12, 22, 8),
+          child: Column(
+            children: [
+              Icon(tipo.icon, color: BrandPalette.charcoal, size: 22),
+              const SizedBox(height: 6),
+              Expanded(
+                child: Text(
+                  tipo.nome,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    color: BrandPalette.charcoal,
+                    fontSize: 11,
+                    fontWeight: FontWeight.w600,
+                    height: 1.25,
+                  ),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

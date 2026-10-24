@@ -3,13 +3,13 @@ $__dart_deferred_initializers__.current=function(a,b,c,$){var C,D,E,F,G,B={
 b7f(d){return new B.oE(d,null)},
 oE:function oE(d,e){this.c=d
 this.a=e},
-a2i:function a2i(){this.c=this.a=null},
+a2j:function a2j(){this.c=this.a=null},
 aB3:function aB3(d,e,f,g){var _=this
 _.a=d
 _.b=e
 _.c=f
 _.d=g},
-a3O:function a3O(d,e){this.c=d
+a3P:function a3P(d,e){this.c=d
 this.a=e},
 aDN:function aDN(d){this.a=d},
 bco(d){switch(d.af(y.h).r.f.gcR()){case"en":return A.Pf
@@ -32,26 +32,26 @@ G=c[13]
 B=a.updateHolder(c[8],B)
 A=c[14]
 B.oE.prototype={
-aa(){return new B.a2i()}}
-B.a2i.prototype={
+aa(){return new B.a2j()}}
+B.a2j.prototype={
 ao(){this.aG()
 C.j5()
 C.dD("description","Perguntas e respostas PerfectGest ContabilGest: MEI, Livro Caixa, NFS-e, planos, assinatura Google Play e fontes oficiais.")
 C.dD("keywords","PerfectGest ContabilGest, FAQ, MEI, Livro Caixa, NFS-e, Google Play, assinatura, Perfect Gest Dev")
 C.dD("robots","index, follow")
-C.cH("og:title","Perguntas e respostas | ContabilGest")
-C.cH("og:description","FAQ do PerfectGest ContabilGest: o que e o app, internet, contador, NFS-e, planos e assinatura Google Play.")
-C.cH("og:type","article")
-C.cH("og:locale","pt_BR")
+C.cI("og:title","Perguntas e respostas | ContabilGest")
+C.cI("og:description","FAQ do PerfectGest ContabilGest: o que e o app, internet, contador, NFS-e, planos e assinatura Google Play.")
+C.cI("og:type","article")
+C.cI("og:locale","pt_BR")
 b.G.document.title="Perguntas e respostas | ContabilGest"},
 l(){C.qy()
 this.aA()},
 B(d){var x=null,w=C.w(d),v=C.aK(d,D.ab,y.x).w.a.a,u=v<400?16:24,t=B.bco(d),s=t.gf7(),r=C.w(d).ax.a===D.J?D.bO:D.bw,q=t.giC()
 return C.aA(x,x,x,C.hF(F.aR5(d,x,this.a.c,q),r,new C.jB(C.kk(new B.aB3(u,t,w.ax,v)),x),x,x,x,x),!1,x,x,!1,x,!1,x,x,x,x,x,x,x,x,s,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,D.p,x)}}
-B.a3O.prototype={
+B.a3P.prototype={
 B(d){var x,w,v,u,t,s,r,q,p,o,n=null,m=C.w(d).ax,l=C.aK(d,D.ab,y.x).w.a.a,k=l<400?12:16,j=this.c,i=j.a,h=m.RG
 h=(h==null?m.k2:h).ai(0.5)
-x=C.by(14)
+x=C.bx(14)
 w=m.ry
 if(w==null){w=m.n
 if(w==null)w=m.k3}w=C.dW(w.ai(0.4),1)
@@ -102,11 +102,11 @@ s=v.gln()
 r=o.d<400?18:22
 u=u.k3
 r=C.b([t,D.ah,C.l(s,n,n,n,n,C.b9().$4$color$fontSize$fontWeight$height(u,r,D.a1,1.2),n,n,n),D.fg],y.u)
-for(v=v.gTn(),q=0;q<16;++q)r.push(new B.a3O(v[q],n))
+for(v=v.gTn(),q=0;q<16;++q)r.push(new B.a3P(v[q],n))
 r.push(D.bH)
 r.push(E.th)
 r.push(D.en)
-p=C.bN(d,D.aR,y.F)
+p=C.bN(d,D.aQ,y.F)
 p.toString
 r.push(C.l(p.ut(C.b7(new C.cf(Date.now(),0,!1))),n,n,n,n,C.b9().$3$color$fontSize$fontWeight(u.ai(0.7),12,D.Z),n,n,n))
 r.push(E.Ld)
@@ -116,13 +116,13 @@ B.aDN.prototype={
 $0(){return C.iq(C.d4(this.a.b,0,null),D.cA,"_blank")},
 $S:0};(function inheritance(){var x=a.inherit,w=a.inheritMany
 x(B.oE,C.S)
-x(B.a2i,C.U)
+x(B.a2j,C.U)
 x(B.aB3,C.r5)
-x(B.a3O,C.X)
+x(B.a3P,C.X)
 x(B.aDN,C.k6)
 w(C.O,[B.lQ,B.bW,B.ava])
 w(B.ava,[B.aLB,B.aLz,B.aLA])})()
-C.v3(b.typeUniverse,JSON.parse('{"oE":{"S":[],"e":[]},"a2i":{"U":["oE"]},"a3O":{"X":[],"e":[]}}'))
+C.v3(b.typeUniverse,JSON.parse('{"oE":{"S":[],"e":[]},"a2j":{"U":["oE"]},"a3P":{"X":[],"e":[]}}'))
 var y={F:C.a1("h3"),a:C.a1("x<bW>"),g:C.a1("x<lQ>"),u:C.a1("x<e>"),x:C.a1("hg"),h:C.a1("m6")};(function constants(){var x=a.makeConstList
 A.Pf=new B.aLz()
 A.Pg=new B.aLA()
@@ -187,4 +187,4 @@ A.amv=new B.bW("Como altero meu plano (faixa, downgrade ou extras como folha e I
 A.am2=new B.bW("O app avisa antes da renova\xe7\xe3o?","Quando a Play informar a data do ciclo da assinatura do aplicativo, o app pode avisar at\xe9 30 dias antes. Sem data da Play, n\xe3o h\xe1 prazo inventado \u2014 consulte Play \u2192 Assinaturas. Honor\xe1rios e plano cont\xe1bil: com o escrit\xf3rio.",A.a2)
 A.alT=new B.bW("A assinatura da Play j\xe1 libera tudo?","N\xe3o. A Play libera o acesso ao aplicativo. Para sincroniza\xe7\xe3o, envio de dados ao escrit\xf3rio e fun\xe7\xf5es online, contacte o escrit\xf3rio depois de assinar. Sem habilita\xe7\xe3o, voc\xea entra no app, mas sem envio ao CRC e sem contato com o escrit\xf3rio.",A.a2)
 A.ace=x([A.am8,A.amg,A.alV,A.amn,A.alS,A.alX,A.am9,A.amd,A.amo,A.amt,A.am7,A.am3,A.am6,A.amv,A.am2,A.alT],y.a)})()};
-(a=>{a["UJEynl+Xt7aVDX+LB3r5A7rd74c="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["apo9FAxiS08p6yQd6gzNyPPIQuI="]=a.current})($__dart_deferred_initializers__);
