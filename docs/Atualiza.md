@@ -2,6 +2,22 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-24 13:11] /orcamento: PDF instalação na linha principal e margens mínimas
+
+### Contexto
+
+- Instalação na linha principal à direita do vidro; segunda linha só o tipo do vidro. Margem A4 6 mm.
+
+### Arquivos alterados
+
+- lib/orcamento_models.dart
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+
+### Pendente / Proximo passo
+
+- Sem publish.
+
 ## [2026-10-24 12:53] /orcamento: PDF instalação na linha do vidro
 
 ### Contexto

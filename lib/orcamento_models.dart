@@ -497,7 +497,7 @@ String orcamentoToPrintHtml({
   final total = itens.fold<double>(0, (s, e) => s + e.total);
   final linhas = StringBuffer();
   if (itens.isEmpty) {
-    linhas.writeln('<tr><td colspan="7" class="empty">Nenhuma abertura no orçamento.</td></tr>');
+    linhas.writeln('<tr><td colspan="8" class="empty">Nenhuma abertura no orçamento.</td></tr>');
   } else {
     for (var i = 0; i < itens.length; i++) {
       final it = itens[i];
@@ -510,20 +510,17 @@ String orcamentoToPrintHtml({
   <td>${formatPtBrNumber(it.area, casas: 3)} m²</td>
   <td class="num">${formatBrl(it.totalSemVidro)}</td>
   <td class="num">${formatBrl(it.valorVidro)}</td>
+  <td class="num">${it.instalacao > 0 ? formatBrl(it.instalacao) : ''}</td>
   <td class="num">${formatBrl(it.total)}</td>
 </tr>''');
-      final extra = <String>[
-        if (it.vidroId.isNotEmpty) 'Vidro: ${htmlEsc(it.vidroNome)}',
-        if (it.instalacao > 0) 'Instalação: ${formatBrl(it.instalacao)}',
-      ];
-      if (extra.isNotEmpty) {
+      if (it.vidroId.isNotEmpty) {
         linhas.writeln(
-          '<tr class="obs"><td></td><td colspan="6">${extra.join(' · ')}</td></tr>',
+          '<tr class="obs"><td></td><td colspan="7">Vidro: ${htmlEsc(it.vidroNome)}</td></tr>',
         );
       }
       if (it.obs.trim().isNotEmpty) {
         linhas.writeln(
-          '<tr class="obs"><td></td><td colspan="6">Obs.: ${htmlEsc(it.obs)}</td></tr>',
+          '<tr class="obs"><td></td><td colspan="7">Obs.: ${htmlEsc(it.obs)}</td></tr>',
         );
       }
     }
@@ -536,10 +533,10 @@ String orcamentoToPrintHtml({
 <meta charset="utf-8">
 <title>Orçamento - ${htmlEsc(cadastro.empresaNome.isEmpty ? 'Esquadrias' : cadastro.empresaNome)}</title>
 <style>
-  @page { size: A4; margin: 14mm; }
+  @page { size: A4; margin: 6mm; }
   * { box-sizing: border-box; }
   body { margin: 0; background: #fff; color: #121212; font-family: "Segoe UI", Arial, sans-serif; font-size: 12px; }
-  .sheet { max-width: 190mm; margin: 0 auto; padding: 8mm 6mm 14mm; }
+  .sheet { max-width: 198mm; margin: 0 auto; padding: 4mm; }
   header { border-bottom: 2px solid #D4AF37; padding-bottom: 10px; margin-bottom: 14px; display: flex; justify-content: space-between; gap: 16px; }
   h1 { margin: 0 0 4px; font-size: 20px; letter-spacing: .04em; color: #121212; }
   .gold { color: #9A7B2F; }
@@ -583,7 +580,7 @@ String orcamentoToPrintHtml({
   <table>
     <thead>
       <tr>
-        <th>#</th><th>Abertura</th><th>Medidas</th><th>m²</th><th>Abertura</th><th>Vidro</th><th>Total</th>
+        <th>#</th><th>Abertura</th><th>Medidas</th><th>m²</th><th>Abertura</th><th>Vidro</th><th>Instalação</th><th>Total</th>
       </tr>
     </thead>
     <tbody>
