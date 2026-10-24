@@ -2,6 +2,26 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-24 08:46] /orcamento: temperados, ripados e vidros 8/10 mm
+
+### Contexto
+
+- Grupos Temperados e Brises e Ripados no quadro 1 e na tabela R$/m²; vidros temperados 8 mm e 10 mm.
+
+### Arquivos alterados
+
+- lib/orcamento_models.dart
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+
+### Decisoes
+
+- Box de banheiro; guarda-corpo de vidro e tradicional; ripado amadeirado e de cor.
+
+### Pendente / Proximo passo
+
+- Sem publish.
+
 ## [2026-10-24 08:17] /orcamento: tabela R$/m² compartilhada com senha
 
 ### Contexto

@@ -21,6 +21,8 @@ const String kGrupoPortasIntegradas = 'Portas integradas / sacada';
 const String kGrupoPortasGiro = 'Portas de giro';
 const String kGrupoMaximOutros = 'Maxim-ar e outros';
 const String kGrupoFixos = 'Fixos';
+const String kGrupoTemperados = 'Temperados';
+const String kGrupoBrisesRipados = 'Brises e Ripados';
 
 const List<OrcamentoCatalogTipo> kOrcamentoCatalogo = [
   OrcamentoCatalogTipo(id: 'janela_correr_2', nome: 'Janela de correr 2 folhas', grupo: kGrupoJanelasCorrer, icon: Icons.window),
@@ -29,10 +31,10 @@ const List<OrcamentoCatalogTipo> kOrcamentoCatalogo = [
   OrcamentoCatalogTipo(id: 'janela_correr_4', nome: 'Janela de correr 4 folhas', grupo: kGrupoJanelasCorrer, icon: Icons.grid_view),
   OrcamentoCatalogTipo(id: 'janela_int_2_rec1', nome: 'Janela integrada duas folhas 1 recolhedor', grupo: kGrupoJanelasIntegradas, icon: Icons.window),
   OrcamentoCatalogTipo(id: 'janela_int_2_rec2', nome: 'Janela integrada duas folhas 2 recolhedores', grupo: kGrupoJanelasIntegradas, icon: Icons.window),
-  OrcamentoCatalogTipo(id: 'janela_int_2_persiana', nome: 'Janela sacada integrada 2 folhas com persiana de enrolar motorizada', grupo: kGrupoJanelasIntegradas, icon: Icons.blinds),
+  OrcamentoCatalogTipo(id: 'janela_int_2_persiana', nome: 'Janela sacada integrada 2 folhas 1 Recolhedor motorizada', grupo: kGrupoJanelasIntegradas, icon: Icons.blinds),
   OrcamentoCatalogTipo(id: 'porta_int_2_rec1', nome: 'Porta integrada duas folhas 1 recolhedor', grupo: kGrupoPortasIntegradas, icon: Icons.sensor_door),
   OrcamentoCatalogTipo(id: 'porta_int_2_rec2', nome: 'Porta integrada duas folhas 2 recolhedores', grupo: kGrupoPortasIntegradas, icon: Icons.sensor_door),
-  OrcamentoCatalogTipo(id: 'porta_sacada_int_2_persiana', nome: 'Porta sacada integrada 2 folhas com persiana de enrolar motorizada', grupo: kGrupoPortasIntegradas, icon: Icons.deck),
+  OrcamentoCatalogTipo(id: 'porta_sacada_int_2_persiana', nome: 'Porta sacada integrada 2 folhas 1 Recolhedor motorizada', grupo: kGrupoPortasIntegradas, icon: Icons.deck),
   OrcamentoCatalogTipo(id: 'porta_giro', nome: 'Porta de giro', grupo: kGrupoPortasGiro, icon: Icons.meeting_room),
   OrcamentoCatalogTipo(id: 'porta_giro_veneziana_25', nome: 'Porta de giro veneziana linha 25', grupo: kGrupoPortasGiro, icon: Icons.meeting_room),
   OrcamentoCatalogTipo(id: 'porta_giro_veneziana_30', nome: 'Porta de giro veneziana linha 30', grupo: kGrupoPortasGiro, icon: Icons.meeting_room),
@@ -47,9 +49,14 @@ const List<OrcamentoCatalogTipo> kOrcamentoCatalogo = [
   OrcamentoCatalogTipo(id: 'pivotante', nome: 'Pivotante', grupo: kGrupoMaximOutros, icon: Icons.rotate_right),
   OrcamentoCatalogTipo(id: 'batente', nome: 'Janela de batente', grupo: kGrupoMaximOutros, icon: Icons.crop_square),
   OrcamentoCatalogTipo(id: 'veneziana', nome: 'Veneziana', grupo: kGrupoMaximOutros, icon: Icons.view_week),
-  OrcamentoCatalogTipo(id: 'veneziana_correr', nome: 'Janela veneziana de correr (palhetas cegas ou ventiladas)', grupo: kGrupoMaximOutros, icon: Icons.view_week),
+  OrcamentoCatalogTipo(id: 'veneziana_correr', nome: 'Janela veneziana de correr (palhetas cegas e ou ventiladas)', grupo: kGrupoMaximOutros, icon: Icons.view_week),
   OrcamentoCatalogTipo(id: 'quadro_fixo', nome: 'Quadro fixo', grupo: kGrupoFixos, icon: Icons.crop_square),
-  OrcamentoCatalogTipo(id: 'fixo', nome: 'Fixo / peitoril', grupo: kGrupoFixos, icon: Icons.crop_landscape),
+  OrcamentoCatalogTipo(id: 'fixo', nome: 'Peitoril/Bandeira', grupo: kGrupoFixos, icon: Icons.crop_landscape),
+  OrcamentoCatalogTipo(id: 'box_banheiro', nome: 'Box de banheiro', grupo: kGrupoTemperados, icon: Icons.shower),
+  OrcamentoCatalogTipo(id: 'guarda_corpo_vidro', nome: 'Guarda-corpo de vidro (sem estrutura de alumínio)', grupo: kGrupoTemperados, icon: Icons.crop_portrait),
+  OrcamentoCatalogTipo(id: 'guarda_corpo_tradicional', nome: 'Guarda-corpo tradicional de alumínio e vidro', grupo: kGrupoTemperados, icon: Icons.fence),
+  OrcamentoCatalogTipo(id: 'ripado_amadeirado', nome: 'Ripado com perfil amadeirado', grupo: kGrupoBrisesRipados, icon: Icons.view_week),
+  OrcamentoCatalogTipo(id: 'ripado_cor', nome: 'Ripado com perfil de cor (branco, preto, bronze)', grupo: kGrupoBrisesRipados, icon: Icons.horizontal_split),
 ];
 
 List<String> get kOrcamentoGruposOrdenados {
@@ -90,6 +97,10 @@ const List<OrcamentoVidroTipo> kOrcamentoVidros = [
   OrcamentoVidroTipo(id: 'vt4_fume', nome: 'Vidro temperado 4 mm fumê'),
   OrcamentoVidroTipo(id: 'vt6_incolor', nome: 'Vidro temperado 6 mm incolor'),
   OrcamentoVidroTipo(id: 'vt6_fume', nome: 'Vidro temperado 6 mm fumê'),
+  OrcamentoVidroTipo(id: 'vt8_incolor', nome: 'Vidro temperado 8 mm incolor'),
+  OrcamentoVidroTipo(id: 'vt8_fume', nome: 'Vidro temperado 8 mm fumê'),
+  OrcamentoVidroTipo(id: 'vt10_incolor', nome: 'Vidro temperado 10 mm incolor'),
+  OrcamentoVidroTipo(id: 'vt10_fume', nome: 'Vidro temperado 10 mm fumê'),
 ];
 
 OrcamentoVidroTipo? vidroPorId(String? id) {
