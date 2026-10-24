@@ -2,6 +2,29 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-24 08:17] /orcamento: tabela R$/m² compartilhada com senha
+
+### Contexto
+
+- Tabela de R$/m² (aberturas e vidros) passa a ser oficial na API; qualquer acesso vê os valores gravados. Botão Salvar novos valores pede PIN 1981.
+
+### Arquivos alterados
+
+- scripts/leads-api-server.js
+- lib/orcamento_storage_web.dart
+- lib/orcamento_storage_stub.dart
+- lib/orcamento_page.dart
+- docs/Atualiza.md
+
+### Decisoes
+
+- GET/PUT `/api/orcamento-precos`. PIN só no servidor (`ORCAMENTO_PRECOS_PIN`, padrão 1981).
+- Salvar do cadastro grava só cadastro + itens no localStorage, sem preços.
+
+### Pendente / Proximo passo
+
+- Operador: republicar leads-api-6v1e no Render e depois publish-web.
+
 ## [2026-10-23 17:33] /orcamento: PDF item m², vidro e total
 
 ### Contexto

@@ -49,6 +49,8 @@ const allowedOrigins = (process.env.ALLOWED_ORIGINS || DEFAULT_ORIGINS.join(',')
 
 const dataDir = process.env.LEADS_DATA_DIR || path.join(__dirname, '..', 'data');
 const leadsFile = path.join(dataDir, 'site_leads.jsonl');
+const orcamentoPrecosFile = path.join(dataDir, 'orcamento_precos.json');
+const ORCAMENTO_PRECOS_PIN = String(process.env.ORCAMENTO_PRECOS_PIN || '1981').trim();
 
 const app = express();
 app.use(express.json({ limit: '32kb' }));
@@ -81,6 +83,13 @@ async function ensurePgSchema() {
     );
     CREATE INDEX IF NOT EXISTS site_leads_created_at_idx ON site_leads (created_at DESC);
     CREATE INDEX IF NOT EXISTS site_leads_email_idx ON site_leads (email);
+    CREATE TABLE IF NOT EXISTS orcamento_precos (
+      id INT PRIMARY KEY DEFAULT 1 CHECK (id = 1),
+      precos_m2 JSONB NOT NULL DEFAULT '{}'::jsonb,
+      precos_vidro JSONB NOT NULL DEFAULT '{}'::jsonb,
+      updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    );
+    INSERT INTO orcamento_precos (id) VALUES (1) ON CONFLICT (id) DO NOTHING;
   `);
   schemaReady = true;
 }
@@ -109,6 +118,83 @@ async function persistLead({ nome, email, comentario, locale }) {
     locale,
     created_at: new Date().toISOString(),
   });
+  return 'file';
+}
+
+function asPriceMap(raw) {
+  const out = {};
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return out;
+  for (const [k, v] of Object.entries(raw)) {
+    const n = typeof v === 'number' ? v : Number(String(v).replace(',', '.'));
+    if (!Number.isFinite(n) || n < 0 || n > 1e7) continue;
+    out[String(k).slice(0, 80)] = n;
+  }
+  return out;
+}
+
+function emptyPrecos() {
+  return { precosM2: {}, precosVidro: {} };
+}
+
+function readPrecosFile() {
+  try {
+    if (!fs.existsSync(orcamentoPrecosFile)) return emptyPrecos();
+    const raw = JSON.parse(fs.readFileSync(orcamentoPrecosFile, 'utf8'));
+    return {
+      precosM2: asPriceMap(raw && raw.precosM2),
+      precosVidro: asPriceMap(raw && raw.precosVidro),
+    };
+  } catch (_) {
+    return emptyPrecos();
+  }
+}
+
+function writePrecosFile(precosM2, precosVidro) {
+  fs.mkdirSync(dataDir, { recursive: true });
+  fs.writeFileSync(
+    orcamentoPrecosFile,
+    `${JSON.stringify({ precosM2, precosVidro }, null, 2)}\n`,
+    'utf8',
+  );
+}
+
+async function readOrcamentoPrecos() {
+  if (pgPool) {
+    await ensurePgSchema();
+    const result = await pgPool.query(
+      'SELECT precos_m2, precos_vidro FROM orcamento_precos WHERE id = 1',
+    );
+    const row = result.rows[0];
+    if (!row) return emptyPrecos();
+    return {
+      precosM2: asPriceMap(row.precos_m2),
+      precosVidro: asPriceMap(row.precos_vidro),
+    };
+  }
+  if (!allowFileFallback) {
+    throw new Error('DATABASE_URL required in production');
+  }
+  return readPrecosFile();
+}
+
+async function writeOrcamentoPrecos(precosM2, precosVidro) {
+  if (pgPool) {
+    await ensurePgSchema();
+    await pgPool.query(
+      `INSERT INTO orcamento_precos (id, precos_m2, precos_vidro, updated_at)
+       VALUES (1, $1::jsonb, $2::jsonb, NOW())
+       ON CONFLICT (id) DO UPDATE SET
+         precos_m2 = EXCLUDED.precos_m2,
+         precos_vidro = EXCLUDED.precos_vidro,
+         updated_at = NOW()`,
+      [JSON.stringify(precosM2), JSON.stringify(precosVidro)],
+    );
+    return 'postgres';
+  }
+  if (!allowFileFallback) {
+    throw new Error('DATABASE_URL required in production');
+  }
+  writePrecosFile(precosM2, precosVidro);
   return 'file';
 }
 
@@ -442,6 +528,42 @@ app.post('/api/leads', leadsLimiter, async (req, res) => {
     res.status(201).json({ ok: true, storage, copySent, officeSent, mailError });
   } catch (err) {
     console.error('[leads-api] POST /api/leads', err);
+    res.status(500).json({ error: 'server_error' });
+  }
+});
+
+app.get('/api/orcamento-precos', leadsLimiter, async (_req, res) => {
+  try {
+    if (!pgPool && isProduction) {
+      res.status(503).json({ error: 'database_required' });
+      return;
+    }
+    const data = await readOrcamentoPrecos();
+    res.json({ ok: true, ...data });
+  } catch (err) {
+    console.error('[leads-api] GET /api/orcamento-precos', err);
+    res.status(500).json({ error: 'server_error' });
+  }
+});
+
+app.put('/api/orcamento-precos', leadsLimiter, async (req, res) => {
+  try {
+    if (!pgPool && isProduction) {
+      res.status(503).json({ error: 'database_required' });
+      return;
+    }
+    const body = req.body || {};
+    const pin = String(body.pin || '').trim();
+    if (pin !== ORCAMENTO_PRECOS_PIN) {
+      res.status(403).json({ error: 'pin_invalid' });
+      return;
+    }
+    const precosM2 = asPriceMap(body.precosM2);
+    const precosVidro = asPriceMap(body.precosVidro);
+    const storage = await writeOrcamentoPrecos(precosM2, precosVidro);
+    res.json({ ok: true, storage });
+  } catch (err) {
+    console.error('[leads-api] PUT /api/orcamento-precos', err);
     res.status(500).json({ error: 'server_error' });
   }
 });

@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'app_theme.dart';
 import 'brand_palette.dart';
@@ -46,6 +47,7 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
     };
     seo_meta.applyOrcamentoSeoMetaTags();
     _hidratar();
+    _carregarPrecosOficiais();
   }
 
   void _hidratar() {
@@ -67,18 +69,6 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
       _validade.text = snap.cadastro.validadeAte.trim().isEmpty
           ? validadePadrao()
           : snap.cadastro.validadeAte;
-      for (final t in kOrcamentoCatalogo) {
-        final v = snap.precosM2[t.id];
-        if (v != null && v > 0) {
-          _precoCtrls[t.id]!.text = formatPtBrNumber(v);
-        }
-      }
-      for (final t in kOrcamentoVidros) {
-        final v = snap.precosVidro[t.id];
-        if (v != null && v > 0) {
-          _precoVidroCtrls[t.id]!.text = formatPtBrNumber(v);
-        }
-      }
       _itens = List<OrcamentoItem>.from(snap.itens);
     } catch (_) {}
   }
@@ -113,8 +103,49 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
         precosVidro: _precosVidroAtuais(),
       );
 
+  void _aplicarPrecosOficiais(Map<String, double> precosM2, Map<String, double> precosVidro) {
+    for (final t in kOrcamentoCatalogo) {
+      final v = precosM2[t.id];
+      if (v != null && v > 0) {
+        _precoCtrls[t.id]!.text = formatPtBrNumber(v);
+      }
+    }
+    for (final t in kOrcamentoVidros) {
+      final v = precosVidro[t.id];
+      if (v != null && v > 0) {
+        _precoVidroCtrls[t.id]!.text = formatPtBrNumber(v);
+      }
+    }
+    setState(() {
+      _itens = [
+        for (final e in _itens)
+          e.copyWith(
+            precoM2: (precosM2[e.catalogId] != null && precosM2[e.catalogId]! > 0)
+                ? precosM2[e.catalogId]!
+                : e.precoM2,
+            precoM2Vidro: e.vidroId.isEmpty
+                ? e.precoM2Vidro
+                : ((precosVidro[e.vidroId] != null && precosVidro[e.vidroId]! > 0)
+                    ? precosVidro[e.vidroId]!
+                    : e.precoM2Vidro),
+          ),
+      ];
+    });
+  }
+
+  Future<void> _carregarPrecosOficiais() async {
+    final remotos = await orcamento_storage.fetchOrcamentoPrecos();
+    if (remotos == null || !mounted) return;
+    _aplicarPrecosOficiais(remotos.precosM2, remotos.precosVidro);
+  }
+
   void _salvar() {
-    final json = jsonEncode(_snapshot().toJson());
+    final json = jsonEncode(
+      OrcamentoSnapshot(
+        cadastro: _cadastroAtual(),
+        itens: _itens,
+      ).toJson(),
+    );
     orcamento_storage.writeOrcamentoJson(json);
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
@@ -141,6 +172,85 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
           if (e.catalogId == catalogId) e.copyWith(precoM2: preco) else e,
       ];
     });
+  }
+
+  Future<void> _pedirSenhaESalvarPrecos() async {
+    final pinCtrl = TextEditingController();
+    final pin = await showDialog<String>(
+      context: context,
+      barrierColor: BrandPalette.charcoalDeep.withValues(alpha: 0.72),
+      builder: (ctx) {
+        return AlertDialog(
+          backgroundColor: BrandPalette.silverLight,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+            side: const BorderSide(color: BrandPalette.goldWarm, width: 1.2),
+          ),
+          title: const Text(
+            'Senha para gravar a tabela',
+            style: TextStyle(color: BrandPalette.charcoal, fontWeight: FontWeight.w700),
+          ),
+          content: TextField(
+            controller: pinCtrl,
+            autofocus: true,
+            obscureText: true,
+            maxLength: 4,
+            keyboardType: TextInputType.number,
+            inputFormatters: [FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(4)],
+            style: const TextStyle(color: BrandPalette.charcoal, fontSize: 22, letterSpacing: 8),
+            decoration: InputDecoration(
+              labelText: '4 dígitos',
+              labelStyle: const TextStyle(color: BrandPalette.charcoal),
+              filled: true,
+              fillColor: BrandPalette.silverPeak,
+              counterText: '',
+              border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8),
+                borderSide: const BorderSide(color: BrandPalette.goldWarm, width: 1.4),
+              ),
+            ),
+            onSubmitted: (v) => Navigator.pop(ctx, v.trim()),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(ctx),
+              child: const Text('Cancelar', style: TextStyle(color: BrandPalette.charcoal)),
+            ),
+            FilledButton(
+              style: FilledButton.styleFrom(
+                backgroundColor: BrandPalette.goldWarm,
+                foregroundColor: BrandPalette.charcoalDeep,
+              ),
+              onPressed: () => Navigator.pop(ctx, pinCtrl.text.trim()),
+              child: const Text('Confirmar'),
+            ),
+          ],
+        );
+      },
+    );
+    pinCtrl.dispose();
+    if (pin == null || pin.isEmpty || !mounted) return;
+    final err = await orcamento_storage.saveOrcamentoPrecos(
+      pin: pin,
+      precosM2: _precosAtuais(),
+      precosVidro: _precosVidroAtuais(),
+    );
+    if (!mounted) return;
+    final ok = err == null;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        backgroundColor: BrandPalette.charcoal,
+        content: Text(
+          ok
+              ? 'Tabela R\$/m² gravada. Vale para qualquer acesso.'
+              : err == 'pin_invalid'
+                  ? 'Senha incorreta. A tabela não foi gravada.'
+                  : 'Não foi possível gravar a tabela. Tente de novo.',
+          style: const TextStyle(color: BrandPalette.silverLight),
+        ),
+      ),
+    );
   }
 
   void _atualizarPrecoVidro(String vidroId, String raw) {
@@ -682,6 +792,19 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
                   ],
                 ),
         ),
+      const SizedBox(height: 10),
+      Align(
+        alignment: Alignment.centerRight,
+        child: FilledButton(
+          style: FilledButton.styleFrom(
+            backgroundColor: BrandPalette.goldWarm,
+            foregroundColor: BrandPalette.charcoalDeep,
+            minimumSize: const Size(88, 44),
+          ),
+          onPressed: _pedirSenhaESalvarPrecos,
+          child: const Text('Salvar novos valores'),
+        ),
+      ),
     ];
     return _quadroPrata(
       titulo: '3 · Valores R\$/m² por abertura',
