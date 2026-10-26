@@ -18,6 +18,7 @@ class OrcamentoCatalogTipo {
 const String kGrupoJanelasCorrer = 'Janelas de correr';
 const String kGrupoJanelasIntegradas = 'Janelas integradas';
 const String kGrupoPortasIntegradas = 'Portas integradas / sacada';
+const String kGrupoPortasCorrerSacada = 'Portas de correr (Sacada)';
 const String kGrupoPortasGiro = 'Portas de giro';
 const String kGrupoMaximOutros = 'Maxim-ar e outros';
 const String kGrupoFixos = 'Fixos';
@@ -35,14 +36,21 @@ const List<OrcamentoCatalogTipo> kOrcamentoCatalogo = [
   OrcamentoCatalogTipo(id: 'porta_int_2_rec1', nome: 'Porta integrada duas folhas 1 recolhedor', grupo: kGrupoPortasIntegradas, icon: Icons.sensor_door),
   OrcamentoCatalogTipo(id: 'porta_int_2_rec2', nome: 'Porta integrada duas folhas 2 recolhedores', grupo: kGrupoPortasIntegradas, icon: Icons.sensor_door),
   OrcamentoCatalogTipo(id: 'porta_sacada_int_2_persiana', nome: 'Porta sacada integrada 2 folhas 1 Recolhedor motorizada', grupo: kGrupoPortasIntegradas, icon: Icons.deck),
-  OrcamentoCatalogTipo(id: 'porta_giro', nome: 'Porta de giro', grupo: kGrupoPortasGiro, icon: Icons.meeting_room),
+  OrcamentoCatalogTipo(id: 'porta_sacada_2', nome: 'Porta sacada 2 folhas', grupo: kGrupoPortasCorrerSacada, icon: Icons.sensor_door),
+  OrcamentoCatalogTipo(id: 'porta_sacada_3_trilho_triplo', nome: 'Porta sacada 3 folhas (Trilho Triplo)', grupo: kGrupoPortasCorrerSacada, icon: Icons.sensor_door),
+  OrcamentoCatalogTipo(id: 'porta_sacada_4_2fixa_2moveis', nome: 'Porta sacada 4 folhas (2 Fixa e 2 Móveis)', grupo: kGrupoPortasCorrerSacada, icon: Icons.sensor_door),
+  OrcamentoCatalogTipo(id: 'porta_sacada_4_moveis_quadruplo', nome: 'Porta sacada 4 folhas Móveis (Trilho quádruplo)', grupo: kGrupoPortasCorrerSacada, icon: Icons.sensor_door),
+  OrcamentoCatalogTipo(id: 'porta_giro', nome: 'Porta de giro com vidro', grupo: kGrupoPortasGiro, icon: Icons.meeting_room),
   OrcamentoCatalogTipo(id: 'porta_giro_veneziana_25', nome: 'Porta de giro veneziana linha 25', grupo: kGrupoPortasGiro, icon: Icons.meeting_room),
   OrcamentoCatalogTipo(id: 'porta_giro_veneziana_30', nome: 'Porta de giro veneziana linha 30', grupo: kGrupoPortasGiro, icon: Icons.meeting_room),
-  OrcamentoCatalogTipo(id: 'porta_giro_lambri_25', nome: 'Porta de giro Lambri linha 25', grupo: kGrupoPortasGiro, icon: Icons.meeting_room),
-  OrcamentoCatalogTipo(id: 'porta_giro_lambri_30', nome: 'Porta de giro Lambri linha 30', grupo: kGrupoPortasGiro, icon: Icons.meeting_room),
+  OrcamentoCatalogTipo(id: 'porta_giro_lambri_25', nome: 'Porta de giro Lambri Estreito 100mm linha 25', grupo: kGrupoPortasGiro, icon: Icons.meeting_room),
+  OrcamentoCatalogTipo(id: 'porta_giro_lambri_30', nome: 'Porta de giro Lambri Estreito 100mm linha 30', grupo: kGrupoPortasGiro, icon: Icons.meeting_room),
+  OrcamentoCatalogTipo(id: 'porta_giro_lambri_largo_25', nome: 'Porta de giro Lambri Largo 160mm linha 25', grupo: kGrupoPortasGiro, icon: Icons.meeting_room),
+  OrcamentoCatalogTipo(id: 'porta_giro_lambri_largo_30', nome: 'Porta de giro Lambri Largo 160mm linha 30', grupo: kGrupoPortasGiro, icon: Icons.meeting_room),
   OrcamentoCatalogTipo(id: 'porta_pivot_lambri_largo', nome: 'Porta pivotante Lambri largo', grupo: kGrupoPortasGiro, icon: Icons.rotate_right),
   OrcamentoCatalogTipo(id: 'porta_pivot_lambri_estreito', nome: 'Porta pivotante Lambri estreito', grupo: kGrupoPortasGiro, icon: Icons.rotate_right),
-  OrcamentoCatalogTipo(id: 'porta_correr', nome: 'Porta de correr', grupo: kGrupoPortasGiro, icon: Icons.sensor_door),
+  OrcamentoCatalogTipo(id: 'porta_correr', nome: 'Porta de correr Interna/Externa lambri estreito (Trilho superior)', grupo: kGrupoPortasGiro, icon: Icons.sensor_door),
+  OrcamentoCatalogTipo(id: 'porta_correr_int_ext_veneziana', nome: 'Porta de correr Interna/Externa Veneziana (Trilho superior)', grupo: kGrupoPortasGiro, icon: Icons.sensor_door),
   OrcamentoCatalogTipo(id: 'maxim_ar', nome: 'Maxim-ar', grupo: kGrupoMaximOutros, icon: Icons.open_in_full),
   OrcamentoCatalogTipo(id: 'maxim_ar_dupla', nome: 'Janela maxim-ar dupla', grupo: kGrupoMaximOutros, icon: Icons.open_in_full),
   OrcamentoCatalogTipo(id: 'basculante', nome: 'Maxim-ar tripla', grupo: kGrupoMaximOutros, icon: Icons.open_in_full),

@@ -2,6 +2,22 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-26 08:08] /orcamento: portas de correr sacada e giro lambri
+
+### Contexto
+
+- Grupo Portas de correr (Sacada) com 4 tipos. Portas de giro: nomes vidro/lambri estreito 100mm, novas largo 160mm e correr veneziana.
+
+### Arquivos alterados
+
+- lib/orcamento_models.dart
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+
+### Pendente / Proximo passo
+
+- Sem publish. Recalcular R$/m² dos ids novos na tabela PIN.
+
 ## [2026-10-24 13:11] /orcamento: PDF instalação na linha principal e margens mínimas
 
 ### Contexto
