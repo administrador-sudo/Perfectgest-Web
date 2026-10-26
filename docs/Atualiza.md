@@ -2,6 +2,38 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-26 08:17] /orcamento: guarda-corpo simples tubular
+
+### Contexto
+
+- Temperados: Guarda-corpo simples de alumínio e vidro (Tubular), id `guarda_corpo_simples_tubular`.
+
+### Arquivos alterados
+
+- lib/orcamento_models.dart
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+
+### Pendente / Proximo passo
+
+- Sem publish. Preencher R$/m² do id novo na tabela PIN.
+
+## [2026-10-26 08:15] /orcamento: nome veneziana de acoplar
+
+### Contexto
+
+- Abertura `veneziana`: Veneziana de acoplar externa 2 folhas de giro (Palheta Cega). Id mantido.
+
+### Arquivos alterados
+
+- lib/orcamento_models.dart
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+
+### Pendente / Proximo passo
+
+- Sem publish.
+
 ## [2026-10-26 08:08] /orcamento: portas de correr sacada e giro lambri
 
 ### Contexto
