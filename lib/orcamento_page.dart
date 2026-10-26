@@ -1418,7 +1418,7 @@ class _OrcamentoRodapeFerramenta extends StatelessWidget {
                 ),
               ),
             Text(
-              '$kCompanyFantasyName - Divisão Ferramentas Digitais · © Todos os Direitos Reservados.\nCNPJ $kCompanyCnpj',
+              ' · © Todos os Direitos Reservados à $kCompanyFantasyName 2026 - Divisão Ferramentas Digitais ·',
               textAlign: TextAlign.center,
               style: const TextStyle(color: BrandPalette.silverMid, fontSize: 11, height: 1.35),
             ),

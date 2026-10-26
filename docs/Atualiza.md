@@ -2,6 +2,22 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-26 09:27] /orcamento: PDF vidro na linha do modelo e quadro por abertura
+
+### Contexto
+
+- Tipo de vidro na mesma linha do modelo/cor. Cada abertura num quadro de linha fina (0.4pt). Obs. continua em linha extra.
+
+### Arquivos alterados
+
+- lib/orcamento_models.dart
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+
+### Pendente / Proximo passo
+
+- Sem publish.
+
 ## [2026-10-26 09:02] /orcamento: Ajustes Adm também baixa preço
 
 ### Contexto

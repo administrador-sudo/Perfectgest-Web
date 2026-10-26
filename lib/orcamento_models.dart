@@ -534,15 +534,23 @@ String orcamentoToPrintHtml({
   final total = itens.fold<double>(0, (s, e) => s + e.total);
   final linhas = StringBuffer();
   if (itens.isEmpty) {
-    linhas.writeln('<tr><td colspan="8" class="empty">Nenhuma abertura no orçamento.</td></tr>');
+    linhas.writeln(
+      '<tbody><tr><td colspan="8" class="empty">Nenhuma abertura no orçamento.</td></tr></tbody>',
+    );
   } else {
     for (var i = 0; i < itens.length; i++) {
       final it = itens[i];
       final medidas = '${formatPtBrNumber(it.larguraMm, casas: 0)} x ${formatPtBrNumber(it.alturaMm, casas: 0)} mm';
+      final subParts = <String>[];
+      if (it.modelo.isNotEmpty) subParts.add(htmlEsc(it.modelo));
+      if (it.cor.isNotEmpty) subParts.add(htmlEsc(it.cor));
+      if (it.vidroId.isNotEmpty) subParts.add('Vidro: ${htmlEsc(it.vidroNome)}');
+      final sub = subParts.isEmpty ? '' : '<div class="sub">${subParts.join(' · ')}</div>';
+      linhas.writeln('<tbody class="bloco">');
       linhas.writeln('''
 <tr>
   <td>${i + 1}</td>
-  <td>${htmlEsc(it.nome)}<div class="sub">${htmlEsc(it.modelo)}${it.cor.isEmpty ? '' : ' · ${htmlEsc(it.cor)}'}</div></td>
+  <td>${htmlEsc(it.nome)}$sub</td>
   <td>$medidas</td>
   <td>${formatPtBrNumber(it.area, casas: 3)} m²</td>
   <td class="num">${formatBrl(it.totalSemVidro)}</td>
@@ -550,16 +558,12 @@ String orcamentoToPrintHtml({
   <td class="num">${it.instalacao > 0 ? formatBrl(it.instalacao) : ''}</td>
   <td class="num">${formatBrl(it.total)}</td>
 </tr>''');
-      if (it.vidroId.isNotEmpty) {
-        linhas.writeln(
-          '<tr class="obs"><td></td><td colspan="7">Vidro: ${htmlEsc(it.vidroNome)}</td></tr>',
-        );
-      }
       if (it.obs.trim().isNotEmpty) {
         linhas.writeln(
           '<tr class="obs"><td></td><td colspan="7">Obs.: ${htmlEsc(it.obs)}</td></tr>',
         );
       }
+      linhas.writeln('</tbody>');
     }
   }
 
@@ -578,12 +582,13 @@ String orcamentoToPrintHtml({
   h1 { margin: 0 0 4px; font-size: 20px; letter-spacing: .04em; color: #121212; }
   .gold { color: #9A7B2F; }
   .meta { color: #3D3D3D; line-height: 1.45; }
-  table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+  table { width: 100%; border-collapse: separate; border-spacing: 0 4px; margin-top: 10px; }
   th { text-align: left; background: #121212; color: #F0F0F0; font-weight: 600; padding: 7px 6px; font-size: 11px; }
-  td { border-bottom: 1px solid #C8C8C8; padding: 6px; vertical-align: top; }
+  td { padding: 5px 6px; vertical-align: top; }
   td.num { text-align: right; white-space: nowrap; font-weight: 600; }
+  tbody.bloco { outline: 0.4pt solid #888; }
   .sub { color: #555; font-size: 11px; margin-top: 2px; }
-  .obs td { color: #444; font-size: 11px; border-bottom: 1px solid #E8E8E8; }
+  .obs td { color: #444; font-size: 11px; border-top: 0.4pt solid #E8E8E8; }
   .empty { text-align: center; color: #707070; padding: 18px; }
   .totais { margin-top: 14px; display: flex; justify-content: flex-end; }
   .totais div { border: 1px solid #D4AF37; background: #F7F7F7; padding: 10px 16px; min-width: 220px; }
@@ -620,9 +625,7 @@ String orcamentoToPrintHtml({
         <th>#</th><th>Abertura</th><th>Medidas</th><th>m²</th><th>Abertura</th><th>Vidro</th><th>Instalação</th><th>Total</th>
       </tr>
     </thead>
-    <tbody>
       ${linhas.toString()}
-    </tbody>
   </table>
   <div class="totais"><div>Total do orçamento<br><strong>${formatBrl(total)}</strong></div></div>
   <footer class="tool">
