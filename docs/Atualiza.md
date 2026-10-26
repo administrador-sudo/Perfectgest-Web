@@ -2,6 +2,22 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-26 09:02] /orcamento: Ajustes Adm também baixa preço
+
+### Contexto
+
+- Pop Adm: positivo sobe, negativo desce (ex. -15 no material/mão de obra/vidro). Fórmula já aceitava o sinal.
+
+### Arquivos alterados
+
+- lib/orcamento_page.dart
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+
+### Pendente / Proximo passo
+
+- Sem publish.
+
 ## [2026-10-26 08:48] /orcamento: Ajustes Adm fatia 60/40
 
 ### Contexto

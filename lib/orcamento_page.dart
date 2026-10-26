@@ -329,7 +329,7 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     const Text(
-                      'Fatia do R\$/m² das aberturas. A mão de obra completa 100%.',
+                      'Fatia do R\$/m² das aberturas. A mão de obra completa 100%. Número positivo sobe o preço; negativo desce (ex. 15 ou -15).',
                       style: TextStyle(color: BrandPalette.charcoal, fontSize: 12),
                     ),
                     const SizedBox(height: 12),
@@ -356,21 +356,21 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
                       controller: pctMatCtrl,
                       keyboardType: const TextInputType.numberWithOptions(decimal: true, signed: true),
                       style: const TextStyle(color: BrandPalette.charcoal),
-                      decoration: decCampo('% reajuste material (alumínio)'),
+                      decoration: decCampo('% material (alumínio, use - para baixar)'),
                     ),
                     const SizedBox(height: 8),
                     TextField(
                       controller: pctMoCtrl,
                       keyboardType: const TextInputType.numberWithOptions(decimal: true, signed: true),
                       style: const TextStyle(color: BrandPalette.charcoal),
-                      decoration: decCampo('% reajuste mão de obra de fabricação'),
+                      decoration: decCampo('% mão de obra (use - para baixar)'),
                     ),
                     const SizedBox(height: 8),
                     TextField(
                       controller: pctVidroCtrl,
                       keyboardType: const TextInputType.numberWithOptions(decimal: true, signed: true),
                       style: const TextStyle(color: BrandPalette.charcoal),
-                      decoration: decCampo('% reajuste vidro R\$/m²'),
+                      decoration: decCampo('% vidro R\$/m² (use - para baixar)'),
                     ),
                   ],
                 ),

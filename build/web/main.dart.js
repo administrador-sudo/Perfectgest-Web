@@ -32673,7 +32673,7 @@ f=b5.w
 f=f.length===0?"":"Instalador: "+A.mg(f)+"<br>"
 e=b5.x
 e=e.length===0?"":"Cliente: "+A.mg(e)
-return'<!DOCTYPE html>\n<html lang="pt-BR">\n<head>\n<meta charset="utf-8">\n<title>Or\xe7amento - '+n+'</title>\n<style>\n  @page { size: A4; margin: 6mm; }\n  * { box-sizing: border-box; }\n  body { margin: 0; background: #fff; color: #121212; font-family: "Segoe UI", Arial, sans-serif; font-size: 12px; }\n  .sheet { max-width: 198mm; margin: 0 auto; padding: 4mm; }\n  header { border-bottom: 2px solid #D4AF37; padding-bottom: 10px; margin-bottom: 14px; display: flex; justify-content: space-between; gap: 16px; }\n  h1 { margin: 0 0 4px; font-size: 20px; letter-spacing: .04em; color: #121212; }\n  .gold { color: #9A7B2F; }\n  .meta { color: #3D3D3D; line-height: 1.45; }\n  table { width: 100%; border-collapse: collapse; margin-top: 10px; }\n  th { text-align: left; background: #121212; color: #F0F0F0; font-weight: 600; padding: 7px 6px; font-size: 11px; }\n  td { border-bottom: 1px solid #C8C8C8; padding: 6px; vertical-align: top; }\n  td.num { text-align: right; white-space: nowrap; font-weight: 600; }\n  .sub { color: #555; font-size: 11px; margin-top: 2px; }\n  .obs td { color: #444; font-size: 11px; border-bottom: 1px solid #E8E8E8; }\n  .empty { text-align: center; color: #707070; padding: 18px; }\n  .totais { margin-top: 14px; display: flex; justify-content: flex-end; }\n  .totais div { border: 1px solid #D4AF37; background: #F7F7F7; padding: 10px 16px; min-width: 220px; }\n  .totais strong { font-size: 16px; }\n  footer.tool { margin-top: 28px; border-top: 1px solid #A8A8A8; padding-top: 8px; color: #555; font-size: 10px; text-align: center; }\n  @media print { .noprint { display: none !important; } body { background: #fff; } }\n</style>\n</head>\n<body>\n<div class="sheet">\n  <header>\n    <div>\n      <h1>'+p+'</h1>\n      <div class="meta">\n        '+o+"\n        "+m+"\n        "+l+"\n        "+k+'\n      </div>\n    </div>\n    <div class="meta" style="text-align:right">\n      <div class="gold">OR\xc7AMENTO DE ESQUADRIAS</div>\n      <div>Data '+j+"</div>\n      "+i+"\n      "+h+"\n      "+g+"\n      "+f+"\n      "+e+"\n    </div>\n  </header>\n  <table>\n    <thead>\n      <tr>\n        <th>#</th><th>Abertura</th><th>Medidas</th><th>m\xb2</th><th>Abertura</th><th>Vidro</th><th>Instala\xe7\xe3o</th><th>Total</th>\n      </tr>\n    </thead>\n    <tbody>\n      "+(s.charCodeAt(0)==0?s:s)+'\n    </tbody>\n  </table>\n  <div class="totais"><div>Total do or\xe7amento<br><strong>'+("R$ "+A.ct(b4,2))+'</strong></div></div>\n  <footer class="tool">\n    PerfectGestDev - Divis\xe3o ferramentas Digitais \xb7 \xa9 Todos os Direitos Reservados.<br>\n    CNPJ 66.889.409/0001-19\n  </footer>\n</div>\n</body>\n</html>\n'},
+return'<!DOCTYPE html>\n<html lang="pt-BR">\n<head>\n<meta charset="utf-8">\n<title>Or\xe7amento - '+n+'</title>\n<style>\n  @page { size: A4; margin: 6mm; }\n  * { box-sizing: border-box; }\n  body { margin: 0; background: #fff; color: #121212; font-family: "Segoe UI", Arial, sans-serif; font-size: 12px; }\n  .sheet { max-width: 198mm; margin: 0 auto; padding: 4mm; }\n  header { border-bottom: 2px solid #D4AF37; padding-bottom: 10px; margin-bottom: 14px; display: flex; justify-content: space-between; gap: 16px; }\n  h1 { margin: 0 0 4px; font-size: 20px; letter-spacing: .04em; color: #121212; }\n  .gold { color: #9A7B2F; }\n  .meta { color: #3D3D3D; line-height: 1.45; }\n  table { width: 100%; border-collapse: collapse; margin-top: 10px; }\n  th { text-align: left; background: #121212; color: #F0F0F0; font-weight: 600; padding: 7px 6px; font-size: 11px; }\n  td { border-bottom: 1px solid #C8C8C8; padding: 6px; vertical-align: top; }\n  td.num { text-align: right; white-space: nowrap; font-weight: 600; }\n  .sub { color: #555; font-size: 11px; margin-top: 2px; }\n  .obs td { color: #444; font-size: 11px; border-bottom: 1px solid #E8E8E8; }\n  .empty { text-align: center; color: #707070; padding: 18px; }\n  .totais { margin-top: 14px; display: flex; justify-content: flex-end; }\n  .totais div { border: 1px solid #D4AF37; background: #F7F7F7; padding: 10px 16px; min-width: 220px; }\n  .totais strong { font-size: 16px; }\n  footer.tool { margin-top: 28px; border-top: 1px solid #A8A8A8; padding-top: 8px; color: #555; font-size: 10px; text-align: center; }\n  @media print { .noprint { display: none !important; } body { background: #fff; } }\n</style>\n</head>\n<body>\n<div class="sheet">\n  <header>\n    <div>\n      <h1>'+p+'</h1>\n      <div class="meta">\n        '+o+"\n        "+m+"\n        "+l+"\n        "+k+'\n      </div>\n    </div>\n    <div class="meta" style="text-align:right">\n      <div class="gold">OR\xc7AMENTO DE ESQUADRIAS</div>\n      <div>Data '+j+"</div>\n      "+i+"\n      "+h+"\n      "+g+"\n      "+f+"\n      "+e+"\n    </div>\n  </header>\n  <table>\n    <thead>\n      <tr>\n        <th>#</th><th>Abertura</th><th>Medidas</th><th>m\xb2</th><th>Abertura</th><th>Vidro</th><th>Instala\xe7\xe3o</th><th>Total</th>\n      </tr>\n    </thead>\n    <tbody>\n      "+(s.charCodeAt(0)==0?s:s)+'\n    </tbody>\n  </table>\n  <div class="totais"><div>Total do or\xe7amento<br><strong>'+("R$ "+A.ct(b4,2))+'</strong></div></div>\n  <footer class="tool">\n    \xa9 Todos os Direitos Reservados PerfectGestDev 2026 \xb7Divis\xe3o ferramentas Digitais\xb7.<br>\n    \n  </footer>\n</div>\n</body>\n</html>\n'},
 bU:function bU(a,b,c,d){var _=this
 _.a=a
 _.b=b
@@ -109959,7 +109959,7 @@ r=s.length
 f.push(A.l("CRC PIX "+(r>=4?B.c.cV(s,r-4):""),l,l,l,l,B.qo,l,l,l))
 f.push(B.ai)
 f.push(B.aue)
-return A.mF(l,l,new A.cu(B.Nr,A.as(A.b([A.cl(A.eC(A.cj(new A.a5(B.nP,A.as(f,B.a4,B.j,B.m),l),new A.bp(B.Q8,l,i,h,l,l,B.I),B.a5),l,B.Tb,B.X),1),new A.a5(B.T_,A.bQ(A.b([A.cP(B.auv,new A.aEA(a),l),B.dW,A.hC(B.aub,new A.aEB(a),l)],g),B.D,l,B.j,B.m,0),l)],g),B.D,B.j,B.m),l),l,l,l,B.ia,B.dV,l,l,l)}}
+return A.mF(l,l,new A.cu(B.Nr,A.as(A.b([A.cl(A.eC(A.cj(new A.a5(B.nP,A.as(f,B.a4,B.j,B.m),l),new A.bp(B.Q8,l,i,h,l,l,B.I),B.a5),l,B.Tb,B.X),1),new A.a5(B.T_,A.bQ(A.b([A.cP(B.auu,new A.aEA(a),l),B.dW,A.hC(B.aub,new A.aEB(a),l)],g),B.D,l,B.j,B.m,0),l)],g),B.D,B.j,B.m),l),l,l,l,B.ia,B.dV,l,l,l)}}
 A.aEz.prototype={
 $0(){var s=0,r=A.O(t.H),q,p=this,o
 var $async$$0=A.J(function(a,b){if(a===1)return A.L(b,r)
@@ -112347,7 +112347,7 @@ p=d.gAF()
 if(q)s=0
 else{q=(s?d.gh3():o)*0.95
 s=q}r.push(A.l("Total da abertura "+("R$ "+A.ct(p+s*d.ax,2)),f,f,f,f,B.arZ,f,f,f))
-return A.mF(f,B.bn,new A.cu(B.re,new A.a5(B.ke,A.eC(A.as(A.b([a,B.d8,B.auq,B.F,b,B.bA,k,B.av,l,B.bA,A.cj(new A.a5(B.i9,A.hz(A.as(r,B.C,B.j,B.m),f,f,B.cF,!0,B.apm,f,f,B.bh),f),new A.bp(B.ap,f,n,m,f,f,B.I),B.a5),B.bA,A.bQ(A.b([A.cP(B.qp,new A.aHf(a0),f),B.dW,A.hC(B.au4,new A.aHg(g,a0),A.ka(B.aa,B.aQ,f,f,f))],j),B.D,f,B.j,B.m,0)],j),B.a4,B.j,B.aM),f,f,B.X),f),f),f,f,f,B.SU,B.dV,f,new A.d3(c,B.jx),f)},
+return A.mF(f,B.bn,new A.cu(B.re,new A.a5(B.ke,A.eC(A.as(A.b([a,B.d8,B.aup,B.F,b,B.bA,k,B.av,l,B.bA,A.cj(new A.a5(B.i9,A.hz(A.as(r,B.C,B.j,B.m),f,f,B.cF,!0,B.apm,f,f,B.bh),f),new A.bp(B.ap,f,n,m,f,f,B.I),B.a5),B.bA,A.bQ(A.b([A.cP(B.qp,new A.aHf(a0),f),B.dW,A.hC(B.au4,new A.aHg(g,a0),A.ka(B.aa,B.aQ,f,f,f))],j),B.D,f,B.j,B.m,0)],j),B.a4,B.j,B.aM),f,f,B.X),f),f),f,f,f,B.SU,B.dV,f,new A.d3(c,B.jx),f)},
 na(a,b){var s=this.c
 s.toString
 return A.bz(b,null,A.aK(s,B.ac,t.l).w.a.a<520?1/0:a)}}
@@ -112361,7 +112361,7 @@ $S:0}
 A.aHb.prototype={
 $1(a){var s,r,q,p,o,n=null,m=A.bv(12),l=this.a,k=l.at
 k===$&&A.a()
-k=A.b([A.t1(!1,n,n,n,!0,n,n,!0,n,n,n,n,n,n,new A.aH9(a),k.length===0,B.ap,B.f,n,n,n,n,B.aur,n,n,n,n)],t.p)
+k=A.b([A.t1(!1,n,n,n,!0,n,n,!0,n,n,n,n,n,n,new A.aH9(a),k.length===0,B.ap,B.f,n,n,n,n,B.auq,n,n,n,n)],t.p)
 for(s=0;s<15;++s){r=B.f1[s]
 q=A.l(r.b,n,n,n,n,B.aqi,n,n,n)
 p=r.a
@@ -112750,7 +112750,7 @@ a=new A.aHu(s,b)
 r=A.bv(10)
 q=A.dY(B.aa.ah(0.85),1)
 p=t.p
-o=A.ek(B.b_,A.b([B.auw,A.cP(B.au8,d.gaxv(),A.iZ(c,c,B.aa,c,c,c,c,c,c,B.aQ,c,B.q3,B.T1,c,c,c,c,c,c,c))],p),B.eu,8,8)
+o=A.ek(B.b_,A.b([B.auv,A.cP(B.au8,d.gaxv(),A.iZ(c,c,B.aa,c,c,c,c,c,c,B.aQ,c,B.q3,B.T1,c,c,c,c,c,c,c))],p),B.eu,8,8)
 n=a.$3(220,d.d,"Nome da empresa")
 m=a.$3(160,d.e,"CNPJ")
 l=a.$3(260,d.f,"Endere\xe7o")
@@ -112836,7 +112836,7 @@ s=t.p
 r=A.b([],s)
 r.push(new A.wn(new A.aHL(o,m.a.a<720,!1),new A.aHM(),new A.aHN(o),n,t.gR))
 m=A.l("Total  "+("R$ "+A.ct(o.a3M().gabG(),2)),n,n,n,n,B.apH,n,n,n)
-q=A.cP(B.aut,o.ay.length===0?n:new A.aHO(o),n)
+q=A.cP(B.aus,o.ay.length===0?n:new A.aHO(o),n)
 p=A.ka(B.aa,B.aQ,B.q3,n,n)
 r.push(A.cj(new A.a5(B.kc,A.ek(B.Mn,A.b([m,A.ek(B.b_,A.b([q,A.hC(B.LT,o.ay.length===0?n:o.ga_A(),p)],s),B.bJ,0,6)],s),B.eu,8,8),n),B.NJ,B.a5))
 return o.MZ(A.as(r,B.D,B.j,B.aM),!1,"2 \xb7 Local do or\xe7amento")},
@@ -112898,7 +112898,7 @@ $S:0}
 A.aHE.prototype={
 $1(a){var s=null,r=A.bv(12),q=A.l(this.b,s,s,s,s,B.hy,s,s,s),p=this.c,o=A.b([$.b3o(),new A.wZ(4,s)],t.VS)
 o=A.dA(s,B.an,!0,s,!0,B.y,s,A.dS(),p,s,s,s,s,s,2,A.i3(s,new A.eA(4,A.bv(8),B.jy),s,s,s,s,"",s,!0,s,s,s,s,s,s,B.f,!0,s,s,s,s,new A.eA(4,A.bv(8),B.ra),s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,B.es,"4 d\xedgitos",!0,!0,!1,s,s,s,s,s,s,s,s,s,s,s,s,s,s),B.L,!0,s,!0,s,!1,s,B.aq,s,s,o,s,B.mk,s,4,s,1,s,s,!0,"\u2022",s,s,s,new A.aHB(a),s,!1,s,s,!1,s,!0,s,B.ay,s,s,s,s,s,s,s,s,s,s,s,B.arj,!0,B.a_,s,B.aE,s,s,s,s)
-return A.aRN(A.b([A.cP(B.qp,new A.aHC(a),s),A.hC(B.aup,new A.aHD(a,p),A.ka(B.aa,B.aQ,s,s,s))],t.p),B.bn,o,new A.d3(r,B.jx),q)},
+return A.aRN(A.b([A.cP(B.qp,new A.aHC(a),s),A.hC(B.auo,new A.aHD(a,p),A.ka(B.aa,B.aQ,s,s,s))],t.p),B.bn,o,new A.d3(r,B.jx),q)},
 $S:158}
 A.aHB.prototype={
 $1(a){var s=B.c.bz(a)
@@ -112924,8 +112924,8 @@ return new A.uh(new A.aHm(s.a,s.b,s.c,s.d,s.e,s.f),null)},
 $S:659}
 A.aHm.prototype={
 $2(a,b){var s=this,r=null,q=A.bv(12),p=s.b,o=s.c,n=t.p
-p=A.bz(A.eC(A.as(A.b([B.auo,B.ag,A.dA(r,B.an,!1,r,!0,B.y,r,A.dS(),s.a,r,r,r,r,r,2,p.$1("Fatia material %"),B.L,!0,r,!0,r,!1,r,B.aq,r,r,r,r,B.da,r,r,r,1,r,r,!1,"\u2022",r,new A.aHj(o,b),r,r,r,!1,r,r,!1,r,!0,r,B.ay,r,r,r,r,r,r,r,r,r,r,r,B.es,!0,B.a_,r,B.aE,r,r,r,r),B.F,A.dA(r,B.an,!1,r,!0,B.y,r,A.dS(),o,r,r,r,r,r,2,p.$1("Fatia m\xe3o de obra %"),B.L,!0,r,!0,r,!1,r,B.aq,r,r,r,r,r,r,r,r,1,r,r,!1,"\u2022",r,r,r,r,r,!1,r,r,!0,r,!0,r,B.ay,r,r,r,r,r,r,r,r,r,r,r,B.es,!0,B.a_,r,B.aE,r,r,r,r),B.bA,A.dA(r,B.an,!1,r,!0,B.y,r,A.dS(),s.d,r,r,r,r,r,2,p.$1("% reajuste material (alum\xednio)"),B.L,!0,r,!0,r,!1,r,B.aq,r,r,r,r,B.qh,r,r,r,1,r,r,!1,"\u2022",r,r,r,r,r,!1,r,r,!1,r,!0,r,B.ay,r,r,r,r,r,r,r,r,r,r,r,B.es,!0,B.a_,r,B.aE,r,r,r,r),B.F,A.dA(r,B.an,!1,r,!0,B.y,r,A.dS(),s.e,r,r,r,r,r,2,p.$1("% reajuste m\xe3o de obra de fabrica\xe7\xe3o"),B.L,!0,r,!0,r,!1,r,B.aq,r,r,r,r,B.qh,r,r,r,1,r,r,!1,"\u2022",r,r,r,r,r,!1,r,r,!1,r,!0,r,B.ay,r,r,r,r,r,r,r,r,r,r,r,B.es,!0,B.a_,r,B.aE,r,r,r,r),B.F,A.dA(r,B.an,!1,r,!0,B.y,r,A.dS(),s.f,r,r,r,r,r,2,p.$1("% reajuste vidro R$/m\xb2"),B.L,!0,r,!0,r,!1,r,B.aq,r,r,r,r,B.qh,r,r,r,1,r,r,!1,"\u2022",r,r,r,r,r,!1,r,r,!1,r,!0,r,B.ay,r,r,r,r,r,r,r,r,r,r,r,B.es,!0,B.a_,r,B.aE,r,r,r,r)],n),B.D,B.j,B.aM),r,r,B.X),r,360)
-return A.aRN(A.b([A.cP(B.qp,new A.aHk(a),r),A.hC(B.aus,new A.aHl(a),A.ka(B.aa,B.aQ,r,r,r))],n),B.bn,p,new A.d3(q,B.jx),B.auk)},
+p=A.bz(A.eC(A.as(A.b([B.aux,B.ag,A.dA(r,B.an,!1,r,!0,B.y,r,A.dS(),s.a,r,r,r,r,r,2,p.$1("Fatia material %"),B.L,!0,r,!0,r,!1,r,B.aq,r,r,r,r,B.da,r,r,r,1,r,r,!1,"\u2022",r,new A.aHj(o,b),r,r,r,!1,r,r,!1,r,!0,r,B.ay,r,r,r,r,r,r,r,r,r,r,r,B.es,!0,B.a_,r,B.aE,r,r,r,r),B.F,A.dA(r,B.an,!1,r,!0,B.y,r,A.dS(),o,r,r,r,r,r,2,p.$1("Fatia m\xe3o de obra %"),B.L,!0,r,!0,r,!1,r,B.aq,r,r,r,r,r,r,r,r,1,r,r,!1,"\u2022",r,r,r,r,r,!1,r,r,!0,r,!0,r,B.ay,r,r,r,r,r,r,r,r,r,r,r,B.es,!0,B.a_,r,B.aE,r,r,r,r),B.bA,A.dA(r,B.an,!1,r,!0,B.y,r,A.dS(),s.d,r,r,r,r,r,2,p.$1("% material (alum\xednio, use - para baixar)"),B.L,!0,r,!0,r,!1,r,B.aq,r,r,r,r,B.qh,r,r,r,1,r,r,!1,"\u2022",r,r,r,r,r,!1,r,r,!1,r,!0,r,B.ay,r,r,r,r,r,r,r,r,r,r,r,B.es,!0,B.a_,r,B.aE,r,r,r,r),B.F,A.dA(r,B.an,!1,r,!0,B.y,r,A.dS(),s.e,r,r,r,r,r,2,p.$1("% m\xe3o de obra (use - para baixar)"),B.L,!0,r,!0,r,!1,r,B.aq,r,r,r,r,B.qh,r,r,r,1,r,r,!1,"\u2022",r,r,r,r,r,!1,r,r,!1,r,!0,r,B.ay,r,r,r,r,r,r,r,r,r,r,r,B.es,!0,B.a_,r,B.aE,r,r,r,r),B.F,A.dA(r,B.an,!1,r,!0,B.y,r,A.dS(),s.f,r,r,r,r,r,2,p.$1("% vidro R$/m\xb2 (use - para baixar)"),B.L,!0,r,!0,r,!1,r,B.aq,r,r,r,r,B.qh,r,r,r,1,r,r,!1,"\u2022",r,r,r,r,r,!1,r,r,!1,r,!0,r,B.ay,r,r,r,r,r,r,r,r,r,r,r,B.es,!0,B.a_,r,B.aE,r,r,r,r)],n),B.D,B.j,B.aM),r,r,B.X),r,360)
+return A.aRN(A.b([A.cP(B.qp,new A.aHk(a),r),A.hC(B.aur,new A.aHl(a),A.ka(B.aa,B.aQ,r,r,r))],n),B.bn,p,new A.d3(q,B.jx),B.auk)},
 $S:660}
 A.aHj.prototype={
 $1(a){this.a.scP(A.ct(A.ND(A.fq(a)).a,0))
@@ -113247,7 +113247,7 @@ return new A.wE(r,new A.aDi(this),new A.di(s,t.f3),t.qs)}}
 A.aDi.prototype={
 $2(a,b){var s,r,q=null
 if(b.a!==B.k1)return A.hG(q,q,A.dh(A.aWy(A.w(a).ax.b,q),q,q),q,q,q,q)
-if(b.c!=null)return A.hG(q,q,A.dh(A.as(A.b([B.aux,B.ag,A.hC(B.aua,new A.aDh(this.a),q)],t.p),B.D,B.j,B.aM),q,q),q,q,q,q)
+if(b.c!=null)return A.hG(q,q,A.dh(A.as(A.b([B.auw,B.ag,A.hC(B.aua,new A.aDh(this.a),q)],t.p),B.D,B.j,B.aM),q,q),q,q,q,q)
 try{s=this.a.a.aCb()
 return s}catch(r){return B.ak8}},
 $S:672}
@@ -121820,8 +121820,8 @@ B.pu=new A.hk(null,null)
 B.ak6=new A.G3(1333)
 B.pv=new A.G3(2222)
 B.ak7=new A.XQ(null,null)
-B.auu=new A.c9("Erro ao montar a p\xe1gina.",null,null,null,null,null,null,null,null,null,null)
-B.PJ=new A.l6(B.P,null,null,B.auu,null)
+B.aut=new A.c9("Erro ao montar a p\xe1gina.",null,null,null,null,null,null,null,null,null,null)
+B.PJ=new A.l6(B.P,null,null,B.aut,null)
 B.ak8=new A.xR(null,B.PJ,null,null,null,null,null,null)
 B.fl=new A.u0(0,"idle")
 B.Kj=new A.u0(1,"transientCallbacks")
@@ -122600,16 +122600,16 @@ B.arw=new A.k(!0,null,null,null,null,null,12,B.a1,null,null,null,null,null,null,
 B.aum=new A.c9("PIX copia e cola",null,B.arw,null,null,null,null,null,null,null,null)
 B.aun=new A.c9("Copiar codigo",null,null,null,null,null,null,null,null,null,null)
 B.qp=new A.c9("Cancelar",null,B.es,null,null,null,null,null,null,null,null)
-B.auo=new A.c9("Fatia do R$/m\xb2 das aberturas. A m\xe3o de obra completa 100%.",null,B.ql,null,null,null,null,null,null,null,null)
-B.aup=new A.c9("Confirmar",null,null,null,null,null,null,null,null,null,null)
-B.auq=new A.c9("Medidas, cor, modelo e custos desta abertura. O R$/m\xb2 vem da tabela abaixo do painel.",null,B.LJ,null,null,null,null,null,null,null,null)
-B.aur=new A.c9("Sem vidro",null,B.es,null,null,null,null,null,null,null,null)
-B.aus=new A.c9("Aplicar e gravar",null,null,null,null,null,null,null,null,null,null)
-B.aut=new A.c9("Ver folha",null,B.je,null,null,null,null,null,null,null,null)
-B.auv=new A.c9("Voltar",null,null,null,null,null,null,null,null,null,null)
+B.auo=new A.c9("Confirmar",null,null,null,null,null,null,null,null,null,null)
+B.aup=new A.c9("Medidas, cor, modelo e custos desta abertura. O R$/m\xb2 vem da tabela abaixo do painel.",null,B.LJ,null,null,null,null,null,null,null,null)
+B.auq=new A.c9("Sem vidro",null,B.es,null,null,null,null,null,null,null,null)
+B.aur=new A.c9("Aplicar e gravar",null,null,null,null,null,null,null,null,null,null)
+B.aus=new A.c9("Ver folha",null,B.je,null,null,null,null,null,null,null,null)
+B.auu=new A.c9("Voltar",null,null,null,null,null,null,null,null,null,null)
 B.atg=new A.k(!0,B.ap,null,null,null,null,15,B.a1,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.auw=new A.c9("Cadastro da empresa fabricante",null,B.atg,null,null,null,null,null,null,null,null)
-B.aux=new A.c9("Erro ao carregar a p\xe1gina.",null,null,null,null,null,null,null,null,null,null)
+B.auv=new A.c9("Cadastro da empresa fabricante",null,B.atg,null,null,null,null,null,null,null,null)
+B.auw=new A.c9("Erro ao carregar a p\xe1gina.",null,null,null,null,null,null,null,null,null,null)
+B.aux=new A.c9("Fatia do R$/m\xb2 das aberturas. A m\xe3o de obra completa 100%. N\xfamero positivo sobe o pre\xe7o; negativo desce (ex. 15 ou -15).",null,B.ql,null,null,null,null,null,null,null,null)
 B.as9=new A.k(!0,B.aa,null,null,null,null,13,B.a2,null,null,null,null,1.35,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.auy=new A.c9("\xb7  ",null,B.as9,null,null,null,null,null,null,null,null)
 B.ap5=new A.k(!0,null,null,null,null,null,11,null,null,null,null,null,null,null,null,null,null,B.d9,null,null,null,null,null,null,null,null)
