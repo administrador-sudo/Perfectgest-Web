@@ -30,6 +30,8 @@ const List<OrcamentoCatalogTipo> kOrcamentoCatalogo = [
   OrcamentoCatalogTipo(id: 'janela_correr_2_fixa_movel', nome: 'Janela de correr de 2 folhas (uma fixa e uma móvel)', grupo: kGrupoJanelasCorrer, icon: Icons.window),
   OrcamentoCatalogTipo(id: 'janela_correr_3', nome: 'Janela de correr de 3 folhas (três trilhos)', grupo: kGrupoJanelasCorrer, icon: Icons.view_week),
   OrcamentoCatalogTipo(id: 'janela_correr_4', nome: 'Janela de correr 4 folhas', grupo: kGrupoJanelasCorrer, icon: Icons.grid_view),
+  OrcamentoCatalogTipo(id: 'veneziana', nome: 'Veneziana de acoplar externa 2 folhas de giro (Palheta Cega)', grupo: kGrupoJanelasCorrer, icon: Icons.view_week),
+  OrcamentoCatalogTipo(id: 'veneziana_correr', nome: 'Janela veneziana de correr (palhetas cegas e ou ventiladas)', grupo: kGrupoJanelasCorrer, icon: Icons.view_week),
   OrcamentoCatalogTipo(id: 'janela_int_2_rec1', nome: 'Janela integrada duas folhas 1 recolhedor', grupo: kGrupoJanelasIntegradas, icon: Icons.window),
   OrcamentoCatalogTipo(id: 'janela_int_2_rec2', nome: 'Janela integrada duas folhas 2 recolhedores', grupo: kGrupoJanelasIntegradas, icon: Icons.window),
   OrcamentoCatalogTipo(id: 'janela_int_2_persiana', nome: 'Janela sacada integrada 2 folhas 1 Recolhedor motorizada', grupo: kGrupoJanelasIntegradas, icon: Icons.blinds),
@@ -55,9 +57,7 @@ const List<OrcamentoCatalogTipo> kOrcamentoCatalogo = [
   OrcamentoCatalogTipo(id: 'maxim_ar_dupla', nome: 'Janela maxim-ar dupla', grupo: kGrupoMaximOutros, icon: Icons.open_in_full),
   OrcamentoCatalogTipo(id: 'basculante', nome: 'Maxim-ar tripla', grupo: kGrupoMaximOutros, icon: Icons.open_in_full),
   OrcamentoCatalogTipo(id: 'pivotante', nome: 'Maxim-ar Pivotante', grupo: kGrupoMaximOutros, icon: Icons.rotate_right),
-  OrcamentoCatalogTipo(id: 'batente', nome: 'Janela de batente', grupo: kGrupoMaximOutros, icon: Icons.crop_square),
-  OrcamentoCatalogTipo(id: 'veneziana', nome: 'Veneziana de acoplar externa 2 folhas de giro (Palheta Cega)', grupo: kGrupoMaximOutros, icon: Icons.view_week),
-  OrcamentoCatalogTipo(id: 'veneziana_correr', nome: 'Janela veneziana de correr (palhetas cegas e ou ventiladas)', grupo: kGrupoMaximOutros, icon: Icons.view_week),
+  OrcamentoCatalogTipo(id: 'batente', nome: 'Maxim-ar quádrupla', grupo: kGrupoMaximOutros, icon: Icons.open_in_full),
   OrcamentoCatalogTipo(id: 'quadro_fixo', nome: 'Quadro fixo', grupo: kGrupoFixos, icon: Icons.crop_square),
   OrcamentoCatalogTipo(id: 'fixo', nome: 'Peitoril/Bandeira', grupo: kGrupoFixos, icon: Icons.crop_landscape),
   OrcamentoCatalogTipo(id: 'box_banheiro', nome: 'Box de banheiro', grupo: kGrupoTemperados, icon: Icons.shower),
@@ -121,6 +121,34 @@ OrcamentoVidroTipo? vidroPorId(String? id) {
 }
 
 const double kOrcamentoDescontoAreaVidro = 0.95;
+const double kOrcamentoFatiaMaterialPadrao = 60;
+const double kOrcamentoFatiaMaoObraPadrao = 40;
+
+({double material, double maoObra}) normalizarFatia(double fatiaMaterial) {
+  var mat = fatiaMaterial;
+  if (mat < 0) mat = 0;
+  if (mat > 100) mat = 100;
+  return (material: mat, maoObra: 100 - mat);
+}
+
+double fatorReajusteAbertura({
+  required double fatiaMaterial,
+  required double fatiaMaoObra,
+  required double pctMaterial,
+  required double pctMaoObra,
+}) {
+  final fatia = normalizarFatia(fatiaMaterial);
+  return (fatia.material / 100) * (1 + pctMaterial / 100) +
+      (fatia.maoObra / 100) * (1 + pctMaoObra / 100);
+}
+
+double aplicarReajustePreco(double valor, double fator) {
+  if (valor <= 0) return valor;
+  return (valor * fator * 100).round() / 100;
+}
+
+double aplicarAjustePct(double valor, double pct) =>
+    aplicarReajustePreco(valor, 1 + pct / 100);
 
 /// Cadastro da esquadria (preenchido na hora; nao usa company_legal).
 class OrcamentoCadastro {

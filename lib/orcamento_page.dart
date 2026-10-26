@@ -34,6 +34,8 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
   late final Map<String, TextEditingController> _precoVidroCtrls;
   List<OrcamentoItem> _itens = [];
   bool _folha = false;
+  double _fatiaMaterial = kOrcamentoFatiaMaterialPadrao;
+  double _fatiaMaoObra = kOrcamentoFatiaMaoObraPadrao;
 
   @override
   void initState() {
@@ -136,6 +138,9 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
   Future<void> _carregarPrecosOficiais() async {
     final remotos = await orcamento_storage.fetchOrcamentoPrecos();
     if (remotos == null || !mounted) return;
+    final fatia = normalizarFatia(remotos.fatiaMaterial);
+    _fatiaMaterial = fatia.material;
+    _fatiaMaoObra = fatia.maoObra;
     _aplicarPrecosOficiais(remotos.precosM2, remotos.precosVidro);
   }
 
@@ -174,7 +179,20 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
     });
   }
 
-  Future<void> _pedirSenhaESalvarPrecos() async {
+  InputDecoration _decPin() => InputDecoration(
+        labelText: '4 dígitos',
+        labelStyle: const TextStyle(color: BrandPalette.charcoal),
+        filled: true,
+        fillColor: BrandPalette.silverPeak,
+        counterText: '',
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: const BorderSide(color: BrandPalette.goldWarm, width: 1.4),
+        ),
+      );
+
+  Future<String?> _pedirPin(String titulo) async {
     final pinCtrl = TextEditingController();
     final pin = await showDialog<String>(
       context: context,
@@ -186,9 +204,9 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
             borderRadius: BorderRadius.circular(12),
             side: const BorderSide(color: BrandPalette.goldWarm, width: 1.2),
           ),
-          title: const Text(
-            'Senha para gravar a tabela',
-            style: TextStyle(color: BrandPalette.charcoal, fontWeight: FontWeight.w700),
+          title: Text(
+            titulo,
+            style: const TextStyle(color: BrandPalette.charcoal, fontWeight: FontWeight.w700),
           ),
           content: TextField(
             controller: pinCtrl,
@@ -198,18 +216,7 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
             keyboardType: TextInputType.number,
             inputFormatters: [FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(4)],
             style: const TextStyle(color: BrandPalette.charcoal, fontSize: 22, letterSpacing: 8),
-            decoration: InputDecoration(
-              labelText: '4 dígitos',
-              labelStyle: const TextStyle(color: BrandPalette.charcoal),
-              filled: true,
-              fillColor: BrandPalette.silverPeak,
-              counterText: '',
-              border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8),
-                borderSide: const BorderSide(color: BrandPalette.goldWarm, width: 1.4),
-              ),
-            ),
+            decoration: _decPin(),
             onSubmitted: (v) => Navigator.pop(ctx, v.trim()),
           ),
           actions: [
@@ -230,26 +237,198 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
       },
     );
     pinCtrl.dispose();
-    if (pin == null || pin.isEmpty || !mounted) return;
-    final err = await orcamento_storage.saveOrcamentoPrecos(
+    return pin;
+  }
+
+  Future<String?> _gravarPrecosOficiais(String pin) {
+    return orcamento_storage.saveOrcamentoPrecos(
       pin: pin,
       precosM2: _precosAtuais(),
       precosVidro: _precosVidroAtuais(),
+      fatiaMaterial: _fatiaMaterial,
+      fatiaMaoObra: _fatiaMaoObra,
     );
+  }
+
+  void _avisoPrecos(String msg) {
     if (!mounted) return;
-    final ok = err == null;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         backgroundColor: BrandPalette.charcoal,
-        content: Text(
-          ok
-              ? 'Tabela R\$/m² gravada. Vale para qualquer acesso.'
-              : err == 'pin_invalid'
-                  ? 'Senha incorreta. A tabela não foi gravada.'
-                  : 'Não foi possível gravar a tabela. Tente de novo.',
-          style: const TextStyle(color: BrandPalette.silverLight),
-        ),
+        content: Text(msg, style: const TextStyle(color: BrandPalette.silverLight)),
       ),
+    );
+  }
+
+  String _msgErroPin(String? err) {
+    if (err == null) return 'Tabela R\$/m² gravada. Vale para qualquer acesso.';
+    if (err == 'pin_invalid') return 'Senha incorreta. A tabela não foi gravada.';
+    return 'Não foi possível gravar a tabela. Tente de novo.';
+  }
+
+  Future<void> _pedirSenhaESalvarPrecos() async {
+    final pin = await _pedirPin('Senha para gravar a tabela');
+    if (pin == null || pin.isEmpty || !mounted) return;
+    final err = await _gravarPrecosOficiais(pin);
+    _avisoPrecos(_msgErroPin(err));
+  }
+
+  Future<void> _abrirAjustesAdm() async {
+    final pin = await _pedirPin('Senha de Ajustes Adm');
+    if (pin == null || pin.isEmpty || !mounted) return;
+    final check = await _gravarPrecosOficiais(pin);
+    if (!mounted) return;
+    if (check != null) {
+      _avisoPrecos(
+        check == 'pin_invalid'
+            ? 'Senha incorreta.'
+            : 'Não foi possível abrir os ajustes. Tente de novo.',
+      );
+      return;
+    }
+    final fatiaMatCtrl = TextEditingController(text: formatPtBrNumber(_fatiaMaterial, casas: 0));
+    final fatiaMoCtrl = TextEditingController(text: formatPtBrNumber(_fatiaMaoObra, casas: 0));
+    final pctMatCtrl = TextEditingController();
+    final pctMoCtrl = TextEditingController();
+    final pctVidroCtrl = TextEditingController();
+
+    InputDecoration decCampo(String label) => InputDecoration(
+          labelText: label,
+          floatingLabelBehavior: FloatingLabelBehavior.always,
+          labelStyle: const TextStyle(color: BrandPalette.charcoal, fontSize: 12),
+          filled: true,
+          fillColor: BrandPalette.silverPeak,
+          isDense: true,
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide: const BorderSide(color: BrandPalette.goldWarm),
+          ),
+        );
+
+    final aplicar = await showDialog<bool>(
+      context: context,
+      barrierColor: BrandPalette.charcoalDeep.withValues(alpha: 0.72),
+      builder: (ctx) {
+        return StatefulBuilder(
+          builder: (ctx, setPop) {
+            return AlertDialog(
+              backgroundColor: BrandPalette.silverLight,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+                side: const BorderSide(color: BrandPalette.goldWarm, width: 1.2),
+              ),
+              title: const Text(
+                'Ajustes Adm',
+                style: TextStyle(color: BrandPalette.charcoal, fontWeight: FontWeight.w700),
+              ),
+              content: SizedBox(
+                width: 360,
+                child: SingleChildScrollView(
+                  child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Text(
+                      'Fatia do R\$/m² das aberturas. A mão de obra completa 100%.',
+                      style: TextStyle(color: BrandPalette.charcoal, fontSize: 12),
+                    ),
+                    const SizedBox(height: 12),
+                    TextField(
+                      controller: fatiaMatCtrl,
+                      keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                      style: const TextStyle(color: BrandPalette.charcoal),
+                      decoration: decCampo('Fatia material %'),
+                      onChanged: (v) {
+                        final fatia = normalizarFatia(parsePtBrDouble(v));
+                        fatiaMoCtrl.text = formatPtBrNumber(fatia.maoObra, casas: 0);
+                        setPop(() {});
+                      },
+                    ),
+                    const SizedBox(height: 8),
+                    TextField(
+                      controller: fatiaMoCtrl,
+                      readOnly: true,
+                      style: const TextStyle(color: BrandPalette.charcoal),
+                      decoration: decCampo('Fatia mão de obra %'),
+                    ),
+                    const SizedBox(height: 14),
+                    TextField(
+                      controller: pctMatCtrl,
+                      keyboardType: const TextInputType.numberWithOptions(decimal: true, signed: true),
+                      style: const TextStyle(color: BrandPalette.charcoal),
+                      decoration: decCampo('% reajuste material (alumínio)'),
+                    ),
+                    const SizedBox(height: 8),
+                    TextField(
+                      controller: pctMoCtrl,
+                      keyboardType: const TextInputType.numberWithOptions(decimal: true, signed: true),
+                      style: const TextStyle(color: BrandPalette.charcoal),
+                      decoration: decCampo('% reajuste mão de obra de fabricação'),
+                    ),
+                    const SizedBox(height: 8),
+                    TextField(
+                      controller: pctVidroCtrl,
+                      keyboardType: const TextInputType.numberWithOptions(decimal: true, signed: true),
+                      style: const TextStyle(color: BrandPalette.charcoal),
+                      decoration: decCampo('% reajuste vidro R\$/m²'),
+                    ),
+                  ],
+                ),
+                ),
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(ctx, false),
+                  child: const Text('Cancelar', style: TextStyle(color: BrandPalette.charcoal)),
+                ),
+                FilledButton(
+                  style: FilledButton.styleFrom(
+                    backgroundColor: BrandPalette.goldWarm,
+                    foregroundColor: BrandPalette.charcoalDeep,
+                  ),
+                  onPressed: () => Navigator.pop(ctx, true),
+                  child: const Text('Aplicar e gravar'),
+                ),
+              ],
+            );
+          },
+        );
+      },
+    );
+
+    final fatia = normalizarFatia(parsePtBrDouble(fatiaMatCtrl.text));
+    final pctMat = parsePtBrDouble(pctMatCtrl.text);
+    final pctMo = parsePtBrDouble(pctMoCtrl.text);
+    final pctVidro = parsePtBrDouble(pctVidroCtrl.text);
+    fatiaMatCtrl.dispose();
+    fatiaMoCtrl.dispose();
+    pctMatCtrl.dispose();
+    pctMoCtrl.dispose();
+    pctVidroCtrl.dispose();
+    if (aplicar != true || !mounted) return;
+
+    final fator = fatorReajusteAbertura(
+      fatiaMaterial: fatia.material,
+      fatiaMaoObra: fatia.maoObra,
+      pctMaterial: pctMat,
+      pctMaoObra: pctMo,
+    );
+    final precosM2 = <String, double>{
+      for (final t in kOrcamentoCatalogo)
+        t.id: aplicarReajustePreco(parsePtBrDouble(_precoCtrls[t.id]!.text), fator),
+    };
+    final precosVidro = <String, double>{
+      for (final t in kOrcamentoVidros)
+        t.id: aplicarAjustePct(parsePtBrDouble(_precoVidroCtrls[t.id]!.text), pctVidro),
+    };
+    _fatiaMaterial = fatia.material;
+    _fatiaMaoObra = fatia.maoObra;
+    _aplicarPrecosOficiais(precosM2, precosVidro);
+    final err = await _gravarPrecosOficiais(pin);
+    _avisoPrecos(
+      err == null
+          ? 'Reajuste aplicado e gravado.'
+          : _msgErroPin(err),
     );
   }
 
@@ -335,7 +514,7 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
               Expanded(
                 child: _folha ? _folhaView() : _montagemView(context),
               ),
-              const _OrcamentoRodapeFerramenta(),
+              _OrcamentoRodapeFerramenta(onAjustesAdm: _folha ? null : _abrirAjustesAdm),
             ],
           ),
         ),
@@ -1212,18 +1391,38 @@ class _CatalogCard extends StatelessWidget {
 }
 
 class _OrcamentoRodapeFerramenta extends StatelessWidget {
-  const _OrcamentoRodapeFerramenta();
+  const _OrcamentoRodapeFerramenta({this.onAjustesAdm});
+
+  final VoidCallback? onAjustesAdm;
 
   @override
   Widget build(BuildContext context) {
     return ColoredBox(
       color: BrandPalette.charcoal,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-        child: Text(
-          '$kCompanyFantasyName - Divisão Ferramentas Digitais · © Todos os Direitos Reservados.\nCNPJ $kCompanyCnpj',
-          textAlign: TextAlign.center,
-          style: const TextStyle(color: BrandPalette.silverMid, fontSize: 11, height: 1.35),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (onAjustesAdm != null)
+              TextButton(
+                onPressed: onAjustesAdm,
+                style: TextButton.styleFrom(
+                  minimumSize: const Size(44, 36),
+                  foregroundColor: BrandPalette.silverMid,
+                  visualDensity: VisualDensity.compact,
+                ),
+                child: const Text(
+                  'Ajustes Adm',
+                  style: TextStyle(fontSize: 11, decoration: TextDecoration.underline),
+                ),
+              ),
+            Text(
+              '$kCompanyFantasyName - Divisão Ferramentas Digitais · © Todos os Direitos Reservados.\nCNPJ $kCompanyCnpj',
+              textAlign: TextAlign.center,
+              style: const TextStyle(color: BrandPalette.silverMid, fontSize: 11, height: 1.35),
+            ),
+          ],
         ),
       ),
     );

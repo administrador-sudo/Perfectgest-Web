@@ -89,6 +89,8 @@ async function ensurePgSchema() {
       precos_vidro JSONB NOT NULL DEFAULT '{}'::jsonb,
       updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
     );
+    ALTER TABLE orcamento_precos ADD COLUMN IF NOT EXISTS fatia_material DOUBLE PRECISION NOT NULL DEFAULT 60;
+    ALTER TABLE orcamento_precos ADD COLUMN IF NOT EXISTS fatia_mao_obra DOUBLE PRECISION NOT NULL DEFAULT 40;
     INSERT INTO orcamento_precos (id) VALUES (1) ON CONFLICT (id) DO NOTHING;
   `);
   schemaReady = true;
@@ -133,27 +135,42 @@ function asPriceMap(raw) {
 }
 
 function emptyPrecos() {
-  return { precosM2: {}, precosVidro: {} };
+  return { precosM2: {}, precosVidro: {}, fatiaMaterial: 60, fatiaMaoObra: 40 };
+}
+
+function asFatiaMaterial(raw) {
+  const n = typeof raw === 'number' ? raw : Number(String(raw ?? '').replace(',', '.'));
+  if (!Number.isFinite(n)) return 60;
+  return Math.min(100, Math.max(0, n));
+}
+
+function asFatiaPar(materialRaw) {
+  const material = asFatiaMaterial(materialRaw);
+  const maoObra = Math.round((100 - material) * 100) / 100;
+  return { fatiaMaterial: material, fatiaMaoObra: maoObra };
 }
 
 function readPrecosFile() {
   try {
     if (!fs.existsSync(orcamentoPrecosFile)) return emptyPrecos();
     const raw = JSON.parse(fs.readFileSync(orcamentoPrecosFile, 'utf8'));
+    const fatia = asFatiaPar(raw && raw.fatiaMaterial);
     return {
       precosM2: asPriceMap(raw && raw.precosM2),
       precosVidro: asPriceMap(raw && raw.precosVidro),
+      fatiaMaterial: fatia.fatiaMaterial,
+      fatiaMaoObra: fatia.fatiaMaoObra,
     };
   } catch (_) {
     return emptyPrecos();
   }
 }
 
-function writePrecosFile(precosM2, precosVidro) {
+function writePrecosFile(precosM2, precosVidro, fatiaMaterial, fatiaMaoObra) {
   fs.mkdirSync(dataDir, { recursive: true });
   fs.writeFileSync(
     orcamentoPrecosFile,
-    `${JSON.stringify({ precosM2, precosVidro }, null, 2)}\n`,
+    `${JSON.stringify({ precosM2, precosVidro, fatiaMaterial, fatiaMaoObra }, null, 2)}\n`,
     'utf8',
   );
 }
@@ -162,13 +179,16 @@ async function readOrcamentoPrecos() {
   if (pgPool) {
     await ensurePgSchema();
     const result = await pgPool.query(
-      'SELECT precos_m2, precos_vidro FROM orcamento_precos WHERE id = 1',
+      'SELECT precos_m2, precos_vidro, fatia_material, fatia_mao_obra FROM orcamento_precos WHERE id = 1',
     );
     const row = result.rows[0];
     if (!row) return emptyPrecos();
+    const fatia = asFatiaPar(row.fatia_material);
     return {
       precosM2: asPriceMap(row.precos_m2),
       precosVidro: asPriceMap(row.precos_vidro),
+      fatiaMaterial: fatia.fatiaMaterial,
+      fatiaMaoObra: fatia.fatiaMaoObra,
     };
   }
   if (!allowFileFallback) {
@@ -177,24 +197,27 @@ async function readOrcamentoPrecos() {
   return readPrecosFile();
 }
 
-async function writeOrcamentoPrecos(precosM2, precosVidro) {
+async function writeOrcamentoPrecos(precosM2, precosVidro, fatiaMaterial, fatiaMaoObra) {
+  const fatia = asFatiaPar(fatiaMaterial, fatiaMaoObra);
   if (pgPool) {
     await ensurePgSchema();
     await pgPool.query(
-      `INSERT INTO orcamento_precos (id, precos_m2, precos_vidro, updated_at)
-       VALUES (1, $1::jsonb, $2::jsonb, NOW())
+      `INSERT INTO orcamento_precos (id, precos_m2, precos_vidro, fatia_material, fatia_mao_obra, updated_at)
+       VALUES (1, $1::jsonb, $2::jsonb, $3, $4, NOW())
        ON CONFLICT (id) DO UPDATE SET
          precos_m2 = EXCLUDED.precos_m2,
          precos_vidro = EXCLUDED.precos_vidro,
+         fatia_material = EXCLUDED.fatia_material,
+         fatia_mao_obra = EXCLUDED.fatia_mao_obra,
          updated_at = NOW()`,
-      [JSON.stringify(precosM2), JSON.stringify(precosVidro)],
+      [JSON.stringify(precosM2), JSON.stringify(precosVidro), fatia.fatiaMaterial, fatia.fatiaMaoObra],
     );
     return 'postgres';
   }
   if (!allowFileFallback) {
     throw new Error('DATABASE_URL required in production');
   }
-  writePrecosFile(precosM2, precosVidro);
+  writePrecosFile(precosM2, precosVidro, fatia.fatiaMaterial, fatia.fatiaMaoObra);
   return 'file';
 }
 
@@ -560,7 +583,13 @@ app.put('/api/orcamento-precos', leadsLimiter, async (req, res) => {
     }
     const precosM2 = asPriceMap(body.precosM2);
     const precosVidro = asPriceMap(body.precosVidro);
-    const storage = await writeOrcamentoPrecos(precosM2, precosVidro);
+    const fatia = asFatiaPar(body.fatiaMaterial);
+    const storage = await writeOrcamentoPrecos(
+      precosM2,
+      precosVidro,
+      fatia.fatiaMaterial,
+      fatia.fatiaMaoObra,
+    );
     res.json({ ok: true, storage });
   } catch (err) {
     console.error('[leads-api] PUT /api/orcamento-precos', err);

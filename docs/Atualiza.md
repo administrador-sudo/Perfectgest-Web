@@ -2,6 +2,58 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-26 08:48] /orcamento: Ajustes Adm fatia 60/40
+
+### Contexto
+
+- Rodapé: link Ajustes Adm. PIN 1981 abre fatia material/mão de obra (60/40) e % de reajuste de material, mão de obra e vidro. Aplica em todos os R$/m² e grava na API.
+
+### Arquivos alterados
+
+- lib/orcamento_models.dart
+- lib/orcamento_page.dart
+- lib/orcamento_storage_web.dart
+- lib/orcamento_storage_stub.dart
+- scripts/leads-api-server.js
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+
+### Pendente / Proximo passo
+
+- Sem publish do site. Deploy Manual do `perfectgest-leads-api-6v1e` para persistir fatia_material / fatia_mao_obra.
+
+## [2026-10-26 08:25] /orcamento: Maxim-ar quádrupla
+
+### Contexto
+
+- Abertura `batente`: nome Maxim-ar quádrupla e ícone `open_in_full` (série maxim-ar). Id mantido.
+
+### Arquivos alterados
+
+- lib/orcamento_models.dart
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+
+### Pendente / Proximo passo
+
+- Sem publish.
+
+## [2026-10-26 08:22] /orcamento: venezianas na seção Janelas de correr
+
+### Contexto
+
+- `veneziana` e `veneziana_correr` saem de Maxim-ar e outros e entram em Janelas de correr.
+
+### Arquivos alterados
+
+- lib/orcamento_models.dart
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+
+### Pendente / Proximo passo
+
+- Sem publish.
+
 ## [2026-10-26 08:17] /orcamento: guarda-corpo simples tubular
 
 ### Contexto
