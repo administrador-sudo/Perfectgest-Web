@@ -124,6 +124,9 @@ const double kOrcamentoDescontoAreaVidro = 0.95;
 const double kOrcamentoFatiaMaterialPadrao = 60;
 const double kOrcamentoFatiaMaoObraPadrao = 40;
 
+/// Versão visível no rodapé de /orcamento (confirmar se o browser recebeu o build).
+const String kOrcamentoFerramentaVersao = '1.1.1';
+
 ({double material, double maoObra}) normalizarFatia(double fatiaMaterial) {
   var mat = fatiaMaterial;
   if (mat < 0) mat = 0;

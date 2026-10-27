@@ -2,6 +2,22 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-27 17:54] /orcamento: toque no quadrinho, contador e V 1.1.1
+
+### Contexto
+
+- Toque no cartão ou no + destaca o quadro (borda ouro, sem ripple Material) e adiciona a abertura. Badge 1, 2, 3… no quadrinho. Rodapé: V 1.1.1 ao lado de Ajustes Adm.
+
+### Arquivos alterados
+
+- lib/orcamento_page.dart
+- lib/orcamento_models.dart
+- docs/Atualiza.md
+
+### Pendente / Proximo passo
+
+- Sem publish. Confirmar no telemóvel se o rodapé mostra V 1.1.1.
+
 ## [2026-10-26 09:27] /orcamento: PDF vidro na linha do modelo e quadro por abertura
 
 ### Contexto

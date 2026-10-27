@@ -771,6 +771,7 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
                         _CatalogCard(
                           tipo: tipo,
                           onAdd: () => _addFromCatalog(tipo),
+                          quantidade: _itens.where((e) => e.catalogId == tipo.id).length,
                           toqueLongo: estreito,
                         ),
                     ],
@@ -812,6 +813,7 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
                 _CatalogCard(
                   tipo: tipo,
                   onAdd: () => _addFromCatalog(tipo),
+                  quantidade: _itens.where((e) => e.catalogId == tipo.id).length,
                   toqueLongo: estreito,
                 ),
             ]),
@@ -1292,97 +1294,138 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
   }
 }
 
-class _CatalogCard extends StatelessWidget {
+class _CatalogCard extends StatefulWidget {
   const _CatalogCard({
     required this.tipo,
     required this.onAdd,
+    this.quantidade = 0,
     this.toqueLongo = false,
   });
 
   final OrcamentoCatalogTipo tipo;
   final VoidCallback onAdd;
+  final int quantidade;
   final bool toqueLongo;
 
   @override
+  State<_CatalogCard> createState() => _CatalogCardState();
+}
+
+class _CatalogCardState extends State<_CatalogCard> {
+  bool _pressed = false;
+
+  void _setPressed(bool v) {
+    if (_pressed == v) return;
+    setState(() => _pressed = v);
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final dragChild = _chip();
-    final drag = toqueLongo
-        ? LongPressDraggable<OrcamentoCatalogTipo>(
-            data: tipo,
-            feedback: Material(
-              color: Colors.transparent,
-              child: SizedBox(width: 176, height: 156, child: _chip(dragging: true)),
-            ),
-            childWhenDragging: Opacity(opacity: 0.35, child: dragChild),
-            child: dragChild,
-          )
-        : Draggable<OrcamentoCatalogTipo>(
-            data: tipo,
-            feedback: Material(
-              color: Colors.transparent,
-              child: SizedBox(width: 196, height: 172, child: _chip(dragging: true)),
-            ),
-            childWhenDragging: Opacity(opacity: 0.35, child: dragChild),
-            child: dragChild,
-          );
+    final h = widget.toqueLongo ? 156.0 : 172.0;
+    final chip = _chip();
     return SizedBox(
-      height: toqueLongo ? 156 : 172,
-      child: Stack(
-        children: [
-          Positioned.fill(child: drag),
-          Positioned(
-            top: 0,
-            right: 0,
-            child: Material(
-              color: Colors.transparent,
-              child: IconButton(
-                tooltip: 'Adicionar ao orçamento',
-                visualDensity: VisualDensity.compact,
-                padding: EdgeInsets.zero,
-                constraints: BoxConstraints(
-                  minWidth: toqueLongo ? 44 : 28,
-                  minHeight: toqueLongo ? 44 : 28,
-                ),
-                onPressed: onAdd,
-                icon: const Icon(Icons.add_circle, color: BrandPalette.goldDim, size: 22),
-              ),
-            ),
+      height: h,
+      child: LongPressDraggable<OrcamentoCatalogTipo>(
+        data: widget.tipo,
+        onDragStarted: () => _setPressed(false),
+        feedback: Material(
+          color: Colors.transparent,
+          child: SizedBox(
+            width: widget.toqueLongo ? 176 : 196,
+            height: h,
+            child: _chip(dragging: true),
           ),
-        ],
+        ),
+        childWhenDragging: Opacity(opacity: 0.35, child: chip),
+        child: chip,
       ),
     );
   }
 
   Widget _chip({bool dragging = false}) {
-    return SizedBox.expand(
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          color: BrandPalette.silverPeak,
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: dragging ? BrandPalette.goldWarm : BrandPalette.silverMid),
-          boxShadow: dragging
-              ? const [BoxShadow(color: Color(0x66000000), blurRadius: 10, offset: Offset(0, 4))]
-              : null,
-        ),
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(8, 12, 22, 8),
-          child: Column(
-            children: [
-              Icon(tipo.icon, color: BrandPalette.charcoal, size: 22),
-              const SizedBox(height: 6),
-              Expanded(
-                child: Text(
-                  tipo.nome,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    color: BrandPalette.charcoal,
-                    fontSize: 11,
-                    fontWeight: FontWeight.w600,
-                    height: 1.25,
+    final pressed = !dragging && _pressed;
+    final plus = widget.toqueLongo ? 44.0 : 28.0;
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: Listener(
+        onPointerDown: dragging ? null : (_) => _setPressed(true),
+        onPointerUp: dragging ? null : (_) => _setPressed(false),
+        onPointerCancel: dragging ? null : (_) => _setPressed(false),
+        child: GestureDetector(
+          onTap: dragging ? null : widget.onAdd,
+          behavior: HitTestBehavior.opaque,
+          child: SizedBox.expand(
+            child: AnimatedContainer(
+            duration: const Duration(milliseconds: 80),
+            decoration: BoxDecoration(
+              color: pressed ? BrandPalette.lightSurfaceHigh : BrandPalette.silverPeak,
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(
+                color: (pressed || dragging) ? BrandPalette.goldWarm : BrandPalette.silverMid,
+                width: pressed ? 2 : 1,
+              ),
+              boxShadow: dragging
+                  ? const [BoxShadow(color: Color(0x66000000), blurRadius: 10, offset: Offset(0, 4))]
+                  : null,
+            ),
+            child: Stack(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 12, 22, 8),
+                  child: Column(
+                    children: [
+                      Icon(widget.tipo.icon, color: BrandPalette.charcoal, size: 22),
+                      const SizedBox(height: 6),
+                      Expanded(
+                        child: Text(
+                          widget.tipo.nome,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            color: BrandPalette.charcoal,
+                            fontSize: 11,
+                            fontWeight: FontWeight.w600,
+                            height: 1.25,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-              ),
-            ],
+                if (widget.quantidade > 0)
+                  Positioned(
+                    top: 4,
+                    left: 4,
+                    child: Container(
+                      constraints: const BoxConstraints(minWidth: 20, minHeight: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+                      decoration: const BoxDecoration(
+                        color: BrandPalette.charcoal,
+                        shape: BoxShape.circle,
+                      ),
+                      alignment: Alignment.center,
+                      child: Text(
+                        '${widget.quantidade}',
+                        style: const TextStyle(
+                          color: BrandPalette.goldWarm,
+                          fontSize: 11,
+                          fontWeight: FontWeight.w800,
+                          height: 1,
+                        ),
+                      ),
+                    ),
+                  ),
+                Positioned(
+                  top: 0,
+                  right: 0,
+                  child: SizedBox(
+                    width: plus,
+                    height: plus,
+                    child: const Icon(Icons.add_circle, color: BrandPalette.goldDim, size: 22),
+                  ),
+                ),
+              ],
+            ),
+            ),
           ),
         ),
       ),
@@ -1404,19 +1447,29 @@ class _OrcamentoRodapeFerramenta extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            if (onAjustesAdm != null)
-              TextButton(
-                onPressed: onAjustesAdm,
-                style: TextButton.styleFrom(
-                  minimumSize: const Size(44, 36),
-                  foregroundColor: BrandPalette.silverMid,
-                  visualDensity: VisualDensity.compact,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                if (onAjustesAdm != null)
+                  TextButton(
+                    onPressed: onAjustesAdm,
+                    style: TextButton.styleFrom(
+                      minimumSize: const Size(44, 36),
+                      foregroundColor: BrandPalette.silverMid,
+                      visualDensity: VisualDensity.compact,
+                    ),
+                    child: const Text(
+                      'Ajustes Adm',
+                      style: TextStyle(fontSize: 11, decoration: TextDecoration.underline),
+                    ),
+                  ),
+                if (onAjustesAdm != null) const SizedBox(width: 10),
+                const Text(
+                  'V $kOrcamentoFerramentaVersao',
+                  style: TextStyle(color: BrandPalette.silverMid, fontSize: 11),
                 ),
-                child: const Text(
-                  'Ajustes Adm',
-                  style: TextStyle(fontSize: 11, decoration: TextDecoration.underline),
-                ),
-              ),
+              ],
+            ),
             Text(
               ' · © Todos os Direitos Reservados à $kCompanyFantasyName 2026 - Divisão Ferramentas Digitais ·',
               textAlign: TextAlign.center,
