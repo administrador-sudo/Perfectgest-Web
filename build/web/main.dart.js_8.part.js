@@ -46,7 +46,7 @@ C.cJ("og:locale","pt_BR")
 b.G.document.title="Perguntas e respostas | ContabilGest"},
 l(){C.qB()
 this.aA()},
-B(d){var x=null,w=C.w(d),v=C.aK(d,D.ac,y.x).w.a.a,u=v<400?16:24,t=B.bcE(d),s=t.gf7(),r=C.w(d).ax.a===D.J?D.bO:D.by,q=t.giE()
+B(d){var x=null,w=C.w(d),v=C.aK(d,D.ac,y.x).w.a.a,u=v<400?16:24,t=B.bcE(d),s=t.gf7(),r=C.w(d).ax.a===D.J?D.bO:D.bz,q=t.giE()
 return C.aA(x,x,x,C.hH(F.aRk(d,x,this.a.c,q),r,new C.jD(C.kk(new B.aBc(u,t,w.ax,v)),x),x,x,x,x),!1,x,x,!1,x,!1,x,x,x,x,x,x,x,x,s,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,D.p,x)}}
 B.a3Q.prototype={
 B(d){var x,w,v,u,t,s,r,q,p,o,n=null,m=C.w(d).ax,l=C.aK(d,D.ac,y.x).w.a.a,k=l<400?12:16,j=this.c,i=j.a,h=m.RG
@@ -103,7 +103,7 @@ r=o.d<400?18:22
 u=u.k3
 r=C.b([t,D.ai,C.l(s,n,n,n,n,C.b9().$4$color$fontSize$fontWeight$height(u,r,D.V,1.2),n,n,n),D.fl],y.u)
 for(v=v.gTn(),q=0;q<16;++q)r.push(new B.a3Q(v[q],n))
-r.push(D.bB)
+r.push(D.bC)
 r.push(E.tm)
 r.push(D.ep)
 p=C.bP(d,D.aS,y.F)
@@ -187,4 +187,4 @@ A.amO=new B.bX("Como altero meu plano (faixa, downgrade ou extras como folha e I
 A.aml=new B.bX("O app avisa antes da renova\xe7\xe3o?","Quando a Play informar a data do ciclo da assinatura do aplicativo, o app pode avisar at\xe9 30 dias antes. Sem data da Play, n\xe3o h\xe1 prazo inventado \u2014 consulte Play \u2192 Assinaturas. Honor\xe1rios e plano cont\xe1bil: com o escrit\xf3rio.",A.a3)
 A.amb=new B.bX("A assinatura da Play j\xe1 libera tudo?","N\xe3o. A Play libera o acesso ao aplicativo. Para sincroniza\xe7\xe3o, envio de dados ao escrit\xf3rio e fun\xe7\xf5es online, contacte o escrit\xf3rio depois de assinar. Sem habilita\xe7\xe3o, voc\xea entra no app, mas sem envio ao CRC e sem contato com o escrit\xf3rio.",A.a3)
 A.aco=x([A.amr,A.amz,A.amd,A.amG,A.ama,A.amf,A.ams,A.amw,A.amH,A.amM,A.amq,A.amm,A.amp,A.amO,A.aml,A.amb],y.a)})()};
-(a=>{a["eLYpHCylGUo4TrBfDL1AkDx1Yp4="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["Ys8NuPLQVAXDe6PvwXXVLOgHLuM="]=a.current})($__dart_deferred_initializers__);

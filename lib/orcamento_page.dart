@@ -1419,6 +1419,18 @@ class _CatalogCardState extends State<_CatalogCard> {
                           ),
                         ),
                       ),
+                      if (widget.tipo.nota.isNotEmpty)
+                        Text(
+                          widget.tipo.nota,
+                          textAlign: TextAlign.center,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                            color: BrandPalette.silverDark,
+                            fontSize: 9,
+                            height: 1.15,
+                          ),
+                        ),
                       Text(
                         '${formatBrl(widget.precoM2)}/m²',
                         textAlign: TextAlign.center,

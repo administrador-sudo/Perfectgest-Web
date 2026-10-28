@@ -7,12 +7,14 @@ class OrcamentoCatalogTipo {
     required this.nome,
     required this.grupo,
     required this.icon,
+    this.nota = '',
   });
 
   final String id;
   final String nome;
   final String grupo;
   final IconData icon;
+  final String nota;
 }
 
 const String kGrupoJanelasCorrer = 'Janelas de correr';
@@ -61,7 +63,7 @@ const List<OrcamentoCatalogTipo> kOrcamentoCatalogo = [
   OrcamentoCatalogTipo(id: 'batente', nome: 'Maxim-ar quádrupla', grupo: kGrupoMaximOutros, icon: Icons.open_in_full),
   OrcamentoCatalogTipo(id: 'quadro_fixo', nome: 'Quadro fixo', grupo: kGrupoFixos, icon: Icons.crop_square),
   OrcamentoCatalogTipo(id: 'fixo', nome: 'Peitoril/Bandeira', grupo: kGrupoFixos, icon: Icons.crop_landscape),
-  OrcamentoCatalogTipo(id: 'box_banheiro', nome: 'Box de banheiro (Medida de altura padrão 1,90 m)', grupo: kGrupoTemperados, icon: Icons.shower),
+  OrcamentoCatalogTipo(id: 'box_banheiro', nome: 'Box de banheiro', grupo: kGrupoTemperados, icon: Icons.shower, nota: 'Medida de altura padrão 1,90 m'),
   OrcamentoCatalogTipo(id: 'guarda_corpo_vidro', nome: 'Guarda-corpo de vidro (sem estrutura de alumínio)', grupo: kGrupoTemperados, icon: Icons.crop_portrait),
   OrcamentoCatalogTipo(id: 'guarda_corpo_tradicional', nome: 'Guarda-corpo tradicional de alumínio e vidro', grupo: kGrupoTemperados, icon: Icons.fence),
   OrcamentoCatalogTipo(id: 'guarda_corpo_simples_tubular', nome: 'Guarda-corpo simples de alumínio e vidro (Tubular)', grupo: kGrupoTemperados, icon: Icons.fence),
@@ -128,7 +130,7 @@ const double kOrcamentoFatiaMaterialPadrao = 60;
 const double kOrcamentoFatiaMaoObraPadrao = 40;
 
 /// Versão visível no rodapé de /orcamento (confirmar se o browser recebeu o build).
-const String kOrcamentoFerramentaVersao = '1.1.7';
+const String kOrcamentoFerramentaVersao = '1.1.8';
 
 const double kOrcamentoPctMaoObraPadrao = 15;
 const double kLimitePortaGiroLarguraMm = 900;
@@ -683,7 +685,7 @@ String orcamentoToPrintHtml({
   .gold { color: #9A7B2F; }
   .meta { color: #3D3D3D; line-height: 1.45; }
   table { width: 100%; border-collapse: separate; border-spacing: 0 4px; margin-top: 10px; }
-  th { text-align: left; background: #121212; color: #F0F0F0; font-weight: 600; padding: 7px 6px; font-size: 11px; }
+  th { text-align: left; background: #121212; color: #F0F0F0; font-weight: 600; padding: 7px 4px; font-size: 10px; }
   td { padding: 5px 6px; vertical-align: top; }
   td.num { text-align: right; white-space: nowrap; font-weight: 600; }
   tbody.bloco { outline: 0.4pt solid #888; }
@@ -722,7 +724,7 @@ String orcamentoToPrintHtml({
   <table>
     <thead>
       <tr>
-        <th>#</th><th>Abertura</th><th>Medidas</th><th>m²</th><th>Abertura</th><th>Vidro</th><th>Instalação</th><th>Total</th>
+        <th>#</th><th>Abertura</th><th>Medidas</th><th>m²</th><th>Valor de fabricação</th><th>Diferença de Vidro</th><th>Material de Fixação</th><th>Total</th>
       </tr>
     </thead>
       ${linhas.toString()}

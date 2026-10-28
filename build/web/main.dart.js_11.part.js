@@ -80,15 +80,15 @@ C.qB()
 this.aA()},
 axN(){var w=this,v=C.aw(["clean-arch",w.e,"seguranca",w.f,"escala",w.r,"full-stack",w.w],x.w,x.d).h(0,w.a.d),u=v==null?null:$.a4.au$.x.h(0,v)
 if(u==null)return
-C.ati(u,0.24,D.pz,D.dG,D.tH)},
+C.ati(u,0.24,D.pz,D.dH,D.tH)},
 B(d){var w,v,u,t,s,r,q,p,o,n,m,l=this,k=null,j=C.w(d).ax,i=C.aK(d,D.ac,x.x).w.a.a<400,h=i?16:24,g=C.bP(d,D.aS,x.F)
 g.toString
 w=B.bcH(d)
 C.w(d)
 v=[l.e,l.f,l.r,l.w]
 u=w.gf7()
-t=C.w(d).ax.a===D.J?D.bO:D.by
-s=(C.w(d).ax.a===D.J?D.bO:D.by).ah(0.96)
+t=C.w(d).ax.a===D.J?D.bO:D.bz
+s=(C.w(d).ax.a===D.J?D.bO:D.bz).ah(0.96)
 r=C.dU(!1,k,k,k,C.c7(D.kA,j.b,k,k),k,k,new B.aMK(d),k,k,k,g.gGT())
 q=j.k3
 p=C.l(g.gHt(),k,k,k,k,C.b9().$2$color$fontWeight(q,D.a2),k,k,k)
@@ -189,4 +189,4 @@ A.aoy=new B.c1("Analytics and consent (GA4)","Measurement with Google Analytics 
 A.aoo=new B.c1("Clean architecture and maintenance","We prioritize organized code, reusable components and separation of concerns to support continuous product evolution, fewer bugs and lower maintenance cost.","Practical example: a new subscription feature is added by reusing components and reducing QA effort.")
 A.ao9=new B.c1("HTTP integrations and external services","We integrate external APIs and data services for real business flows, including back-end endpoints and observability services, ensuring operational reliability and metric-driven evolution.","Practical example: we monitor API latency and errors in production to act before customers are impacted.")
 A.abI=w([A.aod,A.anZ,A.aok,A.aoi,A.ao0,A.aob,A.aon,A.aof,A.ao7,A.aou,A.aov,A.aol,A.aoy,A.aoo,A.ao9],x.c)})()};
-(a=>{a["KA6Kv83Rmn/3pGSMU1Fcm6Dmrw8="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["v8MGjdOzLGhAd7qWZP4PYEGAJYo="]=a.current})($__dart_deferred_initializers__);

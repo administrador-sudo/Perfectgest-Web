@@ -2,6 +2,23 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-28 18:16] /orcamento: rótulos PDF e nota do Box no quadrinho
+
+### Contexto
+
+- PDF: Valor de fabricação, Diferença de Vidro, Material de Fixação. Box: nome curto; nota 1,90 m só no quadrinho. V 1.1.8.
+
+### Arquivos alterados
+
+- lib/orcamento_models.dart
+- lib/orcamento_page.dart
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+
+### Pendente / Proximo passo
+
+- Sem publish. Confirmar no telemóvel V 1.1.8.
+
 ## [2026-10-28 18:04] /orcamento: mm sem ponto e alertas no pop
 
 ### Contexto
