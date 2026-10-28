@@ -125,11 +125,16 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
             precoM2: (precosM2[e.catalogId] != null && precosM2[e.catalogId]! > 0)
                 ? precosM2[e.catalogId]!
                 : e.precoM2,
-            precoM2Vidro: e.vidroId.isEmpty
-                ? e.precoM2Vidro
-                : ((precosVidro[e.vidroId] != null && precosVidro[e.vidroId]! > 0)
-                    ? precosVidro[e.vidroId]!
-                    : e.precoM2Vidro),
+            vidroId: e.vidroIdEfetivo,
+            precoM2Vidro: () {
+              final id = e.vidroIdEfetivo;
+              final v = precosVidro[id];
+              return (v != null && v > 0) ? v : e.precoM2Vidro;
+            }(),
+            precoM2VidroPadrao: () {
+              final v = precosVidro[kVidroPadraoId];
+              return (v != null && v > 0) ? v : e.precoM2VidroPadrao;
+            }(),
           ),
       ];
     });
@@ -166,7 +171,11 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
 
   void _addFromCatalog(OrcamentoCatalogTipo tipo) {
     final preco = parsePtBrDouble(_precoCtrls[tipo.id]?.text ?? '');
-    setState(() => _itens = [..._itens, OrcamentoItem.fromCatalog(tipo, precoM2: preco)]);
+    final padrao = parsePtBrDouble(_precoVidroCtrls[kVidroPadraoId]?.text ?? '');
+    setState(() => _itens = [
+          ..._itens,
+          OrcamentoItem.fromCatalog(tipo, precoM2: preco, precoM2VidroPadrao: padrao),
+        ]);
   }
 
   void _atualizarPrecoTipo(String catalogId, String raw) {
@@ -437,7 +446,10 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
     setState(() {
       _itens = [
         for (final e in _itens)
-          if (e.vidroId == vidroId) e.copyWith(precoM2Vidro: preco) else e,
+          e.copyWith(
+            precoM2Vidro: e.vidroIdEfetivo == vidroId ? preco : e.precoM2Vidro,
+            precoM2VidroPadrao: vidroId == kVidroPadraoId ? preco : e.precoM2VidroPadrao,
+          ),
       ];
     });
   }
@@ -1297,11 +1309,10 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
               ),
               if (it.modelo.isNotEmpty || it.cor.isNotEmpty)
                 Text([it.modelo, it.cor].where((e) => e.isNotEmpty).join(' · '), style: _folhaMeta),
-              if (it.vidroId.isNotEmpty)
-                Text(
-                  '${it.vidroNome}  ·  ${formatPtBrNumber(it.areaVidro, casas: 3)} m² (−5%)  ·  ${formatBrl(it.valorVidro)}',
-                  style: _folhaMeta,
-                ),
+              Text(
+                '${it.vidroNome}  ·  ${formatPtBrNumber(it.areaVidro, casas: 3)} m² (−5%)  ·  ${formatBrl(it.valorVidro)}',
+                style: _folhaMeta,
+              ),
               if (it.obs.isNotEmpty) Text('Obs.: ${it.obs}', style: _folhaMeta),
             ],
           ),

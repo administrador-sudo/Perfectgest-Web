@@ -95,8 +95,10 @@ class OrcamentoVidroTipo {
   final String nome;
 }
 
+const String kVidroPadraoId = 'v4_incolor';
+
 const List<OrcamentoVidroTipo> kOrcamentoVidros = [
-  OrcamentoVidroTipo(id: 'v4_incolor', nome: 'Vidro 4 mm incolor'),
+  OrcamentoVidroTipo(id: 'v4_incolor', nome: 'Vidro incolor 4 mm (padrão)'),
   OrcamentoVidroTipo(id: 'v4_fume', nome: 'Vidro 4 mm fumê'),
   OrcamentoVidroTipo(id: 'v6_incolor', nome: 'Vidro 6 mm incolor'),
   OrcamentoVidroTipo(id: 'v6_fume', nome: 'Vidro 6 mm fumê'),
@@ -126,7 +128,7 @@ const double kOrcamentoFatiaMaterialPadrao = 60;
 const double kOrcamentoFatiaMaoObraPadrao = 40;
 
 /// Versão visível no rodapé de /orcamento (confirmar se o browser recebeu o build).
-const String kOrcamentoFerramentaVersao = '1.1.3';
+const String kOrcamentoFerramentaVersao = '1.1.5';
 
 const double kOrcamentoPctMaoObraPadrao = 15;
 const double kLimitePortaGiroLarguraMm = 900;
@@ -134,7 +136,7 @@ const double kLimitePortaGiroAlturaMm = 2100;
 const String kObsLimitePortaGiro = 'Limite de medida 900 x 2100. Acima disso: consultar fabricante.';
 const String kObsInstalacaoAcima35 = 'Instalação acima de 3,5 m²: consultar fabricante.';
 const String kOrcamentoObsRegrasMaoInstalacao =
-    'Obs.: Mão de obra 15% sobre o material. Instalação (espuma de fixação): até 1,5 m² R\$ 40,00; de 1,5 a 2,5 m² R\$ 80,00; de 2,5 a 3,5 m² R\$ 120,00. Acima de 3,5 m² consultar fabricante.';
+    'Obs.: Instalação (espuma de fixação): até 1,5 m² R\$ 40,00; de 1,5 a 2,5 m² R\$ 80,00; de 2,5 a 3,5 m² R\$ 120,00. Acima de 3,5 m² consultar fabricante.';
 
 double instalacaoPorArea(double area) {
   if (area <= 1.5) return 40;
@@ -300,8 +302,9 @@ class OrcamentoItem {
     this.pctComissao = 0,
     this.instalacao = 0,
     this.obs = '',
-    this.vidroId = '',
+    this.vidroId = kVidroPadraoId,
     this.precoM2Vidro = 0,
+    this.precoM2VidroPadrao = 0,
   });
 
   final String id;
@@ -319,6 +322,7 @@ class OrcamentoItem {
   final String obs;
   final String vidroId;
   final double precoM2Vidro;
+  final double precoM2VidroPadrao;
 
   double get areaCalculada => (larguraMm / 1000.0) * (alturaMm / 1000.0);
 
@@ -330,11 +334,13 @@ class OrcamentoItem {
 
   double get comissao => (material + maoObra) * pctComissao / 100.0;
 
-  double get areaVidro => vidroId.isEmpty ? 0 : area * kOrcamentoDescontoAreaVidro;
+  String get vidroIdEfetivo => vidroPorId(vidroId)?.id ?? kVidroPadraoId;
 
-  double get valorVidro => areaVidro * precoM2Vidro;
+  double get areaVidro => area * kOrcamentoDescontoAreaVidro;
 
-  String get vidroNome => vidroPorId(vidroId)?.nome ?? '';
+  double get valorVidro => areaVidro * (precoM2Vidro - precoM2VidroPadrao);
+
+  String get vidroNome => vidroPorId(vidroIdEfetivo)?.nome ?? '';
 
   double get instalacaoEfetiva => instalacaoPorArea(area);
 
@@ -359,6 +365,7 @@ class OrcamentoItem {
     String? obs,
     String? vidroId,
     double? precoM2Vidro,
+    double? precoM2VidroPadrao,
   }) {
     return OrcamentoItem(
       id: id ?? this.id,
@@ -376,6 +383,7 @@ class OrcamentoItem {
       obs: obs ?? this.obs,
       vidroId: vidroId ?? this.vidroId,
       precoM2Vidro: precoM2Vidro ?? this.precoM2Vidro,
+      precoM2VidroPadrao: precoM2VidroPadrao ?? this.precoM2VidroPadrao,
     );
   }
 
@@ -395,6 +403,7 @@ class OrcamentoItem {
         'obs': obs,
         'vidroId': vidroId,
         'precoM2Vidro': precoM2Vidro,
+        'precoM2VidroPadrao': precoM2VidroPadrao,
       };
 
   factory OrcamentoItem.fromJson(Map<String, dynamic> json) {
@@ -425,12 +434,22 @@ class OrcamentoItem {
       pctComissao: d('pctComissao'),
       instalacao: d('instalacao'),
       obs: '${json['obs'] ?? ''}',
-      vidroId: '${json['vidroId'] ?? ''}',
+      vidroId: () {
+        final raw = '${json['vidroId'] ?? ''}';
+        return vidroPorId(raw)?.id ?? kVidroPadraoId;
+      }(),
       precoM2Vidro: d('precoM2Vidro'),
+      precoM2VidroPadrao: json.containsKey('precoM2VidroPadrao')
+          ? d('precoM2VidroPadrao')
+          : d('precoM2Vidro'),
     );
   }
 
-  factory OrcamentoItem.fromCatalog(OrcamentoCatalogTipo tipo, {double precoM2 = 0}) {
+  factory OrcamentoItem.fromCatalog(
+    OrcamentoCatalogTipo tipo, {
+    double precoM2 = 0,
+    double precoM2VidroPadrao = 0,
+  }) {
     return OrcamentoItem(
       id: '${DateTime.now().microsecondsSinceEpoch}_${tipo.id}',
       catalogId: tipo.id,
@@ -438,6 +457,9 @@ class OrcamentoItem {
       precoM2: precoM2,
       pctMaoObra: kOrcamentoPctMaoObraPadrao,
       instalacao: instalacaoPorArea(0),
+      vidroId: kVidroPadraoId,
+      precoM2Vidro: precoM2VidroPadrao,
+      precoM2VidroPadrao: precoM2VidroPadrao,
     );
   }
 }
@@ -600,7 +622,7 @@ String orcamentoToPrintHtml({
       final subParts = <String>[];
       if (it.modelo.isNotEmpty) subParts.add(htmlEsc(it.modelo));
       if (it.cor.isNotEmpty) subParts.add(htmlEsc(it.cor));
-      if (it.vidroId.isNotEmpty) subParts.add('Vidro: ${htmlEsc(it.vidroNome)}');
+      subParts.add('Vidro: ${htmlEsc(it.vidroNome)}');
       final sub = subParts.isEmpty ? '' : '<div class="sub">${subParts.join(' · ')}</div>';
       linhas.writeln('<tbody class="bloco">');
       linhas.writeln('''

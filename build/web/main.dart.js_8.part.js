@@ -1,18 +1,18 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
 $__dart_deferred_initializers__.current=function(a,b,c,$){var C,D,E,F,G,B={
-b7q(d){return new B.oE(d,null)},
+b7t(d){return new B.oE(d,null)},
 oE:function oE(d,e){this.c=d
 this.a=e},
-a2i:function a2i(){this.c=this.a=null},
-aB7:function aB7(d,e,f,g){var _=this
+a2j:function a2j(){this.c=this.a=null},
+aB9:function aB9(d,e,f,g){var _=this
 _.a=d
 _.b=e
 _.c=f
 _.d=g},
-a3O:function a3O(d,e){this.c=d
+a3P:function a3P(d,e){this.c=d
 this.a=e},
-aDQ:function aDQ(d){this.a=d},
-bcy(d){switch(d.af(y.h).r.f.gcS()){case"en":return A.Pk
+aDS:function aDS(d){this.a=d},
+bcB(d){switch(d.af(y.h).r.f.gcS()){case"en":return A.Pk
 case"es":return A.Pl
 case"pt":default:return A.Pm}},
 lP:function lP(d,e){this.a=d
@@ -20,10 +20,10 @@ this.b=e},
 bX:function bX(d,e,f){this.a=d
 this.b=e
 this.c=f},
-av9:function av9(){},
-aLM:function aLM(){},
-aLK:function aLK(){},
-aLL:function aLL(){}},A
+avb:function avb(){},
+aLP:function aLP(){},
+aLN:function aLN(){},
+aLO:function aLO(){}},A
 C=c[0]
 D=c[2]
 E=c[15]
@@ -32,10 +32,10 @@ G=c[13]
 B=a.updateHolder(c[8],B)
 A=c[14]
 B.oE.prototype={
-aa(){return new B.a2i()}}
-B.a2i.prototype={
+aa(){return new B.a2j()}}
+B.a2j.prototype={
 ao(){this.aG()
-C.j9()
+C.j8()
 C.dE("description","Perguntas e respostas PerfectGest ContabilGest: MEI, Livro Caixa, NFS-e, planos, assinatura Google Play e fontes oficiais.")
 C.dE("keywords","PerfectGest ContabilGest, FAQ, MEI, Livro Caixa, NFS-e, Google Play, assinatura, Perfect Gest Dev")
 C.dE("robots","index, follow")
@@ -46,9 +46,9 @@ C.cJ("og:locale","pt_BR")
 b.G.document.title="Perguntas e respostas | ContabilGest"},
 l(){C.qB()
 this.aA()},
-B(d){var x=null,w=C.w(d),v=C.aK(d,D.ac,y.x).w.a.a,u=v<400?16:24,t=B.bcy(d),s=t.gf8(),r=C.w(d).ax.a===D.J?D.bO:D.by,q=t.giE()
-return C.aA(x,x,x,C.hH(F.aRe(d,x,this.a.c,q),r,new C.jE(C.kl(new B.aB7(u,t,w.ax,v)),x),x,x,x,x),!1,x,x,!1,x,!1,x,x,x,x,x,x,x,x,s,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,D.p,x)}}
-B.a3O.prototype={
+B(d){var x=null,w=C.w(d),v=C.aK(d,D.ac,y.x).w.a.a,u=v<400?16:24,t=B.bcB(d),s=t.gf7(),r=C.w(d).ax.a===D.J?D.bO:D.by,q=t.giE()
+return C.aA(x,x,x,C.hH(F.aRh(d,x,this.a.c,q),r,new C.jD(C.kk(new B.aB9(u,t,w.ax,v)),x),x,x,x,x),!1,x,x,!1,x,!1,x,x,x,x,x,x,x,x,s,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,D.p,x)}}
+B.a3P.prototype={
 B(d){var x,w,v,u,t,s,r,q,p,o,n=null,m=C.w(d).ax,l=C.aK(d,D.ac,y.x).w.a.a,k=l<400?12:16,j=this.c,i=j.a,h=m.RG
 h=(h==null?m.k2:h).ah(0.5)
 x=C.bv(14)
@@ -66,31 +66,31 @@ j=j.c
 u=j.length
 if(u!==0){r=C.b([D.av],r)
 for(q=0;q<u;++q){p=j[q]
-o=C.j0(D.bD,n,n,n,n,n,n,n,n,n,n,D.R,D.ae,n,n,n,n,D.ek,n,n)
-r.push(new C.a5(D.bW,new C.cA(D.bD,n,n,C.cP(C.l(p.a,n,n,n,n,C.b9().$5$color$decoration$fontSize$fontWeight$height(t,D.d9,v?13:14,D.a_,1.45),n,n,n),new B.aDQ(p),o),n),n))}D.b.S(s,r)}return new C.a5(G.tN,C.aA(n,n,n,C.cq(new C.a5(new C.V(k,16,k,18),C.as(s,D.C,D.j,D.m),n),new C.bo(h,n,w,x,n,n,D.I),D.a7),!0,n,n,!1,n,!1,n,n,n,n,n,n,n,n,i,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,D.p,n),n)}}
+o=C.j_(D.bD,n,n,n,n,n,n,n,n,n,n,D.R,D.ae,n,n,n,n,D.ek,n,n)
+r.push(new C.a5(D.bW,new C.cA(D.bD,n,n,C.cP(C.l(p.a,n,n,n,n,C.b9().$5$color$decoration$fontSize$fontWeight$height(t,D.d9,v?13:14,D.a_,1.45),n,n,n),new B.aDS(p),o),n),n))}D.b.S(s,r)}return new C.a5(G.tN,C.aA(n,n,n,C.cq(new C.a5(new C.V(k,16,k,18),C.as(s,D.C,D.j,D.m),n),new C.bo(h,n,w,x,n,n,D.I),D.a7),!0,n,n,!1,n,!1,n,n,n,n,n,n,n,n,i,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,D.p,n),n)}}
 B.lP.prototype={}
 B.bX.prototype={}
-B.av9.prototype={}
-B.aLM.prototype={
-gf8(){return"Perguntas e respostas PerfectGest ContabilGest"},
+B.avb.prototype={}
+B.aLP.prototype={
+gf7(){return"Perguntas e respostas PerfectGest ContabilGest"},
 giE(){return"Perguntas e respostas"},
 giG(){return"PerfectGest ContabilGest"},
 glm(){return"Perguntas e respostas sobre o Aplicativo"},
-gTn(){return A.acn}}
-B.aLK.prototype={
-gf8(){return"Questions and answers PerfectGest ContabilGest"},
+gTo(){return A.acn}}
+B.aLN.prototype={
+gf7(){return"Questions and answers PerfectGest ContabilGest"},
 giE(){return"Questions and answers"},
 giG(){return"PerfectGest ContabilGest"},
 glm(){return"Questions and answers about the App"},
-gTn(){return A.aaW}}
-B.aLL.prototype={
-gf8(){return"Preguntas y respuestas PerfectGest ContabilGest"},
+gTo(){return A.aaW}}
+B.aLO.prototype={
+gf7(){return"Preguntas y respuestas PerfectGest ContabilGest"},
 giE(){return"Preguntas y respuestas"},
 giG(){return"PerfectGest ContabilGest"},
 glm(){return"Preguntas y respuestas sobre la Aplicaci\xf3n"},
-gTn(){return A.a4O}}
+gTo(){return A.a4O}}
 var z=a.updateTypes([])
-B.aB7.prototype={
+B.aB9.prototype={
 $2(d,e){var x,w,v,u,t,s,r,q,p,o=this,n=null,m=e.b
 m=m<1/0&&isFinite(m)?m:C.aK(d,D.ac,y.x).w.a.a
 x=D.d.dA(m<720?m:720,200,720)
@@ -101,32 +101,32 @@ t=C.l(v.giG(),n,n,n,n,C.b9().$4$color$fontSize$fontWeight$letterSpacing(u.b,13,D
 s=v.glm()
 r=o.d<400?18:22
 u=u.k3
-r=C.b([t,D.ai,C.l(s,n,n,n,n,C.b9().$4$color$fontSize$fontWeight$height(u,r,D.W,1.2),n,n,n),D.fm],y.u)
-for(v=v.gTn(),q=0;q<16;++q)r.push(new B.a3O(v[q],n))
+r=C.b([t,D.ai,C.l(s,n,n,n,n,C.b9().$4$color$fontSize$fontWeight$height(u,r,D.W,1.2),n,n,n),D.fl],y.u)
+for(v=v.gTo(),q=0;q<16;++q)r.push(new B.a3P(v[q],n))
 r.push(D.bB)
 r.push(E.tk)
 r.push(D.ep)
 p=C.bP(d,D.aS,y.F)
 p.toString
-r.push(C.l(p.us(C.b7(new C.ch(Date.now(),0,!1))),n,n,n,n,C.b9().$3$color$fontSize$fontWeight(u.ah(0.7),12,D.a_),n,n,n))
+r.push(C.l(p.ut(C.b7(new C.ch(Date.now(),0,!1))),n,n,n,n,C.b9().$3$color$fontSize$fontWeight(u.ah(0.7),12,D.a_),n,n,n))
 r.push(E.Lg)
 return C.eD(C.de(new C.cu(new C.a3(0,x,0,1/0),C.as(r,D.C,D.j,D.m),n),n,n),n,new C.V(w,16,w,28),D.Y)},
 $S:138}
-B.aDQ.prototype={
+B.aDS.prototype={
 $0(){return C.it(C.d3(this.a.b,0,null),D.cB,"_blank")},
 $S:0};(function inheritance(){var x=a.inherit,w=a.inheritMany
 x(B.oE,C.S)
-x(B.a2i,C.U)
-x(B.aB7,C.r8)
-x(B.a3O,C.X)
-x(B.aDQ,C.k6)
-w(C.P,[B.lP,B.bX,B.av9])
-w(B.av9,[B.aLM,B.aLK,B.aLL])})()
-C.v5(b.typeUniverse,JSON.parse('{"oE":{"S":[],"e":[]},"a2i":{"U":["oE"]},"a3O":{"X":[],"e":[]}}'))
+x(B.a2j,C.U)
+x(B.aB9,C.r9)
+x(B.a3P,C.X)
+x(B.aDS,C.k5)
+w(C.P,[B.lP,B.bX,B.avb])
+w(B.avb,[B.aLP,B.aLN,B.aLO])})()
+C.v5(b.typeUniverse,JSON.parse('{"oE":{"S":[],"e":[]},"a2j":{"U":["oE"]},"a3P":{"X":[],"e":[]}}'))
 var y={F:C.a1("h3"),a:C.a1("x<bX>"),g:C.a1("x<lP>"),u:C.a1("x<e>"),x:C.a1("hg"),h:C.a1("m5")};(function constants(){var x=a.makeConstList
-A.Pk=new B.aLK()
-A.Pl=new B.aLL()
-A.Pm=new B.aLM()
+A.Pk=new B.aLN()
+A.Pl=new B.aLO()
+A.Pm=new B.aLP()
 A.a3=x([],y.g)
 A.ams=new B.bX("\xbfQu\xe9 es la app?","PerfectGest ContabilGest es la herramienta de conexi\xf3n con el usuario: usted sigue en tiempo real la contabilidad de la empresa (Libro de caja, NFS-e, NF-e y obligaciones) y, cuando el despacho habilita las funciones, los datos llegan al CRC. El uso diario en el aparato es offline por defecto. En Google Play: R$ 19,99/mes o pago \xfanico de R$ 239,88. El env\xedo al despacho y las funciones online existen despu\xe9s de la habilitaci\xf3n.",A.a3)
 A.amE=new B.bX("\xbfContabilGest es una app oficial del gobierno?","No. Es un producto privado de Perfect Gest Dev (CNPJ 66.889.409/0001-19). No estamos afiliados ni respaldados por la Receita Federal, eSocial, FGTS Digital o prefecturas. La fuente oficial de obligaciones y gu\xedas es siempre el portal del gobierno.",A.a3)
@@ -187,4 +187,4 @@ A.amN=new B.bX("Como altero meu plano (faixa, downgrade ou extras como folha e I
 A.amk=new B.bX("O app avisa antes da renova\xe7\xe3o?","Quando a Play informar a data do ciclo da assinatura do aplicativo, o app pode avisar at\xe9 30 dias antes. Sem data da Play, n\xe3o h\xe1 prazo inventado \u2014 consulte Play \u2192 Assinaturas. Honor\xe1rios e plano cont\xe1bil: com o escrit\xf3rio.",A.a3)
 A.ama=new B.bX("A assinatura da Play j\xe1 libera tudo?","N\xe3o. A Play libera o acesso ao aplicativo. Para sincroniza\xe7\xe3o, envio de dados ao escrit\xf3rio e fun\xe7\xf5es online, contacte o escrit\xf3rio depois de assinar. Sem habilita\xe7\xe3o, voc\xea entra no app, mas sem envio ao CRC e sem contato com o escrit\xf3rio.",A.a3)
 A.acn=x([A.amq,A.amy,A.amc,A.amF,A.am9,A.ame,A.amr,A.amv,A.amG,A.amL,A.amp,A.aml,A.amo,A.amN,A.amk,A.ama],y.a)})()};
-(a=>{a["Evy5ibKKDaokx0E1XHHOIvYzz9o="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["NyPar/S9JiMcABlxORr+q9N3izk="]=a.current})($__dart_deferred_initializers__);

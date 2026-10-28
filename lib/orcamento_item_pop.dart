@@ -53,7 +53,7 @@ class _OrcamentoItemPopState extends State<_OrcamentoItemPop> {
     _comissao = TextEditingController(text: _n(it.pctComissao, 1));
     _instalacao = TextEditingController(text: formatPtBrNumber(instalacaoPorArea(it.area)));
     _obs = TextEditingController(text: it.obs);
-    _vidroId = vidroPorId(it.vidroId)?.id ?? '';
+    _vidroId = vidroPorId(it.vidroId)?.id ?? kVidroPadraoId;
     _largura.addListener(_recalcM2);
     _altura.addListener(_recalcM2);
     _comissao.addListener(_tick);
@@ -115,16 +115,19 @@ class _OrcamentoItemPopState extends State<_OrcamentoItemPop> {
       pctComissao: parsePtBrDouble(_comissao.text),
       instalacao: instalacaoPorArea(area),
       obs: _obs.text.trim(),
-      vidroId: _vidroId,
-      precoM2Vidro: _vidroId.isEmpty ? 0 : (widget.precosVidro[_vidroId] ?? 0),
+      vidroId: _vidroId.isEmpty ? kVidroPadraoId : _vidroId,
+      precoM2Vidro: widget.precosVidro[_vidroId.isEmpty ? kVidroPadraoId : _vidroId] ?? 0,
+      precoM2VidroPadrao: widget.precosVidro[kVidroPadraoId] ?? 0,
     );
     return base.copyWith(obs: obsComRegrasAbertura(base, _obs.text.trim()));
   }
 
   String _rotuloVidro() {
-    if (_vidroId.isEmpty) return 'Sem vidro';
-    final tipo = vidroPorId(_vidroId);
-    if (tipo == null) return 'Sem vidro';
+    final id = _vidroId.isEmpty ? kVidroPadraoId : _vidroId;
+    final tipo = vidroPorId(id);
+    if (tipo == null) {
+      return 'Vidro incolor 4 mm (padrão)';
+    }
     return '${tipo.nome} · ${formatBrl(widget.precosVidro[tipo.id] ?? 0)}/m²';
   }
 
@@ -148,13 +151,6 @@ class _OrcamentoItemPopState extends State<_OrcamentoItemPop> {
             height: 320,
             child: ListView(
               children: [
-                ListTile(
-                  title: const Text('Sem vidro', style: TextStyle(color: BrandPalette.charcoal)),
-                  selected: _vidroId.isEmpty,
-                  selectedColor: BrandPalette.charcoal,
-                  selectedTileColor: BrandPalette.silverPeak,
-                  onTap: () => Navigator.pop(ctx, ''),
-                ),
                 for (final v in kOrcamentoVidros)
                   ListTile(
                     title: Text(
@@ -331,13 +327,10 @@ class _OrcamentoItemPopState extends State<_OrcamentoItemPop> {
                           Text('Mão de obra ${formatBrl(prev.maoObra)}'),
                           Text('Comissão ${formatBrl(prev.comissao)}'),
                           Text('Instalação ${formatBrl(prev.instalacaoEfetiva)}'),
-                          if (prev.vidroId.isNotEmpty) ...[
-                            Text(
-                              'Vidro ${formatPtBrNumber(prev.areaVidro, casas: 3)} m² (−5%) · ${formatBrl(prev.precoM2Vidro)}/m²',
-                            ),
-                            Text('Valor do vidro ${formatBrl(prev.valorVidro)}'),
-                          ] else
-                            const Text('Vidro: sem vidro'),
+                          Text(
+                            'Vidro ${formatPtBrNumber(prev.areaVidro, casas: 3)} m² (−5%) · ${formatBrl(prev.precoM2Vidro)}/m²',
+                          ),
+                          Text('Diferença do vidro ${formatBrl(prev.valorVidro)}'),
                           if (ultrapassaLimitePortaGiro(prev) || ultrapassaInstalacao35(prev)) ...[
                             const SizedBox(height: 6),
                             if (ultrapassaLimitePortaGiro(prev))

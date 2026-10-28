@@ -2,6 +2,39 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-28 17:05] /orcamento: vidro incolor 4 mm padrão e diferença
+
+### Contexto
+
+- Campo Vidro nasce em Vidro incolor 4 mm (padrão), já no R\$/m² da abertura. Trocar o tipo soma só a diferença de tabela. Sem «Sem vidro». V 1.1.5.
+
+### Arquivos alterados
+
+- lib/orcamento_models.dart
+- lib/orcamento_page.dart
+- lib/orcamento_item_pop.dart
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+
+### Pendente / Proximo passo
+
+- Sem publish. Confirmar no telemóvel V 1.1.5.
+
+## [2026-10-28 16:40] /orcamento: obs do catálogo sem 15%
+
+### Contexto
+
+- Obs abaixo de Aberturas disponíveis fica só com as faixas de instalação. Rodapé V 1.1.4.
+
+### Arquivos alterados
+
+- lib/orcamento_models.dart
+- docs/Atualiza.md
+
+### Pendente / Proximo passo
+
+- Sem publish. Confirmar no telemóvel V 1.1.4.
+
 ## [2026-10-28 16:08] /orcamento: mão de obra 15% e instalação por m²
 
 ### Contexto
