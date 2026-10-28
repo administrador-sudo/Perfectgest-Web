@@ -1,13 +1,13 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
 $__dart_deferred_initializers__.current=function(a,b,c,$){var A,C,E,F,B={
-bcF(d){switch(d.af(y.k).r.f.gcS()){case"en":return D.Pr
+bcG(d){switch(d.af(y.k).r.f.gcS()){case"en":return D.Pr
 case"es":return D.Ps
 case"pt":default:return D.Pt}},
 avn:function avn(){},
 aM9:function aM9(){},
 aM7:function aM7(){},
 aM8:function aM8(){},
-bbu(d){return new B.px(d,null)},
+bbv(d){return new B.px(d,null)},
 px:function px(d,e){this.c=d
 this.a=e},
 a6H:function a6H(){this.c=this.a=null},
@@ -38,7 +38,7 @@ gf7(){return"Politica de privacidade, dados, cookies e termos Perfect Gest Dev"}
 giE(){return"Privacidade e termos"},
 giG(){return"Perfect Gest Dev"},
 gln(){return"Pol\xedtica de privacidade, dados pessoais, cookies e termos de uso"},
-rB(d){return"\xdaltima atualiza\xe7\xe3o: documento institucional. Em caso de d\xfavida sobre tratamento de dados, contacte: "+d+"."},
+rC(d){return"\xdaltima atualiza\xe7\xe3o: documento institucional. Em caso de d\xfavida sobre tratamento de dados, contacte: "+d+"."},
 gpK(){return"1. Quem somos"},
 gpJ(){return"Este documento aplica-se ao site institucional https://perfectgestdev.com, operado por Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA). Somos uma software house de desenvolvimento mobile, web e desktop. Abrange cookies, medi\xe7\xe3o de audi\xeancia, formul\xe1rio de pr\xe9-cadastro e contacto neste site \u2014 n\xe3o o aplicativo m\xf3vel. Documenta\xe7\xe3o legal do produto PerfectGest (FAQ, privacidade, exclus\xe3o de dados e termos) n\xe3o faz parte deste documento \u2014 consulte a sec\xe7\xe3o Solu\xe7\xf5es deste site."},
 gpM(){return"2. Que dados podemos recolher"},
@@ -63,7 +63,7 @@ gf7(){return"Perfect Gest Dev privacy policy, data, cookies and terms"},
 giE(){return"Privacy and terms"},
 giG(){return"Perfect Gest Dev"},
 gln(){return"Privacy policy, personal data, cookies and terms of use"},
-rB(d){return"Last updated: institutional document. If you have questions about data processing, contact: "+d+"."},
+rC(d){return"Last updated: institutional document. If you have questions about data processing, contact: "+d+"."},
 gpK(){return"1. Who we are"},
 gpJ(){return"This document applies to the institutional website https://perfectgestdev.com, operated by Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA). We are a software house for mobile, web and desktop development. It covers cookies, audience measurement, the pre-registration form and contact on this site \u2014 not the mobile app. Legal documentation for the PerfectGest product (FAQ, privacy, data deletion and terms) is not part of this document \u2014 see the Solutions section of this site."},
 gpM(){return"2. Data we may collect"},
@@ -88,7 +88,7 @@ gf7(){return"Politica de privacidad, datos, cookies y terminos Perfect Gest Dev"
 giE(){return"Privacidad y terminos"},
 giG(){return"Perfect Gest Dev"},
 gln(){return"Politica de privacidad, datos personales, cookies y terminos de uso"},
-rB(d){return"Ultima actualizacion: documento institucional. Si tiene dudas sobre el tratamiento de datos, contacte: "+d+"."},
+rC(d){return"Ultima actualizacion: documento institucional. Si tiene dudas sobre el tratamiento de datos, contacte: "+d+"."},
 gpK(){return"1. Quienes somos"},
 gpJ(){return"Este documento se aplica al sitio institucional https://perfectgestdev.com, operado por Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA). Somos una software house de desarrollo movil, web y escritorio. Cubre cookies, medicion de audiencia, formulario de pre-registro y contacto en este sitio \u2014 no la aplicacion movil. La documentacion legal del producto PerfectGest (FAQ, privacidad, eliminacion de datos y terminos) no forma parte de este documento \u2014 consulte la seccion Soluciones de este sitio."},
 gpM(){return"2. Datos que podemos recopilar"},
@@ -112,16 +112,16 @@ B.px.prototype={
 aa(){return new B.a6H()}}
 B.a6H.prototype={
 ao(){this.aG()
-E.b25()},
+E.b26()},
 l(){A.qB()
 this.aA()},
 B(d){var x,w,v,u,t=null,s=A.w(d),r=A.aK(d,C.ac,y.h).w.a.a,q=r<400?16:24,p=A.bP(d,C.aS,y.p)
 p.toString
-x=B.bcF(d)
+x=B.bcG(d)
 w=x.gf7()
 v=A.w(d).ax.a===C.J?C.bO:C.bz
 u=x.giE()
-return A.aA(t,t,t,A.hH(F.aRk(d,new B.aJa(d),this.a.c,u),v,new A.jD(A.kk(new B.aJb(q,x,s.ax,r,p)),t),t,t,t,t),!1,t,t,!1,t,!1,t,t,t,t,t,t,t,t,w,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,C.p,t)}}
+return A.aA(t,t,t,A.hH(F.aRl(d,new B.aJa(d),this.a.c,u),v,new A.jD(A.kk(new B.aJb(q,x,s.ax,r,p)),t),t,t,t,t),!1,t,t,!1,t,!1,t,t,t,t,t,t,t,t,w,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,C.p,t)}}
 B.m7.prototype={
 B(d){var x,w,v,u,t=null,s=A.w(d).ax,r=A.aK(d,C.ac,y.h).w.a.a,q=r<400?12:16,p=this.c,o=s.RG
 o=(o==null?s.k2:o).ah(0.5)
@@ -153,7 +153,7 @@ p=q<400
 o=p?18:22
 n=u.k3
 o=A.l(r,b0,b0,b0,b0,A.b9().$4$color$fontSize$fontWeight$height(n,o,C.V,1.2),b0,b0,b0)
-r=A.l(v.rB(b1),b0,b0,b0,b0,A.b9().$3$color$fontSize$height(n.ah(0.72),13,1.45),b0,b0,b0)
+r=A.l(v.rC(b1),b0,b0,b0,b0,A.b9().$3$color$fontSize$height(n.ah(0.72),13,1.45),b0,b0,b0)
 m=v.gpK()
 l=v.gpJ()
 k=v.gpM()
@@ -180,18 +180,18 @@ a5=A.l(v.gQp(),b0,b0,b0,b0,A.b9().$3$color$fontSize$fontWeight(n,14,C.a0),b0,b0,
 a6=A.l(v.gQo(),b0,b0,b0,b0,A.b9().$3$color$fontSize$height(n.ah(0.8),12.5,1.45),b0,b0,b0)
 a7=a9.e
 a8=y.e
-return A.eC(A.de(new A.cu(new A.a3(0,x,0,1/0),A.as(A.b([s,C.ai,o,C.as,r,C.fl,new B.m7(m,l,b0),new B.m7(k,j,b0),new B.m7(i,h,b0),new B.m7(g,f,b0),new B.m7(e,d,b0),new B.m7(a0,a1,b0),new B.m7(a2,a3,b0),C.ce,A.cq(new A.a5(new A.V(p,p,p,p),A.as(A.b([a5,C.F,a6,C.ag,A.ek(C.b_,A.b([A.aSB(D.Vp,A.l(q<360?v.gP4():v.gP3(),b0,b0,b0,b0,b0,C.bt,b0,b0),new B.aJ8(b3,v),b0),new A.EM(!1,new B.aJ9(b3,a7),b0,b0,b0,b0,b0,b0,!1,b0,!0,b0,A.l(a7.gyL(),b0,b0,b0,b0,b0,b0,b0,b0),b0)],a8),C.bJ,8,8)],a8),C.a4,C.j,C.m),b0),new A.bo(t,b0,u,a4,b0,b0,C.I),C.a7),C.q3,A.l(a7.ut(A.b7(new A.ch(Date.now(),0,!1))),b0,b0,b0,b0,A.b9().$2$color$fontSize(n.ah(0.65),12),C.bt,b0,b0)],a8),C.C,C.j,C.m),b0),b0,b0),b0,new A.V(w,16,w,28),C.Y)},
-$S:138}
+return A.eC(A.de(new A.cu(new A.a3(0,x,0,1/0),A.as(A.b([s,C.ai,o,C.as,r,C.fl,new B.m7(m,l,b0),new B.m7(k,j,b0),new B.m7(i,h,b0),new B.m7(g,f,b0),new B.m7(e,d,b0),new B.m7(a0,a1,b0),new B.m7(a2,a3,b0),C.ce,A.cq(new A.a5(new A.V(p,p,p,p),A.as(A.b([a5,C.F,a6,C.ag,A.ek(C.b_,A.b([A.aSC(D.Vp,A.l(q<360?v.gP4():v.gP3(),b0,b0,b0,b0,b0,C.bt,b0,b0),new B.aJ8(b3,v),b0),new A.EM(!1,new B.aJ9(b3,a7),b0,b0,b0,b0,b0,b0,!1,b0,!0,b0,A.l(a7.gyL(),b0,b0,b0,b0,b0,b0,b0,b0),b0)],a8),C.bJ,8,8)],a8),C.a4,C.j,C.m),b0),new A.bo(t,b0,u,a4,b0,b0,C.I),C.a7),C.q3,A.l(a7.uu(A.b7(new A.ch(Date.now(),0,!1))),b0,b0,b0,b0,A.b9().$2$color$fontSize(n.ah(0.65),12),C.bt,b0,b0)],a8),C.C,C.j,C.m),b0),b0,b0),b0,new A.V(w,16,w,28),C.Y)},
+$S:139}
 B.aJ8.prototype={
 $0(){var x,w=null
-A.b2E()
+A.b2F()
 x=this.a
 if(x.e==null)return
 x.af(y.f).f.q_(A.YW(w,w,w,w,C.j8,C.y,w,A.l(this.b.gJ9(),w,w,w,w,w,w,w,w),w,C.e7,w,w,w,w,w,w,w,w,w,w))},
 $S:0}
 B.aJ9.prototype={
 $0(){var x,w=null
-A.b2q()
+A.b2r()
 x=this.a
 if(x.e==null)return
 x.af(y.f).f.q_(A.YW(w,w,w,w,C.j8,C.y,w,A.l(this.b.gyL(),w,w,w,w,w,w,w,w),w,C.e7,w,w,w,w,w,w,w,w,w,w))},
@@ -209,4 +209,4 @@ D.Ps=new B.aM8()
 D.Pt=new B.aM9()
 D.Ut=new A.aO(57690,"MaterialIcons",!1)
 D.Vp=new A.cx(D.Ut,20,null,null,null)})()};
-(a=>{a["wswU6m+GvQp+xwd4GqzgBRZcZXc="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["NLNizqY9iBht/Z1FLSBT3n6ivsc="]=a.current})($__dart_deferred_initializers__);

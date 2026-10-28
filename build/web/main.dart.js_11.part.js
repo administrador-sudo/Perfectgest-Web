@@ -1,6 +1,6 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
 $__dart_deferred_initializers__.current=function(a,b,c,$){var C,D,B={
-bcH(d){switch(d.af(x.h).r.f.gcS()){case"en":return A.PA
+bcI(d){switch(d.af(x.h).r.f.gcS()){case"en":return A.PA
 case"es":return A.PB
 case"pt":default:return A.PC}},
 c1:function c1(d,e,f){this.a=d
@@ -10,7 +10,7 @@ avq:function avq(){},
 aMi:function aMi(){},
 aMg:function aMg(){},
 aMh:function aMh(){},
-bd8(d,e){return new B.pY(e,d,null)},
+bd9(d,e){return new B.pY(e,d,null)},
 pY:function pY(d,e,f){this.c=d
 this.d=e
 this.a=f},
@@ -43,7 +43,7 @@ gSX(){return"Nossa estrat\xe9gia t\xe9cnica conecta arquitetura, dados, experi\x
 gSY(){return"Fluxo integrado: base t\xe9cnica s\xf3lida -> dados confi\xe1veis -> experi\xeancia consistente -> opera\xe7\xe3o mensur\xe1vel. Assim, cada decis\xe3o refor\xe7a a pr\xf3xima etapa e mant\xe9m coer\xeancia entre discurso comercial e execu\xe7\xe3o de produto."},
 gUn(){return"Diferenciais do Portf\xf3lio"},
 gQ5(){return"Conceito aplicado:"},
-gtq(){return A.ab_}}
+gtr(){return A.ab_}}
 B.aMg.prototype={
 gf7(){return"Flutter technologies and Perfect Gest Dev core stack"},
 gT2(){return"Flutter stack and Perfect Gest Dev technologies"},
@@ -51,7 +51,7 @@ gSX(){return"Our technical strategy connects architecture, data, user experience
 gSY(){return"Integrated flow: solid technical foundation -> reliable data -> consistent experience -> measurable operations. Each decision reinforces the next and keeps commercial narrative aligned with product execution."},
 gUn(){return"Portfolio differentiators"},
 gQ5(){return"Applied concept:"},
-gtq(){return A.abI}}
+gtr(){return A.abI}}
 B.aMh.prototype={
 gf7(){return"Tecnologias Flutter y stack principal de Perfect Gest Dev"},
 gT2(){return"Stack Flutter y tecnologias de Perfect Gest Dev"},
@@ -59,7 +59,7 @@ gSX(){return"Nuestra estrategia tecnica conecta arquitectura, datos, experiencia
 gSY(){return"Flujo integrado: base tecnica solida -> datos fiables -> experiencia consistente -> operacion medible. Asi, cada decision refuerza la siguiente y mantiene coherencia entre discurso comercial y ejecucion de producto."},
 gUn(){return"Diferenciales del portafolio"},
 gQ5(){return"Concepto aplicado:"},
-gtq(){return A.abE}}
+gtr(){return A.abE}}
 B.pY.prototype={
 aa(){var w=null,v=x.z
 return new B.a9k(C.xY(0,w,w),new C.b2(w,v),new C.b2(w,v),new C.b2(w,v),new C.b2(w,v))}}
@@ -83,7 +83,7 @@ if(u==null)return
 C.ati(u,0.24,D.pz,D.dH,D.tH)},
 B(d){var w,v,u,t,s,r,q,p,o,n,m,l=this,k=null,j=C.w(d).ax,i=C.aK(d,D.ac,x.x).w.a.a<400,h=i?16:24,g=C.bP(d,D.aS,x.F)
 g.toString
-w=B.bcH(d)
+w=B.bcI(d)
 C.w(d)
 v=[l.e,l.f,l.r,l.w]
 u=w.gf7()
@@ -98,11 +98,11 @@ l.a.toString
 s=C.acT(n,s,r,D.r,p)
 r=w.gT2()
 r=C.b([C.l(r,k,k,k,k,C.b9().$4$color$fontSize$fontWeight$height(q,i?22:26,D.V,1.2),k,k,k),D.as,C.l(w.gSX(),k,k,k,k,C.b9().$3$color$fontSize$height(q.ah(0.82),14,1.5),k,k,k),D.F,C.l(w.gSY(),k,k,k,k,C.b9().$3$color$fontSize$height(q.ah(0.8),13.6,1.5),k,k,k),D.cd,C.l(w.gUn(),k,k,k,k,C.b9().$3$color$fontSize$fontWeight(q,18,D.V),k,k,k),D.as],o)
-for(m=0;w.gtq(),m<15;++m){i=C.b([],o)
+for(m=0;w.gtr(),m<15;++m){i=C.b([],o)
 if(m===4)i.push(D.F)
 q=m<4?v[m]:k
 p=w.gQ5()
-i.push(new B.a9j(w.gtq()[m].a,w.gtq()[m].b,w.gtq()[m].c,p,q))
+i.push(new B.a9j(w.gtr()[m].a,w.gtr()[m].b,w.gtr()[m].c,p,q))
 D.b.S(r,i)}return C.aA(k,k,k,C.hH(s,t,new C.jD(C.eC(C.de(new C.cu(A.NJ,C.as(r,D.C,D.j,D.m),k),k,k),l.d,new C.V(h,16,h,28),D.Y),k),k,k,k,k),!1,k,k,!1,k,!1,k,k,k,k,k,k,k,k,u,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,D.p,k)}}
 B.a9j.prototype={
 B(d){var w,v,u,t,s,r=this,q=null,p=C.w(d).ax,o=p.RG
@@ -189,4 +189,4 @@ A.aoy=new B.c1("Analytics and consent (GA4)","Measurement with Google Analytics 
 A.aoo=new B.c1("Clean architecture and maintenance","We prioritize organized code, reusable components and separation of concerns to support continuous product evolution, fewer bugs and lower maintenance cost.","Practical example: a new subscription feature is added by reusing components and reducing QA effort.")
 A.ao9=new B.c1("HTTP integrations and external services","We integrate external APIs and data services for real business flows, including back-end endpoints and observability services, ensuring operational reliability and metric-driven evolution.","Practical example: we monitor API latency and errors in production to act before customers are impacted.")
 A.abI=w([A.aod,A.anZ,A.aok,A.aoi,A.ao0,A.aob,A.aon,A.aof,A.ao7,A.aou,A.aov,A.aol,A.aoy,A.aoo,A.ao9],x.c)})()};
-(a=>{a["Tay9u7gBttcXhobRndlbz7WHLvQ="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["LxcRrZiH5jb8ezAqiVrqPk8pVSM="]=a.current})($__dart_deferred_initializers__);

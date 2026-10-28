@@ -130,7 +130,7 @@ const double kOrcamentoFatiaMaterialPadrao = 60;
 const double kOrcamentoFatiaMaoObraPadrao = 40;
 
 /// Versão visível no rodapé de /orcamento (confirmar se o browser recebeu o build).
-const String kOrcamentoFerramentaVersao = '1.1.9';
+const String kOrcamentoFerramentaVersao = '1.1.11';
 
 const double kOrcamentoPctMaoObraPadrao = 15;
 const double kLimitePortaGiroLarguraMm = 900;
@@ -140,7 +140,7 @@ const String kObsLimitePortaGiro = 'Limite de medida 900 x 2100. Acima disso: co
 const String kObsInstalacaoAcima35 = 'Instalação acima de 3,5 m²: consultar fabricante.';
 const String kObsLimiteBoxBanheiro = 'Medida mais alta que 1900 consultar o fabricante.';
 const String kOrcamentoObsRegrasMaoInstalacao =
-    'Obs.: Instalação (espuma de fixação): até 1,5 m² R\$ 40,00; de 1,5 a 2,5 m² R\$ 80,00; de 2,5 a 3,5 m² R\$ 120,00. Acima de 3,5 m² consultar fabricante.';
+    'Obs.: Instalação (Silicone + espuma de fixação): até 1,5 m² R\$ 40,00; de 1,5 a 2,5 m² R\$ 80,00; de 2,5 a 3,5 m² R\$ 120,00. Acima de 3,5 m² consultar fabricante.';
 
 double instalacaoPorArea(double area) {
   if (area <= 1.5) return 40;
@@ -638,6 +638,7 @@ String orcamentoToPrintHtml({
   required DateTime data,
 }) {
   final total = itens.fold<double>(0, (s, e) => s + e.total);
+  final totalComissao = itens.fold<double>(0, (s, e) => s + e.comissao);
   final linhas = StringBuffer();
   if (itens.isEmpty) {
     linhas.writeln(
@@ -699,6 +700,7 @@ String orcamentoToPrintHtml({
   .totais { margin-top: 14px; display: flex; justify-content: flex-end; }
   .totais div { border: 1px solid #D4AF37; background: #F7F7F7; padding: 10px 16px; min-width: 220px; }
   .totais strong { font-size: 16px; }
+  .comissao-pdf { margin-top: 8px; text-align: right; font-weight: 700; font-size: 6.5px; }
   footer.tool { margin-top: 28px; border-top: 1px solid #A8A8A8; padding-top: 8px; color: #555; font-size: 10px; text-align: center; }
   @media print { .noprint { display: none !important; } body { background: #fff; } }
 </style>
@@ -734,6 +736,7 @@ String orcamentoToPrintHtml({
       ${linhas.toString()}
   </table>
   <div class="totais"><div>Total do orçamento<br><strong>${formatBrl(total)}</strong></div></div>
+  <div class="comissao-pdf gold">Comissão: ${formatBrl(totalComissao)}</div>
   <footer class="tool">
     © Todos os Direitos Reservados PerfectGestDev 2026 ·Divisão ferramentas Digitais·.<br>
     

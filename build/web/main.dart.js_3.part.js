@@ -1,6 +1,6 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
 $__dart_deferred_initializers__.current=function(a,b,c,$){var B,D,A={Pj:function Pj(d){this.a=d},
-aZW(d){switch(d.af(y.h).r.f.gcS()){case"en":return C.Px
+aZX(d){switch(d.af(y.h).r.f.gcS()){case"en":return C.Px
 case"es":return C.Py
 case"pt":default:return C.Pz}},
 avp:function avp(){},
@@ -12,7 +12,7 @@ D=c[2]
 A=a.updateHolder(c[10],A)
 C=c[15]
 A.Pj.prototype={
-B(d){var x,w=null,v=B.w(d),u=A.aZW(d)
+B(d){var x,w=null,v=B.w(d),u=A.aZX(d)
 v=v.ax.k3
 x=B.b9().$3$color$fontSize$height(v.ah(0.72),11.5,1.4)
 return B.as(B.b([B.l("PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA",w,w,w,w,B.b9().$4$color$fontSize$fontWeight$height(v.ah(0.85),12,D.a0,1.3),w,w,w),D.d8,B.l(u.gRL()+" 66.889.409/0001-19",w,w,w,w,x,w,w,w),D.mi,B.l(u.gRO()+" +55 51 989045442",w,w,w,w,x,w,w,w),D.mi,B.l("Caxias do Sul \u2014 RS \u2014 Brasil",w,w,w,w,x,w,w,w)],y.e),D.C,D.j,D.m)}}
@@ -22,7 +22,7 @@ gf7(){return"Etica e compliance Perfect Gest Dev"},
 giE(){return"\xc9tica e Compliance"},
 giG(){return"Perfect Gest Dev"},
 gln(){return"\xc9tica, conformidade e devolu\xe7\xf5es (site vitrine)"},
-rB(d){return"\xdaltima atualiza\xe7\xe3o: documento institucional. Para solicitar reembolso, cancelamento ou esclarecimentos sobre o produto PerfectGest, contacte: "+d+"."},
+rC(d){return"\xdaltima atualiza\xe7\xe3o: documento institucional. Para solicitar reembolso, cancelamento ou esclarecimentos sobre o produto PerfectGest, contacte: "+d+"."},
 gpK(){return"1. Escopo (site vitrine)"},
 gpJ(){return"Este site \xe9 a vitrine institucional de Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA), em https://perfectgestdev.com. As vendas e pagamentos do produto PerfectGest n\xe3o s\xe3o processados neste site \u2014 ocorrem no canal de distribui\xe7\xe3o oficial do produto ou por acordo comercial directo connosco. Publicamos esta pol\xedtica em favor da transpar\xeancia com o nosso p\xfablico e utilizadores."},
 gpM(){return"2. Direito de arrependimento (Brasil)"},
@@ -38,7 +38,7 @@ gf7(){return"Ethics and compliance Perfect Gest Dev"},
 giE(){return"Ethics & Compliance"},
 giG(){return"Perfect Gest Dev"},
 gln(){return"Ethics, compliance and returns (showcase website)"},
-rB(d){return"Last updated: institutional document. To request a refund, cancellation, or clarification about PerfectGest, contact: "+d+"."},
+rC(d){return"Last updated: institutional document. To request a refund, cancellation, or clarification about PerfectGest, contact: "+d+"."},
 gpK(){return"1. Scope (showcase website)"},
 gpJ(){return"This website is the institutional showcase of Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA) at https://perfectgestdev.com. Sales and payments for PerfectGest are not processed on this site \u2014 they happen through the product's official distribution channel or a direct commercial agreement with us. We publish this policy for transparency with our audience and users."},
 gpM(){return"2. Consumer withdrawal (Brazil)"},
@@ -54,7 +54,7 @@ gf7(){return"Etica y cumplimiento Perfect Gest Dev"},
 giE(){return"\xc9tica y cumplimiento"},
 giG(){return"Perfect Gest Dev"},
 gln(){return"\xc9tica, cumplimiento y devoluciones (sitio vitrina)"},
-rB(d){return"\xdaltima actualizaci\xf3n: documento institucional. Para solicitar reembolso, cancelaci\xf3n o aclaraciones sobre PerfectGest, contacte: "+d+"."},
+rC(d){return"\xdaltima actualizaci\xf3n: documento institucional. Para solicitar reembolso, cancelaci\xf3n o aclaraciones sobre PerfectGest, contacte: "+d+"."},
 gpK(){return"1. Alcance (sitio vitrina)"},
 gpJ(){return"Este sitio es la vitrina institucional de Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA), en https://perfectgestdev.com. Las ventas y pagos del producto PerfectGest no se procesan en este sitio \u2014 ocurren en el canal de distribuci\xf3n oficial del producto o por acuerdo comercial directo con nosotros. Publicamos esta pol\xedtica en favor de la transparencia con nuestro p\xfablico y usuarios."},
 gpM(){return"2. Derecho de desistimiento (Brasil)"},
@@ -75,4 +75,4 @@ C.Py=new A.aMe()
 C.Pz=new A.aMf()
 C.tm=new A.Pj(null)
 C.Li=new B.cE(null,60,null,null)})()};
-(a=>{a["Abi3xpL94/bDoYEjM9y+9aoz7jE="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["BGSEwzng67uebaDcVH4I9HJA4Uc="]=a.current})($__dart_deferred_initializers__);

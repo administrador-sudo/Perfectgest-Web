@@ -2,6 +2,37 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-28 19:01] /orcamento: letra da comissão no PDF 50% menor
+
+### Contexto
+
+- PDF: .comissao-pdf de 13px para 6,5px. V 1.1.11.
+
+### Arquivos alterados
+
+- lib/orcamento_models.dart
+- docs/Atualiza.md
+
+### Pendente / Proximo passo
+
+- Sem publish. Confirmar no telemóvel V 1.1.11.
+
+## [2026-10-28 18:59] /orcamento: comissão abaixo do total no PDF
+
+### Contexto
+
+- PDF: linha dourada «Comissão: R$ …» abaixo do quadro Total do orçamento (soma das aberturas, inclusive R$ 0,00). V 1.1.10.
+
+### Arquivos alterados
+
+- lib/orcamento_models.dart
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+
+### Pendente / Proximo passo
+
+- Sem publish. Confirmar no telemóvel V 1.1.10.
+
 ## [2026-10-28 18:36] /orcamento: comissão sobre o total do produto
 
 ### Contexto

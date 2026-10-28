@@ -1,6 +1,6 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
 $__dart_deferred_initializers__.current=function(a,b,c,$){var C,D,E,F,G,B={
-b7w(d){return new B.oF(d,null)},
+b7x(d){return new B.oF(d,null)},
 oF:function oF(d,e){this.c=d
 this.a=e},
 a2k:function a2k(){this.c=this.a=null},
@@ -12,7 +12,7 @@ _.d=g},
 a3Q:function a3Q(d,e){this.c=d
 this.a=e},
 aDV:function aDV(d){this.a=d},
-bcE(d){switch(d.af(y.h).r.f.gcS()){case"en":return A.Pl
+bcF(d){switch(d.af(y.h).r.f.gcS()){case"en":return A.Pl
 case"es":return A.Pm
 case"pt":default:return A.Pn}},
 lP:function lP(d,e){this.a=d
@@ -46,8 +46,8 @@ C.cJ("og:locale","pt_BR")
 b.G.document.title="Perguntas e respostas | ContabilGest"},
 l(){C.qB()
 this.aA()},
-B(d){var x=null,w=C.w(d),v=C.aK(d,D.ac,y.x).w.a.a,u=v<400?16:24,t=B.bcE(d),s=t.gf7(),r=C.w(d).ax.a===D.J?D.bO:D.bz,q=t.giE()
-return C.aA(x,x,x,C.hH(F.aRk(d,x,this.a.c,q),r,new C.jD(C.kk(new B.aBc(u,t,w.ax,v)),x),x,x,x,x),!1,x,x,!1,x,!1,x,x,x,x,x,x,x,x,s,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,D.p,x)}}
+B(d){var x=null,w=C.w(d),v=C.aK(d,D.ac,y.x).w.a.a,u=v<400?16:24,t=B.bcF(d),s=t.gf7(),r=C.w(d).ax.a===D.J?D.bO:D.bz,q=t.giE()
+return C.aA(x,x,x,C.hH(F.aRl(d,x,this.a.c,q),r,new C.jD(C.kk(new B.aBc(u,t,w.ax,v)),x),x,x,x,x),!1,x,x,!1,x,!1,x,x,x,x,x,x,x,x,s,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,D.p,x)}}
 B.a3Q.prototype={
 B(d){var x,w,v,u,t,s,r,q,p,o,n=null,m=C.w(d).ax,l=C.aK(d,D.ac,y.x).w.a.a,k=l<400?12:16,j=this.c,i=j.a,h=m.RG
 h=(h==null?m.k2:h).ah(0.5)
@@ -108,10 +108,10 @@ r.push(E.tm)
 r.push(D.ep)
 p=C.bP(d,D.aS,y.F)
 p.toString
-r.push(C.l(p.ut(C.b7(new C.ch(Date.now(),0,!1))),n,n,n,n,C.b9().$3$color$fontSize$fontWeight(u.ah(0.7),12,D.a_),n,n,n))
+r.push(C.l(p.uu(C.b7(new C.ch(Date.now(),0,!1))),n,n,n,n,C.b9().$3$color$fontSize$fontWeight(u.ah(0.7),12,D.a_),n,n,n))
 r.push(E.Li)
 return C.eC(C.de(new C.cu(new C.a3(0,x,0,1/0),C.as(r,D.C,D.j,D.m),n),n,n),n,new C.V(w,16,w,28),D.Y)},
-$S:138}
+$S:139}
 B.aDV.prototype={
 $0(){return C.it(C.d3(this.a.b,0,null),D.cB,"_blank")},
 $S:0};(function inheritance(){var x=a.inherit,w=a.inheritMany
@@ -187,4 +187,4 @@ A.amO=new B.bX("Como altero meu plano (faixa, downgrade ou extras como folha e I
 A.aml=new B.bX("O app avisa antes da renova\xe7\xe3o?","Quando a Play informar a data do ciclo da assinatura do aplicativo, o app pode avisar at\xe9 30 dias antes. Sem data da Play, n\xe3o h\xe1 prazo inventado \u2014 consulte Play \u2192 Assinaturas. Honor\xe1rios e plano cont\xe1bil: com o escrit\xf3rio.",A.a3)
 A.amb=new B.bX("A assinatura da Play j\xe1 libera tudo?","N\xe3o. A Play libera o acesso ao aplicativo. Para sincroniza\xe7\xe3o, envio de dados ao escrit\xf3rio e fun\xe7\xf5es online, contacte o escrit\xf3rio depois de assinar. Sem habilita\xe7\xe3o, voc\xea entra no app, mas sem envio ao CRC e sem contato com o escrit\xf3rio.",A.a3)
 A.aco=x([A.amr,A.amz,A.amd,A.amG,A.ama,A.amf,A.ams,A.amw,A.amH,A.amM,A.amq,A.amm,A.amp,A.amO,A.aml,A.amb],y.a)})()};
-(a=>{a["J4C7kmkABKs/verjZDiZBfJRWoo="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["iydAMoP+1D2xcYu6GJhr6V8+DS8="]=a.current})($__dart_deferred_initializers__);
