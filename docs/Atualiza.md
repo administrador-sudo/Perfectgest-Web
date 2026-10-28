@@ -2,6 +2,23 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-28 18:04] /orcamento: mm sem ponto e alertas no pop
+
+### Contexto
+
+- Altura/largura em mm sem milhar (1900, não 1.900). Alertas de limite visíveis no pop abaixo das medidas. V 1.1.7.
+
+### Arquivos alterados
+
+- lib/orcamento_models.dart
+- lib/orcamento_item_pop.dart
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+
+### Pendente / Proximo passo
+
+- Sem publish. Confirmar no telemóvel V 1.1.7.
+
 ## [2026-10-28 17:37] /orcamento: Box de banheiro altura 1,90 m
 
 ### Contexto

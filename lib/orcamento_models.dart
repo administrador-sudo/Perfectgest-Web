@@ -128,7 +128,7 @@ const double kOrcamentoFatiaMaterialPadrao = 60;
 const double kOrcamentoFatiaMaoObraPadrao = 40;
 
 /// Versão visível no rodapé de /orcamento (confirmar se o browser recebeu o build).
-const String kOrcamentoFerramentaVersao = '1.1.6';
+const String kOrcamentoFerramentaVersao = '1.1.7';
 
 const double kOrcamentoPctMaoObraPadrao = 15;
 const double kLimitePortaGiroLarguraMm = 900;
@@ -136,7 +136,7 @@ const double kLimitePortaGiroAlturaMm = 2100;
 const double kBoxBanheiroAlturaPadraoMm = 1900;
 const String kObsLimitePortaGiro = 'Limite de medida 900 x 2100. Acima disso: consultar fabricante.';
 const String kObsInstalacaoAcima35 = 'Instalação acima de 3,5 m²: consultar fabricante.';
-const String kObsLimiteBoxBanheiro = 'Consultar o fabricante, sistema engenharia, sob medida.';
+const String kObsLimiteBoxBanheiro = 'Medida mais alta que 1900 consultar o fabricante.';
 const String kOrcamentoObsRegrasMaoInstalacao =
     'Obs.: Instalação (espuma de fixação): até 1,5 m² R\$ 40,00; de 1,5 a 2,5 m² R\$ 80,00; de 2,5 a 3,5 m² R\$ 120,00. Acima de 3,5 m² consultar fabricante.';
 
@@ -555,6 +555,18 @@ double parsePtBrDouble(String raw) {
     t = t.replaceAll('.', '').replaceAll(',', '.');
   }
   return double.tryParse(t) ?? 0;
+}
+
+double parseMm(String raw) {
+  var t = raw.trim().replaceAll(' ', '').replaceAll('.', '');
+  if (t.isEmpty) return 0;
+  if (t.contains(',')) t = t.replaceAll(',', '.');
+  return double.tryParse(t) ?? 0;
+}
+
+String formatMm(double v) {
+  if (v == 0) return '';
+  return v.round().abs().toString();
 }
 
 String formatPtBrNumber(double v, {int casas = 2}) {

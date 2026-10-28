@@ -44,8 +44,8 @@ class _OrcamentoItemPopState extends State<_OrcamentoItemPop> {
     super.initState();
     final it = widget.item;
     _m2Manual = it.areaM2Override != null;
-    _largura = TextEditingController(text: _n(it.larguraMm, 0));
-    _altura = TextEditingController(text: _n(it.alturaMm, 0));
+    _largura = TextEditingController(text: formatMm(it.larguraMm));
+    _altura = TextEditingController(text: formatMm(it.alturaMm));
     _m2 = TextEditingController(text: _n(it.area, 3));
     _cor = TextEditingController(text: it.cor);
     _modelo = TextEditingController(text: it.modelo);
@@ -78,7 +78,7 @@ class _OrcamentoItemPopState extends State<_OrcamentoItemPop> {
   void _syncFixos() {
     final area = _m2Manual
         ? parsePtBrDouble(_m2.text)
-        : (parsePtBrDouble(_largura.text) / 1000.0) * (parsePtBrDouble(_altura.text) / 1000.0);
+        : (parseMm(_largura.text) / 1000.0) * (parseMm(_altura.text) / 1000.0);
     _mao.text = formatPtBrNumber(kOrcamentoPctMaoObraPadrao, casas: 1);
     _instalacao.text = formatPtBrNumber(instalacaoPorArea(area));
   }
@@ -89,8 +89,8 @@ class _OrcamentoItemPopState extends State<_OrcamentoItemPop> {
       _tick();
       return;
     }
-    final l = parsePtBrDouble(_largura.text);
-    final a = parsePtBrDouble(_altura.text);
+    final l = parseMm(_largura.text);
+    final a = parseMm(_altura.text);
     final area = (l / 1000.0) * (a / 1000.0);
     _m2.value = TextEditingValue(
       text: area == 0 ? '' : formatPtBrNumber(area, casas: 3),
@@ -103,10 +103,10 @@ class _OrcamentoItemPopState extends State<_OrcamentoItemPop> {
   OrcamentoItem _preview() {
     final area = _m2Manual
         ? parsePtBrDouble(_m2.text)
-        : (parsePtBrDouble(_largura.text) / 1000.0) * (parsePtBrDouble(_altura.text) / 1000.0);
+        : (parseMm(_largura.text) / 1000.0) * (parseMm(_altura.text) / 1000.0);
     final base = widget.item.copyWith(
-      larguraMm: parsePtBrDouble(_largura.text),
-      alturaMm: parsePtBrDouble(_altura.text),
+      larguraMm: parseMm(_largura.text),
+      alturaMm: parseMm(_altura.text),
       areaM2Override: _m2Manual ? parsePtBrDouble(_m2.text) : null,
       clearAreaOverride: !_m2Manual,
       cor: _cor.text.trim(),
@@ -301,6 +301,38 @@ class _OrcamentoItemPopState extends State<_OrcamentoItemPop> {
                     )),
                   ],
                 ),
+                if (ultrapassaLimitePortaGiro(prev) ||
+                    ultrapassaInstalacao35(prev) ||
+                    ultrapassaLimiteBoxBanheiro(prev)) ...[
+                  const SizedBox(height: 10),
+                  if (ultrapassaLimiteBoxBanheiro(prev))
+                    const Text(
+                      kObsLimiteBoxBanheiro,
+                      style: TextStyle(
+                        color: BrandPalette.goldReadableLight,
+                        fontWeight: FontWeight.w800,
+                        fontSize: 13,
+                      ),
+                    ),
+                  if (ultrapassaLimitePortaGiro(prev))
+                    const Text(
+                      kObsLimitePortaGiro,
+                      style: TextStyle(
+                        color: BrandPalette.goldReadableLight,
+                        fontWeight: FontWeight.w800,
+                        fontSize: 13,
+                      ),
+                    ),
+                  if (ultrapassaInstalacao35(prev))
+                    const Text(
+                      kObsInstalacaoAcima35,
+                      style: TextStyle(
+                        color: BrandPalette.goldReadableLight,
+                        fontWeight: FontWeight.w800,
+                        fontSize: 13,
+                      ),
+                    ),
+                ],
                 const SizedBox(height: 10),
                 TextField(
                   controller: _obs,
