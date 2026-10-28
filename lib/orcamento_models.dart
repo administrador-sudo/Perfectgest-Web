@@ -130,7 +130,7 @@ const double kOrcamentoFatiaMaterialPadrao = 60;
 const double kOrcamentoFatiaMaoObraPadrao = 40;
 
 /// Versão visível no rodapé de /orcamento (confirmar se o browser recebeu o build).
-const String kOrcamentoFerramentaVersao = '1.1.8';
+const String kOrcamentoFerramentaVersao = '1.1.9';
 
 const double kOrcamentoPctMaoObraPadrao = 15;
 const double kLimitePortaGiroLarguraMm = 900;
@@ -343,8 +343,6 @@ class OrcamentoItem {
 
   double get maoObra => material * kOrcamentoPctMaoObraPadrao / 100.0;
 
-  double get comissao => (material + maoObra) * pctComissao / 100.0;
-
   String get vidroIdEfetivo => vidroPorId(vidroId)?.id ?? kVidroPadraoId;
 
   double get areaVidro => area * kOrcamentoDescontoAreaVidro;
@@ -355,9 +353,15 @@ class OrcamentoItem {
 
   double get instalacaoEfetiva => instalacaoPorArea(area);
 
-  double get totalSemVidro => material + maoObra + comissao + instalacaoEfetiva;
+  double get baseProduto => material + maoObra + valorVidro + instalacaoEfetiva;
 
-  double get total => totalSemVidro + valorVidro;
+  double get comissao => baseProduto * pctComissao / 100.0;
+
+  double get valorFabricacao => material + maoObra + comissao;
+
+  double get totalSemVidro => valorFabricacao + instalacaoEfetiva;
+
+  double get total => baseProduto + comissao;
 
   OrcamentoItem copyWith({
     String? id,
@@ -655,7 +659,7 @@ String orcamentoToPrintHtml({
   <td>${htmlEsc(it.nome)}$sub</td>
   <td>$medidas</td>
   <td>${formatPtBrNumber(it.area, casas: 3)} m²</td>
-  <td class="num">${formatBrl(it.totalSemVidro)}</td>
+  <td class="num">${formatBrl(it.valorFabricacao)}</td>
   <td class="num">${formatBrl(it.valorVidro)}</td>
   <td class="num">${it.instalacaoEfetiva > 0 ? formatBrl(it.instalacaoEfetiva) : ''}</td>
   <td class="num">${formatBrl(it.total)}</td>

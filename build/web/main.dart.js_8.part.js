@@ -58,7 +58,7 @@ if(w==null)w=m.k3}w=C.dY(w.ah(0.4),1)
 v=l<360
 u=v?15:16
 t=m.b
-u=C.l(i,n,n,n,n,C.b9().$3$color$fontSize$fontWeight(t,u,D.a2),n,n,n)
+u=C.l(i,n,n,n,n,C.b9().$3$color$fontSize$fontWeight(t,u,D.a0),n,n,n)
 s=v?13:14
 r=y.u
 s=C.b([u,D.as,C.l(j.b,n,n,n,n,C.b9().$3$color$fontSize$height(m.k3.ah(0.88),s,1.55),n,n,n)],r)
@@ -75,19 +75,19 @@ B.aLS.prototype={
 gf7(){return"Perguntas e respostas PerfectGest ContabilGest"},
 giE(){return"Perguntas e respostas"},
 giG(){return"PerfectGest ContabilGest"},
-glm(){return"Perguntas e respostas sobre o Aplicativo"},
+gln(){return"Perguntas e respostas sobre o Aplicativo"},
 gTn(){return A.aco}}
 B.aLQ.prototype={
 gf7(){return"Questions and answers PerfectGest ContabilGest"},
 giE(){return"Questions and answers"},
 giG(){return"PerfectGest ContabilGest"},
-glm(){return"Questions and answers about the App"},
+gln(){return"Questions and answers about the App"},
 gTn(){return A.aaX}}
 B.aLR.prototype={
 gf7(){return"Preguntas y respuestas PerfectGest ContabilGest"},
 giE(){return"Preguntas y respuestas"},
 giG(){return"PerfectGest ContabilGest"},
-glm(){return"Preguntas y respuestas sobre la Aplicaci\xf3n"},
+gln(){return"Preguntas y respuestas sobre la Aplicaci\xf3n"},
 gTn(){return A.a4P}}
 var z=a.updateTypes([])
 B.aBc.prototype={
@@ -97,8 +97,8 @@ x=D.d.dA(m<720?m:720,200,720)
 w=o.a
 v=o.b
 u=o.c
-t=C.l(v.giG(),n,n,n,n,C.b9().$4$color$fontSize$fontWeight$letterSpacing(u.b,13,D.a2,0.4),n,n,n)
-s=v.glm()
+t=C.l(v.giG(),n,n,n,n,C.b9().$4$color$fontSize$fontWeight$letterSpacing(u.b,13,D.a0,0.4),n,n,n)
+s=v.gln()
 r=o.d<400?18:22
 u=u.k3
 r=C.b([t,D.ai,C.l(s,n,n,n,n,C.b9().$4$color$fontSize$fontWeight$height(u,r,D.V,1.2),n,n,n),D.fl],y.u)
@@ -187,4 +187,4 @@ A.amO=new B.bX("Como altero meu plano (faixa, downgrade ou extras como folha e I
 A.aml=new B.bX("O app avisa antes da renova\xe7\xe3o?","Quando a Play informar a data do ciclo da assinatura do aplicativo, o app pode avisar at\xe9 30 dias antes. Sem data da Play, n\xe3o h\xe1 prazo inventado \u2014 consulte Play \u2192 Assinaturas. Honor\xe1rios e plano cont\xe1bil: com o escrit\xf3rio.",A.a3)
 A.amb=new B.bX("A assinatura da Play j\xe1 libera tudo?","N\xe3o. A Play libera o acesso ao aplicativo. Para sincroniza\xe7\xe3o, envio de dados ao escrit\xf3rio e fun\xe7\xf5es online, contacte o escrit\xf3rio depois de assinar. Sem habilita\xe7\xe3o, voc\xea entra no app, mas sem envio ao CRC e sem contato com o escrit\xf3rio.",A.a3)
 A.aco=x([A.amr,A.amz,A.amd,A.amG,A.ama,A.amf,A.ams,A.amw,A.amH,A.amM,A.amq,A.amm,A.amp,A.amO,A.aml,A.amb],y.a)})()};
-(a=>{a["Ys8NuPLQVAXDe6PvwXXVLOgHLuM="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["J4C7kmkABKs/verjZDiZBfJRWoo="]=a.current})($__dart_deferred_initializers__);

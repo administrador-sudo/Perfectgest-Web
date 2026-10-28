@@ -190,10 +190,16 @@ class _OrcamentoItemPopState extends State<_OrcamentoItemPop> {
     super.dispose();
   }
 
-  InputDecoration _dec(String label) {
+  InputDecoration _dec(String label, {String? helper}) {
     return InputDecoration(
       labelText: label,
       labelStyle: const TextStyle(color: BrandPalette.charcoal, fontSize: 13),
+      helperText: helper,
+      helperStyle: const TextStyle(
+        color: BrandPalette.goldWarm,
+        fontWeight: FontWeight.w700,
+        fontSize: 11,
+      ),
       filled: true,
       fillColor: BrandPalette.silverPeak,
       isDense: true,
@@ -275,11 +281,11 @@ class _OrcamentoItemPopState extends State<_OrcamentoItemPop> {
                     _w(130, TextField(
                       controller: _mao,
                       readOnly: true,
-                      decoration: _dec('% mão de obra'),
+                      decoration: _dec('% mão de obra', helper: formatBrl(prev.maoObra)),
                     )),
                     _w(130, TextField(
                       controller: _comissao,
-                      decoration: _dec('% comissão'),
+                      decoration: _dec('% comissão', helper: formatBrl(prev.comissao)),
                       keyboardType: const TextInputType.numberWithOptions(decimal: true),
                     )),
                     _w(170, TextField(

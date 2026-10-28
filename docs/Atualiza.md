@@ -2,6 +2,23 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-28 18:36] /orcamento: comissão sobre o total do produto
+
+### Contexto
+
+- Comissão = % sobre material + MO + vidro + instalação. R$ abaixo dos % no pop. PDF: comissão dentro de Valor de fabricação. V 1.1.9.
+
+### Arquivos alterados
+
+- lib/orcamento_models.dart
+- lib/orcamento_item_pop.dart
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+
+### Pendente / Proximo passo
+
+- Sem publish. Confirmar no telemóvel V 1.1.9.
+
 ## [2026-10-28 18:16] /orcamento: rótulos PDF e nota do Box no quadrinho
 
 ### Contexto

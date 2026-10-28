@@ -89,9 +89,9 @@ v=[l.e,l.f,l.r,l.w]
 u=w.gf7()
 t=C.w(d).ax.a===D.J?D.bO:D.bz
 s=(C.w(d).ax.a===D.J?D.bO:D.bz).ah(0.96)
-r=C.dU(!1,k,k,k,C.c7(D.kA,j.b,k,k),k,k,new B.aMK(d),k,k,k,g.gGT())
+r=C.dU(!1,k,k,k,C.c8(D.kA,j.b,k,k),k,k,new B.aMK(d),k,k,k,g.gGS())
 q=j.k3
-p=C.l(g.gHt(),k,k,k,k,C.b9().$2$color$fontWeight(q,D.a2),k,k,k)
+p=C.l(g.gHs(),k,k,k,k,C.b9().$2$color$fontWeight(q,D.a0),k,k,k)
 o=x.u
 n=C.b([],o)
 l.a.toString
@@ -113,7 +113,7 @@ if(v==null){v=p.p
 if(v==null)v=p.k3}v=C.dY(v.ah(0.35),1)
 u=p.b
 t=x.u
-s=C.b([C.l(r.c,q,q,q,q,C.b9().$3$color$fontSize$fontWeight(u,15.5,D.a2),q,q,q),D.ai,D.mi,C.l(r.f,q,q,q,q,C.b9().$4$color$fontSize$fontWeight$height(u.ah(0.9),12.8,D.a2,1.4),q,q,q),C.l(r.d,q,q,q,q,C.b9().$3$color$fontSize$height(p.k3.ah(0.84),12.8,1.45),q,q,q)],t)
+s=C.b([C.l(r.c,q,q,q,q,C.b9().$3$color$fontSize$fontWeight(u,15.5,D.a0),q,q,q),D.ai,D.mi,C.l(r.f,q,q,q,q,C.b9().$4$color$fontSize$fontWeight$height(u.ah(0.9),12.8,D.a0,1.4),q,q,q),C.l(r.d,q,q,q,q,C.b9().$3$color$fontSize$height(p.k3.ah(0.84),12.8,1.45),q,q,q)],t)
 D.b.S(s,C.b([D.F,C.l(r.e,q,q,q,q,C.b9().$4$color$fontSize$fontWeight$height(u.ah(0.92),12.8,D.a_,1.45),q,q,q)],t))
 return new C.a5(D.nK,C.cq(new C.a5(A.T3,C.as(s,D.C,D.j,D.m),q),new C.bo(o,q,v,w,q,q,D.I),D.a7),q)}}
 var z=a.updateTypes([])
@@ -189,4 +189,4 @@ A.aoy=new B.c1("Analytics and consent (GA4)","Measurement with Google Analytics 
 A.aoo=new B.c1("Clean architecture and maintenance","We prioritize organized code, reusable components and separation of concerns to support continuous product evolution, fewer bugs and lower maintenance cost.","Practical example: a new subscription feature is added by reusing components and reducing QA effort.")
 A.ao9=new B.c1("HTTP integrations and external services","We integrate external APIs and data services for real business flows, including back-end endpoints and observability services, ensuring operational reliability and metric-driven evolution.","Practical example: we monitor API latency and errors in production to act before customers are impacted.")
 A.abI=w([A.aod,A.anZ,A.aok,A.aoi,A.ao0,A.aob,A.aon,A.aof,A.ao7,A.aou,A.aov,A.aol,A.aoy,A.aoo,A.ao9],x.c)})()};
-(a=>{a["v8MGjdOzLGhAd7qWZP4PYEGAJYo="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["Tay9u7gBttcXhobRndlbz7WHLvQ="]=a.current})($__dart_deferred_initializers__);
