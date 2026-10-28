@@ -19,7 +19,8 @@ const String kGrupoJanelasCorrer = 'Janelas de correr';
 const String kGrupoJanelasIntegradas = 'Janelas integradas';
 const String kGrupoPortasIntegradas = 'Portas integradas / sacada';
 const String kGrupoPortasCorrerSacada = 'Portas de correr (Sacada)';
-const String kGrupoPortasGiro = 'Portas de giro';
+const String kGrupoPortasGiro =
+    'Portas de giro (Portas com medidas acima de 900 de largura e 2100 de altura consultar Fabricante)';
 const String kGrupoMaximOutros = 'Maxim-ar e outros';
 const String kGrupoFixos = 'Fixos';
 const String kGrupoTemperados = 'Temperados';
@@ -53,7 +54,7 @@ const List<OrcamentoCatalogTipo> kOrcamentoCatalogo = [
   OrcamentoCatalogTipo(id: 'porta_pivot_lambri_estreito', nome: 'Porta pivotante Lambri estreito', grupo: kGrupoPortasGiro, icon: Icons.rotate_right),
   OrcamentoCatalogTipo(id: 'porta_correr', nome: 'Porta de correr Interna/Externa lambri estreito (Trilho superior)', grupo: kGrupoPortasGiro, icon: Icons.sensor_door),
   OrcamentoCatalogTipo(id: 'porta_correr_int_ext_veneziana', nome: 'Porta de correr Interna/Externa Veneziana (Trilho superior)', grupo: kGrupoPortasGiro, icon: Icons.sensor_door),
-  OrcamentoCatalogTipo(id: 'maxim_ar', nome: 'Maxim-ar', grupo: kGrupoMaximOutros, icon: Icons.open_in_full),
+  OrcamentoCatalogTipo(id: 'maxim_ar', nome: 'Maxim-ar (Medidas limites: mínima 500 x 500 a máxima 1000 x 1000)', grupo: kGrupoMaximOutros, icon: Icons.open_in_full),
   OrcamentoCatalogTipo(id: 'maxim_ar_dupla', nome: 'Janela maxim-ar dupla', grupo: kGrupoMaximOutros, icon: Icons.open_in_full),
   OrcamentoCatalogTipo(id: 'basculante', nome: 'Maxim-ar tripla', grupo: kGrupoMaximOutros, icon: Icons.open_in_full),
   OrcamentoCatalogTipo(id: 'pivotante', nome: 'Maxim-ar Pivotante', grupo: kGrupoMaximOutros, icon: Icons.rotate_right),
@@ -125,7 +126,55 @@ const double kOrcamentoFatiaMaterialPadrao = 60;
 const double kOrcamentoFatiaMaoObraPadrao = 40;
 
 /// Versão visível no rodapé de /orcamento (confirmar se o browser recebeu o build).
-const String kOrcamentoFerramentaVersao = '1.1.1';
+const String kOrcamentoFerramentaVersao = '1.1.3';
+
+const double kOrcamentoPctMaoObraPadrao = 15;
+const double kLimitePortaGiroLarguraMm = 900;
+const double kLimitePortaGiroAlturaMm = 2100;
+const String kObsLimitePortaGiro = 'Limite de medida 900 x 2100. Acima disso: consultar fabricante.';
+const String kObsInstalacaoAcima35 = 'Instalação acima de 3,5 m²: consultar fabricante.';
+const String kOrcamentoObsRegrasMaoInstalacao =
+    'Obs.: Mão de obra 15% sobre o material. Instalação (espuma de fixação): até 1,5 m² R\$ 40,00; de 1,5 a 2,5 m² R\$ 80,00; de 2,5 a 3,5 m² R\$ 120,00. Acima de 3,5 m² consultar fabricante.';
+
+double instalacaoPorArea(double area) {
+  if (area <= 1.5) return 40;
+  if (area <= 2.5) return 80;
+  return 120;
+}
+
+bool ultrapassaInstalacao35(OrcamentoItem item) => item.area > 3.5;
+
+bool itemDoGrupoPortasGiro(String catalogId) =>
+    catalogoPorId(catalogId)?.grupo == kGrupoPortasGiro;
+
+bool ultrapassaLimitePortaGiro(OrcamentoItem item) {
+  if (!itemDoGrupoPortasGiro(item.catalogId)) return false;
+  return item.larguraMm > kLimitePortaGiroLarguraMm || item.alturaMm > kLimitePortaGiroAlturaMm;
+}
+
+String _obsSemFrasesAuto(String obs) {
+  return obs
+      .replaceAll(kObsLimitePortaGiro, '')
+      .replaceAll(kObsInstalacaoAcima35, '')
+      .replaceAll('Limite de medida 900 x 2100. Acima disso: Preço Especial.', '')
+      .replaceAll(RegExp(r'\n{2,}'), '\n')
+      .trim();
+}
+
+String obsComLimitePortaGiro(OrcamentoItem item, String obsUsuario) {
+  final limpa = _obsSemFrasesAuto(obsUsuario);
+  if (!ultrapassaLimitePortaGiro(item)) return limpa;
+  if (limpa.isEmpty) return kObsLimitePortaGiro;
+  return '$limpa\n$kObsLimitePortaGiro';
+}
+
+String obsComRegrasAbertura(OrcamentoItem item, String obsUsuario) {
+  final limpa = _obsSemFrasesAuto(obsUsuario);
+  final partes = <String>[if (limpa.isNotEmpty) limpa];
+  if (ultrapassaLimitePortaGiro(item)) partes.add(kObsLimitePortaGiro);
+  if (ultrapassaInstalacao35(item)) partes.add(kObsInstalacaoAcima35);
+  return partes.join('\n');
+}
 
 ({double material, double maoObra}) normalizarFatia(double fatiaMaterial) {
   var mat = fatiaMaterial;
@@ -277,7 +326,7 @@ class OrcamentoItem {
 
   double get material => area * precoM2;
 
-  double get maoObra => material * pctMaoObra / 100.0;
+  double get maoObra => material * kOrcamentoPctMaoObraPadrao / 100.0;
 
   double get comissao => (material + maoObra) * pctComissao / 100.0;
 
@@ -287,7 +336,9 @@ class OrcamentoItem {
 
   String get vidroNome => vidroPorId(vidroId)?.nome ?? '';
 
-  double get totalSemVidro => material + maoObra + comissao + instalacao;
+  double get instalacaoEfetiva => instalacaoPorArea(area);
+
+  double get totalSemVidro => material + maoObra + comissao + instalacaoEfetiva;
 
   double get total => totalSemVidro + valorVidro;
 
@@ -385,6 +436,8 @@ class OrcamentoItem {
       catalogId: tipo.id,
       nome: tipo.nome,
       precoM2: precoM2,
+      pctMaoObra: kOrcamentoPctMaoObraPadrao,
+      instalacao: instalacaoPorArea(0),
     );
   }
 }
@@ -558,7 +611,7 @@ String orcamentoToPrintHtml({
   <td>${formatPtBrNumber(it.area, casas: 3)} m²</td>
   <td class="num">${formatBrl(it.totalSemVidro)}</td>
   <td class="num">${formatBrl(it.valorVidro)}</td>
-  <td class="num">${it.instalacao > 0 ? formatBrl(it.instalacao) : ''}</td>
+  <td class="num">${it.instalacaoEfetiva > 0 ? formatBrl(it.instalacaoEfetiva) : ''}</td>
   <td class="num">${formatBrl(it.total)}</td>
 </tr>''');
       if (it.obs.trim().isNotEmpty) {

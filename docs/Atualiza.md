@@ -2,6 +2,42 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-28 16:08] /orcamento: mão de obra 15% e instalação por m²
+
+### Contexto
+
+- Mão de obra 15% sobre o material. Instalação 40/80/120 conforme m² (espuma). Acima de 3,5 m² e portas de giro fora de 900 x 2100: consultar fabricante. Obs abaixo de Aberturas disponíveis. V 1.1.3.
+
+### Arquivos alterados
+
+- lib/orcamento_models.dart
+- lib/orcamento_page.dart
+- lib/orcamento_item_pop.dart
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+
+### Pendente / Proximo passo
+
+- Sem publish. Confirmar no telemóvel V 1.1.3.
+
+## [2026-10-28 15:51] /orcamento: nomes, R$/m² no quadrinho e limite 900 x 2100
+
+### Contexto
+
+- Maxim-ar com medidas 500–1000. Título Portas de giro com aviso ao fabricante. R\$/m² dourado na base do quadrinho. Obs Preço Especial se porta de giro/pivotante > 900 x 2100. Rodapé V 1.1.2.
+
+### Arquivos alterados
+
+- lib/orcamento_models.dart
+- lib/orcamento_page.dart
+- lib/orcamento_item_pop.dart
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+
+### Pendente / Proximo passo
+
+- Sem publish. Confirmar no telemóvel V 1.1.2.
+
 ## [2026-10-27 17:54] /orcamento: toque no quadrinho, contador e V 1.1.1
 
 ### Contexto

@@ -738,7 +738,7 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
       maxCrossAxisExtent: estreito ? 176 : 210,
       mainAxisSpacing: 8,
       crossAxisSpacing: 8,
-      mainAxisExtent: estreito ? 156 : 172,
+      mainAxisExtent: estreito ? 174 : 190,
     );
     final corpo = fill
         ? CustomScrollView(
@@ -748,6 +748,13 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              const Padding(
+                padding: EdgeInsets.fromLTRB(12, 8, 12, 4),
+                child: Text(
+                  kOrcamentoObsRegrasMaoInstalacao,
+                  style: TextStyle(color: BrandPalette.charcoal, fontSize: 11, height: 1.35),
+                ),
+              ),
               for (final grupo in kOrcamentoGruposOrdenados) ...[
                 Padding(
                   padding: const EdgeInsets.fromLTRB(12, 10, 12, 4),
@@ -772,6 +779,7 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
                           tipo: tipo,
                           onAdd: () => _addFromCatalog(tipo),
                           quantidade: _itens.where((e) => e.catalogId == tipo.id).length,
+                          precoM2: parsePtBrDouble(_precoCtrls[tipo.id]?.text ?? ''),
                           toqueLongo: estreito,
                         ),
                     ],
@@ -790,6 +798,15 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
   List<Widget> _catalogoSlivers(SliverGridDelegate grid) {
     final estreito = _estreito(context);
     return [
+      const SliverToBoxAdapter(
+        child: Padding(
+          padding: EdgeInsets.fromLTRB(12, 8, 12, 4),
+          child: Text(
+            kOrcamentoObsRegrasMaoInstalacao,
+            style: TextStyle(color: BrandPalette.charcoal, fontSize: 11, height: 1.35),
+          ),
+        ),
+      ),
       for (final grupo in kOrcamentoGruposOrdenados) ...[
         SliverToBoxAdapter(
           child: Padding(
@@ -814,6 +831,7 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
                   tipo: tipo,
                   onAdd: () => _addFromCatalog(tipo),
                   quantidade: _itens.where((e) => e.catalogId == tipo.id).length,
+                  precoM2: parsePtBrDouble(_precoCtrls[tipo.id]?.text ?? ''),
                   toqueLongo: estreito,
                 ),
             ]),
@@ -1299,12 +1317,14 @@ class _CatalogCard extends StatefulWidget {
     required this.tipo,
     required this.onAdd,
     this.quantidade = 0,
+    this.precoM2 = 0,
     this.toqueLongo = false,
   });
 
   final OrcamentoCatalogTipo tipo;
   final VoidCallback onAdd;
   final int quantidade;
+  final double precoM2;
   final bool toqueLongo;
 
   @override
@@ -1321,7 +1341,7 @@ class _CatalogCardState extends State<_CatalogCard> {
 
   @override
   Widget build(BuildContext context) {
-    final h = widget.toqueLongo ? 156.0 : 172.0;
+    final h = widget.toqueLongo ? 174.0 : 190.0;
     final chip = _chip();
     return SizedBox(
       height: h,
@@ -1386,6 +1406,15 @@ class _CatalogCardState extends State<_CatalogCard> {
                             fontWeight: FontWeight.w600,
                             height: 1.25,
                           ),
+                        ),
+                      ),
+                      Text(
+                        '${formatBrl(widget.precoM2)}/m²',
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          color: BrandPalette.goldWarm,
+                          fontWeight: FontWeight.w800,
+                          fontSize: 12,
                         ),
                       ),
                     ],

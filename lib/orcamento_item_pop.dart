@@ -49,19 +49,21 @@ class _OrcamentoItemPopState extends State<_OrcamentoItemPop> {
     _m2 = TextEditingController(text: _n(it.area, 3));
     _cor = TextEditingController(text: it.cor);
     _modelo = TextEditingController(text: it.modelo);
-    _mao = TextEditingController(text: _n(it.pctMaoObra, 1));
+    _mao = TextEditingController(text: formatPtBrNumber(kOrcamentoPctMaoObraPadrao, casas: 1));
     _comissao = TextEditingController(text: _n(it.pctComissao, 1));
-    _instalacao = TextEditingController(text: _n(it.instalacao));
+    _instalacao = TextEditingController(text: formatPtBrNumber(instalacaoPorArea(it.area)));
     _obs = TextEditingController(text: it.obs);
     _vidroId = vidroPorId(it.vidroId)?.id ?? '';
     _largura.addListener(_recalcM2);
     _altura.addListener(_recalcM2);
-    _mao.addListener(_tick);
     _comissao.addListener(_tick);
-    _instalacao.addListener(_tick);
     _m2.addListener(() {
-      if (_m2Manual) _tick();
+      if (_m2Manual) {
+        _syncFixos();
+        _tick();
+      }
     });
+    _syncFixos();
   }
 
   String _n(double v, [int casas = 2]) {
@@ -73,8 +75,17 @@ class _OrcamentoItemPopState extends State<_OrcamentoItemPop> {
     if (mounted) setState(() {});
   }
 
+  void _syncFixos() {
+    final area = _m2Manual
+        ? parsePtBrDouble(_m2.text)
+        : (parsePtBrDouble(_largura.text) / 1000.0) * (parsePtBrDouble(_altura.text) / 1000.0);
+    _mao.text = formatPtBrNumber(kOrcamentoPctMaoObraPadrao, casas: 1);
+    _instalacao.text = formatPtBrNumber(instalacaoPorArea(area));
+  }
+
   void _recalcM2() {
     if (_m2Manual) {
+      _syncFixos();
       _tick();
       return;
     }
@@ -85,24 +96,29 @@ class _OrcamentoItemPopState extends State<_OrcamentoItemPop> {
       text: area == 0 ? '' : formatPtBrNumber(area, casas: 3),
       selection: TextSelection.collapsed(offset: (area == 0 ? '' : formatPtBrNumber(area, casas: 3)).length),
     );
+    _syncFixos();
     _tick();
   }
 
   OrcamentoItem _preview() {
-    return widget.item.copyWith(
+    final area = _m2Manual
+        ? parsePtBrDouble(_m2.text)
+        : (parsePtBrDouble(_largura.text) / 1000.0) * (parsePtBrDouble(_altura.text) / 1000.0);
+    final base = widget.item.copyWith(
       larguraMm: parsePtBrDouble(_largura.text),
       alturaMm: parsePtBrDouble(_altura.text),
       areaM2Override: _m2Manual ? parsePtBrDouble(_m2.text) : null,
       clearAreaOverride: !_m2Manual,
       cor: _cor.text.trim(),
       modelo: _modelo.text.trim(),
-      pctMaoObra: parsePtBrDouble(_mao.text),
+      pctMaoObra: kOrcamentoPctMaoObraPadrao,
       pctComissao: parsePtBrDouble(_comissao.text),
-      instalacao: parsePtBrDouble(_instalacao.text),
+      instalacao: instalacaoPorArea(area),
       obs: _obs.text.trim(),
       vidroId: _vidroId,
       precoM2Vidro: _vidroId.isEmpty ? 0 : (widget.precosVidro[_vidroId] ?? 0),
     );
+    return base.copyWith(obs: obsComRegrasAbertura(base, _obs.text.trim()));
   }
 
   String _rotuloVidro() {
@@ -262,8 +278,8 @@ class _OrcamentoItemPopState extends State<_OrcamentoItemPop> {
                     _w(180, TextField(controller: _modelo, decoration: _dec('Modelo'))),
                     _w(130, TextField(
                       controller: _mao,
+                      readOnly: true,
                       decoration: _dec('% mão de obra'),
-                      keyboardType: const TextInputType.numberWithOptions(decimal: true),
                     )),
                     _w(130, TextField(
                       controller: _comissao,
@@ -272,8 +288,8 @@ class _OrcamentoItemPopState extends State<_OrcamentoItemPop> {
                     )),
                     _w(170, TextField(
                       controller: _instalacao,
+                      readOnly: true,
                       decoration: _dec('Instalação (R\$)'),
-                      keyboardType: const TextInputType.numberWithOptions(decimal: true),
                     )),
                     _w(280, InkWell(
                       onTap: _abrirListaVidro,
@@ -314,7 +330,7 @@ class _OrcamentoItemPopState extends State<_OrcamentoItemPop> {
                           Text('Material ${formatBrl(prev.material)}'),
                           Text('Mão de obra ${formatBrl(prev.maoObra)}'),
                           Text('Comissão ${formatBrl(prev.comissao)}'),
-                          Text('Instalação ${formatBrl(prev.instalacao)}'),
+                          Text('Instalação ${formatBrl(prev.instalacaoEfetiva)}'),
                           if (prev.vidroId.isNotEmpty) ...[
                             Text(
                               'Vidro ${formatPtBrNumber(prev.areaVidro, casas: 3)} m² (−5%) · ${formatBrl(prev.precoM2Vidro)}/m²',
@@ -322,6 +338,27 @@ class _OrcamentoItemPopState extends State<_OrcamentoItemPop> {
                             Text('Valor do vidro ${formatBrl(prev.valorVidro)}'),
                           ] else
                             const Text('Vidro: sem vidro'),
+                          if (ultrapassaLimitePortaGiro(prev) || ultrapassaInstalacao35(prev)) ...[
+                            const SizedBox(height: 6),
+                            if (ultrapassaLimitePortaGiro(prev))
+                              const Text(
+                                kObsLimitePortaGiro,
+                                style: TextStyle(
+                                  color: BrandPalette.gold,
+                                  fontWeight: FontWeight.w800,
+                                  fontSize: 12,
+                                ),
+                              ),
+                            if (ultrapassaInstalacao35(prev))
+                              const Text(
+                                kObsInstalacaoAcima35,
+                                style: TextStyle(
+                                  color: BrandPalette.gold,
+                                  fontWeight: FontWeight.w800,
+                                  fontSize: 12,
+                                ),
+                              ),
+                          ],
                           const SizedBox(height: 4),
                           Text(
                             'Total da abertura ${formatBrl(prev.total)}',
