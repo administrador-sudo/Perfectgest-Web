@@ -1,6 +1,6 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
 $__dart_deferred_initializers__.current=function(a,b,c,$){var B,D,A={Pi:function Pi(d){this.a=d},
-aZU(d){switch(d.af(y.h).r.f.gcS()){case"en":return C.Pw
+aZV(d){switch(d.af(y.h).r.f.gcS()){case"en":return C.Pw
 case"es":return C.Px
 case"pt":default:return C.Py}},
 avm:function avm(){},
@@ -12,7 +12,7 @@ D=c[2]
 A=a.updateHolder(c[10],A)
 C=c[15]
 A.Pi.prototype={
-B(d){var x,w=null,v=B.w(d),u=A.aZU(d)
+B(d){var x,w=null,v=B.w(d),u=A.aZV(d)
 v=v.ax.k3
 x=B.b9().$3$color$fontSize$height(v.ah(0.72),11.5,1.4)
 return B.as(B.b([B.l("PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA",w,w,w,w,B.b9().$4$color$fontSize$fontWeight$height(v.ah(0.85),12,D.a2,1.3),w,w,w),D.d8,B.l(u.gRM()+" 66.889.409/0001-19",w,w,w,w,x,w,w,w),D.mh,B.l(u.gRP()+" +55 51 989045442",w,w,w,w,x,w,w,w),D.mh,B.l("Caxias do Sul \u2014 RS \u2014 Brasil",w,w,w,w,x,w,w,w)],y.e),D.C,D.j,D.m)}}
@@ -73,6 +73,6 @@ B.v5(b.typeUniverse,JSON.parse('{"Pi":{"X":[],"e":[]}}'))
 var y={e:B.a1("x<e>"),h:B.a1("m5")};(function constants(){C.Pw=new A.aMa()
 C.Px=new A.aMb()
 C.Py=new A.aMc()
-C.tk=new A.Pi(null)
-C.Lg=new B.cE(null,60,null,null)})()};
-(a=>{a["D9nNTuJeIx5coIAiT2qbyWdcc0g="]=a.current})($__dart_deferred_initializers__);
+C.tl=new A.Pi(null)
+C.Lh=new B.cE(null,60,null,null)})()};
+(a=>{a["m4UKnxSxIJT3IVIk+Mnmn9smpV4="]=a.current})($__dart_deferred_initializers__);

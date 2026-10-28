@@ -2,6 +2,23 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-28 17:37] /orcamento: Box de banheiro altura 1,90 m
+
+### Contexto
+
+- Box nasce com 1900 mm. Nome com altura padrão 1,90 m. Acima disso: consultar o fabricante, sistema engenharia, sob medida. V 1.1.6.
+
+### Arquivos alterados
+
+- lib/orcamento_models.dart
+- lib/orcamento_item_pop.dart
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+
+### Pendente / Proximo passo
+
+- Sem publish. Confirmar no telemóvel V 1.1.6.
+
 ## [2026-10-28 17:05] /orcamento: vidro incolor 4 mm padrão e diferença
 
 ### Contexto

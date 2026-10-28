@@ -1,6 +1,6 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
 $__dart_deferred_initializers__.current=function(a,b,c,$){var C,D,B={
-bcE(d){switch(d.af(x.h).r.f.gcS()){case"en":return A.Pz
+bcF(d){switch(d.af(x.h).r.f.gcS()){case"en":return A.Pz
 case"es":return A.PA
 case"pt":default:return A.PB}},
 c0:function c0(d,e,f){this.a=d
@@ -10,7 +10,7 @@ avn:function avn(){},
 aMf:function aMf(){},
 aMd:function aMd(){},
 aMe:function aMe(){},
-bd5(d,e){return new B.pY(e,d,null)},
+bd6(d,e){return new B.pY(e,d,null)},
 pY:function pY(d,e,f){this.c=d
 this.d=e
 this.a=f},
@@ -80,16 +80,16 @@ C.qB()
 this.aA()},
 axN(){var w=this,v=C.aw(["clean-arch",w.e,"seguranca",w.f,"escala",w.r,"full-stack",w.w],x.w,x.d).h(0,w.a.d),u=v==null?null:$.a4.au$.x.h(0,v)
 if(u==null)return
-C.atf(u,0.24,D.pz,D.dG,D.tF)},
+C.atf(u,0.24,D.pz,D.dG,D.tG)},
 B(d){var w,v,u,t,s,r,q,p,o,n,m,l=this,k=null,j=C.w(d).ax,i=C.aK(d,D.ac,x.x).w.a.a<400,h=i?16:24,g=C.bP(d,D.aS,x.F)
 g.toString
-w=B.bcE(d)
+w=B.bcF(d)
 C.w(d)
 v=[l.e,l.f,l.r,l.w]
 u=w.gf7()
 t=C.w(d).ax.a===D.J?D.bO:D.by
 s=(C.w(d).ax.a===D.J?D.bO:D.by).ah(0.96)
-r=C.dU(!1,k,k,k,C.c6(D.kz,j.b,k,k),k,k,new B.aMH(d),k,k,k,g.gGU())
+r=C.dU(!1,k,k,k,C.c7(D.kz,j.b,k,k),k,k,new B.aMH(d),k,k,k,g.gGU())
 q=j.k3
 p=C.l(g.gHu(),k,k,k,k,C.b9().$2$color$fontWeight(q,D.a2),k,k,k)
 o=x.u
@@ -189,4 +189,4 @@ A.aox=new B.c0("Analytics and consent (GA4)","Measurement with Google Analytics 
 A.aon=new B.c0("Clean architecture and maintenance","We prioritize organized code, reusable components and separation of concerns to support continuous product evolution, fewer bugs and lower maintenance cost.","Practical example: a new subscription feature is added by reusing components and reducing QA effort.")
 A.ao8=new B.c0("HTTP integrations and external services","We integrate external APIs and data services for real business flows, including back-end endpoints and observability services, ensuring operational reliability and metric-driven evolution.","Practical example: we monitor API latency and errors in production to act before customers are impacted.")
 A.abH=w([A.aoc,A.anY,A.aoj,A.aoh,A.ao_,A.aoa,A.aom,A.aoe,A.ao6,A.aot,A.aou,A.aok,A.aox,A.aon,A.ao8],x.c)})()};
-(a=>{a["FD4X3L/hI5dPkt8UJWFdyPzL2FY="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["ib0jg5/xC++KjjfBhTLJly51qV0="]=a.current})($__dart_deferred_initializers__);

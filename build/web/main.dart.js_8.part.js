@@ -1,6 +1,6 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
 $__dart_deferred_initializers__.current=function(a,b,c,$){var C,D,E,F,G,B={
-b7t(d){return new B.oE(d,null)},
+b7u(d){return new B.oE(d,null)},
 oE:function oE(d,e){this.c=d
 this.a=e},
 a2j:function a2j(){this.c=this.a=null},
@@ -12,7 +12,7 @@ _.d=g},
 a3P:function a3P(d,e){this.c=d
 this.a=e},
 aDS:function aDS(d){this.a=d},
-bcB(d){switch(d.af(y.h).r.f.gcS()){case"en":return A.Pk
+bcC(d){switch(d.af(y.h).r.f.gcS()){case"en":return A.Pk
 case"es":return A.Pl
 case"pt":default:return A.Pm}},
 lP:function lP(d,e){this.a=d
@@ -46,7 +46,7 @@ C.cJ("og:locale","pt_BR")
 b.G.document.title="Perguntas e respostas | ContabilGest"},
 l(){C.qB()
 this.aA()},
-B(d){var x=null,w=C.w(d),v=C.aK(d,D.ac,y.x).w.a.a,u=v<400?16:24,t=B.bcB(d),s=t.gf7(),r=C.w(d).ax.a===D.J?D.bO:D.by,q=t.giE()
+B(d){var x=null,w=C.w(d),v=C.aK(d,D.ac,y.x).w.a.a,u=v<400?16:24,t=B.bcC(d),s=t.gf7(),r=C.w(d).ax.a===D.J?D.bO:D.by,q=t.giE()
 return C.aA(x,x,x,C.hH(F.aRh(d,x,this.a.c,q),r,new C.jD(C.kk(new B.aB9(u,t,w.ax,v)),x),x,x,x,x),!1,x,x,!1,x,!1,x,x,x,x,x,x,x,x,s,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,D.p,x)}}
 B.a3P.prototype={
 B(d){var x,w,v,u,t,s,r,q,p,o,n=null,m=C.w(d).ax,l=C.aK(d,D.ac,y.x).w.a.a,k=l<400?12:16,j=this.c,i=j.a,h=m.RG
@@ -67,7 +67,7 @@ u=j.length
 if(u!==0){r=C.b([D.av],r)
 for(q=0;q<u;++q){p=j[q]
 o=C.j_(D.bD,n,n,n,n,n,n,n,n,n,n,D.R,D.ae,n,n,n,n,D.ek,n,n)
-r.push(new C.a5(D.bW,new C.cA(D.bD,n,n,C.cP(C.l(p.a,n,n,n,n,C.b9().$5$color$decoration$fontSize$fontWeight$height(t,D.d9,v?13:14,D.a_,1.45),n,n,n),new B.aDS(p),o),n),n))}D.b.S(s,r)}return new C.a5(G.tN,C.aA(n,n,n,C.cq(new C.a5(new C.V(k,16,k,18),C.as(s,D.C,D.j,D.m),n),new C.bo(h,n,w,x,n,n,D.I),D.a7),!0,n,n,!1,n,!1,n,n,n,n,n,n,n,n,i,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,D.p,n),n)}}
+r.push(new C.a5(D.bW,new C.cA(D.bD,n,n,C.cP(C.l(p.a,n,n,n,n,C.b9().$5$color$decoration$fontSize$fontWeight$height(t,D.d9,v?13:14,D.a_,1.45),n,n,n),new B.aDS(p),o),n),n))}D.b.S(s,r)}return new C.a5(G.tO,C.aA(n,n,n,C.cq(new C.a5(new C.V(k,16,k,18),C.as(s,D.C,D.j,D.m),n),new C.bo(h,n,w,x,n,n,D.I),D.a7),!0,n,n,!1,n,!1,n,n,n,n,n,n,n,n,i,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,D.p,n),n)}}
 B.lP.prototype={}
 B.bX.prototype={}
 B.avb.prototype={}
@@ -104,12 +104,12 @@ u=u.k3
 r=C.b([t,D.ai,C.l(s,n,n,n,n,C.b9().$4$color$fontSize$fontWeight$height(u,r,D.W,1.2),n,n,n),D.fl],y.u)
 for(v=v.gTo(),q=0;q<16;++q)r.push(new B.a3P(v[q],n))
 r.push(D.bB)
-r.push(E.tk)
+r.push(E.tl)
 r.push(D.ep)
 p=C.bP(d,D.aS,y.F)
 p.toString
 r.push(C.l(p.ut(C.b7(new C.ch(Date.now(),0,!1))),n,n,n,n,C.b9().$3$color$fontSize$fontWeight(u.ah(0.7),12,D.a_),n,n,n))
-r.push(E.Lg)
+r.push(E.Lh)
 return C.eD(C.de(new C.cu(new C.a3(0,x,0,1/0),C.as(r,D.C,D.j,D.m),n),n,n),n,new C.V(w,16,w,28),D.Y)},
 $S:138}
 B.aDS.prototype={
@@ -187,4 +187,4 @@ A.amN=new B.bX("Como altero meu plano (faixa, downgrade ou extras como folha e I
 A.amk=new B.bX("O app avisa antes da renova\xe7\xe3o?","Quando a Play informar a data do ciclo da assinatura do aplicativo, o app pode avisar at\xe9 30 dias antes. Sem data da Play, n\xe3o h\xe1 prazo inventado \u2014 consulte Play \u2192 Assinaturas. Honor\xe1rios e plano cont\xe1bil: com o escrit\xf3rio.",A.a3)
 A.ama=new B.bX("A assinatura da Play j\xe1 libera tudo?","N\xe3o. A Play libera o acesso ao aplicativo. Para sincroniza\xe7\xe3o, envio de dados ao escrit\xf3rio e fun\xe7\xf5es online, contacte o escrit\xf3rio depois de assinar. Sem habilita\xe7\xe3o, voc\xea entra no app, mas sem envio ao CRC e sem contato com o escrit\xf3rio.",A.a3)
 A.acn=x([A.amq,A.amy,A.amc,A.amF,A.am9,A.ame,A.amr,A.amv,A.amG,A.amL,A.amp,A.aml,A.amo,A.amN,A.amk,A.ama],y.a)})()};
-(a=>{a["NyPar/S9JiMcABlxORr+q9N3izk="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["GFZ7060lj2GVac9kLLbx/d6gF+E="]=a.current})($__dart_deferred_initializers__);

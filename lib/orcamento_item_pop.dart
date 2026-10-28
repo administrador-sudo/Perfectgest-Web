@@ -331,7 +331,9 @@ class _OrcamentoItemPopState extends State<_OrcamentoItemPop> {
                             'Vidro ${formatPtBrNumber(prev.areaVidro, casas: 3)} m² (−5%) · ${formatBrl(prev.precoM2Vidro)}/m²',
                           ),
                           Text('Diferença do vidro ${formatBrl(prev.valorVidro)}'),
-                          if (ultrapassaLimitePortaGiro(prev) || ultrapassaInstalacao35(prev)) ...[
+                          if (ultrapassaLimitePortaGiro(prev) ||
+                              ultrapassaInstalacao35(prev) ||
+                              ultrapassaLimiteBoxBanheiro(prev)) ...[
                             const SizedBox(height: 6),
                             if (ultrapassaLimitePortaGiro(prev))
                               const Text(
@@ -345,6 +347,15 @@ class _OrcamentoItemPopState extends State<_OrcamentoItemPop> {
                             if (ultrapassaInstalacao35(prev))
                               const Text(
                                 kObsInstalacaoAcima35,
+                                style: TextStyle(
+                                  color: BrandPalette.gold,
+                                  fontWeight: FontWeight.w800,
+                                  fontSize: 12,
+                                ),
+                              ),
+                            if (ultrapassaLimiteBoxBanheiro(prev))
+                              const Text(
+                                kObsLimiteBoxBanheiro,
                                 style: TextStyle(
                                   color: BrandPalette.gold,
                                   fontWeight: FontWeight.w800,
