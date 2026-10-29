@@ -148,7 +148,7 @@ const double kOrcamentoFatiaMaterialPadrao = 60;
 const double kOrcamentoFatiaMaoObraPadrao = 40;
 
 /// Versão visível no rodapé de /orcamento (confirmar se o browser recebeu o build).
-const String kOrcamentoFerramentaVersao = '1.2.4';
+const String kOrcamentoFerramentaVersao = '1.2.5';
 
 const Map<String, double> kOrcamentoPrecosM2Padrao = {
   'janela_correr_2': 600,

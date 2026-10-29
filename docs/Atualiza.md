@@ -2,6 +2,24 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-29 14:08] /orcamento: quadro prata na tela de entrada
+
+### Contexto
+
+- Login em quadro prata; título e Senha em carvão, sem rótulo flutuante no fundo preto. V 1.2.5.
+
+### Arquivos alterados
+
+- lib/orcamento_page.dart
+- lib/orcamento_models.dart
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+- Evolucao.md
+
+### Pendente / Proximo passo
+
+- Sem publish.
+
 ## [2026-10-29 14:01] /orcamento: rótulo Senha sem corte na entrada
 
 ### Contexto

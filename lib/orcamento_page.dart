@@ -657,70 +657,75 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
         constraints: const BoxConstraints(maxWidth: 360),
         child: Padding(
           padding: const EdgeInsets.all(24),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const Text(
-                'Entrar na ferramenta',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: BrandPalette.silverLight,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 18,
-                ),
-              ),
-              const SizedBox(height: 20),
-              TextField(
-                controller: _pinLogin,
-                autofocus: true,
-                obscureText: true,
-                maxLength: 6,
-                keyboardType: TextInputType.number,
-                style: const TextStyle(color: BrandPalette.charcoal, fontSize: 22, letterSpacing: 8),
-                decoration: InputDecoration(
-                  labelText: 'Senha',
-                  labelStyle: const TextStyle(
-                    color: BrandPalette.charcoal,
-                    fontSize: 16,
-                    letterSpacing: 0,
-                    height: 1,
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              color: BrandPalette.silverLight,
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: BrandPalette.goldWarm, width: 1.4),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(20, 22, 20, 20),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const Text(
+                    'Entrar na ferramenta',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: BrandPalette.charcoal,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 18,
+                    ),
                   ),
-                  floatingLabelStyle: const TextStyle(
-                    color: BrandPalette.goldWarm,
-                    fontSize: 14,
-                    letterSpacing: 0,
-                    height: 1,
+                  const SizedBox(height: 16),
+                  const Text(
+                    'Senha',
+                    style: TextStyle(
+                      color: BrandPalette.charcoal,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
-                  floatingLabelBehavior: FloatingLabelBehavior.always,
-                  filled: true,
-                  fillColor: BrandPalette.silverPeak,
-                  counterText: '',
-                  isDense: false,
-                  contentPadding: const EdgeInsets.fromLTRB(16, 20, 16, 16),
-                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                    borderSide: const BorderSide(color: BrandPalette.goldWarm, width: 1.4),
+                  const SizedBox(height: 6),
+                  TextField(
+                    controller: _pinLogin,
+                    autofocus: true,
+                    obscureText: true,
+                    maxLength: 6,
+                    keyboardType: TextInputType.number,
+                    style: const TextStyle(color: BrandPalette.charcoal, fontSize: 22, letterSpacing: 8),
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: BrandPalette.silverPeak,
+                      counterText: '',
+                      isDense: false,
+                      contentPadding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
+                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: const BorderSide(color: BrandPalette.goldWarm, width: 1.4),
+                      ),
+                    ),
+                    onSubmitted: (_) => _entrar(),
                   ),
-                ),
-                onSubmitted: (_) => _entrar(),
+                  if (_erroSessao != null) ...[
+                    const SizedBox(height: 8),
+                    Text(_erroSessao!, style: const TextStyle(color: BrandPalette.goldDim)),
+                  ],
+                  const SizedBox(height: 14),
+                  FilledButton(
+                    style: FilledButton.styleFrom(
+                      backgroundColor: BrandPalette.goldWarm,
+                      foregroundColor: BrandPalette.charcoalDeep,
+                      minimumSize: const Size(88, 44),
+                    ),
+                    onPressed: _entrando ? null : _entrar,
+                    child: Text(_entrando ? 'A entrar…' : 'Entrar'),
+                  ),
+                ],
               ),
-              if (_erroSessao != null) ...[
-                const SizedBox(height: 8),
-                Text(_erroSessao!, style: const TextStyle(color: BrandPalette.goldWarm)),
-              ],
-              const SizedBox(height: 14),
-              FilledButton(
-                style: FilledButton.styleFrom(
-                  backgroundColor: BrandPalette.goldWarm,
-                  foregroundColor: BrandPalette.charcoalDeep,
-                  minimumSize: const Size(88, 44),
-                ),
-                onPressed: _entrando ? null : _entrar,
-                child: Text(_entrando ? 'A entrar…' : 'Entrar'),
-              ),
-            ],
+            ),
           ),
         ),
       ),
