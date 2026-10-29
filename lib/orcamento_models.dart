@@ -129,7 +129,7 @@ const double kOrcamentoFatiaMaterialPadrao = 60;
 const double kOrcamentoFatiaMaoObraPadrao = 40;
 
 /// Versão visível no rodapé de /orcamento (confirmar se o browser recebeu o build).
-const String kOrcamentoFerramentaVersao = '1.1.13';
+const String kOrcamentoFerramentaVersao = '1.1.14';
 
 const double kOrcamentoPctMaoObraPadrao = 15;
 const double kLimitePortaGiroLarguraMm = 900;

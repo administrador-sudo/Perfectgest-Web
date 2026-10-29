@@ -22,8 +22,10 @@ Future<String?> saveOrcamentoPrecos({
 }) async =>
     'unsupported';
 
-Future<List<({String id, DateTime createdAt})>?> fetchOrcamentoPrecosHistorico(String pin) async =>
-    const [];
+Future<({List<({String id, DateTime createdAt})> historico, String? err})> fetchOrcamentoPrecosHistorico(
+  String pin,
+) async =>
+    (historico: <({String id, DateTime createdAt})>[], err: null);
 
 Future<({Map<String, double> precosM2, Map<String, double> precosVidro, double fatiaMaterial, double fatiaMaoObra})?> restoreOrcamentoPrecosHistoricoData({
   required String pin,

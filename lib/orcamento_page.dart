@@ -283,22 +283,26 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
     _avisoPrecos(_msgErroPin(err));
   }
 
+  Future<void> _abrirListaOrcamentos() async {
+    final pin = await _pedirPin('Senha da lista de orçamentos');
+    if (pin == null || pin.isEmpty || !mounted) return;
+    Navigator.of(context).pushNamed(kOrcamentoRegistrosPath, arguments: pin);
+  }
+
   Future<void> _abrirAjustesAdm() async {
     final pin = await _pedirPin('Senha de Ajustes Adm');
     if (pin == null || pin.isEmpty || !mounted) return;
-    final check = await _gravarPrecosOficiais(pin);
+    final hist = await orcamento_storage.fetchOrcamentoPrecosHistorico(pin);
     if (!mounted) return;
-    if (check != null) {
+    if (hist.err != null) {
       _avisoPrecos(
-        check == 'pin_invalid'
+        hist.err == 'pin_invalid'
             ? 'Senha incorreta.'
             : 'Não foi possível abrir os ajustes. Tente de novo.',
       );
       return;
     }
-    final listas = <({String id, DateTime createdAt})>[
-      ...?(await orcamento_storage.fetchOrcamentoPrecosHistorico(pin)),
-    ];
+    final listas = <({String id, DateTime createdAt})>[...hist.historico];
     if (!mounted) return;
     final fatiaMatCtrl = TextEditingController(text: formatPtBrNumber(_fatiaMaterial, casas: 0));
     final fatiaMoCtrl = TextEditingController(text: formatPtBrNumber(_fatiaMaoObra, casas: 0));
@@ -431,7 +435,7 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
                                   setPop(() {
                                     listas
                                       ..clear()
-                                      ..addAll(novo ?? const []);
+                                      ..addAll(novo.historico);
                                   });
                                   _avisoPrecos('Lista restaurada.');
                                 },
@@ -451,16 +455,6 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
                             ],
                           ),
                         ),
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: TextButton(
-                        onPressed: () {
-                          Navigator.pop(ctx, false);
-                          Navigator.of(context).pushNamed(kOrcamentoRegistrosPath, arguments: pin);
-                        },
-                        child: const Text('Acessar registros de orçamento'),
-                      ),
-                    ),
                   ],
                 ),
                 ),
@@ -628,7 +622,10 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
               Expanded(
                 child: _folha ? _folhaView() : _montagemView(context),
               ),
-              _OrcamentoRodapeFerramenta(onAjustesAdm: _folha ? null : _abrirAjustesAdm),
+              _OrcamentoRodapeFerramenta(
+                onAjustesAdm: _folha ? null : _abrirAjustesAdm,
+                onListaOrcamentos: _folha ? null : _abrirListaOrcamentos,
+              ),
             ],
           ),
         ),
@@ -1606,9 +1603,10 @@ class _CatalogCardState extends State<_CatalogCard> {
 }
 
 class _OrcamentoRodapeFerramenta extends StatelessWidget {
-  const _OrcamentoRodapeFerramenta({this.onAjustesAdm});
+  const _OrcamentoRodapeFerramenta({this.onAjustesAdm, this.onListaOrcamentos});
 
   final VoidCallback? onAjustesAdm;
+  final VoidCallback? onListaOrcamentos;
 
   @override
   Widget build(BuildContext context) {
@@ -1635,7 +1633,20 @@ class _OrcamentoRodapeFerramenta extends StatelessWidget {
                       style: TextStyle(fontSize: 11, decoration: TextDecoration.underline),
                     ),
                   ),
-                if (onAjustesAdm != null) const SizedBox(width: 10),
+                if (onListaOrcamentos != null)
+                  TextButton(
+                    onPressed: onListaOrcamentos,
+                    style: TextButton.styleFrom(
+                      minimumSize: const Size(44, 36),
+                      foregroundColor: BrandPalette.silverMid,
+                      visualDensity: VisualDensity.compact,
+                    ),
+                    child: const Text(
+                      'Lista de orçamentos',
+                      style: TextStyle(fontSize: 11, decoration: TextDecoration.underline),
+                    ),
+                  ),
+                if (onAjustesAdm != null || onListaOrcamentos != null) const SizedBox(width: 10),
                 const Text(
                   'V $kOrcamentoFerramentaVersao',
                   style: TextStyle(color: BrandPalette.silverMid, fontSize: 11),

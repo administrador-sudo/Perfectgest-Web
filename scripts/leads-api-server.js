@@ -52,6 +52,7 @@ const leadsFile = path.join(dataDir, 'site_leads.jsonl');
 const orcamentoPrecosFile = path.join(dataDir, 'orcamento_precos.json');
 const orcamentoRegistrosFile = path.join(dataDir, 'orcamento_registros.json');
 const ORCAMENTO_PRECOS_PIN = String(process.env.ORCAMENTO_PRECOS_PIN || '1981').trim();
+const ORCAMENTO_REGISTROS_PIN = String(process.env.ORCAMENTO_REGISTROS_PIN || '112026').trim();
 
 const app = express();
 app.use(express.json({ limit: '256kb' }));
@@ -473,6 +474,10 @@ function pinFrom(req) {
 
 function pinOk(req) {
   return pinFrom(req) === ORCAMENTO_PRECOS_PIN;
+}
+
+function pinRegistrosOk(req) {
+  return pinFrom(req) === ORCAMENTO_REGISTROS_PIN;
 }
 
 async function writeOrcamentoPrecos(precosM2, precosVidro, fatiaMaterial, fatiaMaoObra) {
@@ -980,7 +985,7 @@ app.get('/api/orcamento-registros', orcamentoLimiter, async (req, res) => {
       res.status(503).json({ error: 'database_required' });
       return;
     }
-    if (!pinOk(req)) {
+    if (!pinRegistrosOk(req)) {
       res.status(403).json({ error: 'pin_invalid' });
       return;
     }
@@ -998,7 +1003,7 @@ app.delete('/api/orcamento-registros', orcamentoLimiter, async (req, res) => {
       res.status(503).json({ error: 'database_required' });
       return;
     }
-    if (!pinOk(req)) {
+    if (!pinRegistrosOk(req)) {
       res.status(403).json({ error: 'pin_invalid' });
       return;
     }

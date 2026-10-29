@@ -2,6 +2,26 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-29 08:38] /orcamento: Lista de orçamentos no rodapé e bkp só ao gravar
+
+### Contexto
+
+- Rodapé: Lista de orçamentos (senha 112026). Adm 1981 só ajustes. Abrir Adm não grava/não cria bkp. Bkp só em Salvar novos valores e Aplicar e gravar. V 1.1.14.
+
+### Arquivos alterados
+
+- lib/orcamento_page.dart
+- lib/orcamento_registros_page.dart
+- lib/orcamento_storage_web.dart
+- lib/orcamento_storage_stub.dart
+- lib/orcamento_models.dart
+- scripts/leads-api-server.js
+- docs/Atualiza.md
+
+### Pendente / Proximo passo
+
+- Sem publish. Deploy da API no Render para PIN 112026 e GET historico como login Adm.
+
 ## [2026-10-29 08:18] /orcamento: retirar Porta de giro Lambri Largo 160mm linha 25
 
 ### Contexto

@@ -128,17 +128,25 @@ List<({String id, DateTime createdAt})> _asHistorico(dynamic raw) {
   return out;
 }
 
-Future<List<({String id, DateTime createdAt})>?> fetchOrcamentoPrecosHistorico(String pin) async {
+Future<({List<({String id, DateTime createdAt})> historico, String? err})> fetchOrcamentoPrecosHistorico(
+  String pin,
+) async {
   try {
     final uri = Uri.parse('${_precosUrl()}/historico').replace(queryParameters: {'pin': pin});
     final response = await http.get(uri).timeout(const Duration(seconds: 20));
-    if (response.statusCode == 403) return null;
-    if (response.statusCode != 200) return null;
+    if (response.statusCode == 403) {
+      return (historico: <({String id, DateTime createdAt})>[], err: 'pin_invalid');
+    }
+    if (response.statusCode != 200) {
+      return (historico: <({String id, DateTime createdAt})>[], err: 'api_unavailable');
+    }
     final decoded = jsonDecode(response.body);
-    if (decoded is! Map) return null;
-    return _asHistorico(decoded['historico']);
+    if (decoded is! Map) {
+      return (historico: <({String id, DateTime createdAt})>[], err: 'server_error');
+    }
+    return (historico: _asHistorico(decoded['historico']), err: null);
   } catch (_) {
-    return null;
+    return (historico: <({String id, DateTime createdAt})>[], err: 'api_unavailable');
   }
 }
 

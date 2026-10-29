@@ -105,7 +105,7 @@ class _OrcamentoRegistrosPageState extends State<OrcamentoRegistrosPage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           const Text(
-            'Senha de Ajustes Adm',
+            'Senha da lista de orçamentos',
             style: TextStyle(color: BrandPalette.silverLight, fontSize: 14),
           ),
           const SizedBox(height: 10),
