@@ -574,16 +574,29 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
     });
   }
 
-  Future<void> _abrirItem(OrcamentoItem item) async {
-    final updated = await showOrcamentoItemPop(
+  Future<void> _preencherOrcamento() async {
+    if (_itens.isEmpty) return;
+    final result = await showOrcamentoPreencherPop(
       context,
-      item,
+      cadastro: _cadastroAtual(),
+      itens: List<OrcamentoItem>.from(_itens),
       precosVidro: _precosVidroAtuais(),
     );
-    if (updated == null || !mounted) return;
-    setState(() {
-      _itens = [for (final e in _itens) if (e.id == item.id) updated else e];
-    });
+    if (result == null || !mounted) return;
+    _empresa.text = result.cadastro.empresaNome;
+    _cnpj.text = result.cadastro.cnpj;
+    _endereco.text = result.cadastro.endereco;
+    _telefone.text = result.cadastro.telefone;
+    _email.text = result.cadastro.email;
+    _fabricante.text = result.cadastro.fabricante;
+    _vendedor.text = result.cadastro.vendedor;
+    _instalador.text = result.cadastro.instalador;
+    _cliente.text = result.cadastro.cliente;
+    _validade.text = result.cadastro.validadeAte.trim().isEmpty
+        ? validadePadrao()
+        : result.cadastro.validadeAte;
+    setState(() => _itens = result.itens);
+    await _salvarDocumento();
   }
 
   void _remover(String id) {
@@ -773,8 +786,6 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
           padding: EdgeInsets.fromLTRB(pad, 10, pad, 16),
           child: CustomScrollView(
             slivers: [
-              SliverToBoxAdapter(child: _barraCadastro()),
-              const SliverToBoxAdapter(child: SizedBox(height: 12)),
               SliverToBoxAdapter(child: _quadroCatalogo(fill: false)),
               const SliverToBoxAdapter(child: SizedBox(height: 12)),
               SliverToBoxAdapter(
@@ -797,8 +808,6 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
         padding: EdgeInsets.fromLTRB(pad, 12, pad, 16),
         child: CustomScrollView(
           slivers: [
-            SliverToBoxAdapter(child: _barraCadastro()),
-            const SliverToBoxAdapter(child: SizedBox(height: 12)),
             SliverToBoxAdapter(
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -823,117 +832,12 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
     );
   }
 
-  Widget _barraCadastro() {
-    InputDecoration dec(String label) => InputDecoration(
-          labelText: label,
-          hintText: label,
-          floatingLabelBehavior: FloatingLabelBehavior.always,
-          labelStyle: const TextStyle(color: BrandPalette.charcoal, fontSize: 12),
-          hintStyle: const TextStyle(color: BrandPalette.silverDark, fontSize: 12),
-          filled: true,
-          fillColor: BrandPalette.silverPeak,
-          isDense: true,
-          contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8),
-            borderSide: const BorderSide(color: BrandPalette.silverMid),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8),
-            borderSide: const BorderSide(color: BrandPalette.goldWarm),
-          ),
-        );
-
-    final estreito = _estreito(context);
-    Widget campo(double w, TextEditingController c, String label) {
-      return SizedBox(
-        width: estreito ? double.infinity : w,
-        child: TextField(
-          controller: c,
-          style: const TextStyle(color: BrandPalette.charcoal, fontSize: 13),
-          decoration: dec(label),
-        ),
-      );
-    }
-
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color: BrandPalette.silverLight,
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: BrandPalette.goldWarm.withValues(alpha: 0.85)),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(12, 10, 12, 12),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Wrap(
-              spacing: 8,
-              runSpacing: 8,
-              crossAxisAlignment: WrapCrossAlignment.center,
-              children: [
-                const Text(
-                  'Cadastro da empresa fabricante',
-                  style: TextStyle(
-                    color: BrandPalette.charcoal,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 15,
-                  ),
-                ),
-                TextButton(
-                  onPressed: _salvarDocumento,
-                  style: TextButton.styleFrom(
-                    backgroundColor: BrandPalette.goldWarm,
-                    foregroundColor: BrandPalette.charcoalDeep,
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                    minimumSize: const Size(88, 44),
-                  ),
-                  child: const Text('Salvar', style: TextStyle(fontWeight: FontWeight.w700)),
-                ),
-                TextButton(
-                  onPressed: _novoOrcamento,
-                  style: TextButton.styleFrom(
-                    foregroundColor: BrandPalette.charcoal,
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                    minimumSize: const Size(88, 44),
-                  ),
-                  child: const Text('Novo', style: TextStyle(fontWeight: FontWeight.w700)),
-                ),
-              ],
-            ),
-            const SizedBox(height: 8),
-            Wrap(
-              spacing: 8,
-              runSpacing: 8,
-              children: [
-                campo(220, _empresa, 'Nome da empresa'),
-                campo(160, _cnpj, 'CNPJ'),
-                campo(260, _endereco, 'Endereço'),
-                campo(150, _telefone, 'Telefone'),
-                campo(200, _email, 'E-mail'),
-                campo(200, _fabricante, 'Fabricante'),
-                campo(180, _vendedor, 'Vendedor'),
-                campo(180, _instalador, 'Instalador'),
-                campo(200, _cliente, 'Cliente'),
-                SizedBox(
-                  width: estreito ? double.infinity : 150,
-                  child: TextField(
-                    controller: _validade,
-                    readOnly: true,
-                    onTap: _escolherValidade,
-                    style: const TextStyle(color: BrandPalette.charcoal, fontSize: 13),
-                    decoration: dec('Válido até'),
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _quadroPrata({required String titulo, required Widget child, bool fill = true}) {
+  Widget _quadroPrata({
+    required String titulo,
+    required Widget child,
+    bool fill = true,
+    double tituloFontSize = 14,
+  }) {
     return DecoratedBox(
       decoration: BoxDecoration(
         color: BrandPalette.silverLight,
@@ -953,10 +857,11 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
               child: Text(
                 titulo,
-                style: const TextStyle(
+                style: TextStyle(
                   color: BrandPalette.gold,
                   fontWeight: FontWeight.w700,
                   letterSpacing: 0.4,
+                  fontSize: tituloFontSize,
                 ),
               ),
             ),
@@ -965,18 +870,6 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
         ],
       ),
     );
-  }
-
-  Future<void> _escolherValidade() async {
-    final atual = parseDataBr(_validade.text) ?? DateTime.now().add(const Duration(days: 15));
-    final picked = await showDatePicker(
-      context: context,
-      initialDate: atual,
-      firstDate: DateTime(2020),
-      lastDate: DateTime(2040),
-    );
-    if (picked == null || !mounted) return;
-    setState(() => _validade.text = formatDataBr(picked));
   }
 
   Widget _quadroCatalogo({bool fill = true}) {
@@ -1036,7 +929,8 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
             ],
           );
     return _quadroPrata(
-      titulo: '1 · Aberturas disponíveis',
+      titulo: '1 - Aberturas disponíveis',
+      tituloFontSize: 19,
       fill: fill,
       child: corpo,
     );
@@ -1316,7 +1210,7 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
                       borderRadius: BorderRadius.circular(8),
                       child: ListTile(
                         contentPadding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                        onTap: () => _abrirItem(it),
+                        onTap: _preencherOrcamento,
                         leading: Icon(tipo?.icon ?? Icons.window, color: BrandPalette.charcoal),
                         title: Text(
                           it.nome,
@@ -1344,12 +1238,27 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
     );
 
     return _quadroPrata(
-      titulo: '2 · Local do orçamento',
+      titulo: '2 - Local do orçamento',
       fill: fill,
       child: Column(
         mainAxisSize: fill ? MainAxisSize.max : MainAxisSize.min,
         children: [
           if (fill) Expanded(child: alvo) else alvo,
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
+            child: SizedBox(
+              width: double.infinity,
+              child: FilledButton(
+                style: FilledButton.styleFrom(
+                  backgroundColor: BrandPalette.goldWarm,
+                  foregroundColor: BrandPalette.charcoalDeep,
+                  minimumSize: const Size(88, 44),
+                ),
+                onPressed: _itens.isEmpty ? null : _preencherOrcamento,
+                child: const Text('Preencher o orçamento'),
+              ),
+            ),
+          ),
           DecoratedBox(
             decoration: const BoxDecoration(
               color: BrandPalette.charcoal,
@@ -1374,6 +1283,10 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
                   Wrap(
                     spacing: 6,
                     children: [
+                      TextButton(
+                        onPressed: _novoOrcamento,
+                        child: const Text('Novo', style: TextStyle(color: BrandPalette.silverLight)),
+                      ),
                       TextButton(
                         onPressed: _itens.isEmpty ? null : _verFolha,
                         child: const Text('Ver folha', style: TextStyle(color: BrandPalette.silverLight)),

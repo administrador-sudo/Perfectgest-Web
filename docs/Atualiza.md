@@ -2,6 +2,25 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-29 15:21] /orcamento: pop Preencher o orçamento
+
+### Contexto
+
+- Cabeçalho saiu da montagem. Página começa em 1 - Aberturas disponíveis. Local do orçamento ganhou Preencher o orçamento (cadastro + todas as aberturas) e Salvar orçamento. V 1.2.6.
+
+### Arquivos alterados
+
+- lib/orcamento_page.dart
+- lib/orcamento_item_pop.dart
+- lib/orcamento_models.dart
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+- Evolucao.md
+
+### Pendente / Proximo passo
+
+- Sem publish.
+
 ## [2026-10-29 14:08] /orcamento: quadro prata na tela de entrada
 
 ### Contexto

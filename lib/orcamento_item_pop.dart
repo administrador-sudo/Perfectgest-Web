@@ -16,6 +16,33 @@ Future<OrcamentoItem?> showOrcamentoItemPop(
   );
 }
 
+class OrcamentoPreencherResult {
+  const OrcamentoPreencherResult({
+    required this.cadastro,
+    required this.itens,
+  });
+
+  final OrcamentoCadastro cadastro;
+  final List<OrcamentoItem> itens;
+}
+
+Future<OrcamentoPreencherResult?> showOrcamentoPreencherPop(
+  BuildContext context, {
+  required OrcamentoCadastro cadastro,
+  required List<OrcamentoItem> itens,
+  Map<String, double> precosVidro = const {},
+}) {
+  return showDialog<OrcamentoPreencherResult>(
+    context: context,
+    barrierColor: BrandPalette.charcoalDeep.withValues(alpha: 0.72),
+    builder: (_) => _OrcamentoPreencherPop(
+      cadastro: cadastro,
+      itens: itens,
+      precosVidro: precosVidro,
+    ),
+  );
+}
+
 class _OrcamentoItemPop extends StatefulWidget {
   const _OrcamentoItemPop({required this.item, required this.precosVidro});
 
@@ -27,6 +54,325 @@ class _OrcamentoItemPop extends StatefulWidget {
 }
 
 class _OrcamentoItemPopState extends State<_OrcamentoItemPop> {
+  final _formKey = GlobalKey<_OrcamentoItemFormState>();
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      backgroundColor: BrandPalette.silverLight,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+        side: const BorderSide(color: BrandPalette.goldWarm, width: 1.2),
+      ),
+      insetPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 24),
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 560),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                _OrcamentoItemForm(
+                  key: _formKey,
+                  item: widget.item,
+                  precosVidro: widget.precosVidro,
+                ),
+                const SizedBox(height: 14),
+                Row(
+                  children: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: const Text('Cancelar', style: TextStyle(color: BrandPalette.charcoal)),
+                    ),
+                    const Spacer(),
+                    FilledButton(
+                      style: FilledButton.styleFrom(
+                        backgroundColor: BrandPalette.goldWarm,
+                        foregroundColor: BrandPalette.charcoalDeep,
+                      ),
+                      onPressed: () => Navigator.pop(context, _formKey.currentState?.preview()),
+                      child: const Text('Aplicar'),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _OrcamentoPreencherPop extends StatefulWidget {
+  const _OrcamentoPreencherPop({
+    required this.cadastro,
+    required this.itens,
+    required this.precosVidro,
+  });
+
+  final OrcamentoCadastro cadastro;
+  final List<OrcamentoItem> itens;
+  final Map<String, double> precosVidro;
+
+  @override
+  State<_OrcamentoPreencherPop> createState() => _OrcamentoPreencherPopState();
+}
+
+class _OrcamentoPreencherPopState extends State<_OrcamentoPreencherPop> {
+  late final TextEditingController _empresa;
+  late final TextEditingController _cnpj;
+  late final TextEditingController _endereco;
+  late final TextEditingController _telefone;
+  late final TextEditingController _email;
+  late final TextEditingController _fabricante;
+  late final TextEditingController _vendedor;
+  late final TextEditingController _instalador;
+  late final TextEditingController _cliente;
+  late final TextEditingController _validade;
+  late final List<GlobalKey<_OrcamentoItemFormState>> _formKeys;
+
+  @override
+  void initState() {
+    super.initState();
+    final c = widget.cadastro;
+    _empresa = TextEditingController(text: c.empresaNome);
+    _cnpj = TextEditingController(text: c.cnpj);
+    _endereco = TextEditingController(text: c.endereco);
+    _telefone = TextEditingController(text: c.telefone);
+    _email = TextEditingController(text: c.email);
+    _fabricante = TextEditingController(text: c.fabricante);
+    _vendedor = TextEditingController(text: c.vendedor);
+    _instalador = TextEditingController(text: c.instalador);
+    _cliente = TextEditingController(text: c.cliente);
+    _validade = TextEditingController(
+      text: c.validadeAte.trim().isEmpty ? validadePadrao() : c.validadeAte,
+    );
+    _formKeys = [for (final _ in widget.itens) GlobalKey<_OrcamentoItemFormState>()];
+  }
+
+  @override
+  void dispose() {
+    _empresa.dispose();
+    _cnpj.dispose();
+    _endereco.dispose();
+    _telefone.dispose();
+    _email.dispose();
+    _fabricante.dispose();
+    _vendedor.dispose();
+    _instalador.dispose();
+    _cliente.dispose();
+    _validade.dispose();
+    super.dispose();
+  }
+
+  InputDecoration _dec(String label) {
+    return InputDecoration(
+      labelText: label,
+      hintText: label,
+      floatingLabelBehavior: FloatingLabelBehavior.always,
+      labelStyle: const TextStyle(color: BrandPalette.charcoal, fontSize: 12),
+      hintStyle: const TextStyle(color: BrandPalette.silverDark, fontSize: 12),
+      filled: true,
+      fillColor: BrandPalette.silverPeak,
+      isDense: true,
+      contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8),
+        borderSide: const BorderSide(color: BrandPalette.silverMid),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8),
+        borderSide: const BorderSide(color: BrandPalette.goldWarm),
+      ),
+    );
+  }
+
+  Future<void> _escolherValidade() async {
+    final atual = parseDataBr(_validade.text) ?? DateTime.now().add(const Duration(days: 15));
+    final picked = await showDatePicker(
+      context: context,
+      initialDate: atual,
+      firstDate: DateTime(2020),
+      lastDate: DateTime(2040),
+    );
+    if (picked == null || !mounted) return;
+    setState(() => _validade.text = formatDataBr(picked));
+  }
+
+  OrcamentoCadastro _cadastroAtual() {
+    return OrcamentoCadastro(
+      empresaNome: _empresa.text.trim(),
+      cnpj: _cnpj.text.trim(),
+      endereco: _endereco.text.trim(),
+      telefone: _telefone.text.trim(),
+      email: _email.text.trim(),
+      fabricante: _fabricante.text.trim(),
+      vendedor: _vendedor.text.trim(),
+      instalador: _instalador.text.trim(),
+      cliente: _cliente.text.trim(),
+      validadeAte: _validade.text.trim(),
+    );
+  }
+
+  void _salvar() {
+    final itens = <OrcamentoItem>[
+      for (var i = 0; i < widget.itens.length; i++)
+        _formKeys[i].currentState?.preview() ?? widget.itens[i],
+    ];
+    Navigator.pop(
+      context,
+      OrcamentoPreencherResult(cadastro: _cadastroAtual(), itens: itens),
+    );
+  }
+
+  Widget _campo(double w, TextEditingController c, String label) {
+    final estreito = MediaQuery.sizeOf(context).width < 720;
+    return SizedBox(
+      width: estreito ? double.infinity : w,
+      child: TextField(
+        controller: c,
+        style: const TextStyle(color: BrandPalette.charcoal, fontSize: 13),
+        decoration: _dec(label),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final estreito = MediaQuery.sizeOf(context).width < 720;
+    return Dialog(
+      backgroundColor: BrandPalette.silverLight,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+        side: const BorderSide(color: BrandPalette.goldWarm, width: 1.2),
+      ),
+      insetPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+      child: ConstrainedBox(
+        constraints: BoxConstraints(
+          maxWidth: 760,
+          maxHeight: MediaQuery.sizeOf(context).height * 0.92,
+        ),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 14, 16, 12),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const Text(
+                'Preencher o orçamento',
+                style: TextStyle(
+                  color: BrandPalette.charcoal,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              const SizedBox(height: 12),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      const Text(
+                        'Cadastro da empresa fabricante',
+                        style: TextStyle(
+                          color: BrandPalette.charcoal,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 15,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Wrap(
+                        spacing: 8,
+                        runSpacing: 8,
+                        children: [
+                          _campo(220, _empresa, 'Nome da empresa'),
+                          _campo(160, _cnpj, 'CNPJ'),
+                          _campo(260, _endereco, 'Endereço'),
+                          _campo(150, _telefone, 'Telefone'),
+                          _campo(200, _email, 'E-mail'),
+                          _campo(200, _fabricante, 'Fabricante'),
+                          _campo(180, _vendedor, 'Vendedor'),
+                          _campo(180, _instalador, 'Instalador'),
+                          _campo(200, _cliente, 'Cliente'),
+                          SizedBox(
+                            width: estreito ? double.infinity : 150,
+                            child: TextField(
+                              controller: _validade,
+                              readOnly: true,
+                              onTap: _escolherValidade,
+                              style: const TextStyle(color: BrandPalette.charcoal, fontSize: 13),
+                              decoration: _dec('Válido até'),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 18),
+                      for (var i = 0; i < widget.itens.length; i++) ...[
+                        DecoratedBox(
+                          decoration: BoxDecoration(
+                            color: BrandPalette.silverPeak,
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(color: BrandPalette.goldWarm.withValues(alpha: 0.55)),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(12, 12, 12, 12),
+                            child: _OrcamentoItemForm(
+                              key: _formKeys[i],
+                              item: widget.itens[i],
+                              precosVidro: widget.precosVidro,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 12),
+                      ],
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
+              Row(
+                children: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(context),
+                    child: const Text('Cancelar', style: TextStyle(color: BrandPalette.charcoal)),
+                  ),
+                  const Spacer(),
+                  FilledButton(
+                    style: FilledButton.styleFrom(
+                      backgroundColor: BrandPalette.goldWarm,
+                      foregroundColor: BrandPalette.charcoalDeep,
+                      minimumSize: const Size(88, 44),
+                    ),
+                    onPressed: _salvar,
+                    child: const Text('Salvar orçamento'),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _OrcamentoItemForm extends StatefulWidget {
+  const _OrcamentoItemForm({
+    super.key,
+    required this.item,
+    required this.precosVidro,
+  });
+
+  final OrcamentoItem item;
+  final Map<String, double> precosVidro;
+
+  @override
+  State<_OrcamentoItemForm> createState() => _OrcamentoItemFormState();
+}
+
+class _OrcamentoItemFormState extends State<_OrcamentoItemForm> {
   late final TextEditingController _largura;
   late final TextEditingController _altura;
   late final TextEditingController _m2;
@@ -100,7 +446,7 @@ class _OrcamentoItemPopState extends State<_OrcamentoItemPop> {
     _tick();
   }
 
-  OrcamentoItem _preview() {
+  OrcamentoItem preview() {
     final area = _m2Manual
         ? parsePtBrDouble(_m2.text)
         : areaCobradaDeMedidas(widget.item.catalogId, parseMm(_largura.text), parseMm(_altura.text));
@@ -216,248 +562,235 @@ class _OrcamentoItemPopState extends State<_OrcamentoItemPop> {
 
   @override
   Widget build(BuildContext context) {
-    final prev = _preview();
-    return Dialog(
-      backgroundColor: BrandPalette.silverLight,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-        side: const BorderSide(color: BrandPalette.goldWarm, width: 1.2),
-      ),
-      insetPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 24),
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 560),
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Text(
-                  widget.item.nome,
-                  style: const TextStyle(
-                    color: BrandPalette.charcoal,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w700,
+    final prev = preview();
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          widget.item.nome,
+          style: const TextStyle(
+            color: BrandPalette.charcoal,
+            fontSize: 18,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        const SizedBox(height: 4),
+        const Text(
+          'Medidas, cor, modelo e custos desta abertura. O R\$/m² vem da tabela abaixo do painel.',
+          style: TextStyle(color: BrandPalette.silverDark, fontSize: 12),
+        ),
+        const SizedBox(height: 8),
+        Text(
+          'R\$/m² da tabela: ${formatBrl(widget.item.precoM2)}',
+          style: const TextStyle(
+            color: BrandPalette.charcoal,
+            fontWeight: FontWeight.w700,
+            fontSize: 13,
+          ),
+        ),
+        const SizedBox(height: 14),
+        Wrap(
+          spacing: 10,
+          runSpacing: 10,
+          children: [
+            _w(
+              120,
+              TextField(
+                controller: _largura,
+                decoration: _dec('Largura mm'),
+                keyboardType: const TextInputType.numberWithOptions(decimal: true),
+              ),
+            ),
+            _w(
+              120,
+              TextField(
+                controller: _altura,
+                decoration: _dec('Altura mm'),
+                keyboardType: const TextInputType.numberWithOptions(decimal: true),
+              ),
+            ),
+            _w(
+              140,
+              TextField(
+                controller: _m2,
+                decoration: _dec('m²'),
+                keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                onChanged: (_) => _m2Manual = true,
+              ),
+            ),
+            _w(160, TextField(controller: _cor, decoration: _dec('Cor'))),
+            _w(180, TextField(controller: _modelo, decoration: _dec('Modelo'))),
+            _w(
+              130,
+              TextField(
+                controller: _mao,
+                readOnly: true,
+                decoration: _dec('% mão de obra', helper: formatBrl(prev.maoObra)),
+              ),
+            ),
+            _w(
+              130,
+              TextField(
+                controller: _comissao,
+                decoration: _dec('% comissão', helper: formatBrl(prev.comissao)),
+                keyboardType: const TextInputType.numberWithOptions(decimal: true),
+              ),
+            ),
+            _w(
+              170,
+              TextField(
+                controller: _instalacao,
+                readOnly: true,
+                decoration: _dec('Instalação (R\$)'),
+              ),
+            ),
+            _w(
+              280,
+              InkWell(
+                onTap: _abrirListaVidro,
+                child: InputDecorator(
+                  decoration: _dec('Vidro'),
+                  child: Text(
+                    _rotuloVidro(),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(color: BrandPalette.charcoal, fontSize: 13),
                   ),
                 ),
-                const SizedBox(height: 4),
-                const Text(
-                  'Medidas, cor, modelo e custos desta abertura. O R\$/m² vem da tabela abaixo do painel.',
-                  style: TextStyle(color: BrandPalette.silverDark, fontSize: 12),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  'R\$/m² da tabela: ${formatBrl(widget.item.precoM2)}',
-                  style: const TextStyle(
-                    color: BrandPalette.charcoal,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 13,
+              ),
+            ),
+          ],
+        ),
+        if (ultrapassaLimitePortaGiro(prev) ||
+            ultrapassaInstalacao35(prev) ||
+            ultrapassaLimiteBoxBanheiro(prev) ||
+            ultrapassaLimiteMaximAr(prev)) ...[
+          const SizedBox(height: 10),
+          if (ultrapassaLimiteMaximAr(prev))
+            const Text(
+              kObsLimiteMaximAr,
+              style: TextStyle(
+                color: BrandPalette.goldReadableLight,
+                fontWeight: FontWeight.w800,
+                fontSize: 13,
+              ),
+            ),
+          if (ultrapassaLimiteBoxBanheiro(prev))
+            const Text(
+              kObsLimiteBoxBanheiro,
+              style: TextStyle(
+                color: BrandPalette.goldReadableLight,
+                fontWeight: FontWeight.w800,
+                fontSize: 13,
+              ),
+            ),
+          if (ultrapassaLimitePortaGiro(prev))
+            const Text(
+              kObsLimitePortaGiro,
+              style: TextStyle(
+                color: BrandPalette.goldReadableLight,
+                fontWeight: FontWeight.w800,
+                fontSize: 13,
+              ),
+            ),
+          if (ultrapassaInstalacao35(prev))
+            const Text(
+              kObsInstalacaoAcima35,
+              style: TextStyle(
+                color: BrandPalette.goldReadableLight,
+                fontWeight: FontWeight.w800,
+                fontSize: 13,
+              ),
+            ),
+        ],
+        const SizedBox(height: 10),
+        TextField(
+          controller: _obs,
+          decoration: _dec('Observações'),
+          maxLines: 3,
+          inputFormatters: [LengthLimitingTextInputFormatter(400)],
+        ),
+        const SizedBox(height: 14),
+        DecoratedBox(
+          decoration: BoxDecoration(
+            color: BrandPalette.charcoal,
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(color: BrandPalette.goldWarm.withValues(alpha: 0.7)),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(12),
+            child: DefaultTextStyle(
+              style: const TextStyle(color: BrandPalette.silverLight, fontSize: 12, height: 1.45),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Área ${formatPtBrNumber(prev.area, casas: 3)} m²'),
+                  Text('Material ${formatBrl(prev.material)}'),
+                  Text('Mão de obra ${formatBrl(prev.maoObra)}'),
+                  Text('Comissão ${formatBrl(prev.comissao)}'),
+                  Text('Instalação ${formatBrl(prev.instalacaoEfetiva)}'),
+                  Text(
+                    'Vidro ${formatPtBrNumber(prev.areaVidro, casas: 3)} m² (−5%) · ${formatBrl(prev.precoM2Vidro)}/m²',
                   ),
-                ),
-                const SizedBox(height: 14),
-                Wrap(
-                  spacing: 10,
-                  runSpacing: 10,
-                  children: [
-                    _w(120, TextField(
-                      controller: _largura,
-                      decoration: _dec('Largura mm'),
-                      keyboardType: const TextInputType.numberWithOptions(decimal: true),
-                    )),
-                    _w(120, TextField(
-                      controller: _altura,
-                      decoration: _dec('Altura mm'),
-                      keyboardType: const TextInputType.numberWithOptions(decimal: true),
-                    )),
-                    _w(140, TextField(
-                      controller: _m2,
-                      decoration: _dec('m²'),
-                      keyboardType: const TextInputType.numberWithOptions(decimal: true),
-                      onChanged: (_) => _m2Manual = true,
-                    )),
-                    _w(160, TextField(controller: _cor, decoration: _dec('Cor'))),
-                    _w(180, TextField(controller: _modelo, decoration: _dec('Modelo'))),
-                    _w(130, TextField(
-                      controller: _mao,
-                      readOnly: true,
-                      decoration: _dec('% mão de obra', helper: formatBrl(prev.maoObra)),
-                    )),
-                    _w(130, TextField(
-                      controller: _comissao,
-                      decoration: _dec('% comissão', helper: formatBrl(prev.comissao)),
-                      keyboardType: const TextInputType.numberWithOptions(decimal: true),
-                    )),
-                    _w(170, TextField(
-                      controller: _instalacao,
-                      readOnly: true,
-                      decoration: _dec('Instalação (R\$)'),
-                    )),
-                    _w(280, InkWell(
-                      onTap: _abrirListaVidro,
-                      child: InputDecorator(
-                        decoration: _dec('Vidro'),
-                        child: Text(
-                          _rotuloVidro(),
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(color: BrandPalette.charcoal, fontSize: 13),
+                  Text('Diferença do vidro ${formatBrl(prev.valorVidro)}'),
+                  if (ultrapassaLimitePortaGiro(prev) ||
+                      ultrapassaInstalacao35(prev) ||
+                      ultrapassaLimiteBoxBanheiro(prev) ||
+                      ultrapassaLimiteMaximAr(prev)) ...[
+                    const SizedBox(height: 6),
+                    if (ultrapassaLimiteMaximAr(prev))
+                      const Text(
+                        kObsLimiteMaximAr,
+                        style: TextStyle(
+                          color: BrandPalette.gold,
+                          fontWeight: FontWeight.w800,
+                          fontSize: 12,
                         ),
                       ),
-                    )),
+                    if (ultrapassaLimitePortaGiro(prev))
+                      const Text(
+                        kObsLimitePortaGiro,
+                        style: TextStyle(
+                          color: BrandPalette.gold,
+                          fontWeight: FontWeight.w800,
+                          fontSize: 12,
+                        ),
+                      ),
+                    if (ultrapassaInstalacao35(prev))
+                      const Text(
+                        kObsInstalacaoAcima35,
+                        style: TextStyle(
+                          color: BrandPalette.gold,
+                          fontWeight: FontWeight.w800,
+                          fontSize: 12,
+                        ),
+                      ),
+                    if (ultrapassaLimiteBoxBanheiro(prev))
+                      const Text(
+                        kObsLimiteBoxBanheiro,
+                        style: TextStyle(
+                          color: BrandPalette.gold,
+                          fontWeight: FontWeight.w800,
+                          fontSize: 12,
+                        ),
+                      ),
                   ],
-                ),
-                if (ultrapassaLimitePortaGiro(prev) ||
-                    ultrapassaInstalacao35(prev) ||
-                    ultrapassaLimiteBoxBanheiro(prev) ||
-                    ultrapassaLimiteMaximAr(prev)) ...[
-                  const SizedBox(height: 10),
-                  if (ultrapassaLimiteMaximAr(prev))
-                    const Text(
-                      kObsLimiteMaximAr,
-                      style: TextStyle(
-                        color: BrandPalette.goldReadableLight,
-                        fontWeight: FontWeight.w800,
-                        fontSize: 13,
-                      ),
+                  const SizedBox(height: 4),
+                  Text(
+                    'Total da abertura ${formatBrl(prev.total)}',
+                    style: const TextStyle(
+                      color: BrandPalette.gold,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 14,
                     ),
-                  if (ultrapassaLimiteBoxBanheiro(prev))
-                    const Text(
-                      kObsLimiteBoxBanheiro,
-                      style: TextStyle(
-                        color: BrandPalette.goldReadableLight,
-                        fontWeight: FontWeight.w800,
-                        fontSize: 13,
-                      ),
-                    ),
-                  if (ultrapassaLimitePortaGiro(prev))
-                    const Text(
-                      kObsLimitePortaGiro,
-                      style: TextStyle(
-                        color: BrandPalette.goldReadableLight,
-                        fontWeight: FontWeight.w800,
-                        fontSize: 13,
-                      ),
-                    ),
-                  if (ultrapassaInstalacao35(prev))
-                    const Text(
-                      kObsInstalacaoAcima35,
-                      style: TextStyle(
-                        color: BrandPalette.goldReadableLight,
-                        fontWeight: FontWeight.w800,
-                        fontSize: 13,
-                      ),
-                    ),
+                  ),
                 ],
-                const SizedBox(height: 10),
-                TextField(
-                  controller: _obs,
-                  decoration: _dec('Observações'),
-                  maxLines: 3,
-                  inputFormatters: [LengthLimitingTextInputFormatter(400)],
-                ),
-                const SizedBox(height: 14),
-                DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: BrandPalette.charcoal,
-                    borderRadius: BorderRadius.circular(8),
-                    border: Border.all(color: BrandPalette.goldWarm.withValues(alpha: 0.7)),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(12),
-                    child: DefaultTextStyle(
-                      style: const TextStyle(color: BrandPalette.silverLight, fontSize: 12, height: 1.45),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('Área ${formatPtBrNumber(prev.area, casas: 3)} m²'),
-                          Text('Material ${formatBrl(prev.material)}'),
-                          Text('Mão de obra ${formatBrl(prev.maoObra)}'),
-                          Text('Comissão ${formatBrl(prev.comissao)}'),
-                          Text('Instalação ${formatBrl(prev.instalacaoEfetiva)}'),
-                          Text(
-                            'Vidro ${formatPtBrNumber(prev.areaVidro, casas: 3)} m² (−5%) · ${formatBrl(prev.precoM2Vidro)}/m²',
-                          ),
-                          Text('Diferença do vidro ${formatBrl(prev.valorVidro)}'),
-                          if (ultrapassaLimitePortaGiro(prev) ||
-                              ultrapassaInstalacao35(prev) ||
-                              ultrapassaLimiteBoxBanheiro(prev) ||
-                              ultrapassaLimiteMaximAr(prev)) ...[
-                            const SizedBox(height: 6),
-                            if (ultrapassaLimiteMaximAr(prev))
-                              const Text(
-                                kObsLimiteMaximAr,
-                                style: TextStyle(
-                                  color: BrandPalette.gold,
-                                  fontWeight: FontWeight.w800,
-                                  fontSize: 12,
-                                ),
-                              ),
-                            if (ultrapassaLimitePortaGiro(prev))
-                              const Text(
-                                kObsLimitePortaGiro,
-                                style: TextStyle(
-                                  color: BrandPalette.gold,
-                                  fontWeight: FontWeight.w800,
-                                  fontSize: 12,
-                                ),
-                              ),
-                            if (ultrapassaInstalacao35(prev))
-                              const Text(
-                                kObsInstalacaoAcima35,
-                                style: TextStyle(
-                                  color: BrandPalette.gold,
-                                  fontWeight: FontWeight.w800,
-                                  fontSize: 12,
-                                ),
-                              ),
-                            if (ultrapassaLimiteBoxBanheiro(prev))
-                              const Text(
-                                kObsLimiteBoxBanheiro,
-                                style: TextStyle(
-                                  color: BrandPalette.gold,
-                                  fontWeight: FontWeight.w800,
-                                  fontSize: 12,
-                                ),
-                              ),
-                          ],
-                          const SizedBox(height: 4),
-                          Text(
-                            'Total da abertura ${formatBrl(prev.total)}',
-                            style: const TextStyle(
-                              color: BrandPalette.gold,
-                              fontWeight: FontWeight.w700,
-                              fontSize: 14,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 14),
-                Row(
-                  children: [
-                    TextButton(
-                      onPressed: () => Navigator.pop(context),
-                      child: const Text('Cancelar', style: TextStyle(color: BrandPalette.charcoal)),
-                    ),
-                    const Spacer(),
-                    FilledButton(
-                      style: FilledButton.styleFrom(
-                        backgroundColor: BrandPalette.goldWarm,
-                        foregroundColor: BrandPalette.charcoalDeep,
-                      ),
-                      onPressed: () => Navigator.pop(context, _preview()),
-                      child: const Text('Aplicar'),
-                    ),
-                  ],
-                ),
-              ],
+              ),
             ),
           ),
         ),
-      ),
+      ],
     );
   }
 
