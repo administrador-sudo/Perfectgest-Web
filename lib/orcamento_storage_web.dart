@@ -9,6 +9,7 @@ import 'orcamento_models.dart';
 const String kOrcamentoStorageKey = 'pg_orcamento_v1';
 const String kOrcamentoSessaoTokenKey = 'pg_orcamento_sessao_token';
 const String kOrcamentoSessaoPapelKey = 'pg_orcamento_sessao_papel';
+const String kOrcamentoDocumentoIdKey = 'pg_orcamento_documento_id';
 
 String _apiRoot() {
   final base = kLeadsApiUrl;
@@ -82,6 +83,28 @@ void clearOrcamentoSessao() {
   try {
     web.window.sessionStorage.removeItem(kOrcamentoSessaoTokenKey);
     web.window.sessionStorage.removeItem(kOrcamentoSessaoPapelKey);
+    web.window.sessionStorage.removeItem(kOrcamentoDocumentoIdKey);
+  } catch (_) {}
+}
+
+String? readOrcamentoDocumentoId() {
+  try {
+    final v = web.window.sessionStorage.getItem(kOrcamentoDocumentoIdKey);
+    if (v == null || v.isEmpty) return null;
+    return v;
+  } catch (_) {
+    return null;
+  }
+}
+
+void writeOrcamentoDocumentoId(String? id) {
+  try {
+    final v = (id ?? '').trim();
+    if (v.isEmpty) {
+      web.window.sessionStorage.removeItem(kOrcamentoDocumentoIdKey);
+    } else {
+      web.window.sessionStorage.setItem(kOrcamentoDocumentoIdKey, v);
+    }
   } catch (_) {}
 }
 
@@ -295,28 +318,53 @@ Future<String?> deleteOrcamentoPrecosHistorico({required String id}) async {
   }
 }
 
+Future<({String? id, String? err})> _decodeDocumentoResponse(http.Response response, String? fallbackId) async {
+  if (response.statusCode == 403) return (id: null, err: 'pin_invalid');
+  if (response.statusCode != 200 && response.statusCode != 201) {
+    return (
+      id: null,
+      err: response.statusCode == 503
+          ? 'api_unavailable'
+          : (response.statusCode == 404 ? 'not_found' : 'server_error'),
+    );
+  }
+  try {
+    final decoded = jsonDecode(response.body);
+    if (decoded is! Map) return (id: fallbackId, err: null);
+    final savedId = '${decoded['id'] ?? fallbackId ?? ''}';
+    return (id: savedId.isEmpty ? fallbackId : savedId, err: null);
+  } catch (_) {
+    return (id: fallbackId, err: null);
+  }
+}
+
+Future<http.Response> _postDocumento(Map<String, dynamic> payload) {
+  return http
+      .post(Uri.parse(_registrosUrl()), headers: _authHeaders(json: true), body: jsonEncode(payload))
+      .timeout(const Duration(seconds: 20));
+}
+
 Future<({String? id, String? err})> upsertOrcamentoDocumento({
   String? id,
   required Map<String, dynamic> payload,
 }) async {
   try {
-    final hasId = id != null && id.isNotEmpty;
-    final uri = hasId ? Uri.parse('${_registrosUrl()}/$id') : Uri.parse(_registrosUrl());
-    final response = hasId
-        ? await http
-            .put(uri, headers: _authHeaders(json: true), body: jsonEncode(payload))
-            .timeout(const Duration(seconds: 20))
-        : await http
-            .post(uri, headers: _authHeaders(json: true), body: jsonEncode(payload))
-            .timeout(const Duration(seconds: 20));
-    if (response.statusCode == 403) return (id: null, err: 'pin_invalid');
-    if (response.statusCode != 200 && response.statusCode != 201) {
-      return (id: null, err: response.statusCode == 503 ? 'api_unavailable' : 'server_error');
+    final atualizar = documentoDeveAtualizar(id);
+    if (atualizar) {
+      final put = await http
+          .put(
+            Uri.parse('${_registrosUrl()}/$id'),
+            headers: _authHeaders(json: true),
+            body: jsonEncode(payload),
+          )
+          .timeout(const Duration(seconds: 20));
+      if (upsertDeveRecriarApos404(put.statusCode)) {
+        final created = await _decodeDocumentoResponse(await _postDocumento(payload), null);
+        return created;
+      }
+      return _decodeDocumentoResponse(put, id);
     }
-    final decoded = jsonDecode(response.body);
-    if (decoded is! Map) return (id: id, err: null);
-    final savedId = '${decoded['id'] ?? id ?? ''}';
-    return (id: savedId.isEmpty ? id : savedId, err: null);
+    return _decodeDocumentoResponse(await _postDocumento(payload), null);
   } catch (_) {
     return (id: null, err: 'api_unavailable');
   }

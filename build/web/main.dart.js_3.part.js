@@ -1,28 +1,28 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
-$__dart_deferred_initializers__.current=function(a,b,c,$){var B,D,A={PD:function PD(d){this.a=d},
-b05(d){switch(d.af(y.h).r.f.gcT()){case"en":return C.PM
-case"es":return C.PN
-case"pt":default:return C.PO}},
-avZ:function avZ(){},
+$__dart_deferred_initializers__.current=function(a,b,c,$){var B,D,A={PE:function PE(d){this.a=d},
+b07(d){switch(d.af(y.h).r.f.gcT()){case"en":return C.PN
+case"es":return C.PO
+case"pt":default:return C.PP}},
+aw_:function aw_(){},
+aNa:function aNa(){},
 aN8:function aN8(){},
-aN6:function aN6(){},
-aN7:function aN7(){}},C
+aN9:function aN9(){}},C
 B=c[0]
 D=c[2]
 A=a.updateHolder(c[10],A)
 C=c[15]
-A.PD.prototype={
-B(d){var x,w=null,v=B.x(d),u=A.b05(d)
+A.PE.prototype={
+B(d){var x,w=null,v=B.x(d),u=A.b07(d)
 v=v.ax.k3
 x=B.b9().$3$color$fontSize$height(v.ah(0.72),11.5,1.4)
-return B.ap(B.b([B.l("PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA",w,w,w,w,B.b9().$4$color$fontSize$fontWeight$height(v.ah(0.85),12,D.Z,1.3),w,w,w),D.da,B.l(u.gRW()+" 66.889.409/0001-19",w,w,w,w,x,w,w,w),D.ml,B.l(u.gRZ()+" +55 51 989045442",w,w,w,w,x,w,w,w),D.ml,B.l("Caxias do Sul \u2014 RS \u2014 Brasil",w,w,w,w,x,w,w,w)],y.e),D.D,D.j,D.l)}}
-A.avZ.prototype={}
-A.aN8.prototype={
+return B.ap(B.b([B.l("PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA",w,w,w,w,B.b9().$4$color$fontSize$fontWeight$height(v.ah(0.85),12,D.Z,1.3),w,w,w),D.da,B.l(u.gRX()+" 66.889.409/0001-19",w,w,w,w,x,w,w,w),D.ml,B.l(u.gS_()+" +55 51 989045442",w,w,w,w,x,w,w,w),D.ml,B.l("Caxias do Sul \u2014 RS \u2014 Brasil",w,w,w,w,x,w,w,w)],y.e),D.D,D.j,D.l)}}
+A.aw_.prototype={}
+A.aNa.prototype={
 gf8(){return"Etica e compliance Perfect Gest Dev"},
 giG(){return"\xc9tica e Compliance"},
 giI(){return"Perfect Gest Dev"},
 glp(){return"\xc9tica, conformidade e devolu\xe7\xf5es (site vitrine)"},
-rC(d){return"\xdaltima atualiza\xe7\xe3o: documento institucional. Para solicitar reembolso, cancelamento ou esclarecimentos sobre o produto PerfectGest, contacte: "+d+"."},
+rD(d){return"\xdaltima atualiza\xe7\xe3o: documento institucional. Para solicitar reembolso, cancelamento ou esclarecimentos sobre o produto PerfectGest, contacte: "+d+"."},
 gpO(){return"1. Escopo (site vitrine)"},
 gpN(){return"Este site \xe9 a vitrine institucional de Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA), em https://perfectgestdev.com. As vendas e pagamentos do produto PerfectGest n\xe3o s\xe3o processados neste site \u2014 ocorrem no canal de distribui\xe7\xe3o oficial do produto ou por acordo comercial directo connosco. Publicamos esta pol\xedtica em favor da transpar\xeancia com o nosso p\xfablico e utilizadores."},
 gpQ(){return"2. Direito de arrependimento (Brasil)"},
@@ -31,14 +31,14 @@ gpS(){return"3. Produtos digitais, assinaturas e cancelamento"},
 gpR(){return"Para produtos digitais e assinaturas, reembolso e cancelamento dependem do canal de aquisi\xe7\xe3o; cada canal tem fluxos e prazos pr\xf3prios. Independentemente do canal, pode contactar-nos: analisamos pedidos de forma imparcial e orientamos a melhor resolu\xe7\xe3o, incluindo falhas t\xe9cnicas comprovadas."},
 gpU(){return"4. Como solicitar (passo a passo)"},
 gpT(){return"1) Informe onde adquiriu o produto, data e comprovante.\n2) Descreva o motivo (arrependimento, cobran\xe7a indevida, defeito t\xe9cnico, etc.).\n3) Envie para o nosso e-mail de suporte.\nResponderemos com orienta\xe7\xf5es claras e, quando aplic\xe1vel, com o procedimento adequado ao seu caso."},
-gRW(){return"CNPJ:"},
-gRZ(){return"Contato com Empresa:"}}
-A.aN6.prototype={
+gRX(){return"CNPJ:"},
+gS_(){return"Contato com Empresa:"}}
+A.aN8.prototype={
 gf8(){return"Ethics and compliance Perfect Gest Dev"},
 giG(){return"Ethics & Compliance"},
 giI(){return"Perfect Gest Dev"},
 glp(){return"Ethics, compliance and returns (showcase website)"},
-rC(d){return"Last updated: institutional document. To request a refund, cancellation, or clarification about PerfectGest, contact: "+d+"."},
+rD(d){return"Last updated: institutional document. To request a refund, cancellation, or clarification about PerfectGest, contact: "+d+"."},
 gpO(){return"1. Scope (showcase website)"},
 gpN(){return"This website is the institutional showcase of Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA) at https://perfectgestdev.com. Sales and payments for PerfectGest are not processed on this site \u2014 they happen through the product's official distribution channel or a direct commercial agreement with us. We publish this policy for transparency with our audience and users."},
 gpQ(){return"2. Consumer withdrawal (Brazil)"},
@@ -47,14 +47,14 @@ gpS(){return"3. Digital products, subscriptions, and cancellation"},
 gpR(){return"For digital products and subscriptions, refunds and cancellation depend on the purchase channel; each channel has its own flows and timelines. Regardless of channel, you may contact us: we review requests impartially and guide the best resolution, including confirmed technical issues."},
 gpU(){return"4. How to request (step by step)"},
 gpT(){return"1) State where you purchased the product, date, and proof.\n2) Describe the reason (withdrawal, incorrect charge, technical defect, etc.).\n3) Send it to our support email.\nWe will reply with clear guidance and, when applicable, the right procedure for your case."},
-gRW(){return"CNPJ:"},
-gRZ(){return"Company contact:"}}
-A.aN7.prototype={
+gRX(){return"CNPJ:"},
+gS_(){return"Company contact:"}}
+A.aN9.prototype={
 gf8(){return"Etica y cumplimiento Perfect Gest Dev"},
 giG(){return"\xc9tica y cumplimiento"},
 giI(){return"Perfect Gest Dev"},
 glp(){return"\xc9tica, cumplimiento y devoluciones (sitio vitrina)"},
-rC(d){return"\xdaltima actualizaci\xf3n: documento institucional. Para solicitar reembolso, cancelaci\xf3n o aclaraciones sobre PerfectGest, contacte: "+d+"."},
+rD(d){return"\xdaltima actualizaci\xf3n: documento institucional. Para solicitar reembolso, cancelaci\xf3n o aclaraciones sobre PerfectGest, contacte: "+d+"."},
 gpO(){return"1. Alcance (sitio vitrina)"},
 gpN(){return"Este sitio es la vitrina institucional de Perfect Gest Dev (PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA), en https://perfectgestdev.com. Las ventas y pagos del producto PerfectGest no se procesan en este sitio \u2014 ocurren en el canal de distribuci\xf3n oficial del producto o por acuerdo comercial directo con nosotros. Publicamos esta pol\xedtica en favor de la transparencia con nuestro p\xfablico y usuarios."},
 gpQ(){return"2. Derecho de desistimiento (Brasil)"},
@@ -63,16 +63,16 @@ gpS(){return"3. Productos digitales, suscripciones y cancelaci\xf3n"},
 gpR(){return"Para productos digitales y suscripciones, reembolso y cancelaci\xf3n dependen del canal de adquisici\xf3n; cada canal tiene flujos y plazos propios. Independientemente del canal, puede contactarnos: revisamos solicitudes de forma imparcial y orientamos la mejor resoluci\xf3n, incluidas fallas t\xe9cnicas comprobadas."},
 gpU(){return"4. C\xf3mo solicitar (paso a paso)"},
 gpT(){return"1) Indique d\xf3nde adquiri\xf3 el producto, fecha y comprobante.\n2) Describa el motivo (desistimiento, cobro indebido, defecto t\xe9cnico, etc.).\n3) Env\xedelo a nuestro correo de soporte.\nResponderemos con orientaciones claras y, cuando aplique, con el procedimiento adecuado a su caso."},
-gRW(){return"CNPJ:"},
-gRZ(){return"Contacto con la empresa:"}}
+gRX(){return"CNPJ:"},
+gS_(){return"Contacto con la empresa:"}}
 var z=a.updateTypes([]);(function inheritance(){var x=a.inherit,w=a.inheritMany
-x(A.PD,B.W)
-x(A.avZ,B.P)
-w(A.avZ,[A.aN8,A.aN6,A.aN7])})()
-B.vk(b.typeUniverse,JSON.parse('{"PD":{"W":[],"d":[]}}'))
-var y={e:B.a5("w<d>"),h:B.a5("mc")};(function constants(){C.PM=new A.aN6()
-C.PN=new A.aN7()
-C.PO=new A.aN8()
-C.to=new A.PD(null)
-C.Lo=new B.cG(null,60,null,null)})()};
-(a=>{a["qoygstDlE6QgNGgUZ+hlzp9LHZ8="]=a.current})($__dart_deferred_initializers__);
+x(A.PE,B.W)
+x(A.aw_,B.P)
+w(A.aw_,[A.aNa,A.aN8,A.aN9])})()
+B.vk(b.typeUniverse,JSON.parse('{"PE":{"W":[],"d":[]}}'))
+var y={e:B.a5("w<d>"),h:B.a5("mc")};(function constants(){C.PN=new A.aN8()
+C.PO=new A.aN9()
+C.PP=new A.aNa()
+C.tp=new A.PE(null)
+C.Lp=new B.cH(null,60,null,null)})()};
+(a=>{a["RdMAWefw9rjhDcljmfTui3GUrQc="]=a.current})($__dart_deferred_initializers__);

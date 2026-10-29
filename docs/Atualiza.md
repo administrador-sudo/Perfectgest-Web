@@ -2,6 +2,29 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-29 09:25] /orcamento: vidro 8 mm Box/guarda-corpo e gravação da edição
+
+### Contexto
+
+- Box e 3 guarda-corpos nascem com vidro temperado 8 mm incolor. Abrir da lista usa rota String? (id não se perde). Id persistido na sessão. PUT 404 recria. Falha de gravação avisa. Payload string na API é parseado. V 1.2.1.
+
+### Arquivos alterados
+
+- lib/orcamento_models.dart
+- lib/orcamento_page.dart
+- lib/orcamento_registros_page.dart
+- lib/orcamento_storage_web.dart
+- lib/orcamento_storage_stub.dart
+- lib/main.dart
+- scripts/leads-api-server.js
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+- Evolucao.md
+
+### Pendente / Proximo passo
+
+- Sem publish. Deploy da API no Render (id numérico + parse de payload).
+
 ## [2026-10-29 08:55] /orcamento: sessão, papéis, documento no servidor, preços no código
 
 ### Contexto

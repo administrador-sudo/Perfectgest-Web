@@ -6,9 +6,9 @@ import 'company_legal.dart';
 import 'orcamento_item_pop.dart';
 import 'orcamento_models.dart';
 import 'orcamento_print_stub.dart' if (dart.library.html) 'orcamento_print_web.dart' as orcamento_print;
+import 'orcamento_registros_page.dart';
 import 'orcamento_storage_stub.dart' if (dart.library.html) 'orcamento_storage_web.dart' as orcamento_storage;
 import 'seo_meta_stub.dart' if (dart.library.html) 'seo_meta_web.dart' as seo_meta;
-import 'site_public_urls.dart';
 
 class OrcamentoPage extends StatefulWidget {
   const OrcamentoPage({super.key});
@@ -161,6 +161,17 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
 
   Future<void> _depoisLogin() async {
     await _carregarPrecosOficiais();
+    if (!mounted || _papel == null) return;
+    final id = orcamento_storage.readOrcamentoDocumentoId();
+    if (id != null && id.isNotEmpty) {
+      await _abrirDocumento(id);
+    }
+  }
+
+  void _definirDocumentoId(String? id) {
+    final v = (id ?? '').trim();
+    _documentoId = v.isEmpty ? null : v;
+    orcamento_storage.writeOrcamentoDocumentoId(_documentoId);
   }
 
   Future<void> _carregarPrecosOficiais() async {
@@ -184,7 +195,7 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
     );
   }
 
-  Future<void> _salvarDocumento({bool aviso = true}) async {
+  Future<bool> _salvarDocumento({bool aviso = true}) async {
     final saved = await orcamento_storage.upsertOrcamentoDocumento(
       id: _documentoId,
       payload: orcamentoRegistroPayload(
@@ -193,25 +204,26 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
         data: DateTime.now(),
       ),
     );
-    if (!mounted) return;
+    if (!mounted) return false;
     if (saved.err == 'pin_invalid') {
       orcamento_storage.clearOrcamentoSessao();
       setState(() => _papel = null);
-      return;
+      return false;
     }
-    if (saved.id != null && saved.id!.isNotEmpty) {
-      setState(() => _documentoId = saved.id);
+    if (saved.err != null) {
+      _avisoPrecos('Não foi possível gravar o orçamento.');
+      return false;
     }
+    setState(() => _definirDocumentoId(saved.id));
     if (aviso) {
-      _avisoPrecos(
-        saved.err == null ? 'Orçamento gravado no servidor.' : 'Não foi possível gravar o orçamento.',
-      );
+      _avisoPrecos('Orçamento gravado no servidor.');
     }
+    return true;
   }
 
   void _novoOrcamento() {
     setState(() {
-      _documentoId = null;
+      _definirDocumentoId(null);
       _itens = [];
       _cliente.clear();
       _folha = false;
@@ -245,9 +257,17 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
   void _addFromCatalog(OrcamentoCatalogTipo tipo) {
     final preco = parsePtBrDouble(_precoCtrls[tipo.id]?.text ?? '');
     final padrao = parsePtBrDouble(_precoVidroCtrls[kVidroPadraoId]?.text ?? '');
+    final vidroId = vidroInicialDoCatalogo(tipo.id);
+    final precoVidro = parsePtBrDouble(_precoVidroCtrls[vidroId]?.text ?? '');
     setState(() => _itens = [
           ..._itens,
-          OrcamentoItem.fromCatalog(tipo, precoM2: preco, precoM2VidroPadrao: padrao),
+          OrcamentoItem.fromCatalog(
+            tipo,
+            precoM2: preco,
+            precoM2VidroPadrao: padrao,
+            precoM2Vidro: precoVidro,
+            vidroId: vidroId,
+          ),
         ]);
   }
 
@@ -293,9 +313,15 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
   }
 
   Future<void> _abrirListaOrcamentos() async {
-    final id = await Navigator.of(context).pushNamed(kOrcamentoRegistrosPath);
-    if (id is! String || id.isEmpty || !mounted) return;
-    await _abrirDocumento(id);
+    final id = await Navigator.of(context).push<String?>(
+      MaterialPageRoute<String?>(
+        builder: (_) => const OrcamentoRegistrosPage(),
+      ),
+    );
+    if (!mounted) return;
+    final aberto = (id != null && id.isNotEmpty) ? id : orcamento_storage.readOrcamentoDocumentoId();
+    if (aberto == null || aberto.isEmpty) return;
+    await _abrirDocumento(aberto);
   }
 
   Future<void> _abrirDocumento(String id) async {
@@ -306,7 +332,7 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
       return;
     }
     setState(() {
-      _documentoId = id;
+      _definirDocumentoId(id);
       _folha = false;
       _aplicarDocumento(found.snap!);
     });
@@ -585,14 +611,14 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
   }
 
   Future<void> _verFolha() async {
-    await _salvarDocumento(aviso: false);
-    if (!mounted) return;
+    final ok = await _salvarDocumento(aviso: true);
+    if (!ok || !mounted) return;
     setState(() => _folha = true);
   }
 
   Future<void> _pdfWhatsApp() async {
-    await _salvarDocumento(aviso: false);
-    if (!mounted) return;
+    final ok = await _salvarDocumento(aviso: true);
+    if (!ok || !mounted) return;
     _gerarPdf();
     orcamento_print.openWhatsAppText(
       textoWhatsAppOrcamento(
@@ -1132,7 +1158,7 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
       Padding(
         padding: const EdgeInsets.fromLTRB(4, 12, 4, 4),
         child: Text(
-          'Vidros',
+          'Vidros\n (Valores de diferença em relação ao Vidro 4mm Incolor)',
           style: const TextStyle(
             color: BrandPalette.charcoal,
             fontWeight: FontWeight.w800,

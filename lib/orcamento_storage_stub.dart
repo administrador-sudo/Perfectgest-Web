@@ -12,6 +12,10 @@ void writeOrcamentoSessao({required String token, required String papel}) {}
 
 void clearOrcamentoSessao() {}
 
+String? readOrcamentoDocumentoId() => null;
+
+void writeOrcamentoDocumentoId(String? id) {}
+
 Future<({String? token, String? papel, String? err})> loginOrcamentoSessao(String pin) async =>
     (token: null, papel: null, err: 'unsupported');
 

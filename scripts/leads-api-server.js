@@ -458,29 +458,48 @@ async function insertRegistro(payload) {
   return { id: row.id, createdAt: row.createdAt };
 }
 
+function asRegistroId(id) {
+  const n = Number(String(id || '').trim());
+  if (!Number.isFinite(n) || n <= 0) return null;
+  return n;
+}
+
+function asPayloadObject(raw) {
+  if (raw && typeof raw === 'object' && !Array.isArray(raw)) return raw;
+  if (typeof raw === 'string' && raw.trim()) {
+    try {
+      const p = JSON.parse(raw);
+      if (p && typeof p === 'object' && !Array.isArray(p)) return p;
+    } catch (_) {}
+  }
+  return {};
+}
+
 async function getRegistro(id) {
+  const nid = asRegistroId(id);
+  if (nid == null) return null;
   if (pgPool) {
     await ensurePgSchema();
     const result = await pgPool.query(
       'SELECT id, payload, cliente, total, comissao, created_at FROM orcamento_registros WHERE id = $1',
-      [id],
+      [nid],
     );
     const row = result.rows[0];
     if (!row) return null;
     return {
       id: String(row.id),
-      payload: row.payload || {},
+      payload: asPayloadObject(row.payload),
       cliente: row.cliente || '',
       total: Number(row.total) || 0,
       comissao: Number(row.comissao) || 0,
       createdAt: row.created_at.toISOString(),
     };
   }
-  const hit = readRegistrosFile().find((r) => String(r.id) === String(id));
+  const hit = readRegistrosFile().find((r) => String(r.id) === String(nid));
   if (!hit) return null;
   return {
     id: String(hit.id),
-    payload: hit.payload || {},
+    payload: asPayloadObject(hit.payload),
     cliente: hit.cliente || '',
     total: Number(hit.total) || 0,
     comissao: Number(hit.comissao) || 0,
@@ -489,19 +508,21 @@ async function getRegistro(id) {
 }
 
 async function updateRegistro(id, payload) {
+  const nid = asRegistroId(id);
+  if (nid == null) return null;
   if (pgPool) {
     await ensurePgSchema();
     const result = await pgPool.query(
       `UPDATE orcamento_registros
        SET payload = $2::jsonb, cliente = $3, total = $4, comissao = $5
        WHERE id = $1 RETURNING id, created_at`,
-      [id, JSON.stringify(payload), payload.cliente, payload.total, payload.comissao],
+      [nid, JSON.stringify(payload), payload.cliente, payload.total, payload.comissao],
     );
     if (!result.rows[0]) return null;
     return { id: String(result.rows[0].id), createdAt: result.rows[0].created_at.toISOString() };
   }
   const list = readRegistrosFile();
-  const idx = list.findIndex((r) => String(r.id) === String(id));
+  const idx = list.findIndex((r) => String(r.id) === String(nid));
   if (idx < 0) return null;
   list[idx] = {
     ...list[idx],
@@ -538,13 +559,15 @@ async function listRegistros() {
 }
 
 async function deleteRegistro(id) {
+  const nid = asRegistroId(id);
+  if (nid == null) return false;
   if (pgPool) {
     await ensurePgSchema();
-    const result = await pgPool.query('DELETE FROM orcamento_registros WHERE id = $1', [id]);
+    const result = await pgPool.query('DELETE FROM orcamento_registros WHERE id = $1', [nid]);
     return result.rowCount > 0;
   }
   const list = readRegistrosFile();
-  const next = list.filter((r) => String(r.id) !== String(id));
+  const next = list.filter((r) => String(r.id) !== String(nid));
   if (next.length === list.length) return false;
   writeRegistrosFile(next);
   return true;

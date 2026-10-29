@@ -54,6 +54,7 @@ class _OrcamentoRegistrosPageState extends State<OrcamentoRegistrosPage> {
   }
 
   void _abrir(OrcamentoRegistroResumo r) {
+    orcamento_storage.writeOrcamentoDocumentoId(r.id);
     Navigator.of(context).pop(r.id);
   }
 

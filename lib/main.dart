@@ -203,7 +203,7 @@ class _PerfectProSiteAppState extends State<PerfectProSiteApp> {
           builder: (_) => const OrcamentoPage(),
         );
       case kOrcamentoRegistrosPath:
-        return MaterialPageRoute<String?>(
+        return MaterialPageRoute<void>(
           settings: settings,
           builder: (_) => const OrcamentoRegistrosPage(),
         );

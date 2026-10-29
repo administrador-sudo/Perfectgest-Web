@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 
 /// Tipos de abertura da v1 (catalogo fixo, facil de ampliar).
@@ -97,6 +99,23 @@ class OrcamentoVidroTipo {
 }
 
 const String kVidroPadraoId = 'v4_incolor';
+const String kVidroTemperado8IncolorId = 'vt8_incolor';
+
+const Set<String> kCatalogoVidroTemperado8 = {
+  'box_banheiro',
+  'guarda_corpo_vidro',
+  'guarda_corpo_tradicional',
+  'guarda_corpo_simples_tubular',
+};
+
+String vidroInicialDoCatalogo(String catalogId) {
+  if (kCatalogoVidroTemperado8.contains(catalogId)) return kVidroTemperado8IncolorId;
+  return kVidroPadraoId;
+}
+
+bool documentoDeveAtualizar(String? id) => id != null && id.trim().isNotEmpty;
+
+bool upsertDeveRecriarApos404(int status) => status == 404;
 
 const List<OrcamentoVidroTipo> kOrcamentoVidros = [
   OrcamentoVidroTipo(id: 'v4_incolor', nome: 'Vidro incolor 4 mm (padrão)'),
@@ -129,7 +148,7 @@ const double kOrcamentoFatiaMaterialPadrao = 60;
 const double kOrcamentoFatiaMaoObraPadrao = 40;
 
 /// Versão visível no rodapé de /orcamento (confirmar se o browser recebeu o build).
-const String kOrcamentoFerramentaVersao = '1.2.0';
+const String kOrcamentoFerramentaVersao = '1.2.1';
 
 const Map<String, double> kOrcamentoPrecosM2Padrao = {
   'janela_correr_2': 600,
@@ -549,7 +568,13 @@ class OrcamentoItem {
     OrcamentoCatalogTipo tipo, {
     double precoM2 = 0,
     double precoM2VidroPadrao = 0,
+    double precoM2Vidro = 0,
+    String? vidroId,
   }) {
+    final vidro = vidroPorId(vidroId)?.id ?? vidroInicialDoCatalogo(tipo.id);
+    final precoVidro = precoM2Vidro > 0
+        ? precoM2Vidro
+        : (kOrcamentoPrecosVidroPadrao[vidro] ?? precoM2VidroPadrao);
     return OrcamentoItem(
       id: '${DateTime.now().microsecondsSinceEpoch}_${tipo.id}',
       catalogId: tipo.id,
@@ -558,8 +583,8 @@ class OrcamentoItem {
       pctMaoObra: kOrcamentoPctMaoObraPadrao,
       instalacao: instalacaoPorArea(0),
       alturaMm: tipo.id == 'box_banheiro' ? kBoxBanheiroAlturaPadraoMm : 0,
-      vidroId: kVidroPadraoId,
-      precoM2Vidro: precoM2VidroPadrao,
+      vidroId: vidro,
+      precoM2Vidro: precoVidro,
       precoM2VidroPadrao: precoM2VidroPadrao,
     );
   }
@@ -753,7 +778,14 @@ Map<String, dynamic> orcamentoRegistroPayload({
 }
 
 OrcamentoSnapshot snapshotFromRegistro(Map<String, dynamic> json) {
-  final payload = json['payload'];
+  dynamic payload = json['payload'];
+  if (payload is String && payload.trim().isNotEmpty) {
+    try {
+      payload = jsonDecode(payload);
+    } catch (_) {
+      payload = null;
+    }
+  }
   if (payload is Map<String, dynamic>) {
     return OrcamentoSnapshot.fromJson(payload);
   }
