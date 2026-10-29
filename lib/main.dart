@@ -1503,6 +1503,67 @@ class _HeroSectionState extends State<HeroSection> with SingleTickerProviderStat
   }
 }
 
+class _HeroContabilGestShowcase extends StatelessWidget {
+  const _HeroContabilGestShowcase({required this.l10n});
+
+  final AppLocalizations l10n;
+
+  @override
+  Widget build(BuildContext context) {
+    return SolutionsProductShowcase(
+      appName: l10n.solContabilAppsTitle,
+      platformLabel: l10n.solAppsPlatformLabel,
+      tagline: l10n.solContabilAppsTagline,
+      description: l10n.solContabilAppsBody,
+      actions: SolutionsAppActionsBlock(
+        getAppLabel: l10n.solContabilKnowAppLabel,
+        supportPortalLabel: l10n.solContabilAppsSupportPortalLabel,
+        productUrl: kPerfectGestContabilIProductUrl,
+        supportUrl: kPerfectGestContabilIFaqUrl,
+        primaryIcon: Icons.visibility_outlined,
+        onPrimary: () => Navigator.of(context).pushNamed(kContabilidadePath),
+      ),
+      devices: Semantics(
+        label: l10n.solShowcaseSemantics,
+        child: Wrap(
+          spacing: 16,
+          runSpacing: 16,
+          alignment: WrapAlignment.center,
+          children: [
+            DeviceFrame(
+              title: 'Android 14',
+              width: 190,
+              height: 338,
+              radius: 34,
+              imageAsset: 'IMAGENS_APP/Screenshot/contabil_phone_empresa.png',
+              imageLeft: 27,
+              imageTop: 20,
+              imageWidth: 136,
+              imageHeight: 297,
+              previewCaption: l10n.solPreviewContabilPhoneEmpresa,
+              loadImage: true,
+            ),
+            DeviceFrame(
+              title: 'Android tablet',
+              width: 228,
+              height: 308,
+              radius: 26,
+              imageAsset: 'IMAGENS_APP/Screenshot/contabil_tablet_lancar.jpg',
+              fallbackImageAsset: 'IMAGENS_APP/Screenshot/contabil_tablet_lancar.jpg',
+              imageLeft: 30,
+              imageTop: 16,
+              imageWidth: 168,
+              imageHeight: 276,
+              previewCaption: l10n.solPreviewContabilTabletLancar,
+              loadImage: true,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class _HeroContabilIntro extends StatelessWidget {
   const _HeroContabilIntro({required this.l10n, required this.colorScheme});
   final AppLocalizations l10n;
@@ -1561,6 +1622,10 @@ class _HeroContabilIntro extends StatelessWidget {
       children: [
         gold3d(l10n.heroContabilTitle, titleStyle),
         const SizedBox(height: 10),
+        gold3d(l10n.heroContabilSistemaFiscal, largeTitleStyle),
+        const SizedBox(height: 16),
+        _HeroContabilGestShowcase(l10n: l10n),
+        const SizedBox(height: 22),
         gold3d(l10n.heroContabilMei2027, subtitleStyle),
         const SizedBox(height: 10),
         gold3d(l10n.heroContabilLead, bodyStyle, compact: true),
@@ -1663,7 +1728,7 @@ class AnimatedSolutionsSectionContent extends StatefulWidget {
 }
 
 class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSectionContent> with TickerProviderStateMixin {
-  static const int _mockupCount = 4;
+  static const int _mockupCount = 2;
   late final AnimationController _floatCtrl = AnimationController(vsync: this, duration: const Duration(seconds: 5));
   late final AnimationController _enterCtrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 1200));
   int _loadedMockupCount = kIsWeb ? 0 : _mockupCount;
@@ -1722,56 +1787,10 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
         _buildProductBlock(
           context,
           l10n,
-          appName: l10n.solContabilAppsTitle,
-          tagline: l10n.solContabilAppsTagline,
-          body: l10n.solContabilAppsBody,
-          mockupStartIndex: 0,
-          phoneFrame: DeviceFrame(
-            title: 'Android 14',
-            width: 190,
-            height: 338,
-            radius: 34,
-            imageAsset: 'IMAGENS_APP/Screenshot/contabil_phone_empresa.png',
-            imageLeft: 27,
-            imageTop: 20,
-            imageWidth: 136,
-            imageHeight: 297,
-            previewCaption: l10n.solPreviewContabilPhoneEmpresa,
-            loadImage: _loadedMockupCount > 0,
-          ),
-          tabletFrame: DeviceFrame(
-            title: 'Android tablet',
-            width: 228,
-            height: 308,
-            radius: 26,
-            imageAsset: 'IMAGENS_APP/Screenshot/contabil_tablet_lancar.jpg',
-            fallbackImageAsset: 'IMAGENS_APP/Screenshot/contabil_tablet_lancar.jpg',
-            imageLeft: 30,
-            imageTop: 16,
-            imageWidth: 168,
-            imageHeight: 276,
-            previewCaption: l10n.solPreviewContabilTabletLancar,
-            loadImage: _loadedMockupCount > 1,
-          ),
-          actions: SolutionsAppActionsBlock(
-            getAppLabel: l10n.solContabilKnowAppLabel,
-            supportPortalLabel: l10n.solContabilAppsSupportPortalLabel,
-            productUrl: kPerfectGestContabilIProductUrl,
-            supportUrl: kPerfectGestContabilIFaqUrl,
-            primaryIcon: Icons.visibility_outlined,
-            onPrimary: () => Navigator.of(context).pushNamed(kContabilidadePath),
-          ),
-          fadeBegin: 0.0,
-          fadeEnd: 0.4,
-        ),
-        const SizedBox(height: 32),
-        _buildProductBlock(
-          context,
-          l10n,
           appName: l10n.solAppsTitle,
           tagline: l10n.solAppsTagline,
           body: l10n.solAppsBody,
-          mockupStartIndex: 2,
+          mockupStartIndex: 0,
           phoneFrame: DeviceFrame(
             title: 'Android 14',
             width: 190,
@@ -1784,7 +1803,7 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
             imageWidth: 136,
             imageHeight: 297,
             previewCaption: l10n.solPreviewPhoneInicio,
-            loadImage: _loadedMockupCount > 2,
+            loadImage: _loadedMockupCount > 0,
           ),
           tabletFrame: DeviceFrame(
             title: 'Android tablet',
@@ -1798,7 +1817,7 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
             imageWidth: 168,
             imageHeight: 276,
             previewCaption: l10n.solPreviewTabletInicio,
-            loadImage: _loadedMockupCount > 3,
+            loadImage: _loadedMockupCount > 1,
           ),
           actions: SolutionsAppActionsBlock(
             getAppLabel: l10n.solAppsGetAppLabel,

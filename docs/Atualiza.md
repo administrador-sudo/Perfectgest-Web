@@ -2,6 +2,23 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-29 15:35] Home: ContabilGest no topo do hero
+
+### Contexto
+
+- Frase «O seu CNPJ está preparado para o novo sistema fiscal»; apresentação PerfectGest ContabilGest em seguida; «nova Nota Fiscal?» e o restante do texto depois. Soluções (App/Web) só com PerfectGest + Web.
+
+### Arquivos alterados
+
+- lib/main.dart
+- lib/l10n/app_localizations.dart
+- docs/Atualiza.md
+- Evolucao.md
+
+### Pendente / Proximo passo
+
+- Sem publish.
+
 ## [2026-10-29 15:21] /orcamento: pop Preencher o orçamento
 
 ### Contexto

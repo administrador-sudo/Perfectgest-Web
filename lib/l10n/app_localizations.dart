@@ -61,6 +61,7 @@ abstract class AppLocalizations {
   String get heroSubline;
   String get heroCloser;
   String get heroContabilTitle;
+  String get heroContabilSistemaFiscal;
   String get heroContabilMei2027;
   String get heroContabilLead;
   String get heroContabilWhyNowTitle;
@@ -279,6 +280,9 @@ class _AppLocalizationsPt extends AppLocalizations {
       'Soluções digitais com arquitetura robusta, código limpo e resultados mensuráveis.';
   @override
   String get heroContabilTitle => 'SETOR DE CONTABILIDADE';
+  @override
+  String get heroContabilSistemaFiscal =>
+      'O seu CNPJ está preparado para o novo sistema fiscal';
   @override
   String get heroContabilMei2027 =>
       'O MEI vai mudar em 2027.\nO seu CNPJ está preparado para a nova Nota Fiscal?';
@@ -636,6 +640,9 @@ class _AppLocalizationsEn extends AppLocalizations {
   @override
   String get heroContabilTitle => 'ACCOUNTING DIVISION';
   @override
+  String get heroContabilSistemaFiscal =>
+      'Is your CNPJ ready for the new tax system?';
+  @override
   String get heroContabilMei2027 =>
       'MEI rules change in 2027.\nIs your CNPJ ready for the new electronic invoice?';
   @override
@@ -990,6 +997,9 @@ class _AppLocalizationsEs extends AppLocalizations {
       'Soluciones digitales con arquitectura robusta, código limpio y resultados medibles.';
   @override
   String get heroContabilTitle => 'SECTOR DE CONTABILIDAD';
+  @override
+  String get heroContabilSistemaFiscal =>
+      '¿Su CNPJ está preparado para el nuevo sistema fiscal?';
   @override
   String get heroContabilMei2027 =>
       'El MEI cambiará en 2027.\n¿Su CNPJ está preparado para la nueva Nota Fiscal?';
