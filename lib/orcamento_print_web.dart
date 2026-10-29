@@ -17,6 +17,16 @@ const String _printOnceScript = r'''
 </script>
 ''';
 
+bool openWhatsAppText(String texto) {
+  try {
+    final url = 'https://wa.me/?text=${Uri.encodeComponent(texto)}';
+    web.window.open(url, '_blank');
+    return true;
+  } catch (_) {
+    return false;
+  }
+}
+
 bool printOrcamentoHtml(String html) {
   try {
     web.document.getElementById('pg-orcamento-print')?.remove();

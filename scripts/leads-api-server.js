@@ -50,10 +50,11 @@ const allowedOrigins = (process.env.ALLOWED_ORIGINS || DEFAULT_ORIGINS.join(',')
 const dataDir = process.env.LEADS_DATA_DIR || path.join(__dirname, '..', 'data');
 const leadsFile = path.join(dataDir, 'site_leads.jsonl');
 const orcamentoPrecosFile = path.join(dataDir, 'orcamento_precos.json');
+const orcamentoRegistrosFile = path.join(dataDir, 'orcamento_registros.json');
 const ORCAMENTO_PRECOS_PIN = String(process.env.ORCAMENTO_PRECOS_PIN || '1981').trim();
 
 const app = express();
-app.use(express.json({ limit: '32kb' }));
+app.use(express.json({ limit: '256kb' }));
 
 app.use(
   cors({
@@ -92,6 +93,24 @@ async function ensurePgSchema() {
     ALTER TABLE orcamento_precos ADD COLUMN IF NOT EXISTS fatia_material DOUBLE PRECISION NOT NULL DEFAULT 60;
     ALTER TABLE orcamento_precos ADD COLUMN IF NOT EXISTS fatia_mao_obra DOUBLE PRECISION NOT NULL DEFAULT 40;
     INSERT INTO orcamento_precos (id) VALUES (1) ON CONFLICT (id) DO NOTHING;
+    CREATE TABLE IF NOT EXISTS orcamento_precos_bkp (
+      id BIGSERIAL PRIMARY KEY,
+      precos_m2 JSONB NOT NULL DEFAULT '{}'::jsonb,
+      precos_vidro JSONB NOT NULL DEFAULT '{}'::jsonb,
+      fatia_material DOUBLE PRECISION NOT NULL DEFAULT 60,
+      fatia_mao_obra DOUBLE PRECISION NOT NULL DEFAULT 40,
+      created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    );
+    CREATE INDEX IF NOT EXISTS orcamento_precos_bkp_created_at_idx ON orcamento_precos_bkp (created_at DESC);
+    CREATE TABLE IF NOT EXISTS orcamento_registros (
+      id BIGSERIAL PRIMARY KEY,
+      payload JSONB NOT NULL DEFAULT '{}'::jsonb,
+      cliente TEXT NOT NULL DEFAULT '',
+      total DOUBLE PRECISION NOT NULL DEFAULT 0,
+      comissao DOUBLE PRECISION NOT NULL DEFAULT 0,
+      created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    );
+    CREATE INDEX IF NOT EXISTS orcamento_registros_created_at_idx ON orcamento_registros (created_at DESC);
   `);
   schemaReady = true;
 }
@@ -150,27 +169,58 @@ function asFatiaPar(materialRaw) {
   return { fatiaMaterial: material, fatiaMaoObra: maoObra };
 }
 
-function readPrecosFile() {
+function hasPrices(data) {
+  for (const map of [data && data.precosM2, data && data.precosVidro]) {
+    if (!map || typeof map !== 'object') continue;
+    for (const v of Object.values(map)) {
+      if (typeof v === 'number' && v > 0) return true;
+    }
+  }
+  return false;
+}
+
+function precosIguais(a, b) {
+  return (
+    JSON.stringify((a && a.precosM2) || {}) === JSON.stringify((b && b.precosM2) || {}) &&
+    JSON.stringify((a && a.precosVidro) || {}) === JSON.stringify((b && b.precosVidro) || {}) &&
+    Number(a && a.fatiaMaterial) === Number(b && b.fatiaMaterial)
+  );
+}
+
+function readPrecosFileBundle() {
   try {
-    if (!fs.existsSync(orcamentoPrecosFile)) return emptyPrecos();
+    if (!fs.existsSync(orcamentoPrecosFile)) return { ...emptyPrecos(), historico: [] };
     const raw = JSON.parse(fs.readFileSync(orcamentoPrecosFile, 'utf8'));
     const fatia = asFatiaPar(raw && raw.fatiaMaterial);
+    const historico = Array.isArray(raw.historico) ? raw.historico : [];
     return {
       precosM2: asPriceMap(raw && raw.precosM2),
       precosVidro: asPriceMap(raw && raw.precosVidro),
       fatiaMaterial: fatia.fatiaMaterial,
       fatiaMaoObra: fatia.fatiaMaoObra,
+      historico,
     };
   } catch (_) {
-    return emptyPrecos();
+    return { ...emptyPrecos(), historico: [] };
   }
 }
 
-function writePrecosFile(precosM2, precosVidro, fatiaMaterial, fatiaMaoObra) {
+function readPrecosFile() {
+  const b = readPrecosFileBundle();
+  return {
+    precosM2: b.precosM2,
+    precosVidro: b.precosVidro,
+    fatiaMaterial: b.fatiaMaterial,
+    fatiaMaoObra: b.fatiaMaoObra,
+  };
+}
+
+function writePrecosFile(precosM2, precosVidro, fatiaMaterial, fatiaMaoObra, historico) {
+  const hist = historico != null ? historico : readPrecosFileBundle().historico;
   fs.mkdirSync(dataDir, { recursive: true });
   fs.writeFileSync(
     orcamentoPrecosFile,
-    `${JSON.stringify({ precosM2, precosVidro, fatiaMaterial, fatiaMaoObra }, null, 2)}\n`,
+    `${JSON.stringify({ precosM2, precosVidro, fatiaMaterial, fatiaMaoObra, historico: hist }, null, 2)}\n`,
     'utf8',
   );
 }
@@ -197,8 +247,242 @@ async function readOrcamentoPrecos() {
   return readPrecosFile();
 }
 
+async function snapshotPrecosSeMudou(novo) {
+  const atual = await readOrcamentoPrecos();
+  if (!hasPrices(atual) || precosIguais(atual, novo)) return;
+  if (pgPool) {
+    await pgPool.query(
+      `INSERT INTO orcamento_precos_bkp (precos_m2, precos_vidro, fatia_material, fatia_mao_obra)
+       VALUES ($1::jsonb, $2::jsonb, $3, $4)`,
+      [
+        JSON.stringify(atual.precosM2),
+        JSON.stringify(atual.precosVidro),
+        atual.fatiaMaterial,
+        atual.fatiaMaoObra,
+      ],
+    );
+    return;
+  }
+  const bundle = readPrecosFileBundle();
+  bundle.historico.unshift({
+    id: String(Date.now()),
+    createdAt: new Date().toISOString(),
+    precosM2: atual.precosM2,
+    precosVidro: atual.precosVidro,
+    fatiaMaterial: atual.fatiaMaterial,
+    fatiaMaoObra: atual.fatiaMaoObra,
+  });
+  writePrecosFile(
+    bundle.precosM2,
+    bundle.precosVidro,
+    bundle.fatiaMaterial,
+    bundle.fatiaMaoObra,
+    bundle.historico.slice(0, 80),
+  );
+}
+
+async function listPrecosHistorico() {
+  if (pgPool) {
+    await ensurePgSchema();
+    const result = await pgPool.query(
+      'SELECT id, created_at FROM orcamento_precos_bkp ORDER BY created_at DESC LIMIT 80',
+    );
+    return result.rows.map((r) => ({
+      id: String(r.id),
+      createdAt: r.created_at.toISOString(),
+    }));
+  }
+  return readPrecosFileBundle().historico.map((h) => ({
+    id: String(h.id),
+    createdAt: h.createdAt,
+  }));
+}
+
+async function restorePrecosHistorico(id) {
+  if (pgPool) {
+    await ensurePgSchema();
+    const result = await pgPool.query(
+      'SELECT precos_m2, precos_vidro, fatia_material, fatia_mao_obra FROM orcamento_precos_bkp WHERE id = $1',
+      [id],
+    );
+    const row = result.rows[0];
+    if (!row) return null;
+    const fatia = asFatiaPar(row.fatia_material);
+    return {
+      precosM2: asPriceMap(row.precos_m2),
+      precosVidro: asPriceMap(row.precos_vidro),
+      fatiaMaterial: fatia.fatiaMaterial,
+      fatiaMaoObra: fatia.fatiaMaoObra,
+    };
+  }
+  const hit = readPrecosFileBundle().historico.find((h) => String(h.id) === String(id));
+  if (!hit) return null;
+  const fatia = asFatiaPar(hit.fatiaMaterial);
+  return {
+    precosM2: asPriceMap(hit.precosM2),
+    precosVidro: asPriceMap(hit.precosVidro),
+    fatiaMaterial: fatia.fatiaMaterial,
+    fatiaMaoObra: fatia.fatiaMaoObra,
+  };
+}
+
+async function deletePrecosHistorico(id) {
+  if (pgPool) {
+    await ensurePgSchema();
+    const result = await pgPool.query('DELETE FROM orcamento_precos_bkp WHERE id = $1', [id]);
+    return result.rowCount > 0;
+  }
+  const bundle = readPrecosFileBundle();
+  const next = bundle.historico.filter((h) => String(h.id) !== String(id));
+  if (next.length === bundle.historico.length) return false;
+  writePrecosFile(
+    bundle.precosM2,
+    bundle.precosVidro,
+    bundle.fatiaMaterial,
+    bundle.fatiaMaoObra,
+    next,
+  );
+  return true;
+}
+
+function clipStr(raw, max) {
+  return String(raw || '').trim().slice(0, max);
+}
+
+function asMoney(raw) {
+  const n = typeof raw === 'number' ? raw : Number(String(raw ?? '').replace(',', '.'));
+  if (!Number.isFinite(n) || n < 0 || n > 1e9) return 0;
+  return Math.round(n * 100) / 100;
+}
+
+function sanitizeRegistro(body) {
+  const itensIn = Array.isArray(body.itens) ? body.itens.slice(0, 80) : [];
+  const itens = itensIn.map((it) => ({
+    nome: clipStr(it && it.nome, 160),
+    catalogId: clipStr(it && it.catalogId, 80),
+    larguraMm: asMoney(it && it.larguraMm),
+    alturaMm: asMoney(it && it.alturaMm),
+    area: asMoney(it && it.area),
+    material: asMoney(it && it.material),
+    maoObra: asMoney(it && it.maoObra),
+    valorVidro: asMoney(it && it.valorVidro),
+    vidroNome: clipStr(it && it.vidroNome, 120),
+    instalacao: asMoney(it && it.instalacao),
+    pctComissao: asMoney(it && it.pctComissao),
+    comissao: asMoney(it && it.comissao),
+    total: asMoney(it && it.total),
+  }));
+  const cadastro = body.cadastro && typeof body.cadastro === 'object' ? body.cadastro : {};
+  return {
+    cliente: clipStr(body.cliente || cadastro.cliente, 160),
+    vendedor: clipStr(body.vendedor || cadastro.vendedor, 120),
+    empresaNome: clipStr(body.empresaNome || cadastro.empresaNome, 160),
+    data: clipStr(body.data, 40),
+    total: asMoney(body.total),
+    comissao: asMoney(body.comissao),
+    cadastro: {
+      empresaNome: clipStr(cadastro.empresaNome, 160),
+      cliente: clipStr(cadastro.cliente, 160),
+      vendedor: clipStr(cadastro.vendedor, 120),
+      telefone: clipStr(cadastro.telefone, 40),
+    },
+    itens,
+  };
+}
+
+function readRegistrosFile() {
+  try {
+    if (!fs.existsSync(orcamentoRegistrosFile)) return [];
+    const raw = JSON.parse(fs.readFileSync(orcamentoRegistrosFile, 'utf8'));
+    return Array.isArray(raw) ? raw : [];
+  } catch (_) {
+    return [];
+  }
+}
+
+function writeRegistrosFile(list) {
+  fs.mkdirSync(dataDir, { recursive: true });
+  fs.writeFileSync(orcamentoRegistrosFile, `${JSON.stringify(list.slice(0, 400), null, 2)}\n`, 'utf8');
+}
+
+async function insertRegistro(payload) {
+  if (pgPool) {
+    await ensurePgSchema();
+    const result = await pgPool.query(
+      `INSERT INTO orcamento_registros (payload, cliente, total, comissao)
+       VALUES ($1::jsonb, $2, $3, $4) RETURNING id, created_at`,
+      [JSON.stringify(payload), payload.cliente, payload.total, payload.comissao],
+    );
+    return { id: String(result.rows[0].id), createdAt: result.rows[0].created_at.toISOString() };
+  }
+  const list = readRegistrosFile();
+  const row = {
+    id: String(Date.now()),
+    createdAt: new Date().toISOString(),
+    cliente: payload.cliente,
+    total: payload.total,
+    comissao: payload.comissao,
+    payload,
+  };
+  list.unshift(row);
+  writeRegistrosFile(list);
+  return { id: row.id, createdAt: row.createdAt };
+}
+
+async function listRegistros() {
+  if (pgPool) {
+    await ensurePgSchema();
+    const result = await pgPool.query(
+      'SELECT id, cliente, total, comissao, created_at FROM orcamento_registros ORDER BY created_at DESC LIMIT 400',
+    );
+    return result.rows.map((r) => ({
+      id: String(r.id),
+      cliente: r.cliente || '',
+      total: Number(r.total) || 0,
+      comissao: Number(r.comissao) || 0,
+      createdAt: r.created_at.toISOString(),
+    }));
+  }
+  return readRegistrosFile().map((r) => ({
+    id: String(r.id),
+    cliente: r.cliente || '',
+    total: Number(r.total) || 0,
+    comissao: Number(r.comissao) || 0,
+    createdAt: r.createdAt,
+  }));
+}
+
+async function deleteRegistro(id) {
+  if (pgPool) {
+    await ensurePgSchema();
+    const result = await pgPool.query('DELETE FROM orcamento_registros WHERE id = $1', [id]);
+    return result.rowCount > 0;
+  }
+  const list = readRegistrosFile();
+  const next = list.filter((r) => String(r.id) !== String(id));
+  if (next.length === list.length) return false;
+  writeRegistrosFile(next);
+  return true;
+}
+
+function pinFrom(req) {
+  const body = (req.body && req.body.pin) || '';
+  const query = (req.query && req.query.pin) || '';
+  return String(body || query).trim();
+}
+
+function pinOk(req) {
+  return pinFrom(req) === ORCAMENTO_PRECOS_PIN;
+}
+
 async function writeOrcamentoPrecos(precosM2, precosVidro, fatiaMaterial, fatiaMaoObra) {
   const fatia = asFatiaPar(fatiaMaterial, fatiaMaoObra);
+  await snapshotPrecosSeMudou({
+    precosM2,
+    precosVidro,
+    fatiaMaterial: fatia.fatiaMaterial,
+    fatiaMaoObra: fatia.fatiaMaoObra,
+  });
   if (pgPool) {
     await ensurePgSchema();
     await pgPool.query(
@@ -224,6 +508,14 @@ async function writeOrcamentoPrecos(precosM2, precosVidro, fatiaMaterial, fatiaM
 const leadsLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 30,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: 'rate_limited' },
+});
+
+const orcamentoLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 120,
   standardHeaders: true,
   legacyHeaders: false,
   message: { error: 'rate_limited' },
@@ -555,7 +847,7 @@ app.post('/api/leads', leadsLimiter, async (req, res) => {
   }
 });
 
-app.get('/api/orcamento-precos', leadsLimiter, async (_req, res) => {
+app.get('/api/orcamento-precos', orcamentoLimiter, async (_req, res) => {
   try {
     if (!pgPool && isProduction) {
       res.status(503).json({ error: 'database_required' });
@@ -569,7 +861,7 @@ app.get('/api/orcamento-precos', leadsLimiter, async (_req, res) => {
   }
 });
 
-app.put('/api/orcamento-precos', leadsLimiter, async (req, res) => {
+app.put('/api/orcamento-precos', orcamentoLimiter, async (req, res) => {
   try {
     if (!pgPool && isProduction) {
       res.status(503).json({ error: 'database_required' });
@@ -593,6 +885,132 @@ app.put('/api/orcamento-precos', leadsLimiter, async (req, res) => {
     res.json({ ok: true, storage });
   } catch (err) {
     console.error('[leads-api] PUT /api/orcamento-precos', err);
+    res.status(500).json({ error: 'server_error' });
+  }
+});
+
+app.get('/api/orcamento-precos/historico', orcamentoLimiter, async (req, res) => {
+  try {
+    if (!pgPool && isProduction) {
+      res.status(503).json({ error: 'database_required' });
+      return;
+    }
+    if (!pinOk(req)) {
+      res.status(403).json({ error: 'pin_invalid' });
+      return;
+    }
+    const historico = await listPrecosHistorico();
+    res.json({ ok: true, historico });
+  } catch (err) {
+    console.error('[leads-api] GET /api/orcamento-precos/historico', err);
+    res.status(500).json({ error: 'server_error' });
+  }
+});
+
+app.post('/api/orcamento-precos/historico/restaurar', orcamentoLimiter, async (req, res) => {
+  try {
+    if (!pgPool && isProduction) {
+      res.status(503).json({ error: 'database_required' });
+      return;
+    }
+    if (!pinOk(req)) {
+      res.status(403).json({ error: 'pin_invalid' });
+      return;
+    }
+    const id = String((req.body && req.body.id) || '').trim();
+    const found = await restorePrecosHistorico(id);
+    if (!found) {
+      res.status(404).json({ error: 'not_found' });
+      return;
+    }
+    const storage = await writeOrcamentoPrecos(
+      found.precosM2,
+      found.precosVidro,
+      found.fatiaMaterial,
+      found.fatiaMaoObra,
+    );
+    res.json({ ok: true, storage, ...found });
+  } catch (err) {
+    console.error('[leads-api] POST /api/orcamento-precos/historico/restaurar', err);
+    res.status(500).json({ error: 'server_error' });
+  }
+});
+
+app.delete('/api/orcamento-precos/historico', orcamentoLimiter, async (req, res) => {
+  try {
+    if (!pgPool && isProduction) {
+      res.status(503).json({ error: 'database_required' });
+      return;
+    }
+    if (!pinOk(req)) {
+      res.status(403).json({ error: 'pin_invalid' });
+      return;
+    }
+    const id = String((req.body && req.body.id) || (req.query && req.query.id) || '').trim();
+    const ok = await deletePrecosHistorico(id);
+    if (!ok) {
+      res.status(404).json({ error: 'not_found' });
+      return;
+    }
+    res.json({ ok: true });
+  } catch (err) {
+    console.error('[leads-api] DELETE /api/orcamento-precos/historico', err);
+    res.status(500).json({ error: 'server_error' });
+  }
+});
+
+app.post('/api/orcamento-registros', orcamentoLimiter, async (req, res) => {
+  try {
+    if (!pgPool && isProduction) {
+      res.status(503).json({ error: 'database_required' });
+      return;
+    }
+    const payload = sanitizeRegistro(req.body || {});
+    const saved = await insertRegistro(payload);
+    res.status(201).json({ ok: true, ...saved });
+  } catch (err) {
+    console.error('[leads-api] POST /api/orcamento-registros', err);
+    res.status(500).json({ error: 'server_error' });
+  }
+});
+
+app.get('/api/orcamento-registros', orcamentoLimiter, async (req, res) => {
+  try {
+    if (!pgPool && isProduction) {
+      res.status(503).json({ error: 'database_required' });
+      return;
+    }
+    if (!pinOk(req)) {
+      res.status(403).json({ error: 'pin_invalid' });
+      return;
+    }
+    const registros = await listRegistros();
+    res.json({ ok: true, registros });
+  } catch (err) {
+    console.error('[leads-api] GET /api/orcamento-registros', err);
+    res.status(500).json({ error: 'server_error' });
+  }
+});
+
+app.delete('/api/orcamento-registros', orcamentoLimiter, async (req, res) => {
+  try {
+    if (!pgPool && isProduction) {
+      res.status(503).json({ error: 'database_required' });
+      return;
+    }
+    if (!pinOk(req)) {
+      res.status(403).json({ error: 'pin_invalid' });
+      return;
+    }
+    const id = String((req.body && req.body.id) || (req.query && req.query.id) || '').trim();
+    const ok = await deleteRegistro(id);
+    if (!ok) {
+      res.status(404).json({ error: 'not_found' });
+      return;
+    }
+    res.json({ ok: true });
+  } catch (err) {
+    console.error('[leads-api] DELETE /api/orcamento-registros', err);
     res.status(500).json({ error: 'server_error' });
   }
 });

@@ -2,6 +2,48 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-29 08:18] /orcamento: retirar Porta de giro Lambri Largo 160mm linha 25
+
+### Contexto
+
+- Removida do catálogo e da tabela R$/m². V 1.1.13.
+
+### Arquivos alterados
+
+- lib/orcamento_models.dart
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+
+### Pendente / Proximo passo
+
+- Sem publish. Confirmar no telemóvel V 1.1.13.
+
+## [2026-10-29 08:08] /orcamento: bkp preços, Maxim-ar, registros e PDF WhatsApp
+
+### Contexto
+
+- Bkp da tabela R$/m² (Adm: data, Restaurar, Apagar). Maxim-ar máx. 1000 e mínimo cobrado 500×500. Ver folha grava registro. Página /orcamento/registros (resumo + Apagar + PDF WhatsApp). PDF WhatsApp no orçamento. Comissão visível retirada do PDF da folha. V 1.1.12.
+
+### Arquivos alterados
+
+- scripts/leads-api-server.js
+- lib/orcamento_models.dart
+- lib/orcamento_page.dart
+- lib/orcamento_item_pop.dart
+- lib/orcamento_storage_web.dart
+- lib/orcamento_storage_stub.dart
+- lib/orcamento_print_web.dart
+- lib/orcamento_print_stub.dart
+- lib/orcamento_registros_page.dart
+- lib/main.dart
+- lib/site_public_urls.dart
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+
+### Pendente / Proximo passo
+
+- Sem publish. Deploy da API no Render para bkp/registros em produção. Confirmar no telemóvel V 1.1.12.
+
 ## [2026-10-28 19:01] /orcamento: letra da comissão no PDF 50% menor
 
 ### Contexto

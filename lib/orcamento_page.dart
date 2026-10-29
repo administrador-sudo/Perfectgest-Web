@@ -11,6 +11,7 @@ import 'orcamento_models.dart';
 import 'orcamento_print_stub.dart' if (dart.library.html) 'orcamento_print_web.dart' as orcamento_print;
 import 'orcamento_storage_stub.dart' if (dart.library.html) 'orcamento_storage_web.dart' as orcamento_storage;
 import 'seo_meta_stub.dart' if (dart.library.html) 'seo_meta_web.dart' as seo_meta;
+import 'site_public_urls.dart';
 
 class OrcamentoPage extends StatefulWidget {
   const OrcamentoPage({super.key});
@@ -295,6 +296,10 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
       );
       return;
     }
+    final listas = <({String id, DateTime createdAt})>[
+      ...?(await orcamento_storage.fetchOrcamentoPrecosHistorico(pin)),
+    ];
+    if (!mounted) return;
     final fatiaMatCtrl = TextEditingController(text: formatPtBrNumber(_fatiaMaterial, casas: 0));
     final fatiaMoCtrl = TextEditingController(text: formatPtBrNumber(_fatiaMaoObra, casas: 0));
     final pctMatCtrl = TextEditingController();
@@ -380,6 +385,81 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
                       keyboardType: const TextInputType.numberWithOptions(decimal: true, signed: true),
                       style: const TextStyle(color: BrandPalette.charcoal),
                       decoration: decCampo('% vidro R\$/m² (use - para baixar)'),
+                    ),
+                    const SizedBox(height: 16),
+                    const Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Listas anteriores',
+                        style: TextStyle(color: BrandPalette.charcoal, fontWeight: FontWeight.w700, fontSize: 13),
+                      ),
+                    ),
+                    const SizedBox(height: 6),
+                    if (listas.isEmpty)
+                      const Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'Nenhuma lista guardada.',
+                          style: TextStyle(color: BrandPalette.silverDark, fontSize: 12),
+                        ),
+                      )
+                    else
+                      for (final h in List.of(listas))
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 4),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  formatDataHoraBr(h.createdAt),
+                                  style: const TextStyle(color: BrandPalette.charcoal, fontSize: 12),
+                                ),
+                              ),
+                              TextButton(
+                                onPressed: () async {
+                                  final data = await orcamento_storage.restoreOrcamentoPrecosHistoricoData(
+                                    pin: pin,
+                                    id: h.id,
+                                  );
+                                  if (data == null || !mounted) return;
+                                  _fatiaMaterial = data.fatiaMaterial;
+                                  _fatiaMaoObra = data.fatiaMaoObra;
+                                  fatiaMatCtrl.text = formatPtBrNumber(data.fatiaMaterial, casas: 0);
+                                  fatiaMoCtrl.text = formatPtBrNumber(data.fatiaMaoObra, casas: 0);
+                                  _aplicarPrecosOficiais(data.precosM2, data.precosVidro);
+                                  final novo = await orcamento_storage.fetchOrcamentoPrecosHistorico(pin);
+                                  setPop(() {
+                                    listas
+                                      ..clear()
+                                      ..addAll(novo ?? const []);
+                                  });
+                                  _avisoPrecos('Lista restaurada.');
+                                },
+                                child: const Text('Restaurar'),
+                              ),
+                              TextButton(
+                                onPressed: () async {
+                                  final err = await orcamento_storage.deleteOrcamentoPrecosHistorico(
+                                    pin: pin,
+                                    id: h.id,
+                                  );
+                                  if (err != null) return;
+                                  setPop(() => listas.removeWhere((e) => e.id == h.id));
+                                },
+                                child: const Text('Apagar', style: TextStyle(color: BrandPalette.charcoal)),
+                              ),
+                            ],
+                          ),
+                        ),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.pop(ctx, false);
+                          Navigator.of(context).pushNamed(kOrcamentoRegistrosPath, arguments: pin);
+                        },
+                        child: const Text('Acessar registros de orçamento'),
+                      ),
                     ),
                   ],
                 ),
@@ -488,6 +568,28 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
         ),
       );
     }
+  }
+
+  void _verFolha() {
+    setState(() => _folha = true);
+    orcamento_storage.postOrcamentoRegistro(
+      orcamentoRegistroPayload(
+        cadastro: _cadastroAtual(),
+        itens: _itens,
+        data: DateTime.now(),
+      ),
+    );
+  }
+
+  void _pdfWhatsApp() {
+    _gerarPdf();
+    orcamento_print.openWhatsAppText(
+      textoWhatsAppOrcamento(
+        cadastro: _cadastroAtual(),
+        itens: _itens,
+        data: DateTime.now(),
+      ),
+    );
   }
 
   @override
@@ -1138,7 +1240,7 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
                     spacing: 6,
                     children: [
                       TextButton(
-                        onPressed: _itens.isEmpty ? null : () => setState(() => _folha = true),
+                        onPressed: _itens.isEmpty ? null : _verFolha,
                         child: const Text('Ver folha', style: TextStyle(color: BrandPalette.silverLight)),
                       ),
                       FilledButton(
@@ -1149,6 +1251,15 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
                         ),
                         onPressed: _itens.isEmpty ? null : _gerarPdf,
                         child: const Text('Gerar PDF'),
+                      ),
+                      FilledButton(
+                        style: FilledButton.styleFrom(
+                          backgroundColor: BrandPalette.charcoal,
+                          foregroundColor: BrandPalette.goldWarm,
+                          minimumSize: const Size(88, 44),
+                        ),
+                        onPressed: _itens.isEmpty ? null : _pdfWhatsApp,
+                        child: const Text('PDF WhatsApp'),
                       ),
                     ],
                   ),
@@ -1184,6 +1295,15 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
                   ),
                   onPressed: _gerarPdf,
                   child: const Text('Gerar PDF'),
+                ),
+                const SizedBox(width: 8),
+                FilledButton(
+                  style: FilledButton.styleFrom(
+                    backgroundColor: BrandPalette.charcoal,
+                    foregroundColor: BrandPalette.goldWarm,
+                  ),
+                  onPressed: _pdfWhatsApp,
+                  child: const Text('PDF WhatsApp'),
                 ),
               ],
             ),

@@ -50,13 +50,12 @@ const List<OrcamentoCatalogTipo> kOrcamentoCatalogo = [
   OrcamentoCatalogTipo(id: 'porta_giro_veneziana_30', nome: 'Porta de giro veneziana linha 30', grupo: kGrupoPortasGiro, icon: Icons.meeting_room),
   OrcamentoCatalogTipo(id: 'porta_giro_lambri_25', nome: 'Porta de giro Lambri Estreito 100mm linha 25', grupo: kGrupoPortasGiro, icon: Icons.meeting_room),
   OrcamentoCatalogTipo(id: 'porta_giro_lambri_30', nome: 'Porta de giro Lambri Estreito 100mm linha 30', grupo: kGrupoPortasGiro, icon: Icons.meeting_room),
-  OrcamentoCatalogTipo(id: 'porta_giro_lambri_largo_25', nome: 'Porta de giro Lambri Largo 160mm linha 25', grupo: kGrupoPortasGiro, icon: Icons.meeting_room),
   OrcamentoCatalogTipo(id: 'porta_giro_lambri_largo_30', nome: 'Porta de giro Lambri Largo 160mm linha 30', grupo: kGrupoPortasGiro, icon: Icons.meeting_room),
   OrcamentoCatalogTipo(id: 'porta_pivot_lambri_largo', nome: 'Porta pivotante Lambri largo', grupo: kGrupoPortasGiro, icon: Icons.rotate_right),
   OrcamentoCatalogTipo(id: 'porta_pivot_lambri_estreito', nome: 'Porta pivotante Lambri estreito', grupo: kGrupoPortasGiro, icon: Icons.rotate_right),
   OrcamentoCatalogTipo(id: 'porta_correr', nome: 'Porta de correr Interna/Externa lambri estreito (Trilho superior)', grupo: kGrupoPortasGiro, icon: Icons.sensor_door),
   OrcamentoCatalogTipo(id: 'porta_correr_int_ext_veneziana', nome: 'Porta de correr Interna/Externa Veneziana (Trilho superior)', grupo: kGrupoPortasGiro, icon: Icons.sensor_door),
-  OrcamentoCatalogTipo(id: 'maxim_ar', nome: 'Maxim-ar (Medidas limites: mínima 500 x 500 a máxima 1000 x 1000)', grupo: kGrupoMaximOutros, icon: Icons.open_in_full),
+  OrcamentoCatalogTipo(id: 'maxim_ar', nome: 'Maxim-ar', grupo: kGrupoMaximOutros, icon: Icons.open_in_full, nota: 'Não permitido acima de 1000 x 1000. Mínimo cobrado 500 x 500.'),
   OrcamentoCatalogTipo(id: 'maxim_ar_dupla', nome: 'Janela maxim-ar dupla', grupo: kGrupoMaximOutros, icon: Icons.open_in_full),
   OrcamentoCatalogTipo(id: 'basculante', nome: 'Maxim-ar tripla', grupo: kGrupoMaximOutros, icon: Icons.open_in_full),
   OrcamentoCatalogTipo(id: 'pivotante', nome: 'Maxim-ar Pivotante', grupo: kGrupoMaximOutros, icon: Icons.rotate_right),
@@ -130,12 +129,17 @@ const double kOrcamentoFatiaMaterialPadrao = 60;
 const double kOrcamentoFatiaMaoObraPadrao = 40;
 
 /// Versão visível no rodapé de /orcamento (confirmar se o browser recebeu o build).
-const String kOrcamentoFerramentaVersao = '1.1.11';
+const String kOrcamentoFerramentaVersao = '1.1.13';
 
 const double kOrcamentoPctMaoObraPadrao = 15;
 const double kLimitePortaGiroLarguraMm = 900;
 const double kLimitePortaGiroAlturaMm = 2100;
 const double kBoxBanheiroAlturaPadraoMm = 1900;
+const String kMaximArId = 'maxim_ar';
+const double kMaximArMinMm = 500;
+const double kMaximArMaxMm = 1000;
+const String kMaximArNota = 'Não permitido acima de 1000 x 1000. Mínimo cobrado 500 x 500.';
+const String kObsLimiteMaximAr = 'Não é permitido maior que 1000 mm.';
 const String kObsLimitePortaGiro = 'Limite de medida 900 x 2100. Acima disso: consultar fabricante.';
 const String kObsInstalacaoAcima35 = 'Instalação acima de 3,5 m²: consultar fabricante.';
 const String kObsLimiteBoxBanheiro = 'Medida mais alta que 1900 consultar o fabricante.';
@@ -161,6 +165,22 @@ bool ultrapassaLimitePortaGiro(OrcamentoItem item) {
 bool ultrapassaLimiteBoxBanheiro(OrcamentoItem item) {
   if (item.catalogId != 'box_banheiro') return false;
   return item.alturaMm > kBoxBanheiroAlturaPadraoMm;
+}
+
+double medidaCobradaMm(String catalogId, double mm) {
+  if (catalogId != kMaximArId || mm <= 0) return mm;
+  return mm < kMaximArMinMm ? kMaximArMinMm : mm;
+}
+
+double areaCobradaDeMedidas(String catalogId, double larguraMm, double alturaMm) {
+  final l = medidaCobradaMm(catalogId, larguraMm);
+  final a = medidaCobradaMm(catalogId, alturaMm);
+  return (l / 1000.0) * (a / 1000.0);
+}
+
+bool ultrapassaLimiteMaximAr(OrcamentoItem item) {
+  if (item.catalogId != kMaximArId) return false;
+  return item.larguraMm > kMaximArMaxMm || item.alturaMm > kMaximArMaxMm;
 }
 
 String _obsSemFrasesAuto(String obs) {
@@ -335,7 +355,7 @@ class OrcamentoItem {
   final double precoM2Vidro;
   final double precoM2VidroPadrao;
 
-  double get areaCalculada => (larguraMm / 1000.0) * (alturaMm / 1000.0);
+  double get areaCalculada => areaCobradaDeMedidas(catalogId, larguraMm, alturaMm);
 
   double get area => areaM2Override ?? areaCalculada;
 
@@ -618,6 +638,138 @@ String formatDataBr(DateTime d) {
   return '$dd/$mm/${d.year}';
 }
 
+String formatDataHoraBr(DateTime d) {
+  final hh = d.hour.toString().padLeft(2, '0');
+  final min = d.minute.toString().padLeft(2, '0');
+  return '${formatDataBr(d)} $hh:$min';
+}
+
+class OrcamentoRegistroResumo {
+  const OrcamentoRegistroResumo({
+    required this.id,
+    required this.cliente,
+    required this.total,
+    required this.comissao,
+    required this.data,
+  });
+
+  final String id;
+  final String cliente;
+  final double total;
+  final double comissao;
+  final DateTime data;
+
+  factory OrcamentoRegistroResumo.fromJson(Map<String, dynamic> json) {
+    return OrcamentoRegistroResumo(
+      id: '${json['id'] ?? ''}',
+      cliente: '${json['cliente'] ?? ''}',
+      total: (json['total'] is num) ? (json['total'] as num).toDouble() : double.tryParse('${json['total']}') ?? 0,
+      comissao: (json['comissao'] is num) ? (json['comissao'] as num).toDouble() : double.tryParse('${json['comissao']}') ?? 0,
+      data: DateTime.tryParse('${json['createdAt'] ?? json['data'] ?? ''}') ?? DateTime.now(),
+    );
+  }
+}
+
+Map<String, dynamic> orcamentoRegistroPayload({
+  required OrcamentoCadastro cadastro,
+  required List<OrcamentoItem> itens,
+  required DateTime data,
+}) {
+  return {
+    'cliente': cadastro.cliente,
+    'vendedor': cadastro.vendedor,
+    'empresaNome': cadastro.empresaNome,
+    'data': data.toIso8601String(),
+    'total': itens.fold<double>(0, (s, e) => s + e.total),
+    'comissao': itens.fold<double>(0, (s, e) => s + e.comissao),
+    'cadastro': cadastro.toJson(),
+    'itens': [
+      for (final it in itens)
+        {
+          'nome': it.nome,
+          'catalogId': it.catalogId,
+          'larguraMm': it.larguraMm,
+          'alturaMm': it.alturaMm,
+          'area': it.area,
+          'material': it.material,
+          'maoObra': it.maoObra,
+          'valorVidro': it.valorVidro,
+          'vidroNome': it.vidroNome,
+          'instalacao': it.instalacaoEfetiva,
+          'pctComissao': it.pctComissao,
+          'comissao': it.comissao,
+          'total': it.total,
+        },
+    ],
+  };
+}
+
+String textoWhatsAppOrcamento({
+  required OrcamentoCadastro cadastro,
+  required List<OrcamentoItem> itens,
+  required DateTime data,
+}) {
+  final total = itens.fold<double>(0, (s, e) => s + e.total);
+  final comissao = itens.fold<double>(0, (s, e) => s + e.comissao);
+  final cliente = cadastro.cliente.isEmpty ? '—' : cadastro.cliente;
+  return 'Orçamento PerfectGest\nCliente: $cliente\nData: ${formatDataBr(data)}\nTotal: ${formatBrl(total)}\nComissão: ${formatBrl(comissao)}';
+}
+
+String textoWhatsAppRegistros(List<OrcamentoRegistroResumo> lista) {
+  final buf = StringBuffer('Registros de orçamento\n');
+  for (final r in lista) {
+    buf.writeln(
+      '${formatDataBr(r.data)} · ${r.cliente.isEmpty ? '—' : r.cliente} · ${formatBrl(r.total)} · Comissão ${formatBrl(r.comissao)}',
+    );
+  }
+  return buf.toString().trim();
+}
+
+String registrosResumoToPrintHtml(List<OrcamentoRegistroResumo> lista) {
+  final linhas = StringBuffer();
+  if (lista.isEmpty) {
+    linhas.writeln('<tr><td colspan="4" class="empty">Nenhum registro.</td></tr>');
+  } else {
+    for (final r in lista) {
+      linhas.writeln('''
+<tr>
+  <td>${htmlEsc(formatDataHoraBr(r.data))}</td>
+  <td>${htmlEsc(r.cliente.isEmpty ? '—' : r.cliente)}</td>
+  <td class="num">${formatBrl(r.total)}</td>
+  <td class="num">${formatBrl(r.comissao)}</td>
+</tr>''');
+    }
+  }
+  return '''
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Registros de orçamento</title>
+<style>
+  @page { size: A4; margin: 8mm; }
+  body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; font-size: 12px; color: #121212; }
+  h1 { font-size: 16px; }
+  .gold { color: #9A7B2F; }
+  table { width: 100%; border-collapse: collapse; }
+  th { text-align: left; background: #121212; color: #F0F0F0; padding: 6px; font-size: 11px; }
+  td { padding: 6px; border-bottom: 0.4pt solid #ddd; }
+  td.num { text-align: right; font-weight: 600; }
+  .empty { text-align: center; color: #707070; padding: 16px; }
+</style>
+</head>
+<body>
+<h1>Registros de orçamento</h1>
+<p class="gold">${htmlEsc(formatDataHoraBr(DateTime.now()))}</p>
+<table>
+  <thead><tr><th>Data</th><th>Cliente</th><th>Valor</th><th>Comissão</th></tr></thead>
+  <tbody>${linhas.toString()}</tbody>
+</table>
+</body>
+</html>
+''';
+}
+
 DateTime? parseDataBr(String raw) {
   final p = raw.trim().split(RegExp(r'[/\-.]'));
   if (p.length != 3) return null;
@@ -638,7 +790,6 @@ String orcamentoToPrintHtml({
   required DateTime data,
 }) {
   final total = itens.fold<double>(0, (s, e) => s + e.total);
-  final totalComissao = itens.fold<double>(0, (s, e) => s + e.comissao);
   final linhas = StringBuffer();
   if (itens.isEmpty) {
     linhas.writeln(
@@ -700,7 +851,6 @@ String orcamentoToPrintHtml({
   .totais { margin-top: 14px; display: flex; justify-content: flex-end; }
   .totais div { border: 1px solid #D4AF37; background: #F7F7F7; padding: 10px 16px; min-width: 220px; }
   .totais strong { font-size: 16px; }
-  .comissao-pdf { margin-top: 8px; text-align: right; font-weight: 700; font-size: 6.5px; }
   footer.tool { margin-top: 28px; border-top: 1px solid #A8A8A8; padding-top: 8px; color: #555; font-size: 10px; text-align: center; }
   @media print { .noprint { display: none !important; } body { background: #fff; } }
 </style>
@@ -736,7 +886,6 @@ String orcamentoToPrintHtml({
       ${linhas.toString()}
   </table>
   <div class="totais"><div>Total do orçamento<br><strong>${formatBrl(total)}</strong></div></div>
-  <div class="comissao-pdf gold">Comissão: ${formatBrl(totalComissao)}</div>
   <footer class="tool">
     © Todos os Direitos Reservados PerfectGestDev 2026 ·Divisão ferramentas Digitais·.<br>
     

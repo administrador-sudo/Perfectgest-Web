@@ -26,6 +26,9 @@ const String kCertificadoA1Path = '/A1_Certificado';
 /// Ferramenta isolada de orçamento de esquadrias (sem menu da vitrine).
 const String kOrcamentoPath = '/orcamento';
 
+/// Lista-resumo Adm dos orçamentos gravados ao Ver folha.
+const String kOrcamentoRegistrosPath = '/orcamento/registros';
+
 const String kPreCadastroPublicUrl = '$kSitePublicOrigin$kPreCadastroPath';
 
 const String kSitePrivacyPolicyPublicUrl = '$kSitePublicOrigin$kSitePrivacyPolicyPath';

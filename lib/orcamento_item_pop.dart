@@ -78,7 +78,7 @@ class _OrcamentoItemPopState extends State<_OrcamentoItemPop> {
   void _syncFixos() {
     final area = _m2Manual
         ? parsePtBrDouble(_m2.text)
-        : (parseMm(_largura.text) / 1000.0) * (parseMm(_altura.text) / 1000.0);
+        : areaCobradaDeMedidas(widget.item.catalogId, parseMm(_largura.text), parseMm(_altura.text));
     _mao.text = formatPtBrNumber(kOrcamentoPctMaoObraPadrao, casas: 1);
     _instalacao.text = formatPtBrNumber(instalacaoPorArea(area));
   }
@@ -91,7 +91,7 @@ class _OrcamentoItemPopState extends State<_OrcamentoItemPop> {
     }
     final l = parseMm(_largura.text);
     final a = parseMm(_altura.text);
-    final area = (l / 1000.0) * (a / 1000.0);
+    final area = areaCobradaDeMedidas(widget.item.catalogId, l, a);
     _m2.value = TextEditingValue(
       text: area == 0 ? '' : formatPtBrNumber(area, casas: 3),
       selection: TextSelection.collapsed(offset: (area == 0 ? '' : formatPtBrNumber(area, casas: 3)).length),
@@ -103,7 +103,7 @@ class _OrcamentoItemPopState extends State<_OrcamentoItemPop> {
   OrcamentoItem _preview() {
     final area = _m2Manual
         ? parsePtBrDouble(_m2.text)
-        : (parseMm(_largura.text) / 1000.0) * (parseMm(_altura.text) / 1000.0);
+        : areaCobradaDeMedidas(widget.item.catalogId, parseMm(_largura.text), parseMm(_altura.text));
     final base = widget.item.copyWith(
       larguraMm: parseMm(_largura.text),
       alturaMm: parseMm(_altura.text),
@@ -309,8 +309,18 @@ class _OrcamentoItemPopState extends State<_OrcamentoItemPop> {
                 ),
                 if (ultrapassaLimitePortaGiro(prev) ||
                     ultrapassaInstalacao35(prev) ||
-                    ultrapassaLimiteBoxBanheiro(prev)) ...[
+                    ultrapassaLimiteBoxBanheiro(prev) ||
+                    ultrapassaLimiteMaximAr(prev)) ...[
                   const SizedBox(height: 10),
+                  if (ultrapassaLimiteMaximAr(prev))
+                    const Text(
+                      kObsLimiteMaximAr,
+                      style: TextStyle(
+                        color: BrandPalette.goldReadableLight,
+                        fontWeight: FontWeight.w800,
+                        fontSize: 13,
+                      ),
+                    ),
                   if (ultrapassaLimiteBoxBanheiro(prev))
                     const Text(
                       kObsLimiteBoxBanheiro,
@@ -371,8 +381,18 @@ class _OrcamentoItemPopState extends State<_OrcamentoItemPop> {
                           Text('Diferença do vidro ${formatBrl(prev.valorVidro)}'),
                           if (ultrapassaLimitePortaGiro(prev) ||
                               ultrapassaInstalacao35(prev) ||
-                              ultrapassaLimiteBoxBanheiro(prev)) ...[
+                              ultrapassaLimiteBoxBanheiro(prev) ||
+                              ultrapassaLimiteMaximAr(prev)) ...[
                             const SizedBox(height: 6),
+                            if (ultrapassaLimiteMaximAr(prev))
+                              const Text(
+                                kObsLimiteMaximAr,
+                                style: TextStyle(
+                                  color: BrandPalette.gold,
+                                  fontWeight: FontWeight.w800,
+                                  fontSize: 12,
+                                ),
+                              ),
                             if (ultrapassaLimitePortaGiro(prev))
                               const Text(
                                 kObsLimitePortaGiro,
