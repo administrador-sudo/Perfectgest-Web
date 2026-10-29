@@ -8,6 +8,7 @@
  */
 const fs = require('node:fs');
 const path = require('node:path');
+const crypto = require('node:crypto');
 const express = require('express');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
@@ -51,8 +52,10 @@ const dataDir = process.env.LEADS_DATA_DIR || path.join(__dirname, '..', 'data')
 const leadsFile = path.join(dataDir, 'site_leads.jsonl');
 const orcamentoPrecosFile = path.join(dataDir, 'orcamento_precos.json');
 const orcamentoRegistrosFile = path.join(dataDir, 'orcamento_registros.json');
-const ORCAMENTO_PRECOS_PIN = String(process.env.ORCAMENTO_PRECOS_PIN || '1981').trim();
-const ORCAMENTO_REGISTROS_PIN = String(process.env.ORCAMENTO_REGISTROS_PIN || '112026').trim();
+const ORCAMENTO_PRECOS_PIN = String(process.env.ORCAMENTO_PRECOS_PIN || '061972').trim();
+const ORCAMENTO_VENDEDOR_PIN = String(process.env.ORCAMENTO_VENDEDOR_PIN || '112026').trim();
+const ORCAMENTO_SESSION_SECRET = String(process.env.ORCAMENTO_SESSION_SECRET || 'pg-orcamento-sessao-v1').trim();
+const ORCAMENTO_SESSION_MS = 12 * 60 * 60 * 1000;
 
 const app = express();
 app.use(express.json({ limit: '256kb' }));
@@ -356,38 +359,63 @@ function asMoney(raw) {
   return Math.round(n * 100) / 100;
 }
 
-function sanitizeRegistro(body) {
-  const itensIn = Array.isArray(body.itens) ? body.itens.slice(0, 80) : [];
-  const itens = itensIn.map((it) => ({
-    nome: clipStr(it && it.nome, 160),
-    catalogId: clipStr(it && it.catalogId, 80),
-    larguraMm: asMoney(it && it.larguraMm),
-    alturaMm: asMoney(it && it.alturaMm),
-    area: asMoney(it && it.area),
-    material: asMoney(it && it.material),
-    maoObra: asMoney(it && it.maoObra),
-    valorVidro: asMoney(it && it.valorVidro),
-    vidroNome: clipStr(it && it.vidroNome, 120),
-    instalacao: asMoney(it && it.instalacao),
-    pctComissao: asMoney(it && it.pctComissao),
-    comissao: asMoney(it && it.comissao),
-    total: asMoney(it && it.total),
-  }));
-  const cadastro = body.cadastro && typeof body.cadastro === 'object' ? body.cadastro : {};
+function sanitizeCadastro(raw) {
+  const c = raw && typeof raw === 'object' ? raw : {};
   return {
-    cliente: clipStr(body.cliente || cadastro.cliente, 160),
-    vendedor: clipStr(body.vendedor || cadastro.vendedor, 120),
-    empresaNome: clipStr(body.empresaNome || cadastro.empresaNome, 160),
+    empresaNome: clipStr(c.empresaNome, 160),
+    cnpj: clipStr(c.cnpj, 32),
+    endereco: clipStr(c.endereco, 240),
+    telefone: clipStr(c.telefone, 40),
+    email: clipStr(c.email, 120),
+    fabricante: clipStr(c.fabricante, 120),
+    vendedor: clipStr(c.vendedor, 120),
+    instalador: clipStr(c.instalador, 120),
+    cliente: clipStr(c.cliente, 160),
+    validadeAte: clipStr(c.validadeAte, 20),
+  };
+}
+
+function sanitizeItem(it) {
+  const o = it && typeof it === 'object' ? it : {};
+  let areaOverride = null;
+  if (o.areaM2Override != null && o.areaM2Override !== '') {
+    const n = asMoney(o.areaM2Override);
+    areaOverride = n > 0 ? n : null;
+  }
+  return {
+    id: clipStr(o.id, 80),
+    catalogId: clipStr(o.catalogId, 80),
+    nome: clipStr(o.nome, 160),
+    precoM2: asMoney(o.precoM2),
+    larguraMm: asMoney(o.larguraMm),
+    alturaMm: asMoney(o.alturaMm),
+    areaM2Override: areaOverride,
+    cor: clipStr(o.cor, 80),
+    modelo: clipStr(o.modelo, 80),
+    pctMaoObra: asMoney(o.pctMaoObra),
+    pctComissao: asMoney(o.pctComissao),
+    instalacao: asMoney(o.instalacao),
+    obs: clipStr(o.obs, 400),
+    vidroId: clipStr(o.vidroId, 40),
+    precoM2Vidro: asMoney(o.precoM2Vidro),
+    precoM2VidroPadrao: asMoney(o.precoM2VidroPadrao),
+  };
+}
+
+function sanitizeRegistro(body) {
+  const cadastro = sanitizeCadastro(body.cadastro);
+  const itensIn = Array.isArray(body.itens) ? body.itens.slice(0, 80) : [];
+  const itens = itensIn.map(sanitizeItem);
+  return {
+    v: 1,
+    cadastro,
+    itens,
+    cliente: cadastro.cliente,
+    vendedor: cadastro.vendedor,
+    empresaNome: cadastro.empresaNome,
     data: clipStr(body.data, 40),
     total: asMoney(body.total),
     comissao: asMoney(body.comissao),
-    cadastro: {
-      empresaNome: clipStr(cadastro.empresaNome, 160),
-      cliente: clipStr(cadastro.cliente, 160),
-      vendedor: clipStr(cadastro.vendedor, 120),
-      telefone: clipStr(cadastro.telefone, 40),
-    },
-    itens,
   };
 }
 
@@ -430,6 +458,62 @@ async function insertRegistro(payload) {
   return { id: row.id, createdAt: row.createdAt };
 }
 
+async function getRegistro(id) {
+  if (pgPool) {
+    await ensurePgSchema();
+    const result = await pgPool.query(
+      'SELECT id, payload, cliente, total, comissao, created_at FROM orcamento_registros WHERE id = $1',
+      [id],
+    );
+    const row = result.rows[0];
+    if (!row) return null;
+    return {
+      id: String(row.id),
+      payload: row.payload || {},
+      cliente: row.cliente || '',
+      total: Number(row.total) || 0,
+      comissao: Number(row.comissao) || 0,
+      createdAt: row.created_at.toISOString(),
+    };
+  }
+  const hit = readRegistrosFile().find((r) => String(r.id) === String(id));
+  if (!hit) return null;
+  return {
+    id: String(hit.id),
+    payload: hit.payload || {},
+    cliente: hit.cliente || '',
+    total: Number(hit.total) || 0,
+    comissao: Number(hit.comissao) || 0,
+    createdAt: hit.createdAt,
+  };
+}
+
+async function updateRegistro(id, payload) {
+  if (pgPool) {
+    await ensurePgSchema();
+    const result = await pgPool.query(
+      `UPDATE orcamento_registros
+       SET payload = $2::jsonb, cliente = $3, total = $4, comissao = $5
+       WHERE id = $1 RETURNING id, created_at`,
+      [id, JSON.stringify(payload), payload.cliente, payload.total, payload.comissao],
+    );
+    if (!result.rows[0]) return null;
+    return { id: String(result.rows[0].id), createdAt: result.rows[0].created_at.toISOString() };
+  }
+  const list = readRegistrosFile();
+  const idx = list.findIndex((r) => String(r.id) === String(id));
+  if (idx < 0) return null;
+  list[idx] = {
+    ...list[idx],
+    cliente: payload.cliente,
+    total: payload.total,
+    comissao: payload.comissao,
+    payload,
+  };
+  writeRegistrosFile(list);
+  return { id: String(list[idx].id), createdAt: list[idx].createdAt };
+}
+
 async function listRegistros() {
   if (pgPool) {
     await ensurePgSchema();
@@ -466,18 +550,60 @@ async function deleteRegistro(id) {
   return true;
 }
 
-function pinFrom(req) {
-  const body = (req.body && req.body.pin) || '';
-  const query = (req.query && req.query.pin) || '';
-  return String(body || query).trim();
+function papelDoPin(pin) {
+  if (pin === ORCAMENTO_PRECOS_PIN) return 'adm';
+  if (pin === ORCAMENTO_VENDEDOR_PIN) return 'vendedor';
+  return null;
 }
 
-function pinOk(req) {
-  return pinFrom(req) === ORCAMENTO_PRECOS_PIN;
+function signSessao(papel) {
+  const exp = Date.now() + ORCAMENTO_SESSION_MS;
+  const payload = Buffer.from(JSON.stringify({ papel, exp }), 'utf8').toString('base64url');
+  const sig = crypto.createHmac('sha256', ORCAMENTO_SESSION_SECRET).update(payload).digest('base64url');
+  return `${payload}.${sig}`;
 }
 
-function pinRegistrosOk(req) {
-  return pinFrom(req) === ORCAMENTO_REGISTROS_PIN;
+function verifySessao(token) {
+  const parts = String(token || '').split('.');
+  if (parts.length !== 2) return null;
+  const [payload, sig] = parts;
+  const expected = crypto.createHmac('sha256', ORCAMENTO_SESSION_SECRET).update(payload).digest('base64url');
+  const a = Buffer.from(sig);
+  const b = Buffer.from(expected);
+  if (a.length !== b.length || !crypto.timingSafeEqual(a, b)) return null;
+  try {
+    const data = JSON.parse(Buffer.from(payload, 'base64url').toString('utf8'));
+    if (!data || (data.papel !== 'adm' && data.papel !== 'vendedor')) return null;
+    if (Date.now() > Number(data.exp || 0)) return null;
+    return data;
+  } catch (_) {
+    return null;
+  }
+}
+
+function sessaoDe(req) {
+  const h = String(req.headers.authorization || '');
+  const m = h.match(/^Bearer\s+(\S+)/i);
+  return m ? verifySessao(m[1]) : null;
+}
+
+function exigirSessao(req, res) {
+  const s = sessaoDe(req);
+  if (!s) {
+    res.status(403).json({ error: 'pin_invalid' });
+    return null;
+  }
+  return s;
+}
+
+function exigirAdm(req, res) {
+  const s = exigirSessao(req, res);
+  if (!s) return null;
+  if (s.papel !== 'adm') {
+    res.status(403).json({ error: 'pin_invalid' });
+    return null;
+  }
+  return s;
 }
 
 async function writeOrcamentoPrecos(precosM2, precosVidro, fatiaMaterial, fatiaMaoObra) {
@@ -521,6 +647,14 @@ const leadsLimiter = rateLimit({
 const orcamentoLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 120,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: 'rate_limited' },
+});
+
+const sessaoLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 20,
   standardHeaders: true,
   legacyHeaders: false,
   message: { error: 'rate_limited' },
@@ -852,8 +986,19 @@ app.post('/api/leads', leadsLimiter, async (req, res) => {
   }
 });
 
-app.get('/api/orcamento-precos', orcamentoLimiter, async (_req, res) => {
+app.post('/api/orcamento-sessao', sessaoLimiter, (req, res) => {
+  const pin = String((req.body && req.body.pin) || '').trim();
+  const papel = papelDoPin(pin);
+  if (!papel) {
+    res.status(403).json({ error: 'pin_invalid' });
+    return;
+  }
+  res.json({ ok: true, token: signSessao(papel), papel });
+});
+
+app.get('/api/orcamento-precos', orcamentoLimiter, async (req, res) => {
   try {
+    if (!exigirSessao(req, res)) return;
     if (!pgPool && isProduction) {
       res.status(503).json({ error: 'database_required' });
       return;
@@ -868,16 +1013,12 @@ app.get('/api/orcamento-precos', orcamentoLimiter, async (_req, res) => {
 
 app.put('/api/orcamento-precos', orcamentoLimiter, async (req, res) => {
   try {
+    if (!exigirAdm(req, res)) return;
     if (!pgPool && isProduction) {
       res.status(503).json({ error: 'database_required' });
       return;
     }
     const body = req.body || {};
-    const pin = String(body.pin || '').trim();
-    if (pin !== ORCAMENTO_PRECOS_PIN) {
-      res.status(403).json({ error: 'pin_invalid' });
-      return;
-    }
     const precosM2 = asPriceMap(body.precosM2);
     const precosVidro = asPriceMap(body.precosVidro);
     const fatia = asFatiaPar(body.fatiaMaterial);
@@ -896,12 +1037,9 @@ app.put('/api/orcamento-precos', orcamentoLimiter, async (req, res) => {
 
 app.get('/api/orcamento-precos/historico', orcamentoLimiter, async (req, res) => {
   try {
+    if (!exigirAdm(req, res)) return;
     if (!pgPool && isProduction) {
       res.status(503).json({ error: 'database_required' });
-      return;
-    }
-    if (!pinOk(req)) {
-      res.status(403).json({ error: 'pin_invalid' });
       return;
     }
     const historico = await listPrecosHistorico();
@@ -914,12 +1052,9 @@ app.get('/api/orcamento-precos/historico', orcamentoLimiter, async (req, res) =>
 
 app.post('/api/orcamento-precos/historico/restaurar', orcamentoLimiter, async (req, res) => {
   try {
+    if (!exigirAdm(req, res)) return;
     if (!pgPool && isProduction) {
       res.status(503).json({ error: 'database_required' });
-      return;
-    }
-    if (!pinOk(req)) {
-      res.status(403).json({ error: 'pin_invalid' });
       return;
     }
     const id = String((req.body && req.body.id) || '').trim();
@@ -943,12 +1078,9 @@ app.post('/api/orcamento-precos/historico/restaurar', orcamentoLimiter, async (r
 
 app.delete('/api/orcamento-precos/historico', orcamentoLimiter, async (req, res) => {
   try {
+    if (!exigirAdm(req, res)) return;
     if (!pgPool && isProduction) {
       res.status(503).json({ error: 'database_required' });
-      return;
-    }
-    if (!pinOk(req)) {
-      res.status(403).json({ error: 'pin_invalid' });
       return;
     }
     const id = String((req.body && req.body.id) || (req.query && req.query.id) || '').trim();
@@ -966,6 +1098,7 @@ app.delete('/api/orcamento-precos/historico', orcamentoLimiter, async (req, res)
 
 app.post('/api/orcamento-registros', orcamentoLimiter, async (req, res) => {
   try {
+    if (!exigirSessao(req, res)) return;
     if (!pgPool && isProduction) {
       res.status(503).json({ error: 'database_required' });
       return;
@@ -981,12 +1114,9 @@ app.post('/api/orcamento-registros', orcamentoLimiter, async (req, res) => {
 
 app.get('/api/orcamento-registros', orcamentoLimiter, async (req, res) => {
   try {
+    if (!exigirSessao(req, res)) return;
     if (!pgPool && isProduction) {
       res.status(503).json({ error: 'database_required' });
-      return;
-    }
-    if (!pinRegistrosOk(req)) {
-      res.status(403).json({ error: 'pin_invalid' });
       return;
     }
     const registros = await listRegistros();
@@ -997,14 +1127,50 @@ app.get('/api/orcamento-registros', orcamentoLimiter, async (req, res) => {
   }
 });
 
-app.delete('/api/orcamento-registros', orcamentoLimiter, async (req, res) => {
+app.get('/api/orcamento-registros/:id', orcamentoLimiter, async (req, res) => {
   try {
+    if (!exigirSessao(req, res)) return;
     if (!pgPool && isProduction) {
       res.status(503).json({ error: 'database_required' });
       return;
     }
-    if (!pinRegistrosOk(req)) {
-      res.status(403).json({ error: 'pin_invalid' });
+    const found = await getRegistro(String(req.params.id || '').trim());
+    if (!found) {
+      res.status(404).json({ error: 'not_found' });
+      return;
+    }
+    res.json({ ok: true, ...found });
+  } catch (err) {
+    console.error('[leads-api] GET /api/orcamento-registros/:id', err);
+    res.status(500).json({ error: 'server_error' });
+  }
+});
+
+app.put('/api/orcamento-registros/:id', orcamentoLimiter, async (req, res) => {
+  try {
+    if (!exigirSessao(req, res)) return;
+    if (!pgPool && isProduction) {
+      res.status(503).json({ error: 'database_required' });
+      return;
+    }
+    const payload = sanitizeRegistro(req.body || {});
+    const saved = await updateRegistro(String(req.params.id || '').trim(), payload);
+    if (!saved) {
+      res.status(404).json({ error: 'not_found' });
+      return;
+    }
+    res.json({ ok: true, ...saved });
+  } catch (err) {
+    console.error('[leads-api] PUT /api/orcamento-registros/:id', err);
+    res.status(500).json({ error: 'server_error' });
+  }
+});
+
+app.delete('/api/orcamento-registros', orcamentoLimiter, async (req, res) => {
+  try {
+    if (!exigirSessao(req, res)) return;
+    if (!pgPool && isProduction) {
+      res.status(503).json({ error: 'database_required' });
       return;
     }
     const id = String((req.body && req.body.id) || (req.query && req.query.id) || '').trim();

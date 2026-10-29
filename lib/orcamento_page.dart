@@ -1,7 +1,4 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import 'app_theme.dart';
 import 'brand_palette.dart';
@@ -37,43 +34,64 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
   bool _folha = false;
   double _fatiaMaterial = kOrcamentoFatiaMaterialPadrao;
   double _fatiaMaoObra = kOrcamentoFatiaMaoObraPadrao;
+  String? _papel;
+  String? _documentoId;
+  bool _entrando = false;
+  String? _erroSessao;
+  late final TextEditingController _pinLogin;
+
+  bool get _ehAdm => _papel == 'adm';
 
   @override
   void initState() {
     super.initState();
     _validade = TextEditingController(text: validadePadrao());
+    _pinLogin = TextEditingController();
     _precoCtrls = {
       for (final t in kOrcamentoCatalogo) t.id: TextEditingController(),
     };
     _precoVidroCtrls = {
       for (final t in kOrcamentoVidros) t.id: TextEditingController(),
     };
+    _aplicarPrecosPadrao();
     seo_meta.applyOrcamentoSeoMetaTags();
-    _hidratar();
-    _carregarPrecosOficiais();
+    final papel = orcamento_storage.readOrcamentoSessaoPapel();
+    final token = orcamento_storage.readOrcamentoSessaoToken();
+    if (token != null && token.isNotEmpty && (papel == 'adm' || papel == 'vendedor')) {
+      _papel = papel;
+      WidgetsBinding.instance.addPostFrameCallback((_) => _depoisLogin());
+    }
   }
 
-  void _hidratar() {
-    final raw = orcamento_storage.readOrcamentoJson();
-    if (raw == null || raw.isEmpty) return;
-    try {
-      final decoded = jsonDecode(raw);
-      if (decoded is! Map) return;
-      final snap = OrcamentoSnapshot.fromJson(Map<String, dynamic>.from(decoded));
-      _empresa.text = snap.cadastro.empresaNome;
-      _cnpj.text = snap.cadastro.cnpj;
-      _endereco.text = snap.cadastro.endereco;
-      _telefone.text = snap.cadastro.telefone;
-      _email.text = snap.cadastro.email;
-      _fabricante.text = snap.cadastro.fabricante;
-      _vendedor.text = snap.cadastro.vendedor;
-      _instalador.text = snap.cadastro.instalador;
-      _cliente.text = snap.cadastro.cliente;
-      _validade.text = snap.cadastro.validadeAte.trim().isEmpty
-          ? validadePadrao()
-          : snap.cadastro.validadeAte;
-      _itens = List<OrcamentoItem>.from(snap.itens);
-    } catch (_) {}
+  void _aplicarPrecosPadrao() {
+    for (final t in kOrcamentoCatalogo) {
+      final v = kOrcamentoPrecosM2Padrao[t.id];
+      if (v != null && v > 0) {
+        _precoCtrls[t.id]!.text = formatPtBrNumber(v);
+      }
+    }
+    for (final t in kOrcamentoVidros) {
+      final v = kOrcamentoPrecosVidroPadrao[t.id];
+      if (v != null && v > 0) {
+        _precoVidroCtrls[t.id]!.text = formatPtBrNumber(v);
+      }
+    }
+  }
+
+  void _aplicarDocumento(OrcamentoSnapshot snap) {
+    _empresa.text = snap.cadastro.empresaNome;
+    _cnpj.text = snap.cadastro.cnpj;
+    _endereco.text = snap.cadastro.endereco;
+    _telefone.text = snap.cadastro.telefone;
+    _email.text = snap.cadastro.email;
+    _fabricante.text = snap.cadastro.fabricante;
+    _vendedor.text = snap.cadastro.vendedor;
+    _instalador.text = snap.cadastro.instalador;
+    _cliente.text = snap.cadastro.cliente;
+    _validade.text = snap.cadastro.validadeAte.trim().isEmpty
+        ? validadePadrao()
+        : snap.cadastro.validadeAte;
+    _itens = List<OrcamentoItem>.from(snap.itens);
   }
 
   OrcamentoCadastro _cadastroAtual() {
@@ -141,33 +159,87 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
     });
   }
 
+  Future<void> _depoisLogin() async {
+    await _carregarPrecosOficiais();
+  }
+
   Future<void> _carregarPrecosOficiais() async {
     final remotos = await orcamento_storage.fetchOrcamentoPrecos();
-    if (remotos == null || !mounted) return;
+    if (!mounted) return;
+    if (remotos.err == 'pin_invalid') {
+      orcamento_storage.clearOrcamentoSessao();
+      setState(() {
+        _papel = null;
+        _erroSessao = 'Sessão expirada. Entre de novo.';
+      });
+      return;
+    }
+    if (remotos.err != null) return;
     final fatia = normalizarFatia(remotos.fatiaMaterial);
     _fatiaMaterial = fatia.material;
     _fatiaMaoObra = fatia.maoObra;
-    _aplicarPrecosOficiais(remotos.precosM2, remotos.precosVidro);
+    _aplicarPrecosOficiais(
+      overlayPrecosPositivos(kOrcamentoPrecosM2Padrao, remotos.precosM2),
+      overlayPrecosPositivos(kOrcamentoPrecosVidroPadrao, remotos.precosVidro),
+    );
   }
 
-  void _salvar() {
-    final json = jsonEncode(
-      OrcamentoSnapshot(
+  Future<void> _salvarDocumento({bool aviso = true}) async {
+    final saved = await orcamento_storage.upsertOrcamentoDocumento(
+      id: _documentoId,
+      payload: orcamentoRegistroPayload(
         cadastro: _cadastroAtual(),
         itens: _itens,
-      ).toJson(),
-    );
-    orcamento_storage.writeOrcamentoJson(json);
-    if (!mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        backgroundColor: BrandPalette.charcoal,
-        content: Text(
-          'Dados gravados neste browser. Voltam preenchidos no próximo acesso.',
-          style: TextStyle(color: BrandPalette.silverLight),
-        ),
+        data: DateTime.now(),
       ),
     );
+    if (!mounted) return;
+    if (saved.err == 'pin_invalid') {
+      orcamento_storage.clearOrcamentoSessao();
+      setState(() => _papel = null);
+      return;
+    }
+    if (saved.id != null && saved.id!.isNotEmpty) {
+      setState(() => _documentoId = saved.id);
+    }
+    if (aviso) {
+      _avisoPrecos(
+        saved.err == null ? 'Orçamento gravado no servidor.' : 'Não foi possível gravar o orçamento.',
+      );
+    }
+  }
+
+  void _novoOrcamento() {
+    setState(() {
+      _documentoId = null;
+      _itens = [];
+      _cliente.clear();
+      _folha = false;
+    });
+  }
+
+  Future<void> _entrar() async {
+    final pin = _pinLogin.text.trim();
+    if (pin.isEmpty) return;
+    setState(() {
+      _entrando = true;
+      _erroSessao = null;
+    });
+    final r = await orcamento_storage.loginOrcamentoSessao(pin);
+    if (!mounted) return;
+    if (r.err != null || r.papel == null) {
+      setState(() {
+        _entrando = false;
+        _erroSessao = r.err == 'pin_invalid' ? 'Senha incorreta.' : 'Não foi possível entrar. Tente de novo.';
+      });
+      return;
+    }
+    _pinLogin.clear();
+    setState(() {
+      _entrando = false;
+      _papel = r.papel;
+    });
+    await _depoisLogin();
   }
 
   void _addFromCatalog(OrcamentoCatalogTipo tipo) {
@@ -189,70 +261,8 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
     });
   }
 
-  InputDecoration _decPin() => InputDecoration(
-        labelText: '4 dígitos',
-        labelStyle: const TextStyle(color: BrandPalette.charcoal),
-        filled: true,
-        fillColor: BrandPalette.silverPeak,
-        counterText: '',
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
-          borderSide: const BorderSide(color: BrandPalette.goldWarm, width: 1.4),
-        ),
-      );
-
-  Future<String?> _pedirPin(String titulo) async {
-    final pinCtrl = TextEditingController();
-    final pin = await showDialog<String>(
-      context: context,
-      barrierColor: BrandPalette.charcoalDeep.withValues(alpha: 0.72),
-      builder: (ctx) {
-        return AlertDialog(
-          backgroundColor: BrandPalette.silverLight,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-            side: const BorderSide(color: BrandPalette.goldWarm, width: 1.2),
-          ),
-          title: Text(
-            titulo,
-            style: const TextStyle(color: BrandPalette.charcoal, fontWeight: FontWeight.w700),
-          ),
-          content: TextField(
-            controller: pinCtrl,
-            autofocus: true,
-            obscureText: true,
-            maxLength: 4,
-            keyboardType: TextInputType.number,
-            inputFormatters: [FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(4)],
-            style: const TextStyle(color: BrandPalette.charcoal, fontSize: 22, letterSpacing: 8),
-            decoration: _decPin(),
-            onSubmitted: (v) => Navigator.pop(ctx, v.trim()),
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(ctx),
-              child: const Text('Cancelar', style: TextStyle(color: BrandPalette.charcoal)),
-            ),
-            FilledButton(
-              style: FilledButton.styleFrom(
-                backgroundColor: BrandPalette.goldWarm,
-                foregroundColor: BrandPalette.charcoalDeep,
-              ),
-              onPressed: () => Navigator.pop(ctx, pinCtrl.text.trim()),
-              child: const Text('Confirmar'),
-            ),
-          ],
-        );
-      },
-    );
-    pinCtrl.dispose();
-    return pin;
-  }
-
-  Future<String?> _gravarPrecosOficiais(String pin) {
+  Future<String?> _gravarPrecosOficiais() {
     return orcamento_storage.saveOrcamentoPrecos(
-      pin: pin,
       precosM2: _precosAtuais(),
       precosVidro: _precosVidroAtuais(),
       fatiaMaterial: _fatiaMaterial,
@@ -277,22 +287,34 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
   }
 
   Future<void> _pedirSenhaESalvarPrecos() async {
-    final pin = await _pedirPin('Senha para gravar a tabela');
-    if (pin == null || pin.isEmpty || !mounted) return;
-    final err = await _gravarPrecosOficiais(pin);
+    if (!_ehAdm) return;
+    final err = await _gravarPrecosOficiais();
     _avisoPrecos(_msgErroPin(err));
   }
 
   Future<void> _abrirListaOrcamentos() async {
-    final pin = await _pedirPin('Senha da lista de orçamentos');
-    if (pin == null || pin.isEmpty || !mounted) return;
-    Navigator.of(context).pushNamed(kOrcamentoRegistrosPath, arguments: pin);
+    final id = await Navigator.of(context).pushNamed(kOrcamentoRegistrosPath);
+    if (id is! String || id.isEmpty || !mounted) return;
+    await _abrirDocumento(id);
+  }
+
+  Future<void> _abrirDocumento(String id) async {
+    final found = await orcamento_storage.fetchOrcamentoDocumento(id);
+    if (!mounted) return;
+    if (found.err != null || found.snap == null) {
+      _avisoPrecos('Não foi possível abrir o orçamento.');
+      return;
+    }
+    setState(() {
+      _documentoId = id;
+      _folha = false;
+      _aplicarDocumento(found.snap!);
+    });
   }
 
   Future<void> _abrirAjustesAdm() async {
-    final pin = await _pedirPin('Senha de Ajustes Adm');
-    if (pin == null || pin.isEmpty || !mounted) return;
-    final hist = await orcamento_storage.fetchOrcamentoPrecosHistorico(pin);
+    if (!_ehAdm) return;
+    final hist = await orcamento_storage.fetchOrcamentoPrecosHistorico();
     if (!mounted) return;
     if (hist.err != null) {
       _avisoPrecos(
@@ -422,7 +444,6 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
                               TextButton(
                                 onPressed: () async {
                                   final data = await orcamento_storage.restoreOrcamentoPrecosHistoricoData(
-                                    pin: pin,
                                     id: h.id,
                                   );
                                   if (data == null || !mounted) return;
@@ -431,7 +452,7 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
                                   fatiaMatCtrl.text = formatPtBrNumber(data.fatiaMaterial, casas: 0);
                                   fatiaMoCtrl.text = formatPtBrNumber(data.fatiaMaoObra, casas: 0);
                                   _aplicarPrecosOficiais(data.precosM2, data.precosVidro);
-                                  final novo = await orcamento_storage.fetchOrcamentoPrecosHistorico(pin);
+                                  final novo = await orcamento_storage.fetchOrcamentoPrecosHistorico();
                                   setPop(() {
                                     listas
                                       ..clear()
@@ -444,7 +465,6 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
                               TextButton(
                                 onPressed: () async {
                                   final err = await orcamento_storage.deleteOrcamentoPrecosHistorico(
-                                    pin: pin,
                                     id: h.id,
                                   );
                                   if (err != null) return;
@@ -507,7 +527,7 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
     _fatiaMaterial = fatia.material;
     _fatiaMaoObra = fatia.maoObra;
     _aplicarPrecosOficiais(precosM2, precosVidro);
-    final err = await _gravarPrecosOficiais(pin);
+    final err = await _gravarPrecosOficiais();
     _avisoPrecos(
       err == null
           ? 'Reajuste aplicado e gravado.'
@@ -564,18 +584,15 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
     }
   }
 
-  void _verFolha() {
+  Future<void> _verFolha() async {
+    await _salvarDocumento(aviso: false);
+    if (!mounted) return;
     setState(() => _folha = true);
-    orcamento_storage.postOrcamentoRegistro(
-      orcamentoRegistroPayload(
-        cadastro: _cadastroAtual(),
-        itens: _itens,
-        data: DateTime.now(),
-      ),
-    );
   }
 
-  void _pdfWhatsApp() {
+  Future<void> _pdfWhatsApp() async {
+    await _salvarDocumento(aviso: false);
+    if (!mounted) return;
     _gerarPdf();
     orcamento_print.openWhatsAppText(
       textoWhatsAppOrcamento(
@@ -598,6 +615,7 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
     _instalador.dispose();
     _cliente.dispose();
     _validade.dispose();
+    _pinLogin.dispose();
     for (final c in _precoCtrls.values) {
       c.dispose();
     }
@@ -605,6 +623,68 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
       c.dispose();
     }
     super.dispose();
+  }
+
+  Widget _gateView() {
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 360),
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const Text(
+                'Entrar na ferramenta',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: BrandPalette.silverLight,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 18,
+                ),
+              ),
+              const SizedBox(height: 16),
+              TextField(
+                controller: _pinLogin,
+                autofocus: true,
+                obscureText: true,
+                maxLength: 6,
+                keyboardType: TextInputType.number,
+                style: const TextStyle(color: BrandPalette.charcoal, fontSize: 22, letterSpacing: 8),
+                decoration: InputDecoration(
+                  labelText: 'Senha',
+                  labelStyle: const TextStyle(color: BrandPalette.charcoal),
+                  filled: true,
+                  fillColor: BrandPalette.silverPeak,
+                  counterText: '',
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: const BorderSide(color: BrandPalette.goldWarm, width: 1.4),
+                  ),
+                ),
+                onSubmitted: (_) => _entrar(),
+              ),
+              if (_erroSessao != null) ...[
+                const SizedBox(height: 8),
+                Text(_erroSessao!, style: const TextStyle(color: BrandPalette.goldWarm)),
+              ],
+              const SizedBox(height: 14),
+              FilledButton(
+                style: FilledButton.styleFrom(
+                  backgroundColor: BrandPalette.goldWarm,
+                  foregroundColor: BrandPalette.charcoalDeep,
+                  minimumSize: const Size(88, 44),
+                ),
+                onPressed: _entrando ? null : _entrar,
+                child: Text(_entrando ? 'A entrar…' : 'Entrar'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   @override
@@ -620,11 +700,13 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
           child: Column(
             children: [
               Expanded(
-                child: _folha ? _folhaView() : _montagemView(context),
+                child: _papel == null
+                    ? _gateView()
+                    : (_folha ? _folhaView() : _montagemView(context)),
               ),
               _OrcamentoRodapeFerramenta(
-                onAjustesAdm: _folha ? null : _abrirAjustesAdm,
-                onListaOrcamentos: _folha ? null : _abrirListaOrcamentos,
+                onAjustesAdm: (_papel == null || _folha || !_ehAdm) ? null : _abrirAjustesAdm,
+                onListaOrcamentos: (_papel == null || _folha) ? null : _abrirListaOrcamentos,
               ),
             ],
           ),
@@ -754,7 +836,7 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
                   ),
                 ),
                 TextButton(
-                  onPressed: _salvar,
+                  onPressed: _salvarDocumento,
                   style: TextButton.styleFrom(
                     backgroundColor: BrandPalette.goldWarm,
                     foregroundColor: BrandPalette.charcoalDeep,
@@ -762,6 +844,15 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
                     minimumSize: const Size(88, 44),
                   ),
                   child: const Text('Salvar', style: TextStyle(fontWeight: FontWeight.w700)),
+                ),
+                TextButton(
+                  onPressed: _novoOrcamento,
+                  style: TextButton.styleFrom(
+                    foregroundColor: BrandPalette.charcoal,
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                    minimumSize: const Size(88, 44),
+                  ),
+                  child: const Text('Novo', style: TextStyle(fontWeight: FontWeight.w700)),
                 ),
               ],
             ),
@@ -1101,19 +1192,21 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
                   ],
                 ),
         ),
-      const SizedBox(height: 10),
-      Align(
-        alignment: Alignment.centerRight,
-        child: FilledButton(
-          style: FilledButton.styleFrom(
-            backgroundColor: BrandPalette.goldWarm,
-            foregroundColor: BrandPalette.charcoalDeep,
-            minimumSize: const Size(88, 44),
+      if (_ehAdm) ...[
+        const SizedBox(height: 10),
+        Align(
+          alignment: Alignment.centerRight,
+          child: FilledButton(
+            style: FilledButton.styleFrom(
+              backgroundColor: BrandPalette.goldWarm,
+              foregroundColor: BrandPalette.charcoalDeep,
+              minimumSize: const Size(88, 44),
+            ),
+            onPressed: _pedirSenhaESalvarPrecos,
+            child: const Text('Salvar novos valores'),
           ),
-          onPressed: _pedirSenhaESalvarPrecos,
-          child: const Text('Salvar novos valores'),
         ),
-      ),
+      ],
     ];
     return _quadroPrata(
       titulo: '3 · Valores R\$/m² por abertura',

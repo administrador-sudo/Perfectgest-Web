@@ -8,69 +8,53 @@ import 'orcamento_storage_stub.dart' if (dart.library.html) 'orcamento_storage_w
 import 'seo_meta_stub.dart' if (dart.library.html) 'seo_meta_web.dart' as seo_meta;
 
 class OrcamentoRegistrosPage extends StatefulWidget {
-  const OrcamentoRegistrosPage({super.key, this.pin});
-
-  final String? pin;
+  const OrcamentoRegistrosPage({super.key});
 
   @override
   State<OrcamentoRegistrosPage> createState() => _OrcamentoRegistrosPageState();
 }
 
 class _OrcamentoRegistrosPageState extends State<OrcamentoRegistrosPage> {
-  late final TextEditingController _pin;
-  String? _pinOk;
   List<OrcamentoRegistroResumo> _lista = [];
-  bool _loading = false;
+  bool _loading = true;
   String? _erro;
 
   @override
   void initState() {
     super.initState();
     seo_meta.applyOrcamentoSeoMetaTags();
-    _pin = TextEditingController(text: widget.pin ?? '');
-    if (widget.pin != null && widget.pin!.isNotEmpty) {
-      _pinOk = widget.pin;
-      WidgetsBinding.instance.addPostFrameCallback((_) => _carregar());
-    }
-  }
-
-  @override
-  void dispose() {
-    _pin.dispose();
-    super.dispose();
+    WidgetsBinding.instance.addPostFrameCallback((_) => _carregar());
   }
 
   Future<void> _carregar() async {
-    final pin = (_pinOk ?? _pin.text).trim();
-    if (pin.isEmpty) return;
     setState(() {
       _loading = true;
       _erro = null;
     });
-    final lista = await orcamento_storage.fetchOrcamentoRegistros(pin);
+    final lista = await orcamento_storage.fetchOrcamentoRegistros();
     if (!mounted) return;
     setState(() {
       _loading = false;
       if (lista == null) {
-        _erro = 'Senha incorreta ou API indisponível.';
-        _pinOk = null;
+        _erro = 'Sessão inválida ou API indisponível. Entre em /orcamento.';
       } else {
-        _pinOk = pin;
         _lista = lista;
       }
     });
   }
 
   Future<void> _apagar(OrcamentoRegistroResumo r) async {
-    final pin = _pinOk;
-    if (pin == null) return;
-    final err = await orcamento_storage.deleteOrcamentoRegistro(pin: pin, id: r.id);
+    final err = await orcamento_storage.deleteOrcamentoRegistro(id: r.id);
     if (!mounted) return;
     if (err != null) {
       setState(() => _erro = 'Não foi possível apagar.');
       return;
     }
     setState(() => _lista = [for (final e in _lista) if (e.id != r.id) e]);
+  }
+
+  void _abrir(OrcamentoRegistroResumo r) {
+    Navigator.of(context).pop(r.id);
   }
 
   void _pdfWhatsApp() {
@@ -91,50 +75,7 @@ class _OrcamentoRegistrosPageState extends State<OrcamentoRegistrosPage> {
           foregroundColor: BrandPalette.silverLight,
           title: const Text('Registros de orçamento'),
         ),
-        body: SafeArea(
-          child: _pinOk == null ? _pinView() : _listaView(),
-        ),
-      ),
-    );
-  }
-
-  Widget _pinView() {
-    return Padding(
-      padding: const EdgeInsets.all(20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          const Text(
-            'Senha da lista de orçamentos',
-            style: TextStyle(color: BrandPalette.silverLight, fontSize: 14),
-          ),
-          const SizedBox(height: 10),
-          TextField(
-            controller: _pin,
-            obscureText: true,
-            style: const TextStyle(color: BrandPalette.charcoal),
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: BrandPalette.silverPeak,
-              isDense: true,
-              border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
-            ),
-            onSubmitted: (_) => _carregar(),
-          ),
-          if (_erro != null) ...[
-            const SizedBox(height: 8),
-            Text(_erro!, style: const TextStyle(color: BrandPalette.goldWarm)),
-          ],
-          const SizedBox(height: 14),
-          FilledButton(
-            style: FilledButton.styleFrom(
-              backgroundColor: BrandPalette.goldWarm,
-              foregroundColor: BrandPalette.charcoalDeep,
-            ),
-            onPressed: _loading ? null : _carregar,
-            child: Text(_loading ? 'A abrir…' : 'Entrar'),
-          ),
-        ],
+        body: SafeArea(child: _listaView()),
       ),
     );
   }
@@ -179,6 +120,10 @@ class _OrcamentoRegistrosPageState extends State<OrcamentoRegistrosPage> {
                                 '${r.cliente.isEmpty ? '—' : r.cliente}  ·  ${formatBrl(r.total)}  ·  ${formatDataBr(r.data)}  ·  Comissão ${formatBrl(r.comissao)}',
                                 style: const TextStyle(color: BrandPalette.silverLight, fontSize: 13),
                               ),
+                            ),
+                            TextButton(
+                              onPressed: () => _abrir(r),
+                              child: const Text('Abrir'),
                             ),
                             TextButton(
                               onPressed: () => _apagar(r),

@@ -51,8 +51,8 @@ const List<OrcamentoCatalogTipo> kOrcamentoCatalogo = [
   OrcamentoCatalogTipo(id: 'porta_giro_lambri_25', nome: 'Porta de giro Lambri Estreito 100mm linha 25', grupo: kGrupoPortasGiro, icon: Icons.meeting_room),
   OrcamentoCatalogTipo(id: 'porta_giro_lambri_30', nome: 'Porta de giro Lambri Estreito 100mm linha 30', grupo: kGrupoPortasGiro, icon: Icons.meeting_room),
   OrcamentoCatalogTipo(id: 'porta_giro_lambri_largo_30', nome: 'Porta de giro Lambri Largo 160mm linha 30', grupo: kGrupoPortasGiro, icon: Icons.meeting_room),
-  OrcamentoCatalogTipo(id: 'porta_pivot_lambri_largo', nome: 'Porta pivotante Lambri largo', grupo: kGrupoPortasGiro, icon: Icons.rotate_right),
-  OrcamentoCatalogTipo(id: 'porta_pivot_lambri_estreito', nome: 'Porta pivotante Lambri estreito', grupo: kGrupoPortasGiro, icon: Icons.rotate_right),
+  OrcamentoCatalogTipo(id: 'porta_pivot_lambri_largo', nome: 'Porta pivotante Lambri largo, linha 30', grupo: kGrupoPortasGiro, icon: Icons.rotate_right),
+  OrcamentoCatalogTipo(id: 'porta_pivot_lambri_estreito', nome: 'Porta pivotante Lambri estreito, linha 30', grupo: kGrupoPortasGiro, icon: Icons.rotate_right),
   OrcamentoCatalogTipo(id: 'porta_correr', nome: 'Porta de correr Interna/Externa lambri estreito (Trilho superior)', grupo: kGrupoPortasGiro, icon: Icons.sensor_door),
   OrcamentoCatalogTipo(id: 'porta_correr_int_ext_veneziana', nome: 'Porta de correr Interna/Externa Veneziana (Trilho superior)', grupo: kGrupoPortasGiro, icon: Icons.sensor_door),
   OrcamentoCatalogTipo(id: 'maxim_ar', nome: 'Maxim-ar', grupo: kGrupoMaximOutros, icon: Icons.open_in_full, nota: 'Não permitido acima de 1000 x 1000. Mínimo cobrado 500 x 500.'),
@@ -129,7 +129,72 @@ const double kOrcamentoFatiaMaterialPadrao = 60;
 const double kOrcamentoFatiaMaoObraPadrao = 40;
 
 /// Versão visível no rodapé de /orcamento (confirmar se o browser recebeu o build).
-const String kOrcamentoFerramentaVersao = '1.1.14';
+const String kOrcamentoFerramentaVersao = '1.2.0';
+
+const Map<String, double> kOrcamentoPrecosM2Padrao = {
+  'janela_correr_2': 600,
+  'janela_correr_2_fixa_movel': 600,
+  'janela_correr_3': 900,
+  'janela_correr_4': 1100,
+  'veneziana': 750,
+  'veneziana_correr': 1310,
+  'janela_int_2_rec1': 1310,
+  'janela_int_2_rec2': 1490,
+  'janela_int_2_persiana': 2060,
+  'porta_int_2_rec1': 1500,
+  'porta_int_2_rec2': 1700,
+  'porta_sacada_int_2_persiana': 2060,
+  'porta_sacada_2': 700,
+  'porta_sacada_3_trilho_triplo': 1080,
+  'porta_sacada_4_2fixa_2moveis': 1300,
+  'porta_sacada_4_moveis_quadruplo': 1700,
+  'porta_giro': 720,
+  'porta_giro_veneziana_25': 800,
+  'porta_giro_veneziana_30': 980,
+  'porta_giro_lambri_25': 1170,
+  'porta_giro_lambri_30': 1460,
+  'porta_giro_lambri_largo_30': 1716,
+  'porta_pivot_lambri_largo': 2090,
+  'porta_pivot_lambri_estreito': 1750,
+  'porta_correr': 1800,
+  'porta_correr_int_ext_veneziana': 1300,
+  'maxim_ar': 1300,
+  'quadro_fixo': 350,
+  'fixo': 410,
+  'box_banheiro': 400,
+  'guarda_corpo_vidro': 420,
+  'guarda_corpo_tradicional': 500,
+  'guarda_corpo_simples_tubular': 450,
+};
+
+const Map<String, double> kOrcamentoPrecosVidroPadrao = {
+  'v4_incolor': 90,
+  'v4_fume': 90,
+  'v6_incolor': 40,
+  'v6_fume': 90,
+  'v35_miniboreal': 60,
+  'v4_jateado': 30,
+  'v6_jateado': 60,
+  'vt4_incolor': 50,
+  'vt4_fume': 100,
+  'vt6_incolor': 40,
+  'vt6_fume': 125,
+  'vt8_incolor': 100,
+  'vt8_fume': 140,
+  'vt10_incolor': 150,
+  'vt10_fume': 200,
+};
+
+Map<String, double> overlayPrecosPositivos(
+  Map<String, double> padrao,
+  Map<String, double> remoto,
+) {
+  final out = Map<String, double>.from(padrao);
+  remoto.forEach((k, v) {
+    if (v > 0) out[k] = v;
+  });
+  return out;
+}
 
 const double kOrcamentoPctMaoObraPadrao = 15;
 const double kLimitePortaGiroLarguraMm = 900;
@@ -683,25 +748,19 @@ Map<String, dynamic> orcamentoRegistroPayload({
     'total': itens.fold<double>(0, (s, e) => s + e.total),
     'comissao': itens.fold<double>(0, (s, e) => s + e.comissao),
     'cadastro': cadastro.toJson(),
-    'itens': [
-      for (final it in itens)
-        {
-          'nome': it.nome,
-          'catalogId': it.catalogId,
-          'larguraMm': it.larguraMm,
-          'alturaMm': it.alturaMm,
-          'area': it.area,
-          'material': it.material,
-          'maoObra': it.maoObra,
-          'valorVidro': it.valorVidro,
-          'vidroNome': it.vidroNome,
-          'instalacao': it.instalacaoEfetiva,
-          'pctComissao': it.pctComissao,
-          'comissao': it.comissao,
-          'total': it.total,
-        },
-    ],
+    'itens': [for (final it in itens) it.toJson()],
   };
+}
+
+OrcamentoSnapshot snapshotFromRegistro(Map<String, dynamic> json) {
+  final payload = json['payload'];
+  if (payload is Map<String, dynamic>) {
+    return OrcamentoSnapshot.fromJson(payload);
+  }
+  if (payload is Map) {
+    return OrcamentoSnapshot.fromJson(Map<String, dynamic>.from(payload));
+  }
+  return OrcamentoSnapshot.fromJson(json);
 }
 
 String textoWhatsAppOrcamento({

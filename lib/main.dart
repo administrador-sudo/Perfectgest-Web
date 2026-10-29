@@ -203,11 +203,9 @@ class _PerfectProSiteAppState extends State<PerfectProSiteApp> {
           builder: (_) => const OrcamentoPage(),
         );
       case kOrcamentoRegistrosPath:
-        return MaterialPageRoute<void>(
+        return MaterialPageRoute<String?>(
           settings: settings,
-          builder: (_) => OrcamentoRegistrosPage(
-            pin: settings.arguments is String ? settings.arguments as String : null,
-          ),
+          builder: (_) => const OrcamentoRegistrosPage(),
         );
       case '/amostra-metal':
         return MaterialPageRoute<void>(

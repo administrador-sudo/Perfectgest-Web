@@ -2,6 +2,29 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-29 08:55] /orcamento: sessão, papéis, documento no servidor, preços no código
+
+### Contexto
+
+- Entrada com senha (vendedor 112026, adm 061972). Token HMAC 12 h, Bearer. Adm 1981 substituído por 061972. R$/m² nascem no código (folha). GET remoto só sobrepõe se > 0. Abrir a página não faz PUT. CRUD de orçamento completo no servidor; Salvar / Ver folha / PDF WhatsApp atualizam o mesmo id. Lista Abrir recarrega na ferramenta. Vendedor sem Ajustes Adm nem Salvar tabela. V 1.2.0.
+
+### Arquivos alterados
+
+- lib/orcamento_models.dart
+- lib/orcamento_page.dart
+- lib/orcamento_registros_page.dart
+- lib/orcamento_storage_web.dart
+- lib/orcamento_storage_stub.dart
+- lib/main.dart
+- scripts/leads-api-server.js
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+- Evolucao.md
+
+### Pendente / Proximo passo
+
+- Sem publish do site. Deploy da API no Render obrigatório (sessão HMAC, PIN 061972, Bearer).
+
 ## [2026-10-29 08:38] /orcamento: Lista de orçamentos no rodapé e bkp só ao gravar
 
 ### Contexto
