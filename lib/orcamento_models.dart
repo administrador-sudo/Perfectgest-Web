@@ -148,7 +148,7 @@ const double kOrcamentoFatiaMaterialPadrao = 60;
 const double kOrcamentoFatiaMaoObraPadrao = 40;
 
 /// Versão visível no rodapé de /orcamento (confirmar se o browser recebeu o build).
-const String kOrcamentoFerramentaVersao = '1.2.1';
+const String kOrcamentoFerramentaVersao = '1.2.4';
 
 const Map<String, double> kOrcamentoPrecosM2Padrao = {
   'janela_correr_2': 600,
@@ -795,6 +795,109 @@ OrcamentoSnapshot snapshotFromRegistro(Map<String, dynamic> json) {
   return OrcamentoSnapshot.fromJson(json);
 }
 
+const int kWhatsAppTextoMaxChars = 1500;
+
+const List<String> kNomesMesPtBr = [
+  'Janeiro',
+  'Fevereiro',
+  'Março',
+  'Abril',
+  'Maio',
+  'Junho',
+  'Julho',
+  'Agosto',
+  'Setembro',
+  'Outubro',
+  'Novembro',
+  'Dezembro',
+];
+
+DateTime dataLocalOrcamento(DateTime d) => d.isUtc ? d.toLocal() : d;
+
+String chaveMesOrcamento(DateTime d) {
+  final local = dataLocalOrcamento(d);
+  return '${local.year}-${local.month.toString().padLeft(2, '0')}';
+}
+
+String rotuloMesOrcamento(String chave) {
+  final p = chave.split('-');
+  if (p.length != 2) return chave;
+  final y = int.tryParse(p[0]);
+  final m = int.tryParse(p[1]);
+  if (y == null || m == null || m < 1 || m > 12) return chave;
+  return '${kNomesMesPtBr[m - 1]}/$y';
+}
+
+DateTime? inicioMesDaChave(String chave) {
+  final p = chave.split('-');
+  if (p.length != 2) return null;
+  final y = int.tryParse(p[0]);
+  final m = int.tryParse(p[1]);
+  if (y == null || m == null || m < 1 || m > 12) return null;
+  return DateTime(y, m, 1);
+}
+
+DateTime? fimMesDaChave(String chave) {
+  final ini = inicioMesDaChave(chave);
+  if (ini == null) return null;
+  return DateTime(ini.year, ini.month + 1, 0);
+}
+
+bool mesmoMesOrcamento(DateTime a, DateTime b) =>
+    chaveMesOrcamento(a) == chaveMesOrcamento(b);
+
+bool mesOrcamentoFechado(DateTime d, DateTime agora) {
+  final local = dataLocalOrcamento(d);
+  final ref = dataLocalOrcamento(agora);
+  return local.year < ref.year || (local.year == ref.year && local.month < ref.month);
+}
+
+List<OrcamentoRegistroResumo> registrosDoMes(
+  List<OrcamentoRegistroResumo> lista,
+  String chave,
+) {
+  return [for (final r in lista) if (chaveMesOrcamento(r.data) == chave) r];
+}
+
+List<String> chavesMesesFechados(
+  List<OrcamentoRegistroResumo> lista, [
+  DateTime? agora,
+]) {
+  final ref = agora ?? DateTime.now();
+  final seen = <String>{};
+  final out = <String>[];
+  for (final r in lista) {
+    if (!mesOrcamentoFechado(r.data, ref)) continue;
+    final k = chaveMesOrcamento(r.data);
+    if (seen.add(k)) out.add(k);
+  }
+  return out;
+}
+
+String linhaItemWhatsApp(OrcamentoItem it, int n) {
+  final medidas =
+      '${formatPtBrNumber(it.larguraMm, casas: 0)} x ${formatPtBrNumber(it.alturaMm, casas: 0)} mm';
+  final buf = StringBuffer();
+  buf.writeln('$n) ${it.nome}');
+  buf.writeln(
+    [
+      if (it.modelo.isNotEmpty) it.modelo,
+      if (it.cor.isNotEmpty) it.cor,
+      'Vidro: ${it.vidroNome}',
+    ].join(' · '),
+  );
+  buf.writeln('$medidas · ${formatPtBrNumber(it.area, casas: 3)} m²');
+  buf.writeln('Fabricação: ${formatBrl(it.valorFabricacao)}');
+  buf.writeln('Diferença de vidro: ${formatBrl(it.valorVidro)}');
+  if (it.instalacaoEfetiva > 0) {
+    buf.writeln('Material de fixação: ${formatBrl(it.instalacaoEfetiva)}');
+  }
+  if (it.obs.trim().isNotEmpty) buf.writeln('Obs.: ${it.obs.trim()}');
+  buf.writeln('Total item: ${formatBrl(it.total)}');
+  buf.writeln('Comissão item: ${formatBrl(it.comissao)}');
+  return buf.toString().trim();
+}
+
 String textoWhatsAppOrcamento({
   required OrcamentoCadastro cadastro,
   required List<OrcamentoItem> itens,
@@ -802,26 +905,151 @@ String textoWhatsAppOrcamento({
 }) {
   final total = itens.fold<double>(0, (s, e) => s + e.total);
   final comissao = itens.fold<double>(0, (s, e) => s + e.comissao);
-  final cliente = cadastro.cliente.isEmpty ? '—' : cadastro.cliente;
-  return 'Orçamento PerfectGest\nCliente: $cliente\nData: ${formatDataBr(data)}\nTotal: ${formatBrl(total)}\nComissão: ${formatBrl(comissao)}';
-}
-
-String textoWhatsAppRegistros(List<OrcamentoRegistroResumo> lista) {
-  final buf = StringBuffer('Registros de orçamento\n');
-  for (final r in lista) {
-    buf.writeln(
-      '${formatDataBr(r.data)} · ${r.cliente.isEmpty ? '—' : r.cliente} · ${formatBrl(r.total)} · Comissão ${formatBrl(r.comissao)}',
-    );
+  final buf = StringBuffer();
+  buf.writeln('ORÇAMENTO DE ESQUADRIAS');
+  if (cadastro.empresaNome.isNotEmpty) buf.writeln(cadastro.empresaNome);
+  if (cadastro.cnpj.isNotEmpty) buf.writeln('CNPJ ${cadastro.cnpj}');
+  buf.writeln('Data: ${formatDataBr(data)}');
+  if (cadastro.validadeAte.trim().isNotEmpty) {
+    buf.writeln('Válido até ${cadastro.validadeAte.trim()}');
   }
+  if (cadastro.vendedor.isNotEmpty) buf.writeln('Vendedor: ${cadastro.vendedor}');
+  buf.writeln('Cliente: ${cadastro.cliente.isEmpty ? '—' : cadastro.cliente}');
+  buf.writeln('');
+  if (itens.isEmpty) {
+    buf.writeln('Nenhuma abertura.');
+  } else {
+    for (var i = 0; i < itens.length; i++) {
+      buf.writeln(linhaItemWhatsApp(itens[i], i + 1));
+      buf.writeln('');
+    }
+  }
+  buf.writeln('Total: ${formatBrl(total)}');
+  buf.writeln('Comissão: ${formatBrl(comissao)}');
   return buf.toString().trim();
 }
 
+class OrcamentoRegistroEnvio {
+  const OrcamentoRegistroEnvio({
+    required this.resumo,
+    this.snap,
+  });
+
+  final OrcamentoRegistroResumo resumo;
+  final OrcamentoSnapshot? snap;
+}
+
+OrcamentoCadastro cadastroDoEnvio(OrcamentoRegistroEnvio envio) {
+  final cad = envio.snap?.cadastro ?? const OrcamentoCadastro();
+  if (cad.cliente.trim().isNotEmpty) return cad;
+  return cad.copyWith(cliente: envio.resumo.cliente);
+}
+
+String textoWhatsAppBlocoRegistro(OrcamentoRegistroEnvio envio) {
+  final snap = envio.snap;
+  if (snap != null && snap.itens.isNotEmpty) {
+    return textoWhatsAppOrcamento(
+      cadastro: cadastroDoEnvio(envio),
+      itens: snap.itens,
+      data: envio.resumo.data,
+    );
+  }
+  final r = envio.resumo;
+  return [
+    'ORÇAMENTO DE ESQUADRIAS',
+    'Cliente: ${r.cliente.isEmpty ? '—' : r.cliente}',
+    'Data: ${formatDataBr(r.data)}',
+    'Total: ${formatBrl(r.total)}',
+    'Comissão: ${formatBrl(r.comissao)}',
+  ].join('\n');
+}
+
+String cabecaWhatsAppMes(String chaveMes) {
+  final ini = inicioMesDaChave(chaveMes);
+  final fim = fimMesDaChave(chaveMes);
+  final periodo = (ini != null && fim != null)
+      ? '${formatDataBr(ini)} a ${formatDataBr(fim)}'
+      : rotuloMesOrcamento(chaveMes);
+  return 'Orçamentos ${rotuloMesOrcamento(chaveMes)}\n$periodo';
+}
+
+List<String> partesTextoWhatsApp(
+  List<String> blocos, {
+  int maxChars = kWhatsAppTextoMaxChars,
+}) {
+  final limpos = [
+    for (final b in blocos)
+      if (b.trim().isNotEmpty) b.trim(),
+  ];
+  if (limpos.isEmpty) return const [];
+  final partes = <String>[];
+  final atual = StringBuffer();
+  for (final bloco in limpos) {
+    if (atual.isEmpty) {
+      atual.write(bloco);
+      continue;
+    }
+    final candidato = '${atual.toString()}\n\n$bloco';
+    if (candidato.length <= maxChars) {
+      atual.write('\n\n$bloco');
+    } else {
+      partes.add(atual.toString());
+      atual
+        ..clear()
+        ..write(bloco);
+    }
+  }
+  if (atual.isNotEmpty) partes.add(atual.toString());
+  if (partes.length <= 1) return partes;
+  return [
+    for (var i = 0; i < partes.length; i++) 'Parte ${i + 1}/${partes.length}\n${partes[i]}',
+  ];
+}
+
+List<String> partesWhatsAppRegistrosMes({
+  required String chaveMes,
+  required List<OrcamentoRegistroEnvio> envios,
+}) {
+  final blocos = [
+    cabecaWhatsAppMes(chaveMes),
+    for (final e in envios) textoWhatsAppBlocoRegistro(e),
+  ];
+  return partesTextoWhatsApp(blocos);
+}
+
+String textoWhatsAppRegistros(List<OrcamentoRegistroResumo> lista) {
+  final agora = DateTime.now();
+  final chave = chaveMesOrcamento(agora);
+  final doMes = registrosDoMes(lista, chave);
+  return partesWhatsAppRegistrosMes(
+    chaveMes: chave,
+    envios: [for (final r in doMes) OrcamentoRegistroEnvio(resumo: r)],
+  ).join('\n\n');
+}
+
 String registrosResumoToPrintHtml(List<OrcamentoRegistroResumo> lista) {
+  return registrosMesToPrintHtml(
+    chaveMes: chaveMesOrcamento(DateTime.now()),
+    envios: [for (final r in lista) OrcamentoRegistroEnvio(resumo: r)],
+  );
+}
+
+String registrosMesToPrintHtml({
+  required String chaveMes,
+  required List<OrcamentoRegistroEnvio> envios,
+}) {
+  final rotulo = rotuloMesOrcamento(chaveMes);
+  final ini = inicioMesDaChave(chaveMes);
+  final fim = fimMesDaChave(chaveMes);
+  final periodo = (ini != null && fim != null)
+      ? '${formatDataBr(ini)} a ${formatDataBr(fim)}'
+      : rotulo;
   final linhas = StringBuffer();
-  if (lista.isEmpty) {
-    linhas.writeln('<tr><td colspan="4" class="empty">Nenhum registro.</td></tr>');
+  if (envios.isEmpty) {
+    linhas.writeln('<tr><td colspan="4" class="empty">Nenhum registro neste mês.</td></tr>');
   } else {
-    for (final r in lista) {
+    for (final e in envios) {
+      final r = e.resumo;
       linhas.writeln('''
 <tr>
   <td>${htmlEsc(formatDataHoraBr(r.data))}</td>
@@ -829,14 +1057,26 @@ String registrosResumoToPrintHtml(List<OrcamentoRegistroResumo> lista) {
   <td class="num">${formatBrl(r.total)}</td>
   <td class="num">${formatBrl(r.comissao)}</td>
 </tr>''');
+      final itens = e.snap?.itens ?? const <OrcamentoItem>[];
+      if (itens.isNotEmpty) {
+        final detalhe = itens
+            .map((it) =>
+                '${htmlEsc(it.nome)} ${formatPtBrNumber(it.larguraMm, casas: 0)}x${formatPtBrNumber(it.alturaMm, casas: 0)} mm · ${formatBrl(it.total)} · comissão ${formatBrl(it.comissao)}')
+            .join('<br>');
+        linhas.writeln(
+          '<tr class="itens"><td></td><td colspan="3">$detalhe</td></tr>',
+        );
+      }
     }
   }
+  final totalMes = envios.fold<double>(0, (s, e) => s + e.resumo.total);
+  final comissaoMes = envios.fold<double>(0, (s, e) => s + e.resumo.comissao);
   return '''
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<title>Registros de orçamento</title>
+<title>Orçamentos $rotulo</title>
 <style>
   @page { size: A4; margin: 8mm; }
   body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; font-size: 12px; color: #121212; }
@@ -846,16 +1086,19 @@ String registrosResumoToPrintHtml(List<OrcamentoRegistroResumo> lista) {
   th { text-align: left; background: #121212; color: #F0F0F0; padding: 6px; font-size: 11px; }
   td { padding: 6px; border-bottom: 0.4pt solid #ddd; }
   td.num { text-align: right; font-weight: 600; }
+  tr.itens td { font-size: 11px; color: #444; border-bottom: 0.4pt solid #bbb; }
   .empty { text-align: center; color: #707070; padding: 16px; }
+  .totais { margin-top: 12px; text-align: right; }
 </style>
 </head>
 <body>
-<h1>Registros de orçamento</h1>
-<p class="gold">${htmlEsc(formatDataHoraBr(DateTime.now()))}</p>
+<h1>Orçamentos $rotulo</h1>
+<p class="gold">${htmlEsc(periodo)}</p>
 <table>
   <thead><tr><th>Data</th><th>Cliente</th><th>Valor</th><th>Comissão</th></tr></thead>
   <tbody>${linhas.toString()}</tbody>
 </table>
+<p class="totais">Total do mês ${formatBrl(totalMes)} · Comissão ${formatBrl(comissaoMes)}</p>
 </body>
 </html>
 ''';
@@ -881,6 +1124,7 @@ String orcamentoToPrintHtml({
   required DateTime data,
 }) {
   final total = itens.fold<double>(0, (s, e) => s + e.total);
+  final comissao = itens.fold<double>(0, (s, e) => s + e.comissao);
   final linhas = StringBuffer();
   if (itens.isEmpty) {
     linhas.writeln(
@@ -942,6 +1186,7 @@ String orcamentoToPrintHtml({
   .totais { margin-top: 14px; display: flex; justify-content: flex-end; }
   .totais div { border: 1px solid #D4AF37; background: #F7F7F7; padding: 10px 16px; min-width: 220px; }
   .totais strong { font-size: 16px; }
+  .totais .comissao { color: #9A7B2F; font-size: 13px; display: block; margin-top: 6px; }
   footer.tool { margin-top: 28px; border-top: 1px solid #A8A8A8; padding-top: 8px; color: #555; font-size: 10px; text-align: center; }
   @media print { .noprint { display: none !important; } body { background: #fff; } }
 </style>
@@ -976,7 +1221,7 @@ String orcamentoToPrintHtml({
     </thead>
       ${linhas.toString()}
   </table>
-  <div class="totais"><div>Total do orçamento<br><strong>${formatBrl(total)}</strong></div></div>
+  <div class="totais"><div>Total do orçamento<br><strong>${formatBrl(total)}</strong><span class="comissao">Comissão: ${formatBrl(comissao)}</span></div></div>
   <footer class="tool">
     © Todos os Direitos Reservados PerfectGestDev 2026 ·Divisão ferramentas Digitais·.<br>
     

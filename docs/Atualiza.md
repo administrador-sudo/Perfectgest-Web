@@ -2,6 +2,63 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-29 14:01] /orcamento: rótulo Senha sem corte na entrada
+
+### Contexto
+
+- Label Senha herdava letterSpacing/fonte do PIN e ficava cortada no topo do campo. V 1.2.4.
+
+### Arquivos alterados
+
+- lib/orcamento_page.dart
+- lib/orcamento_models.dart
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+- Evolucao.md
+
+### Pendente / Proximo passo
+
+- Sem publish.
+
+## [2026-10-29 13:44] /orcamento: Mensagem WhatsApp completa e envio mensal
+
+### Contexto
+
+- Texto do WhatsApp com todas as informações da folha (cliente, itens, fabricação, vidro, fixação, comissão). Página de registros envia o mês aberto (01–31) e tem botão para meses fechados. Rótulo PDF WhatsApp virou Mensagem WhatsApp. V 1.2.3.
+
+### Arquivos alterados
+
+- lib/orcamento_models.dart
+- lib/orcamento_page.dart
+- lib/orcamento_registros_page.dart
+- lib/orcamento_print_web.dart
+- lib/orcamento_print_stub.dart
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+- Evolucao.md
+
+### Pendente / Proximo passo
+
+- Sem publish.
+
+## [2026-10-29 09:28] /orcamento: Ver folha igual ao PDF + comissão
+
+### Contexto
+
+- Folha mostra os mesmos campos do PDF (fabricação, diferença de vidro, material de fixação). Comissão abaixo do Total na folha e no PDF. V 1.2.2.
+
+### Arquivos alterados
+
+- lib/orcamento_page.dart
+- lib/orcamento_models.dart
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+- Evolucao.md
+
+### Pendente / Proximo passo
+
+- Sem publish.
+
 ## [2026-10-29 09:25] /orcamento: vidro 8 mm Box/guarda-corpo e gravação da edição
 
 ### Contexto

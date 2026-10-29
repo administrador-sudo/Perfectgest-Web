@@ -17,6 +17,7 @@ class OrcamentoRegistrosPage extends StatefulWidget {
 class _OrcamentoRegistrosPageState extends State<OrcamentoRegistrosPage> {
   List<OrcamentoRegistroResumo> _lista = [];
   bool _loading = true;
+  bool _enviando = false;
   String? _erro;
 
   @override
@@ -25,6 +26,13 @@ class _OrcamentoRegistrosPageState extends State<OrcamentoRegistrosPage> {
     seo_meta.applyOrcamentoSeoMetaTags();
     WidgetsBinding.instance.addPostFrameCallback((_) => _carregar());
   }
+
+  List<OrcamentoRegistroResumo> get _mesAberto {
+    final agora = DateTime.now();
+    return [for (final r in _lista) if (mesmoMesOrcamento(r.data, agora)) r];
+  }
+
+  List<String> get _chavesFechadas => chavesMesesFechados(_lista);
 
   Future<void> _carregar() async {
     setState(() {
@@ -58,9 +66,72 @@ class _OrcamentoRegistrosPageState extends State<OrcamentoRegistrosPage> {
     Navigator.of(context).pop(r.id);
   }
 
-  void _pdfWhatsApp() {
-    orcamento_print.printOrcamentoHtml(registrosResumoToPrintHtml(_lista));
-    orcamento_print.openWhatsAppText(textoWhatsAppRegistros(_lista));
+  Future<void> _pdfWhatsApp() async {
+    final doMes = _mesAberto;
+    if (doMes.isEmpty) return;
+    await _enviarMes(doMes, chaveMesOrcamento(DateTime.now()));
+  }
+
+  Future<void> _mesesFechados() async {
+    final chaves = _chavesFechadas;
+    if (chaves.isEmpty) return;
+    final escolhido = await showDialog<String>(
+      context: context,
+      builder: (ctx) {
+        return AlertDialog(
+          backgroundColor: BrandPalette.charcoal,
+          title: const Text(
+            'Meses fechados',
+            style: TextStyle(color: BrandPalette.silverLight),
+          ),
+          content: SizedBox(
+            width: 360,
+            child: ListView(
+              shrinkWrap: true,
+              children: [
+                for (final k in chaves)
+                  ListTile(
+                    title: Text(
+                      '${rotuloMesOrcamento(k)}  ·  ${registrosDoMes(_lista, k).length} orçamentos',
+                      style: const TextStyle(color: BrandPalette.silverLight),
+                    ),
+                    onTap: () => Navigator.of(ctx).pop(k),
+                  ),
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(ctx).pop(),
+              child: const Text('Cancelar'),
+            ),
+          ],
+        );
+      },
+    );
+    if (escolhido == null || !mounted) return;
+    await _enviarMes(registrosDoMes(_lista, escolhido), escolhido);
+  }
+
+  Future<void> _enviarMes(List<OrcamentoRegistroResumo> doMes, String chaveMes) async {
+    if (doMes.isEmpty || _enviando) return;
+    setState(() {
+      _enviando = true;
+      _erro = null;
+    });
+    final envios = <OrcamentoRegistroEnvio>[];
+    for (final r in doMes) {
+      final found = await orcamento_storage.fetchOrcamentoDocumento(r.id);
+      envios.add(OrcamentoRegistroEnvio(resumo: r, snap: found.snap));
+    }
+    if (!mounted) return;
+    orcamento_print.printOrcamentoHtml(
+      registrosMesToPrintHtml(chaveMes: chaveMes, envios: envios),
+    );
+    orcamento_print.openWhatsAppTextos(
+      partesWhatsAppRegistrosMes(chaveMes: chaveMes, envios: envios),
+    );
+    setState(() => _enviando = false);
   }
 
   @override
@@ -91,6 +162,14 @@ class _OrcamentoRegistrosPageState extends State<OrcamentoRegistrosPage> {
           Padding(
             padding: const EdgeInsets.all(12),
             child: Text(_erro!, style: const TextStyle(color: BrandPalette.goldWarm)),
+          ),
+        if (_enviando)
+          const Padding(
+            padding: EdgeInsets.fromLTRB(12, 4, 12, 8),
+            child: LinearProgressIndicator(
+              color: BrandPalette.goldWarm,
+              backgroundColor: BrandPalette.charcoal,
+            ),
           ),
         Expanded(
           child: _lista.isEmpty
@@ -123,11 +202,11 @@ class _OrcamentoRegistrosPageState extends State<OrcamentoRegistrosPage> {
                               ),
                             ),
                             TextButton(
-                              onPressed: () => _abrir(r),
+                              onPressed: _enviando ? null : () => _abrir(r),
                               child: const Text('Abrir'),
                             ),
                             TextButton(
-                              onPressed: () => _apagar(r),
+                              onPressed: _enviando ? null : () => _apagar(r),
                               child: const Text('Apagar'),
                             ),
                           ],
@@ -139,17 +218,34 @@ class _OrcamentoRegistrosPageState extends State<OrcamentoRegistrosPage> {
         ),
         Padding(
           padding: const EdgeInsets.fromLTRB(12, 4, 12, 16),
-          child: SizedBox(
-            width: double.infinity,
-            child: FilledButton(
-              style: FilledButton.styleFrom(
-                backgroundColor: BrandPalette.goldWarm,
-                foregroundColor: BrandPalette.charcoalDeep,
-                minimumSize: const Size(88, 44),
+          child: Column(
+            children: [
+              SizedBox(
+                width: double.infinity,
+                child: FilledButton(
+                  style: FilledButton.styleFrom(
+                    backgroundColor: BrandPalette.goldWarm,
+                    foregroundColor: BrandPalette.charcoalDeep,
+                    minimumSize: const Size(88, 44),
+                  ),
+                  onPressed: (_enviando || _mesAberto.isEmpty) ? null : _pdfWhatsApp,
+                  child: const Text('Mensagem WhatsApp'),
+                ),
               ),
-              onPressed: _lista.isEmpty ? null : _pdfWhatsApp,
-              child: const Text('PDF WhatsApp'),
-            ),
+              const SizedBox(height: 8),
+              SizedBox(
+                width: double.infinity,
+                child: FilledButton(
+                  style: FilledButton.styleFrom(
+                    backgroundColor: BrandPalette.charcoal,
+                    foregroundColor: BrandPalette.goldWarm,
+                    minimumSize: const Size(88, 44),
+                  ),
+                  onPressed: (_enviando || _chavesFechadas.isEmpty) ? null : _mesesFechados,
+                  child: const Text('Meses fechados'),
+                ),
+              ),
+            ],
           ),
         ),
       ],

@@ -670,7 +670,7 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
                   fontSize: 18,
                 ),
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 20),
               TextField(
                 controller: _pinLogin,
                 autofocus: true,
@@ -680,10 +680,24 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
                 style: const TextStyle(color: BrandPalette.charcoal, fontSize: 22, letterSpacing: 8),
                 decoration: InputDecoration(
                   labelText: 'Senha',
-                  labelStyle: const TextStyle(color: BrandPalette.charcoal),
+                  labelStyle: const TextStyle(
+                    color: BrandPalette.charcoal,
+                    fontSize: 16,
+                    letterSpacing: 0,
+                    height: 1,
+                  ),
+                  floatingLabelStyle: const TextStyle(
+                    color: BrandPalette.goldWarm,
+                    fontSize: 14,
+                    letterSpacing: 0,
+                    height: 1,
+                  ),
+                  floatingLabelBehavior: FloatingLabelBehavior.always,
                   filled: true,
                   fillColor: BrandPalette.silverPeak,
                   counterText: '',
+                  isDense: false,
+                  contentPadding: const EdgeInsets.fromLTRB(16, 20, 16, 16),
                   border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
@@ -1375,7 +1389,7 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
                           minimumSize: const Size(88, 44),
                         ),
                         onPressed: _itens.isEmpty ? null : _pdfWhatsApp,
-                        child: const Text('PDF WhatsApp'),
+                        child: const Text('Mensagem WhatsApp'),
                       ),
                     ],
                   ),
@@ -1419,7 +1433,7 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
                     foregroundColor: BrandPalette.goldWarm,
                   ),
                   onPressed: _pdfWhatsApp,
-                  child: const Text('PDF WhatsApp'),
+                  child: const Text('Mensagem WhatsApp'),
                 ),
               ],
             ),
@@ -1503,13 +1517,27 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
                         ],
                         Align(
                           alignment: Alignment.centerRight,
-                          child: Text(
-                            'Total  ${formatBrl(total)}',
-                            style: const TextStyle(
-                              color: BrandPalette.charcoal,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w800,
-                            ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Text(
+                                'Total  ${formatBrl(total)}',
+                                style: const TextStyle(
+                                  color: BrandPalette.charcoal,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                              ),
+                              const SizedBox(height: 4),
+                              Text(
+                                'Comissão: ${formatBrl(_itens.fold<double>(0, (s, e) => s + e.comissao))}',
+                                style: const TextStyle(
+                                  color: BrandPalette.goldDim,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],
@@ -1527,6 +1555,12 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
   static const _folhaMeta = TextStyle(color: BrandPalette.charcoal, fontSize: 12, height: 1.4);
 
   Widget _linhaFolha(int n, OrcamentoItem it) {
+    final medidas = '${formatPtBrNumber(it.larguraMm, casas: 0)} x ${formatPtBrNumber(it.alturaMm, casas: 0)} mm';
+    final sub = [
+      if (it.modelo.isNotEmpty) it.modelo,
+      if (it.cor.isNotEmpty) it.cor,
+      'Vidro: ${it.vidroNome}',
+    ].join(' · ');
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -1539,16 +1573,12 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(it.nome, style: const TextStyle(color: BrandPalette.charcoal, fontWeight: FontWeight.w700)),
-              Text(
-                '${formatPtBrNumber(it.larguraMm, casas: 0)} × ${formatPtBrNumber(it.alturaMm, casas: 0)} mm  ·  ${formatPtBrNumber(it.area, casas: 3)} m²  ·  ${formatBrl(it.precoM2)}/m²',
-                style: _folhaMeta,
-              ),
-              if (it.modelo.isNotEmpty || it.cor.isNotEmpty)
-                Text([it.modelo, it.cor].where((e) => e.isNotEmpty).join(' · '), style: _folhaMeta),
-              Text(
-                '${it.vidroNome}  ·  ${formatPtBrNumber(it.areaVidro, casas: 3)} m² (−5%)  ·  ${formatBrl(it.valorVidro)}',
-                style: _folhaMeta,
-              ),
+              Text(sub, style: _folhaMeta),
+              Text('$medidas  ·  ${formatPtBrNumber(it.area, casas: 3)} m²', style: _folhaMeta),
+              Text('Valor de fabricação  ${formatBrl(it.valorFabricacao)}', style: _folhaMeta),
+              Text('Diferença de Vidro  ${formatBrl(it.valorVidro)}', style: _folhaMeta),
+              if (it.instalacaoEfetiva > 0)
+                Text('Material de Fixação  ${formatBrl(it.instalacaoEfetiva)}', style: _folhaMeta),
               if (it.obs.isNotEmpty) Text('Obs.: ${it.obs}', style: _folhaMeta),
             ],
           ),

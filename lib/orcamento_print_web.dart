@@ -2,6 +2,8 @@ import 'dart:js_interop';
 
 import 'package:web/web.dart' as web;
 
+import 'orcamento_models.dart';
+
 @JS('Function')
 external JSFunction _jsFun(String args, String body);
 
@@ -17,11 +19,19 @@ const String _printOnceScript = r'''
 </script>
 ''';
 
-bool openWhatsAppText(String texto) {
+bool openWhatsAppText(String texto) => openWhatsAppTextos(partesTextoWhatsApp([texto]));
+
+bool openWhatsAppTextos(List<String> textos) {
   try {
-    final url = 'https://wa.me/?text=${Uri.encodeComponent(texto)}';
-    web.window.open(url, '_blank');
-    return true;
+    var ok = false;
+    for (final t in textos) {
+      final texto = t.trim();
+      if (texto.isEmpty) continue;
+      final url = 'https://wa.me/?text=${Uri.encodeComponent(texto)}';
+      web.window.open(url, '_blank');
+      ok = true;
+    }
+    return ok;
   } catch (_) {
     return false;
   }
