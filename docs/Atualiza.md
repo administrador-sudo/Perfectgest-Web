@@ -2,6 +2,24 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-30 20:36] /orcamento: tarja da marca no rodapé do pop
+
+### Contexto
+
+- Caixas pretas dos totais retiradas. Banner PerfectGestDev no rodapé do pop, metade do tamanho. V 1.2.9.
+
+### Arquivos alterados
+
+- lib/orcamento_item_pop.dart
+- lib/orcamento_models.dart
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+- Evolucao.md
+
+### Pendente / Proximo passo
+
+- Sem publish.
+
 ## [2026-10-30 20:29] /orcamento: banner PerfectGestDev no pop
 
 ### Contexto

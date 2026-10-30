@@ -88,7 +88,7 @@ C.w(d)
 v=[l.e,l.f,l.r,l.w]
 u=w.gf8()
 t=C.w(d).ax.a===D.J?D.bO:D.bA
-s=(C.w(d).ax.a===D.J?D.bO:D.bA).ag(0.96)
+s=(C.w(d).ax.a===D.J?D.bO:D.bA).ah(0.96)
 r=C.dX(!1,k,k,k,C.ca(D.ik,j.b,k,k),k,k,new B.aNY(d),k,k,k,g.gHf())
 q=j.k3
 p=C.l(g.gHQ(),k,k,k,k,C.bc().$2$color$fontWeight(q,D.Z),k,k,k)
@@ -97,25 +97,25 @@ n=C.b([],o)
 l.a.toString
 s=C.OJ(n,s,k,r,D.r,p)
 r=w.gTq()
-r=C.b([C.l(r,k,k,k,k,C.bc().$4$color$fontSize$fontWeight$height(q,i?22:26,D.X,1.2),k,k,k),D.aq,C.l(w.gTk(),k,k,k,k,C.bc().$3$color$fontSize$height(q.ag(0.82),14,1.5),k,k,k),D.F,C.l(w.gTl(),k,k,k,k,C.bc().$3$color$fontSize$height(q.ag(0.8),13.6,1.5),k,k,k),D.c0,C.l(w.gUL(),k,k,k,k,C.bc().$3$color$fontSize$fontWeight(q,18,D.X),k,k,k),D.aq],o)
+r=C.b([C.l(r,k,k,k,k,C.bc().$4$color$fontSize$fontWeight$height(q,i?22:26,D.X,1.2),k,k,k),D.ar,C.l(w.gTk(),k,k,k,k,C.bc().$3$color$fontSize$height(q.ah(0.82),14,1.5),k,k,k),D.F,C.l(w.gTl(),k,k,k,k,C.bc().$3$color$fontSize$height(q.ah(0.8),13.6,1.5),k,k,k),D.c0,C.l(w.gUL(),k,k,k,k,C.bc().$3$color$fontSize$fontWeight(q,18,D.X),k,k,k),D.ar],o)
 for(m=0;w.gtv(),m<15;++m){i=C.b([],o)
 if(m===4)i.push(D.F)
 q=m<4?v[m]:k
 p=w.gQs()
 i.push(new B.a9T(w.gtv()[m].a,w.gtv()[m].b,w.gtv()[m].c,p,q))
-D.b.S(r,i)}return C.aB(k,k,k,C.hr(s,t,new C.jQ(C.eE(C.d5(new C.cp(A.O0,C.an(r,D.D,D.j,D.l),k),k,k),l.d,new C.V(h,16,h,28),D.a1),k),k,k,k,k),!1,k,k,!1,k,!1,k,k,k,k,k,k,k,k,u,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,D.p,k)}}
+D.b.S(r,i)}return C.aB(k,k,k,C.hr(s,t,new C.jQ(C.eE(C.d5(new C.co(A.O0,C.an(r,D.D,D.j,D.l),k),k,k),l.d,new C.V(h,16,h,28),D.a1),k),k,k,k,k),!1,k,k,!1,k,!1,k,k,k,k,k,k,k,k,u,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,D.p,k)}}
 B.a9T.prototype={
 B(d){var w,v,u,t,s,r=this,q=null,p=C.w(d).ax,o=p.RG
-o=(o==null?p.k2:o).ag(0.55)
-w=C.bw(14)
+o=(o==null?p.k2:o).ah(0.55)
+w=C.bA(14)
 v=p.ry
 if(v==null){v=p.p
-if(v==null)v=p.k3}v=C.dH(v.ag(0.35),1)
+if(v==null)v=p.k3}v=C.dV(v.ah(0.35),1)
 u=p.b
 t=x.u
-s=C.b([C.l(r.c,q,q,q,q,C.bc().$3$color$fontSize$fontWeight(u,15.5,D.Z),q,q,q),D.af,D.mj,C.l(r.f,q,q,q,q,C.bc().$4$color$fontSize$fontWeight$height(u.ag(0.9),12.8,D.Z,1.4),q,q,q),C.l(r.d,q,q,q,q,C.bc().$3$color$fontSize$height(p.k3.ag(0.84),12.8,1.45),q,q,q)],t)
-D.b.S(s,C.b([D.F,C.l(r.e,q,q,q,q,C.bc().$4$color$fontSize$fontWeight$height(u.ag(0.92),12.8,D.a3,1.45),q,q,q)],t))
-return new C.a1(D.nQ,C.cn(new C.a1(A.Tx,C.an(s,D.D,D.j,D.l),q),new C.bm(o,q,v,w,q,q,D.G),D.a6),q)}}
+s=C.b([C.l(r.c,q,q,q,q,C.bc().$3$color$fontSize$fontWeight(u,15.5,D.Z),q,q,q),D.af,D.mj,C.l(r.f,q,q,q,q,C.bc().$4$color$fontSize$fontWeight$height(u.ah(0.9),12.8,D.Z,1.4),q,q,q),C.l(r.d,q,q,q,q,C.bc().$3$color$fontSize$height(p.k3.ah(0.84),12.8,1.45),q,q,q)],t)
+D.b.S(s,C.b([D.F,C.l(r.e,q,q,q,q,C.bc().$4$color$fontSize$fontWeight$height(u.ah(0.92),12.8,D.a3,1.45),q,q,q)],t))
+return new C.a1(D.nQ,C.cp(new C.a1(A.Tx,C.an(s,D.D,D.j,D.l),q),new C.bo(o,q,v,w,q,q,D.G),D.a7),q)}}
 var z=a.updateTypes([])
 B.aNZ.prototype={
 $1(d){return this.a.ayo()},
@@ -189,4 +189,4 @@ A.apc=new B.c5("Analytics and consent (GA4)","Measurement with Google Analytics 
 A.ap2=new B.c5("Clean architecture and maintenance","We prioritize organized code, reusable components and separation of concerns to support continuous product evolution, fewer bugs and lower maintenance cost.","Practical example: a new subscription feature is added by reusing components and reducing QA effort.")
 A.aoO=new B.c5("HTTP integrations and external services","We integrate external APIs and data services for real business flows, including back-end endpoints and observability services, ensuring operational reliability and metric-driven evolution.","Practical example: we monitor API latency and errors in production to act before customers are impacted.")
 A.ack=w([A.aoS,A.aoD,A.aoZ,A.aoX,A.aoF,A.aoQ,A.ap1,A.aoU,A.aoM,A.ap8,A.ap9,A.ap_,A.apc,A.ap2,A.aoO],x.c)})()};
-(a=>{a["yPmEMZHcxqkhLaAnYucz15WpHEQ="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["mmmNbnXPDFOJiESDrxYcNtXHdyg="]=a.current})($__dart_deferred_initializers__);

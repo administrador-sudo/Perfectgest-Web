@@ -270,8 +270,6 @@ class _OrcamentoPreencherPopState extends State<_OrcamentoPreencherPop> {
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              const SizedBox(height: 10),
-              const _OrcamentoMarcaTarja(),
               const SizedBox(height: 12),
               Expanded(
                 child: SingleChildScrollView(
@@ -336,6 +334,8 @@ class _OrcamentoPreencherPopState extends State<_OrcamentoPreencherPop> {
                 ),
               ),
               const SizedBox(height: 10),
+              const _OrcamentoMarcaTarja(),
+              const SizedBox(height: 8),
               Row(
                 children: [
                   TextButton(
@@ -377,7 +377,7 @@ class _OrcamentoMarcaTarja extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
         child: LayoutBuilder(
           builder: (context, constraints) {
-            final largura = (constraints.maxWidth * 0.7).clamp(160.0, 420.0);
+            final largura = (constraints.maxWidth * 0.35).clamp(100.0, 210.0);
             final altura = largura / kSiteHeroWordmarkAspectRatio;
             final fraseSize = altura * 0.28;
             return Column(
@@ -772,28 +772,20 @@ class _OrcamentoItemFormState extends State<_OrcamentoItemForm> {
           inputFormatters: [LengthLimitingTextInputFormatter(400)],
         ),
         const SizedBox(height: 14),
-        DecoratedBox(
-          decoration: BoxDecoration(
-            color: BrandPalette.charcoal,
-            borderRadius: BorderRadius.circular(8),
-            border: Border.all(color: BrandPalette.goldWarm.withValues(alpha: 0.7)),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(12),
-            child: DefaultTextStyle(
-              style: const TextStyle(color: BrandPalette.silverLight, fontSize: 12, height: 1.45),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('Área ${formatPtBrNumber(prev.area, casas: 3)} m²'),
-                  Text('Material ${formatBrl(prev.material)}'),
-                  Text('Mão de obra ${formatBrl(prev.maoObra)}'),
-                  Text('Comissão ${formatBrl(prev.comissao)}'),
-                  Text('Instalação ${formatBrl(prev.instalacaoEfetiva)}'),
-                  Text(
-                    'Vidro ${formatPtBrNumber(prev.areaVidro, casas: 3)} m² (−5%) · ${formatBrl(prev.precoM2Vidro)}/m²',
-                  ),
-                  Text('Diferença do vidro ${formatBrl(prev.valorVidro)}'),
+        DefaultTextStyle(
+          style: const TextStyle(color: BrandPalette.charcoal, fontSize: 12, height: 1.45),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Área ${formatPtBrNumber(prev.area, casas: 3)} m²'),
+              Text('Material ${formatBrl(prev.material)}'),
+              Text('Mão de obra ${formatBrl(prev.maoObra)}'),
+              Text('Comissão ${formatBrl(prev.comissao)}'),
+              Text('Instalação ${formatBrl(prev.instalacaoEfetiva)}'),
+              Text(
+                'Vidro ${formatPtBrNumber(prev.areaVidro, casas: 3)} m² (−5%) · ${formatBrl(prev.precoM2Vidro)}/m²',
+              ),
+              Text('Diferença do vidro ${formatBrl(prev.valorVidro)}'),
                   if (ultrapassaLimitePortaGiro(prev) ||
                       ultrapassaInstalacao35(prev) ||
                       ultrapassaLimiteBoxBanheiro(prev) ||
@@ -836,18 +828,16 @@ class _OrcamentoItemFormState extends State<_OrcamentoItemForm> {
                         ),
                       ),
                   ],
-                  const SizedBox(height: 4),
-                  Text(
-                    'Total da abertura ${formatBrl(prev.total)}',
-                    style: const TextStyle(
-                      color: BrandPalette.gold,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 14,
-                    ),
-                  ),
-                ],
+              const SizedBox(height: 4),
+              Text(
+                'Total da abertura ${formatBrl(prev.total)}',
+                style: const TextStyle(
+                  color: BrandPalette.gold,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 14,
+                ),
               ),
-            ),
+            ],
           ),
         ),
       ],

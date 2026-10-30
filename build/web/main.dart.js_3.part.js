@@ -14,8 +14,8 @@ C=c[15]
 A.PL.prototype={
 B(d){var x,w=null,v=B.w(d),u=A.b0x(d)
 v=v.ax.k3
-x=B.bc().$3$color$fontSize$height(v.ag(0.72),11.5,1.4)
-return B.an(B.b([B.l("PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA",w,w,w,w,B.bc().$4$color$fontSize$fontWeight$height(v.ag(0.85),12,D.Z,1.3),w,w,w),D.cR,B.l(u.gS6()+" 66.889.409/0001-19",w,w,w,w,x,w,w,w),D.mj,B.l(u.gS9()+" +55 51 989045442",w,w,w,w,x,w,w,w),D.mj,B.l("Caxias do Sul \u2014 RS \u2014 Brasil",w,w,w,w,x,w,w,w)],y.e),D.D,D.j,D.l)}}
+x=B.bc().$3$color$fontSize$height(v.ah(0.72),11.5,1.4)
+return B.an(B.b([B.l("PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA",w,w,w,w,B.bc().$4$color$fontSize$fontWeight$height(v.ah(0.85),12,D.Z,1.3),w,w,w),D.cR,B.l(u.gS6()+" 66.889.409/0001-19",w,w,w,w,x,w,w,w),D.mj,B.l(u.gS9()+" +55 51 989045442",w,w,w,w,x,w,w,w),D.mj,B.l("Caxias do Sul \u2014 RS \u2014 Brasil",w,w,w,w,x,w,w,w)],y.e),D.D,D.j,D.l)}}
 A.awb.prototype={}
 A.aNu.prototype={
 gf8(){return"Etica e compliance Perfect Gest Dev"},
@@ -75,4 +75,4 @@ C.PQ=new A.aNt()
 C.PR=new A.aNu()
 C.to=new A.PL(null)
 C.Lq=new B.cD(null,60,null,null)})()};
-(a=>{a["lpauogCGhGjOA1vocbCAqjO4sEQ="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["mdzciMpTygvk7n/CXqKTQeLCNyM="]=a.current})($__dart_deferred_initializers__);
