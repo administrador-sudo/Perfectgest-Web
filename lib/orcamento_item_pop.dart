@@ -462,8 +462,14 @@ class _OrcamentoItemFormState extends State<_OrcamentoItemForm> {
       instalacao: instalacaoPorArea(area),
       obs: _obs.text.trim(),
       vidroId: _vidroId.isEmpty ? kVidroPadraoId : _vidroId,
-      precoM2Vidro: widget.precosVidro[_vidroId.isEmpty ? kVidroPadraoId : _vidroId] ?? 0,
-      precoM2VidroPadrao: widget.precosVidro[kVidroPadraoId] ?? 0,
+      precoM2Vidro: precoVidroDaTabela(
+        _vidroId.isEmpty ? kVidroPadraoId : _vidroId,
+        widget.precosVidro[_vidroId.isEmpty ? kVidroPadraoId : _vidroId] ?? 0,
+      ),
+      precoM2VidroPadrao: precoVidroDaTabela(
+        kVidroPadraoId,
+        widget.precosVidro[kVidroPadraoId] ?? 0,
+      ),
     );
     return base.copyWith(obs: obsComRegrasAbertura(base, _obs.text.trim()));
   }

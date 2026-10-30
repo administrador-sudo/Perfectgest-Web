@@ -113,6 +113,11 @@ String vidroInicialDoCatalogo(String catalogId) {
   return kVidroPadraoId;
 }
 
+double precoVidroDaTabela(String vidroId, [double informado = 0]) {
+  if (informado > 0) return informado;
+  return kOrcamentoPrecosVidroPadrao[vidroId] ?? 0;
+}
+
 bool documentoDeveAtualizar(String? id) => id != null && id.trim().isNotEmpty;
 
 bool upsertDeveRecriarApos404(int status) => status == 404;
@@ -148,7 +153,7 @@ const double kOrcamentoFatiaMaterialPadrao = 60;
 const double kOrcamentoFatiaMaoObraPadrao = 40;
 
 /// Versão visível no rodapé de /orcamento (confirmar se o browser recebeu o build).
-const String kOrcamentoFerramentaVersao = '1.2.6';
+const String kOrcamentoFerramentaVersao = '1.2.7';
 
 const Map<String, double> kOrcamentoPrecosM2Padrao = {
   'janela_correr_2': 600,
@@ -572,9 +577,8 @@ class OrcamentoItem {
     String? vidroId,
   }) {
     final vidro = vidroPorId(vidroId)?.id ?? vidroInicialDoCatalogo(tipo.id);
-    final precoVidro = precoM2Vidro > 0
-        ? precoM2Vidro
-        : (kOrcamentoPrecosVidroPadrao[vidro] ?? precoM2VidroPadrao);
+    final padrao4mm = precoVidroDaTabela(kVidroPadraoId, precoM2VidroPadrao);
+    final precoVidro = precoVidroDaTabela(vidro, precoM2Vidro);
     return OrcamentoItem(
       id: '${DateTime.now().microsecondsSinceEpoch}_${tipo.id}',
       catalogId: tipo.id,
@@ -585,7 +589,7 @@ class OrcamentoItem {
       alturaMm: tipo.id == 'box_banheiro' ? kBoxBanheiroAlturaPadraoMm : 0,
       vidroId: vidro,
       precoM2Vidro: precoVidro,
-      precoM2VidroPadrao: precoM2VidroPadrao,
+      precoM2VidroPadrao: padrao4mm,
     );
   }
 }

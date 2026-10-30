@@ -2,6 +2,25 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-30 13:37] /orcamento: diferença de vidro 8 mm vs 4 mm
+
+### Contexto
+
+- Box e guarda-corpos nascem com temperado 8 mm; 4 mm incolor continua âncora da diferença. Extra 8−4 já no valor inicial (nunca 0/negativo). V 1.2.7.
+
+### Arquivos alterados
+
+- lib/orcamento_models.dart
+- lib/orcamento_page.dart
+- lib/orcamento_item_pop.dart
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+- Evolucao.md
+
+### Pendente / Proximo passo
+
+- Sem publish.
+
 ## [2026-10-29 15:35] Home: ContabilGest no topo do hero
 
 ### Contexto

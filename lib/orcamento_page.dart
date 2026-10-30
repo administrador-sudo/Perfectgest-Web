@@ -148,11 +148,14 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
             precoM2Vidro: () {
               final id = e.vidroIdEfetivo;
               final v = precosVidro[id];
-              return (v != null && v > 0) ? v : e.precoM2Vidro;
+              return precoVidroDaTabela(id, (v != null && v > 0) ? v : e.precoM2Vidro);
             }(),
             precoM2VidroPadrao: () {
               final v = precosVidro[kVidroPadraoId];
-              return (v != null && v > 0) ? v : e.precoM2VidroPadrao;
+              return precoVidroDaTabela(
+                kVidroPadraoId,
+                (v != null && v > 0) ? v : e.precoM2VidroPadrao,
+              );
             }(),
           ),
       ];
@@ -256,9 +259,15 @@ class _OrcamentoPageState extends State<OrcamentoPage> {
 
   void _addFromCatalog(OrcamentoCatalogTipo tipo) {
     final preco = parsePtBrDouble(_precoCtrls[tipo.id]?.text ?? '');
-    final padrao = parsePtBrDouble(_precoVidroCtrls[kVidroPadraoId]?.text ?? '');
+    final padrao = precoVidroDaTabela(
+      kVidroPadraoId,
+      parsePtBrDouble(_precoVidroCtrls[kVidroPadraoId]?.text ?? ''),
+    );
     final vidroId = vidroInicialDoCatalogo(tipo.id);
-    final precoVidro = parsePtBrDouble(_precoVidroCtrls[vidroId]?.text ?? '');
+    final precoVidro = precoVidroDaTabela(
+      vidroId,
+      parsePtBrDouble(_precoVidroCtrls[vidroId]?.text ?? ''),
+    );
     setState(() => _itens = [
           ..._itens,
           OrcamentoItem.fromCatalog(
