@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'brand_palette.dart';
+import 'company_legal.dart';
 import 'orcamento_models.dart';
+import 'site_web_image.dart';
 
 Future<OrcamentoItem?> showOrcamentoItemPop(
   BuildContext context,
@@ -268,6 +270,8 @@ class _OrcamentoPreencherPopState extends State<_OrcamentoPreencherPop> {
                   fontWeight: FontWeight.w700,
                 ),
               ),
+              const SizedBox(height: 10),
+              const _OrcamentoMarcaTarja(),
               const SizedBox(height: 12),
               Expanded(
                 child: SingleChildScrollView(
@@ -352,6 +356,56 @@ class _OrcamentoPreencherPopState extends State<_OrcamentoPreencherPop> {
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class _OrcamentoMarcaTarja extends StatelessWidget {
+  const _OrcamentoMarcaTarja();
+
+  @override
+  Widget build(BuildContext context) {
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: BrandPalette.charcoal,
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: BrandPalette.goldWarm.withValues(alpha: 0.7)),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            final largura = (constraints.maxWidth * 0.7).clamp(160.0, 420.0);
+            final altura = largura / kSiteHeroWordmarkAspectRatio;
+            final fraseSize = altura * 0.28;
+            return Column(
+              children: [
+                Center(
+                  child: siteWebOrAssetImage(
+                    assetPath: kSiteHeroWordmarkAsset,
+                    webPath: kSiteHeroWordmarkWebPath,
+                    width: largura,
+                    height: altura,
+                    fit: BoxFit.contain,
+                    filterQuality: FilterQuality.high,
+                  ),
+                ),
+                SizedBox(height: fraseSize * 0.35),
+                Text(
+                  'Desenvolvedora de Software e WebPages',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: BrandPalette.gold,
+                    fontWeight: FontWeight.w700,
+                    fontSize: fraseSize,
+                    height: 1.2,
+                  ),
+                ),
+              ],
+            );
+          },
         ),
       ),
     );

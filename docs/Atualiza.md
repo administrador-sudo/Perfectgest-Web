@@ -2,6 +2,24 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-10-30 20:29] /orcamento: banner PerfectGestDev no pop
+
+### Contexto
+
+- Tarja carvão no topo do pop Preencher o orçamento com wordmark dourado e «Desenvolvedora de Software e WebPages» (50% das letras). PDF, folha e WhatsApp inalterados. V 1.2.8.
+
+### Arquivos alterados
+
+- lib/orcamento_item_pop.dart
+- lib/orcamento_models.dart
+- test/orcamento_formula_test.dart
+- docs/Atualiza.md
+- Evolucao.md
+
+### Pendente / Proximo passo
+
+- Sem publish.
+
 ## [2026-10-30 13:37] /orcamento: diferença de vidro 8 mm vs 4 mm
 
 ### Contexto
