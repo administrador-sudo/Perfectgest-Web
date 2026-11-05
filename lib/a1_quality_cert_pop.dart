@@ -9,18 +9,26 @@ const Color _a1Roxo = Color(0xFF7A2E9A);
 Future<void> showA1QualityCertPop(
   BuildContext context, {
   FunilA1Prefill prefill = const FunilA1Prefill(),
+  bool enviaCadastroNuvem = true,
 }) {
   return showDialog<void>(
     context: context,
     barrierDismissible: false,
-    builder: (ctx) => _A1QualityCertPop(prefill: prefill),
+    builder: (ctx) => _A1QualityCertPop(
+      prefill: prefill,
+      enviaCadastroNuvem: enviaCadastroNuvem,
+    ),
   );
 }
 
 class _A1QualityCertPop extends StatefulWidget {
-  const _A1QualityCertPop({required this.prefill});
+  const _A1QualityCertPop({
+    required this.prefill,
+    this.enviaCadastroNuvem = true,
+  });
 
   final FunilA1Prefill prefill;
+  final bool enviaCadastroNuvem;
 
   @override
   State<_A1QualityCertPop> createState() => _A1QualityCertPopState();
@@ -183,6 +191,13 @@ class _A1QualityCertPopState extends State<_A1QualityCertPop> {
       return;
     }
     setState(() => _enviando = true);
+    if (!widget.enviaCadastroNuvem) {
+      setState(() {
+        _enviando = false;
+        _erro = 'cadastro_escritorio_pendente';
+      });
+      return;
+    }
     final result = await FunilA1Service.submit(
       tipoPessoa: _tipo,
       cnpjCpf: _docCtrl.text,

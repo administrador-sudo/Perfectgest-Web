@@ -7,6 +7,7 @@
 | Documento | Para quê |
 |-----------|----------|
 | [PROJETO_SITE.md](PROJETO_SITE.md) | Arquitectura, secções, site vs app, URLs |
+| [Projeto_funil_site.md](Projeto_funil_site.md) | Como criar outro funil isolado (escritório/SPE) sem partir `/contabilidade` |
 | [FICHA_TECNICA_SITE.md](FICHA_TECNICA_SITE.md) | Stack, `lib/`, build e deploy |
 | [Prompt_IA.md](Prompt_IA.md) | Regras para agentes IA |
 | [Atualiza.md](Atualiza.md) | Histórico (actualizar ao fechar tarefas) |

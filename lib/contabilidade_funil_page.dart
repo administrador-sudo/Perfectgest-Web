@@ -10,6 +10,7 @@ import 'a1_quality_cert_pop.dart';
 import 'funil_conhecer_app_pop.dart';
 import 'funil_a1_service.dart';
 import 'funil_comprovante_pick.dart';
+import 'funil_apresentacao_app.dart';
 import 'funil_firestore_service.dart';
 import 'funil_pix_ticket_pop.dart';
 import 'funil_promo_trilho.dart';
@@ -40,6 +41,106 @@ class FunilImg {
   static const invoices = '$kFunilImgDir/Screenshot_20261008-165926.jpg';
   static const phoneNfe = '$kFunilImgDir/phone_nfe.jpeg';
   static const qualityCert = '$kFunilImgDir/certificado_quality.png';
+}
+
+class FunilImgExtra {
+  const FunilImgExtra({required this.asset, required this.captionId});
+  final String asset;
+  final String captionId;
+}
+
+class FunilImgMap {
+  const FunilImgMap({
+    required this.welcome,
+    required this.accountant,
+    required this.mei,
+    required this.tabletNfe,
+    required this.home,
+    required this.close,
+    required this.duties,
+    required this.menu,
+    required this.invoices,
+    required this.phoneNfe,
+    required this.qualityCert,
+    this.extras = const <FunilImgExtra>[],
+  });
+
+  final String welcome;
+  final String accountant;
+  final String mei;
+  final String tabletNfe;
+  final String home;
+  final String close;
+  final String duties;
+  final String menu;
+  final String invoices;
+  final String phoneNfe;
+  final String qualityCert;
+  final List<FunilImgExtra> extras;
+
+  static const padrao = FunilImgMap(
+    welcome: FunilImg.welcome,
+    accountant: FunilImg.accountant,
+    mei: FunilImg.mei,
+    tabletNfe: FunilImg.tabletNfe,
+    home: FunilImg.home,
+    close: FunilImg.close,
+    duties: FunilImg.duties,
+    menu: FunilImg.menu,
+    invoices: FunilImg.invoices,
+    phoneNfe: FunilImg.phoneNfe,
+    qualityCert: FunilImg.qualityCert,
+  );
+}
+
+class FunilEscritorioPerfil {
+  const FunilEscritorioPerfil({
+    required this.id,
+    required this.rota,
+    this.imagens = FunilImgMap.padrao,
+    this.enviaCadastroNuvem = true,
+    this.legendasPt = const <String, String>{},
+    this.legendasEn = const <String, String>{},
+    this.legendasEs = const <String, String>{},
+    this.textosPt = const <String, String>{},
+    this.textosEn = const <String, String>{},
+    this.textosEs = const <String, String>{},
+  });
+
+  final String id;
+  final String rota;
+  final FunilImgMap imagens;
+  final bool enviaCadastroNuvem;
+  final Map<String, String> legendasPt;
+  final Map<String, String> legendasEn;
+  final Map<String, String> legendasEs;
+  final Map<String, String> textosPt;
+  final Map<String, String> textosEn;
+  final Map<String, String> textosEs;
+
+  String captionOf(String languageCode, String id, String fallback) {
+    final map = switch (languageCode) {
+      'en' => legendasEn,
+      'es' => legendasEs,
+      _ => legendasPt,
+    };
+    final v = map[id];
+    if (v == null || v.isEmpty) return fallback;
+    return v;
+  }
+
+  String? textoOf(String languageCode, String id) {
+    final map = switch (languageCode) {
+      'en' => textosEn,
+      'es' => textosEs,
+      _ => textosPt,
+    };
+    final v = map[id];
+    if (v == null || v.isEmpty) return null;
+    return v;
+  }
+
+  static const perfectgest = kFunilPerfectGestApresentacao;
 }
 
 const List<({String id, double monthly, bool highlight})> kFunilTiers =
@@ -100,7 +201,12 @@ List<({String id, double monthly, bool highlight})> _tiersOf(String? tipo) {
 }
 
 class ContabilidadeFunilPage extends StatefulWidget {
-  const ContabilidadeFunilPage({super.key});
+  const ContabilidadeFunilPage({
+    super.key,
+    this.perfil = FunilEscritorioPerfil.perfectgest,
+  });
+
+  final FunilEscritorioPerfil perfil;
 
   @override
   State<ContabilidadeFunilPage> createState() => _ContabilidadeFunilPageState();
@@ -134,7 +240,11 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
   @override
   void initState() {
     super.initState();
-    seo_meta.applyContabilidadeFunilSeoMetaTags();
+    if (widget.perfil.id == 'Escritorio001') {
+      seo_meta.applyContabilidadeEscritorio001SeoMetaTags();
+    } else {
+      seo_meta.applyContabilidadeFunilSeoMetaTags();
+    }
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
       if (Uri.base.fragment == 'planos') _scrollTo(_planosKey);
@@ -682,6 +792,10 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
 
   Future<void> _submit(SiteContabilidadeFunilTexts st) async {
     if (_submitting) return;
+    if (!widget.perfil.enviaCadastroNuvem) {
+      setState(() => _errorCode = 'cadastro_escritorio_pendente');
+      return;
+    }
     setState(() => _submitting = true);
     final comentario = _comentarioLinha();
     final ficha = _fichaProposta(st);
@@ -738,6 +852,9 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
   @override
   Widget build(BuildContext context) {
     final st = SiteContabilidadeFunilTexts.of(context);
+    final lang = Localizations.localeOf(context).languageCode;
+    String cap(String id) => widget.perfil.captionOf(lang, id, st.shotCaption(id));
+    String? lead(String id) => widget.perfil.textoOf(lang, id);
     final narrow = MediaQuery.sizeOf(context).width < 720;
     final cs = Theme.of(context).colorScheme;
 
@@ -781,6 +898,9 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                         children: [
                           _HeroBlock(
                             st: st,
+                            img: widget.perfil.imagens,
+                            cap: cap,
+                            lead: lead,
                             onLogo: _goHome,
                             onKnowApp: _abrirConhecerApp,
                             onAssinarPlano: () => _scrollTo(_formAnchorKey),
@@ -794,7 +914,7 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                               children: [
                                 Text(st.proofBody),
                                 const SizedBox(height: 12),
-                                _FunilShot(asset: FunilImg.accountant, caption: st.shotCaption('accountant')),
+                                _FunilShot(asset: widget.perfil.imagens.accountant, caption: cap('accountant'), lead: lead('accountant')),
                               ],
                             ),
                           ),
@@ -816,7 +936,7 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                                     ),
                                   ),
                                 const SizedBox(height: 8),
-                                _FunilShot(asset: FunilImg.menu, caption: st.shotCaption('menu')),
+                                _FunilShot(asset: widget.perfil.imagens.menu, caption: cap('menu'), lead: lead('menu')),
                               ],
                             ),
                           ),
@@ -830,7 +950,7 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                                 _Step(title: st.stepBTitle, body: st.stepBBody),
                                 _Step(title: st.stepCTitle, body: st.stepCBody),
                                 const SizedBox(height: 8),
-                                _FunilShot(asset: FunilImg.mei, caption: st.shotCaption('mei')),
+                                _FunilShot(asset: widget.perfil.imagens.mei, caption: cap('mei'), lead: lead('mei')),
                               ],
                             ),
                           ),
@@ -840,6 +960,8 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                             child: _PlansTable(
                               st: st,
                               brl: _brl,
+                              img: widget.perfil.imagens,
+                              enviaCadastroNuvem: widget.perfil.enviaCadastroNuvem,
                               onPixA1Pago: () => setState(() => _a1 = false),
                               a1PrefillOf: () => FunilA1Prefill(
                                 nome: _nomeCtrl.text,
@@ -877,7 +999,7 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                                 : _buildForm(st),
                           ),
                           const SizedBox(height: 20),
-                          _DemoBlock(st: st, onKnowApp: _abrirConhecerApp),
+                          _DemoBlock(st: st, img: widget.perfil.imagens, cap: cap, lead: lead, onKnowApp: _abrirConhecerApp),
                           const SizedBox(height: 20),
                           _FaqBlock(st: st),
                           const SizedBox(height: 28),
@@ -1249,6 +1371,9 @@ class _LangChip extends StatelessWidget {
 class _HeroBlock extends StatelessWidget {
   const _HeroBlock({
     required this.st,
+    required this.img,
+    required this.cap,
+    required this.lead,
     required this.onLogo,
     required this.onKnowApp,
     required this.onAssinarPlano,
@@ -1256,6 +1381,9 @@ class _HeroBlock extends StatelessWidget {
   });
 
   final SiteContabilidadeFunilTexts st;
+  final FunilImgMap img;
+  final String Function(String id) cap;
+  final String? Function(String id) lead;
   final VoidCallback onLogo;
   final VoidCallback onKnowApp;
   final VoidCallback onAssinarPlano;
@@ -1321,7 +1449,7 @@ class _HeroBlock extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 16),
-          _FunilShot(asset: FunilImg.welcome, caption: st.shotCaption('welcome'), height: 640),
+          _FunilShot(asset: img.welcome, caption: cap('welcome'), lead: lead('welcome'), height: 640),
         ],
       ),
     );
@@ -1376,6 +1504,8 @@ class _PlansTable extends StatelessWidget {
     required this.st,
     required this.brl,
     required this.onChoose,
+    required this.img,
+    this.enviaCadastroNuvem = true,
     this.a1PrefillOf,
     this.onPixA1Pago,
   });
@@ -1383,6 +1513,8 @@ class _PlansTable extends StatelessWidget {
   final SiteContabilidadeFunilTexts st;
   final String Function(double) brl;
   final ValueChanged<String> onChoose;
+  final FunilImgMap img;
+  final bool enviaCadastroNuvem;
   final FunilA1Prefill Function()? a1PrefillOf;
   final VoidCallback? onPixA1Pago;
 
@@ -1405,6 +1537,8 @@ class _PlansTable extends StatelessWidget {
           A1QualityCertCard(
             prefillOf: a1PrefillOf,
             onPixA1Pago: onPixA1Pago,
+            qualityCertAsset: img.qualityCert,
+            enviaCadastroNuvem: enviaCadastroNuvem,
           ),
           const SizedBox(height: 8),
           Text(st.paymentLaterNote, style: const TextStyle(fontSize: 13)),
@@ -1584,22 +1718,39 @@ class _SuccessCard extends StatelessWidget {
 }
 
 class _FunilShot extends StatelessWidget {
-  const _FunilShot({required this.asset, this.caption, this.height = 560});
+  const _FunilShot({required this.asset, this.caption, this.lead, this.height = 560});
 
   final String asset;
   final String? caption;
+  final String? lead;
   final double height;
 
   @override
   Widget build(BuildContext context) {
     final st = SiteContabilidadeFunilTexts.of(context);
     final title = (caption != null && caption!.isNotEmpty) ? caption! : st.demoTitle;
+    final hasLead = lead != null && lead!.isNotEmpty;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (caption != null && caption!.isNotEmpty) ...[
-          Text(caption!, style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13.5)),
-          const SizedBox(height: 8),
+          Text(
+            caption!,
+            style: TextStyle(
+              fontWeight: FontWeight.w800,
+              fontSize: hasLead ? 16 : 13.5,
+              height: 1.25,
+              color: kFunilInk,
+            ),
+          ),
+          if (hasLead) ...[
+            const SizedBox(height: 4),
+            Text(
+              lead!,
+              style: const TextStyle(fontSize: 14, height: 1.35, color: kFunilInk),
+            ),
+          ],
+          const SizedBox(height: 10),
         ],
         Material(
           color: Colors.transparent,
@@ -1722,9 +1873,18 @@ Future<void> _showFunilShotPreview(
 }
 
 class _DemoBlock extends StatelessWidget {
-  const _DemoBlock({required this.st, required this.onKnowApp});
+  const _DemoBlock({
+    required this.st,
+    required this.img,
+    required this.cap,
+    required this.lead,
+    required this.onKnowApp,
+  });
 
   final SiteContabilidadeFunilTexts st;
+  final FunilImgMap img;
+  final String Function(String id) cap;
+  final String? Function(String id) lead;
   final VoidCallback onKnowApp;
 
   @override
@@ -1734,17 +1894,21 @@ class _DemoBlock extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          _FunilShot(asset: FunilImg.phoneNfe, caption: st.shotCaption('phoneNfe')),
+          _FunilShot(asset: img.phoneNfe, caption: cap('phoneNfe'), lead: lead('phoneNfe')),
           const SizedBox(height: 16),
-          _FunilShot(asset: FunilImg.tabletNfe, caption: st.shotCaption('tabletNfe'), height: 560),
+          _FunilShot(asset: img.tabletNfe, caption: cap('tabletNfe'), lead: lead('tabletNfe'), height: 560),
           const SizedBox(height: 16),
-          _FunilShot(asset: FunilImg.home, caption: st.shotCaption('home')),
+          _FunilShot(asset: img.home, caption: cap('home'), lead: lead('home')),
           const SizedBox(height: 16),
-          _FunilShot(asset: FunilImg.close, caption: st.shotCaption('close')),
+          _FunilShot(asset: img.close, caption: cap('close'), lead: lead('close')),
           const SizedBox(height: 16),
-          _FunilShot(asset: FunilImg.duties, caption: st.shotCaption('duties')),
+          _FunilShot(asset: img.duties, caption: cap('duties'), lead: lead('duties')),
           const SizedBox(height: 16),
-          _FunilShot(asset: FunilImg.invoices, caption: st.shotCaption('invoices')),
+          _FunilShot(asset: img.invoices, caption: cap('invoices'), lead: lead('invoices')),
+          for (final extra in img.extras) ...[
+            const SizedBox(height: 16),
+            _FunilShot(asset: extra.asset, caption: cap(extra.captionId), lead: lead(extra.captionId)),
+          ],
           const SizedBox(height: 12),
           sitePrimaryActionButton(context: context, label: st.ctaKnowApp, onPressed: onKnowApp),
         ],
@@ -1833,10 +1997,18 @@ class _FunilFooter extends StatelessWidget {
 }
 
 class A1QualityCertCard extends StatelessWidget {
-  const A1QualityCertCard({super.key, this.prefillOf, this.onPixA1Pago});
+  const A1QualityCertCard({
+    super.key,
+    this.prefillOf,
+    this.onPixA1Pago,
+    this.qualityCertAsset = FunilImg.qualityCert,
+    this.enviaCadastroNuvem = true,
+  });
 
   final FunilA1Prefill Function()? prefillOf;
   final VoidCallback? onPixA1Pago;
+  final String qualityCertAsset;
+  final bool enviaCadastroNuvem;
 
   @override
   Widget build(BuildContext context) {
@@ -1855,7 +2027,7 @@ class A1QualityCertCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Image.asset(
-                FunilImg.qualityCert,
+                qualityCertAsset,
                 height: 44,
                 width: 180,
                 fit: BoxFit.contain,
@@ -1913,6 +2085,7 @@ class A1QualityCertCard extends StatelessWidget {
                   await showA1QualityCertPop(
                     context,
                     prefill: prefillOf?.call() ?? const FunilA1Prefill(),
+                    enviaCadastroNuvem: enviaCadastroNuvem,
                   );
                 },
                 child: Text(

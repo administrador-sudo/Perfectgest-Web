@@ -2,6 +2,126 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-11-05 08:40] Funil principal: apresentacao nova
+
+### Contexto
+
+- `/contabilidade` usa as mesmas telas e frases do funil 001. Cadastro nuvem PerfectGest continua ligado. 001 continua sem POST.
+
+### Arquivos alterados
+
+- lib/funil_apresentacao_app.dart
+- lib/funil_escritorio001.dart
+- lib/contabilidade_funil_page.dart
+- lib/main.dart
+- lib/site_deferred_pages.dart
+- docs/Projeto_funil_site.md
+- docs/Atualiza.md
+- Evolucao.md
+
+### Pendente / Proximo passo
+
+- Sem publish.
+
+## [2026-11-05 08:33] Funil 001: tela 17 + frases cativantes
+
+### Contexto
+
+- Tela Orientação Inicial (esc001_17) no demo. Titulo + paragrafo otimista em cada shot do /contabilidade_Escritorio001 (PT/EN/ES). PerfectGest /contabilidade sem lead extra.
+
+### Arquivos alterados
+
+- IMAGENS_APP/IMAGENS NOVA PAGE/esc001_17.png
+- lib/funil_escritorio001.dart
+- lib/contabilidade_funil_page.dart
+- docs/Atualiza.md
+- Evolucao.md
+
+### Pendente / Proximo passo
+
+- Sem publish.
+
+## [2026-11-05 08:22] Funil 001: apresentacao com telas do app
+
+### Contexto
+
+- Screenshots do lote 2026-11-05 copiados para IMAGENS_APP/IMAGENS NOVA PAGE/esc001_*. Ligados so em /contabilidade_Escritorio001. Sem o ficheiro (13) (duplicado do 14). QualityCert inalterado.
+
+### Arquivos alterados
+
+- IMAGENS_APP/IMAGENS NOVA PAGE/esc001_01.png ... esc001_16.jpeg
+- lib/funil_escritorio001.dart
+- lib/contabilidade_funil_page.dart
+- docs/Atualiza.md
+- Evolucao.md
+
+### Pendente / Proximo passo
+
+- Sem publish. Confirmar no browser a rota /contabilidade_Escritorio001.
+
+## [2026-11-05 07:50] Funil /contabilidade_Escritorio001
+
+### Contexto
+
+- Novo funil isolado para associados S-App+CRCADM. /contabilidade intacto. Sem POST Firebase nesta rota. Imagens = slots com ficheiros atuais. Rewrite no Dashboard Render obrigatorio no publish.
+
+### Arquivos alterados
+
+- lib/contabilidade_funil_page.dart
+- lib/funil_escritorio001.dart
+- lib/a1_quality_cert_pop.dart
+- lib/main.dart
+- lib/site_public_urls.dart
+- lib/seo_meta_web.dart
+- lib/seo_meta_stub.dart
+- lib/l10n/site_contabilidade_funil_texts.dart
+- scripts/legal-routes.cjs
+- render.yaml
+- docs/RENDER_SPA_REWRITE.md
+- docs/generated-render-legal-routes.yaml
+- docs/Atualiza.md
+- Evolucao.md
+
+### Pendente / Proximo passo
+
+- Sem publish. No Render: Rewrite `/contabilidade_Escritorio001` -> `/contabilidade_Escritorio001.html`. Destino de cadastro e fotos novas depois.
+
+## [2026-11-05 07:47] Projeto funil site (especificação)
+
+### Contexto
+
+- Procedimento gravado para repetir funis isolados (ex. /contabilidade_Escritorio001) sem copiar a página inteira nem alterar Firebase. Código do funil ainda não implementado.
+
+### Arquivos alterados
+
+- docs/Projeto_funil_site.md
+- docs/README.md
+- docs/Atualiza.md
+- Evolucao.md
+
+### Pendente / Proximo passo
+
+- Implementar /contabilidade_Escritorio001 quando o operador autorizar.
+
+## [2026-10-30 22:55] Site: cortes de tráfego sem mudar serviços
+
+### Contexto
+
+- WhatsApp da página Sobre já não chama ping Elastic (URL morta). Pré-cadastro envia só o POST (timeout 90 s mantido para cold start). Imagem de comprovante do funil/A1 reduzida no cliente (alvo 400 KB JPEG); PDF até 2 MB como antes. Functions e API inalteradas.
+
+### Arquivos alterados
+
+- lib/main.dart
+- lib/site_deferred_pages.dart
+- lib/lead_capture_service.dart
+- lib/funil_comprovante_pick.dart
+- docs/Atualiza.md
+- Evolucao.md
+
+### Pendente / Proximo passo
+
+- Sem publish.
+
 ## [2026-10-30 20:36] /orcamento: tarja da marca no rodapé do pop
 
 ### Contexto

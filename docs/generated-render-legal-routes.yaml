@@ -16,6 +16,9 @@ routes:
     source: /contabilidade
     destination: /contabilidade.html
   - type: rewrite
+    source: /contabilidade_Escritorio001
+    destination: /contabilidade_Escritorio001.html
+  - type: rewrite
     source: /A1_Certificado
     destination: /A1_Certificado.html
   - type: rewrite

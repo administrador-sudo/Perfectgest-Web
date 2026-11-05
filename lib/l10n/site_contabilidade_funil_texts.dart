@@ -867,6 +867,8 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
         'api_unavailable' =>
           'Servico temporariamente indisponivel. Tente mais tarde.',
         'api_unconfigured' => 'API nao configurada. Contacte o suporte.',
+        'cadastro_escritorio_pendente' =>
+          'Cadastro deste escritorio sera ligado ao destino AWS/API. Por agora o pedido nao foi enviado.',
         _ => errorGeneric,
       };
 
@@ -1652,6 +1654,8 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
           'Service temporarily unavailable. Write to contabilidade@perfectgestdev.com.',
         'api_unavailable' => 'Service temporarily unavailable. Try later.',
         'api_unconfigured' => 'API is not configured. Contact support.',
+        'cadastro_escritorio_pendente' =>
+          'Registration for this office will be connected to the AWS/API destination. The request was not sent yet.',
         _ => errorGeneric,
       };
 
@@ -2437,6 +2441,8 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
           'Servicio temporalmente no disponible. Escriba a contabilidade@perfectgestdev.com.',
         'api_unavailable' => 'Servicio temporalmente no disponible. Intente mas tarde.',
         'api_unconfigured' => 'API no configurada. Contacte el soporte.',
+        'cadastro_escritorio_pendente' =>
+          'El registro de este despacho se conectara al destino AWS/API. Por ahora el pedido no fue enviado.',
         _ => errorGeneric,
       };
 

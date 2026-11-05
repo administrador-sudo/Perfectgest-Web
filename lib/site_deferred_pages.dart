@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import 'devolucao_page.dart' deferred as devolucao;
 import 'clinica_iii_legal_pages.dart';
 import 'perfectgest_i_legal_pages.dart';
-import 'elastic_service.dart' deferred as elastic;
 import 'metallic_preview_page.dart' deferred as metallic;
 import 'politica_page.dart' deferred as politica;
 import 'pre_cadastro_page.dart' deferred as pre_cadastro;
 import 'tecnologias_page.dart' deferred as tecnologias;
 import 'contabilgest_faq_page.dart' deferred as contabilgest_faq;
 import 'contabilidade_funil_page.dart';
+import 'funil_apresentacao_app.dart';
 
 /// IDs de tópicos (espelham [tecnologias.TecnologiasPage] no chunk diferido).
 const kTecnologiaTopicCleanArch = 'clean-arch';
@@ -203,7 +203,7 @@ Widget buildContabilgestFaqPage({VoidCallback? onToggleTheme}) {
 }
 
 Widget buildContabilidadeFunilPage() {
-  return const ContabilidadeFunilPage();
+  return const ContabilidadeFunilPage(perfil: kFunilPerfectGestApresentacao);
 }
 
 Future<void> openContabilgestFaqPage(
@@ -221,9 +221,4 @@ Future<void> openContabilgestFaqPage(
       builder: (_) => contabilgest_faq.ContabilgestFaqPage(onToggleTheme: onToggleTheme),
     ),
   );
-}
-
-Future<void> pingElasticWakeTest() async {
-  await elastic.loadLibrary();
-  await elastic.ElasticService.enviarTeste();
 }

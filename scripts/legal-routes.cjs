@@ -5,6 +5,7 @@ const siteSpaPages = [
   'pre-cadastro',
   'faq-contabilgest',
   'contabilidade',
+  'contabilidade_Escritorio001',
   'A1_Certificado',
   'orcamento',
 ];

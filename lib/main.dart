@@ -24,6 +24,8 @@ import 'solutions_product_showcase.dart';
 import 'metallic_site_shell.dart';
 import 'site_brand_logo.dart';
 import 'contabilidade_funil_page.dart';
+import 'funil_apresentacao_app.dart';
+import 'funil_escritorio001.dart';
 import 'certificado_a1_page.dart';
 import 'orcamento_page.dart';
 import 'orcamento_registros_page.dart';
@@ -190,7 +192,12 @@ class _PerfectProSiteAppState extends State<PerfectProSiteApp> {
       case '/contabilidade':
         return MaterialPageRoute<void>(
           settings: settings,
-          builder: (_) => const ContabilidadeFunilPage(),
+          builder: (_) => const ContabilidadeFunilPage(perfil: kFunilPerfectGestApresentacao),
+        );
+      case kContabilidadeEscritorio001Path:
+        return MaterialPageRoute<void>(
+          settings: settings,
+          builder: (_) => const ContabilidadeFunilEscritorio001Page(),
         );
       case '/A1_Certificado':
         return MaterialPageRoute<void>(
@@ -528,10 +535,7 @@ class _SobreNosPageState extends State<SobreNosPage> {
           actions: [
             IconButton(
               tooltip: l10n.tooltipWhatsApp,
-              onPressed: () {
-                _openWhatsApp();
-                pingElasticWakeTest();
-              },
+              onPressed: _openWhatsApp,
               icon: Icon(Icons.chat_rounded, color: cs.primary, size: 22),
             ),
             IconButton(

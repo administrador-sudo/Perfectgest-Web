@@ -20,6 +20,9 @@ const String kContabilgestFaqPath = '/faq-contabilgest';
 /// Funil isolado de honorários (sem menu da vitrine).
 const String kContabilidadePath = '/contabilidade';
 
+/// Funil isolado Escritorio001 (associados S-App+CRCADM; sem menu da vitrine).
+const String kContabilidadeEscritorio001Path = '/contabilidade_Escritorio001';
+
 /// Funil isolado do certificado A1 QualityCert (sem menu da vitrine).
 const String kCertificadoA1Path = '/A1_Certificado';
 

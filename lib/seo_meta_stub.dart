@@ -16,6 +16,8 @@ void applyContabilgestFaqSeoMetaTags() {}
 
 void applyContabilidadeFunilSeoMetaTags() {}
 
+void applyContabilidadeEscritorio001SeoMetaTags() {}
+
 void applyCertificadoA1SeoMetaTags() {}
 
 void applyOrcamentoSeoMetaTags() {}

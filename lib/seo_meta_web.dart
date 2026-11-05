@@ -62,6 +62,17 @@ const String _kOgDescriptionContabilidadeFunil =
     'Pedido de honorarios no CNPJ e demo do PerfectGest ContabilGest. Assinatura do app na Play so no fim.';
 const String _kDocumentTitleContabilidadeFunil = 'Contabilidade | Perfect Gest Dev';
 
+const String _kMetaDescriptionContabilidadeEscritorio001 =
+    'Honorarios do escritorio associado S-App+CRCADM. Pedido de plano para MEI e ME; cadastro sera ligado ao destino AWS.';
+const String _kMetaKeywordsContabilidadeEscritorio001 =
+    'contabilidade, escritorio, S-App, CRC ADM, MEI, ME, associados';
+const String _kOgTitleContabilidadeEscritorio001 =
+    'Contabilidade Escritorio001 | S-App+CRCADM';
+const String _kOgDescriptionContabilidadeEscritorio001 =
+    'Pagina de honorarios para associados S-App+CRCADM. Link direto, sem indexacao.';
+const String _kDocumentTitleContabilidadeEscritorio001 =
+    'Contabilidade Escritorio001 | S-App+CRCADM';
+
 const String _kMetaDescriptionCertificadoA1 =
     'Certificado digital A1 e-CNPJ e e-CPF QualityCert. PIX, cadastro ao escritorio PerfectGest e ativacao por videoconferencia.';
 const String _kMetaKeywordsCertificadoA1 =
@@ -174,6 +185,19 @@ void applyContabilidadeFunilSeoMetaTags() {
   _upsertMetaProperty('og:type', 'website');
   _upsertMetaProperty('og:locale', 'pt_BR');
   _setDocumentTitle(_kDocumentTitleContabilidadeFunil);
+}
+
+/// Funil isolado /contabilidade_Escritorio001 — nao indexar (link direto).
+void applyContabilidadeEscritorio001SeoMetaTags() {
+  _syncCanonicalFromLocation();
+  _upsertMeta('description', _kMetaDescriptionContabilidadeEscritorio001);
+  _upsertMeta('keywords', _kMetaKeywordsContabilidadeEscritorio001);
+  _upsertMeta('robots', 'noindex, nofollow');
+  _upsertMetaProperty('og:title', _kOgTitleContabilidadeEscritorio001);
+  _upsertMetaProperty('og:description', _kOgDescriptionContabilidadeEscritorio001);
+  _upsertMetaProperty('og:type', 'website');
+  _upsertMetaProperty('og:locale', 'pt_BR');
+  _setDocumentTitle(_kDocumentTitleContabilidadeEscritorio001);
 }
 
 /// Funil isolado /A1_Certificado — nao indexar (link direto apenas).
