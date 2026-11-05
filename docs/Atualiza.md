@@ -2,6 +2,26 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-11-05 09:00] Funil 001: POST Lambda AWS
+
+### Contexto
+
+- Cadastro do /contabilidade_Escritorio001 vai para crc-lab-api (receberLeadFunil / receberSolicitacaoA1Funil). PerfectGest /contabilidade intacto no Firebase.
+
+### Arquivos alterados
+
+- lib/funil_escritorio001.dart
+- lib/funil_aws_service.dart
+- lib/contabilidade_funil_page.dart
+- lib/a1_quality_cert_pop.dart
+- docs/Projeto_funil_site.md
+- docs/Atualiza.md
+- Evolucao.md
+
+### Pendente / Proximo passo
+
+- Publish-web quando o operador pedir. Render: Rewrite `/contabilidade_Escritorio001` -> `/contabilidade_Escritorio001.html`. Lambda+SPE no S-App+CRCADM.
+
 ## [2026-11-05 08:40] Funil principal: apresentacao nova
 
 ### Contexto

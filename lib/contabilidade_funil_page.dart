@@ -11,6 +11,7 @@ import 'funil_conhecer_app_pop.dart';
 import 'funil_a1_service.dart';
 import 'funil_comprovante_pick.dart';
 import 'funil_apresentacao_app.dart';
+import 'funil_aws_service.dart';
 import 'funil_firestore_service.dart';
 import 'funil_pix_ticket_pop.dart';
 import 'funil_promo_trilho.dart';
@@ -99,6 +100,7 @@ class FunilEscritorioPerfil {
     required this.rota,
     this.imagens = FunilImgMap.padrao,
     this.enviaCadastroNuvem = true,
+    this.destinoCadastro = 'firebase',
     this.legendasPt = const <String, String>{},
     this.legendasEn = const <String, String>{},
     this.legendasEs = const <String, String>{},
@@ -111,6 +113,8 @@ class FunilEscritorioPerfil {
   final String rota;
   final FunilImgMap imagens;
   final bool enviaCadastroNuvem;
+  /// `firebase` = PerfectGest; `aws` = SPE Escritorio001.
+  final String destinoCadastro;
   final Map<String, String> legendasPt;
   final Map<String, String> legendasEn;
   final Map<String, String> legendasEs;
@@ -801,8 +805,40 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
     final ficha = _fichaProposta(st);
     final locale = Localizations.localeOf(context).toLanguageTag();
     var result = const LeadCaptureResult(ok: false, errorMessage: 'server_error');
+    final aws = widget.perfil.destinoCadastro == 'aws';
     try {
-      result = await FunilFirestoreService.submit(
+      result = aws
+          ? await FunilAwsService.submitLead(
+        nome: _nomeCtrl.text,
+        email: _emailCtrl.text,
+        whatsapp: _digits(_whatsAppCtrl.text),
+        cnpj: _digits(_cnpjCtrl.text),
+        razaoSocial: _razaoCtrl.text,
+        regime: _tipo ?? (_enquadramento ?? ''),
+        faixa: _servicoAvulso ? (_enquadramento ?? '') : (_faixaId ?? ''),
+        boletoHonorarios: _servicoAvulso
+            ? _precoAvulso
+            : (_meiFidelizado ? kFunilMeiAnual : _boletoMensal),
+        primeiroBoleto: _servicoAvulso ? _precoAvulso : _primeiroBoleto,
+        enquadramento: _enquadramento ?? '',
+        fichaProposta: ficha,
+        aceiteCobranca: true,
+        folha: _folha,
+        ir: _ir,
+        a1: _a1 || _a1PagoAvulso,
+        pixA1Informado: _a1PagoAvulso,
+        consent: _consent,
+        locale: locale,
+        pixHonorariosInformado: _pixHonorariosInformado,
+        valorPixHonorarios: _pixHonorariosInformado
+            ? (_servicoAvulso ? _precoAvulso : _primeiroBoleto)
+            : 0,
+        websiteHoneypot: _honeypotCtrl.text,
+        comprovanteNome: _comp?.nome ?? '',
+        comprovanteMime: _comp?.mime ?? '',
+        comprovanteBase64: _comp?.base64 ?? '',
+      )
+          : await FunilFirestoreService.submit(
         nome: _nomeCtrl.text,
         email: _emailCtrl.text,
         whatsapp: _digits(_whatsAppCtrl.text),
@@ -962,6 +998,7 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                               brl: _brl,
                               img: widget.perfil.imagens,
                               enviaCadastroNuvem: widget.perfil.enviaCadastroNuvem,
+                              destinoCadastro: widget.perfil.destinoCadastro,
                               onPixA1Pago: () => setState(() => _a1 = false),
                               a1PrefillOf: () => FunilA1Prefill(
                                 nome: _nomeCtrl.text,
@@ -1506,6 +1543,7 @@ class _PlansTable extends StatelessWidget {
     required this.onChoose,
     required this.img,
     this.enviaCadastroNuvem = true,
+    this.destinoCadastro = 'firebase',
     this.a1PrefillOf,
     this.onPixA1Pago,
   });
@@ -1515,6 +1553,7 @@ class _PlansTable extends StatelessWidget {
   final ValueChanged<String> onChoose;
   final FunilImgMap img;
   final bool enviaCadastroNuvem;
+  final String destinoCadastro;
   final FunilA1Prefill Function()? a1PrefillOf;
   final VoidCallback? onPixA1Pago;
 
@@ -1539,6 +1578,7 @@ class _PlansTable extends StatelessWidget {
             onPixA1Pago: onPixA1Pago,
             qualityCertAsset: img.qualityCert,
             enviaCadastroNuvem: enviaCadastroNuvem,
+            destinoCadastro: destinoCadastro,
           ),
           const SizedBox(height: 8),
           Text(st.paymentLaterNote, style: const TextStyle(fontSize: 13)),
@@ -2003,12 +2043,14 @@ class A1QualityCertCard extends StatelessWidget {
     this.onPixA1Pago,
     this.qualityCertAsset = FunilImg.qualityCert,
     this.enviaCadastroNuvem = true,
+    this.destinoCadastro = 'firebase',
   });
 
   final FunilA1Prefill Function()? prefillOf;
   final VoidCallback? onPixA1Pago;
   final String qualityCertAsset;
   final bool enviaCadastroNuvem;
+  final String destinoCadastro;
 
   @override
   Widget build(BuildContext context) {
@@ -2086,6 +2128,7 @@ class A1QualityCertCard extends StatelessWidget {
                     context,
                     prefill: prefillOf?.call() ?? const FunilA1Prefill(),
                     enviaCadastroNuvem: enviaCadastroNuvem,
+                    destinoCadastro: destinoCadastro,
                   );
                 },
                 child: Text(

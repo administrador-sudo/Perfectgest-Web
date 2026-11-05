@@ -17,14 +17,14 @@ Quando o operador pedir outro funil, seguir este ficheiro. Não inventar pasta, 
 - Página **isolada**: link direto, `noindex, nofollow`. **Não** entra em Soluções / home.
 - Sem publish até ordem expressa.
 - Imagens novas: pasta **já existente** `IMAGENS_APP/IMAGENS NOVA PAGE/` (nomes distintos). Sem pasta nova.
-- Cadastro na nuvem: **não** ligar a `receberLeadFunil` / `receberSolicitacaoA1Funil` até o operador indicar o destino (AWS/API/e-mail). Function Firebase **não se altera** neste projeto.
+- Cadastro na nuvem: PerfectGest → Function Firebase `receberLeadFunil`. Escritorio001 → Lambda AWS `receberLeadFunil` (não Firebase). Function Firebase **não se altera** neste projeto.
 - WhatsApp/PIX: manter os do funil original até ordem de número deste escritório.
 
 ## Arquitectura
 
 ```
 /contabilidade                          perfil perfectgest, envia cadastro Firebase
-/contabilidade_Escritorio001            perfil Escritorio001, cadastro nuvem desligado (até destino)
+/contabilidade_Escritorio001            perfil Escritorio001, cadastro AWS (Lambda crc-lab-api)
 /contabilidade_EscritorioNNN            repetir o mesmo perfil + rota
 ```
 
@@ -48,7 +48,7 @@ class FunilEscritorioPerfil {
 - Default (`const ContabilidadeFunilPage()`): PerfectGest, `enviaCadastroNuvem: true`, imagens e frases de `kFunilApresentacaoImagens` (telas novas do app).
 - Novo escritório: ficheiro `lib/funil_<id>.dart` com o perfil e `ContabilidadeFunilPage(perfil: kFunil...)`.
 - `_FunilShot` e selo QualityCert leem `perfil.imagens`.
-- Submit (~`FunilFirestoreService.submit`): se `!enviaCadastroNuvem`, não POST; aviso curto de que o destino será ligado depois. Layout do formulário permanece.
+- Submit: PerfectGest → `FunilFirestoreService`. Escritorio001 (`destinoCadastro: aws`) → `FunilAwsService` (POST `{ callable, data }` na API Gateway). Se `!enviaCadastroNuvem`, não POST.
 
 ## Slots de imagem (obrigatórios)
 
@@ -76,10 +76,10 @@ Não mexer: Function Firebase, API leads, preços/PIX do funil PerfectGest, UI e
 
 ## Pendente por escritório (operador indica depois)
 
-- Destino de cadastro (AWS / API / e-mail)
+- Destino de cadastro Escritorio001: Lambda AWS (feito)
 - Fotos finais do app/SPE
 - WhatsApp e PIX deste escritório
-- Ligar `enviaCadastroNuvem: true` só depois do destino existir
+- Publish + rewrite Render para a URL pública funcionar
 
 ## Referência de código do modelo
 

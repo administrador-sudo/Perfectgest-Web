@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'funil_a1_service.dart';
+import 'funil_aws_service.dart';
 import 'funil_comprovante_pick.dart';
 import 'l10n/site_contabilidade_funil_texts.dart';
 
@@ -10,6 +11,7 @@ Future<void> showA1QualityCertPop(
   BuildContext context, {
   FunilA1Prefill prefill = const FunilA1Prefill(),
   bool enviaCadastroNuvem = true,
+  String destinoCadastro = 'firebase',
 }) {
   return showDialog<void>(
     context: context,
@@ -17,6 +19,7 @@ Future<void> showA1QualityCertPop(
     builder: (ctx) => _A1QualityCertPop(
       prefill: prefill,
       enviaCadastroNuvem: enviaCadastroNuvem,
+      destinoCadastro: destinoCadastro,
     ),
   );
 }
@@ -25,10 +28,12 @@ class _A1QualityCertPop extends StatefulWidget {
   const _A1QualityCertPop({
     required this.prefill,
     this.enviaCadastroNuvem = true,
+    this.destinoCadastro = 'firebase',
   });
 
   final FunilA1Prefill prefill;
   final bool enviaCadastroNuvem;
+  final String destinoCadastro;
 
   @override
   State<_A1QualityCertPop> createState() => _A1QualityCertPopState();
@@ -198,25 +203,45 @@ class _A1QualityCertPopState extends State<_A1QualityCertPop> {
       });
       return;
     }
-    final result = await FunilA1Service.submit(
-      tipoPessoa: _tipo,
-      cnpjCpf: _docCtrl.text,
-      razaoSocial: _razaoCtrl.text,
-      email: _emailCtrl.text,
-      telefone: _foneCtrl.text,
-      cep: _cepCtrl.text,
-      logradouro: _logCtrl.text,
-      numero: _numCtrl.text,
-      bairro: _baiCtrl.text,
-      complemento: _compCtrl.text,
-      cidade: _cidCtrl.text,
-      estado: _ufCtrl.text,
-      consent: true,
-      pixA1Informado: true,
-      comprovanteNome: _comp?.nome ?? '',
-      comprovanteMime: _comp?.mime ?? '',
-      comprovanteBase64: _comp?.base64 ?? '',
-    );
+    final result = widget.destinoCadastro == 'aws'
+        ? await FunilAwsService.submitA1(
+            tipoPessoa: _tipo,
+            cnpjCpf: _docCtrl.text,
+            razaoSocial: _razaoCtrl.text,
+            email: _emailCtrl.text,
+            telefone: _foneCtrl.text,
+            cep: _cepCtrl.text,
+            logradouro: _logCtrl.text,
+            numero: _numCtrl.text,
+            bairro: _baiCtrl.text,
+            complemento: _compCtrl.text,
+            cidade: _cidCtrl.text,
+            estado: _ufCtrl.text,
+            consent: true,
+            pixA1Informado: true,
+            comprovanteNome: _comp?.nome ?? '',
+            comprovanteMime: _comp?.mime ?? '',
+            comprovanteBase64: _comp?.base64 ?? '',
+          )
+        : await FunilA1Service.submit(
+            tipoPessoa: _tipo,
+            cnpjCpf: _docCtrl.text,
+            razaoSocial: _razaoCtrl.text,
+            email: _emailCtrl.text,
+            telefone: _foneCtrl.text,
+            cep: _cepCtrl.text,
+            logradouro: _logCtrl.text,
+            numero: _numCtrl.text,
+            bairro: _baiCtrl.text,
+            complemento: _compCtrl.text,
+            cidade: _cidCtrl.text,
+            estado: _ufCtrl.text,
+            consent: true,
+            pixA1Informado: true,
+            comprovanteNome: _comp?.nome ?? '',
+            comprovanteMime: _comp?.mime ?? '',
+            comprovanteBase64: _comp?.base64 ?? '',
+          );
     if (!mounted) return;
     setState(() {
       _enviando = false;
