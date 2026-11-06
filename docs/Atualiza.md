@@ -2,6 +2,22 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-11-06 07:31] Funil: frase app + honorarios
+
+### Contexto
+
+- Terceira frase do hero (`heroLeadOffice`) passa a explicar app ContabilGest R$ 19,99/mês na Play e plano Honorários do contador (MEI ou ME por volume de notas; extras cobrados). Vale nas duas rotas do funil.
+
+### Arquivos alterados
+
+- lib/l10n/site_contabilidade_funil_texts.dart
+- docs/Atualiza.md
+- Evolucao.md
+
+### Pendente / Proximo passo
+
+- Sem publish.
+
 ## [2026-11-05 09:00] Funil 001: POST Lambda AWS
 
 ### Contexto

@@ -219,7 +219,7 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
 
   @override
   String get heroLeadOffice =>
-      'Para usar os serviços do escritório é necessário ter a assinatura do app e o plano do escritório de contabilidade.';
+      'O serviço da PerfectGest Contabilidade é composto pelo app ContabilGest, baixado na Google Play (mensalidade de R\$ 19,99), e pelo plano do escritório Honorários do contador (MEI ou ME), medido pelo volume de notas fiscais emitidas. Notas emitidas além do limite do plano são cobradas à parte.';
 
   @override
   String get ctaKnowApp => 'Conhecer o app';
@@ -1007,7 +1007,7 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
 
   @override
   String get heroLeadOffice =>
-      'To use the office services you need the app subscription and the accounting office plan.';
+      'PerfectGest Contabilidade comprises the ContabilGest app, downloaded from Google Play (R\$ 19.99 per month), and the office plan Honorários do contador (MEI or ME), measured by the volume of invoices issued. Invoices issued beyond the plan limit are billed separately.';
 
   @override
   String get ctaKnowApp => 'Try the app';
@@ -1794,7 +1794,7 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
 
   @override
   String get heroLeadOffice =>
-      'Para usar los servicios del despacho es necesario tener la suscripción de la app y el plan del despacho de contabilidad.';
+      'El servicio de PerfectGest Contabilidade se compone de la app ContabilGest, descargada en Google Play (mensualidad de R\$ 19,99), y del plan del despacho Honorários do contador (MEI o ME), medido por el volumen de notas fiscales emitidas. Las notas emitidas más allá del límite del plan se cobran aparte.';
 
   @override
   String get ctaKnowApp => 'Conocer la app';
