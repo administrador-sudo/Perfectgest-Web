@@ -26,6 +26,9 @@ const String kContabilidadeEscritorio001Path = '/contabilidade_Escritorio001';
 /// Funil isolado do certificado A1 QualityCert (sem menu da vitrine).
 const String kCertificadoA1Path = '/A1_Certificado';
 
+/// Landing isolada Barbear e Cortar (agenda MEI — sem menu da vitrine).
+const String kBarberHairdresserPath = '/Barber_Hairdresser';
+
 /// Ferramenta isolada de orçamento de esquadrias (sem menu da vitrine).
 const String kOrcamentoPath = '/orcamento';
 
@@ -43,6 +46,9 @@ const String kContabilgestFaqPublicUrl = '$kSitePublicOrigin$kContabilgestFaqPat
 const String kContabilidadePublicUrl = '$kSitePublicOrigin$kContabilidadePath';
 
 const String kCertificadoA1PublicUrl = '$kSitePublicOrigin$kCertificadoA1Path';
+
+const String kBarberHairdresserPublicUrl =
+    '$kSitePublicOrigin$kBarberHairdresserPath';
 
 /// Políticas do produto PerfectGest-Clinica III (consulta isolada — sem navegação da vitrine).
 const String kClinicaIIIPrivacyPolicyPath = '/politica-privacidade-clinica-iii';

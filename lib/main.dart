@@ -26,6 +26,7 @@ import 'site_brand_logo.dart';
 import 'contabilidade_funil_page.dart';
 import 'funil_apresentacao_app.dart';
 import 'funil_escritorio001.dart';
+import 'barber_hairdresser_page.dart';
 import 'certificado_a1_page.dart';
 import 'orcamento_page.dart';
 import 'orcamento_registros_page.dart';
@@ -203,6 +204,11 @@ class _PerfectProSiteAppState extends State<PerfectProSiteApp> {
         return MaterialPageRoute<void>(
           settings: settings,
           builder: (_) => const CertificadoA1Page(),
+        );
+      case kBarberHairdresserPath:
+        return MaterialPageRoute<void>(
+          settings: settings,
+          builder: (_) => const BarberHairdresserPage(),
         );
       case kOrcamentoPath:
         return MaterialPageRoute<void>(
