@@ -23,6 +23,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
 
   final _formKey = GlobalKey<FormState>();
   final _bookingKey = GlobalKey();
+  final _heroKey = GlobalKey();
   final _nomeCtrl = TextEditingController();
   final _telefoneCtrl = TextEditingController();
 
@@ -108,6 +109,18 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
         ctx,
         duration: const Duration(milliseconds: 400),
         curve: Curves.easeOut,
+      );
+    }
+  }
+
+  void _scrollToInicio() {
+    final ctx = _heroKey.currentContext;
+    if (ctx != null) {
+      Scrollable.ensureVisible(
+        ctx,
+        duration: const Duration(milliseconds: 400),
+        curve: Curves.easeOut,
+        alignment: 0,
       );
     }
   }
@@ -313,7 +326,10 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
                                   crossAxisAlignment:
                                       CrossAxisAlignment.stretch,
                                   children: [
-                                    _buildHero(),
+                                    KeyedSubtree(
+                                      key: _heroKey,
+                                      child: _buildHero(),
+                                    ),
                                     if (_error != null) ...[
                                       const SizedBox(height: 16),
                                       Text(
@@ -327,7 +343,29 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
                                     const SizedBox(height: 28),
                                     KeyedSubtree(
                                       key: _bookingKey,
-                                      child: Text('Agendar', style: _section),
+                                      child: Row(
+                                        children: [
+                                          Expanded(
+                                            child: Text('Agendar', style: _section),
+                                          ),
+                                          TextButton.icon(
+                                            onPressed: _scrollToInicio,
+                                            icon: const Icon(
+                                              Icons.arrow_upward,
+                                              size: 16,
+                                              color: _olive,
+                                            ),
+                                            label: Text(
+                                              'Voltar ao início',
+                                              style: _mutedStyle.copyWith(
+                                                color: _olive,
+                                                fontWeight: FontWeight.w600,
+                                                fontSize: 13,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                     const SizedBox(height: 12),
                                     if (_success)
@@ -617,14 +655,19 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
               padding: EdgeInsets.all(12),
               child: Center(child: CircularProgressIndicator()),
             )
-          else if (_slots.isEmpty)
-            Text('Sem horários neste dia', style: _mutedStyle)
+          else if (_slots.where((s) => s.available).isEmpty)
+            Text(
+              'Sem horários disponíveis para hoje. '
+              'Procure horários disponíveis nos próximos dias!',
+              style: _mutedStyle.copyWith(color: const Color(0xFFFFB74D)),
+            )
           else
             Wrap(
               spacing: 8,
               runSpacing: 8,
               children: [
-                for (final s in _slots) _slotChip(s),
+                for (final s in _slots.where((s) => s.available))
+                  _slotChip(s),
               ],
             ),
           const SizedBox(height: 18),
@@ -655,56 +698,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   }
 
   Widget _slotChip(TimeOfDaySlot s) {
-    final selected =
-        s.available && _slot?.startMinutes == s.startMinutes;
-    if (!s.available) {
-      return Container(
-        width: 76,
-        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
-        decoration: BoxDecoration(
-          color: const Color(0xFF3A3A3A),
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: const Color(0xFF555555)),
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            if (s.bookedBy != null && s.bookedBy!.isNotEmpty)
-              Container(
-                width: double.infinity,
-                padding: const EdgeInsets.symmetric(vertical: 2),
-                margin: const EdgeInsets.only(bottom: 4),
-                decoration: BoxDecoration(
-                  color: const Color(0xFF555555),
-                  borderRadius: BorderRadius.circular(4),
-                ),
-                child: Text(
-                  s.bookedBy!,
-                  textAlign: TextAlign.center,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
-                    fontFamily: _font,
-                    color: Color(0xFFBDBDBD),
-                    fontSize: 10,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-            Text(
-              s.label,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontFamily: _font,
-                color: Color(0xFF9E9E9E),
-                fontWeight: FontWeight.w600,
-                fontSize: 13,
-              ),
-            ),
-          ],
-        ),
-      );
-    }
+    final selected = _slot?.startMinutes == s.startMinutes;
     return ChoiceChip(
       label: Text(s.label),
       selected: selected,

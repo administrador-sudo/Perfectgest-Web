@@ -1,5 +1,9 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-08] Barber — site só livres + Voltar
+
+- Grade pública: só `available`; mensagem sem horários; botão Voltar ao início (hero).
+
 ## [2026-11-08] Barber — slots alocados + nome
 
 - `allocateMinutes` (blocos 30); grade com ocupados cinza + tarja do primeiro nome.
