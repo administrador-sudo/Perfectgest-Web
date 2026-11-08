@@ -1,5 +1,9 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-08] Barber — fidelidade + PIX + CDC
+
+- Sanfona «Adquirir plano de fidelidade»; confirmação abre QR/copia-cola + WhatsApp comprovante; modal regras CDC/3h; remarcar/cancelar por telefone.
+
 ## [2026-11-08] Barber — site só livres + Voltar
 
 - Grade pública: só `available`; mensagem sem horários; botão Voltar ao início (hero).

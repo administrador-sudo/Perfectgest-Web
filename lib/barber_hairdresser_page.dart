@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'barber_booking_rules.dart';
 import 'barber_cloud.dart';
+import 'barber_payment_screen.dart';
 import 'barber_slot_engine.dart';
 import 'site_public_urls.dart';
 
@@ -30,6 +32,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   BarberShopPresentation _shop = const BarberShopPresentation();
   List<BarberPro> _pros = [];
   List<BarberServiceCard> _services = [];
+  List<BarberLoyaltyPlan> _loyaltyPlans = [];
   List<TimeOfDaySlot> _slots = [];
   BarberPro? _pro;
   BarberServiceCard? _service;
@@ -128,9 +131,11 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   Future<void> _loadServices() async {
     if (_pro == null) return;
     final list = await BarberCloud.instance.listServices(_pro!.id);
+    final plans = await BarberCloud.instance.listLoyaltyPlans(_pro!.id);
     if (!mounted) return;
     setState(() {
       _services = list;
+      _loyaltyPlans = plans;
       _service = list.isEmpty ? null : list.first;
       _slot = null;
       _slots = [];
@@ -146,6 +151,170 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
         _error = BarberCloud.instance.lastError;
       }
     });
+  }
+
+  Future<bool> _showRules() async {
+    final ok = await showDialog<bool>(
+      context: context,
+      barrierDismissible: false,
+      builder: (ctx) => AlertDialog(
+        backgroundColor: _surface,
+        title: Text(
+          BarberBookingRules.modalTitle,
+          style: _body.copyWith(fontWeight: FontWeight.w700),
+        ),
+        content: SizedBox(
+          width: double.maxFinite,
+          child: SingleChildScrollView(
+            child: Text(BarberBookingRules.modalBody, style: _mutedStyle),
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, false),
+            child: const Text('Cancelar'),
+          ),
+          FilledButton(
+            style: FilledButton.styleFrom(backgroundColor: _olive),
+            onPressed: () => Navigator.pop(ctx, true),
+            child: const Text('Li e aceito'),
+          ),
+        ],
+      ),
+    );
+    return ok == true;
+  }
+
+  Future<void> _contractPlan(BarberLoyaltyPlan plan) async {
+    final name = _nomeCtrl.text.trim();
+    final phone = _telefoneCtrl.text.trim();
+    if (name.isEmpty || phone.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Preencha nome e telefone antes')),
+      );
+      return;
+    }
+    final pro = _pro;
+    if (pro == null || !pro.hasPix) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            'Profissional sem chave PIX publicada. Peça para salvar no app.',
+          ),
+        ),
+      );
+      return;
+    }
+    final txid =
+        'PLAN${plan.id}${DateTime.now().millisecondsSinceEpoch.toString().substring(7)}';
+    try {
+      await BarberCloud.instance.createLoyaltySubscriptionPending(
+        planId: plan.id,
+        professionalId: plan.professionalId,
+        clientName: name,
+        phone: phone,
+        amountDue: plan.monthlyPrice,
+        txid: txid,
+      );
+      if (!mounted) return;
+      await Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (_) => BarberPaymentScreen(
+            title: 'Pagar plano ${plan.name}',
+            amount: plan.monthlyPrice,
+            txid: txid,
+            pixKey: pro.pixKey,
+            pixReceiverName: pro.pixReceiverName.isEmpty
+                ? pro.name
+                : pro.pixReceiverName,
+            pixCity: pro.pixCity,
+            professionalPhone: pro.phone,
+            whatsAppMessage:
+                'Comprovante plano fidelidade "${plan.name}" — $name ($phone)',
+          ),
+        ),
+      );
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Erro ao contratar: $e')),
+      );
+    }
+  }
+
+  Future<void> _remarcarCancelar() async {
+    final phone = _telefoneCtrl.text.trim();
+    if (phone.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Informe o telefone do agendamento')),
+      );
+      return;
+    }
+    final list = await BarberCloud.instance.appointmentsByPhone(phone);
+    if (!mounted) return;
+    if (list.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Nenhum horário futuro neste telefone')),
+      );
+      return;
+    }
+    await showModalBottomSheet<void>(
+      context: context,
+      backgroundColor: _surface,
+      builder: (ctx) {
+        return ListView(
+          padding: const EdgeInsets.all(16),
+          children: [
+            Text('Seus próximos horários', style: _section),
+            const SizedBox(height: 8),
+            ...list.map((m) {
+              final starts = m['startsAt'] as DateTime;
+              final docId = m['_docId'] as String? ?? '';
+              final can = BarberBookingRules.canCancelOrReschedule(starts);
+              final label =
+                  '${starts.day.toString().padLeft(2, '0')}/${starts.month.toString().padLeft(2, '0')} '
+                  '${starts.hour.toString().padLeft(2, '0')}:${starts.minute.toString().padLeft(2, '0')} — ${m['clientName'] ?? ''}';
+              return ListTile(
+                title: Text(label, style: _body),
+                subtitle: Text(
+                  can
+                      ? 'Cancelar (≥ 3h)'
+                      : 'Bloqueado: menos de 3h de antecedência',
+                  style: _mutedStyle.copyWith(
+                    color: can ? _olive : const Color(0xFFFFB74D),
+                    fontSize: 13,
+                  ),
+                ),
+                trailing: can
+                    ? IconButton(
+                        icon: const Icon(Icons.cancel_outlined, color: _olive),
+                        onPressed: () async {
+                          try {
+                            await BarberCloud.instance
+                                .cancelAppointmentDoc(docId);
+                            if (!ctx.mounted) return;
+                            Navigator.pop(ctx);
+                            if (!mounted) return;
+                            ScaffoldMessenger.of(this.context).showSnackBar(
+                              const SnackBar(
+                                content: Text('Horário cancelado'),
+                              ),
+                            );
+                          } catch (e) {
+                            if (!mounted) return;
+                            ScaffoldMessenger.of(this.context).showSnackBar(
+                              SnackBar(content: Text('Erro: $e')),
+                            );
+                          }
+                        },
+                      )
+                    : null,
+              );
+            }),
+          ],
+        );
+      },
+    );
   }
 
   Future<void> _reloadSlots() async {
@@ -195,6 +364,9 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
       );
       return;
     }
+    final accepted = await _showRules();
+    if (!accepted || !mounted) return;
+
     setState(() => _saving = true);
     final starts = DateTime(
       _date!.year,
@@ -208,20 +380,45 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
         minutes: SlotEngine.allocateMinutes(_service!.durationMinutes),
       ),
     );
+    final amount = _service!.price;
+    final txid = 'SITE${DateTime.now().millisecondsSinceEpoch}';
+    final name = _nomeCtrl.text.trim();
+    final phone = _telefoneCtrl.text.trim();
     try {
       await BarberCloud.instance.book(
         professionalId: _pro!.id,
         serviceId: _service!.id,
-        clientName: _nomeCtrl.text.trim(),
-        phone: _telefoneCtrl.text.trim(),
+        clientName: name,
+        phone: phone,
         startsAt: starts,
         endsAt: ends,
+        paymentStatus: 'pending_payment',
+        pixTxid: txid,
+        amountDue: amount,
       );
       if (!mounted) return;
-      setState(() {
-        _success = true;
-        _saving = false;
-      });
+      setState(() => _saving = false);
+      if (_pro!.hasPix && amount > 0) {
+        await Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (_) => BarberPaymentScreen(
+              title: 'Pagar agendamento',
+              amount: amount,
+              txid: txid,
+              pixKey: _pro!.pixKey,
+              pixReceiverName: _pro!.pixReceiverName.isEmpty
+                  ? _pro!.name
+                  : _pro!.pixReceiverName,
+              pixCity: _pro!.pixCity,
+              professionalPhone: _pro!.phone,
+              whatsAppMessage:
+                  'Comprovante agendamento — $name ($phone) em ${starts.day.toString().padLeft(2, '0')}/${starts.month.toString().padLeft(2, '0')} ${starts.hour.toString().padLeft(2, '0')}:${starts.minute.toString().padLeft(2, '0')}',
+            ),
+          ),
+        );
+      }
+      if (!mounted) return;
+      setState(() => _success = true);
     } catch (e) {
       if (!mounted) return;
       setState(() => _saving = false);
@@ -691,6 +888,78 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
                     'Confirmar horário',
                     style: _body.copyWith(fontWeight: FontWeight.w700),
                   ),
+          ),
+          const SizedBox(height: 12),
+          OutlinedButton(
+            onPressed: _remarcarCancelar,
+            style: OutlinedButton.styleFrom(
+              foregroundColor: _olive,
+              side: const BorderSide(color: _olive),
+            ),
+            child: Text(
+              'Remarcar / cancelar (3h de antecedência)',
+              style: _body.copyWith(color: _olive, fontWeight: FontWeight.w600),
+            ),
+          ),
+          const SizedBox(height: 8),
+          ExpansionTile(
+            tilePadding: EdgeInsets.zero,
+            leading: const Icon(Icons.loyalty, color: _olive),
+            title: Text(
+              'Adquirir plano de fidelidade',
+              style: _body.copyWith(
+                color: _olive,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            subtitle: Text(
+              '4 cortes/mês · 1x por semana · PIX antecipado',
+              style: _mutedStyle.copyWith(fontSize: 12),
+            ),
+            children: [
+              if (_loyaltyPlans.isEmpty)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: Text(
+                    'Nenhum plano publicado. No app: profissional → Planos de fidelidade → Salvar e publicar no site.',
+                    style: _mutedStyle,
+                  ),
+                )
+              else
+                ..._loyaltyPlans.map((p) {
+                  return Card(
+                    color: _surface,
+                    child: Padding(
+                      padding: const EdgeInsets.all(12),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            p.name,
+                            style: _body.copyWith(fontWeight: FontWeight.w700),
+                          ),
+                          Text(
+                            '${p.inclusionsLabel} · R\$ ${p.monthlyPrice.toStringAsFixed(2).replaceAll('.', ',')} · ${p.discountPercent.toStringAsFixed(0)}%',
+                            style: _mutedStyle,
+                          ),
+                          if (p.rulesText.isNotEmpty)
+                            Text(p.rulesText, style: _mutedStyle.copyWith(fontSize: 13)),
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: FilledButton(
+                              style: FilledButton.styleFrom(
+                                backgroundColor: _olive,
+                              ),
+                              onPressed: () => _contractPlan(p),
+                              child: const Text('Contratar'),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                }),
+            ],
           ),
         ],
       ),

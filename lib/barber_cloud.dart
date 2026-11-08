@@ -25,9 +25,60 @@ class BarberShopPresentation {
 }
 
 class BarberPro {
-  const BarberPro({required this.id, required this.name});
+  const BarberPro({
+    required this.id,
+    required this.name,
+    this.phone = '',
+    this.pixKey = '',
+    this.pixReceiverName = '',
+    this.pixCity = '',
+  });
   final int id;
   final String name;
+  final String phone;
+  final String pixKey;
+  final String pixReceiverName;
+  final String pixCity;
+
+  bool get hasPix => pixKey.trim().isNotEmpty;
+}
+
+class BarberLoyaltyPlan {
+  const BarberLoyaltyPlan({
+    required this.id,
+    required this.professionalId,
+    required this.name,
+    required this.monthlyPrice,
+    required this.discountPercent,
+    required this.includeHair,
+    required this.includeBeard,
+    required this.includeMustache,
+    required this.cutsPerMonth,
+    required this.maxPerWeek,
+    required this.allowedWeekdays,
+    required this.rulesText,
+  });
+
+  final int id;
+  final int professionalId;
+  final String name;
+  final double monthlyPrice;
+  final double discountPercent;
+  final bool includeHair;
+  final bool includeBeard;
+  final bool includeMustache;
+  final int cutsPerMonth;
+  final int maxPerWeek;
+  final String allowedWeekdays;
+  final String rulesText;
+
+  String get inclusionsLabel {
+    final parts = <String>[];
+    if (includeHair) parts.add('Cabelo');
+    if (includeBeard) parts.add('Barba');
+    if (includeMustache) parts.add('Bigode');
+    return parts.isEmpty ? 'Personalizado' : parts.join(' + ');
+  }
 }
 
 class BarberServiceCard {
@@ -225,6 +276,10 @@ class BarberCloud {
             (m) => BarberPro(
               id: _asInt(m['localId'], int.tryParse('${m['_docId']}') ?? 0),
               name: m['name'] as String? ?? 'Profissional',
+              phone: m['phone'] as String? ?? '',
+              pixKey: m['pixKey'] as String? ?? '',
+              pixReceiverName: m['pixReceiverName'] as String? ?? '',
+              pixCity: m['pixCity'] as String? ?? '',
             ),
           )
           .where((p) => p.id > 0)
@@ -391,13 +446,48 @@ class BarberCloud {
     );
   }
 
-  Future<void> book({
+  Future<List<BarberLoyaltyPlan>> listLoyaltyPlans(int professionalId) async {
+    await ensureInitialized();
+    if (!ready) return const [];
+    try {
+      final rows = await _listCollection('loyaltyPlans');
+      return rows
+          .where((m) => m['active'] != false)
+          .where((m) => _asInt(m['professionalId']) == professionalId)
+          .map(
+            (m) => BarberLoyaltyPlan(
+              id: _asInt(m['localId'], int.tryParse('${m['_docId']}') ?? 0),
+              professionalId: _asInt(m['professionalId'], professionalId),
+              name: m['name'] as String? ?? 'Plano',
+              monthlyPrice: (m['monthlyPrice'] as num?)?.toDouble() ?? 0,
+              discountPercent: (m['discountPercent'] as num?)?.toDouble() ?? 0,
+              includeHair: m['includeHair'] as bool? ?? true,
+              includeBeard: m['includeBeard'] as bool? ?? false,
+              includeMustache: m['includeMustache'] as bool? ?? false,
+              cutsPerMonth: _asInt(m['cutsPerMonth'], 4),
+              maxPerWeek: _asInt(m['maxPerWeek'], 1),
+              allowedWeekdays: m['allowedWeekdays'] as String? ?? '1,2,3,4,5',
+              rulesText: m['rulesText'] as String? ?? '',
+            ),
+          )
+          .where((p) => p.id > 0)
+          .toList();
+    } catch (e) {
+      debugPrint('listLoyaltyPlans: $e');
+      return const [];
+    }
+  }
+
+  Future<String> book({
     required int professionalId,
     required int serviceId,
     required String clientName,
     required String phone,
     required DateTime startsAt,
     required DateTime endsAt,
+    String paymentStatus = 'pending_payment',
+    String pixTxid = '',
+    double amountDue = 0,
   }) async {
     await ensureInitialized();
     if (!ready) {
@@ -418,6 +508,9 @@ class BarberCloud {
         'startsAt': startsAt.toUtc(),
         'endsAt': endsAt.toUtc(),
         'status': 'scheduled',
+        'paymentStatus': paymentStatus,
+        'pixTxid': pixTxid,
+        'amountDue': amountDue,
         'source': 'site',
       }),
     };
@@ -428,6 +521,97 @@ class BarberCloud {
     );
     if (res.statusCode != 200) {
       throw StateError('Agendar falhou HTTP ${res.statusCode}: ${res.body}');
+    }
+    return id;
+  }
+
+  Future<void> createLoyaltySubscriptionPending({
+    required int planId,
+    required int professionalId,
+    required String clientName,
+    required String phone,
+    required double amountDue,
+    required String txid,
+  }) async {
+    await ensureInitialized();
+    if (!ready) throw StateError(lastError ?? 'Firestore indisponível');
+    final id = 'loyalty_$txid';
+    final start = DateTime.now();
+    final end = DateTime(start.year, start.month + 1, start.day);
+    final docUri = _uri(
+      '$_shopPath/loyaltySubscriptions',
+      query: {'documentId': id},
+    );
+    final body = {
+      'fields': _encodeFields({
+        'planId': planId,
+        'professionalId': professionalId,
+        'clientName': clientName,
+        'phone': phone,
+        'status': 'pending_payment',
+        'cycleStart': start.toUtc(),
+        'cycleEnd': end.toUtc(),
+        'amountDue': amountDue,
+        'txid': txid,
+        'source': 'site',
+      }),
+    };
+    final res = await http.post(
+      docUri,
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode(body),
+    );
+    if (res.statusCode != 200) {
+      throw StateError('Plano falhou HTTP ${res.statusCode}: ${res.body}');
+    }
+  }
+
+  Future<List<Map<String, dynamic>>> appointmentsByPhone(String phone) async {
+    await ensureInitialized();
+    if (!ready) return const [];
+    final cleaned = phone.trim();
+    if (cleaned.isEmpty) return const [];
+    try {
+      final rows = await _listCollection('appointments');
+      final now = DateTime.now();
+      return rows
+          .where((m) => (m['phone'] as String? ?? '') == cleaned)
+          .where((m) => (m['status'] as String?) != 'cancelled')
+          .where((m) {
+            final s = m['startsAt'];
+            return s is DateTime && s.isAfter(now);
+          })
+          .toList()
+        ..sort((a, b) {
+          final sa = a['startsAt'] as DateTime;
+          final sb = b['startsAt'] as DateTime;
+          return sa.compareTo(sb);
+        });
+    } catch (e) {
+      debugPrint('appointmentsByPhone: $e');
+      return const [];
+    }
+  }
+
+  Future<void> cancelAppointmentDoc(String docId) async {
+    await ensureInitialized();
+    if (!ready) throw StateError(lastError ?? 'Firestore indisponível');
+    final uri = _uri('$_shopPath/appointments/$docId').replace(
+      queryParameters: {
+        ..._uri('$_shopPath/appointments/$docId').queryParameters,
+        'updateMask.fieldPaths': 'status',
+      },
+    );
+    final body = {
+      'fields': _encodeFields({'status': 'cancelled'}),
+    };
+    final res = await http.patch(
+      uri,
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode(body),
+    );
+    if (res.statusCode != 200) {
+      throw StateError('Cancelar falhou HTTP ${res.statusCode}');
     }
   }
 }
