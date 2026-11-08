@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'company_legal.dart';
 import 'site_public_urls.dart';
 
 /// Landing isolada `/Barber_Hairdresser` — Barbear e Cortar (dark + oliva).
+/// Usa Inter / JetBrains Mono dos assets (sem GoogleFonts runtime — allowRuntimeFetching=false).
 class BarberHairdresserPage extends StatefulWidget {
   const BarberHairdresserPage({super.key});
 
@@ -15,9 +15,11 @@ class BarberHairdresserPage extends StatefulWidget {
 class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   static const Color _olive = Color(0xFF556B2F);
   static const Color _bg = Color(0xFF121212);
-  static const Color _surface = Color(0xFF1E1E1E);
-  static const Color _text = Color(0xFFF5F5F5);
-  static const Color _muted = Color(0xFFB0B0B0);
+  static const Color _surface = Color(0xFF2A2A2A);
+  static const Color _text = Color(0xFFFFFFFF);
+  static const Color _muted = Color(0xFFD0D0D0);
+  static const String _font = 'Inter';
+  static const String _mono = 'JetBrains Mono';
 
   final _formKey = GlobalKey<FormState>();
   final _nomeCtrl = TextEditingController();
@@ -31,6 +33,36 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
     (nome: 'Corte & Barba', preco: 'R\$ 45,00'),
     (nome: 'Barba', preco: 'R\$ 20,00'),
   ];
+
+  TextStyle get _body => const TextStyle(
+        fontFamily: _font,
+        color: _text,
+        fontSize: 16,
+        height: 1.35,
+      );
+
+  TextStyle get _mutedStyle => const TextStyle(
+        fontFamily: _font,
+        color: _muted,
+        fontSize: 15,
+        height: 1.4,
+      );
+
+  TextStyle get _title => const TextStyle(
+        fontFamily: _font,
+        color: _text,
+        fontSize: 34,
+        fontWeight: FontWeight.w700,
+        height: 1.15,
+      );
+
+  TextStyle get _section => const TextStyle(
+        fontFamily: _font,
+        color: _olive,
+        fontSize: 14,
+        fontWeight: FontWeight.w700,
+        letterSpacing: 0.6,
+      );
 
   @override
   void dispose() {
@@ -66,12 +98,14 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   InputDecoration _fieldDeco(String label) {
     return InputDecoration(
       labelText: label,
-      labelStyle: const TextStyle(color: _muted),
+      labelStyle: const TextStyle(fontFamily: _font, color: _muted),
+      floatingLabelStyle: const TextStyle(fontFamily: _font, color: _olive),
+      hintStyle: const TextStyle(fontFamily: _font, color: _muted),
       filled: true,
       fillColor: _surface,
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: BorderSide(color: _olive.withValues(alpha: 0.4)),
+        borderSide: BorderSide(color: _olive.withValues(alpha: 0.55)),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
@@ -79,12 +113,13 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
       ),
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: const BorderSide(color: Color(0xFFC62828)),
+        borderSide: const BorderSide(color: Color(0xFFFF6B6B)),
       ),
       focusedErrorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
-        borderSide: const BorderSide(color: Color(0xFFC62828)),
+        borderSide: const BorderSide(color: Color(0xFFFF6B6B)),
       ),
+      errorStyle: const TextStyle(fontFamily: _font, color: Color(0xFFFF8A80)),
     );
   }
 
@@ -96,14 +131,25 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
     return Theme(
       data: ThemeData(
         brightness: Brightness.dark,
+        fontFamily: _font,
         scaffoldBackgroundColor: _bg,
         colorScheme: const ColorScheme.dark(
           primary: _olive,
+          onPrimary: _text,
           surface: _surface,
+          onSurface: _text,
         ),
-        textTheme: GoogleFonts.libreBaskervilleTextTheme(
-          ThemeData.dark().textTheme,
-        ).apply(bodyColor: _text, displayColor: _text),
+        textTheme: ThemeData.dark().textTheme.apply(
+          fontFamily: _font,
+          bodyColor: _text,
+          displayColor: _text,
+        ),
+        inputDecorationTheme: InputDecorationTheme(
+          labelStyle: const TextStyle(fontFamily: _font, color: _muted),
+          hintStyle: const TextStyle(fontFamily: _font, color: _muted),
+          fillColor: _surface,
+          filled: true,
+        ),
       ),
       child: Scaffold(
         backgroundColor: _bg,
@@ -133,15 +179,13 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
                         TextButton.icon(
                           onPressed: _goHome,
                           icon: const Icon(Icons.arrow_back, color: _muted),
-                          label: const Text(
-                            'Início',
-                            style: TextStyle(color: _muted),
-                          ),
+                          label: Text('Início', style: _mutedStyle.copyWith(fontSize: 14)),
                         ),
                         const Spacer(),
                         Text(
                           kBarberHairdresserPath,
-                          style: GoogleFonts.jetBrainsMono(
+                          style: const TextStyle(
+                            fontFamily: _mono,
                             color: _muted,
                             fontSize: 11,
                           ),
@@ -167,7 +211,8 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
                                     width: 112,
                                     height: 112,
                                     fit: BoxFit.cover,
-                                    errorBuilder: (context, error, stackTrace) => Container(
+                                    errorBuilder: (context, error, stackTrace) =>
+                                        Container(
                                       width: 112,
                                       height: 112,
                                       color: _surface,
@@ -185,33 +230,16 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
                               Text(
                                 'Barbear e Cortar',
                                 textAlign: TextAlign.center,
-                                style: GoogleFonts.libreBaskerville(
-                                  color: _text,
-                                  fontSize: 34,
-                                  fontWeight: FontWeight.w700,
-                                  height: 1.15,
-                                ),
+                                style: _title,
                               ),
                               const SizedBox(height: 10),
                               Text(
                                 'Agenda local para barbearia — PerfectGest Dev.',
                                 textAlign: TextAlign.center,
-                                style: GoogleFonts.sourceSans3(
-                                  color: _muted,
-                                  fontSize: 16,
-                                  height: 1.4,
-                                ),
+                                style: _mutedStyle.copyWith(fontSize: 16),
                               ),
                               const SizedBox(height: 28),
-                              Text(
-                                'Serviços',
-                                style: GoogleFonts.sourceSans3(
-                                  color: _olive,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w700,
-                                  letterSpacing: 0.6,
-                                ),
-                              ),
+                              Text('Serviços', style: _section),
                               const SizedBox(height: 10),
                               ..._servicos.map(
                                 (s) => Container(
@@ -223,7 +251,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
                                   decoration: BoxDecoration(
                                     color: _surface,
                                     borderRadius: BorderRadius.circular(12),
-                                    border: Border(
+                                    border: const Border(
                                       left: BorderSide(color: _olive, width: 4),
                                     ),
                                   ),
@@ -232,16 +260,14 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
                                       Expanded(
                                         child: Text(
                                           s.nome,
-                                          style: GoogleFonts.sourceSans3(
-                                            color: _text,
-                                            fontSize: 16,
+                                          style: _body.copyWith(
                                             fontWeight: FontWeight.w600,
                                           ),
                                         ),
                                       ),
                                       Text(
                                         s.preco,
-                                        style: GoogleFonts.sourceSans3(
+                                        style: _body.copyWith(
                                           color: _olive,
                                           fontWeight: FontWeight.w700,
                                         ),
@@ -251,15 +277,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
                                 ),
                               ),
                               const SizedBox(height: 28),
-                              Text(
-                                'Solicitar horário',
-                                style: GoogleFonts.sourceSans3(
-                                  color: _olive,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w700,
-                                  letterSpacing: 0.6,
-                                ),
-                              ),
+                              Text('Solicitar horário', style: _section),
                               const SizedBox(height: 12),
                               if (_success)
                                 _buildSuccess()
@@ -269,10 +287,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
                               Text(
                                 'Logo da barbearia (placeholder)',
                                 textAlign: TextAlign.center,
-                                style: GoogleFonts.sourceSans3(
-                                  color: _muted,
-                                  fontSize: 12,
-                                ),
+                                style: _mutedStyle.copyWith(fontSize: 12),
                               ),
                               const SizedBox(height: 8),
                               Center(
@@ -296,10 +311,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
                               Text(
                                 'PerfectGest Dev · $kCompanyFantasyName',
                                 textAlign: TextAlign.center,
-                                style: GoogleFonts.sourceSans3(
-                                  color: _muted,
-                                  fontSize: 12,
-                                ),
+                                style: _mutedStyle.copyWith(fontSize: 12),
                               ),
                             ],
                           ),
@@ -332,18 +344,14 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
           Text(
             'Pedido registrado localmente',
             textAlign: TextAlign.center,
-            style: GoogleFonts.sourceSans3(
-              color: _text,
-              fontSize: 18,
-              fontWeight: FontWeight.w700,
-            ),
+            style: _body.copyWith(fontSize: 18, fontWeight: FontWeight.w700),
           ),
           const SizedBox(height: 8),
           Text(
             'A barbearia receberá o contato para confirmar o horário. '
             'Nada foi enviado ao servidor nesta página.',
             textAlign: TextAlign.center,
-            style: GoogleFonts.sourceSans3(color: _muted, height: 1.4),
+            style: _mutedStyle,
           ),
           const SizedBox(height: 16),
           OutlinedButton(
@@ -352,7 +360,10 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
               foregroundColor: _olive,
               side: const BorderSide(color: _olive),
             ),
-            child: const Text('Nova solicitação'),
+            child: Text(
+              'Nova solicitação',
+              style: _body.copyWith(color: _olive, fontWeight: FontWeight.w600),
+            ),
           ),
         ],
       ),
@@ -367,7 +378,8 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
         children: [
           TextFormField(
             controller: _nomeCtrl,
-            style: const TextStyle(color: _text),
+            style: _body,
+            cursorColor: _olive,
             decoration: _fieldDeco('Nome'),
             validator: (v) {
               if (v == null || v.trim().length < 2) {
@@ -379,7 +391,8 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
           const SizedBox(height: 12),
           TextFormField(
             controller: _telefoneCtrl,
-            style: const TextStyle(color: _text),
+            style: _body,
+            cursorColor: _olive,
             keyboardType: TextInputType.phone,
             decoration: _fieldDeco('Telefone / WhatsApp'),
             validator: (v) {
@@ -394,12 +407,14 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
           DropdownButtonFormField<String>(
             initialValue: _servico,
             dropdownColor: _surface,
+            style: _body,
+            iconEnabledColor: _muted,
             decoration: _fieldDeco('Serviço'),
             items: _servicos
                 .map(
                   (s) => DropdownMenuItem(
                     value: s.nome,
-                    child: Text(s.nome, style: const TextStyle(color: _text)),
+                    child: Text(s.nome, style: _body),
                   ),
                 )
                 .toList(),
@@ -415,7 +430,8 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
           const SizedBox(height: 12),
           TextFormField(
             controller: _horarioCtrl,
-            style: const TextStyle(color: _text),
+            style: _body,
+            cursorColor: _olive,
             decoration: _fieldDeco('Dia e horário desejados'),
             validator: (v) {
               if (v == null || v.trim().length < 3) {
@@ -437,9 +453,9 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
             ),
             child: Text(
               'Solicitar horário',
-              style: GoogleFonts.sourceSans3(
+              style: _body.copyWith(
                 fontWeight: FontWeight.w700,
-                fontSize: 16,
+                color: _text,
               ),
             ),
           ),
