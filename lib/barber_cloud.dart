@@ -392,11 +392,19 @@ class BarberCloud {
 
   Future<DaySchedule> daySchedule(int professionalId, DateTime day) async {
     await ensureInitialized();
-    if (!ready) return _fallbackDay(day.weekday);
+    // Sem fallback 9–18: horário não publicado = nenhum slot (evita manhã falsa).
+    if (!ready) {
+      lastError = lastError ?? 'Nuvem inacessível; horário não disponível.';
+      return const DaySchedule(workBlocks: []);
+    }
     try {
       final data =
           await _getDoc('professionals/$professionalId/meta/schedule');
-      if (data == null) return _fallbackDay(day.weekday);
+      if (data == null) {
+        lastError =
+            'Horário não publicado. No app: profissional → Salvar horário (nuvem).';
+        return const DaySchedule(workBlocks: []);
+      }
       final dateKey =
           '${day.year.toString().padLeft(4, '0')}-${day.month.toString().padLeft(2, '0')}-${day.day.toString().padLeft(2, '0')}';
       final overrides = data['overrides'] as List? ?? [];
@@ -412,7 +420,7 @@ class BarberCloud {
       return const DaySchedule(workBlocks: []);
     } catch (e) {
       lastError = 'Falha ao ler horário: $e';
-      return _fallbackDay(day.weekday);
+      return const DaySchedule(workBlocks: []);
     }
   }
 
@@ -441,19 +449,6 @@ class BarberCloud {
       workBlocks: [MinuteRange(start, end)],
       breaks: breaks,
     );
-  }
-
-  DaySchedule _fallbackDay(int weekday) {
-    if (weekday >= 1 && weekday <= 5) {
-      return const DaySchedule(
-        workBlocks: [MinuteRange(9 * 60, 18 * 60)],
-        breaks: [MinuteRange(12 * 60, 13 * 60)],
-      );
-    }
-    if (weekday == 6) {
-      return const DaySchedule(workBlocks: [MinuteRange(9 * 60, 13 * 60)]);
-    }
-    return const DaySchedule(workBlocks: []);
   }
 
   Future<List<BusyInterval>> busyDay(int professionalId, DateTime day) async {
@@ -540,6 +535,24 @@ class BarberCloud {
     }
   }
 
+  Future<void> assertSlotFree({
+    required int professionalId,
+    required DateTime startsAt,
+    required DateTime endsAt,
+  }) async {
+    final day = DateTime(startsAt.year, startsAt.month, startsAt.day);
+    final busy = await busyDay(professionalId, day);
+    final startMin = startsAt.hour * 60 + startsAt.minute;
+    final endMin = endsAt.hour * 60 + endsAt.minute;
+    for (final b in busy) {
+      if (startMin < b.endMinutes && endMin > b.startMinutes) {
+        throw StateError(
+          'Horário acabou de ser ocupado. Escolha outro na grade.',
+        );
+      }
+    }
+  }
+
   Future<String> book({
     required int professionalId,
     required int serviceId,
@@ -555,6 +568,11 @@ class BarberCloud {
     if (!ready) {
       throw StateError(lastError ?? 'Firestore indisponível');
     }
+    await assertSlotFree(
+      professionalId: professionalId,
+      startsAt: startsAt,
+      endsAt: endsAt,
+    );
     final id =
         'site_${startsAt.millisecondsSinceEpoch}_${professionalId}_$serviceId';
     final docUri = _uri(

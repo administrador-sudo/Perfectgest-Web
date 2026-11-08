@@ -501,17 +501,36 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
               child: Column(
                 children: [
                   Padding(
-                    padding: EdgeInsets.fromLTRB(padH, 12, padH, 0),
-                    child: Align(
-                      alignment: Alignment.centerRight,
-                      child: Text(
-                        kBarberHairdresserPath,
-                        style: const TextStyle(
-                          fontFamily: _mono,
-                          color: _muted,
-                          fontSize: 11,
+                    padding: EdgeInsets.fromLTRB(padH, 8, padH, 0),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            kBarberHairdresserPath,
+                            style: const TextStyle(
+                              fontFamily: _mono,
+                              color: _muted,
+                              fontSize: 11,
+                            ),
+                          ),
                         ),
-                      ),
+                        TextButton.icon(
+                          onPressed: _scrollToInicio,
+                          icon: const Icon(
+                            Icons.home_outlined,
+                            size: 18,
+                            color: _olive,
+                          ),
+                          label: Text(
+                            'Voltar ao início',
+                            style: _mutedStyle.copyWith(
+                              color: _olive,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 13,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   Expanded(
@@ -937,8 +956,13 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
             )
           else if (_slots.where((s) => s.available).isEmpty)
             Text(
-              'Sem horários disponíveis para hoje. '
-              'Procure horários disponíveis nos próximos dias!',
+              (BarberCloud.instance.lastError
+                          ?.contains('Horário não publicado') ==
+                      true)
+                  ? 'Horário deste profissional ainda não foi publicado na nuvem. '
+                      'Peça: no app → profissional → Salvar horário (nuvem).'
+                  : 'Sem horários disponíveis neste dia. '
+                      'Procure horários nos próximos dias (respeitam o início configurado, ex. 13:30).',
               style: _mutedStyle.copyWith(color: const Color(0xFFFFB74D)),
             )
           else
