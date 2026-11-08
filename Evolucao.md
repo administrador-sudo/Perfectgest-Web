@@ -1,5 +1,18 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-08] Barber — apresentação + rodapé
+
+- Hero: nome/logo/promo do Firestore + CTA Agendar; rodapé brasão + PerfectGest Dev uma vez.
+
+## [2026-11-08] Barber — sem seta Início para o site
+
+- Removido botão voltar/Início em `/Barber_Hairdresser` (serviço isolado, sem link à home PerfectGest).
+
+## [2026-11-08] Barber — contraste / fontes invisíveis
+
+- Causa: `GoogleFonts` (Libre Baskerville / Source Sans 3) com `allowRuntimeFetching=false` → glifos vazios no web.
+- Fix: Inter + JetBrains Mono dos assets; cores `_text`/`_muted`/`_surface` mais claras.
+
 ## [2026-11-07] SPA /Barber_Hairdresser — rewrite Render
 
 - Causa do 404 em produção: rota Flutter existia, mas faltava slug em `siteSpaPages`, stub `Barber_Hairdresser.html` e rewrite Render.

@@ -7,6 +7,20 @@ import 'barber_slot_engine.dart';
 
 const String kBarberShopId = 'perfectgest_dev';
 
+class BarberShopPresentation {
+  const BarberShopPresentation({
+    this.name = 'Barbear e Cortar',
+    this.promoText = '',
+    this.logoUrl = '',
+    this.bookingUrl = 'https://perfectgestdev.com/Barber_Hairdresser',
+  });
+
+  final String name;
+  final String promoText;
+  final String logoUrl;
+  final String bookingUrl;
+}
+
 class BarberPro {
   const BarberPro({required this.id, required this.name});
   final int id;
@@ -54,6 +68,24 @@ class BarberCloud {
 
   DocumentReference<Map<String, dynamic>> get _shop =>
       FirebaseFirestore.instance.collection('shops').doc(kBarberShopId);
+
+  Future<BarberShopPresentation> fetchPresentation() async {
+    await ensureInitialized();
+    if (!ready) return const BarberShopPresentation();
+    final doc = await _shop.get();
+    if (!doc.exists) return const BarberShopPresentation();
+    final m = doc.data() ?? {};
+    return BarberShopPresentation(
+      name: (m['name'] as String?)?.trim().isNotEmpty == true
+          ? m['name'] as String
+          : 'Barbear e Cortar',
+      promoText: m['promoText'] as String? ?? '',
+      logoUrl: m['logoUrl'] as String? ?? '',
+      bookingUrl: (m['bookingUrl'] as String?)?.trim().isNotEmpty == true
+          ? m['bookingUrl'] as String
+          : 'https://perfectgestdev.com/Barber_Hairdresser',
+    );
+  }
 
   Future<List<BarberPro>> listProfessionals() async {
     await ensureInitialized();

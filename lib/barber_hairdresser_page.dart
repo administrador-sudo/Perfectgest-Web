@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'barber_cloud.dart';
 import 'barber_slot_engine.dart';
-import 'company_legal.dart';
-import 'site_public_urls.dart';
 
 /// Landing isolada `/Barber_Hairdresser` — grade de horários via Firebase.
 class BarberHairdresserPage extends StatefulWidget {
@@ -23,9 +21,11 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   static const String _mono = 'JetBrains Mono';
 
   final _formKey = GlobalKey<FormState>();
+  final _bookingKey = GlobalKey();
   final _nomeCtrl = TextEditingController();
   final _telefoneCtrl = TextEditingController();
 
+  BarberShopPresentation _shop = const BarberShopPresentation();
   List<BarberPro> _pros = [];
   List<BarberServiceCard> _services = [];
   List<TimeOfDaySlot> _slots = [];
@@ -81,18 +81,31 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
       _error = null;
     });
     await BarberCloud.instance.ensureInitialized();
+    final shop = await BarberCloud.instance.fetchPresentation();
     final pros = await BarberCloud.instance.listProfessionals();
     if (!mounted) return;
     setState(() {
+      _shop = shop;
       _pros = pros;
       _pro = pros.isEmpty ? null : pros.first;
       _loading = false;
       if (pros.isEmpty) {
         _error =
-            'Catálogo ainda vazio. Abra o app Perfect Barber e salve o horário do profissional (publica na nuvem).';
+            'Catálogo ainda vazio. Abra o app Perfect Barber e publique a apresentação/horário na nuvem.';
       }
     });
     if (_pro != null) await _loadServices();
+  }
+
+  void _scrollToBooking() {
+    final ctx = _bookingKey.currentContext;
+    if (ctx != null) {
+      Scrollable.ensureVisible(
+        ctx,
+        duration: const Duration(milliseconds: 400),
+        curve: Curves.easeOut,
+      );
+    }
   }
 
   Future<void> _loadServices() async {
@@ -274,17 +287,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
                                   crossAxisAlignment:
                                       CrossAxisAlignment.stretch,
                                   children: [
-                                    Text(
-                                      'Barbear e Cortar',
-                                      textAlign: TextAlign.center,
-                                      style: _title,
-                                    ),
-                                    const SizedBox(height: 10),
-                                    Text(
-                                      'Escolha o dia e um horário livre — a grade respeita o tempo do serviço.',
-                                      textAlign: TextAlign.center,
-                                      style: _mutedStyle.copyWith(fontSize: 16),
-                                    ),
+                                    _buildHero(),
                                     if (_error != null) ...[
                                       const SizedBox(height: 16),
                                       Text(
@@ -296,18 +299,17 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
                                       ),
                                     ],
                                     const SizedBox(height: 28),
-                                    Text('Agendar', style: _section),
+                                    KeyedSubtree(
+                                      key: _bookingKey,
+                                      child: Text('Agendar', style: _section),
+                                    ),
                                     const SizedBox(height: 12),
                                     if (_success)
                                       _buildSuccess()
                                     else
                                       _buildForm(),
-                                    const SizedBox(height: 28),
-                                    Text(
-                                      'PerfectGest Dev · $kCompanyFantasyName',
-                                      textAlign: TextAlign.center,
-                                      style: _mutedStyle.copyWith(fontSize: 12),
-                                    ),
+                                    const SizedBox(height: 36),
+                                    _buildFooter(),
                                   ],
                                 ),
                               ),
@@ -320,6 +322,107 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildHero() {
+    final logoUrl = _shop.logoUrl.trim();
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        const SizedBox(height: 8),
+        Center(
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(18),
+            child: logoUrl.isNotEmpty
+                ? Image.network(
+                    logoUrl,
+                    width: 112,
+                    height: 112,
+                    fit: BoxFit.cover,
+                    errorBuilder: (_, __, ___) => _logoFallback(),
+                  )
+                : _logoFallback(),
+          ),
+        ),
+        const SizedBox(height: 20),
+        Text(
+          _shop.name,
+          textAlign: TextAlign.center,
+          style: _title,
+        ),
+        if (_shop.promoText.trim().isNotEmpty) ...[
+          const SizedBox(height: 14),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            decoration: BoxDecoration(
+              color: _surface,
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: _olive.withValues(alpha: 0.55)),
+            ),
+            child: Text(
+              _shop.promoText.trim(),
+              textAlign: TextAlign.center,
+              style: _body.copyWith(color: _olive, fontWeight: FontWeight.w600),
+            ),
+          ),
+        ],
+        const SizedBox(height: 18),
+        FilledButton(
+          onPressed: _scrollToBooking,
+          style: FilledButton.styleFrom(
+            backgroundColor: _olive,
+            foregroundColor: _text,
+            padding: const EdgeInsets.symmetric(vertical: 14),
+          ),
+          child: Text(
+            'Agendar horário',
+            style: _body.copyWith(fontWeight: FontWeight.w700),
+          ),
+        ),
+        const SizedBox(height: 8),
+        Text(
+          'Escolha o dia e um horário livre — a grade respeita o tempo do serviço.',
+          textAlign: TextAlign.center,
+          style: _mutedStyle.copyWith(fontSize: 14),
+        ),
+      ],
+    );
+  }
+
+  Widget _logoFallback() {
+    return Container(
+      width: 112,
+      height: 112,
+      color: _surface,
+      alignment: Alignment.center,
+      child: const Icon(Icons.content_cut, color: _olive, size: 48),
+    );
+  }
+
+  Widget _buildFooter() {
+    return Column(
+      children: [
+        Image.asset(
+          'imagens/brasao_perfectgestdev.png',
+          height: 40,
+          errorBuilder: (_, __, ___) => Image.asset(
+            'imagens/brasao_emblema.png',
+            height: 40,
+            errorBuilder: (_, __, ___) => const Icon(
+              Icons.verified_outlined,
+              color: _muted,
+              size: 32,
+            ),
+          ),
+        ),
+        const SizedBox(height: 8),
+        Text(
+          'PerfectGest Dev',
+          textAlign: TextAlign.center,
+          style: _mutedStyle.copyWith(fontSize: 12, fontWeight: FontWeight.w600),
+        ),
+      ],
     );
   }
 
