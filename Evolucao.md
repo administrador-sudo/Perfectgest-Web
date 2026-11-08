@@ -1,5 +1,9 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-08] Barber — grade sem fallback 9h + Voltar sticky
+
+- `daySchedule` sem inventar 09–18; recheck busy no book; botão Voltar ao início fixo no topo.
+
 ## [2026-11-08] Barber — vitrine produtos com estoque
 
 - Secção Produtos: só `active` e `stockQty > 0`; some quando app zera estoque.
