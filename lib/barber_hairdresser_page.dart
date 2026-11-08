@@ -139,14 +139,6 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
     super.dispose();
   }
 
-  void _goHome() {
-    if (Navigator.of(context).canPop()) {
-      Navigator.of(context).pop();
-    } else {
-      Navigator.of(context).pushReplacementNamed('/');
-    }
-  }
-
   Future<void> _enviar() async {
     if (!(_formKey.currentState?.validate() ?? false)) return;
     if (_pro == null || _service == null || _date == null || _slot == null) {
@@ -256,27 +248,17 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
               child: Column(
                 children: [
                   Padding(
-                    padding: EdgeInsets.fromLTRB(padH, 8, padH, 0),
-                    child: Row(
-                      children: [
-                        TextButton.icon(
-                          onPressed: _goHome,
-                          icon: const Icon(Icons.arrow_back, color: _muted),
-                          label: Text(
-                            'Início',
-                            style: _mutedStyle.copyWith(fontSize: 14),
-                          ),
+                    padding: EdgeInsets.fromLTRB(padH, 12, padH, 0),
+                    child: Align(
+                      alignment: Alignment.centerRight,
+                      child: Text(
+                        kBarberHairdresserPath,
+                        style: const TextStyle(
+                          fontFamily: _mono,
+                          color: _muted,
+                          fontSize: 11,
                         ),
-                        const Spacer(),
-                        Text(
-                          kBarberHairdresserPath,
-                          style: const TextStyle(
-                            fontFamily: _mono,
-                            color: _muted,
-                            fontSize: 11,
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
                   ),
                   Expanded(
