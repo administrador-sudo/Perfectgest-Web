@@ -22,13 +22,11 @@ class DaySchedule {
     this.breaks = const [],
   });
 
-  /// Blocos de atendimento (já sem almoço/descanso se preferir; ou brutos).
   final List<MinuteRange> workBlocks;
   final List<MinuteRange> breaks;
 
   bool get isOff => workBlocks.isEmpty;
 
-  /// Janelas úteis = work menos breaks.
   List<MinuteRange> get usableWindows {
     if (workBlocks.isEmpty) return const [];
     var windows = List<MinuteRange>.from(workBlocks);
@@ -59,12 +57,17 @@ class DaySchedule {
   }
 }
 
-/// Agendamento existente (só precisa início/fim).
+/// Agendamento existente (início/fim + nome opcional do cliente).
 class BusyInterval {
-  const BusyInterval(this.startMinutes, this.endMinutes);
+  const BusyInterval(
+    this.startMinutes,
+    this.endMinutes, {
+    this.label,
+  });
 
   final int startMinutes;
   final int endMinutes;
+  final String? label;
 }
 
 class SlotEngine {
@@ -72,28 +75,52 @@ class SlotEngine {
 
   final int stepMinutes;
 
-  /// Gera horários de início disponíveis no dia.
+  /// Duração efetiva na grade: blocos de 30 min (mín. 30).
+  static int allocateMinutes(int serviceMinutes) {
+    if (serviceMinutes <= 0) return 30;
+    final blocks = (serviceMinutes + 29) ~/ 30;
+    return (blocks < 1 ? 1 : blocks) * 30;
+  }
+
+  static String? firstName(String? fullName) {
+    final t = fullName?.trim() ?? '';
+    if (t.isEmpty) return null;
+    return t.split(RegExp(r'\s+')).first;
+  }
+
+  /// Candidatos do dia: livres e ocupados (available=false + bookedBy).
   List<TimeOfDaySlot> availableSlots({
     required DaySchedule day,
     required int durationMinutes,
     required List<BusyInterval> busy,
     int? nowMinutesIfToday,
   }) {
-    if (durationMinutes <= 0 || day.isOff) return const [];
+    final duration = allocateMinutes(durationMinutes);
+    if (duration <= 0 || day.isOff) return const [];
     final slots = <TimeOfDaySlot>[];
     for (final window in day.usableWindows) {
       for (var start = window.startMinutes;
-          start + durationMinutes <= window.endMinutes;
+          start + duration <= window.endMinutes;
           start += stepMinutes) {
-        final end = start + durationMinutes;
-        if (nowMinutesIfToday != null && start < nowMinutesIfToday) {
-          continue;
+        final end = start + duration;
+        final past =
+            nowMinutesIfToday != null && start < nowMinutesIfToday;
+        BusyInterval? hit;
+        for (final b in busy) {
+          if (start < b.endMinutes && end > b.startMinutes) {
+            hit = b;
+            break;
+          }
         }
-        final conflict = busy.any(
-          (b) => start < b.endMinutes && end > b.startMinutes,
+        final available = !past && hit == null;
+        slots.add(
+          TimeOfDaySlot(
+            startMinutes: start,
+            endMinutes: end,
+            available: available,
+            bookedBy: hit == null ? null : firstName(hit.label),
+          ),
         );
-        if (conflict) continue;
-        slots.add(TimeOfDaySlot(startMinutes: start, endMinutes: end));
       }
     }
     return slots;
@@ -112,10 +139,14 @@ class TimeOfDaySlot {
   const TimeOfDaySlot({
     required this.startMinutes,
     required this.endMinutes,
+    this.available = true,
+    this.bookedBy,
   });
 
   final int startMinutes;
   final int endMinutes;
+  final bool available;
+  final String? bookedBy;
 
   String get label => SlotEngine.formatMinutes(startMinutes);
 

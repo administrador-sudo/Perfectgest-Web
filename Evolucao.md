@@ -1,5 +1,9 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-08] Barber — slots alocados + nome
+
+- `allocateMinutes` (blocos 30); grade com ocupados cinza + tarja do primeiro nome.
+
 ## [2026-11-08] Barber — REST sem plugin Firebase
 
 - Screenshot: `PlatformException channel-error … FirebaseCoreHostApi.initializeCore` no Web.

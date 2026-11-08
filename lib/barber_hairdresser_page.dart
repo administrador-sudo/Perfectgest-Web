@@ -153,9 +153,12 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
     setState(() {
       _slots = slots;
       _loadingSlots = false;
-      if (_slot != null &&
-          slots.every((s) => s.startMinutes != _slot!.startMinutes)) {
-        _slot = null;
+      if (_slot != null) {
+        final still = slots.where(
+          (s) =>
+              s.available && s.startMinutes == _slot!.startMinutes,
+        );
+        if (still.isEmpty) _slot = null;
       }
     });
   }
@@ -169,9 +172,13 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
 
   Future<void> _enviar() async {
     if (!(_formKey.currentState?.validate() ?? false)) return;
-    if (_pro == null || _service == null || _date == null || _slot == null) {
+    if (_pro == null ||
+        _service == null ||
+        _date == null ||
+        _slot == null ||
+        !_slot!.available) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Escolha serviço, dia e horário')),
+        const SnackBar(content: Text('Escolha serviço, dia e horário livre')),
       );
       return;
     }
@@ -183,7 +190,11 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
       _slot!.startMinutes ~/ 60,
       _slot!.startMinutes % 60,
     );
-    final ends = starts.add(Duration(minutes: _service!.durationMinutes));
+    final ends = starts.add(
+      Duration(
+        minutes: SlotEngine.allocateMinutes(_service!.durationMinutes),
+      ),
+    );
     try {
       await BarberCloud.instance.book(
         professionalId: _pro!.id,
@@ -607,27 +618,13 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
               child: Center(child: CircularProgressIndicator()),
             )
           else if (_slots.isEmpty)
-            Text('Sem horários livres neste dia', style: _mutedStyle)
+            Text('Sem horários neste dia', style: _mutedStyle)
           else
             Wrap(
               spacing: 8,
               runSpacing: 8,
               children: [
-                for (final s in _slots)
-                  ChoiceChip(
-                    label: Text(s.label),
-                    selected: _slot?.startMinutes == s.startMinutes,
-                    selectedColor: _olive,
-                    labelStyle: TextStyle(
-                      color: _slot?.startMinutes == s.startMinutes
-                          ? _text
-                          : _text,
-                      fontFamily: _font,
-                      fontWeight: FontWeight.w600,
-                    ),
-                    backgroundColor: _surface,
-                    onSelected: (_) => setState(() => _slot = s),
-                  ),
+                for (final s in _slots) _slotChip(s),
               ],
             ),
           const SizedBox(height: 18),
@@ -654,6 +651,71 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
           ),
         ],
       ),
+    );
+  }
+
+  Widget _slotChip(TimeOfDaySlot s) {
+    final selected =
+        s.available && _slot?.startMinutes == s.startMinutes;
+    if (!s.available) {
+      return Container(
+        width: 76,
+        padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
+        decoration: BoxDecoration(
+          color: const Color(0xFF3A3A3A),
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(color: const Color(0xFF555555)),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (s.bookedBy != null && s.bookedBy!.isNotEmpty)
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.symmetric(vertical: 2),
+                margin: const EdgeInsets.only(bottom: 4),
+                decoration: BoxDecoration(
+                  color: const Color(0xFF555555),
+                  borderRadius: BorderRadius.circular(4),
+                ),
+                child: Text(
+                  s.bookedBy!,
+                  textAlign: TextAlign.center,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontFamily: _font,
+                    color: Color(0xFFBDBDBD),
+                    fontSize: 10,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            Text(
+              s.label,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontFamily: _font,
+                color: Color(0xFF9E9E9E),
+                fontWeight: FontWeight.w600,
+                fontSize: 13,
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+    return ChoiceChip(
+      label: Text(s.label),
+      selected: selected,
+      selectedColor: _olive,
+      labelStyle: TextStyle(
+        color: _text,
+        fontFamily: _font,
+        fontWeight: FontWeight.w600,
+      ),
+      backgroundColor: _surface,
+      onSelected: (_) => setState(() => _slot = s),
     );
   }
 }

@@ -357,10 +357,13 @@ class BarberCloud {
           .map((m) {
             final s = m['startsAt'] as DateTime;
             final e = m['endsAt'] as DateTime? ??
-                s.add(const Duration(minutes: 30));
+                s.add(Duration(
+                  minutes: SlotEngine.allocateMinutes(30),
+                ));
             return BusyInterval(
               s.hour * 60 + s.minute,
               e.hour * 60 + e.minute,
+              label: m['clientName'] as String?,
             );
           })
           .toList();
