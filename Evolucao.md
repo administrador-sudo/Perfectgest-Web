@@ -1,5 +1,9 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-08] Barber — busyDay hora local + recheck
+
+- Timestamps com `toLocal()` na grade; `book` recusa overlap; poll ~20s enquanto agenda.
+
 ## [2026-11-08] Barber — site só livres + Voltar
 
 - Grade pública: só `available`; mensagem sem horários; botão Voltar ao início (hero).
