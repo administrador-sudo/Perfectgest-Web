@@ -349,23 +349,24 @@ class BarberCloud {
       return rows
           .where((m) => _asInt(m['professionalId']) == professionalId)
           .where((m) => (m['status'] as String?) != 'cancelled')
-          .where((m) {
-            final s = m['startsAt'];
-            if (s is! DateTime) return false;
-            return !s.isBefore(start) && s.isBefore(end);
-          })
           .map((m) {
-            final s = m['startsAt'] as DateTime;
-            final e = m['endsAt'] as DateTime? ??
-                s.add(Duration(
-                  minutes: SlotEngine.allocateMinutes(30),
-                ));
+            final rawS = m['startsAt'];
+            if (rawS is! DateTime) return null;
+            final s = rawS.toLocal();
+            final rawE = m['endsAt'];
+            final e = (rawE is DateTime
+                    ? rawE.toLocal()
+                    : s.add(Duration(
+                        minutes: SlotEngine.allocateMinutes(30),
+                      )));
+            if (s.isBefore(start) || !s.isBefore(end)) return null;
             return BusyInterval(
               s.hour * 60 + s.minute,
               e.hour * 60 + e.minute,
               label: m['clientName'] as String?,
             );
           })
+          .whereType<BusyInterval>()
           .toList();
     } catch (e) {
       debugPrint('busyDay: $e');
@@ -402,6 +403,17 @@ class BarberCloud {
     await ensureInitialized();
     if (!ready) {
       throw StateError(lastError ?? 'Firestore indisponível');
+    }
+    final day = DateTime(startsAt.year, startsAt.month, startsAt.day);
+    final busy = await busyDay(professionalId, day);
+    final startMin = startsAt.hour * 60 + startsAt.minute;
+    final endMin = endsAt.hour * 60 + endsAt.minute;
+    for (final b in busy) {
+      if (startMin < b.endMinutes && endMin > b.startMinutes) {
+        throw StateError(
+          'Horário acabou de ser ocupado. Escolha outro.',
+        );
+      }
     }
     final id =
         'site_${startsAt.millisecondsSinceEpoch}_${professionalId}_$serviceId';

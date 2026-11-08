@@ -6,7 +6,7 @@ case"pt":default:return A.Ri}},
 c9:function c9(d,e,f){this.a=d
 this.b=e
 this.c=f},
-axm:function axm(){},
+axl:function axl(){},
 aPz:function aPz(){},
 aPx:function aPx(){},
 aPy:function aPy(){},
@@ -35,7 +35,7 @@ D=c[2]
 B=a.updateHolder(c[7],B)
 A=c[18]
 B.c9.prototype={}
-B.axm.prototype={}
+B.axl.prototype={}
 B.aPz.prototype={
 gfb(){return"Tecnologias Flutter e stack principal da Perfect Gest Dev"},
 gU0(){return"Stack Flutter e tecnologias da Perfect Gest Dev"},
@@ -43,7 +43,7 @@ gTV(){return"Nossa estrat\xe9gia t\xe9cnica conecta arquitetura, dados, experi\x
 gTW(){return"Fluxo integrado: base t\xe9cnica s\xf3lida -> dados confi\xe1veis -> experi\xeancia consistente -> opera\xe7\xe3o mensur\xe1vel. Assim, cada decis\xe3o refor\xe7a a pr\xf3xima etapa e mant\xe9m coer\xeancia entre discurso comercial e execu\xe7\xe3o de produto."},
 gVk(){return"Diferenciais do Portf\xf3lio"},
 gR3(){return"Conceito aplicado:"},
-gtO(){return A.ads}}
+gtQ(){return A.ads}}
 B.aPx.prototype={
 gfb(){return"Flutter technologies and Perfect Gest Dev core stack"},
 gU0(){return"Flutter stack and Perfect Gest Dev technologies"},
@@ -51,7 +51,7 @@ gTV(){return"Our technical strategy connects architecture, data, user experience
 gTW(){return"Integrated flow: solid technical foundation -> reliable data -> consistent experience -> measurable operations. Each decision reinforces the next and keeps commercial narrative aligned with product execution."},
 gVk(){return"Portfolio differentiators"},
 gR3(){return"Applied concept:"},
-gtO(){return A.aea}}
+gtQ(){return A.aea}}
 B.aPy.prototype={
 gfb(){return"Tecnologias Flutter y stack principal de Perfect Gest Dev"},
 gU0(){return"Stack Flutter y tecnologias de Perfect Gest Dev"},
@@ -59,7 +59,7 @@ gTV(){return"Nuestra estrategia tecnica conecta arquitectura, datos, experiencia
 gTW(){return"Flujo integrado: base tecnica solida -> datos fiables -> experiencia consistente -> operacion medible. Asi, cada decision refuerza la siguiente y mantiene coherencia entre discurso comercial y ejecucion de producto."},
 gVk(){return"Diferenciales del portafolio"},
 gR3(){return"Concepto aplicado:"},
-gtO(){return A.ae6}}
+gtQ(){return A.ae6}}
 B.qq.prototype={
 a6(){var w=null,v=x.z
 return new B.aaK(C.uC(0,w,w),new C.b_(w,v),new C.b_(w,v),new C.b_(w,v),new C.b_(w,v))}}
@@ -78,10 +78,10 @@ $.a2.k4$.push(new B.aQ_(this))},
 l(){this.d.l()
 C.r6()
 this.av()},
-azz(){var w=this,v=C.ae(["clean-arch",w.e,"seguranca",w.f,"escala",w.r,"full-stack",w.w],x.w,x.d).h(0,w.a.d),u=v==null?null:$.a2.ar$.x.h(0,v)
+azA(){var w=this,v=C.ae(["clean-arch",w.e,"seguranca",w.f,"escala",w.r,"full-stack",w.w],x.w,x.d).h(0,w.a.d),u=v==null?null:$.a2.ar$.x.h(0,v)
 if(u==null)return
 C.Hi(u,0.24,D.jf,D.dU,D.ur)},
-B(d){var w,v,u,t,s,r,q,p,o,n,m,l=this,k=null,j=C.t(d).ax,i=C.aN(d,D.ac,x.x).w.a.a<400,h=i?16:24,g=C.bP(d,D.aY,x.F)
+B(d){var w,v,u,t,s,r,q,p,o,n,m,l=this,k=null,j=C.t(d).ax,i=C.aO(d,D.ac,x.x).w.a.a<400,h=i?16:24,g=C.bP(d,D.aY,x.F)
 g.toString
 w=B.bgW(d)
 C.t(d)
@@ -98,12 +98,12 @@ l.a.toString
 s=C.Pr(n,s,k,r,D.q,p)
 r=w.gU0()
 r=C.b([C.l(r,k,k,k,k,C.bg().$4$color$fontSize$fontWeight$height(q,i?22:26,D.Z,1.2),k,k,k),D.at,C.l(w.gTV(),k,k,k,k,C.bg().$3$color$fontSize$height(q.af(0.82),14,1.5),k,k,k),D.D,C.l(w.gTW(),k,k,k,k,C.bg().$3$color$fontSize$height(q.af(0.8),13.6,1.5),k,k,k),D.bN,C.l(w.gVk(),k,k,k,k,C.bg().$3$color$fontSize$fontWeight(q,18,D.Z),k,k,k),D.at],o)
-for(m=0;w.gtO(),m<15;++m){i=C.b([],o)
+for(m=0;w.gtQ(),m<15;++m){i=C.b([],o)
 if(m===4)i.push(D.D)
 q=m<4?v[m]:k
 p=w.gR3()
-i.push(new B.aaJ(w.gtO()[m].a,w.gtO()[m].b,w.gtO()[m].c,p,q))
-D.b.S(r,i)}return C.aA(k,k,k,C.h6(s,t,new C.jY(C.et(C.cZ(new C.ci(A.OT,C.ak(r,D.E,D.j,D.k),k),k,k),l.d,new C.V(h,16,h,28),D.a3),k),k,k,k,k),!1,k,k,!1,k,!1,k,k,k,k,k,k,k,k,u,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,D.p,k)}}
+i.push(new B.aaJ(w.gtQ()[m].a,w.gtQ()[m].b,w.gtQ()[m].c,p,q))
+D.b.S(r,i)}return C.aA(k,k,k,C.h6(s,t,new C.jZ(C.et(C.cZ(new C.ci(A.OT,C.ak(r,D.E,D.j,D.k),k),k,k),l.d,new C.V(h,16,h,28),D.a3),k),k,k,k,k),!1,k,k,!1,k,!1,k,k,k,k,k,k,k,k,u,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,D.p,k)}}
 B.aaJ.prototype={
 B(d){var w,v,u,t,s,r=this,q=null,p=C.t(d).ax,o=p.RG
 o=(o==null?p.k2:o).af(0.55)
@@ -118,20 +118,20 @@ D.b.S(s,C.b([D.D,C.l(r.e,q,q,q,q,C.bg().$4$color$fontSize$fontWeight$height(u.af
 return new C.a0(D.oj,C.cr(new C.a0(A.UW,C.ak(s,D.E,D.j,D.k),q),new C.bh(o,q,v,w,q,q,D.F),D.a9),q)}}
 var z=a.updateTypes([])
 B.aQ_.prototype={
-$1(d){return this.a.azz()},
+$1(d){return this.a.azA()},
 $S:2}
 B.aPZ.prototype={
-$0(){return C.bC(this.a,!1).aLN(new B.aPY())},
+$0(){return C.bC(this.a,!1).aLO(new B.aPY())},
 $S:0}
 B.aPY.prototype={
-$1(d){return d.gw5()},
+$1(d){return d.gwa()},
 $S:725};(function inheritance(){var w=a.inheritMany,v=a.inherit
-w(C.P,[B.c9,B.axm])
-w(B.axm,[B.aPz,B.aPx,B.aPy])
+w(C.P,[B.c9,B.axl])
+w(B.axl,[B.aPz,B.aPx,B.aPy])
 v(B.qq,C.R)
 v(B.aaK,C.U)
-w(C.kt,[B.aQ_,B.aPY])
-v(B.aPZ,C.ku)
+w(C.ku,[B.aQ_,B.aPY])
+v(B.aPZ,C.kv)
 v(B.aaJ,C.W)})()
 C.vN(b.typeUniverse,JSON.parse('{"qq":{"R":[],"c":[]},"aaK":{"U":["qq"]},"aaJ":{"W":[],"c":[]}}'))
 var y={c:"Parceiros tecnol\xf3gicos | Perfect Gest Dev"}
@@ -189,4 +189,4 @@ A.arh=new B.c9("Analytics and consent (GA4)","Measurement with Google Analytics 
 A.ar7=new B.c9("Clean architecture and maintenance","We prioritize organized code, reusable components and separation of concerns to support continuous product evolution, fewer bugs and lower maintenance cost.","Practical example: a new subscription feature is added by reusing components and reducing QA effort.")
 A.aqT=new B.c9("HTTP integrations and external services","We integrate external APIs and data services for real business flows, including back-end endpoints and observability services, ensuring operational reliability and metric-driven evolution.","Practical example: we monitor API latency and errors in production to act before customers are impacted.")
 A.aea=w([A.aqX,A.aqI,A.ar3,A.ar1,A.aqK,A.aqV,A.ar6,A.aqZ,A.aqR,A.ard,A.are,A.ar4,A.arh,A.ar7,A.aqT],x.c)})()};
-(a=>{a["YAAp6DyrftrEmIex3Kf8uNLGrEY="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["Q+ogQl9hG5r6N34nZ/k2QE21GXo="]=a.current})($__dart_deferred_initializers__);

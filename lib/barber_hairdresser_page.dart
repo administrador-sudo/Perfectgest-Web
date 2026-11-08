@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import 'barber_cloud.dart';
@@ -40,6 +42,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   bool _saving = false;
   bool _success = false;
   String? _error;
+  Timer? _slotsPoll;
 
   TextStyle get _body => const TextStyle(
         fontFamily: _font,
@@ -174,10 +177,23 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
         if (still.isEmpty) _slot = null;
       }
     });
+    _ensureSlotsPoll();
+  }
+
+  void _ensureSlotsPoll() {
+    _slotsPoll?.cancel();
+    if (_success || _pro == null || _service == null || _date == null) {
+      return;
+    }
+    _slotsPoll = Timer.periodic(const Duration(seconds: 20), (_) {
+      if (!mounted || _saving || _success) return;
+      _reloadSlots();
+    });
   }
 
   @override
   void dispose() {
+    _slotsPoll?.cancel();
     _nomeCtrl.dispose();
     _telefoneCtrl.dispose();
     super.dispose();
@@ -218,6 +234,9 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
         endsAt: ends,
       );
       if (!mounted) return;
+      _slotsPoll?.cancel();
+      await _reloadSlots();
+      if (!mounted) return;
       setState(() {
         _success = true;
         _saving = false;
@@ -225,6 +244,8 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
     } catch (e) {
       if (!mounted) return;
       setState(() => _saving = false);
+      await _reloadSlots();
+      if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Erro ao agendar: $e')),
       );
