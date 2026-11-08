@@ -71,7 +71,7 @@ class BusyInterval {
 }
 
 class SlotEngine {
-  const SlotEngine({this.stepMinutes = 15});
+  const SlotEngine({this.stepMinutes = 30});
 
   final int stepMinutes;
 

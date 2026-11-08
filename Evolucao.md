@@ -1,5 +1,9 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-08] Barber — grade passo 30 min
+
+- `SlotEngine.stepMinutes` padrão 30 (site alinhado ao app).
+
 ## [2026-11-08] Barber — busyDay hora local + recheck
 
 - Timestamps com `toLocal()` na grade; `book` recusa overlap; poll ~20s enquanto agenda.
