@@ -90,9 +90,12 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
       _pros = pros;
       _pro = pros.isEmpty ? null : pros.first;
       _loading = false;
-      if (pros.isEmpty) {
+      if (!BarberCloud.instance.ready) {
+        _error = BarberCloud.instance.lastError ??
+            'Firebase bloqueado ou offline (CSP/rede).';
+      } else if (pros.isEmpty) {
         _error =
-            'Catálogo ainda vazio. Abra o app Perfect Barber e publique a apresentação/horário na nuvem.';
+            'Catálogo vazio. No app: Configurações → Profissionais e horários → Salvar horário (nuvem), e cartões de serviço no profissional.';
       }
     });
     if (_pro != null) await _loadServices();
@@ -115,9 +118,20 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
     if (!mounted) return;
     setState(() {
       _services = list;
-      _service = null;
+      _service = list.isEmpty ? null : list.first;
       _slot = null;
       _slots = [];
+      if (list.isEmpty && BarberCloud.instance.ready) {
+        _error =
+            'Sem serviços para ${_pro!.name}. No app, abra o profissional e adicione cartões; depois «Salvar horário (nuvem)» ou Salvar e publicar.';
+      } else if (list.isNotEmpty &&
+          (_error?.startsWith('Sem serviços') == true ||
+              _error?.startsWith('Catálogo') == true)) {
+        _error = null;
+      }
+      if (BarberCloud.instance.lastError != null) {
+        _error = BarberCloud.instance.lastError;
+      }
     });
   }
 
@@ -515,32 +529,38 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
             },
           ),
           const SizedBox(height: 12),
-          DropdownButtonFormField<int>(
-            initialValue: _service?.id,
-            dropdownColor: _surface,
-            style: _body,
-            decoration: _fieldDeco('Serviço'),
-            items: _services
-                .map(
-                  (s) => DropdownMenuItem(
-                    value: s.id,
-                    child: Text(
-                      '${s.name} · ${s.priceLabel} · ${s.durationMinutes} min',
-                      style: _body,
+          if (_services.isEmpty)
+            Text(
+              'Nenhum serviço publicado para este profissional.',
+              style: _mutedStyle.copyWith(color: const Color(0xFFFFB74D)),
+            )
+          else
+            DropdownButtonFormField<int>(
+              initialValue: _service?.id,
+              dropdownColor: _surface,
+              style: _body,
+              decoration: _fieldDeco('Serviço'),
+              items: _services
+                  .map(
+                    (s) => DropdownMenuItem(
+                      value: s.id,
+                      child: Text(
+                        '${s.name} · ${s.priceLabel} · ${s.durationMinutes} min',
+                        style: _body,
+                      ),
                     ),
-                  ),
-                )
-                .toList(),
-            onChanged: (id) async {
-              final s = _services.firstWhere((e) => e.id == id);
-              setState(() {
-                _service = s;
-                _slot = null;
-              });
-              await _reloadSlots();
-            },
-            validator: (v) => v == null ? 'Escolha o serviço' : null,
-          ),
+                  )
+                  .toList(),
+              onChanged: (id) async {
+                final s = _services.firstWhere((e) => e.id == id);
+                setState(() {
+                  _service = s;
+                  _slot = null;
+                });
+                await _reloadSlots();
+              },
+              validator: (v) => v == null ? 'Escolha o serviço' : null,
+            ),
           const SizedBox(height: 12),
           InkWell(
             onTap: () async {

@@ -1,5 +1,10 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-08] Barber — CSP Firestore + endurecimento cloud
+
+- Causa: CSP `connect-src` sem Firestore → catálogo/serviço mortos no site.
+- Fix: `web/index.html` + erros `BarberCloud.lastError` + cast `_asInt` + UI sem serviços.
+
 ## [2026-11-08] Barber — fix compile web
 
 - Restaurado `import site_public_urls.dart` (`kBarberHairdresserPath`) — build:web:sync quebrava.
