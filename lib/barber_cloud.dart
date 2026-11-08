@@ -88,12 +88,39 @@ class BarberServiceCard {
     required this.name,
     required this.price,
     required this.durationMinutes,
+    this.audience = 'unisex',
   });
   final int id;
   final int professionalId;
   final String name;
   final double price;
   final int durationMinutes;
+  final String audience;
+
+  String get priceLabel =>
+      'R\$ ${price.toStringAsFixed(2).replaceAll('.', ',')}';
+}
+
+class BarberProductCard {
+  const BarberProductCard({
+    required this.id,
+    required this.professionalId,
+    required this.name,
+    required this.description,
+    required this.price,
+    required this.category,
+    required this.stockQty,
+    this.imageUrl = '',
+  });
+
+  final int id;
+  final int professionalId;
+  final String name;
+  final String description;
+  final double price;
+  final String category;
+  final int stockQty;
+  final String imageUrl;
 
   String get priceLabel =>
       'R\$ ${price.toStringAsFixed(2).replaceAll('.', ',')}';
@@ -307,6 +334,7 @@ class BarberCloud {
               name: m['name'] as String? ?? '',
               price: (m['price'] as num?)?.toDouble() ?? 0,
               durationMinutes: _asInt(m['durationMinutes'], 30),
+              audience: m['audience'] as String? ?? 'unisex',
             ),
           )
           .where((s) => s.id > 0 && s.name.isNotEmpty)
@@ -314,6 +342,40 @@ class BarberCloud {
     } catch (e) {
       lastError = 'Falha ao ler serviços: $e';
       debugPrint(lastError);
+      return const [];
+    }
+  }
+
+  /// Vitrine: só ativos com estoque > 0.
+  Future<List<BarberProductCard>> listProducts({int? professionalId}) async {
+    await ensureInitialized();
+    if (!ready) return const [];
+    try {
+      final rows = await _listCollection('products');
+      return rows
+          .where((m) => m['active'] != false)
+          .where((m) => _asInt(m['stockQty']) > 0)
+          .where(
+            (m) =>
+                professionalId == null ||
+                _asInt(m['professionalId']) == professionalId,
+          )
+          .map(
+            (m) => BarberProductCard(
+              id: _asInt(m['localId'], int.tryParse('${m['_docId']}') ?? 0),
+              professionalId: _asInt(m['professionalId']),
+              name: m['name'] as String? ?? '',
+              description: m['description'] as String? ?? '',
+              price: (m['price'] as num?)?.toDouble() ?? 0,
+              category: m['category'] as String? ?? 'hair',
+              stockQty: _asInt(m['stockQty']),
+              imageUrl: m['imageUrl'] as String? ?? '',
+            ),
+          )
+          .where((p) => p.id > 0 && p.name.isNotEmpty)
+          .toList();
+    } catch (e) {
+      debugPrint('listProducts: $e');
       return const [];
     }
   }

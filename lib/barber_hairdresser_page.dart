@@ -33,6 +33,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   List<BarberPro> _pros = [];
   List<BarberServiceCard> _services = [];
   List<BarberLoyaltyPlan> _loyaltyPlans = [];
+  List<BarberProductCard> _products = [];
   List<TimeOfDaySlot> _slots = [];
   BarberPro? _pro;
   BarberServiceCard? _service;
@@ -88,10 +89,12 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
     await BarberCloud.instance.ensureInitialized();
     final shop = await BarberCloud.instance.fetchPresentation();
     final pros = await BarberCloud.instance.listProfessionals();
+    final products = await BarberCloud.instance.listProducts();
     if (!mounted) return;
     setState(() {
       _shop = shop;
       _pros = pros;
+      _products = products;
       _pro = pros.isEmpty ? null : pros.first;
       _loading = false;
       if (!BarberCloud.instance.ready) {
@@ -295,14 +298,15 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
                             if (!ctx.mounted) return;
                             Navigator.pop(ctx);
                             if (!mounted) return;
-                            ScaffoldMessenger.of(this.context).showSnackBar(
+                            final rootCtx = context;
+                            ScaffoldMessenger.of(rootCtx).showSnackBar(
                               const SnackBar(
                                 content: Text('Horário cancelado'),
                               ),
                             );
                           } catch (e) {
                             if (!mounted) return;
-                            ScaffoldMessenger.of(this.context).showSnackBar(
+                            ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(content: Text('Erro: $e')),
                             );
                           }
@@ -569,6 +573,8 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
                                       _buildSuccess()
                                     else
                                       _buildForm(),
+                                    const SizedBox(height: 28),
+                                    _buildProductsVitrine(),
                                     const SizedBox(height: 36),
                                     _buildFooter(),
                                   ],
@@ -659,6 +665,83 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
       color: _surface,
       alignment: Alignment.center,
       child: const Icon(Icons.content_cut, color: _olive, size: 48),
+    );
+  }
+
+  Widget _buildProductsVitrine() {
+    if (_products.isEmpty) return const SizedBox.shrink();
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text('Produtos', style: _section),
+        const SizedBox(height: 8),
+        Text(
+          'Tratamento de cabelo e pele — só itens com estoque.',
+          style: _mutedStyle.copyWith(fontSize: 13),
+        ),
+        const SizedBox(height: 12),
+        ..._products.map((p) {
+          return Container(
+            margin: const EdgeInsets.only(bottom: 10),
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: _surface,
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: _olive.withValues(alpha: 0.45)),
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if (p.imageUrl.trim().isNotEmpty)
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.network(
+                      p.imageUrl,
+                      width: 64,
+                      height: 64,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) =>
+                          const SizedBox(
+                        width: 64,
+                        height: 64,
+                        child: Icon(Icons.shopping_bag_outlined, color: _olive),
+                      ),
+                    ),
+                  )
+                else
+                  const SizedBox(
+                    width: 64,
+                    height: 64,
+                    child: Icon(Icons.shopping_bag_outlined, color: _olive),
+                  ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        p.name,
+                        style: _body.copyWith(fontWeight: FontWeight.w700),
+                      ),
+                      if (p.description.isNotEmpty)
+                        Text(p.description, style: _mutedStyle.copyWith(fontSize: 13)),
+                      const SizedBox(height: 4),
+                      Text(
+                        '${p.priceLabel} · ${p.category} · ${p.stockQty} un.',
+                        style: _body.copyWith(
+                          color: _olive,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          );
+        }),
+      ],
     );
   }
 

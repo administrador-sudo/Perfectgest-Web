@@ -1,5 +1,9 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-08] Barber — vitrine produtos com estoque
+
+- Secção Produtos: só `active` e `stockQty > 0`; some quando app zera estoque.
+
 ## [2026-11-08] Barber — fidelidade + PIX + CDC
 
 - Sanfona «Adquirir plano de fidelidade»; confirmação abre QR/copia-cola + WhatsApp comprovante; modal regras CDC/3h; remarcar/cancelar por telefone.
