@@ -1,30 +1,30 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
 $__dart_deferred_initializers__.current=function(a,b,c,$){var C,D,B={
-bj5(d){switch(d.ae(x.h).r.f.gcX()){case"en":return A.Ru
-case"es":return A.Rv
-case"pt":default:return A.Rw}},
+bj9(d){switch(d.ae(x.h).r.f.gcX()){case"en":return A.Ry
+case"es":return A.Rz
+case"pt":default:return A.RA}},
 cb:function cb(d,e,f){this.a=d
 this.b=e
 this.c=f},
-ayS:function ayS(){},
-aR8:function aR8(){},
-aR6:function aR6(){},
-aR7:function aR7(){},
-bjx(d,e){return new B.qS(e,d,null)},
+ayW:function ayW(){},
+aRc:function aRc(){},
+aRa:function aRa(){},
+aRb:function aRb(){},
+bjB(d,e){return new B.qS(e,d,null)},
 qS:function qS(d,e,f){this.c=d
 this.d=e
 this.a=f},
-ac3:function ac3(d,e,f,g,h){var _=this
+ac4:function ac4(d,e,f,g,h){var _=this
 _.d=d
 _.e=e
 _.f=f
 _.r=g
 _.w=h
 _.c=_.a=null},
-aRz:function aRz(d){this.a=d},
-aRy:function aRy(d){this.a=d},
-aRx:function aRx(){},
-ac2:function ac2(d,e,f,g,h){var _=this
+aRD:function aRD(d){this.a=d},
+aRC:function aRC(d){this.a=d},
+aRB:function aRB(){},
+ac3:function ac3(d,e,f,g,h){var _=this
 _.c=d
 _.d=e
 _.e=f
@@ -35,76 +35,76 @@ D=c[2]
 B=a.updateHolder(c[7],B)
 A=c[18]
 B.cb.prototype={}
-B.ayS.prototype={}
-B.aR8.prototype={
+B.ayW.prototype={}
+B.aRc.prototype={
 gfg(){return"Tecnologias Flutter e stack principal da Perfect Gest Dev"},
-gUg(){return"Stack Flutter e tecnologias da Perfect Gest Dev"},
-gUa(){return"Nossa estrat\xe9gia t\xe9cnica conecta arquitetura, dados, experi\xeancia de utiliza\xe7\xe3o e opera\xe7\xe3o cont\xednua. Cada componente abaixo foi pensado para funcionar em conjunto, reduzindo riscos e acelerando entregas com qualidade previs\xedvel."},
-gUb(){return"Fluxo integrado: base t\xe9cnica s\xf3lida -> dados confi\xe1veis -> experi\xeancia consistente -> opera\xe7\xe3o mensur\xe1vel. Assim, cada decis\xe3o refor\xe7a a pr\xf3xima etapa e mant\xe9m coer\xeancia entre discurso comercial e execu\xe7\xe3o de produto."},
-gVB(){return"Diferenciais do Portf\xf3lio"},
-gRi(){return"Conceito aplicado:"},
-gtS(){return A.ae7}}
-B.aR6.prototype={
+gUj(){return"Stack Flutter e tecnologias da Perfect Gest Dev"},
+gUd(){return"Nossa estrat\xe9gia t\xe9cnica conecta arquitetura, dados, experi\xeancia de utiliza\xe7\xe3o e opera\xe7\xe3o cont\xednua. Cada componente abaixo foi pensado para funcionar em conjunto, reduzindo riscos e acelerando entregas com qualidade previs\xedvel."},
+gUe(){return"Fluxo integrado: base t\xe9cnica s\xf3lida -> dados confi\xe1veis -> experi\xeancia consistente -> opera\xe7\xe3o mensur\xe1vel. Assim, cada decis\xe3o refor\xe7a a pr\xf3xima etapa e mant\xe9m coer\xeancia entre discurso comercial e execu\xe7\xe3o de produto."},
+gVE(){return"Diferenciais do Portf\xf3lio"},
+gRl(){return"Conceito aplicado:"},
+gtU(){return A.ae7}}
+B.aRa.prototype={
 gfg(){return"Flutter technologies and Perfect Gest Dev core stack"},
-gUg(){return"Flutter stack and Perfect Gest Dev technologies"},
-gUa(){return"Our technical strategy connects architecture, data, user experience and continuous operations. Each component below is designed to work together, reducing risk and accelerating predictable-quality delivery."},
-gUb(){return"Integrated flow: solid technical foundation -> reliable data -> consistent experience -> measurable operations. Each decision reinforces the next and keeps commercial narrative aligned with product execution."},
-gVB(){return"Portfolio differentiators"},
-gRi(){return"Applied concept:"},
-gtS(){return A.aeR}}
-B.aR7.prototype={
+gUj(){return"Flutter stack and Perfect Gest Dev technologies"},
+gUd(){return"Our technical strategy connects architecture, data, user experience and continuous operations. Each component below is designed to work together, reducing risk and accelerating predictable-quality delivery."},
+gUe(){return"Integrated flow: solid technical foundation -> reliable data -> consistent experience -> measurable operations. Each decision reinforces the next and keeps commercial narrative aligned with product execution."},
+gVE(){return"Portfolio differentiators"},
+gRl(){return"Applied concept:"},
+gtU(){return A.aeR}}
+B.aRb.prototype={
 gfg(){return"Tecnologias Flutter y stack principal de Perfect Gest Dev"},
-gUg(){return"Stack Flutter y tecnologias de Perfect Gest Dev"},
-gUa(){return"Nuestra estrategia tecnica conecta arquitectura, datos, experiencia de uso y operacion continua. Cada componente debajo esta pensado para funcionar junto, reducir riesgos y acelerar entregas con calidad previsible."},
-gUb(){return"Flujo integrado: base tecnica solida -> datos fiables -> experiencia consistente -> operacion medible. Asi, cada decision refuerza la siguiente y mantiene coherencia entre discurso comercial y ejecucion de producto."},
-gVB(){return"Diferenciales del portafolio"},
-gRi(){return"Concepto aplicado:"},
-gtS(){return A.aeN}}
+gUj(){return"Stack Flutter y tecnologias de Perfect Gest Dev"},
+gUd(){return"Nuestra estrategia tecnica conecta arquitectura, datos, experiencia de uso y operacion continua. Cada componente debajo esta pensado para funcionar junto, reducir riesgos y acelerar entregas con calidad previsible."},
+gUe(){return"Flujo integrado: base tecnica solida -> datos fiables -> experiencia consistente -> operacion medible. Asi, cada decision refuerza la siguiente y mantiene coherencia entre discurso comercial y ejecucion de producto."},
+gVE(){return"Diferenciales del portafolio"},
+gRl(){return"Concepto aplicado:"},
+gtU(){return A.aeN}}
 B.qS.prototype={
 a6(){var w=null,v=x.z
-return new B.ac3(C.vc(0,w,w),new C.b1(w,v),new C.b1(w,v),new C.b1(w,v),new C.b1(w,v))}}
-B.ac3.prototype={
+return new B.ac4(C.vc(0,w,w),new C.b1(w,v),new C.b1(w,v),new C.b1(w,v),new C.b1(w,v))}}
+B.ac4.prototype={
 al(){this.aC()
 C.iS()
-C.ds("description","Parceiros tecnol\xf3gicos e stack Flutter da Perfect Gest Dev: Clean Architecture, seguran\xe7a, escala, integra\xe7\xf5es e opera\xe7\xe3o cont\xednua.")
-C.ds("keywords","Perfect Gest Dev, tecnologias, Flutter, Dart, Java, Gradle, SDK, integra\xe7\xf5es, arquitetura limpa, seguran\xe7a, escala")
-C.ds("robots","index, follow")
+C.dr("description","Parceiros tecnol\xf3gicos e stack Flutter da Perfect Gest Dev: Clean Architecture, seguran\xe7a, escala, integra\xe7\xf5es e opera\xe7\xe3o cont\xednua.")
+C.dr("keywords","Perfect Gest Dev, tecnologias, Flutter, Dart, Java, Gradle, SDK, integra\xe7\xf5es, arquitetura limpa, seguran\xe7a, escala")
+C.dr("robots","index, follow")
 C.cx("og:title",y.c)
 C.cx("og:description","Vis\xe3o t\xe9cnica do stack Perfect Gest Dev para mobile, web e desktop com foco em performance e previsibilidade.")
 C.cx("og:type","article")
 C.cx("og:locale","pt_BR")
 b.G.document.title=y.c
-$.a3.k4$.push(new B.aRz(this))},
+$.a3.k4$.push(new B.aRD(this))},
 l(){this.d.l()
 C.rA()
 this.av()},
-azV(){var w=this,v=C.al(["clean-arch",w.e,"seguranca",w.f,"escala",w.r,"full-stack",w.w],x.w,x.d).h(0,w.a.d),u=v==null?null:$.a3.au$.x.h(0,v)
+azX(){var w=this,v=C.al(["clean-arch",w.e,"seguranca",w.f,"escala",w.r,"full-stack",w.w],x.w,x.d).h(0,w.a.d),u=v==null?null:$.a3.au$.x.h(0,v)
 if(u==null)return
-C.a_E(u,0.24,D.my,D.dU,D.uw)},
-C(d){var w,v,u,t,s,r,q,p,o,n,m,l=this,k=null,j=C.v(d).ax,i=C.aM(d,D.ac,x.x).w.a.a<400,h=i?16:24,g=C.bS(d,D.aY,x.F)
+C.a_F(u,0.24,D.my,D.dU,D.ux)},
+C(d){var w,v,u,t,s,r,q,p,o,n,m,l=this,k=null,j=C.v(d).ax,i=C.aN(d,D.ac,x.x).w.a.a<400,h=i?16:24,g=C.bS(d,D.aY,x.F)
 g.toString
-w=B.bj5(d)
+w=B.bj9(d)
 C.v(d)
 v=[l.e,l.f,l.r,l.w]
 u=w.gfg()
 t=C.v(d).ax.a===D.K?D.bR:D.bE
 s=(C.v(d).ax.a===D.K?D.bR:D.bE).af(0.96)
-r=C.e2(!1,k,k,k,C.cf(D.iJ,j.b,k,k),k,k,new B.aRy(d),k,k,k,g.gHX())
+r=C.e3(!1,k,k,k,C.cf(D.iJ,j.b,k,k),k,k,new B.aRC(d),k,k,k,g.gHZ())
 q=j.k3
-p=C.l(g.gIx(),k,k,k,k,C.bj().$2$color$fontWeight(q,D.R),k,k,k)
+p=C.l(g.gIz(),k,k,k,k,C.bj().$2$color$fontWeight(q,D.R),k,k,k)
 o=x.u
 n=C.b([],o)
 l.a.toString
-s=C.Qy(n,s,k,r,D.q,p)
-r=w.gUg()
-r=C.b([C.l(r,k,k,k,k,C.bj().$4$color$fontSize$fontWeight$height(q,i?22:26,D.Y,1.2),k,k,k),D.at,C.l(w.gUa(),k,k,k,k,C.bj().$3$color$fontSize$height(q.af(0.82),14,1.5),k,k,k),D.D,C.l(w.gUb(),k,k,k,k,C.bj().$3$color$fontSize$height(q.af(0.8),13.6,1.5),k,k,k),D.bM,C.l(w.gVB(),k,k,k,k,C.bj().$3$color$fontSize$fontWeight(q,18,D.Y),k,k,k),D.at],o)
-for(m=0;w.gtS(),m<15;++m){i=C.b([],o)
+s=C.Qz(n,s,k,r,D.q,p)
+r=w.gUj()
+r=C.b([C.l(r,k,k,k,k,C.bj().$4$color$fontSize$fontWeight$height(q,i?22:26,D.Y,1.2),k,k,k),D.at,C.l(w.gUd(),k,k,k,k,C.bj().$3$color$fontSize$height(q.af(0.82),14,1.5),k,k,k),D.D,C.l(w.gUe(),k,k,k,k,C.bj().$3$color$fontSize$height(q.af(0.8),13.6,1.5),k,k,k),D.bM,C.l(w.gVE(),k,k,k,k,C.bj().$3$color$fontSize$fontWeight(q,18,D.Y),k,k,k),D.at],o)
+for(m=0;w.gtU(),m<15;++m){i=C.b([],o)
 if(m===4)i.push(D.D)
 q=m<4?v[m]:k
-p=w.gRi()
-i.push(new B.ac2(w.gtS()[m].a,w.gtS()[m].b,w.gtS()[m].c,p,q))
-D.b.R(r,i)}return C.aB(k,k,k,C.h8(s,t,new C.k7(C.ew(C.d0(new C.cl(A.P5,C.ak(r,D.E,D.j,D.k),k),k,k),l.d,new C.V(h,16,h,28),D.a3),k),k,k,k,k),!1,k,k,!1,k,!1,k,k,k,k,k,k,k,k,u,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,D.p,k)}}
-B.ac2.prototype={
+p=w.gRl()
+i.push(new B.ac3(w.gtU()[m].a,w.gtU()[m].b,w.gtU()[m].c,p,q))
+D.b.R(r,i)}return C.aB(k,k,k,C.ha(s,t,new C.k7(C.ey(C.d_(new C.cl(A.P9,C.ak(r,D.E,D.j,D.k),k),k,k),l.d,new C.V(h,16,h,28),D.a3),k),k,k,k,k),!1,k,k,!1,k,!1,k,k,k,k,k,k,k,k,u,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,D.p,k)}}
+B.ac3.prototype={
 C(d){var w,v,u,t,s,r=this,q=null,p=C.v(d).ax,o=p.RG
 o=(o==null?p.k2:o).af(0.55)
 w=C.bp(14)
@@ -115,32 +115,32 @@ u=p.b
 t=x.u
 s=C.b([C.l(r.c,q,q,q,q,C.bj().$3$color$fontSize$fontWeight(u,15.5,D.R),q,q,q),D.ai,D.mO,C.l(r.f,q,q,q,q,C.bj().$4$color$fontSize$fontWeight$height(u.af(0.9),12.8,D.R,1.4),q,q,q),C.l(r.d,q,q,q,q,C.bj().$3$color$fontSize$height(p.k3.af(0.84),12.8,1.45),q,q,q)],t)
 D.b.R(s,C.b([D.D,C.l(r.e,q,q,q,q,C.bj().$4$color$fontSize$fontWeight$height(u.af(0.92),12.8,D.a0,1.45),q,q,q)],t))
-return new C.a1(D.ol,C.cs(new C.a1(A.Vf,C.ak(s,D.E,D.j,D.k),q),new C.bk(o,q,v,w,q,q,D.F),D.a9),q)}}
+return new C.a1(D.ol,C.cs(new C.a1(A.Vi,C.ak(s,D.E,D.j,D.k),q),new C.bk(o,q,v,w,q,q,D.F),D.a9),q)}}
 var z=a.updateTypes([])
-B.aRz.prototype={
-$1(d){return this.a.azV()},
+B.aRD.prototype={
+$1(d){return this.a.azX()},
 $S:2}
-B.aRy.prototype={
-$0(){return C.bG(this.a,!1).aMd(new B.aRx())},
+B.aRC.prototype={
+$0(){return C.bG(this.a,!1).aMf(new B.aRB())},
 $S:0}
-B.aRx.prototype={
-$1(d){return d.gw9()},
+B.aRB.prototype={
+$1(d){return d.gwb()},
 $S:735};(function inheritance(){var w=a.inheritMany,v=a.inherit
-w(C.P,[B.cb,B.ayS])
-w(B.ayS,[B.aR8,B.aR6,B.aR7])
+w(C.P,[B.cb,B.ayW])
+w(B.ayW,[B.aRc,B.aRa,B.aRb])
 v(B.qS,C.S)
-v(B.ac3,C.U)
-w(C.kC,[B.aRz,B.aRx])
-v(B.aRy,C.kD)
-v(B.ac2,C.W)})()
-C.wo(b.typeUniverse,JSON.parse('{"qS":{"S":[],"c":[]},"ac3":{"U":["qS"]},"ac2":{"W":[],"c":[]}}'))
+v(B.ac4,C.U)
+w(C.kC,[B.aRD,B.aRB])
+v(B.aRC,C.kD)
+v(B.ac3,C.W)})()
+C.wo(b.typeUniverse,JSON.parse('{"qS":{"S":[],"c":[]},"ac4":{"U":["qS"]},"ac3":{"W":[],"c":[]}}'))
 var y={c:"Parceiros tecnol\xf3gicos | Perfect Gest Dev"}
-var x={F:C.a_("hn"),d:C.a_("j7<U<S>>"),c:C.a_("u<cb>"),u:C.a_("u<c>"),z:C.a_("b1<U<S>>"),x:C.a_("hA"),w:C.a_("m"),h:C.a_("mN")};(function constants(){var w=a.makeConstList
-A.P5=new C.a0(0,760,0,1/0)
-A.Ru=new B.aR6()
-A.Rv=new B.aR7()
-A.Rw=new B.aR8()
-A.Vf=new C.V(14,14,14,15)
+var x={F:C.a_("hp"),d:C.a_("j7<U<S>>"),c:C.a_("u<cb>"),u:C.a_("u<c>"),z:C.a_("b1<U<S>>"),x:C.a_("hC"),w:C.a_("m"),h:C.a_("mP")};(function constants(){var w=a.makeConstList
+A.P9=new C.a0(0,760,0,1/0)
+A.Ry=new B.aRa()
+A.Rz=new B.aRb()
+A.RA=new B.aRc()
+A.Vi=new C.V(14,14,14,15)
 A.as_=new B.cb("Clean Arch","Aplicamos arquitetura limpa com separa\xe7\xe3o clara de responsabilidades, camadas desacopladas e componentes reutiliz\xe1veis. Isso acelera evolu\xe7\xe3o de produto, melhora testes e reduz custo de manuten\xe7\xe3o.","Exemplo pr\xe1tico: ao alterar uma regra de or\xe7amento, ajustamos somente a camada de dom\xednio sem quebrar interface ou integra\xe7\xf5es externas.")
 A.asd=new B.cb("Seguran\xe7a","Adotamos boas pr\xe1ticas de seguran\xe7a em autentica\xe7\xe3o, gest\xe3o de sess\xe3o, pol\xedticas de conte\xfado web e prote\xe7\xe3o de dados. O objetivo \xe9 reduzir risco operacional e elevar confian\xe7a em produ\xe7\xe3o.","Exemplo pr\xe1tico: protegemos rotas sens\xedveis com valida\xe7\xe3o de sess\xe3o e aplicamos CSP no web para bloquear scripts n\xe3o autorizados.")
 A.ary=new B.cb("Escala","Projetamos solu\xe7\xf5es para crescer com o neg\xf3cio, com foco em performance, observabilidade e integra\xe7\xe3o de servi\xe7os. A arquitetura \xe9 preparada para aumento de utilizadores e novos m\xf3dulos.","Exemplo pr\xe1tico: em campanhas sazonais, ampliamos servi\xe7os de API e cache sem refazer o app, mantendo estabilidade durante pico de acesso.")
@@ -189,4 +189,4 @@ A.as8=new B.cb("Analytics and consent (GA4)","Measurement with Google Analytics 
 A.arZ=new B.cb("Clean architecture and maintenance","We prioritize organized code, reusable components and separation of concerns to support continuous product evolution, fewer bugs and lower maintenance cost.","Practical example: a new subscription feature is added by reusing components and reducing QA effort.")
 A.arK=new B.cb("HTTP integrations and external services","We integrate external APIs and data services for real business flows, including back-end endpoints and observability services, ensuring operational reliability and metric-driven evolution.","Practical example: we monitor API latency and errors in production to act before customers are impacted.")
 A.aeR=w([A.arO,A.arz,A.arV,A.arT,A.arB,A.arM,A.arY,A.arQ,A.arI,A.as4,A.as5,A.arW,A.as8,A.arZ,A.arK],x.c)})()};
-(a=>{a["Fjh9/oBi9b9gHaTvi0SfchNQ8C4="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["gBoNQ8Ze3ZHHsB2nwTdVg/9q4tU="]=a.current})($__dart_deferred_initializers__);
