@@ -1,30 +1,30 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
 $__dart_deferred_initializers__.current=function(a,b,c,$){var C,D,B={
-bgU(d){switch(d.ae(x.h).r.f.gcU()){case"en":return A.Rk
-case"es":return A.Rl
-case"pt":default:return A.Rm}},
+bi3(d){switch(d.ab(x.h).r.f.gcZ()){case"en":return A.Ru
+case"es":return A.Rv
+case"pt":default:return A.Rw}},
 c9:function c9(d,e,f){this.a=d
 this.b=e
 this.c=f},
-axm:function axm(){},
-aPx:function aPx(){},
-aPv:function aPv(){},
-aPw:function aPw(){},
-bhm(d,e){return new B.qr(e,d,null)},
-qr:function qr(d,e,f){this.c=d
+axT:function axT(){},
+aQz:function aQz(){},
+aQx:function aQx(){},
+aQy:function aQy(){},
+biw(d,e){return new B.qx(e,d,null)},
+qx:function qx(d,e,f){this.c=d
 this.d=e
 this.a=f},
-aaK:function aaK(d,e,f,g,h){var _=this
+ab4:function ab4(d,e,f,g,h){var _=this
 _.d=d
 _.e=e
 _.f=f
 _.r=g
 _.w=h
 _.c=_.a=null},
-aPY:function aPY(d){this.a=d},
-aPX:function aPX(d){this.a=d},
-aPW:function aPW(){},
-aaJ:function aaJ(d,e,f,g,h){var _=this
+aR_:function aR_(d){this.a=d},
+aQZ:function aQZ(d){this.a=d},
+aQY:function aQY(){},
+ab3:function ab3(d,e,f,g,h){var _=this
 _.c=d
 _.d=e
 _.e=f
@@ -35,158 +35,158 @@ D=c[2]
 B=a.updateHolder(c[7],B)
 A=c[18]
 B.c9.prototype={}
-B.axm.prototype={}
-B.aPx.prototype={
-gfb(){return"Tecnologias Flutter e stack principal da Perfect Gest Dev"},
-gU0(){return"Stack Flutter e tecnologias da Perfect Gest Dev"},
-gTV(){return"Nossa estrat\xe9gia t\xe9cnica conecta arquitetura, dados, experi\xeancia de utiliza\xe7\xe3o e opera\xe7\xe3o cont\xednua. Cada componente abaixo foi pensado para funcionar em conjunto, reduzindo riscos e acelerando entregas com qualidade previs\xedvel."},
-gTW(){return"Fluxo integrado: base t\xe9cnica s\xf3lida -> dados confi\xe1veis -> experi\xeancia consistente -> opera\xe7\xe3o mensur\xe1vel. Assim, cada decis\xe3o refor\xe7a a pr\xf3xima etapa e mant\xe9m coer\xeancia entre discurso comercial e execu\xe7\xe3o de produto."},
-gVk(){return"Diferenciais do Portf\xf3lio"},
-gR3(){return"Conceito aplicado:"},
-gtO(){return A.ads}}
-B.aPv.prototype={
-gfb(){return"Flutter technologies and Perfect Gest Dev core stack"},
-gU0(){return"Flutter stack and Perfect Gest Dev technologies"},
-gTV(){return"Our technical strategy connects architecture, data, user experience and continuous operations. Each component below is designed to work together, reducing risk and accelerating predictable-quality delivery."},
-gTW(){return"Integrated flow: solid technical foundation -> reliable data -> consistent experience -> measurable operations. Each decision reinforces the next and keeps commercial narrative aligned with product execution."},
-gVk(){return"Portfolio differentiators"},
-gR3(){return"Applied concept:"},
-gtO(){return A.aea}}
-B.aPw.prototype={
-gfb(){return"Tecnologias Flutter y stack principal de Perfect Gest Dev"},
-gU0(){return"Stack Flutter y tecnologias de Perfect Gest Dev"},
-gTV(){return"Nuestra estrategia tecnica conecta arquitectura, datos, experiencia de uso y operacion continua. Cada componente debajo esta pensado para funcionar junto, reducir riesgos y acelerar entregas con calidad previsible."},
-gTW(){return"Flujo integrado: base tecnica solida -> datos fiables -> experiencia consistente -> operacion medible. Asi, cada decision refuerza la siguiente y mantiene coherencia entre discurso comercial y ejecucion de producto."},
-gVk(){return"Diferenciales del portafolio"},
-gR3(){return"Concepto aplicado:"},
-gtO(){return A.ae6}}
-B.qr.prototype={
-a6(){var w=null,v=x.z
-return new B.aaK(C.uB(0,w,w),new C.b0(w,v),new C.b0(w,v),new C.b0(w,v),new C.b0(w,v))}}
-B.aaK.prototype={
-ak(){this.aC()
-C.iK()
+B.axT.prototype={}
+B.aQz.prototype={
+gfe(){return"Tecnologias Flutter e stack principal da Perfect Gest Dev"},
+gUk(){return"Stack Flutter e tecnologias da Perfect Gest Dev"},
+gUe(){return"Nossa estrat\xe9gia t\xe9cnica conecta arquitetura, dados, experi\xeancia de utiliza\xe7\xe3o e opera\xe7\xe3o cont\xednua. Cada componente abaixo foi pensado para funcionar em conjunto, reduzindo riscos e acelerando entregas com qualidade previs\xedvel."},
+gUf(){return"Fluxo integrado: base t\xe9cnica s\xf3lida -> dados confi\xe1veis -> experi\xeancia consistente -> opera\xe7\xe3o mensur\xe1vel. Assim, cada decis\xe3o refor\xe7a a pr\xf3xima etapa e mant\xe9m coer\xeancia entre discurso comercial e execu\xe7\xe3o de produto."},
+gVE(){return"Diferenciais do Portf\xf3lio"},
+gRs(){return"Conceito aplicado:"},
+gtW(){return A.adQ}}
+B.aQx.prototype={
+gfe(){return"Flutter technologies and Perfect Gest Dev core stack"},
+gUk(){return"Flutter stack and Perfect Gest Dev technologies"},
+gUe(){return"Our technical strategy connects architecture, data, user experience and continuous operations. Each component below is designed to work together, reducing risk and accelerating predictable-quality delivery."},
+gUf(){return"Integrated flow: solid technical foundation -> reliable data -> consistent experience -> measurable operations. Each decision reinforces the next and keeps commercial narrative aligned with product execution."},
+gVE(){return"Portfolio differentiators"},
+gRs(){return"Applied concept:"},
+gtW(){return A.aey}}
+B.aQy.prototype={
+gfe(){return"Tecnologias Flutter y stack principal de Perfect Gest Dev"},
+gUk(){return"Stack Flutter y tecnologias de Perfect Gest Dev"},
+gUe(){return"Nuestra estrategia tecnica conecta arquitectura, datos, experiencia de uso y operacion continua. Cada componente debajo esta pensado para funcionar junto, reducir riesgos y acelerar entregas con calidad previsible."},
+gUf(){return"Flujo integrado: base tecnica solida -> datos fiables -> experiencia consistente -> operacion medible. Asi, cada decision refuerza la siguiente y mantiene coherencia entre discurso comercial y ejecucion de producto."},
+gVE(){return"Diferenciales del portafolio"},
+gRs(){return"Concepto aplicado:"},
+gtW(){return A.aeu}}
+B.qx.prototype={
+a5(){var w=null,v=x.z
+return new B.ab4(C.uM(0,w,w),new C.aV(w,v),new C.aV(w,v),new C.aV(w,v),new C.aV(w,v))}}
+B.ab4.prototype={
+aj(){this.aC()
+C.iN()
 C.dq("description","Parceiros tecnol\xf3gicos e stack Flutter da Perfect Gest Dev: Clean Architecture, seguran\xe7a, escala, integra\xe7\xf5es e opera\xe7\xe3o cont\xednua.")
 C.dq("keywords","Perfect Gest Dev, tecnologias, Flutter, Dart, Java, Gradle, SDK, integra\xe7\xf5es, arquitetura limpa, seguran\xe7a, escala")
 C.dq("robots","index, follow")
-C.cu("og:title",y.c)
-C.cu("og:description","Vis\xe3o t\xe9cnica do stack Perfect Gest Dev para mobile, web e desktop com foco em performance e previsibilidade.")
-C.cu("og:type","article")
-C.cu("og:locale","pt_BR")
+C.cz("og:title",y.c)
+C.cz("og:description","Vis\xe3o t\xe9cnica do stack Perfect Gest Dev para mobile, web e desktop com foco em performance e previsibilidade.")
+C.cz("og:type","article")
+C.cz("og:locale","pt_BR")
 b.G.document.title=y.c
-$.a2.k4$.push(new B.aPY(this))},
+$.a1.k4$.push(new B.aR_(this))},
 l(){this.d.l()
-C.r7()
-this.av()},
-azw(){var w=this,v=C.ae(["clean-arch",w.e,"seguranca",w.f,"escala",w.r,"full-stack",w.w],x.w,x.d).h(0,w.a.d),u=v==null?null:$.a2.au$.x.h(0,v)
+C.rc()
+this.az()},
+aA7(){var w=this,v=C.aa(["clean-arch",w.e,"seguranca",w.f,"escala",w.r,"full-stack",w.w],x.w,x.d).h(0,w.a.d),u=v==null?null:$.a1.av$.x.h(0,v)
 if(u==null)return
-C.Zm(u,0.24,D.mx,D.dU,D.ut)},
-B(d){var w,v,u,t,s,r,q,p,o,n,m,l=this,k=null,j=C.t(d).ax,i=C.aN(d,D.ac,x.x).w.a.a<400,h=i?16:24,g=C.bP(d,D.aY,x.F)
+C.Hw(u,0.24,D.ji,D.dW,D.uy)},
+A(d){var w,v,u,t,s,r,q,p,o,n,m,l=this,k=null,j=C.r(d).ax,i=C.aR(d,D.ad,x.x).w.a.a<400,h=i?16:24,g=C.bJ(d,D.aZ,x.F)
 g.toString
-w=B.bgU(d)
-C.t(d)
+w=B.bi3(d)
+C.r(d)
 v=[l.e,l.f,l.r,l.w]
-u=w.gfb()
-t=C.t(d).ax.a===D.K?D.bR:D.bE
-s=(C.t(d).ax.a===D.K?D.bR:D.bE).af(0.96)
-r=C.e0(!1,k,k,k,C.cd(D.iH,j.b,k,k),k,k,new B.aPX(d),k,k,k,g.gHL())
+u=w.gfe()
+t=C.r(d).ax.a===D.K?D.bV:D.bG
+s=(C.r(d).ax.a===D.K?D.bV:D.bG).af(0.96)
+r=C.dS(!1,k,k,k,C.ce(D.iJ,j.b,k,k),k,k,new B.aQZ(d),k,k,k,g.gI5())
 q=j.k3
-p=C.l(g.gIl(),k,k,k,k,C.bh().$2$color$fontWeight(q,D.R),k,k,k)
+p=C.k(g.gIG(),k,k,k,k,C.bi().$2$color$fontWeight(q,D.P),k,k,k)
 o=x.u
 n=C.b([],o)
 l.a.toString
-s=C.Pq(n,s,k,r,D.q,p)
-r=w.gU0()
-r=C.b([C.l(r,k,k,k,k,C.bh().$4$color$fontSize$fontWeight$height(q,i?22:26,D.Z,1.2),k,k,k),D.at,C.l(w.gTV(),k,k,k,k,C.bh().$3$color$fontSize$height(q.af(0.82),14,1.5),k,k,k),D.D,C.l(w.gTW(),k,k,k,k,C.bh().$3$color$fontSize$height(q.af(0.8),13.6,1.5),k,k,k),D.bM,C.l(w.gVk(),k,k,k,k,C.bh().$3$color$fontSize$fontWeight(q,18,D.Z),k,k,k),D.at],o)
-for(m=0;w.gtO(),m<15;++m){i=C.b([],o)
-if(m===4)i.push(D.D)
+s=C.Cn(n,s,k,r,D.r,p)
+r=w.gUk()
+r=C.b([C.k(r,k,k,k,k,C.bi().$4$color$fontSize$fontWeight$height(q,i?22:26,D.Y,1.2),k,k,k),D.av,C.k(w.gUe(),k,k,k,k,C.bi().$3$color$fontSize$height(q.af(0.82),14,1.5),k,k,k),D.C,C.k(w.gUf(),k,k,k,k,C.bi().$3$color$fontSize$height(q.af(0.8),13.6,1.5),k,k,k),D.bO,C.k(w.gVE(),k,k,k,k,C.bi().$3$color$fontSize$fontWeight(q,18,D.Y),k,k,k),D.av],o)
+for(m=0;w.gtW(),m<15;++m){i=C.b([],o)
+if(m===4)i.push(D.C)
 q=m<4?v[m]:k
-p=w.gR3()
-i.push(new B.aaJ(w.gtO()[m].a,w.gtO()[m].b,w.gtO()[m].c,p,q))
-D.b.S(r,i)}return C.aA(k,k,k,C.h6(s,t,new C.jY(C.et(C.cZ(new C.ci(A.OX,C.ak(r,D.F,D.j,D.k),k),k,k),l.d,new C.V(h,16,h,28),D.a3),k),k,k,k,k),!1,k,k,!1,k,!1,k,k,k,k,k,k,k,k,u,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,D.p,k)}}
-B.aaJ.prototype={
-B(d){var w,v,u,t,s,r=this,q=null,p=C.t(d).ax,o=p.RG
+p=w.gRs()
+i.push(new B.ab3(w.gtW()[m].a,w.gtW()[m].b,w.gtW()[m].c,p,q))
+D.b.S(r,i)}return C.av(k,k,k,C.fL(s,t,new C.k3(C.ek(C.cS(new C.ck(A.P6,C.ak(r,D.E,D.j,D.k),k),k,k),l.d,new C.V(h,16,h,28),D.a2),k),k,k,k,k),!1,k,k,!1,k,!1,k,k,k,k,k,k,k,k,u,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,D.p,k)}}
+B.ab3.prototype={
+A(d){var w,v,u,t,s,r=this,q=null,p=C.r(d).ax,o=p.RG
 o=(o==null?p.k2:o).af(0.55)
-w=C.bl(14)
+w=C.bp(14)
 v=p.ry
 if(v==null){v=p.p
-if(v==null)v=p.k3}v=C.dx(v.af(0.35),1)
+if(v==null)v=p.k3}v=C.dE(v.af(0.35),1)
 u=p.b
 t=x.u
-s=C.b([C.l(r.c,q,q,q,q,C.bh().$3$color$fontSize$fontWeight(u,15.5,D.R),q,q,q),D.ai,D.mN,C.l(r.f,q,q,q,q,C.bh().$4$color$fontSize$fontWeight$height(u.af(0.9),12.8,D.R,1.4),q,q,q),C.l(r.d,q,q,q,q,C.bh().$3$color$fontSize$height(p.k3.af(0.84),12.8,1.45),q,q,q)],t)
-D.b.S(s,C.b([D.D,C.l(r.e,q,q,q,q,C.bh().$4$color$fontSize$fontWeight$height(u.af(0.92),12.8,D.W,1.45),q,q,q)],t))
-return new C.a0(D.oj,C.cq(new C.a0(A.UZ,C.ak(s,D.F,D.j,D.k),q),new C.b8(o,q,v,w,q,q,D.E),D.a9),q)}}
+s=C.b([C.k(r.c,q,q,q,q,C.bi().$3$color$fontSize$fontWeight(u,15.5,D.P),q,q,q),D.ai,D.mT,C.k(r.f,q,q,q,q,C.bi().$4$color$fontSize$fontWeight$height(u.af(0.9),12.8,D.P,1.4),q,q,q),C.k(r.d,q,q,q,q,C.bi().$3$color$fontSize$height(p.k3.af(0.84),12.8,1.45),q,q,q)],t)
+D.b.S(s,C.b([D.C,C.k(r.e,q,q,q,q,C.bi().$4$color$fontSize$fontWeight$height(u.af(0.92),12.8,D.V,1.45),q,q,q)],t))
+return new C.Z(D.op,C.cu(new C.Z(A.Vg,C.ak(s,D.E,D.j,D.k),q),new C.be(o,q,v,w,q,q,D.F),D.a9),q)}}
 var z=a.updateTypes([])
-B.aPY.prototype={
-$1(d){return this.a.azw()},
+B.aR_.prototype={
+$1(d){return this.a.aA7()},
 $S:2}
-B.aPX.prototype={
-$0(){return C.bC(this.a,!1).aLL(new B.aPW())},
+B.aQZ.prototype={
+$0(){return C.bm(this.a,!1).aMB(new B.aQY())},
 $S:0}
-B.aPW.prototype={
-$1(d){return d.gw5()},
-$S:725};(function inheritance(){var w=a.inheritMany,v=a.inherit
-w(C.P,[B.c9,B.axm])
-w(B.axm,[B.aPx,B.aPv,B.aPw])
-v(B.qr,C.R)
-v(B.aaK,C.U)
-w(C.kt,[B.aPY,B.aPW])
-v(B.aPX,C.ku)
-v(B.aaJ,C.W)})()
-C.vM(b.typeUniverse,JSON.parse('{"qr":{"R":[],"c":[]},"aaK":{"U":["qr"]},"aaJ":{"W":[],"c":[]}}'))
+B.aQY.prototype={
+$1(d){return d.gwi()},
+$S:735};(function inheritance(){var w=a.inheritMany,v=a.inherit
+w(C.P,[B.c9,B.axT])
+w(B.axT,[B.aQz,B.aQx,B.aQy])
+v(B.qx,C.R)
+v(B.ab4,C.U)
+w(C.ky,[B.aR_,B.aQY])
+v(B.aQZ,C.kz)
+v(B.ab3,C.W)})()
+C.vY(b.typeUniverse,JSON.parse('{"qx":{"R":[],"c":[]},"ab4":{"U":["qx"]},"ab3":{"W":[],"c":[]}}'))
 var y={c:"Parceiros tecnol\xf3gicos | Perfect Gest Dev"}
-var x={F:C.a4("hi"),d:C.a4("iY<U<R>>"),c:C.a4("v<c9>"),u:C.a4("v<c>"),z:C.a4("b0<U<R>>"),x:C.a4("hu"),w:C.a4("m"),h:C.a4("mB")};(function constants(){var w=a.makeConstList
-A.OX=new C.a_(0,760,0,1/0)
-A.Rk=new B.aPv()
-A.Rl=new B.aPw()
-A.Rm=new B.aPx()
-A.UZ=new C.V(14,14,14,15)
-A.ar8=new B.c9("Clean Arch","Aplicamos arquitetura limpa com separa\xe7\xe3o clara de responsabilidades, camadas desacopladas e componentes reutiliz\xe1veis. Isso acelera evolu\xe7\xe3o de produto, melhora testes e reduz custo de manuten\xe7\xe3o.","Exemplo pr\xe1tico: ao alterar uma regra de or\xe7amento, ajustamos somente a camada de dom\xednio sem quebrar interface ou integra\xe7\xf5es externas.")
-A.arm=new B.c9("Seguran\xe7a","Adotamos boas pr\xe1ticas de seguran\xe7a em autentica\xe7\xe3o, gest\xe3o de sess\xe3o, pol\xedticas de conte\xfado web e prote\xe7\xe3o de dados. O objetivo \xe9 reduzir risco operacional e elevar confian\xe7a em produ\xe7\xe3o.","Exemplo pr\xe1tico: protegemos rotas sens\xedveis com valida\xe7\xe3o de sess\xe3o e aplicamos CSP no web para bloquear scripts n\xe3o autorizados.")
-A.aqH=new B.c9("Escala","Projetamos solu\xe7\xf5es para crescer com o neg\xf3cio, com foco em performance, observabilidade e integra\xe7\xe3o de servi\xe7os. A arquitetura \xe9 preparada para aumento de utilizadores e novos m\xf3dulos.","Exemplo pr\xe1tico: em campanhas sazonais, ampliamos servi\xe7os de API e cache sem refazer o app, mantendo estabilidade durante pico de acesso.")
-A.aqW=new B.c9("Full-Stack","Atuamos do front-end ao back-end, conectando Flutter, APIs, servi\xe7os de dados, integra\xe7\xf5es corporativas e automa\xe7\xe3o de build. Isso garante entregas consistentes em todo o ciclo do produto.","Exemplo pr\xe1tico: publicamos uma funcionalidade completa de venda, desde a tela mobile at\xe9 API, banco de dados e monitoramento.")
-A.ar0=new B.c9("Flutter + Dart (base multiplataforma)","Usamos Flutter como framework principal e Dart como linguagem para entregar uma base \xfanica de c\xf3digo com alta produtividade, consist\xeancia de interface e excelente performance em Android, iOS, Web e Desktop.","Exemplo pr\xe1tico: um mesmo m\xf3dulo de cadastro \xe9 compartilhado entre mobile e web, reduzindo retrabalho e tempo de lan\xe7amento.")
-A.ar2=new B.c9("Banco de dados offline (Dart/Flutter)","Para persist\xeancia local e uso sem internet, utilizamos SQLite (sqflite/drift), Isar e Hive. Essa camada local mant\xe9m performance, resposta r\xe1pida da interface e continuidade das opera\xe7\xf5es mesmo em cen\xe1rios com conectividade limitada.","Exemplo pr\xe1tico: t\xe9cnico em campo registra atendimento sem internet e o app mant\xe9m os dados locais at\xe9 a conex\xe3o voltar.")
-A.ar_=new B.c9("Banco de dados online (Dart/Flutter)","Para sincroniza\xe7\xe3o e dados em nuvem, trabalhamos com Cloud Firestore, Firebase Realtime Database e Supabase/PostgreSQL. Isso permite backup, atualiza\xe7\xe3o em tempo real e acesso multiutilizador com confiabilidade em produ\xe7\xe3o.","Exemplo pr\xe1tico: altera\xe7\xf5es no estoque feitas no painel web aparecem quase em tempo real no app da equipe comercial.")
-A.aro=new B.c9("Java (integra\xe7\xf5es e backend enterprise)","Utilizamos Java em integra\xe7\xf5es corporativas e servi\xe7os de apoio para ambientes que exigem robustez, seguran\xe7a e compatibilidade com ecossistemas enterprise, conectando aplica\xe7\xf5es Flutter a APIs e sistemas legados.","Exemplo pr\xe1tico: integra\xe7\xe3o com ERP legado para sincronizar pedidos e faturamento sem alterar o sistema principal do cliente.")
-A.aqQ=new B.c9("Gradle (build e automa\xe7\xe3o Android)","No Android, usamos Gradle para gerenciamento de depend\xeancias, variantes de build e automa\xe7\xe3o de pipeline. Isso melhora a previsibilidade de releases, organiza\xe7\xe3o de ambientes e qualidade cont\xednua de entrega.","Exemplo pr\xe1tico: geramos builds separados para homologa\xe7\xe3o e produ\xe7\xe3o com vari\xe1veis de ambiente e assinaturas distintas.")
-A.arb=new B.c9("SDKs de terceiros e integra\xe7\xf5es nativas","Integramos SDKs nativos e bibliotecas especializadas para recursos de neg\xf3cio como autentica\xe7\xe3o, pagamentos, analytics, notifica\xe7\xf5es e servi\xe7os propriet\xe1rios, mantendo estabilidade e desempenho em produ\xe7\xe3o.","Exemplo pr\xe1tico: adicionamos gateway de pagamento e autentica\xe7\xe3o biom\xe9trica mantendo UX fluida em Android e iOS.")
-A.ari=new B.c9("Material 3 e UI responsiva","Adotamos Material 3, LayoutBuilder e breakpoints responsivos para criar interfaces adapt\xe1veis a celulares, tablets e desktop. Isso melhora experi\xeancia do utilizador, reten\xe7\xe3o e m\xe9tricas de usabilidade.","Exemplo pr\xe1tico: a mesma jornada de compra se reorganiza automaticamente para tablet e desktop sem duplicar tela.")
-A.arn=new B.c9("Integra\xe7\xf5es web e SEO t\xe9cnico","Implementamos metatags din\xe2micas, Open Graph, canonical, robots.txt e sitemap.xml para melhorar rastreamento e indexa\xe7\xe3o no Google. Tamb\xe9m aplicamos boas pr\xe1ticas de seguran\xe7a com Content Security Policy e pol\xedticas de permiss\xf5es.","Exemplo pr\xe1tico: p\xe1gina de servi\xe7o ganha preview otimizado no WhatsApp e melhor posicionamento org\xe2nico no Google.")
-A.aqJ=new B.c9("Analytics e consentimento (GA4)","Medi\xe7\xe3o com Google Analytics 4 integrada ao fluxo de consentimento de cookies. Isso permite an\xe1lise de comportamento com respeito \xe0 privacidade e conformidade com pol\xedticas modernas de medi\xe7\xe3o.","Exemplo pr\xe1tico: funil de convers\xe3o registra apenas eventos consentidos e orienta ajustes de UX com base em dados reais.")
-A.aqP=new B.c9("Arquitetura limpa e manuten\xe7\xe3o","Priorizamos c\xf3digo organizado, componentes reutiliz\xe1veis e separa\xe7\xe3o de responsabilidades para facilitar evolu\xe7\xe3o cont\xednua do produto, redu\xe7\xe3o de bugs e menor custo de manuten\xe7\xe3o.","Exemplo pr\xe1tico: nova funcionalidade de assinatura \xe9 inclu\xedda reaproveitando componentes e reduzindo esfor\xe7o de QA.")
-A.arj=new B.c9("Integra\xe7\xf5es HTTP e servi\xe7os externos","Integramos APIs externas e servi\xe7os de dados para fluxos reais de neg\xf3cio, incluindo endpoints de back-end e servi\xe7os de observabilidade, garantindo confiabilidade operacional e evolu\xe7\xe3o orientada a m\xe9tricas.","Exemplo pr\xe1tico: monitoramos lat\xeancia e erro das APIs em produ\xe7\xe3o para agir r\xe1pido antes de impactar clientes.")
-A.ads=w([A.ar8,A.arm,A.aqH,A.aqW,A.ar0,A.ar2,A.ar_,A.aro,A.aqQ,A.arb,A.ari,A.arn,A.aqJ,A.aqP,A.arj],x.c)
-A.aqU=new B.c9("Clean Arch","Aplicamos arquitectura limpia con separacion clara de responsabilidades, capas desacopladas y componentes reutilizables. Esto acelera la evolucion del producto, mejora pruebas y reduce coste de mantenimiento.","Ejemplo practico: al cambiar una regla de presupuesto, ajustamos solo la capa de dominio sin romper la interfaz ni integraciones externas.")
-A.aqN=new B.c9("Seguridad","Adoptamos buenas practicas de seguridad en autenticacion, gestion de sesion, politicas de contenido web y proteccion de datos. El objetivo es reducir riesgo operativo y aumentar la confianza en produccion.","Ejemplo practico: protegemos rutas sensibles con validacion de sesion y aplicamos CSP en web para bloquear scripts no autorizados.")
-A.aqL=new B.c9("Escala","Disenamos soluciones para crecer con el negocio, con foco en rendimiento, observabilidad e integracion de servicios. La arquitectura esta preparada para mas usuarios y nuevos modulos.","Ejemplo practico: en campanas estacionales ampliamos API y cache sin rehacer la app, manteniendo estabilidad en picos de trafico.")
-A.ara=new B.c9("Full-Stack","Actuamos de front-end a back-end, conectando Flutter, APIs, servicios de datos, integraciones corporativas y automatizacion de build. Garantizamos entregas coherentes en todo el ciclo del producto.","Ejemplo practico: publicamos una funcionalidad completa de venta, desde la pantalla movil hasta API, base de datos y monitorizacion.")
-A.aqS=new B.c9("Flutter + Dart (base multiplataforma)","Usamos Flutter como framework principal y Dart como lenguaje para entregar una base unica de codigo con alta productividad, consistencia de interfaz y excelente rendimiento en Android, iOS, Web y Desktop.","Ejemplo practico: un mismo modulo de registro se comparte entre movil y web, reduciendo retrabajo y tiempo de lanzamiento.")
-A.arf=new B.c9("Base de datos offline (Dart/Flutter)","Para persistencia local y uso sin internet usamos SQLite (sqflite/drift), Isar y Hive. Esta capa local mantiene rendimiento, respuesta rapida de la interfaz y continuidad con conectividad limitada.","Ejemplo practico: un tecnico en campo registra atencion sin internet y la app conserva los datos locales hasta que vuelva la conexion.")
-A.ark=new B.c9("Base de datos online (Dart/Flutter)","Para sincronizacion y datos en la nube trabajamos con Cloud Firestore, Firebase Realtime Database y Supabase/PostgreSQL. Permite backup, actualizacion casi en tiempo real y acceso multiusuario fiable en produccion.","Ejemplo practico: cambios de stock hechos en el panel web aparecen casi en tiempo real en la app del equipo comercial.")
-A.arg=new B.c9("Java (integraciones y backend enterprise)","Utilizamos Java en integraciones corporativas y servicios de apoyo para entornos que exigen robustez, seguridad y compatibilidad con ecosistemas enterprise, conectando apps Flutter a APIs y sistemas legacy.","Ejemplo practico: integracion con ERP legacy para sincronizar pedidos y facturacion sin alterar el sistema principal del cliente.")
-A.arl=new B.c9("Gradle (build y automatizacion Android)","En Android usamos Gradle para dependencias, variantes de build y automatizacion de pipeline. Mejora la previsibilidad de releases, la organizacion de entornos y la calidad continua de entrega.","Ejemplo practico: generamos builds separados para homologacion y produccion con variables de entorno y firmas distintas.")
-A.ar9=new B.c9("SDKs de terceros e integraciones nativas","Integramos SDKs nativos y bibliotecas especializadas para negocio: autenticacion, pagos, analytics, notificaciones y servicios propietarios, manteniendo estabilidad y rendimiento en produccion.","Ejemplo practico: a\xf1adimos pasarela de pago y autenticacion biometrica manteniendo UX fluida en Android e iOS.")
-A.ar5=new B.c9("Material 3 y UI responsiva","Adoptamos Material 3, LayoutBuilder y breakpoints responsivos para interfaces adaptables a moviles, tablets y escritorio. Mejora la experiencia de usuario, retencion y metricas de usabilidad.","Ejemplo practico: la misma jornada de compra se reorganiza automaticamente en tablet y escritorio sin duplicar pantallas.")
-A.aqO=new B.c9("Integraciones web y SEO tecnico","Implementamos metatags dinamicas, Open Graph, canonical, robots.txt y sitemap.xml para mejorar rastreo e indexacion en Google. Tambien aplicamos buenas practicas con Content Security Policy y politicas de permisos.","Ejemplo practico: la pagina de servicio gana preview optimizado en WhatsApp y mejor posicionamiento organico en Google.")
-A.aqM=new B.c9("Analytics y consentimiento (GA4)","Medicion con Google Analytics 4 integrada al flujo de consentimiento de cookies. Permite analisis de comportamiento respetando la privacidad y politicas modernas de medicion.","Ejemplo practico: el embudo de conversion registra solo eventos consentidos y orienta mejoras de UX con datos reales.")
-A.aqY=new B.c9("Arquitectura limpia y mantenimiento","Priorizamos codigo organizado, componentes reutilizables y separacion de responsabilidades para evolucion continua del producto, menos errores y menor coste de mantenimiento.","Ejemplo practico: una nueva funcionalidad de suscripcion se anade reutilizando componentes y reduciendo esfuerzo de QA.")
-A.arc=new B.c9("Integraciones HTTP y servicios externos","Integramos APIs externas y servicios de datos para flujos reales de negocio, incluyendo endpoints de back-end y observabilidad, garantizando fiabilidad operativa y evolucion guiada por metricas.","Ejemplo practico: monitorizamos latencia y error de APIs en produccion para actuar antes de impactar a clientes.")
-A.ae6=w([A.aqU,A.aqN,A.aqL,A.ara,A.aqS,A.arf,A.ark,A.arg,A.arl,A.ar9,A.ar5,A.aqO,A.aqM,A.aqY,A.arc],x.c)
-A.aqX=new B.c9("Clean Arch","We apply clean architecture with clear separation of concerns, decoupled layers and reusable components. This speeds product evolution, improves testing and lowers maintenance cost.","Practical example: when a quoting rule changes, we adjust only the domain layer without breaking the UI or external integrations.")
-A.aqI=new B.c9("Security","We adopt security best practices for authentication, session management, web content policies and data protection. The goal is to reduce operational risk and increase production trust.","Practical example: we protect sensitive routes with session validation and apply CSP on the web to block unauthorized scripts.")
-A.ar3=new B.c9("Scale","We design solutions to grow with the business, focusing on performance, observability and service integration. Architecture is ready for more users and new modules.","Practical example: in seasonal campaigns we scale API and cache services without rebuilding the app, keeping stability at peak traffic.")
-A.ar1=new B.c9("Full-Stack","We work from front-end to back-end, connecting Flutter, APIs, data services, enterprise integrations and build automation. This keeps delivery consistent across the product lifecycle.","Practical example: we ship a full sales feature from the mobile screen to API, database and monitoring.")
-A.aqK=new B.c9("Flutter + Dart (cross-platform foundation)","We use Flutter as the main framework and Dart as the language to deliver a single codebase with high productivity, consistent UI and strong performance on Android, iOS, Web and Desktop.","Practical example: one registration module is shared between mobile and web, reducing rework and release time.")
-A.aqV=new B.c9("Offline databases (Dart/Flutter)","For local persistence and offline use we rely on SQLite (sqflite/drift), Isar and Hive. This local layer keeps performance, fast UI response and continuity even with limited connectivity.","Practical example: a field technician logs service offline and the app keeps data local until connectivity returns.")
-A.ar6=new B.c9("Online databases (Dart/Flutter)","For sync and cloud data we work with Cloud Firestore, Firebase Realtime Database and Supabase/PostgreSQL. This enables backup, near real-time updates and multi-user access in production.","Practical example: stock changes made in the web panel appear almost in real time in the sales team app.")
-A.aqZ=new B.c9("Java (enterprise integrations and backend)","We use Java for corporate integrations and supporting services where robustness, security and enterprise ecosystem compatibility matter, connecting Flutter apps to APIs and legacy systems.","Practical example: integration with a legacy ERP to sync orders and billing without changing the client\u2019s core system.")
-A.aqR=new B.c9("Gradle (Android build and automation)","On Android we use Gradle for dependency management, build variants and pipeline automation. This improves release predictability, environment organization and continuous delivery quality.","Practical example: separate staging and production builds with environment variables and distinct signing configs.")
-A.ard=new B.c9("Third-party SDKs and native integrations","We integrate native SDKs and specialized libraries for business features such as authentication, payments, analytics, notifications and proprietary services, keeping stability and performance in production.","Practical example: we add a payment gateway and biometric authentication while keeping fluid UX on Android and iOS.")
-A.are=new B.c9("Material 3 and responsive UI","We adopt Material 3, LayoutBuilder and responsive breakpoints for interfaces that adapt to phones, tablets and desktop. This improves UX, retention and usability metrics.","Practical example: the same purchase journey rearranges automatically for tablet and desktop without duplicating screens.")
-A.ar4=new B.c9("Web integrations and technical SEO","We implement dynamic meta tags, Open Graph, canonical, robots.txt and sitemap.xml to improve crawling and indexing on Google. We also apply security practices such as Content Security Policy and permission policies.","Practical example: a service page gets an optimized WhatsApp preview and better organic positioning on Google.")
-A.arh=new B.c9("Analytics and consent (GA4)","Measurement with Google Analytics 4 integrated into the cookie consent flow. This enables behavioral analysis with respect for privacy and alignment with modern measurement policies.","Practical example: the conversion funnel records only consented events and guides UX improvements with real data.")
-A.ar7=new B.c9("Clean architecture and maintenance","We prioritize organized code, reusable components and separation of concerns to support continuous product evolution, fewer bugs and lower maintenance cost.","Practical example: a new subscription feature is added by reusing components and reducing QA effort.")
-A.aqT=new B.c9("HTTP integrations and external services","We integrate external APIs and data services for real business flows, including back-end endpoints and observability services, ensuring operational reliability and metric-driven evolution.","Practical example: we monitor API latency and errors in production to act before customers are impacted.")
-A.aea=w([A.aqX,A.aqI,A.ar3,A.ar1,A.aqK,A.aqV,A.ar6,A.aqZ,A.aqR,A.ard,A.are,A.ar4,A.arh,A.ar7,A.aqT],x.c)})()};
-(a=>{a["W4agsmR9g5Jds+whq65xuRuAkW4="]=a.current})($__dart_deferred_initializers__);
+var x={F:C.a5("hn"),d:C.a5("j0<U<R>>"),c:C.a5("w<c9>"),u:C.a5("w<c>"),z:C.a5("aV<U<R>>"),x:C.a5("hz"),w:C.a5("m"),h:C.a5("mH")};(function constants(){var w=a.makeConstList
+A.P6=new C.a_(0,760,0,1/0)
+A.Ru=new B.aQx()
+A.Rv=new B.aQy()
+A.Rw=new B.aQz()
+A.Vg=new C.V(14,14,14,15)
+A.arG=new B.c9("Clean Arch","Aplicamos arquitetura limpa com separa\xe7\xe3o clara de responsabilidades, camadas desacopladas e componentes reutiliz\xe1veis. Isso acelera evolu\xe7\xe3o de produto, melhora testes e reduz custo de manuten\xe7\xe3o.","Exemplo pr\xe1tico: ao alterar uma regra de or\xe7amento, ajustamos somente a camada de dom\xednio sem quebrar interface ou integra\xe7\xf5es externas.")
+A.arU=new B.c9("Seguran\xe7a","Adotamos boas pr\xe1ticas de seguran\xe7a em autentica\xe7\xe3o, gest\xe3o de sess\xe3o, pol\xedticas de conte\xfado web e prote\xe7\xe3o de dados. O objetivo \xe9 reduzir risco operacional e elevar confian\xe7a em produ\xe7\xe3o.","Exemplo pr\xe1tico: protegemos rotas sens\xedveis com valida\xe7\xe3o de sess\xe3o e aplicamos CSP no web para bloquear scripts n\xe3o autorizados.")
+A.are=new B.c9("Escala","Projetamos solu\xe7\xf5es para crescer com o neg\xf3cio, com foco em performance, observabilidade e integra\xe7\xe3o de servi\xe7os. A arquitetura \xe9 preparada para aumento de utilizadores e novos m\xf3dulos.","Exemplo pr\xe1tico: em campanhas sazonais, ampliamos servi\xe7os de API e cache sem refazer o app, mantendo estabilidade durante pico de acesso.")
+A.art=new B.c9("Full-Stack","Atuamos do front-end ao back-end, conectando Flutter, APIs, servi\xe7os de dados, integra\xe7\xf5es corporativas e automa\xe7\xe3o de build. Isso garante entregas consistentes em todo o ciclo do produto.","Exemplo pr\xe1tico: publicamos uma funcionalidade completa de venda, desde a tela mobile at\xe9 API, banco de dados e monitoramento.")
+A.ary=new B.c9("Flutter + Dart (base multiplataforma)","Usamos Flutter como framework principal e Dart como linguagem para entregar uma base \xfanica de c\xf3digo com alta produtividade, consist\xeancia de interface e excelente performance em Android, iOS, Web e Desktop.","Exemplo pr\xe1tico: um mesmo m\xf3dulo de cadastro \xe9 compartilhado entre mobile e web, reduzindo retrabalho e tempo de lan\xe7amento.")
+A.arA=new B.c9("Banco de dados offline (Dart/Flutter)","Para persist\xeancia local e uso sem internet, utilizamos SQLite (sqflite/drift), Isar e Hive. Essa camada local mant\xe9m performance, resposta r\xe1pida da interface e continuidade das opera\xe7\xf5es mesmo em cen\xe1rios com conectividade limitada.","Exemplo pr\xe1tico: t\xe9cnico em campo registra atendimento sem internet e o app mant\xe9m os dados locais at\xe9 a conex\xe3o voltar.")
+A.arx=new B.c9("Banco de dados online (Dart/Flutter)","Para sincroniza\xe7\xe3o e dados em nuvem, trabalhamos com Cloud Firestore, Firebase Realtime Database e Supabase/PostgreSQL. Isso permite backup, atualiza\xe7\xe3o em tempo real e acesso multiutilizador com confiabilidade em produ\xe7\xe3o.","Exemplo pr\xe1tico: altera\xe7\xf5es no estoque feitas no painel web aparecem quase em tempo real no app da equipe comercial.")
+A.arW=new B.c9("Java (integra\xe7\xf5es e backend enterprise)","Utilizamos Java em integra\xe7\xf5es corporativas e servi\xe7os de apoio para ambientes que exigem robustez, seguran\xe7a e compatibilidade com ecossistemas enterprise, conectando aplica\xe7\xf5es Flutter a APIs e sistemas legados.","Exemplo pr\xe1tico: integra\xe7\xe3o com ERP legado para sincronizar pedidos e faturamento sem alterar o sistema principal do cliente.")
+A.arn=new B.c9("Gradle (build e automa\xe7\xe3o Android)","No Android, usamos Gradle para gerenciamento de depend\xeancias, variantes de build e automa\xe7\xe3o de pipeline. Isso melhora a previsibilidade de releases, organiza\xe7\xe3o de ambientes e qualidade cont\xednua de entrega.","Exemplo pr\xe1tico: geramos builds separados para homologa\xe7\xe3o e produ\xe7\xe3o com vari\xe1veis de ambiente e assinaturas distintas.")
+A.arJ=new B.c9("SDKs de terceiros e integra\xe7\xf5es nativas","Integramos SDKs nativos e bibliotecas especializadas para recursos de neg\xf3cio como autentica\xe7\xe3o, pagamentos, analytics, notifica\xe7\xf5es e servi\xe7os propriet\xe1rios, mantendo estabilidade e desempenho em produ\xe7\xe3o.","Exemplo pr\xe1tico: adicionamos gateway de pagamento e autentica\xe7\xe3o biom\xe9trica mantendo UX fluida em Android e iOS.")
+A.arQ=new B.c9("Material 3 e UI responsiva","Adotamos Material 3, LayoutBuilder e breakpoints responsivos para criar interfaces adapt\xe1veis a celulares, tablets e desktop. Isso melhora experi\xeancia do utilizador, reten\xe7\xe3o e m\xe9tricas de usabilidade.","Exemplo pr\xe1tico: a mesma jornada de compra se reorganiza automaticamente para tablet e desktop sem duplicar tela.")
+A.arV=new B.c9("Integra\xe7\xf5es web e SEO t\xe9cnico","Implementamos metatags din\xe2micas, Open Graph, canonical, robots.txt e sitemap.xml para melhorar rastreamento e indexa\xe7\xe3o no Google. Tamb\xe9m aplicamos boas pr\xe1ticas de seguran\xe7a com Content Security Policy e pol\xedticas de permiss\xf5es.","Exemplo pr\xe1tico: p\xe1gina de servi\xe7o ganha preview otimizado no WhatsApp e melhor posicionamento org\xe2nico no Google.")
+A.arg=new B.c9("Analytics e consentimento (GA4)","Medi\xe7\xe3o com Google Analytics 4 integrada ao fluxo de consentimento de cookies. Isso permite an\xe1lise de comportamento com respeito \xe0 privacidade e conformidade com pol\xedticas modernas de medi\xe7\xe3o.","Exemplo pr\xe1tico: funil de convers\xe3o registra apenas eventos consentidos e orienta ajustes de UX com base em dados reais.")
+A.arm=new B.c9("Arquitetura limpa e manuten\xe7\xe3o","Priorizamos c\xf3digo organizado, componentes reutiliz\xe1veis e separa\xe7\xe3o de responsabilidades para facilitar evolu\xe7\xe3o cont\xednua do produto, redu\xe7\xe3o de bugs e menor custo de manuten\xe7\xe3o.","Exemplo pr\xe1tico: nova funcionalidade de assinatura \xe9 inclu\xedda reaproveitando componentes e reduzindo esfor\xe7o de QA.")
+A.arR=new B.c9("Integra\xe7\xf5es HTTP e servi\xe7os externos","Integramos APIs externas e servi\xe7os de dados para fluxos reais de neg\xf3cio, incluindo endpoints de back-end e servi\xe7os de observabilidade, garantindo confiabilidade operacional e evolu\xe7\xe3o orientada a m\xe9tricas.","Exemplo pr\xe1tico: monitoramos lat\xeancia e erro das APIs em produ\xe7\xe3o para agir r\xe1pido antes de impactar clientes.")
+A.adQ=w([A.arG,A.arU,A.are,A.art,A.ary,A.arA,A.arx,A.arW,A.arn,A.arJ,A.arQ,A.arV,A.arg,A.arm,A.arR],x.c)
+A.arr=new B.c9("Clean Arch","Aplicamos arquitectura limpia con separacion clara de responsabilidades, capas desacopladas y componentes reutilizables. Esto acelera la evolucion del producto, mejora pruebas y reduce coste de mantenimiento.","Ejemplo practico: al cambiar una regla de presupuesto, ajustamos solo la capa de dominio sin romper la interfaz ni integraciones externas.")
+A.ark=new B.c9("Seguridad","Adoptamos buenas practicas de seguridad en autenticacion, gestion de sesion, politicas de contenido web y proteccion de datos. El objetivo es reducir riesgo operativo y aumentar la confianza en produccion.","Ejemplo practico: protegemos rutas sensibles con validacion de sesion y aplicamos CSP en web para bloquear scripts no autorizados.")
+A.ari=new B.c9("Escala","Disenamos soluciones para crecer con el negocio, con foco en rendimiento, observabilidad e integracion de servicios. La arquitectura esta preparada para mas usuarios y nuevos modulos.","Ejemplo practico: en campanas estacionales ampliamos API y cache sin rehacer la app, manteniendo estabilidad en picos de trafico.")
+A.arI=new B.c9("Full-Stack","Actuamos de front-end a back-end, conectando Flutter, APIs, servicios de datos, integraciones corporativas y automatizacion de build. Garantizamos entregas coherentes en todo el ciclo del producto.","Ejemplo practico: publicamos una funcionalidad completa de venta, desde la pantalla movil hasta API, base de datos y monitorizacion.")
+A.arp=new B.c9("Flutter + Dart (base multiplataforma)","Usamos Flutter como framework principal y Dart como lenguaje para entregar una base unica de codigo con alta productividad, consistencia de interfaz y excelente rendimiento en Android, iOS, Web y Desktop.","Ejemplo practico: un mismo modulo de registro se comparte entre movil y web, reduciendo retrabajo y tiempo de lanzamiento.")
+A.arN=new B.c9("Base de datos offline (Dart/Flutter)","Para persistencia local y uso sin internet usamos SQLite (sqflite/drift), Isar y Hive. Esta capa local mantiene rendimiento, respuesta rapida de la interfaz y continuidad con conectividad limitada.","Ejemplo practico: un tecnico en campo registra atencion sin internet y la app conserva los datos locales hasta que vuelva la conexion.")
+A.arS=new B.c9("Base de datos online (Dart/Flutter)","Para sincronizacion y datos en la nube trabajamos con Cloud Firestore, Firebase Realtime Database y Supabase/PostgreSQL. Permite backup, actualizacion casi en tiempo real y acceso multiusuario fiable en produccion.","Ejemplo practico: cambios de stock hechos en el panel web aparecen casi en tiempo real en la app del equipo comercial.")
+A.arO=new B.c9("Java (integraciones y backend enterprise)","Utilizamos Java en integraciones corporativas y servicios de apoyo para entornos que exigen robustez, seguridad y compatibilidad con ecosistemas enterprise, conectando apps Flutter a APIs y sistemas legacy.","Ejemplo practico: integracion con ERP legacy para sincronizar pedidos y facturacion sin alterar el sistema principal del cliente.")
+A.arT=new B.c9("Gradle (build y automatizacion Android)","En Android usamos Gradle para dependencias, variantes de build y automatizacion de pipeline. Mejora la previsibilidad de releases, la organizacion de entornos y la calidad continua de entrega.","Ejemplo practico: generamos builds separados para homologacion y produccion con variables de entorno y firmas distintas.")
+A.arH=new B.c9("SDKs de terceros e integraciones nativas","Integramos SDKs nativos y bibliotecas especializadas para negocio: autenticacion, pagos, analytics, notificaciones y servicios propietarios, manteniendo estabilidad y rendimiento en produccion.","Ejemplo practico: a\xf1adimos pasarela de pago y autenticacion biometrica manteniendo UX fluida en Android e iOS.")
+A.arD=new B.c9("Material 3 y UI responsiva","Adoptamos Material 3, LayoutBuilder y breakpoints responsivos para interfaces adaptables a moviles, tablets y escritorio. Mejora la experiencia de usuario, retencion y metricas de usabilidad.","Ejemplo practico: la misma jornada de compra se reorganiza automaticamente en tablet y escritorio sin duplicar pantallas.")
+A.arl=new B.c9("Integraciones web y SEO tecnico","Implementamos metatags dinamicas, Open Graph, canonical, robots.txt y sitemap.xml para mejorar rastreo e indexacion en Google. Tambien aplicamos buenas practicas con Content Security Policy y politicas de permisos.","Ejemplo practico: la pagina de servicio gana preview optimizado en WhatsApp y mejor posicionamiento organico en Google.")
+A.arj=new B.c9("Analytics y consentimiento (GA4)","Medicion con Google Analytics 4 integrada al flujo de consentimiento de cookies. Permite analisis de comportamiento respetando la privacidad y politicas modernas de medicion.","Ejemplo practico: el embudo de conversion registra solo eventos consentidos y orienta mejoras de UX con datos reales.")
+A.arv=new B.c9("Arquitectura limpia y mantenimiento","Priorizamos codigo organizado, componentes reutilizables y separacion de responsabilidades para evolucion continua del producto, menos errores y menor coste de mantenimiento.","Ejemplo practico: una nueva funcionalidad de suscripcion se anade reutilizando componentes y reduciendo esfuerzo de QA.")
+A.arK=new B.c9("Integraciones HTTP y servicios externos","Integramos APIs externas y servicios de datos para flujos reales de negocio, incluyendo endpoints de back-end y observabilidad, garantizando fiabilidad operativa y evolucion guiada por metricas.","Ejemplo practico: monitorizamos latencia y error de APIs en produccion para actuar antes de impactar a clientes.")
+A.aeu=w([A.arr,A.ark,A.ari,A.arI,A.arp,A.arN,A.arS,A.arO,A.arT,A.arH,A.arD,A.arl,A.arj,A.arv,A.arK],x.c)
+A.aru=new B.c9("Clean Arch","We apply clean architecture with clear separation of concerns, decoupled layers and reusable components. This speeds product evolution, improves testing and lowers maintenance cost.","Practical example: when a quoting rule changes, we adjust only the domain layer without breaking the UI or external integrations.")
+A.arf=new B.c9("Security","We adopt security best practices for authentication, session management, web content policies and data protection. The goal is to reduce operational risk and increase production trust.","Practical example: we protect sensitive routes with session validation and apply CSP on the web to block unauthorized scripts.")
+A.arB=new B.c9("Scale","We design solutions to grow with the business, focusing on performance, observability and service integration. Architecture is ready for more users and new modules.","Practical example: in seasonal campaigns we scale API and cache services without rebuilding the app, keeping stability at peak traffic.")
+A.arz=new B.c9("Full-Stack","We work from front-end to back-end, connecting Flutter, APIs, data services, enterprise integrations and build automation. This keeps delivery consistent across the product lifecycle.","Practical example: we ship a full sales feature from the mobile screen to API, database and monitoring.")
+A.arh=new B.c9("Flutter + Dart (cross-platform foundation)","We use Flutter as the main framework and Dart as the language to deliver a single codebase with high productivity, consistent UI and strong performance on Android, iOS, Web and Desktop.","Practical example: one registration module is shared between mobile and web, reducing rework and release time.")
+A.ars=new B.c9("Offline databases (Dart/Flutter)","For local persistence and offline use we rely on SQLite (sqflite/drift), Isar and Hive. This local layer keeps performance, fast UI response and continuity even with limited connectivity.","Practical example: a field technician logs service offline and the app keeps data local until connectivity returns.")
+A.arE=new B.c9("Online databases (Dart/Flutter)","For sync and cloud data we work with Cloud Firestore, Firebase Realtime Database and Supabase/PostgreSQL. This enables backup, near real-time updates and multi-user access in production.","Practical example: stock changes made in the web panel appear almost in real time in the sales team app.")
+A.arw=new B.c9("Java (enterprise integrations and backend)","We use Java for corporate integrations and supporting services where robustness, security and enterprise ecosystem compatibility matter, connecting Flutter apps to APIs and legacy systems.","Practical example: integration with a legacy ERP to sync orders and billing without changing the client\u2019s core system.")
+A.aro=new B.c9("Gradle (Android build and automation)","On Android we use Gradle for dependency management, build variants and pipeline automation. This improves release predictability, environment organization and continuous delivery quality.","Practical example: separate staging and production builds with environment variables and distinct signing configs.")
+A.arL=new B.c9("Third-party SDKs and native integrations","We integrate native SDKs and specialized libraries for business features such as authentication, payments, analytics, notifications and proprietary services, keeping stability and performance in production.","Practical example: we add a payment gateway and biometric authentication while keeping fluid UX on Android and iOS.")
+A.arM=new B.c9("Material 3 and responsive UI","We adopt Material 3, LayoutBuilder and responsive breakpoints for interfaces that adapt to phones, tablets and desktop. This improves UX, retention and usability metrics.","Practical example: the same purchase journey rearranges automatically for tablet and desktop without duplicating screens.")
+A.arC=new B.c9("Web integrations and technical SEO","We implement dynamic meta tags, Open Graph, canonical, robots.txt and sitemap.xml to improve crawling and indexing on Google. We also apply security practices such as Content Security Policy and permission policies.","Practical example: a service page gets an optimized WhatsApp preview and better organic positioning on Google.")
+A.arP=new B.c9("Analytics and consent (GA4)","Measurement with Google Analytics 4 integrated into the cookie consent flow. This enables behavioral analysis with respect for privacy and alignment with modern measurement policies.","Practical example: the conversion funnel records only consented events and guides UX improvements with real data.")
+A.arF=new B.c9("Clean architecture and maintenance","We prioritize organized code, reusable components and separation of concerns to support continuous product evolution, fewer bugs and lower maintenance cost.","Practical example: a new subscription feature is added by reusing components and reducing QA effort.")
+A.arq=new B.c9("HTTP integrations and external services","We integrate external APIs and data services for real business flows, including back-end endpoints and observability services, ensuring operational reliability and metric-driven evolution.","Practical example: we monitor API latency and errors in production to act before customers are impacted.")
+A.aey=w([A.aru,A.arf,A.arB,A.arz,A.arh,A.ars,A.arE,A.arw,A.aro,A.arL,A.arM,A.arC,A.arP,A.arF,A.arq],x.c)})()};
+(a=>{a["5T7J1uuQ+EWDcm8hEPJwkh7npDY="]=a.current})($__dart_deferred_initializers__);
