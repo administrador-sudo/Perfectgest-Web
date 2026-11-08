@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
+import 'barber_cloud.dart';
+import 'barber_slot_engine.dart';
 import 'company_legal.dart';
 import 'site_public_urls.dart';
 
-/// Landing isolada `/Barber_Hairdresser` — Barbear e Cortar (dark + oliva).
-/// Usa Inter / JetBrains Mono dos assets (sem GoogleFonts runtime — allowRuntimeFetching=false).
+/// Landing isolada `/Barber_Hairdresser` — grade de horários via Firebase.
 class BarberHairdresserPage extends StatefulWidget {
   const BarberHairdresserPage({super.key});
 
@@ -24,15 +25,19 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   final _formKey = GlobalKey<FormState>();
   final _nomeCtrl = TextEditingController();
   final _telefoneCtrl = TextEditingController();
-  final _horarioCtrl = TextEditingController();
-  String? _servico;
-  bool _success = false;
 
-  static const _servicos = <({String nome, String preco})>[
-    (nome: 'Corte', preco: 'R\$ 30,00'),
-    (nome: 'Corte & Barba', preco: 'R\$ 45,00'),
-    (nome: 'Barba', preco: 'R\$ 20,00'),
-  ];
+  List<BarberPro> _pros = [];
+  List<BarberServiceCard> _services = [];
+  List<TimeOfDaySlot> _slots = [];
+  BarberPro? _pro;
+  BarberServiceCard? _service;
+  DateTime? _date;
+  TimeOfDaySlot? _slot;
+  bool _loading = true;
+  bool _loadingSlots = false;
+  bool _saving = false;
+  bool _success = false;
+  String? _error;
 
   TextStyle get _body => const TextStyle(
         fontFamily: _font,
@@ -65,10 +70,72 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
       );
 
   @override
+  void initState() {
+    super.initState();
+    _bootstrap();
+  }
+
+  Future<void> _bootstrap() async {
+    setState(() {
+      _loading = true;
+      _error = null;
+    });
+    await BarberCloud.instance.ensureInitialized();
+    final pros = await BarberCloud.instance.listProfessionals();
+    if (!mounted) return;
+    setState(() {
+      _pros = pros;
+      _pro = pros.isEmpty ? null : pros.first;
+      _loading = false;
+      if (pros.isEmpty) {
+        _error =
+            'Catálogo ainda vazio. Abra o app Perfect Barber e salve o horário do profissional (publica na nuvem).';
+      }
+    });
+    if (_pro != null) await _loadServices();
+  }
+
+  Future<void> _loadServices() async {
+    if (_pro == null) return;
+    final list = await BarberCloud.instance.listServices(_pro!.id);
+    if (!mounted) return;
+    setState(() {
+      _services = list;
+      _service = null;
+      _slot = null;
+      _slots = [];
+    });
+  }
+
+  Future<void> _reloadSlots() async {
+    if (_pro == null || _service == null || _date == null) {
+      setState(() {
+        _slots = [];
+        _slot = null;
+      });
+      return;
+    }
+    setState(() => _loadingSlots = true);
+    final slots = await BarberCloud.instance.slots(
+      professionalId: _pro!.id,
+      day: _date!,
+      durationMinutes: _service!.durationMinutes,
+    );
+    if (!mounted) return;
+    setState(() {
+      _slots = slots;
+      _loadingSlots = false;
+      if (_slot != null &&
+          slots.every((s) => s.startMinutes != _slot!.startMinutes)) {
+        _slot = null;
+      }
+    });
+  }
+
+  @override
   void dispose() {
     _nomeCtrl.dispose();
     _telefoneCtrl.dispose();
-    _horarioCtrl.dispose();
     super.dispose();
   }
 
@@ -80,9 +147,44 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
     }
   }
 
-  void _enviar() {
+  Future<void> _enviar() async {
     if (!(_formKey.currentState?.validate() ?? false)) return;
-    setState(() => _success = true);
+    if (_pro == null || _service == null || _date == null || _slot == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Escolha serviço, dia e horário')),
+      );
+      return;
+    }
+    setState(() => _saving = true);
+    final starts = DateTime(
+      _date!.year,
+      _date!.month,
+      _date!.day,
+      _slot!.startMinutes ~/ 60,
+      _slot!.startMinutes % 60,
+    );
+    final ends = starts.add(Duration(minutes: _service!.durationMinutes));
+    try {
+      await BarberCloud.instance.book(
+        professionalId: _pro!.id,
+        serviceId: _service!.id,
+        clientName: _nomeCtrl.text.trim(),
+        phone: _telefoneCtrl.text.trim(),
+        startsAt: starts,
+        endsAt: ends,
+      );
+      if (!mounted) return;
+      setState(() {
+        _success = true;
+        _saving = false;
+      });
+    } catch (e) {
+      if (!mounted) return;
+      setState(() => _saving = false);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Erro ao agendar: $e')),
+      );
+    }
   }
 
   void _novaSolicitacao() {
@@ -90,8 +192,10 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
       _success = false;
       _nomeCtrl.clear();
       _telefoneCtrl.clear();
-      _servico = null;
-      _horarioCtrl.clear();
+      _service = null;
+      _date = null;
+      _slot = null;
+      _slots = [];
     });
   }
 
@@ -100,7 +204,6 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
       labelText: label,
       labelStyle: const TextStyle(fontFamily: _font, color: _muted),
       floatingLabelStyle: const TextStyle(fontFamily: _font, color: _olive),
-      hintStyle: const TextStyle(fontFamily: _font, color: _muted),
       filled: true,
       fillColor: _surface,
       enabledBorder: OutlineInputBorder(
@@ -111,15 +214,6 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
         borderRadius: BorderRadius.circular(12),
         borderSide: const BorderSide(color: _olive, width: 1.5),
       ),
-      errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12),
-        borderSide: const BorderSide(color: Color(0xFFFF6B6B)),
-      ),
-      focusedErrorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12),
-        borderSide: const BorderSide(color: Color(0xFFFF6B6B)),
-      ),
-      errorStyle: const TextStyle(fontFamily: _font, color: Color(0xFFFF8A80)),
     );
   }
 
@@ -138,17 +232,6 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
           onPrimary: _text,
           surface: _surface,
           onSurface: _text,
-        ),
-        textTheme: ThemeData.dark().textTheme.apply(
-          fontFamily: _font,
-          bodyColor: _text,
-          displayColor: _text,
-        ),
-        inputDecorationTheme: InputDecorationTheme(
-          labelStyle: const TextStyle(fontFamily: _font, color: _muted),
-          hintStyle: const TextStyle(fontFamily: _font, color: _muted),
-          fillColor: _surface,
-          filled: true,
         ),
       ),
       child: Scaffold(
@@ -179,7 +262,10 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
                         TextButton.icon(
                           onPressed: _goHome,
                           icon: const Icon(Icons.arrow_back, color: _muted),
-                          label: Text('Início', style: _mutedStyle.copyWith(fontSize: 14)),
+                          label: Text(
+                            'Início',
+                            style: _mutedStyle.copyWith(fontSize: 14),
+                          ),
                         ),
                         const Spacer(),
                         Text(
@@ -194,130 +280,57 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
                     ),
                   ),
                   Expanded(
-                    child: SingleChildScrollView(
-                      padding: EdgeInsets.fromLTRB(padH, 12, padH, 32),
-                      child: Center(
-                        child: ConstrainedBox(
-                          constraints: const BoxConstraints(maxWidth: 560),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              const SizedBox(height: 12),
-                              Center(
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(18),
-                                  child: Image.asset(
-                                    'imagens/barber_hairdresser_brasao.jpg',
-                                    width: 112,
-                                    height: 112,
-                                    fit: BoxFit.cover,
-                                    errorBuilder: (context, error, stackTrace) =>
-                                        Container(
-                                      width: 112,
-                                      height: 112,
-                                      color: _surface,
-                                      alignment: Alignment.center,
-                                      child: const Icon(
-                                        Icons.content_cut,
-                                        color: _olive,
-                                        size: 48,
-                                      ),
+                    child: _loading
+                        ? const Center(child: CircularProgressIndicator())
+                        : SingleChildScrollView(
+                            padding: EdgeInsets.fromLTRB(padH, 12, padH, 32),
+                            child: Center(
+                              child: ConstrainedBox(
+                                constraints:
+                                    const BoxConstraints(maxWidth: 560),
+                                child: Column(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch,
+                                  children: [
+                                    Text(
+                                      'Barbear e Cortar',
+                                      textAlign: TextAlign.center,
+                                      style: _title,
                                     ),
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(height: 20),
-                              Text(
-                                'Barbear e Cortar',
-                                textAlign: TextAlign.center,
-                                style: _title,
-                              ),
-                              const SizedBox(height: 10),
-                              Text(
-                                'Agenda local para barbearia — PerfectGest Dev.',
-                                textAlign: TextAlign.center,
-                                style: _mutedStyle.copyWith(fontSize: 16),
-                              ),
-                              const SizedBox(height: 28),
-                              Text('Serviços', style: _section),
-                              const SizedBox(height: 10),
-                              ..._servicos.map(
-                                (s) => Container(
-                                  margin: const EdgeInsets.only(bottom: 8),
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 16,
-                                    vertical: 14,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: _surface,
-                                    borderRadius: BorderRadius.circular(12),
-                                    border: const Border(
-                                      left: BorderSide(color: _olive, width: 4),
+                                    const SizedBox(height: 10),
+                                    Text(
+                                      'Escolha o dia e um horário livre — a grade respeita o tempo do serviço.',
+                                      textAlign: TextAlign.center,
+                                      style: _mutedStyle.copyWith(fontSize: 16),
                                     ),
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Expanded(
-                                        child: Text(
-                                          s.nome,
-                                          style: _body.copyWith(
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                        ),
-                                      ),
+                                    if (_error != null) ...[
+                                      const SizedBox(height: 16),
                                       Text(
-                                        s.preco,
-                                        style: _body.copyWith(
-                                          color: _olive,
-                                          fontWeight: FontWeight.w700,
+                                        _error!,
+                                        textAlign: TextAlign.center,
+                                        style: _mutedStyle.copyWith(
+                                          color: const Color(0xFFFFB74D),
                                         ),
                                       ),
                                     ],
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(height: 28),
-                              Text('Solicitar horário', style: _section),
-                              const SizedBox(height: 12),
-                              if (_success)
-                                _buildSuccess()
-                              else
-                                _buildForm(),
-                              const SizedBox(height: 36),
-                              Text(
-                                'Logo da barbearia (placeholder)',
-                                textAlign: TextAlign.center,
-                                style: _mutedStyle.copyWith(fontSize: 12),
-                              ),
-                              const SizedBox(height: 8),
-                              Center(
-                                child: Container(
-                                  width: 72,
-                                  height: 72,
-                                  decoration: BoxDecoration(
-                                    color: _surface,
-                                    borderRadius: BorderRadius.circular(14),
-                                    border: Border.all(
-                                      color: _olive.withValues(alpha: 0.5),
+                                    const SizedBox(height: 28),
+                                    Text('Agendar', style: _section),
+                                    const SizedBox(height: 12),
+                                    if (_success)
+                                      _buildSuccess()
+                                    else
+                                      _buildForm(),
+                                    const SizedBox(height: 28),
+                                    Text(
+                                      'PerfectGest Dev · $kCompanyFantasyName',
+                                      textAlign: TextAlign.center,
+                                      style: _mutedStyle.copyWith(fontSize: 12),
                                     ),
-                                  ),
-                                  child: const Icon(
-                                    Icons.storefront_outlined,
-                                    color: _muted,
-                                  ),
+                                  ],
                                 ),
                               ),
-                              const SizedBox(height: 28),
-                              Text(
-                                'PerfectGest Dev · $kCompanyFantasyName',
-                                textAlign: TextAlign.center,
-                                style: _mutedStyle.copyWith(fontSize: 12),
-                              ),
-                            ],
+                            ),
                           ),
-                        ),
-                      ),
-                    ),
                   ),
                 ],
               ),
@@ -337,19 +350,16 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
         border: Border.all(color: _olive.withValues(alpha: 0.55)),
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           const Icon(Icons.check_circle_outline, color: _olive, size: 44),
           const SizedBox(height: 12),
           Text(
-            'Pedido registrado localmente',
-            textAlign: TextAlign.center,
+            'Horário reservado',
             style: _body.copyWith(fontSize: 18, fontWeight: FontWeight.w700),
           ),
           const SizedBox(height: 8),
           Text(
-            'A barbearia receberá o contato para confirmar o horário. '
-            'Nada foi enviado ao servidor nesta página.',
+            'O agendamento foi gravado na nuvem e aparece na agenda do profissional.',
             textAlign: TextAlign.center,
             style: _mutedStyle,
           ),
@@ -376,88 +386,164 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          if (_pros.length > 1) ...[
+            DropdownButtonFormField<int>(
+              initialValue: _pro?.id,
+              dropdownColor: _surface,
+              style: _body,
+              decoration: _fieldDeco('Profissional'),
+              items: _pros
+                  .map(
+                    (p) => DropdownMenuItem(
+                      value: p.id,
+                      child: Text(p.name, style: _body),
+                    ),
+                  )
+                  .toList(),
+              onChanged: (id) async {
+                final p = _pros.firstWhere((e) => e.id == id);
+                setState(() => _pro = p);
+                await _loadServices();
+              },
+            ),
+            const SizedBox(height: 12),
+          ],
           TextFormField(
             controller: _nomeCtrl,
             style: _body,
-            cursorColor: _olive,
             decoration: _fieldDeco('Nome'),
-            validator: (v) {
-              if (v == null || v.trim().length < 2) {
-                return 'Informe o nome';
-              }
-              return null;
-            },
+            validator: (v) =>
+                (v == null || v.trim().length < 2) ? 'Informe o nome' : null,
           ),
           const SizedBox(height: 12),
           TextFormField(
             controller: _telefoneCtrl,
             style: _body,
-            cursorColor: _olive,
             keyboardType: TextInputType.phone,
             decoration: _fieldDeco('Telefone / WhatsApp'),
             validator: (v) {
               final digits = (v ?? '').replaceAll(RegExp(r'\D'), '');
-              if (digits.length < 10) {
-                return 'Informe um telefone válido';
-              }
+              if (digits.length < 10) return 'Telefone inválido';
               return null;
             },
           ),
           const SizedBox(height: 12),
-          DropdownButtonFormField<String>(
-            initialValue: _servico,
+          DropdownButtonFormField<int>(
+            initialValue: _service?.id,
             dropdownColor: _surface,
             style: _body,
-            iconEnabledColor: _muted,
             decoration: _fieldDeco('Serviço'),
-            items: _servicos
+            items: _services
                 .map(
                   (s) => DropdownMenuItem(
-                    value: s.nome,
-                    child: Text(s.nome, style: _body),
+                    value: s.id,
+                    child: Text(
+                      '${s.name} · ${s.priceLabel} · ${s.durationMinutes} min',
+                      style: _body,
+                    ),
                   ),
                 )
                 .toList(),
-            onChanged: (v) => setState(() => _servico = v),
-            validator: (v) {
-              if ((_servico == null || _servico!.isEmpty) &&
-                  (v == null || v.isEmpty)) {
-                return 'Escolha o serviço';
-              }
-              return null;
+            onChanged: (id) async {
+              final s = _services.firstWhere((e) => e.id == id);
+              setState(() {
+                _service = s;
+                _slot = null;
+              });
+              await _reloadSlots();
             },
+            validator: (v) => v == null ? 'Escolha o serviço' : null,
           ),
           const SizedBox(height: 12),
-          TextFormField(
-            controller: _horarioCtrl,
-            style: _body,
-            cursorColor: _olive,
-            decoration: _fieldDeco('Dia e horário desejados'),
-            validator: (v) {
-              if (v == null || v.trim().length < 3) {
-                return 'Informe o horário preferido';
+          InkWell(
+            onTap: () async {
+              final now = DateTime.now();
+              final picked = await showDatePicker(
+                context: context,
+                initialDate: _date ?? now,
+                firstDate: DateTime(now.year, now.month, now.day),
+                lastDate: now.add(const Duration(days: 90)),
+              );
+              if (picked != null) {
+                setState(() {
+                  _date = picked;
+                  _slot = null;
+                });
+                await _reloadSlots();
               }
-              return null;
             },
+            child: InputDecorator(
+              decoration: _fieldDeco('Dia'),
+              child: Text(
+                _date == null
+                    ? 'Toque para escolher o dia'
+                    : '${_date!.day.toString().padLeft(2, '0')}/'
+                        '${_date!.month.toString().padLeft(2, '0')}/'
+                        '${_date!.year}',
+                style: _body.copyWith(
+                  color: _date == null ? _muted : _text,
+                ),
+              ),
+            ),
           ),
+          const SizedBox(height: 16),
+          Text('Horários disponíveis', style: _section),
+          const SizedBox(height: 8),
+          if (_date == null || _service == null)
+            Text(
+              'Escolha serviço e dia para abrir a grade',
+              style: _mutedStyle,
+            )
+          else if (_loadingSlots)
+            const Padding(
+              padding: EdgeInsets.all(12),
+              child: Center(child: CircularProgressIndicator()),
+            )
+          else if (_slots.isEmpty)
+            Text('Sem horários livres neste dia', style: _mutedStyle)
+          else
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: [
+                for (final s in _slots)
+                  ChoiceChip(
+                    label: Text(s.label),
+                    selected: _slot?.startMinutes == s.startMinutes,
+                    selectedColor: _olive,
+                    labelStyle: TextStyle(
+                      color: _slot?.startMinutes == s.startMinutes
+                          ? _text
+                          : _text,
+                      fontFamily: _font,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    backgroundColor: _surface,
+                    onSelected: (_) => setState(() => _slot = s),
+                  ),
+              ],
+            ),
           const SizedBox(height: 18),
           FilledButton(
-            onPressed: _enviar,
+            onPressed: _saving ? null : _enviar,
             style: FilledButton.styleFrom(
               backgroundColor: _olive,
               foregroundColor: _text,
               padding: const EdgeInsets.symmetric(vertical: 16),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-              ),
             ),
-            child: Text(
-              'Solicitar horário',
-              style: _body.copyWith(
-                fontWeight: FontWeight.w700,
-                color: _text,
-              ),
-            ),
+            child: _saving
+                ? const SizedBox(
+                    height: 22,
+                    width: 22,
+                    child: CircularProgressIndicator(
+                      strokeWidth: 2,
+                      color: Colors.white,
+                    ),
+                  )
+                : Text(
+                    'Confirmar horário',
+                    style: _body.copyWith(fontWeight: FontWeight.w700),
+                  ),
           ),
         ],
       ),
