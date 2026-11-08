@@ -1,12 +1,15 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
+import 'package:http/http.dart' as http;
 
 import 'barber_firebase_options.dart';
 import 'barber_slot_engine.dart';
 
 const String kBarberShopId = 'perfectgest_dev';
 
+/// Site usa REST do Firestore (sem plugin firebase_core) — evita
+/// PlatformException pigeon channel-error no Flutter Web em producao.
 class BarberShopPresentation {
   const BarberShopPresentation({
     this.name = 'Barbear e Cortar',
@@ -52,20 +55,38 @@ class BarberCloud {
   bool ready = false;
   String? lastError;
 
+  static const _projectId = 'perfectgest-barber';
+  static final _apiKey = DefaultFirebaseOptions.web.apiKey;
+  static const _base =
+      'https://firestore.googleapis.com/v1/projects/$_projectId/databases/(default)/documents';
+
+  String get _shopPath => '$_base/shops/$kBarberShopId';
+
+  Uri _uri(String path, {Map<String, String>? query}) {
+    final q = <String, String>{'key': _apiKey, ...?query};
+    return Uri.parse(path).replace(queryParameters: q);
+  }
+
   Future<void> ensureInitialized() async {
+    // REST nao precisa de plugin; marca ready apos ping leve do shop.
     if (ready) return;
     try {
-      if (Firebase.apps.isEmpty) {
-        await Firebase.initializeApp(
-          options: DefaultFirebaseOptions.currentPlatform,
-        );
+      final res = await http.get(_uri(_shopPath)).timeout(
+            const Duration(seconds: 12),
+          );
+      // 200 = existe; 404 = ainda sem doc (ok, app publica depois).
+      if (res.statusCode == 200 || res.statusCode == 404) {
+        ready = true;
+        lastError = null;
+      } else {
+        ready = false;
+        lastError =
+            'Firestore HTTP ${res.statusCode}. Verifique regras/API key/CSP.';
       }
-      ready = true;
-      lastError = null;
-    } catch (e, st) {
-      debugPrint('BarberCloud init: $e\n$st');
+    } catch (e) {
       ready = false;
-      lastError = 'Firebase inacessível ($e). Verifique CSP connect-src / rede.';
+      lastError = 'Firestore REST falhou: $e';
+      debugPrint(lastError);
     }
   }
 
@@ -75,42 +96,137 @@ class BarberCloud {
     return int.tryParse('$v') ?? fallback;
   }
 
-  DocumentReference<Map<String, dynamic>> get _shop =>
-      FirebaseFirestore.instance.collection('shops').doc(kBarberShopId);
+  /// Converte fields REST → mapa Dart simples.
+  Map<String, dynamic> _decodeFields(Map<String, dynamic>? fields) {
+    if (fields == null) return {};
+    final out = <String, dynamic>{};
+    fields.forEach((k, v) {
+      out[k] = _decodeValue(v as Map<String, dynamic>);
+    });
+    return out;
+  }
+
+  dynamic _decodeValue(Map<String, dynamic> v) {
+    if (v.containsKey('stringValue')) return v['stringValue'];
+    if (v.containsKey('integerValue')) {
+      return int.tryParse('${v['integerValue']}') ?? 0;
+    }
+    if (v.containsKey('doubleValue')) {
+      return (v['doubleValue'] as num).toDouble();
+    }
+    if (v.containsKey('booleanValue')) return v['booleanValue'] as bool;
+    if (v.containsKey('timestampValue')) {
+      return DateTime.tryParse(v['timestampValue'] as String);
+    }
+    if (v.containsKey('nullValue')) return null;
+    if (v.containsKey('arrayValue')) {
+      final values =
+          (v['arrayValue'] as Map<String, dynamic>)['values'] as List? ?? [];
+      return values
+          .map((e) => _decodeValue(Map<String, dynamic>.from(e as Map)))
+          .toList();
+    }
+    if (v.containsKey('mapValue')) {
+      final f = (v['mapValue'] as Map<String, dynamic>)['fields']
+          as Map<String, dynamic>?;
+      return _decodeFields(f);
+    }
+    return null;
+  }
+
+  Map<String, dynamic> _encodeFields(Map<String, dynamic> data) {
+    final fields = <String, dynamic>{};
+    data.forEach((k, v) {
+      fields[k] = _encodeValue(v);
+    });
+    return fields;
+  }
+
+  Map<String, dynamic> _encodeValue(dynamic v) {
+    if (v == null) return {'nullValue': null};
+    if (v is String) return {'stringValue': v};
+    if (v is bool) return {'booleanValue': v};
+    if (v is int) return {'integerValue': '$v'};
+    if (v is double) return {'doubleValue': v};
+    if (v is DateTime) {
+      return {'timestampValue': v.toUtc().toIso8601String()};
+    }
+    if (v is List) {
+      return {
+        'arrayValue': {
+          'values': v.map(_encodeValue).toList(),
+        },
+      };
+    }
+    if (v is Map) {
+      return {
+        'mapValue': {
+          'fields': _encodeFields(Map<String, dynamic>.from(v)),
+        },
+      };
+    }
+    return {'stringValue': '$v'};
+  }
 
   Future<BarberShopPresentation> fetchPresentation() async {
     await ensureInitialized();
     if (!ready) return const BarberShopPresentation();
-    final doc = await _shop.get();
-    if (!doc.exists) return const BarberShopPresentation();
-    final m = doc.data() ?? {};
-    return BarberShopPresentation(
-      name: (m['name'] as String?)?.trim().isNotEmpty == true
-          ? m['name'] as String
-          : 'Barbear e Cortar',
-      promoText: m['promoText'] as String? ?? '',
-      logoUrl: m['logoUrl'] as String? ?? '',
-      bookingUrl: (m['bookingUrl'] as String?)?.trim().isNotEmpty == true
-          ? m['bookingUrl'] as String
-          : 'https://perfectgestdev.com/Barber_Hairdresser',
-    );
+    try {
+      final res = await http.get(_uri(_shopPath));
+      if (res.statusCode == 404) return const BarberShopPresentation();
+      if (res.statusCode != 200) {
+        lastError = 'Shop HTTP ${res.statusCode}';
+        return const BarberShopPresentation();
+      }
+      final body = jsonDecode(res.body) as Map<String, dynamic>;
+      final m = _decodeFields(body['fields'] as Map<String, dynamic>?);
+      return BarberShopPresentation(
+        name: (m['name'] as String?)?.trim().isNotEmpty == true
+            ? m['name'] as String
+            : 'Barbear e Cortar',
+        promoText: m['promoText'] as String? ?? '',
+        logoUrl: m['logoUrl'] as String? ?? '',
+        bookingUrl: (m['bookingUrl'] as String?)?.trim().isNotEmpty == true
+            ? m['bookingUrl'] as String
+            : 'https://perfectgestdev.com/Barber_Hairdresser',
+      );
+    } catch (e) {
+      lastError = 'fetchPresentation: $e';
+      return const BarberShopPresentation();
+    }
+  }
+
+  Future<List<Map<String, dynamic>>> _listCollection(String collection) async {
+    final res = await http.get(_uri('$_shopPath/$collection'));
+    if (res.statusCode == 404) return const [];
+    if (res.statusCode != 200) {
+      throw StateError('list $collection HTTP ${res.statusCode}: ${res.body}');
+    }
+    final body = jsonDecode(res.body) as Map<String, dynamic>;
+    final docs = body['documents'] as List? ?? [];
+    return docs.map((d) {
+      final doc = Map<String, dynamic>.from(d as Map);
+      final name = doc['name'] as String? ?? '';
+      final id = name.split('/').last;
+      final fields = _decodeFields(doc['fields'] as Map<String, dynamic>?);
+      return {...fields, '_docId': id};
+    }).toList();
   }
 
   Future<List<BarberPro>> listProfessionals() async {
     await ensureInitialized();
     if (!ready) return const [];
     try {
-      final snap = await _shop.collection('professionals').get();
+      final rows = await _listCollection('professionals');
       lastError = null;
-      return snap.docs
-          .where((d) => d.data()['active'] != false)
-          .map((d) {
-            final m = d.data();
-            return BarberPro(
-              id: _asInt(m['localId'], int.tryParse(d.id) ?? 0),
+      return rows
+          .where((m) => m['active'] != false)
+          .map(
+            (m) => BarberPro(
+              id: _asInt(m['localId'], int.tryParse('${m['_docId']}') ?? 0),
               name: m['name'] as String? ?? 'Profissional',
-            );
-          })
+            ),
+          )
           .where((p) => p.id > 0)
           .toList();
     } catch (e) {
@@ -124,23 +240,20 @@ class BarberCloud {
     await ensureInitialized();
     if (!ready) return const [];
     try {
-      final snap = await _shop
-          .collection('services')
-          .where('professionalId', isEqualTo: professionalId)
-          .get();
+      final rows = await _listCollection('services');
       lastError = null;
-      return snap.docs
-          .where((d) => d.data()['active'] != false)
-          .map((d) {
-            final m = d.data();
-            return BarberServiceCard(
-              id: _asInt(m['localId'], int.tryParse(d.id) ?? 0),
+      return rows
+          .where((m) => m['active'] != false)
+          .where((m) => _asInt(m['professionalId']) == professionalId)
+          .map(
+            (m) => BarberServiceCard(
+              id: _asInt(m['localId'], int.tryParse('${m['_docId']}') ?? 0),
               professionalId: _asInt(m['professionalId'], professionalId),
               name: m['name'] as String? ?? '',
               price: (m['price'] as num?)?.toDouble() ?? 0,
               durationMinutes: _asInt(m['durationMinutes'], 30),
-            );
-          })
+            ),
+          )
           .where((s) => s.id > 0 && s.name.isNotEmpty)
           .toList();
     } catch (e) {
@@ -150,35 +263,34 @@ class BarberCloud {
     }
   }
 
+  Future<Map<String, dynamic>?> _getDoc(String relativePath) async {
+    final res = await http.get(_uri('$_shopPath/$relativePath'));
+    if (res.statusCode == 404) return null;
+    if (res.statusCode != 200) {
+      throw StateError('get $relativePath HTTP ${res.statusCode}');
+    }
+    final body = jsonDecode(res.body) as Map<String, dynamic>;
+    return _decodeFields(body['fields'] as Map<String, dynamic>?);
+  }
+
   Future<DaySchedule> daySchedule(int professionalId, DateTime day) async {
     await ensureInitialized();
-    if (!ready) {
-      return _fallbackDay(day.weekday);
-    }
+    if (!ready) return _fallbackDay(day.weekday);
     try {
-      final doc = await _shop
-          .collection('professionals')
-          .doc('$professionalId')
-          .collection('meta')
-          .doc('schedule')
-          .get();
-      if (!doc.exists) return _fallbackDay(day.weekday);
-      final data = doc.data()!;
+      final data =
+          await _getDoc('professionals/$professionalId/meta/schedule');
+      if (data == null) return _fallbackDay(day.weekday);
       final dateKey =
           '${day.year.toString().padLeft(4, '0')}-${day.month.toString().padLeft(2, '0')}-${day.day.toString().padLeft(2, '0')}';
-      final overrides = data['overrides'] as List<dynamic>? ?? [];
+      final overrides = data['overrides'] as List? ?? [];
       for (final o in overrides) {
         final m = Map<String, dynamic>.from(o as Map);
-        if (m['dateKey'] == dateKey) {
-          return _fromHoursMap(m);
-        }
+        if (m['dateKey'] == dateKey) return _fromHoursMap(m);
       }
-      final week = data['week'] as List<dynamic>? ?? [];
+      final week = data['week'] as List? ?? [];
       for (final w in week) {
         final m = Map<String, dynamic>.from(w as Map);
-        if (_asInt(m['weekday']) == day.weekday) {
-          return _fromHoursMap(m);
-        }
+        if (_asInt(m['weekday']) == day.weekday) return _fromHoursMap(m);
       }
       return const DaySchedule(workBlocks: []);
     } catch (e) {
@@ -231,20 +343,21 @@ class BarberCloud {
     await ensureInitialized();
     if (!ready) return const [];
     try {
+      final rows = await _listCollection('appointments');
       final start = DateTime(day.year, day.month, day.day);
       final end = start.add(const Duration(days: 1));
-      final snap = await _shop
-          .collection('appointments')
-          .where('professionalId', isEqualTo: professionalId)
-          .where('startsAt', isGreaterThanOrEqualTo: Timestamp.fromDate(start))
-          .where('startsAt', isLessThan: Timestamp.fromDate(end))
-          .get();
-      return snap.docs
-          .where((d) => (d.data()['status'] as String?) != 'cancelled')
-          .map((d) {
-            final data = d.data();
-            final s = (data['startsAt'] as Timestamp).toDate();
-            final e = (data['endsAt'] as Timestamp).toDate();
+      return rows
+          .where((m) => _asInt(m['professionalId']) == professionalId)
+          .where((m) => (m['status'] as String?) != 'cancelled')
+          .where((m) {
+            final s = m['startsAt'];
+            if (s is! DateTime) return false;
+            return !s.isBefore(start) && s.isBefore(end);
+          })
+          .map((m) {
+            final s = m['startsAt'] as DateTime;
+            final e = m['endsAt'] as DateTime? ??
+                s.add(const Duration(minutes: 30));
             return BusyInterval(
               s.hour * 60 + s.minute,
               e.hour * 60 + e.minute,
@@ -252,7 +365,6 @@ class BarberCloud {
           })
           .toList();
     } catch (e) {
-      // Sem índice composto ou rede: grade sem ocupação (pior = overbook, melhor = slots).
       debugPrint('busyDay: $e');
       return const [];
     }
@@ -286,20 +398,33 @@ class BarberCloud {
   }) async {
     await ensureInitialized();
     if (!ready) {
-      throw StateError('Firebase indisponível');
+      throw StateError(lastError ?? 'Firestore indisponível');
     }
     final id =
         'site_${startsAt.millisecondsSinceEpoch}_${professionalId}_$serviceId';
-    await _shop.collection('appointments').doc(id).set({
-      'professionalId': professionalId,
-      'serviceId': serviceId,
-      'clientName': clientName,
-      'phone': phone,
-      'startsAt': Timestamp.fromDate(startsAt),
-      'endsAt': Timestamp.fromDate(endsAt),
-      'status': 'scheduled',
-      'source': 'site',
-      'updatedAt': FieldValue.serverTimestamp(),
-    });
+    final docUri = _uri(
+      '$_shopPath/appointments',
+      query: {'documentId': id},
+    );
+    final body = {
+      'fields': _encodeFields({
+        'professionalId': professionalId,
+        'serviceId': serviceId,
+        'clientName': clientName,
+        'phone': phone,
+        'startsAt': startsAt.toUtc(),
+        'endsAt': endsAt.toUtc(),
+        'status': 'scheduled',
+        'source': 'site',
+      }),
+    };
+    final res = await http.post(
+      docUri,
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode(body),
+    );
+    if (res.statusCode != 200) {
+      throw StateError('Agendar falhou HTTP ${res.statusCode}: ${res.body}');
+    }
   }
 }

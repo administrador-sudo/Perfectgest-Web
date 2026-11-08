@@ -1,5 +1,10 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-08] Barber — REST sem plugin Firebase
+
+- Screenshot: `PlatformException channel-error … FirebaseCoreHostApi.initializeCore` no Web.
+- Fix: `BarberCloud` via Firestore REST (`http`) + remoção `firebase_core`/`cloud_firestore` do site.
+
 ## [2026-11-08] Barber — CSP Firestore + endurecimento cloud
 
 - Causa: CSP `connect-src` sem Firestore → catálogo/serviço mortos no site.

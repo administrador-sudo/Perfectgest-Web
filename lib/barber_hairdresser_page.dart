@@ -92,7 +92,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
       _loading = false;
       if (!BarberCloud.instance.ready) {
         _error = BarberCloud.instance.lastError ??
-            'Firebase bloqueado ou offline (CSP/rede).';
+            'Nuvem inacessível. Tente de novo ou confira a rede.';
       } else if (pros.isEmpty) {
         _error =
             'Catálogo vazio. No app: Configurações → Profissionais e horários → Salvar horário (nuvem), e cartões de serviço no profissional.';
