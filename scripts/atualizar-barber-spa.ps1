@@ -6,7 +6,8 @@
 #   & "...\scripts\atualizar-barber-spa.ps1" -SkipPublish
 #   & "...\scripts\atualizar-barber-spa.ps1" -Msg "fix-barber-spa-rewrite" -NoPause
 #
-# Pipeline: checkout branch Barber -> build:web:sync -> publish-web (opcional).
+# Pipeline: garante commits Barber em main -> build:web:sync -> publish-web (opcional).
+# Producao Render segue origin/main; branch sozinha NAO tira o 404.
 
 param(
     [string]$Branch = 'cursor/barber-spa-rewrite-5027',
@@ -28,9 +29,22 @@ Set-Location -LiteralPath $RepoRoot
 Write-Host "Site: $RepoRoot" -ForegroundColor Cyan
 
 if (-not $SkipCheckout) {
-    Write-Step "git checkout $Branch"
-    & git checkout $Branch
-    if ($LASTEXITCODE -ne 0) { throw "git checkout falhou ($LASTEXITCODE)" }
+    Write-Step "git fetch origin main + $Branch"
+    & git fetch origin main $Branch
+    if ($LASTEXITCODE -ne 0) { throw "git fetch falhou ($LASTEXITCODE)" }
+
+    Write-Step "git checkout main"
+    & git checkout main
+    if ($LASTEXITCODE -ne 0) { throw "git checkout main falhou ($LASTEXITCODE)" }
+
+    Write-Step "git merge --ff-only $Branch (ou origin/$Branch)"
+    & git merge --ff-only $Branch
+    if ($LASTEXITCODE -ne 0) {
+        & git merge --ff-only "origin/$Branch"
+        if ($LASTEXITCODE -ne 0) {
+            throw "merge ff-only falhou; integre $Branch em main manualmente"
+        }
+    }
     & git status -sb
 }
 
