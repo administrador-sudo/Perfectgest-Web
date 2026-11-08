@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'barber_cloud.dart';
 import 'barber_slot_engine.dart';
+import 'site_public_urls.dart';
 
 /// Landing isolada `/Barber_Hairdresser` — grade de horários via Firebase.
 class BarberHairdresserPage extends StatefulWidget {
@@ -340,7 +341,8 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
                     width: 112,
                     height: 112,
                     fit: BoxFit.cover,
-                    errorBuilder: (_, __, ___) => _logoFallback(),
+                    errorBuilder: (context, error, stackTrace) =>
+                        _logoFallback(),
                   )
                 : _logoFallback(),
           ),
@@ -406,10 +408,10 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
         Image.asset(
           'imagens/brasao_perfectgestdev.png',
           height: 40,
-          errorBuilder: (_, __, ___) => Image.asset(
+          errorBuilder: (context, error, stackTrace) => Image.asset(
             'imagens/brasao_emblema.png',
             height: 40,
-            errorBuilder: (_, __, ___) => const Icon(
+            errorBuilder: (context, error, stackTrace) => const Icon(
               Icons.verified_outlined,
               color: _muted,
               size: 32,

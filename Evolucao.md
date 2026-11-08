@@ -1,5 +1,9 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-08] Barber — fix compile web
+
+- Restaurado `import site_public_urls.dart` (`kBarberHairdresserPath`) — build:web:sync quebrava.
+
 ## [2026-11-08] Barber — apresentação + rodapé
 
 - Hero: nome/logo/promo do Firestore + CTA Agendar; rodapé brasão + PerfectGest Dev uma vez.
