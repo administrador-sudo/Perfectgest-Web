@@ -8,6 +8,7 @@ const siteSpaPages = [
   'contabilidade_Escritorio001',
   'A1_Certificado',
   'orcamento',
+  'Barber_Hairdresser',
 ];
 
 const clinicaIiiStaticSlugs = [

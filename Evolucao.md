@@ -1,5 +1,10 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-07] SPA /Barber_Hairdresser — rewrite Render
+
+- Causa do 404 em produção: rota Flutter existia, mas faltava slug em `siteSpaPages`, stub `Barber_Hairdresser.html` e rewrite Render.
+- `scripts/legal-routes.cjs`, `render.yaml`, `docs/RENDER_SPA_REWRITE.md` + stub via `spa-legal-paths`. Sem publish neste passo.
+
 ## [2026-10-30] /orcamento V 1.2.9
 
 - Pop: totais sem caixa preta; banner PerfectGestDev no rodapé, metade do tamanho.
