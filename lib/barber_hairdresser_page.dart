@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 
+import 'barber_checkout_sheet.dart';
 import 'barber_cloud.dart';
 import 'barber_slot_engine.dart';
 import 'site_public_urls.dart';
@@ -417,6 +418,60 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
     );
   }
 
+  Future<void> _buyProduct(BarberProductCard p) async {
+    final qtyCtrl = TextEditingController(text: '1');
+    final qty = await showDialog<int>(
+      context: context,
+      builder: (ctx) {
+        return AlertDialog(
+          backgroundColor: _surface,
+          title: Text(
+            'Quantidade — ${p.name}',
+            style: _body.copyWith(fontWeight: FontWeight.w700),
+          ),
+          content: TextField(
+            controller: qtyCtrl,
+            keyboardType: TextInputType.number,
+            style: _body,
+            decoration: InputDecoration(
+              labelText: 'Quantidade (máx. ${p.stockQty})',
+              labelStyle: _mutedStyle,
+              filled: true,
+              fillColor: _bg,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide: BorderSide.none,
+              ),
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(ctx),
+              child: Text('Cancelar', style: _mutedStyle),
+            ),
+            FilledButton(
+              style: FilledButton.styleFrom(backgroundColor: _olive),
+              onPressed: () {
+                final n = int.tryParse(qtyCtrl.text.trim()) ?? 0;
+                if (n < 1 || n > p.stockQty) return;
+                Navigator.pop(ctx, n);
+              },
+              child: Text('Continuar', style: _body.copyWith(fontWeight: FontWeight.w700)),
+            ),
+          ],
+        );
+      },
+    );
+    qtyCtrl.dispose();
+    if (qty == null || !mounted) return;
+    await showBarberCheckout(
+      context: context,
+      shop: _shop,
+      product: p,
+      qty: qty,
+    );
+  }
+
   Widget _buildProductsVitrine() {
     if (_products.isEmpty) return const SizedBox.shrink();
     return Column(
@@ -425,7 +480,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
         Text('Produtos', style: _section),
         const SizedBox(height: 8),
         Text(
-          'Tratamento de cabelo e pele — só itens com estoque.',
+          'Tratamento de cabelo e pele — só itens com estoque. PIX ou dinheiro.',
           style: _mutedStyle.copyWith(fontSize: 13),
         ),
         const SizedBox(height: 12),
@@ -484,6 +539,27 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
                           color: _olive,
                           fontWeight: FontWeight.w600,
                           fontSize: 14,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: FilledButton(
+                          onPressed: () => _buyProduct(p),
+                          style: FilledButton.styleFrom(
+                            backgroundColor: _olive,
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 14,
+                              vertical: 8,
+                            ),
+                          ),
+                          child: Text(
+                            'Comprar',
+                            style: _body.copyWith(
+                              fontWeight: FontWeight.w700,
+                              fontSize: 14,
+                            ),
+                          ),
                         ),
                       ),
                     ],

@@ -16,12 +16,18 @@ class BarberShopPresentation {
     this.promoText = '',
     this.logoUrl = '',
     this.bookingUrl = 'https://perfectgestdev.com/Barber_Hairdresser',
+    this.pixKey = '',
+    this.whatsappPhone = '',
+    this.pickupAddress = '',
   });
 
   final String name;
   final String promoText;
   final String logoUrl;
   final String bookingUrl;
+  final String pixKey;
+  final String whatsappPhone;
+  final String pickupAddress;
 }
 
 class BarberPro {
@@ -236,6 +242,8 @@ class BarberCloud {
       final bookingUrl = (m['bookingUrl'] as String?)?.trim().isNotEmpty == true
           ? m['bookingUrl'] as String
           : 'https://perfectgestdev.com/Barber_Hairdresser';
+      final address = (m['address'] as String?)?.trim() ?? '';
+      final pickup = (m['pickupAddress'] as String?)?.trim() ?? '';
       return BarberShopPresentation(
         name: (m['name'] as String?)?.trim().isNotEmpty == true
             ? m['name'] as String
@@ -243,6 +251,11 @@ class BarberCloud {
         promoText: m['promoText'] as String? ?? '',
         logoUrl: _pickShopLogoUrl(m, bookingUrl),
         bookingUrl: bookingUrl,
+        pixKey: (m['pixKey'] as String?)?.trim() ?? '',
+        whatsappPhone: (m['whatsappPhone'] as String?)
+                ?.replaceAll(RegExp(r'\D'), '') ??
+            '',
+        pickupAddress: pickup.isNotEmpty ? pickup : address,
       );
     } catch (e) {
       lastError = 'fetchPresentation: $e';
@@ -535,5 +548,62 @@ class BarberCloud {
     if (res.statusCode != 200) {
       throw StateError('Agendar falhou HTTP ${res.statusCode}: ${res.body}');
     }
+  }
+
+  /// Pedido da vitrine → `shops/{shopId}/orders/{orderId}`.
+  Future<String> createOrder({
+    required List<Map<String, dynamic>> items,
+    required double total,
+    required String paymentMethod,
+    required String fulfillment,
+    required String customerName,
+    required String customerPhone,
+    String deliveryAddress = '',
+    String receiptUrl = '',
+  }) async {
+    await ensureInitialized();
+    if (!ready) {
+      throw StateError(lastError ?? 'Firestore indisponível');
+    }
+    if (paymentMethod != 'pix' && paymentMethod != 'cash') {
+      throw StateError('Pagamento inválido');
+    }
+    if (paymentMethod == 'cash' && fulfillment != 'pickup') {
+      throw StateError('Dinheiro só com retirada na loja');
+    }
+    if (fulfillment == 'delivery' && deliveryAddress.trim().isEmpty) {
+      throw StateError('Informe o endereço de entrega');
+    }
+    if (paymentMethod == 'pix' && receiptUrl.trim().isEmpty) {
+      throw StateError('Anexe o comprovante PIX');
+    }
+    final id = 'ord_${DateTime.now().millisecondsSinceEpoch}';
+    final docUri = _uri(
+      '$_shopPath/orders',
+      query: {'documentId': id},
+    );
+    final payload = <String, dynamic>{
+      'items': items,
+      'total': total,
+      'paymentMethod': paymentMethod,
+      'fulfillment': fulfillment,
+      'customerName': customerName.trim(),
+      'customerPhone': customerPhone.trim(),
+      'deliveryAddress':
+          fulfillment == 'delivery' ? deliveryAddress.trim() : '',
+      'receiptUrl': paymentMethod == 'pix' ? receiptUrl.trim() : '',
+      'status': 'pending_review',
+      'source': 'site',
+      'createdAt': DateTime.now().toUtc(),
+    };
+    final res = await http.post(
+      docUri,
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({'fields': _encodeFields(payload)}),
+    );
+    if (res.statusCode != 200) {
+      throw StateError('Pedido falhou HTTP ${res.statusCode}: ${res.body}');
+    }
+    return id;
   }
 }

@@ -1,5 +1,10 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-09] Barber — checkout PIX/dinheiro
+
+- Comprar na vitrine → qty → checkout: PIX (entrega/retirada + comprovante) ou dinheiro (só retirada).
+- `createOrder` em `shops/{id}/orders` + wa.me com resumo; shop lê `pixKey`/`whatsappPhone`/`pickupAddress`.
+
 ## [2026-11-09] Barber — vitrine produtos + logo no agendar
 
 - Restaurado `listProducts` (`products`, `active != false`, `stockQty > 0`) + `_buildProductsVitrine()` acima de Agendar.
