@@ -1,5 +1,9 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-08] Barber — multi-pro + admin
+
+- IDs profissionais/serviços em string (cloud); rota `/Barber_Admin` para convidar emails (senha padrão).
+
 ## [2026-11-08] Barber — grade passo 30 min
 
 - `SlotEngine.stepMinutes` padrão 30 (site alinhado ao app).

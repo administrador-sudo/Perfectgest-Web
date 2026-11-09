@@ -558,7 +558,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           if (_pros.length > 1) ...[
-            DropdownButtonFormField<int>(
+            DropdownButtonFormField<String>(
               initialValue: _pro?.id,
               dropdownColor: _surface,
               style: _body,
@@ -605,7 +605,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
               style: _mutedStyle.copyWith(color: const Color(0xFFFFB74D)),
             )
           else
-            DropdownButtonFormField<int>(
+            DropdownButtonFormField<String>(
               initialValue: _service?.id,
               dropdownColor: _surface,
               style: _body,

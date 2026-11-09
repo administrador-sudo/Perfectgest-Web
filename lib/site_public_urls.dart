@@ -29,6 +29,9 @@ const String kCertificadoA1Path = '/A1_Certificado';
 /// Landing isolada Barbear e Cortar (agenda MEI — sem menu da vitrine).
 const String kBarberHairdresserPath = '/Barber_Hairdresser';
 
+/// Painel admin da barbearia (convidar profissionais por email).
+const String kBarberAdminPath = '/Barber_Admin';
+
 /// Ferramenta isolada de orçamento de esquadrias (sem menu da vitrine).
 const String kOrcamentoPath = '/orcamento';
 

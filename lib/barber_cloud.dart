@@ -26,7 +26,8 @@ class BarberShopPresentation {
 
 class BarberPro {
   const BarberPro({required this.id, required this.name});
-  final int id;
+  /// ID cloud (string). Docs antigos numéricos também vêm como string.
+  final String id;
   final String name;
 }
 
@@ -38,8 +39,8 @@ class BarberServiceCard {
     required this.price,
     required this.durationMinutes,
   });
-  final int id;
-  final int professionalId;
+  final String id;
+  final String professionalId;
   final String name;
   final double price;
   final int durationMinutes;
@@ -95,6 +96,10 @@ class BarberCloud {
     if (v is num) return v.toInt();
     return int.tryParse('$v') ?? fallback;
   }
+
+  String _asId(dynamic v) => '$v'.trim();
+
+  bool _sameId(dynamic a, String b) => _asId(a) == b;
 
   /// Converte fields REST → mapa Dart simples.
   Map<String, dynamic> _decodeFields(Map<String, dynamic>? fields) {
@@ -223,11 +228,11 @@ class BarberCloud {
           .where((m) => m['active'] != false)
           .map(
             (m) => BarberPro(
-              id: _asInt(m['localId'], int.tryParse('${m['_docId']}') ?? 0),
+              id: _asId(m['_docId']),
               name: m['name'] as String? ?? 'Profissional',
             ),
           )
-          .where((p) => p.id > 0)
+          .where((p) => p.id.isNotEmpty)
           .toList();
     } catch (e) {
       lastError = 'Falha ao ler profissionais: $e';
@@ -236,7 +241,7 @@ class BarberCloud {
     }
   }
 
-  Future<List<BarberServiceCard>> listServices(int professionalId) async {
+  Future<List<BarberServiceCard>> listServices(String professionalId) async {
     await ensureInitialized();
     if (!ready) return const [];
     try {
@@ -244,17 +249,17 @@ class BarberCloud {
       lastError = null;
       return rows
           .where((m) => m['active'] != false)
-          .where((m) => _asInt(m['professionalId']) == professionalId)
+          .where((m) => _sameId(m['professionalId'], professionalId))
           .map(
             (m) => BarberServiceCard(
-              id: _asInt(m['localId'], int.tryParse('${m['_docId']}') ?? 0),
-              professionalId: _asInt(m['professionalId'], professionalId),
+              id: _asId(m['_docId']),
+              professionalId: professionalId,
               name: m['name'] as String? ?? '',
               price: (m['price'] as num?)?.toDouble() ?? 0,
               durationMinutes: _asInt(m['durationMinutes'], 30),
             ),
           )
-          .where((s) => s.id > 0 && s.name.isNotEmpty)
+          .where((s) => s.id.isNotEmpty && s.name.isNotEmpty)
           .toList();
     } catch (e) {
       lastError = 'Falha ao ler serviços: $e';
@@ -273,7 +278,7 @@ class BarberCloud {
     return _decodeFields(body['fields'] as Map<String, dynamic>?);
   }
 
-  Future<DaySchedule> daySchedule(int professionalId, DateTime day) async {
+  Future<DaySchedule> daySchedule(String professionalId, DateTime day) async {
     await ensureInitialized();
     if (!ready) return _fallbackDay(day.weekday);
     try {
@@ -339,7 +344,7 @@ class BarberCloud {
     return const DaySchedule(workBlocks: []);
   }
 
-  Future<List<BusyInterval>> busyDay(int professionalId, DateTime day) async {
+  Future<List<BusyInterval>> busyDay(String professionalId, DateTime day) async {
     await ensureInitialized();
     if (!ready) return const [];
     try {
@@ -347,7 +352,7 @@ class BarberCloud {
       final start = DateTime(day.year, day.month, day.day);
       final end = start.add(const Duration(days: 1));
       return rows
-          .where((m) => _asInt(m['professionalId']) == professionalId)
+          .where((m) => _sameId(m['professionalId'], professionalId))
           .where((m) => (m['status'] as String?) != 'cancelled')
           .map((m) {
             final rawS = m['startsAt'];
@@ -375,7 +380,7 @@ class BarberCloud {
   }
 
   Future<List<TimeOfDaySlot>> slots({
-    required int professionalId,
+    required String professionalId,
     required DateTime day,
     required int durationMinutes,
   }) async {
@@ -393,8 +398,8 @@ class BarberCloud {
   }
 
   Future<void> book({
-    required int professionalId,
-    required int serviceId,
+    required String professionalId,
+    required String serviceId,
     required String clientName,
     required String phone,
     required DateTime startsAt,
@@ -415,8 +420,10 @@ class BarberCloud {
         );
       }
     }
+    final safePro = professionalId.replaceAll(RegExp(r'[^a-zA-Z0-9_-]'), '');
+    final safeSvc = serviceId.replaceAll(RegExp(r'[^a-zA-Z0-9_-]'), '');
     final id =
-        'site_${startsAt.millisecondsSinceEpoch}_${professionalId}_$serviceId';
+        'site_${startsAt.millisecondsSinceEpoch}_${safePro}_$safeSvc';
     final docUri = _uri(
       '$_shopPath/appointments',
       query: {'documentId': id},

@@ -9,6 +9,7 @@ const siteSpaPages = [
   'A1_Certificado',
   'orcamento',
   'Barber_Hairdresser',
+  'Barber_Admin',
 ];
 
 const clinicaIiiStaticSlugs = [
