@@ -97,11 +97,64 @@ run('git', [
 ]);
 run('git', ['add', '-A', '-f', 'build/web']);
 
-const staged = output('git', ['diff', '--cached', '--name-only']);
-if (!staged) {
-  console.log('Sem alterações de código-fonte para commit.');
-  process.exit(0);
+function stagedOrHeadHasMarkers() {
+  const tryPaths = [':build/web/main.dart.js', 'HEAD:build/web/main.dart.js'];
+  for (const revPath of tryPaths) {
+    const probe = spawnSync('git', ['show', revPath], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+    if (probe.status !== 0 || !probe.stdout) continue;
+    const js = probe.stdout;
+    if (js.includes('stockQty') && js.includes('Produtos')) {
+      return true;
+    }
+  }
+  return false;
 }
 
-run('git', ['commit', '-m', commitMessage]);
+if (!stagedOrHeadHasMarkers()) {
+  console.error(
+    '[publish-web] build/web/main.dart.js sem stockQty+Produtos apos force-add. Abortar: artefacto loja ausente.',
+  );
+  process.exit(1);
+}
+console.log('[publish-web] Marcadores loja OK no artefacto (stockQty + Produtos).');
+
+const staged = output('git', ['diff', '--cached', '--name-only']);
+if (!staged) {
+  console.log('Sem alterações novas para commit; a garantir push de main (artefacto loja ja no tip).');
+} else {
+  run('git', ['commit', '-m', commitMessage]);
+}
+
 run('git', ['push', 'origin', 'main']);
+
+const hook = (process.env.RENDER_DEPLOY_HOOK || '').trim();
+if (hook) {
+  console.log('[publish-web] RENDER_DEPLOY_HOOK definido: a disparar deploy Render...');
+  try {
+    const res = spawnSync(
+      'curl',
+      ['-sS', '-o', '-', '-w', '\nHTTP_CODE:%{http_code}\n', '-X', 'POST', hook],
+      { encoding: 'utf8' },
+    );
+    if (res.error) {
+      console.error(`[publish-web] falha ao POST hook: ${res.error.message}`);
+      process.exit(1);
+    }
+    process.stdout.write(res.stdout || '');
+    if (res.stderr) process.stderr.write(res.stderr);
+    const codeMatch = (res.stdout || '').match(/HTTP_CODE:(\d+)/);
+    const httpCode = codeMatch ? Number(codeMatch[1]) : (res.status === 0 ? 200 : 0);
+    if (httpCode < 200 || httpCode >= 300) {
+      console.error(`[publish-web] RENDER_DEPLOY_HOOK respondeu HTTP ${httpCode}. Use Manual Deploy no dashboard.`);
+      process.exit(1);
+    }
+    console.log('[publish-web] Deploy hook OK.');
+  } catch (err) {
+    console.error(`[publish-web] RENDER_DEPLOY_HOOK falhou: ${err && err.message ? err.message : err}`);
+    process.exit(1);
+  }
+} else {
+  console.log(
+    '[publish-web] RENDER_DEPLOY_HOOK ausente. Se o live continuar com etag antigo, faca Manual Deploy (Clear build cache) no servico Render de perfectgestdev.com.',
+  );
+}

@@ -1,5 +1,11 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-09] Barber — destravar deploy Render (loja+logo)
+
+- Diagnostico: `origin/main` tip ainda sem `stockQty` no `build/web/main.dart.js` (blob 11:23); loja local/`checkout-loja-pix` ja tinha marcadores — push para `origin/main` nao tinha chegado.
+- `publish-web.cjs`: prova stockQty+Produtos apos force-add; push mesmo sem commit novo; `RENDER_DEPLOY_HOOK` (POST) opcional; mensagem Manual Deploy se hook ausente.
+- `publicar-barber-paginas.ps1`: confirma `origin/main` apos push; poll live ~5 min ate etag != 87d77e51 e stockQty+Produtos; timeout = exit 1 + Manual Deploy.
+
 ## [2026-11-09] Barber — handoff publish loja+logo live
 
 - Working tree em `cursor/checkout-loja-pix-a6bc` (HEAD `cc040dc`, pushed). Fonte OK: `listProducts`, `_buildProductsVitrine` acima de Agendar, `isUsableLogoUrl`/`data:image`.
