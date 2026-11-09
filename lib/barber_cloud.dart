@@ -31,10 +31,26 @@ class BarberShopPresentation {
 }
 
 class BarberPro {
-  const BarberPro({required this.id, required this.name});
+  const BarberPro({
+    required this.id,
+    required this.name,
+    this.phone = '',
+    this.pixKey = '',
+    this.pixKeyType = '',
+    this.pixReceiverName = '',
+    this.pixCity = '',
+  });
+
   /// ID cloud (string). Docs antigos numéricos também vêm como string.
   final String id;
   final String name;
+  final String phone;
+  final String pixKey;
+  final String pixKeyType;
+  final String pixReceiverName;
+  final String pixCity;
+
+  bool get hasPix => pixKey.trim().isNotEmpty;
 }
 
 class BarberServiceCard {
@@ -292,6 +308,12 @@ class BarberCloud {
             (m) => BarberPro(
               id: _asId(m['_docId']),
               name: m['name'] as String? ?? 'Profissional',
+              phone: (m['phone'] as String?)?.trim() ?? '',
+              pixKey: (m['pixKey'] as String?)?.trim() ?? '',
+              pixKeyType: (m['pixKeyType'] as String?)?.trim() ?? '',
+              pixReceiverName:
+                  (m['pixReceiverName'] as String?)?.trim() ?? '',
+              pixCity: (m['pixCity'] as String?)?.trim() ?? '',
             ),
           )
           .where((p) => p.id.isNotEmpty)
@@ -517,13 +539,37 @@ class BarberCloud {
     );
   }
 
-  Future<void> book({
+  static String phoneDigits(String phone) =>
+      phone.replaceAll(RegExp(r'\D'), '');
+
+  /// Site: cliente liberado a pagar em dinheiro (`shops/.../clients/{digits}`).
+  Future<bool> clientAllowsCash(String phone) async {
+    await ensureInitialized();
+    if (!ready) return false;
+    final digits = phoneDigits(phone);
+    if (digits.isEmpty) return false;
+    try {
+      final data = await _getDoc('clients/$digits');
+      if (data == null) return false;
+      return data['allowCash'] == true;
+    } catch (e) {
+      debugPrint('clientAllowsCash: $e');
+      return false;
+    }
+  }
+
+  /// Grava agendamento; devolve o doc id. Pagamento: PIX ou na barbearia.
+  Future<String> book({
     required String professionalId,
     required String serviceId,
     required String clientName,
     required String phone,
     required DateTime startsAt,
     required DateTime endsAt,
+    double amountDue = 0,
+    String paymentStatus = 'pending_payment',
+    String pixTxid = '',
+    String receiptDataUri = '',
   }) async {
     await ensureInitialized();
     if (!ready) {
@@ -548,17 +594,24 @@ class BarberCloud {
       '$_shopPath/appointments',
       query: {'documentId': id},
     );
+    final payload = <String, dynamic>{
+      'professionalId': professionalId,
+      'serviceId': serviceId,
+      'clientName': clientName,
+      'phone': phone,
+      'startsAt': startsAt.toUtc(),
+      'endsAt': endsAt.toUtc(),
+      'status': 'scheduled',
+      'source': 'site',
+      'amountDue': amountDue,
+      'paymentStatus': paymentStatus,
+      'pixTxid': pixTxid,
+    };
+    if (receiptDataUri.trim().isNotEmpty) {
+      payload['receiptDataUri'] = receiptDataUri.trim();
+    }
     final body = {
-      'fields': _encodeFields({
-        'professionalId': professionalId,
-        'serviceId': serviceId,
-        'clientName': clientName,
-        'phone': phone,
-        'startsAt': startsAt.toUtc(),
-        'endsAt': endsAt.toUtc(),
-        'status': 'scheduled',
-        'source': 'site',
-      }),
+      'fields': _encodeFields(payload),
     };
     final res = await http.post(
       docUri,
@@ -567,6 +620,50 @@ class BarberCloud {
     );
     if (res.statusCode != 200) {
       throw StateError('Agendar falhou HTTP ${res.statusCode}: ${res.body}');
+    }
+    return id;
+  }
+
+  /// Anexa comprovante PIX ao appointment (após Confirmar + QR).
+  Future<void> attachAppointmentReceipt({
+    required String appointmentId,
+    required String receiptDataUri,
+  }) async {
+    await ensureInitialized();
+    if (!ready) {
+      throw StateError(lastError ?? 'Firestore indisponível');
+    }
+    final safeId = appointmentId.trim();
+    if (safeId.isEmpty) {
+      throw StateError('Appointment inválido');
+    }
+    final uri = receiptDataUri.trim();
+    if (uri.isEmpty) {
+      throw StateError('Comprovante vazio');
+    }
+    final mask = [
+      'updateMask.fieldPaths=receiptDataUri',
+      'updateMask.fieldPaths=paymentStatus',
+      'updateMask.fieldPaths=updatedAt',
+    ].join('&');
+    final patchUri = Uri.parse(
+      '$_shopPath/appointments/$safeId?key=$_apiKey&$mask',
+    );
+    final res = await http.patch(
+      patchUri,
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({
+        'fields': _encodeFields({
+          'receiptDataUri': uri,
+          'paymentStatus': 'receipt_sent',
+          'updatedAt': DateTime.now().toUtc(),
+        }),
+      }),
+    );
+    if (res.statusCode != 200) {
+      throw StateError(
+        'Comprovante falhou HTTP ${res.statusCode}: ${res.body}',
+      );
     }
   }
 

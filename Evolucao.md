@@ -1,5 +1,11 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-09] Barber — QR PIX após agendar
+
+- `BarberPro` + PIX/telefone; `clientAllowsCash(phone)`; `book()` grava `amountDue`/`paymentStatus`/`pixTxid`.
+- Pós-Confirmar: QR EMV (`BarberPixEmv` + `qr_flutter`) ou «Pagamento na barbearia»; anexar comprovante → wa.me do barbeiro (pro phone, senão shop).
+- Publish: `publicar-barber-paginas.ps1 -NoPause -Msg "qr-pix-agendamento"`.
+
 ## [2026-11-09] Barber — WhatsApp + .ics + dedupe produto órfão
 
 - Após Confirmar horário: abre wa.me (loja ou telefone do cliente) com resumo; botão Adicionar ao calendário (.ics UID/DTSTART/DTEND/SUMMARY) + Reabrir WhatsApp.

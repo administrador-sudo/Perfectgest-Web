@@ -2,40 +2,61 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'barber_checkout_sheet.dart';
 import 'barber_cloud.dart';
 import 'barber_ics.dart';
+import 'barber_pix_emv.dart';
 import 'barber_slot_engine.dart';
+import 'funil_comprovante_pick.dart';
 import 'site_public_urls.dart';
+
+enum _PayMode { pix, payAtShop, noPixKey }
 
 class _BookedSnapshot {
   const _BookedSnapshot({
+    required this.appointmentId,
     required this.clientName,
     required this.clientPhone,
     required this.proName,
+    required this.proPhone,
     required this.serviceName,
     required this.shopName,
     required this.startsAt,
     required this.endsAt,
     required this.uid,
+    required this.amountDue,
+    required this.payMode,
+    this.pixTxid = '',
+    this.pixPayload = '',
   });
 
+  final String appointmentId;
   final String clientName;
   final String clientPhone;
   final String proName;
+  final String proPhone;
   final String serviceName;
   final String shopName;
   final DateTime startsAt;
   final DateTime endsAt;
   final String uid;
+  final double amountDue;
+  final _PayMode payMode;
+  final String pixTxid;
+  final String pixPayload;
 
   String get whenLabel {
     String tw(int n) => n.toString().padLeft(2, '0');
     final d = startsAt;
     return '${tw(d.day)}/${tw(d.month)}/${d.year} às ${tw(d.hour)}:${tw(d.minute)}';
   }
+
+  String get amountLabel =>
+      'R\$ ${amountDue.toStringAsFixed(2).replaceAll('.', ',')}';
 
   String get whatsappText {
     final buf = StringBuffer()
@@ -45,6 +66,20 @@ class _BookedSnapshot {
       ..writeln('Serviço: $serviceName')
       ..writeln('Profissional: $proName')
       ..writeln('Quando: $whenLabel');
+    if (amountDue > 0) {
+      buf.writeln('Valor: $amountLabel');
+    }
+    switch (payMode) {
+      case _PayMode.payAtShop:
+        buf.writeln('Pagamento: na barbearia');
+      case _PayMode.pix:
+        buf
+          ..writeln('Pagamento: PIX')
+          ..writeln('TXID: $pixTxid')
+          ..writeln('Comprovante: anexo no agendamento (app).');
+      case _PayMode.noPixKey:
+        buf.writeln('Pagamento: a combinar (sem chave PIX no cadastro)');
+    }
     return buf.toString().trim();
   }
 
@@ -93,6 +128,8 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   String? _error;
   Timer? _slotsPoll;
   _BookedSnapshot? _booked;
+  FunilComprovanteArquivo? _pixReceipt;
+  bool _sendingReceipt = false;
 
   TextStyle get _body => const TextStyle(
         fontFamily: _font,
@@ -279,35 +316,88 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
     try {
       final clientName = _nomeCtrl.text.trim();
       final clientPhone = _telefoneCtrl.text.trim();
-      await BarberCloud.instance.book(
+      final amount = _service!.price;
+      final allowCash =
+          await BarberCloud.instance.clientAllowsCash(clientPhone);
+      final proPix = _pro!.pixKey.trim();
+      final shopPix = _shop.pixKey.trim();
+      final pixKey = proPix.isNotEmpty ? proPix : shopPix;
+      final receiver = _pro!.pixReceiverName.trim().isNotEmpty
+          ? _pro!.pixReceiverName.trim()
+          : (_pro!.name.trim().isNotEmpty ? _pro!.name.trim() : _shop.name);
+      final city = _pro!.pixCity.trim().isNotEmpty
+          ? _pro!.pixCity.trim()
+          : 'BRASIL';
+
+      late final _PayMode payMode;
+      var paymentStatus = 'pending_payment';
+      var pixTxid = '';
+      var pixPayload = '';
+
+      if (allowCash) {
+        payMode = _PayMode.payAtShop;
+        paymentStatus = 'pay_at_shop';
+      } else if (pixKey.isEmpty) {
+        payMode = _PayMode.noPixKey;
+        paymentStatus = 'pending_payment';
+      } else {
+        payMode = _PayMode.pix;
+        paymentStatus = 'pending_payment';
+        final now = DateTime.now();
+        String d2(int n) => n.toString().padLeft(2, '0');
+        pixTxid =
+            'SITE${now.year}${d2(now.month)}${d2(now.day)}${d2(now.hour)}${d2(now.minute)}${d2(now.second)}';
+        pixPayload = BarberPixEmv.payload(
+          chave: pixKey,
+          nomeRecebedor: receiver,
+          cidade: city,
+          valor: amount,
+          txid: pixTxid,
+        );
+      }
+
+      final appointmentId = await BarberCloud.instance.book(
         professionalId: _pro!.id,
         serviceId: _service!.id,
         clientName: clientName,
         phone: clientPhone,
         startsAt: starts,
         endsAt: ends,
+        amountDue: amount,
+        paymentStatus: paymentStatus,
+        pixTxid: pixTxid,
       );
       if (!mounted) return;
       final booked = _BookedSnapshot(
+        appointmentId: appointmentId,
         clientName: clientName,
         clientPhone: clientPhone,
         proName: _pro!.name,
+        proPhone: _pro!.phone,
         serviceName: _service!.name,
         shopName: _shop.name,
         startsAt: starts,
         endsAt: ends,
         uid:
             'barber-${starts.millisecondsSinceEpoch}-${_pro!.id}@perfectgestdev.com',
+        amountDue: amount,
+        payMode: payMode,
+        pixTxid: pixTxid,
+        pixPayload: pixPayload,
       );
       _slotsPoll?.cancel();
       await _reloadSlots();
       if (!mounted) return;
       setState(() {
         _booked = booked;
+        _pixReceipt = null;
         _success = true;
         _saving = false;
       });
-      await _openBookingWhatsApp(booked);
+      // PIX: cliente anexa comprovante antes do WA do barbeiro.
+      if (payMode != _PayMode.pix) {
+        await _openBookingWhatsApp(booked);
+      }
     } catch (e) {
       if (!mounted) return;
       setState(() => _saving = false);
@@ -319,16 +409,90 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
     }
   }
 
+  String _barberWaDigits(_BookedSnapshot booked) {
+    final pro = booked.proPhone.replaceAll(RegExp(r'\D'), '');
+    if (pro.isNotEmpty) {
+      return pro.startsWith('55') ? pro : '55$pro';
+    }
+    final shop = _shop.whatsappPhone.trim();
+    if (shop.isNotEmpty) {
+      return shop.startsWith('55') ? shop : '55$shop';
+    }
+    return '';
+  }
+
   Future<void> _openBookingWhatsApp(_BookedSnapshot booked) async {
-    final shopPhone = _shop.whatsappPhone.trim();
-    final clientDigits =
-        booked.clientPhone.replaceAll(RegExp(r'\D'), '');
-    final phone = shopPhone.isNotEmpty ? shopPhone : clientDigits;
+    final phone = _barberWaDigits(booked);
     if (phone.isEmpty) return;
     final uri = Uri.parse(
       'https://wa.me/$phone?text=${Uri.encodeComponent(booked.whatsappText)}',
     );
     await launchUrl(uri, mode: LaunchMode.externalApplication);
+  }
+
+  Future<void> _pickPixReceipt() async {
+    setState(() => _error = null);
+    try {
+      final file = await escolherComprovanteFunil();
+      if (!mounted || file == null) return;
+      setState(() => _pixReceipt = file);
+    } catch (e) {
+      if (!mounted) return;
+      final msg = '$e'.contains('file_too_large')
+          ? 'Arquivo maior que 2 MB'
+          : '$e'.contains('file_type')
+              ? 'Use PDF, JPG ou PNG'
+              : 'Falha ao anexar: $e';
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(msg)));
+    }
+  }
+
+  Future<void> _sendPixReceiptToBarber() async {
+    final booked = _booked;
+    if (booked == null || booked.payMode != _PayMode.pix) return;
+    if (_pixReceipt == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Anexe o comprovante PIX')),
+      );
+      return;
+    }
+    final digits = _barberWaDigits(booked);
+    if (digits.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            'Profissional/loja sem WhatsApp — cadastre o telefone no app',
+          ),
+        ),
+      );
+      return;
+    }
+    setState(() => _sendingReceipt = true);
+    try {
+      final receiptUri =
+          'data:${_pixReceipt!.mime};base64,${_pixReceipt!.base64}';
+      await BarberCloud.instance.attachAppointmentReceipt(
+        appointmentId: booked.appointmentId,
+        receiptDataUri: receiptUri,
+      );
+      if (!mounted) return;
+      await _openBookingWhatsApp(booked);
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            'Comprovante gravado — finalize o envio no WhatsApp do barbeiro',
+          ),
+        ),
+      );
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Falha ao enviar comprovante: $e')),
+      );
+    } finally {
+      if (mounted) setState(() => _sendingReceipt = false);
+    }
   }
 
   void _downloadBookingIcs(_BookedSnapshot booked) {
@@ -348,6 +512,8 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
     setState(() {
       _success = false;
       _booked = null;
+      _pixReceipt = null;
+      _sendingReceipt = false;
       _nomeCtrl.clear();
       _telefoneCtrl.clear();
       _service = null;
@@ -787,8 +953,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
 
   Widget _buildSuccess() {
     final booked = _booked;
-    final canWa = _shop.whatsappPhone.trim().isNotEmpty ||
-        (booked?.clientPhone.replaceAll(RegExp(r'\D'), '').isNotEmpty ?? false);
+    final canWa = booked != null && _barberWaDigits(booked).isNotEmpty;
     return Container(
       padding: const EdgeInsets.all(22),
       decoration: BoxDecoration(
@@ -814,22 +979,148 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
             textAlign: TextAlign.center,
             style: _mutedStyle,
           ),
-          if (canWa) ...[
-            const SizedBox(height: 8),
-            Text(
-              'Abrimos o WhatsApp com o resumo do horário.',
-              textAlign: TextAlign.center,
-              style: _mutedStyle.copyWith(fontSize: 13),
-            ),
-          ],
           if (booked != null) ...[
+            const SizedBox(height: 16),
+            if (booked.payMode == _PayMode.payAtShop)
+              Text(
+                'Pagamento na barbearia',
+                textAlign: TextAlign.center,
+                style: _body.copyWith(
+                  color: _olive,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 17,
+                ),
+              )
+            else if (booked.payMode == _PayMode.noPixKey) ...[
+              Text(
+                'Sem chave PIX cadastrada para este profissional/loja. '
+                'Confirme o pagamento pelo WhatsApp.',
+                textAlign: TextAlign.center,
+                style: _mutedStyle.copyWith(color: const Color(0xFFFFB74D)),
+              ),
+            ] else ...[
+              Text(
+                booked.amountLabel,
+                textAlign: TextAlign.center,
+                style: _body.copyWith(
+                  color: _olive,
+                  fontSize: 26,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                'Pague via PIX e anexe o comprovante para enviar ao barbeiro.',
+                textAlign: TextAlign.center,
+                style: _mutedStyle.copyWith(fontSize: 13),
+              ),
+              if (booked.pixPayload.isNotEmpty) ...[
+                const SizedBox(height: 16),
+                Center(
+                  child: Container(
+                    padding: const EdgeInsets.all(12),
+                    color: Colors.white,
+                    child: QrImageView(
+                      data: booked.pixPayload,
+                      size: 200,
+                      backgroundColor: Colors.white,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                Text(
+                  'PIX copia e cola',
+                  style: _mutedStyle.copyWith(fontWeight: FontWeight.w700),
+                ),
+                const SizedBox(height: 6),
+                SelectableText(
+                  booked.pixPayload,
+                  style: const TextStyle(
+                    fontFamily: _mono,
+                    color: _text,
+                    fontSize: 11,
+                    height: 1.3,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                OutlinedButton.icon(
+                  onPressed: () async {
+                    await Clipboard.setData(
+                      ClipboardData(text: booked.pixPayload),
+                    );
+                    if (!mounted) return;
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('Código PIX copiado')),
+                    );
+                  },
+                  style: OutlinedButton.styleFrom(
+                    foregroundColor: _olive,
+                    side: const BorderSide(color: _olive),
+                  ),
+                  icon: const Icon(Icons.copy, color: _olive),
+                  label: Text(
+                    'Copiar código',
+                    style: _body.copyWith(
+                      color: _olive,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                OutlinedButton.icon(
+                  onPressed: _sendingReceipt ? null : _pickPixReceipt,
+                  style: OutlinedButton.styleFrom(
+                    foregroundColor: _olive,
+                    side: const BorderSide(color: _olive),
+                  ),
+                  icon: const Icon(Icons.attach_file, color: _olive),
+                  label: Text(
+                    _pixReceipt == null
+                        ? 'Anexar comprovante PIX'
+                        : 'Comprovante: ${_pixReceipt!.nome}',
+                    style: _body.copyWith(
+                      color: _olive,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 8),
+                FilledButton.icon(
+                  onPressed: _sendingReceipt ? null : _sendPixReceiptToBarber,
+                  style: FilledButton.styleFrom(
+                    backgroundColor: _olive,
+                    foregroundColor: _text,
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                  ),
+                  icon: _sendingReceipt
+                      ? const SizedBox(
+                          width: 18,
+                          height: 18,
+                          child: CircularProgressIndicator(
+                            strokeWidth: 2,
+                            color: Colors.white,
+                          ),
+                        )
+                      : const Icon(Icons.send),
+                  label: Text(
+                    'Enviar comprovante no WhatsApp',
+                    style: _body.copyWith(fontWeight: FontWeight.w700),
+                  ),
+                ),
+              ],
+            ],
             const SizedBox(height: 16),
             FilledButton.icon(
               onPressed: () => _downloadBookingIcs(booked),
               style: FilledButton.styleFrom(
-                backgroundColor: _olive,
+                backgroundColor: booked.payMode == _PayMode.pix
+                    ? _surface
+                    : _olive,
                 foregroundColor: _text,
                 padding: const EdgeInsets.symmetric(vertical: 14),
+                side: booked.payMode == _PayMode.pix
+                    ? const BorderSide(color: _olive)
+                    : BorderSide.none,
               ),
               icon: const Icon(Icons.event_available_outlined),
               label: Text(
@@ -837,7 +1128,13 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
                 style: _body.copyWith(fontWeight: FontWeight.w700),
               ),
             ),
-            if (canWa) ...[
+            if (canWa && booked.payMode != _PayMode.pix) ...[
+              const SizedBox(height: 8),
+              Text(
+                'Abrimos o WhatsApp com o resumo do horário.',
+                textAlign: TextAlign.center,
+                style: _mutedStyle.copyWith(fontSize: 13),
+              ),
               const SizedBox(height: 8),
               OutlinedButton.icon(
                 onPressed: () => _openBookingWhatsApp(booked),
