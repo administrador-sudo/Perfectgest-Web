@@ -113805,7 +113805,7 @@ case 4:case 1:return A.E(q,r)}})
 return A.F($async$xU,r)},
 amb(){var s,r=null
 if(J.oX(this.Q))return B.b7
-s=A.b([A.k("Produtos",r,r,r,r,B.r8,r,r,r),B.z,A.k("Tratamento de cabelo e pele \u2014 s\xf3 itens com estoque. PIX ou dinheiro.",r,r,r,r,B.d0.S1(13),r,r,r),B.Q],t.p)
+s=A.b([A.k("Produtos",r,r,r,r,B.r8,r,r,r),B.z,A.k("Produtos dispon\xedveis para venda.",r,r,r,r,B.d0.S1(13),r,r,r),B.Q],t.p)
 B.b.R(s,J.iS(this.Q,new A.aD3(this),t.l7))
 return A.aj(s,B.W,B.i,B.k)},
 amc(){var s,r,q,p=null,o=this.x,n=B.c.a9(o.c)
