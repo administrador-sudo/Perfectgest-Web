@@ -1,5 +1,10 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-09] Barber — handoff publish loja+logo live
+
+- Working tree em `cursor/checkout-loja-pix-a6bc` (HEAD `cc040dc`, pushed). Fonte OK: `listProducts`, `_buildProductsVitrine` acima de Agendar, `isUsableLogoUrl`/`data:image`.
+- Live ainda `main.dart.js` 11:23 UTC sem stockQty/Produtos — Marcos: `atualizar-barber-spa.ps1 -SkipCheckout -NoPause -Msg "loja-logo-live"` (default Branch do script = spa-rewrite; nao omitir `-SkipCheckout`).
+
 ## [2026-11-09] Barber — checkout PIX/dinheiro
 
 - Comprar na vitrine → qty → checkout: PIX (entrega/retirada + comprovante) ou dinheiro (só retirada).
