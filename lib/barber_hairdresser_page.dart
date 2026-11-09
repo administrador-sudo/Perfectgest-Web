@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
 
@@ -32,6 +33,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   BarberShopPresentation _shop = const BarberShopPresentation();
   List<BarberPro> _pros = [];
   List<BarberServiceCard> _services = [];
+  List<BarberProductCard> _products = [];
   List<TimeOfDaySlot> _slots = [];
   BarberPro? _pro;
   BarberServiceCard? _service;
@@ -88,10 +90,12 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
     await BarberCloud.instance.ensureInitialized();
     final shop = await BarberCloud.instance.fetchPresentation();
     final pros = await BarberCloud.instance.listProfessionals();
+    final products = await BarberCloud.instance.listProducts();
     if (!mounted) return;
     setState(() {
       _shop = shop;
       _pros = pros;
+      _products = products;
       _pro = pros.isEmpty ? null : pros.first;
       _loading = false;
       if (!BarberCloud.instance.ready) {
@@ -362,6 +366,9 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
                                       ),
                                     ],
                                     const SizedBox(height: 28),
+                                    _buildProductsVitrine(),
+                                    if (_products.isNotEmpty)
+                                      const SizedBox(height: 28),
                                     KeyedSubtree(
                                       key: _bookingKey,
                                       child: Row(
@@ -410,8 +417,87 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
     );
   }
 
+  Widget _buildProductsVitrine() {
+    if (_products.isEmpty) return const SizedBox.shrink();
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text('Produtos', style: _section),
+        const SizedBox(height: 8),
+        Text(
+          'Tratamento de cabelo e pele — só itens com estoque.',
+          style: _mutedStyle.copyWith(fontSize: 13),
+        ),
+        const SizedBox(height: 12),
+        ..._products.map((p) {
+          return Container(
+            margin: const EdgeInsets.only(bottom: 10),
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: _surface,
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: _olive.withValues(alpha: 0.45)),
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if (p.imageUrl.trim().isNotEmpty)
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.network(
+                      p.imageUrl,
+                      width: 64,
+                      height: 64,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) =>
+                          const SizedBox(
+                        width: 64,
+                        height: 64,
+                        child: Icon(Icons.shopping_bag_outlined, color: _olive),
+                      ),
+                    ),
+                  )
+                else
+                  const SizedBox(
+                    width: 64,
+                    height: 64,
+                    child: Icon(Icons.shopping_bag_outlined, color: _olive),
+                  ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        p.name,
+                        style: _body.copyWith(fontWeight: FontWeight.w700),
+                      ),
+                      if (p.description.isNotEmpty)
+                        Text(
+                          p.description,
+                          style: _mutedStyle.copyWith(fontSize: 13),
+                        ),
+                      const SizedBox(height: 4),
+                      Text(
+                        '${p.priceLabel} · ${p.category} · ${p.stockQty} un.',
+                        style: _body.copyWith(
+                          color: _olive,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          );
+        }),
+      ],
+    );
+  }
+
   Widget _buildHero() {
-    final logoUrl = _shop.logoUrl.trim();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -419,16 +505,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
         Center(
           child: ClipRRect(
             borderRadius: BorderRadius.circular(18),
-            child: logoUrl.isNotEmpty
-                ? Image.network(
-                    logoUrl,
-                    width: 112,
-                    height: 112,
-                    fit: BoxFit.cover,
-                    errorBuilder: (context, error, stackTrace) =>
-                        _logoFallback(),
-                  )
-                : _logoFallback(),
+            child: _buildShopLogo(),
           ),
         ),
         const SizedBox(height: 20),
@@ -473,6 +550,38 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
           style: _mutedStyle.copyWith(fontSize: 14),
         ),
       ],
+    );
+  }
+
+  Widget _buildShopLogo() {
+    final logoUrl = _shop.logoUrl.trim();
+    if (!BarberCloud.isUsableLogoUrl(
+      logoUrl,
+      bookingUrl: _shop.bookingUrl,
+    )) {
+      return _logoFallback();
+    }
+    if (logoUrl.startsWith('data:image/')) {
+      try {
+        final comma = logoUrl.indexOf(',');
+        final b64 = comma >= 0 ? logoUrl.substring(comma + 1) : logoUrl;
+        return Image.memory(
+          base64Decode(b64),
+          width: 112,
+          height: 112,
+          fit: BoxFit.cover,
+          errorBuilder: (context, error, stackTrace) => _logoFallback(),
+        );
+      } catch (_) {
+        return _logoFallback();
+      }
+    }
+    return Image.network(
+      logoUrl,
+      width: 112,
+      height: 112,
+      fit: BoxFit.cover,
+      errorBuilder: (context, error, stackTrace) => _logoFallback(),
     );
   }
 

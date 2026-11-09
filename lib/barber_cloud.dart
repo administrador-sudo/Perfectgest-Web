@@ -49,6 +49,31 @@ class BarberServiceCard {
       'R\$ ${price.toStringAsFixed(2).replaceAll('.', ',')}';
 }
 
+class BarberProductCard {
+  const BarberProductCard({
+    required this.id,
+    required this.professionalId,
+    required this.name,
+    required this.description,
+    required this.price,
+    required this.category,
+    required this.stockQty,
+    this.imageUrl = '',
+  });
+
+  final String id;
+  final String professionalId;
+  final String name;
+  final String description;
+  final double price;
+  final String category;
+  final int stockQty;
+  final String imageUrl;
+
+  String get priceLabel =>
+      'R\$ ${price.toStringAsFixed(2).replaceAll('.', ',')}';
+}
+
 class BarberCloud {
   BarberCloud._();
   static final BarberCloud instance = BarberCloud._();
@@ -173,6 +198,29 @@ class BarberCloud {
     return {'stringValue': '$v'};
   }
 
+  /// Aceita https de imagem ou data URI; rejeita a URL da página de agendar.
+  static bool isUsableLogoUrl(String raw, {String bookingUrl = ''}) {
+    final url = raw.trim();
+    if (url.isEmpty) return false;
+    if (url.startsWith('data:image/')) return true;
+    final lower = url.toLowerCase();
+    final booking = bookingUrl.trim().toLowerCase();
+    if (booking.isNotEmpty && lower == booking) return false;
+    if (lower.contains('/barber_hairdresser') &&
+        !RegExp(r'\.(png|jpe?g|webp|gif|svg)(\?|$)').hasMatch(lower)) {
+      return false;
+    }
+    return lower.startsWith('https://') || lower.startsWith('http://');
+  }
+
+  String _pickShopLogoUrl(Map<String, dynamic> m, String bookingUrl) {
+    for (final key in ['logoUrl', 'imageUrl', 'logo']) {
+      final v = (m[key] as String?)?.trim() ?? '';
+      if (isUsableLogoUrl(v, bookingUrl: bookingUrl)) return v;
+    }
+    return '';
+  }
+
   Future<BarberShopPresentation> fetchPresentation() async {
     await ensureInitialized();
     if (!ready) return const BarberShopPresentation();
@@ -185,15 +233,16 @@ class BarberCloud {
       }
       final body = jsonDecode(res.body) as Map<String, dynamic>;
       final m = _decodeFields(body['fields'] as Map<String, dynamic>?);
+      final bookingUrl = (m['bookingUrl'] as String?)?.trim().isNotEmpty == true
+          ? m['bookingUrl'] as String
+          : 'https://perfectgestdev.com/Barber_Hairdresser';
       return BarberShopPresentation(
         name: (m['name'] as String?)?.trim().isNotEmpty == true
             ? m['name'] as String
             : 'Barbear e Cortar',
         promoText: m['promoText'] as String? ?? '',
-        logoUrl: m['logoUrl'] as String? ?? '',
-        bookingUrl: (m['bookingUrl'] as String?)?.trim().isNotEmpty == true
-            ? m['bookingUrl'] as String
-            : 'https://perfectgestdev.com/Barber_Hairdresser',
+        logoUrl: _pickShopLogoUrl(m, bookingUrl),
+        bookingUrl: bookingUrl,
       );
     } catch (e) {
       lastError = 'fetchPresentation: $e';
@@ -264,6 +313,44 @@ class BarberCloud {
     } catch (e) {
       lastError = 'Falha ao ler serviços: $e';
       debugPrint(lastError);
+      return const [];
+    }
+  }
+
+  /// Vitrine pública: só `active != false` e `stockQty > 0` (sem cadastro no site).
+  Future<List<BarberProductCard>> listProducts({String? professionalId}) async {
+    await ensureInitialized();
+    if (!ready) return const [];
+    try {
+      final rows = await _listCollection('products');
+      return rows
+          .where((m) => m['active'] != false)
+          .where((m) => _asInt(m['stockQty']) > 0)
+          .where(
+            (m) =>
+                professionalId == null ||
+                _sameId(m['professionalId'], professionalId),
+          )
+          .map(
+            (m) => BarberProductCard(
+              id: _asId(
+                (m['localId']?.toString().trim().isNotEmpty == true)
+                    ? m['localId']
+                    : m['_docId'],
+              ),
+              professionalId: _asId(m['professionalId']),
+              name: m['name'] as String? ?? '',
+              description: m['description'] as String? ?? '',
+              price: (m['price'] as num?)?.toDouble() ?? 0,
+              category: m['category'] as String? ?? 'hair',
+              stockQty: _asInt(m['stockQty']),
+              imageUrl: m['imageUrl'] as String? ?? '',
+            ),
+          )
+          .where((p) => p.id.isNotEmpty && p.name.isNotEmpty)
+          .toList();
+    } catch (e) {
+      debugPrint('listProducts: $e');
       return const [];
     }
   }

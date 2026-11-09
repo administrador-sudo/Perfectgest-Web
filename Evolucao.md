@@ -1,5 +1,10 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-09] Barber — vitrine produtos + logo no agendar
+
+- Restaurado `listProducts` (`products`, `active != false`, `stockQty > 0`) + `_buildProductsVitrine()` acima de Agendar.
+- Logo do shop: rejeita `logoUrl` igual à página de agendar; aceita https de imagem ou data URI; topo = logo + nome.
+
 ## [2026-11-09] Barber Admin — Auth UX
 
 - `/Barber_Admin`: erros PT curtos; trim/lowercase; aviso typo gamil; convidar só com sessão; claim adminUid se vazio; signIn dono vs signUp convidado explícitos.
