@@ -1,5 +1,10 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-09] Barber — sync anti-race book + busy completed
+
+- `book()`: doc id estável `slot_{pro}_{startsAtUtcMs}` + HTTP 409 → «Horário acabou de ser ocupado».
+- `busyDay`: só `status == scheduled` (completed/cancelled não bloqueiam slot).
+
 ## [2026-11-09] Barber — destravar deploy Render (loja+logo)
 
 - Diagnostico: `origin/main` tip ainda sem `stockQty` no `build/web/main.dart.js` (blob 11:23); loja local/`checkout-loja-pix` ja tinha marcadores — push para `origin/main` nao tinha chegado.
