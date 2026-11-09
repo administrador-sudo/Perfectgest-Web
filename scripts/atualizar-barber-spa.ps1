@@ -28,6 +28,13 @@ function Write-Step([string]$msg) {
 Set-Location -LiteralPath $RepoRoot
 Write-Host "Site: $RepoRoot" -ForegroundColor Cyan
 
+if ($Branch -eq 'cursor/barber-spa-rewrite-5027' -or $Branch -like '*barber-spa-rewrite-5027*') {
+    Write-Host ""
+    Write-Host "AVISO: Branch default/antiga '$Branch' NAO tem loja/logo/checkout." -ForegroundColor Red
+    Write-Host "Prefira: scripts\publicar-barber-paginas.ps1 (padrao cursor/checkout-loja-pix-a6bc)." -ForegroundColor Yellow
+    Write-Host ""
+}
+
 if (-not $SkipCheckout) {
     Write-Step "git fetch origin main + $Branch"
     & git fetch origin main $Branch
