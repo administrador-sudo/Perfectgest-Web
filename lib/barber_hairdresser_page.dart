@@ -480,7 +480,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
         Text('Produtos', style: _section),
         const SizedBox(height: 8),
         Text(
-          'Tratamento de cabelo e pele — só itens com estoque. PIX ou dinheiro.',
+          'Produtos disponíveis para venda.',
           style: _mutedStyle.copyWith(fontSize: 13),
         ),
         const SizedBox(height: 12),

@@ -1,19 +1,19 @@
 ﻿# Publica as paginas Barber (/Barber_Hairdresser, /Barber_Admin) no site Web_perfectgest.
-# Branch padrao = checkout-loja-pix (loja + logo + checkout). Nao usa o rewrite-5027.
+# Branch padrao = texto-produtos-vitrine-7887 (subtitulo Produtos). Nao usa o rewrite-5027.
 # Nao usa travessao Unicode (quebra o parser do PowerShell).
 #
 # Uso (caminho absoluto - colar de qualquer pasta):
-#   & "C:\Users\Usuario\ProjetosPerfect\fabrica\Projetos\webs\Web_perfectgest\scripts\publicar-barber-paginas.ps1" -NoPause -Msg "loja-logo-live"
+#   & "C:\Users\Usuario\ProjetosPerfect\fabrica\Projetos\webs\Web_perfectgest\scripts\publicar-barber-paginas.ps1" -NoPause -Msg "texto-produtos-vitrine"
 #   & "...\scripts\publicar-barber-paginas.ps1" -SkipPublish -NoPause
-#   & "...\scripts\publicar-barber-paginas.ps1" -SkipCheckout -NoPause -Msg "loja-logo-live"
+#   & "...\scripts\publicar-barber-paginas.ps1" -SkipCheckout -NoPause -Msg "texto-produtos-vitrine"
 #
 # Pipeline: fetch Branch -> merge ff-only em main -> build:web:sync -> publish-web -> poll live.
 # Producao Render segue origin/main; publish-web.cjs faz push origin main (+ RENDER_DEPLOY_HOOK se set).
 # Sucesso so com etag novo e stockQty+Produtos no live; timeout = Manual Deploy no Render.
 
 param(
-    [string]$Branch = 'cursor/checkout-loja-pix-a6bc',
-    [string]$Msg = 'loja-logo-live',
+    [string]$Branch = 'cursor/texto-produtos-vitrine-7887',
+    [string]$Msg = 'texto-produtos-vitrine',
     [int]$PollSeconds = 300,
     [int]$PollIntervalSec = 20,
     [switch]$SkipPublish,
