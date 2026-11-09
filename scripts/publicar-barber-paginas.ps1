@@ -9,7 +9,7 @@
 #
 # Pipeline: fetch Branch -> merge ff-only em main -> build:web:sync -> publish-web -> poll live.
 # Producao Render segue origin/main; publish-web.cjs faz push origin main (+ RENDER_DEPLOY_HOOK se set).
-# Sucesso so com etag novo e stockQty+Produtos no live; timeout = Manual Deploy no Render.
+# Sucesso so com etag novo, stockQty+Produtos e BarberPixEmv|pending_payment no live; timeout = Manual Deploy no Render.
 
 param(
     [string]$Branch = 'cursor/texto-produtos-vitrine-7887',
@@ -54,8 +54,15 @@ function Invoke-RenderDeployHook {
     }
 }
 
+function Test-JsHasPixMarkers {
+    param([string]$JsPath)
+    $hasEmv = $null -ne (Select-String -Path $JsPath -Pattern 'BarberPixEmv' -SimpleMatch | Select-Object -First 1)
+    $hasPending = $null -ne (Select-String -Path $JsPath -Pattern 'pending_payment' -SimpleMatch | Select-Object -First 1)
+    return ($hasEmv -or $hasPending)
+}
+
 function Test-OriginMainHasLojaMarkers {
-    Write-Step "Prova origin/main:build/web/main.dart.js (stockQty / Produtos)"
+    Write-Step "Prova origin/main:build/web/main.dart.js (stockQty / Produtos / PIX)"
     & git fetch origin main
     if ($LASTEXITCODE -ne 0) {
         Write-Host "AVISO: git fetch origin main falhou ($LASTEXITCODE)." -ForegroundColor Yellow
@@ -70,11 +77,16 @@ function Test-OriginMainHasLojaMarkers {
         }
         $hasStock = $null -ne (Select-String -Path $tmpOrigin -Pattern 'stockQty' -SimpleMatch | Select-Object -First 1)
         $hasProdutos = $null -ne (Select-String -Path $tmpOrigin -Pattern 'Produtos' -SimpleMatch | Select-Object -First 1)
+        $hasPix = Test-JsHasPixMarkers -JsPath $tmpOrigin
         if (-not $hasStock -or -not $hasProdutos) {
             Write-Host "FALHA: origin/main ainda sem stockQty+Produtos (push nao levou o artefacto loja)." -ForegroundColor Red
             return $false
         }
-        Write-Host "origin/main OK: stockQty + Produtos no tip." -ForegroundColor Green
+        if (-not $hasPix) {
+            Write-Host "FALHA: origin/main sem BarberPixEmv nem pending_payment (push sem QR PIX agendamento)." -ForegroundColor Red
+            return $false
+        }
+        Write-Host "origin/main OK: stockQty + Produtos + PIX (BarberPixEmv|pending_payment) no tip." -ForegroundColor Green
         return $true
     } finally {
         if (Test-Path -LiteralPath $tmpOrigin) {
@@ -116,14 +128,17 @@ function Test-LiveLojaReady {
     $liveStock = ($liveHits | Where-Object { $_.Line -match 'stockQty' }) -ne $null
     $liveProdutos = ($liveHits | Where-Object { $_.Line -match 'Produtos' }) -ne $null
     $liveList = ($liveHits | Where-Object { $_.Line -match 'listProducts' }) -ne $null
+    $livePix = Test-JsHasPixMarkers -JsPath $TmpJsPath
 
-    $ok = (-not $etagOld) -and $liveStock -and $liveProdutos
+    $ok = (-not $etagOld) -and $liveStock -and $liveProdutos -and $livePix
     $reason = if ($ok) {
         'live OK'
     } elseif ($etagOld) {
         "etag ainda contem $EtagAntigo"
     } elseif (-not $liveStock -or -not $liveProdutos) {
         'live sem stockQty e/ou Produtos'
+    } elseif (-not $livePix) {
+        'live sem BarberPixEmv nem pending_payment'
     } else {
         'live ainda antigo'
     }
@@ -140,6 +155,7 @@ function Test-LiveLojaReady {
         LiveStock = $liveStock
         LiveProdutos = $liveProdutos
         LiveList = $liveList
+        LivePix = $livePix
     }
 }
 
@@ -200,14 +216,18 @@ if (Test-Path -LiteralPath $stub) {
 
 $localJs = Join-Path $RepoRoot 'build\web\main.dart.js'
 if (Test-Path -LiteralPath $localJs) {
-    Write-Step "Prova local main.dart.js (stockQty / Produtos)"
+    Write-Step "Prova local main.dart.js (stockQty / Produtos / PIX)"
     $localHits = Select-String -Path $localJs -Pattern 'stockQty|Produtos|listProducts' -AllMatches
     $hasStock = ($localHits | Where-Object { $_.Line -match 'stockQty' }) -ne $null
     $hasProdutos = ($localHits | Where-Object { $_.Line -match 'Produtos' }) -ne $null
+    $hasPix = Test-JsHasPixMarkers -JsPath $localJs
     if (-not $hasStock -or -not $hasProdutos) {
         throw "Build local sem marcadores loja (stockQty/Produtos). Abortar antes do publish."
     }
-    Write-Host "Marcadores locais OK (stockQty + Produtos)." -ForegroundColor Green
+    if (-not $hasPix) {
+        throw "Build local sem BarberPixEmv nem pending_payment. Abortar antes do publish."
+    }
+    Write-Host "Marcadores locais OK (stockQty + Produtos + PIX)." -ForegroundColor Green
 } else {
     Write-Host "AVISO: build\web\main.dart.js ausente para prova local." -ForegroundColor Yellow
 }
@@ -241,11 +261,11 @@ if (-not $SkipPublish) {
             if ($lastProbe.LmLine) { Write-Host $lastProbe.LmLine }
             if ($lastProbe.CfLine) { Write-Host $lastProbe.CfLine }
             if ($lastProbe.RndrLine) { Write-Host $lastProbe.RndrLine }
-            Write-Host "stockQty=$($lastProbe.LiveStock) Produtos=$($lastProbe.LiveProdutos) listProducts=$($lastProbe.LiveList) -> $($lastProbe.Reason)"
+            Write-Host "stockQty=$($lastProbe.LiveStock) Produtos=$($lastProbe.LiveProdutos) listProducts=$($lastProbe.LiveList) PIX=$($lastProbe.LivePix) -> $($lastProbe.Reason)"
 
             if ($lastProbe.Ok) {
                 $liveOk = $true
-                Write-Host "Live OK: etag novo + stockQty + Produtos." -ForegroundColor Green
+                Write-Host "Live OK: etag novo + stockQty + Produtos + PIX." -ForegroundColor Green
                 if ($lastProbe.LiveList) {
                     Write-Host "Live OK: listProducts tambem presente." -ForegroundColor Green
                 }
@@ -279,9 +299,11 @@ if (-not $SkipPublish) {
 
 Write-Host ""
 Write-Host "Apos o deploy: hard refresh em https://perfectgestdev.com/Barber_Hairdresser" -ForegroundColor Cyan
-Write-Host "Esperado: logo da barbearia + seccao Produtos." -ForegroundColor Cyan
+Write-Host "Esperado: logo + Produtos + QR PIX apos Confirmar (se pixKey e sem allowCash)." -ForegroundColor Cyan
 Write-Host "Validar:" -ForegroundColor Cyan
 Write-Host "  curl.exe -sI https://perfectgestdev.com/main.dart.js"
+Write-Host "  curl.exe -sL https://perfectgestdev.com/main.dart.js -o `$env:TEMP\main.dart.js"
+Write-Host "  Select-String -Path `$env:TEMP\main.dart.js -Pattern 'BarberPixEmv|pending_payment|stockQty' -SimpleMatch"
 Write-Host "  curl.exe -i https://perfectgestdev.com/Barber_Hairdresser"
 
 if (-not $NoPause) {

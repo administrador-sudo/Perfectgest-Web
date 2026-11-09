@@ -1,5 +1,11 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-09] Barber — merge QR PIX + sync em main
+
+- Integrado `cursor/qr-pix-agendamento-3933` + `cursor/sync-clientes-auditoria-ce1b` em `cursor/qr-pix-sync-main-a3c2`.
+- `barber_cloud.dart`: PIX/`clientAllowsCash`/`paymentStatus`/`attachAppointmentReceipt` **e** `slot_*` / busy só `scheduled`.
+- Gate publish: live exige também `BarberPixEmv` ou `pending_payment` (além stockQty/Produtos).
+
 ## [2026-11-09] Barber — QR PIX após agendar
 
 - `BarberPro` + PIX/telefone; `clientAllowsCash(phone)`; `book()` grava `amountDue`/`paymentStatus`/`pixTxid`.
@@ -11,6 +17,11 @@
 - Após Confirmar horário: abre wa.me (loja ou telefone do cliente) com resumo; botão Adicionar ao calendário (.ics UID/DTSTART/DTEND/SUMMARY) + Reabrir WhatsApp.
 - `listProducts`: dedupe por `localId` preferindo docs `prod_*`.
 - Publish: `publicar-barber-paginas.ps1 -NoPause -Msg "wa-ics-orphan-product"`.
+
+## [2026-11-09] Barber — sync anti-race book + busy completed
+
+- `book()`: doc id estável `slot_{pro}_{startsAtUtcMs}` + HTTP 409 → «Horário acabou de ser ocupado».
+- `busyDay`: só `status == scheduled` (completed/cancelled não bloqueiam slot).
 
 ## [2026-11-09] Barber — destravar deploy Render (loja+logo)
 

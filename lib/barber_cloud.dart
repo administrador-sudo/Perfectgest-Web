@@ -495,7 +495,10 @@ class BarberCloud {
       final end = start.add(const Duration(days: 1));
       return rows
           .where((m) => _sameId(m['professionalId'], professionalId))
-          .where((m) => (m['status'] as String?) != 'cancelled')
+          .where((m) {
+            final st = (m['status'] as String?) ?? 'scheduled';
+            return st == 'scheduled';
+          })
           .map((m) {
             final rawS = m['startsAt'];
             if (rawS is! DateTime) return null;
@@ -586,10 +589,10 @@ class BarberCloud {
         );
       }
     }
+    // Id estável pro+startsAt (UTC): create falha se o slot já existir (anti-race).
     final safePro = professionalId.replaceAll(RegExp(r'[^a-zA-Z0-9_-]'), '');
-    final safeSvc = serviceId.replaceAll(RegExp(r'[^a-zA-Z0-9_-]'), '');
     final id =
-        'site_${startsAt.millisecondsSinceEpoch}_${safePro}_$safeSvc';
+        'slot_${safePro}_${startsAt.toUtc().millisecondsSinceEpoch}';
     final docUri = _uri(
       '$_shopPath/appointments',
       query: {'documentId': id},
@@ -618,6 +621,13 @@ class BarberCloud {
       headers: {'Content-Type': 'application/json'},
       body: jsonEncode(body),
     );
+    if (res.statusCode == 409 ||
+        res.body.contains('ALREADY_EXISTS') ||
+        res.body.contains('already exists')) {
+      throw StateError(
+        'Horário acabou de ser ocupado. Escolha outro.',
+      );
+    }
     if (res.statusCode != 200) {
       throw StateError('Agendar falhou HTTP ${res.statusCode}: ${res.body}');
     }
