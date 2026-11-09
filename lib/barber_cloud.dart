@@ -96,6 +96,20 @@ class BarberProductCard {
       'R\$ ${price.toStringAsFixed(2).replaceAll('.', ',')}';
 }
 
+class BarberReviewCard {
+  const BarberReviewCard({
+    required this.id,
+    required this.authorName,
+    required this.rating,
+    required this.text,
+  });
+
+  final String id;
+  final String authorName;
+  final int rating;
+  final String text;
+}
+
 class BarberCloud {
   BarberCloud._();
   static final BarberCloud instance = BarberCloud._();
@@ -675,6 +689,83 @@ class BarberCloud {
         'Comprovante falhou HTTP ${res.statusCode}: ${res.body}',
       );
     }
+  }
+
+  /// Avaliações publicadas (rules filtram pending no list anónimo).
+  Future<List<BarberReviewCard>> listPublishedReviews() async {
+    await ensureInitialized();
+    if (!ready) return const [];
+    try {
+      final rows = await _listCollection('reviews');
+      final list = rows
+          .where((m) => m['status'] == 'published')
+          .map(
+            (m) => BarberReviewCard(
+              id: _asId(m['_docId']),
+              authorName: (m['authorName'] as String?)?.trim() ?? 'Cliente',
+              rating: _asInt(m['rating']),
+              text: (m['text'] as String?)?.trim() ?? '',
+            ),
+          )
+          .where((r) => r.id.isNotEmpty && r.text.isNotEmpty)
+          .toList();
+      return list;
+    } catch (e) {
+      debugPrint('listPublishedReviews: $e');
+      return const [];
+    }
+  }
+
+  /// Cliente envia avaliação → `status: pending` (moderação no app).
+  Future<String> submitReview({
+    required String authorName,
+    required int rating,
+    required String text,
+  }) async {
+    await ensureInitialized();
+    if (!ready) {
+      throw StateError(lastError ?? 'Firestore indisponível');
+    }
+    final name = authorName.trim();
+    final bodyText = text.trim();
+    if (name.isEmpty) {
+      throw StateError('Informe o nome');
+    }
+    if (name.length > 80) {
+      throw StateError('Nome demasiado longo');
+    }
+    if (rating < 1 || rating > 5) {
+      throw StateError('Nota de 1 a 5');
+    }
+    if (bodyText.isEmpty) {
+      throw StateError('Escreva a avaliação');
+    }
+    if (bodyText.length > 1000) {
+      throw StateError('Texto demasiado longo');
+    }
+    final id = 'rev_${DateTime.now().millisecondsSinceEpoch}';
+    final docUri = _uri(
+      '$_shopPath/reviews',
+      query: {'documentId': id},
+    );
+    final res = await http.post(
+      docUri,
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({
+        'fields': _encodeFields({
+          'authorName': name,
+          'rating': rating,
+          'text': bodyText,
+          'status': 'pending',
+          'source': 'site',
+          'createdAt': DateTime.now().toUtc(),
+        }),
+      }),
+    );
+    if (res.statusCode != 200) {
+      throw StateError('Avaliação falhou HTTP ${res.statusCode}: ${res.body}');
+    }
+    return id;
   }
 
   /// Pedido da vitrine → `shops/{shopId}/orders/{orderId}`.

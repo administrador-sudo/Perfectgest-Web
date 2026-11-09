@@ -1,5 +1,11 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-09] Barber — Avaliar + ver avaliações
+
+- Form «Avaliar» (nome/nota/texto) → `submitReview` create `shops/.../reviews` `status:pending`.
+- Link «ver avaliações» abre diálogo só `published`.
+- Publish: `publicar-barber-paginas.ps1 -SkipCheckout -NoPause -Msg "avaliar-reviews-receipt"`.
+
 ## [2026-11-09] Barber — merge QR PIX + sync em main
 
 - Integrado `cursor/qr-pix-agendamento-3933` + `cursor/sync-clientes-auditoria-ce1b` em `cursor/qr-pix-sync-main-a3c2`.

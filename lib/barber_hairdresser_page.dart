@@ -107,10 +107,14 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   static const String _mono = 'JetBrains Mono';
 
   final _formKey = GlobalKey<FormState>();
+  final _reviewFormKey = GlobalKey<FormState>();
   final _bookingKey = GlobalKey();
   final _heroKey = GlobalKey();
+  final _reviewKey = GlobalKey();
   final _nomeCtrl = TextEditingController();
   final _telefoneCtrl = TextEditingController();
+  final _reviewNomeCtrl = TextEditingController();
+  final _reviewTextoCtrl = TextEditingController();
 
   BarberShopPresentation _shop = const BarberShopPresentation();
   List<BarberPro> _pros = [];
@@ -130,6 +134,8 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   _BookedSnapshot? _booked;
   FunilComprovanteArquivo? _pixReceipt;
   bool _sendingReceipt = false;
+  int _reviewRating = 5;
+  bool _sendingReview = false;
 
   TextStyle get _body => const TextStyle(
         fontFamily: _font,
@@ -285,7 +291,114 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
     _slotsPoll?.cancel();
     _nomeCtrl.dispose();
     _telefoneCtrl.dispose();
+    _reviewNomeCtrl.dispose();
+    _reviewTextoCtrl.dispose();
     super.dispose();
+  }
+
+  Future<void> _submitReview() async {
+    if (!(_reviewFormKey.currentState?.validate() ?? false)) return;
+    setState(() => _sendingReview = true);
+    try {
+      await BarberCloud.instance.submitReview(
+        authorName: _reviewNomeCtrl.text,
+        rating: _reviewRating,
+        text: _reviewTextoCtrl.text,
+      );
+      if (!mounted) return;
+      _reviewNomeCtrl.clear();
+      _reviewTextoCtrl.clear();
+      setState(() => _reviewRating = 5);
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            'Avaliação enviada. Aparece no site após aprovação da barbearia.',
+          ),
+        ),
+      );
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Falha ao enviar avaliação: $e')),
+      );
+    } finally {
+      if (mounted) setState(() => _sendingReview = false);
+    }
+  }
+
+  Future<void> _showPublishedReviews() async {
+    showDialog<void>(
+      context: context,
+      barrierDismissible: true,
+      builder: (ctx) {
+        return AlertDialog(
+          backgroundColor: _surface,
+          title: Text(
+            'Avaliações',
+            style: _body.copyWith(fontWeight: FontWeight.w700),
+          ),
+          content: SizedBox(
+            width: 420,
+            child: FutureBuilder<List<BarberReviewCard>>(
+              future: BarberCloud.instance.listPublishedReviews(),
+              builder: (context, snap) {
+                if (snap.connectionState != ConnectionState.done) {
+                  return const SizedBox(
+                    height: 120,
+                    child: Center(child: CircularProgressIndicator()),
+                  );
+                }
+                final list = snap.data ?? const <BarberReviewCard>[];
+                if (list.isEmpty) {
+                  return Text(
+                    'Ainda não há avaliações publicadas.',
+                    style: _mutedStyle,
+                  );
+                }
+                return SizedBox(
+                  height: 360,
+                  child: ListView.separated(
+                    shrinkWrap: true,
+                    itemCount: list.length,
+                    separatorBuilder: (_, __) => const Divider(color: _muted),
+                    itemBuilder: (context, i) {
+                      final r = list[i];
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            r.authorName,
+                            style: _body.copyWith(fontWeight: FontWeight.w700),
+                          ),
+                          const SizedBox(height: 4),
+                          Row(
+                            children: List.generate(5, (j) {
+                              return Icon(
+                                j < r.rating ? Icons.star : Icons.star_border,
+                                size: 16,
+                                color: _olive,
+                              );
+                            }),
+                          ),
+                          const SizedBox(height: 6),
+                          Text(r.text, style: _mutedStyle),
+                        ],
+                      );
+                    },
+                  ),
+                );
+              },
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(ctx),
+              child: Text('Fechar', style: _mutedStyle),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   Future<void> _enviar() async {
@@ -656,6 +769,11 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
                                     else
                                       _buildForm(),
                                     const SizedBox(height: 36),
+                                    KeyedSubtree(
+                                      key: _reviewKey,
+                                      child: _buildReviewSection(),
+                                    ),
+                                    const SizedBox(height: 36),
                                     _buildFooter(),
                                   ],
                                 ),
@@ -922,6 +1040,109 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
       color: _surface,
       alignment: Alignment.center,
       child: const Icon(Icons.content_cut, color: _olive, size: 48),
+    );
+  }
+
+  Widget _buildReviewSection() {
+    InputDecoration deco(String label) => InputDecoration(
+          labelText: label,
+          labelStyle: _mutedStyle,
+          filled: true,
+          fillColor: _surface,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide.none,
+          ),
+        );
+
+    return Form(
+      key: _reviewFormKey,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Row(
+            children: [
+              Expanded(child: Text('Avaliar', style: _section)),
+              TextButton(
+                onPressed: _showPublishedReviews,
+                child: Text(
+                  'ver avaliações',
+                  style: _mutedStyle.copyWith(
+                    color: _olive,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 13,
+                    decoration: TextDecoration.underline,
+                    decorationColor: _olive,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          Text(
+            'Deixe a sua opinião. A barbearia aprova antes de publicar.',
+            style: _mutedStyle.copyWith(fontSize: 13),
+          ),
+          const SizedBox(height: 12),
+          TextFormField(
+            controller: _reviewNomeCtrl,
+            style: _body,
+            decoration: deco('Seu nome'),
+            validator: (v) {
+              final t = v?.trim() ?? '';
+              if (t.isEmpty) return 'Informe o nome';
+              if (t.length > 80) return 'Nome demasiado longo';
+              return null;
+            },
+          ),
+          const SizedBox(height: 10),
+          Text('Nota', style: _mutedStyle.copyWith(fontSize: 13)),
+          const SizedBox(height: 4),
+          Row(
+            children: List.generate(5, (i) {
+              final n = i + 1;
+              return IconButton(
+                onPressed: () => setState(() => _reviewRating = n),
+                icon: Icon(
+                  n <= _reviewRating ? Icons.star : Icons.star_border,
+                  color: _olive,
+                ),
+              );
+            }),
+          ),
+          const SizedBox(height: 4),
+          TextFormField(
+            controller: _reviewTextoCtrl,
+            style: _body,
+            maxLines: 3,
+            maxLength: 1000,
+            decoration: deco('Sua avaliação'),
+            validator: (v) {
+              final t = v?.trim() ?? '';
+              if (t.isEmpty) return 'Escreva a avaliação';
+              return null;
+            },
+          ),
+          const SizedBox(height: 8),
+          FilledButton(
+            onPressed: _sendingReview ? null : _submitReview,
+            style: FilledButton.styleFrom(
+              backgroundColor: _olive,
+              padding: const EdgeInsets.symmetric(vertical: 14),
+            ),
+            child: _sendingReview
+                ? const SizedBox(
+                    width: 22,
+                    height: 22,
+                    child: CircularProgressIndicator(strokeWidth: 2),
+                  )
+                : Text(
+                    'Enviar avaliação',
+                    style: _body.copyWith(fontWeight: FontWeight.w700),
+                  ),
+          ),
+        ],
+      ),
     );
   }
 
