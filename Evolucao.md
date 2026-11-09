@@ -1,5 +1,11 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-09] Barber — WhatsApp + .ics + dedupe produto órfão
+
+- Após Confirmar horário: abre wa.me (loja ou telefone do cliente) com resumo; botão Adicionar ao calendário (.ics UID/DTSTART/DTEND/SUMMARY) + Reabrir WhatsApp.
+- `listProducts`: dedupe por `localId` preferindo docs `prod_*`.
+- Publish: `publicar-barber-paginas.ps1 -NoPause -Msg "wa-ics-orphan-product"`.
+
 ## [2026-11-09] Barber — destravar deploy Render (loja+logo)
 
 - Diagnostico: `origin/main` tip ainda sem `stockQty` no `build/web/main.dart.js` (blob 11:23); loja local/`checkout-loja-pix` ja tinha marcadores — push para `origin/main` nao tinha chegado.

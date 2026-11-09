@@ -331,12 +331,13 @@ class BarberCloud {
   }
 
   /// Vitrine pública: só `active != false` e `stockQty > 0` (sem cadastro no site).
+  /// Dedupe por `localId` preferindo docs `prod_*` (ignora órfãos numéricos legados).
   Future<List<BarberProductCard>> listProducts({String? professionalId}) async {
     await ensureInitialized();
     if (!ready) return const [];
     try {
       final rows = await _listCollection('products');
-      return rows
+      final filtered = rows
           .where((m) => m['active'] != false)
           .where((m) => _asInt(m['stockQty']) > 0)
           .where(
@@ -344,6 +345,25 @@ class BarberCloud {
                 professionalId == null ||
                 _sameId(m['professionalId'], professionalId),
           )
+          .toList();
+      final byLocal = <String, Map<String, dynamic>>{};
+      for (final m in filtered) {
+        final docId = '${m['_docId'] ?? ''}';
+        final localKey = (m['localId']?.toString().trim().isNotEmpty == true)
+            ? '${m['localId']}'.trim()
+            : docId;
+        if (localKey.isEmpty) continue;
+        final existing = byLocal[localKey];
+        if (existing == null) {
+          byLocal[localKey] = m;
+          continue;
+        }
+        final existingDoc = '${existing['_docId'] ?? ''}';
+        final preferNew =
+            docId.startsWith('prod_') && !existingDoc.startsWith('prod_');
+        if (preferNew) byLocal[localKey] = m;
+      }
+      return byLocal.values
           .map(
             (m) => BarberProductCard(
               id: _asId(

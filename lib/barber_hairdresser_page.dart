@@ -2,11 +2,57 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'barber_checkout_sheet.dart';
 import 'barber_cloud.dart';
+import 'barber_ics.dart';
 import 'barber_slot_engine.dart';
 import 'site_public_urls.dart';
+
+class _BookedSnapshot {
+  const _BookedSnapshot({
+    required this.clientName,
+    required this.clientPhone,
+    required this.proName,
+    required this.serviceName,
+    required this.shopName,
+    required this.startsAt,
+    required this.endsAt,
+    required this.uid,
+  });
+
+  final String clientName;
+  final String clientPhone;
+  final String proName;
+  final String serviceName;
+  final String shopName;
+  final DateTime startsAt;
+  final DateTime endsAt;
+  final String uid;
+
+  String get whenLabel {
+    String tw(int n) => n.toString().padLeft(2, '0');
+    final d = startsAt;
+    return '${tw(d.day)}/${tw(d.month)}/${d.year} às ${tw(d.hour)}:${tw(d.minute)}';
+  }
+
+  String get whatsappText {
+    final buf = StringBuffer()
+      ..writeln('Agendamento — $shopName')
+      ..writeln('Cliente: $clientName')
+      ..writeln('Telefone: $clientPhone')
+      ..writeln('Serviço: $serviceName')
+      ..writeln('Profissional: $proName')
+      ..writeln('Quando: $whenLabel');
+    return buf.toString().trim();
+  }
+
+  String get icsSummary => '$serviceName — $shopName';
+
+  String get icsDescription =>
+      'Cliente: $clientName\nTelefone: $clientPhone\nProfissional: $proName';
+}
 
 /// Landing isolada `/Barber_Hairdresser` — grade de horários via Firebase.
 class BarberHairdresserPage extends StatefulWidget {
@@ -46,6 +92,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   bool _success = false;
   String? _error;
   Timer? _slotsPoll;
+  _BookedSnapshot? _booked;
 
   TextStyle get _body => const TextStyle(
         fontFamily: _font,
@@ -230,22 +277,37 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
       ),
     );
     try {
+      final clientName = _nomeCtrl.text.trim();
+      final clientPhone = _telefoneCtrl.text.trim();
       await BarberCloud.instance.book(
         professionalId: _pro!.id,
         serviceId: _service!.id,
-        clientName: _nomeCtrl.text.trim(),
-        phone: _telefoneCtrl.text.trim(),
+        clientName: clientName,
+        phone: clientPhone,
         startsAt: starts,
         endsAt: ends,
       );
       if (!mounted) return;
+      final booked = _BookedSnapshot(
+        clientName: clientName,
+        clientPhone: clientPhone,
+        proName: _pro!.name,
+        serviceName: _service!.name,
+        shopName: _shop.name,
+        startsAt: starts,
+        endsAt: ends,
+        uid:
+            'barber-${starts.millisecondsSinceEpoch}-${_pro!.id}@perfectgestdev.com',
+      );
       _slotsPoll?.cancel();
       await _reloadSlots();
       if (!mounted) return;
       setState(() {
+        _booked = booked;
         _success = true;
         _saving = false;
       });
+      await _openBookingWhatsApp(booked);
     } catch (e) {
       if (!mounted) return;
       setState(() => _saving = false);
@@ -257,9 +319,35 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
     }
   }
 
+  Future<void> _openBookingWhatsApp(_BookedSnapshot booked) async {
+    final shopPhone = _shop.whatsappPhone.trim();
+    final clientDigits =
+        booked.clientPhone.replaceAll(RegExp(r'\D'), '');
+    final phone = shopPhone.isNotEmpty ? shopPhone : clientDigits;
+    if (phone.isEmpty) return;
+    final uri = Uri.parse(
+      'https://wa.me/$phone?text=${Uri.encodeComponent(booked.whatsappText)}',
+    );
+    await launchUrl(uri, mode: LaunchMode.externalApplication);
+  }
+
+  void _downloadBookingIcs(_BookedSnapshot booked) {
+    downloadBarberAppointmentIcs(
+      uid: booked.uid,
+      startsAt: booked.startsAt,
+      endsAt: booked.endsAt,
+      summary: booked.icsSummary,
+      description: booked.icsDescription,
+      location: _shop.name,
+      filename:
+          'agendamento-${booked.startsAt.millisecondsSinceEpoch}.ics',
+    );
+  }
+
   void _novaSolicitacao() {
     setState(() {
       _success = false;
+      _booked = null;
       _nomeCtrl.clear();
       _telefoneCtrl.clear();
       _service = null;
@@ -698,6 +786,9 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   }
 
   Widget _buildSuccess() {
+    final booked = _booked;
+    final canWa = _shop.whatsappPhone.trim().isNotEmpty ||
+        (booked?.clientPhone.replaceAll(RegExp(r'\D'), '').isNotEmpty ?? false);
     return Container(
       padding: const EdgeInsets.all(22),
       decoration: BoxDecoration(
@@ -706,26 +797,68 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
         border: Border.all(color: _olive.withValues(alpha: 0.55)),
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           const Icon(Icons.check_circle_outline, color: _olive, size: 44),
           const SizedBox(height: 12),
           Text(
             'Horário reservado',
+            textAlign: TextAlign.center,
             style: _body.copyWith(fontSize: 18, fontWeight: FontWeight.w700),
           ),
           const SizedBox(height: 8),
           Text(
-            'O agendamento foi gravado na nuvem e aparece na agenda do profissional.',
+            booked == null
+                ? 'O agendamento foi gravado na nuvem e aparece na agenda do profissional.'
+                : '${booked.serviceName} com ${booked.proName} — ${booked.whenLabel}.',
             textAlign: TextAlign.center,
             style: _mutedStyle,
           ),
-          const SizedBox(height: 16),
-          OutlinedButton(
-            onPressed: _novaSolicitacao,
-            style: OutlinedButton.styleFrom(
-              foregroundColor: _olive,
-              side: const BorderSide(color: _olive),
+          if (canWa) ...[
+            const SizedBox(height: 8),
+            Text(
+              'Abrimos o WhatsApp com o resumo do horário.',
+              textAlign: TextAlign.center,
+              style: _mutedStyle.copyWith(fontSize: 13),
             ),
+          ],
+          if (booked != null) ...[
+            const SizedBox(height: 16),
+            FilledButton.icon(
+              onPressed: () => _downloadBookingIcs(booked),
+              style: FilledButton.styleFrom(
+                backgroundColor: _olive,
+                foregroundColor: _text,
+                padding: const EdgeInsets.symmetric(vertical: 14),
+              ),
+              icon: const Icon(Icons.event_available_outlined),
+              label: Text(
+                'Adicionar ao calendário',
+                style: _body.copyWith(fontWeight: FontWeight.w700),
+              ),
+            ),
+            if (canWa) ...[
+              const SizedBox(height: 8),
+              OutlinedButton.icon(
+                onPressed: () => _openBookingWhatsApp(booked),
+                style: OutlinedButton.styleFrom(
+                  foregroundColor: _olive,
+                  side: const BorderSide(color: _olive),
+                ),
+                icon: const Icon(Icons.chat, color: _olive),
+                label: Text(
+                  'Reabrir WhatsApp',
+                  style: _body.copyWith(
+                    color: _olive,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ],
+          ],
+          const SizedBox(height: 12),
+          TextButton(
+            onPressed: _novaSolicitacao,
             child: Text(
               'Nova solicitação',
               style: _body.copyWith(color: _olive, fontWeight: FontWeight.w600),
