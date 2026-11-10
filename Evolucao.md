@@ -1,5 +1,13 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-09] Barber — Agendar/pagar + loja detalhe
+
+- Agendar: labels «Escolha o Barbeiro/Cabelereira» / «Seu nome»; chips PIX agora / Dinheiro na hora (sem gate `clientAllowsCash`).
+- PIX: «Fazer o pagamento» → QR EMV + anexar; Agendar cinza até comprovante; book com `paymentMethod` + receipt; confirmação com opt-in WA/ICS.
+- Dinheiro: Agendar activo; `pay_at_shop` + `paymentMethod=cash`.
+- Loja: foto/Ver detalhes → modal Comprar agora / Voltar; checkout com mesmo PIX QR+comprovante / dinheiro (WA automático, sem opt-in ICS).
+- Publish: `publicar-barber-paginas.ps1 -SkipCheckout -NoPause -Msg "agendar-pagar-loja"`.
+
 ## [2026-11-09] Barber — Avaliar + ver avaliações
 
 - Form «Avaliar» (nome/nota/texto) → `submitReview` create `shops/.../reviews` `status:pending`.

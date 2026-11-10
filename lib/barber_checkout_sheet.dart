@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'barber_cloud.dart';
+import 'barber_pix_emv.dart';
 import 'funil_comprovante_pick.dart';
 
-/// Checkout da vitrine: PIX (entrega/retirada + comprovante) ou dinheiro (só retirada).
+/// Checkout da vitrine: PIX (QR + comprovante) ou dinheiro (retirada).
+/// Pedido → app Pedidos; comprovante PIX também no WhatsApp da loja.
+/// Sem opt-in de avisos WA/ICS (só no agendar).
 Future<void> showBarberCheckout({
   required BuildContext context,
   required BarberShopPresentation shop,
@@ -46,6 +50,7 @@ class _BarberCheckoutSheetState extends State<_BarberCheckoutSheet> {
   static const Color _olive = Color(0xFF556B2F);
   static const Color _text = Color(0xFFFFFFFF);
   static const Color _muted = Color(0xFFD0D0D0);
+  static const String _mono = 'JetBrains Mono';
 
   final _formKey = GlobalKey<FormState>();
   final _nomeCtrl = TextEditingController();
@@ -57,6 +62,9 @@ class _BarberCheckoutSheetState extends State<_BarberCheckoutSheet> {
   FunilComprovanteArquivo? _receipt;
   bool _saving = false;
   bool _done = false;
+  bool _pixPanelOpen = false;
+  String _pixTxid = '';
+  String _pixPayload = '';
   String? _orderId;
   String? _error;
 
@@ -65,12 +73,60 @@ class _BarberCheckoutSheetState extends State<_BarberCheckoutSheet> {
   String get _brl =>
       'R\$ ${_total.toStringAsFixed(2).replaceAll('.', ',')}';
 
+  bool get _canConfirm {
+    if (_saving) return false;
+    if (_pay == 'cash') return true;
+    return _pixPanelOpen &&
+        _receipt != null &&
+        _pixPayload.isNotEmpty;
+  }
+
   @override
   void dispose() {
     _nomeCtrl.dispose();
     _foneCtrl.dispose();
     _addrCtrl.dispose();
     super.dispose();
+  }
+
+  void _preparePix() {
+    final key = widget.shop.pixKey.trim();
+    if (key.isEmpty) {
+      _pixTxid = '';
+      _pixPayload = '';
+      return;
+    }
+    final now = DateTime.now();
+    String d2(int n) => n.toString().padLeft(2, '0');
+    _pixTxid =
+        'LOJA${now.year}${d2(now.month)}${d2(now.day)}${d2(now.hour)}${d2(now.minute)}${d2(now.second)}';
+    _pixPayload = BarberPixEmv.payload(
+      chave: key,
+      nomeRecebedor: widget.shop.name,
+      cidade: 'BRASIL',
+      valor: _total,
+      txid: _pixTxid,
+    );
+  }
+
+  Future<void> _fazerPagamento() async {
+    if (!_formKey.currentState!.validate()) return;
+    if (_pay != 'pix') return;
+    if (widget.shop.pixKey.trim().isEmpty) {
+      setState(() => _error =
+          'Loja sem chave PIX cadastrada. Escolha dinheiro ou avise a barbearia.');
+      return;
+    }
+    if (_fulfill == 'delivery' && _addrCtrl.text.trim().isEmpty) {
+      setState(() => _error = 'Informe o endereço de entrega');
+      return;
+    }
+    setState(() {
+      _error = null;
+      _preparePix();
+      _pixPanelOpen = true;
+      _receipt = null;
+    });
   }
 
   Future<void> _pickReceipt() async {
@@ -95,12 +151,10 @@ class _BarberCheckoutSheetState extends State<_BarberCheckoutSheet> {
     if (_pay == 'cash') {
       _fulfill = 'pickup';
     }
-    if (_pay == 'pix' && widget.shop.pixKey.trim().isEmpty) {
-      setState(() => _error = 'Loja sem chave PIX cadastrada. Escolha dinheiro ou avise a barbearia.');
-      return;
-    }
-    if (_pay == 'pix' && _receipt == null) {
-      setState(() => _error = 'Anexe o comprovante do PIX');
+    if (!_canConfirm) {
+      setState(() => _error = _pay == 'pix'
+          ? 'Anexe o comprovante PIX antes de confirmar'
+          : 'Preencha os dados');
       return;
     }
     if (_pay == 'pix' && _fulfill == 'delivery' && _addrCtrl.text.trim().isEmpty) {
@@ -138,6 +192,7 @@ class _BarberCheckoutSheetState extends State<_BarberCheckoutSheet> {
         _done = true;
         _saving = false;
       });
+      // Sem opt-in: abre WA com resumo (+ nota do comprovante no app).
       await _openWhatsApp(id);
     } catch (e) {
       if (!mounted) return;
@@ -151,6 +206,8 @@ class _BarberCheckoutSheetState extends State<_BarberCheckoutSheet> {
   Future<void> _openWhatsApp(String orderId) async {
     final phone = widget.shop.whatsappPhone.trim();
     if (phone.isEmpty) return;
+    final digits = phone.replaceAll(RegExp(r'\D'), '');
+    final wa = digits.startsWith('55') ? digits : '55$digits';
     final buf = StringBuffer()
       ..writeln('Pedido $orderId — ${widget.shop.name}')
       ..writeln('Cliente: ${_nomeCtrl.text.trim()}')
@@ -172,10 +229,14 @@ class _BarberCheckoutSheetState extends State<_BarberCheckoutSheet> {
       )
       ..writeln('Total: $_brl');
     if (_pay == 'pix') {
-      buf.writeln('Comprovante: anexo no pedido (app Pedidos).');
+      if (_pixTxid.isNotEmpty) buf.writeln('TXID: $_pixTxid');
+      buf.writeln(
+        'Comprovante: anexo no pedido (app Pedidos). '
+        'Envie também a foto/PDF neste chat se preferir.',
+      );
     }
     final uri = Uri.parse(
-      'https://wa.me/$phone?text=${Uri.encodeComponent(buf.toString())}',
+      'https://wa.me/$wa?text=${Uri.encodeComponent(buf.toString())}',
     );
     await launchUrl(uri, mode: LaunchMode.externalApplication);
   }
@@ -222,14 +283,15 @@ class _BarberCheckoutSheetState extends State<_BarberCheckoutSheet> {
         ),
         const SizedBox(height: 8),
         Text(
-          'Nº ${_orderId ?? ''} — aguarde a confirmação da barbearia.',
+          'Nº ${_orderId ?? ''} — aparece em Pedidos no app. '
+          '${_pay == 'pix' ? 'Comprovante gravado no pedido.' : 'Pagamento em dinheiro na loja.'}',
           textAlign: TextAlign.center,
           style: const TextStyle(color: _muted, fontSize: 14),
         ),
         if (widget.shop.whatsappPhone.trim().isNotEmpty) ...[
           const SizedBox(height: 8),
           const Text(
-            'Abrimos o WhatsApp com o resumo do pedido.',
+            'Abrimos o WhatsApp do profissional com o resumo do pedido.',
             textAlign: TextAlign.center,
             style: TextStyle(color: _muted, fontSize: 13),
           ),
@@ -256,6 +318,7 @@ class _BarberCheckoutSheetState extends State<_BarberCheckoutSheet> {
   }
 
   Widget _buildForm() {
+    final confirmEnabled = _canConfirm;
     return Form(
       key: _formKey,
       child: SingleChildScrollView(
@@ -314,10 +377,14 @@ class _BarberCheckoutSheetState extends State<_BarberCheckoutSheet> {
               spacing: 8,
               children: [
                 ChoiceChip(
-                  label: const Text('PIX'),
+                  label: const Text('PIX agora'),
                   selected: _pay == 'pix',
                   onSelected: (_) => setState(() {
                     _pay = 'pix';
+                    _pixPanelOpen = false;
+                    _receipt = null;
+                    _pixPayload = '';
+                    _pixTxid = '';
                   }),
                   selectedColor: _olive,
                   labelStyle: TextStyle(
@@ -325,12 +392,15 @@ class _BarberCheckoutSheetState extends State<_BarberCheckoutSheet> {
                   ),
                 ),
                 ChoiceChip(
-                  label: const Text('Dinheiro'),
+                  label: const Text('Dinheiro na hora'),
                   selected: _pay == 'cash',
                   onSelected: (_) => setState(() {
                     _pay = 'cash';
                     _fulfill = 'pickup';
                     _receipt = null;
+                    _pixPanelOpen = false;
+                    _pixPayload = '';
+                    _pixTxid = '';
                   }),
                   selectedColor: _olive,
                   labelStyle: TextStyle(
@@ -408,64 +478,77 @@ class _BarberCheckoutSheetState extends State<_BarberCheckoutSheet> {
                   },
                 ),
               ],
-              const SizedBox(height: 12),
-              Container(
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  color: const Color(0xFF1C1C1C),
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: _olive.withValues(alpha: 0.5)),
+              if (_pixPanelOpen && _pixPayload.isNotEmpty) ...[
+                const SizedBox(height: 14),
+                Text(
+                  _brl,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    color: _olive,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w800,
+                  ),
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      'Chave PIX',
-                      style: TextStyle(color: _muted, fontSize: 12),
+                const SizedBox(height: 8),
+                const Text(
+                  'Pague via PIX e anexe o comprovante para confirmar o pedido.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: _muted, fontSize: 13),
+                ),
+                const SizedBox(height: 12),
+                Center(
+                  child: Container(
+                    padding: const EdgeInsets.all(12),
+                    color: Colors.white,
+                    child: QrImageView(
+                      data: _pixPayload,
+                      size: 200,
+                      backgroundColor: Colors.white,
                     ),
-                    const SizedBox(height: 4),
-                    SelectableText(
-                      widget.shop.pixKey.trim().isEmpty
-                          ? '(não cadastrada — peça à loja)'
-                          : widget.shop.pixKey,
-                      style: const TextStyle(
-                        color: _text,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    if (widget.shop.pixKey.trim().isNotEmpty) ...[
-                      const SizedBox(height: 8),
-                      OutlinedButton.icon(
-                        onPressed: () async {
-                          await Clipboard.setData(
-                            ClipboardData(text: widget.shop.pixKey.trim()),
-                          );
-                          if (!mounted) return;
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('Chave PIX copiada')),
-                          );
-                        },
-                        icon: const Icon(Icons.copy, size: 16, color: _olive),
-                        label: const Text(
-                          'Copiar chave',
-                          style: TextStyle(color: _text),
-                        ),
-                      ),
-                    ],
-                  ],
+                  ),
                 ),
-              ),
-              const SizedBox(height: 10),
-              OutlinedButton.icon(
-                onPressed: _saving ? null : _pickReceipt,
-                icon: const Icon(Icons.attach_file, color: _olive),
-                label: Text(
-                  _receipt == null
-                      ? 'Anexar comprovante PIX'
-                      : 'Comprovante: ${_receipt!.nome}',
-                  style: const TextStyle(color: _text),
+                const SizedBox(height: 10),
+                const Text(
+                  'PIX copia e cola',
+                  style: TextStyle(color: _muted, fontWeight: FontWeight.w700),
                 ),
-              ),
+                const SizedBox(height: 6),
+                SelectableText(
+                  _pixPayload,
+                  style: const TextStyle(
+                    fontFamily: _mono,
+                    color: _text,
+                    fontSize: 11,
+                    height: 1.3,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                OutlinedButton.icon(
+                  onPressed: () async {
+                    await Clipboard.setData(ClipboardData(text: _pixPayload));
+                    if (!mounted) return;
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('Código PIX copiado')),
+                    );
+                  },
+                  icon: const Icon(Icons.copy, size: 16, color: _olive),
+                  label: const Text(
+                    'Copiar código',
+                    style: TextStyle(color: _text),
+                  ),
+                ),
+                const SizedBox(height: 8),
+                OutlinedButton.icon(
+                  onPressed: _saving ? null : _pickReceipt,
+                  icon: const Icon(Icons.attach_file, color: _olive),
+                  label: Text(
+                    _receipt == null
+                        ? 'Anexar comprovante PIX'
+                        : 'Comprovante: ${_receipt!.nome}',
+                    style: const TextStyle(color: _text),
+                  ),
+                ),
+              ],
             ],
             if (_error != null) ...[
               const SizedBox(height: 10),
@@ -475,30 +558,63 @@ class _BarberCheckoutSheetState extends State<_BarberCheckoutSheet> {
               ),
             ],
             const SizedBox(height: 14),
-            FilledButton(
-              onPressed: _saving ? null : _submit,
-              style: FilledButton.styleFrom(
-                backgroundColor: _olive,
-                padding: const EdgeInsets.symmetric(vertical: 14),
-              ),
-              child: _saving
-                  ? const SizedBox(
-                      width: 20,
-                      height: 20,
-                      child: CircularProgressIndicator(
-                        strokeWidth: 2,
-                        color: _text,
+            Row(
+              children: [
+                Expanded(
+                  child: FilledButton(
+                    onPressed: confirmEnabled ? _submit : null,
+                    style: FilledButton.styleFrom(
+                      backgroundColor:
+                          confirmEnabled ? _olive : const Color(0xFF555555),
+                      disabledBackgroundColor: const Color(0xFF444444),
+                      foregroundColor: _text,
+                      disabledForegroundColor: const Color(0xFFAAAAAA),
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                    ),
+                    child: _saving
+                        ? const SizedBox(
+                            width: 20,
+                            height: 20,
+                            child: CircularProgressIndicator(
+                              strokeWidth: 2,
+                              color: _text,
+                            ),
+                          )
+                        : Text(
+                            _pay == 'pix'
+                                ? 'Confirmar pedido'
+                                : 'Confirmar retirada',
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              color: _text,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                  ),
+                ),
+                if (_pay == 'pix') ...[
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: FilledButton(
+                      onPressed: _saving ? null : _fazerPagamento,
+                      style: FilledButton.styleFrom(
+                        backgroundColor: _olive,
+                        foregroundColor: _text,
+                        padding: const EdgeInsets.symmetric(vertical: 14),
                       ),
-                    )
-                  : Text(
-                      _pay == 'pix'
-                          ? 'Enviar pedido + WhatsApp'
-                          : 'Confirmar retirada (dinheiro)',
-                      style: const TextStyle(
-                        color: _text,
-                        fontWeight: FontWeight.w700,
+                      child: const Text(
+                        'Fazer o pagamento',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: _text,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 14,
+                        ),
                       ),
                     ),
+                  ),
+                ],
+              ],
             ),
             const SizedBox(height: 8),
           ],

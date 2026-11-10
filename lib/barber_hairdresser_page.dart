@@ -16,6 +16,9 @@ import 'site_public_urls.dart';
 
 enum _PayMode { pix, payAtShop, noPixKey }
 
+/// Escolha do cliente no formulário (sem gate allowCash).
+enum _PayChoice { pix, cash }
+
 class _BookedSnapshot {
   const _BookedSnapshot({
     required this.appointmentId,
@@ -133,9 +136,13 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   Timer? _slotsPoll;
   _BookedSnapshot? _booked;
   FunilComprovanteArquivo? _pixReceipt;
-  bool _sendingReceipt = false;
   int _reviewRating = 5;
   bool _sendingReview = false;
+  _PayChoice _payChoice = _PayChoice.pix;
+  bool _pixPanelOpen = false;
+  String _pendingPixTxid = '';
+  String _pendingPixPayload = '';
+  bool _alertsOptedIn = false;
 
   TextStyle get _body => const TextStyle(
         fontFamily: _font,
@@ -360,7 +367,8 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
                   child: ListView.separated(
                     shrinkWrap: true,
                     itemCount: list.length,
-                    separatorBuilder: (_, __) => const Divider(color: _muted),
+                    separatorBuilder: (context, index) =>
+                        const Divider(color: _muted),
                     itemBuilder: (context, i) {
                       final r = list[i];
                       return Column(
@@ -401,15 +409,90 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
     );
   }
 
-  Future<void> _enviar() async {
+  bool get _formReady =>
+      _pro != null &&
+      _service != null &&
+      _date != null &&
+      _slot != null &&
+      _slot!.available;
+
+  bool get _canAgendar {
+    if (_saving || !_formReady) return false;
+    if (_payChoice == _PayChoice.cash) return true;
+    return _pixPanelOpen &&
+        _pixReceipt != null &&
+        _pendingPixPayload.isNotEmpty;
+  }
+
+  String get _resolvedPixKey {
+    final proPix = _pro?.pixKey.trim() ?? '';
+    if (proPix.isNotEmpty) return proPix;
+    return _shop.pixKey.trim();
+  }
+
+  void _preparePixPayload() {
+    final amount = _service?.price ?? 0;
+    final pixKey = _resolvedPixKey;
+    if (pixKey.isEmpty || _pro == null) {
+      _pendingPixTxid = '';
+      _pendingPixPayload = '';
+      return;
+    }
+    final receiver = _pro!.pixReceiverName.trim().isNotEmpty
+        ? _pro!.pixReceiverName.trim()
+        : (_pro!.name.trim().isNotEmpty ? _pro!.name.trim() : _shop.name);
+    final city =
+        _pro!.pixCity.trim().isNotEmpty ? _pro!.pixCity.trim() : 'BRASIL';
+    final now = DateTime.now();
+    String d2(int n) => n.toString().padLeft(2, '0');
+    _pendingPixTxid =
+        'SITE${now.year}${d2(now.month)}${d2(now.day)}${d2(now.hour)}${d2(now.minute)}${d2(now.second)}';
+    _pendingPixPayload = BarberPixEmv.payload(
+      chave: pixKey,
+      nomeRecebedor: receiver,
+      cidade: city,
+      valor: amount,
+      txid: _pendingPixTxid,
+    );
+  }
+
+  Future<void> _fazerPagamento() async {
     if (!(_formKey.currentState?.validate() ?? false)) return;
-    if (_pro == null ||
-        _service == null ||
-        _date == null ||
-        _slot == null ||
-        !_slot!.available) {
+    if (!_formReady) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Escolha serviço, dia e horário livre')),
+      );
+      return;
+    }
+    if (_payChoice != _PayChoice.pix) return;
+    if (_resolvedPixKey.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            'Sem chave PIX cadastrada para este profissional/loja.',
+          ),
+        ),
+      );
+      return;
+    }
+    setState(() {
+      _preparePixPayload();
+      _pixPanelOpen = true;
+      _pixReceipt = null;
+    });
+  }
+
+  Future<void> _agendar() async {
+    if (!(_formKey.currentState?.validate() ?? false)) return;
+    if (!_canAgendar) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            _payChoice == _PayChoice.pix
+                ? 'Anexe o comprovante PIX antes de Agendar'
+                : 'Escolha serviço, dia e horário livre',
+          ),
+        ),
       );
       return;
     }
@@ -430,43 +513,27 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
       final clientName = _nomeCtrl.text.trim();
       final clientPhone = _telefoneCtrl.text.trim();
       final amount = _service!.price;
-      final allowCash =
-          await BarberCloud.instance.clientAllowsCash(clientPhone);
-      final proPix = _pro!.pixKey.trim();
-      final shopPix = _shop.pixKey.trim();
-      final pixKey = proPix.isNotEmpty ? proPix : shopPix;
-      final receiver = _pro!.pixReceiverName.trim().isNotEmpty
-          ? _pro!.pixReceiverName.trim()
-          : (_pro!.name.trim().isNotEmpty ? _pro!.name.trim() : _shop.name);
-      final city = _pro!.pixCity.trim().isNotEmpty
-          ? _pro!.pixCity.trim()
-          : 'BRASIL';
-
       late final _PayMode payMode;
-      var paymentStatus = 'pending_payment';
+      late final String paymentStatus;
+      late final String paymentMethod;
       var pixTxid = '';
       var pixPayload = '';
+      var receiptUri = '';
 
-      if (allowCash) {
+      if (_payChoice == _PayChoice.cash) {
         payMode = _PayMode.payAtShop;
         paymentStatus = 'pay_at_shop';
-      } else if (pixKey.isEmpty) {
-        payMode = _PayMode.noPixKey;
-        paymentStatus = 'pending_payment';
+        paymentMethod = 'cash';
       } else {
         payMode = _PayMode.pix;
-        paymentStatus = 'pending_payment';
-        final now = DateTime.now();
-        String d2(int n) => n.toString().padLeft(2, '0');
-        pixTxid =
-            'SITE${now.year}${d2(now.month)}${d2(now.day)}${d2(now.hour)}${d2(now.minute)}${d2(now.second)}';
-        pixPayload = BarberPixEmv.payload(
-          chave: pixKey,
-          nomeRecebedor: receiver,
-          cidade: city,
-          valor: amount,
-          txid: pixTxid,
-        );
+        paymentStatus = 'receipt_sent';
+        paymentMethod = 'pix';
+        pixTxid = _pendingPixTxid;
+        pixPayload = _pendingPixPayload;
+        if (_pixReceipt != null) {
+          receiptUri =
+              'data:${_pixReceipt!.mime};base64,${_pixReceipt!.base64}';
+        }
       }
 
       final appointmentId = await BarberCloud.instance.book(
@@ -478,7 +545,9 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
         endsAt: ends,
         amountDue: amount,
         paymentStatus: paymentStatus,
+        paymentMethod: paymentMethod,
         pixTxid: pixTxid,
+        receiptDataUri: receiptUri,
       );
       if (!mounted) return;
       final booked = _BookedSnapshot(
@@ -503,14 +572,11 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
       if (!mounted) return;
       setState(() {
         _booked = booked;
-        _pixReceipt = null;
         _success = true;
         _saving = false;
+        _alertsOptedIn = false;
+        _pixPanelOpen = false;
       });
-      // PIX: cliente anexa comprovante antes do WA do barbeiro.
-      if (payMode != _PayMode.pix) {
-        await _openBookingWhatsApp(booked);
-      }
     } catch (e) {
       if (!mounted) return;
       setState(() => _saving = false);
@@ -520,6 +586,14 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
         SnackBar(content: Text('Erro ao agendar: $e')),
       );
     }
+  }
+
+  Future<void> _aceitarAvisos() async {
+    final booked = _booked;
+    if (booked == null) return;
+    setState(() => _alertsOptedIn = true);
+    _downloadBookingIcs(booked);
+    await _openBookingWhatsApp(booked);
   }
 
   String _barberWaDigits(_BookedSnapshot booked) {
@@ -560,54 +634,6 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
     }
   }
 
-  Future<void> _sendPixReceiptToBarber() async {
-    final booked = _booked;
-    if (booked == null || booked.payMode != _PayMode.pix) return;
-    if (_pixReceipt == null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Anexe o comprovante PIX')),
-      );
-      return;
-    }
-    final digits = _barberWaDigits(booked);
-    if (digits.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text(
-            'Profissional/loja sem WhatsApp — cadastre o telefone no app',
-          ),
-        ),
-      );
-      return;
-    }
-    setState(() => _sendingReceipt = true);
-    try {
-      final receiptUri =
-          'data:${_pixReceipt!.mime};base64,${_pixReceipt!.base64}';
-      await BarberCloud.instance.attachAppointmentReceipt(
-        appointmentId: booked.appointmentId,
-        receiptDataUri: receiptUri,
-      );
-      if (!mounted) return;
-      await _openBookingWhatsApp(booked);
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text(
-            'Comprovante gravado — finalize o envio no WhatsApp do barbeiro',
-          ),
-        ),
-      );
-    } catch (e) {
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Falha ao enviar comprovante: $e')),
-      );
-    } finally {
-      if (mounted) setState(() => _sendingReceipt = false);
-    }
-  }
-
   void _downloadBookingIcs(_BookedSnapshot booked) {
     downloadBarberAppointmentIcs(
       uid: booked.uid,
@@ -626,7 +652,11 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
       _success = false;
       _booked = null;
       _pixReceipt = null;
-      _sendingReceipt = false;
+      _payChoice = _PayChoice.pix;
+      _pixPanelOpen = false;
+      _pendingPixTxid = '';
+      _pendingPixPayload = '';
+      _alertsOptedIn = false;
       _nomeCtrl.clear();
       _telefoneCtrl.clear();
       _service = null;
@@ -790,6 +820,126 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
     );
   }
 
+  Widget _productThumb(BarberProductCard p, {double size = 64}) {
+    if (p.imageUrl.trim().isEmpty) {
+      return SizedBox(
+        width: size,
+        height: size,
+        child: const Icon(Icons.shopping_bag_outlined, color: _olive),
+      );
+    }
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(8),
+      child: Image.network(
+        p.imageUrl,
+        width: size,
+        height: size,
+        fit: BoxFit.cover,
+        errorBuilder: (context, error, stackTrace) => SizedBox(
+          width: size,
+          height: size,
+          child: const Icon(Icons.shopping_bag_outlined, color: _olive),
+        ),
+      ),
+    );
+  }
+
+  Future<void> _showProductDetail(BarberProductCard p) async {
+    final action = await showDialog<String>(
+      context: context,
+      builder: (ctx) {
+        return AlertDialog(
+          backgroundColor: _surface,
+          contentPadding: const EdgeInsets.fromLTRB(20, 20, 20, 8),
+          content: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 420),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: IconButton(
+                    onPressed: () => Navigator.pop(ctx),
+                    icon: const Icon(Icons.close, color: _muted),
+                  ),
+                ),
+                Center(child: _productThumb(p, size: 180)),
+                const SizedBox(height: 16),
+                Text(
+                  p.name,
+                  textAlign: TextAlign.center,
+                  style: _body.copyWith(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 20,
+                  ),
+                ),
+                const SizedBox(height: 6),
+                Text(
+                  '${p.category} · ${p.stockQty} disponíveis',
+                  textAlign: TextAlign.center,
+                  style: _mutedStyle.copyWith(fontSize: 13),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  p.priceLabel,
+                  textAlign: TextAlign.center,
+                  style: _body.copyWith(
+                    color: _olive,
+                    fontWeight: FontWeight.w800,
+                    fontSize: 22,
+                  ),
+                ),
+                if (p.description.isNotEmpty) ...[
+                  const SizedBox(height: 12),
+                  Text(p.description, style: _mutedStyle),
+                ],
+              ],
+            ),
+          ),
+          actionsAlignment: MainAxisAlignment.center,
+          actions: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                FilledButton(
+                  style: FilledButton.styleFrom(
+                    backgroundColor: _olive,
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                  ),
+                  onPressed: () => Navigator.pop(ctx, 'buy'),
+                  child: Text(
+                    'Comprar agora',
+                    style: _body.copyWith(fontWeight: FontWeight.w700),
+                  ),
+                ),
+                const SizedBox(height: 8),
+                OutlinedButton(
+                  style: OutlinedButton.styleFrom(
+                    foregroundColor: _olive,
+                    side: const BorderSide(color: _olive),
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                  ),
+                  onPressed: () => Navigator.pop(ctx, 'back'),
+                  child: Text(
+                    'Voltar à loja',
+                    style: _body.copyWith(
+                      color: _olive,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        );
+      },
+    );
+    if (action == 'buy' && mounted) {
+      await _buyProduct(p);
+    }
+  }
+
   Future<void> _buyProduct(BarberProductCard p) async {
     final qtyCtrl = TextEditingController(text: '1');
     final qty = await showDialog<int>(
@@ -828,7 +978,10 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
                 if (n < 1 || n > p.stockQty) return;
                 Navigator.pop(ctx, n);
               },
-              child: Text('Continuar', style: _body.copyWith(fontWeight: FontWeight.w700)),
+              child: Text(
+                'Continuar',
+                style: _body.copyWith(fontWeight: FontWeight.w700),
+              ),
             ),
           ],
         );
@@ -852,7 +1005,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
         Text('Produtos', style: _section),
         const SizedBox(height: 8),
         Text(
-          'Produtos disponíveis para venda.',
+          'Produtos disponíveis para venda. Toque na foto para ver detalhes.',
           style: _mutedStyle.copyWith(fontSize: 13),
         ),
         const SizedBox(height: 12),
@@ -868,28 +1021,11 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                if (p.imageUrl.trim().isNotEmpty)
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(8),
-                    child: Image.network(
-                      p.imageUrl,
-                      width: 64,
-                      height: 64,
-                      fit: BoxFit.cover,
-                      errorBuilder: (context, error, stackTrace) =>
-                          const SizedBox(
-                        width: 64,
-                        height: 64,
-                        child: Icon(Icons.shopping_bag_outlined, color: _olive),
-                      ),
-                    ),
-                  )
-                else
-                  const SizedBox(
-                    width: 64,
-                    height: 64,
-                    child: Icon(Icons.shopping_bag_outlined, color: _olive),
-                  ),
+                InkWell(
+                  onTap: () => _showProductDetail(p),
+                  borderRadius: BorderRadius.circular(8),
+                  child: _productThumb(p),
+                ),
                 const SizedBox(width: 12),
                 Expanded(
                   child: Column(
@@ -902,6 +1038,8 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
                       if (p.description.isNotEmpty)
                         Text(
                           p.description,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
                           style: _mutedStyle.copyWith(fontSize: 13),
                         ),
                       const SizedBox(height: 4),
@@ -914,23 +1052,18 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
                         ),
                       ),
                       const SizedBox(height: 8),
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: FilledButton(
-                          onPressed: () => _buyProduct(p),
-                          style: FilledButton.styleFrom(
-                            backgroundColor: _olive,
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 14,
-                              vertical: 8,
-                            ),
-                          ),
-                          child: Text(
-                            'Comprar',
-                            style: _body.copyWith(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 14,
-                            ),
+                      TextButton(
+                        onPressed: () => _showProductDetail(p),
+                        style: TextButton.styleFrom(
+                          foregroundColor: _olive,
+                          padding: EdgeInsets.zero,
+                        ),
+                        child: Text(
+                          'Ver detalhes',
+                          style: _body.copyWith(
+                            color: _olive,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 14,
                           ),
                         ),
                       ),
@@ -1174,7 +1307,6 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
 
   Widget _buildSuccess() {
     final booked = _booked;
-    final canWa = booked != null && _barberWaDigits(booked).isNotEmpty;
     return Container(
       padding: const EdgeInsets.all(22),
       decoration: BoxDecoration(
@@ -1188,7 +1320,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
           const Icon(Icons.check_circle_outline, color: _olive, size: 44),
           const SizedBox(height: 12),
           Text(
-            'Horário reservado',
+            'Agendamento confirmado',
             textAlign: TextAlign.center,
             style: _body.copyWith(fontSize: 18, fontWeight: FontWeight.w700),
           ),
@@ -1201,176 +1333,54 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
             style: _mutedStyle,
           ),
           if (booked != null) ...[
-            const SizedBox(height: 16),
-            if (booked.payMode == _PayMode.payAtShop)
-              Text(
-                'Pagamento na barbearia',
-                textAlign: TextAlign.center,
-                style: _body.copyWith(
-                  color: _olive,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 17,
-                ),
-              )
-            else if (booked.payMode == _PayMode.noPixKey) ...[
-              Text(
-                'Sem chave PIX cadastrada para este profissional/loja. '
-                'Confirme o pagamento pelo WhatsApp.',
-                textAlign: TextAlign.center,
-                style: _mutedStyle.copyWith(color: const Color(0xFFFFB74D)),
-              ),
-            ] else ...[
-              Text(
-                booked.amountLabel,
-                textAlign: TextAlign.center,
-                style: _body.copyWith(
-                  color: _olive,
-                  fontSize: 26,
-                  fontWeight: FontWeight.w800,
-                ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                'Pague via PIX e anexe o comprovante para enviar ao barbeiro.',
-                textAlign: TextAlign.center,
-                style: _mutedStyle.copyWith(fontSize: 13),
-              ),
-              if (booked.pixPayload.isNotEmpty) ...[
-                const SizedBox(height: 16),
-                Center(
-                  child: Container(
-                    padding: const EdgeInsets.all(12),
-                    color: Colors.white,
-                    child: QrImageView(
-                      data: booked.pixPayload,
-                      size: 200,
-                      backgroundColor: Colors.white,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 12),
-                Text(
-                  'PIX copia e cola',
-                  style: _mutedStyle.copyWith(fontWeight: FontWeight.w700),
-                ),
-                const SizedBox(height: 6),
-                SelectableText(
-                  booked.pixPayload,
-                  style: const TextStyle(
-                    fontFamily: _mono,
-                    color: _text,
-                    fontSize: 11,
-                    height: 1.3,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                OutlinedButton.icon(
-                  onPressed: () async {
-                    await Clipboard.setData(
-                      ClipboardData(text: booked.pixPayload),
-                    );
-                    if (!mounted) return;
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Código PIX copiado')),
-                    );
-                  },
-                  style: OutlinedButton.styleFrom(
-                    foregroundColor: _olive,
-                    side: const BorderSide(color: _olive),
-                  ),
-                  icon: const Icon(Icons.copy, color: _olive),
-                  label: Text(
-                    'Copiar código',
-                    style: _body.copyWith(
-                      color: _olive,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 12),
-                OutlinedButton.icon(
-                  onPressed: _sendingReceipt ? null : _pickPixReceipt,
-                  style: OutlinedButton.styleFrom(
-                    foregroundColor: _olive,
-                    side: const BorderSide(color: _olive),
-                  ),
-                  icon: const Icon(Icons.attach_file, color: _olive),
-                  label: Text(
-                    _pixReceipt == null
-                        ? 'Anexar comprovante PIX'
-                        : 'Comprovante: ${_pixReceipt!.nome}',
-                    style: _body.copyWith(
-                      color: _olive,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 8),
-                FilledButton.icon(
-                  onPressed: _sendingReceipt ? null : _sendPixReceiptToBarber,
-                  style: FilledButton.styleFrom(
-                    backgroundColor: _olive,
-                    foregroundColor: _text,
-                    padding: const EdgeInsets.symmetric(vertical: 14),
-                  ),
-                  icon: _sendingReceipt
-                      ? const SizedBox(
-                          width: 18,
-                          height: 18,
-                          child: CircularProgressIndicator(
-                            strokeWidth: 2,
-                            color: Colors.white,
-                          ),
-                        )
-                      : const Icon(Icons.send),
-                  label: Text(
-                    'Enviar comprovante no WhatsApp',
-                    style: _body.copyWith(fontWeight: FontWeight.w700),
-                  ),
-                ),
-              ],
-            ],
-            const SizedBox(height: 16),
-            FilledButton.icon(
-              onPressed: () => _downloadBookingIcs(booked),
-              style: FilledButton.styleFrom(
-                backgroundColor: booked.payMode == _PayMode.pix
-                    ? _surface
-                    : _olive,
-                foregroundColor: _text,
-                padding: const EdgeInsets.symmetric(vertical: 14),
-                side: booked.payMode == _PayMode.pix
-                    ? const BorderSide(color: _olive)
-                    : BorderSide.none,
-              ),
-              icon: const Icon(Icons.event_available_outlined),
-              label: Text(
-                'Adicionar ao calendário',
-                style: _body.copyWith(fontWeight: FontWeight.w700),
+            const SizedBox(height: 12),
+            Text(
+              booked.payMode == _PayMode.payAtShop
+                  ? 'Pagamento: dinheiro na hora'
+                  : 'Pagamento: PIX (comprovante enviado)',
+              textAlign: TextAlign.center,
+              style: _body.copyWith(
+                color: _olive,
+                fontWeight: FontWeight.w700,
               ),
             ),
-            if (canWa && booked.payMode != _PayMode.pix) ...[
-              const SizedBox(height: 8),
-              Text(
-                'Abrimos o WhatsApp com o resumo do horário.',
-                textAlign: TextAlign.center,
-                style: _mutedStyle.copyWith(fontSize: 13),
+            const SizedBox(height: 20),
+            if (!_alertsOptedIn) ...[
+              FilledButton(
+                onPressed: _aceitarAvisos,
+                style: FilledButton.styleFrom(
+                  backgroundColor: _olive,
+                  foregroundColor: _text,
+                  padding: const EdgeInsets.symmetric(vertical: 14),
+                ),
+                child: Text(
+                  'Quero avisos WhatsApp e calendário',
+                  style: _body.copyWith(fontWeight: FontWeight.w700),
+                ),
               ),
               const SizedBox(height: 8),
-              OutlinedButton.icon(
-                onPressed: () => _openBookingWhatsApp(booked),
+              OutlinedButton(
+                onPressed: () {
+                  setState(() => _alertsOptedIn = true);
+                },
                 style: OutlinedButton.styleFrom(
                   foregroundColor: _olive,
                   side: const BorderSide(color: _olive),
+                  padding: const EdgeInsets.symmetric(vertical: 14),
                 ),
-                icon: const Icon(Icons.chat, color: _olive),
-                label: Text(
-                  'Reabrir WhatsApp',
+                child: Text(
+                  'Agora não',
                   style: _body.copyWith(
                     color: _olive,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
+              ),
+            ] else ...[
+              Text(
+                'Avisos tratados. Obrigado!',
+                textAlign: TextAlign.center,
+                style: _mutedStyle.copyWith(fontSize: 13),
               ),
             ],
           ],
@@ -1388,17 +1398,19 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   }
 
   Widget _buildForm() {
+    final agendarEnabled = _canAgendar;
+    final showPayBtn = _payChoice == _PayChoice.pix;
     return Form(
       key: _formKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          if (_pros.length > 1) ...[
+          if (_pros.isNotEmpty) ...[
             DropdownButtonFormField<String>(
               initialValue: _pro?.id,
               dropdownColor: _surface,
               style: _body,
-              decoration: _fieldDeco('Profissional'),
+              decoration: _fieldDeco('Escolha o Barbeiro/Cabelereira'),
               items: _pros
                   .map(
                     (p) => DropdownMenuItem(
@@ -1409,7 +1421,13 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
                   .toList(),
               onChanged: (id) async {
                 final p = _pros.firstWhere((e) => e.id == id);
-                setState(() => _pro = p);
+                setState(() {
+                  _pro = p;
+                  _pixPanelOpen = false;
+                  _pixReceipt = null;
+                  _pendingPixPayload = '';
+                  _pendingPixTxid = '';
+                });
                 await _loadServices();
               },
             ),
@@ -1418,7 +1436,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
           TextFormField(
             controller: _nomeCtrl,
             style: _body,
-            decoration: _fieldDeco('Nome'),
+            decoration: _fieldDeco('Seu nome'),
             validator: (v) =>
                 (v == null || v.trim().length < 2) ? 'Informe o nome' : null,
           ),
@@ -1462,6 +1480,10 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
                 setState(() {
                   _service = s;
                   _slot = null;
+                  if (_pixPanelOpen) {
+                    _preparePixPayload();
+                    _pixReceipt = null;
+                  }
                 });
                 await _reloadSlots();
               },
@@ -1528,26 +1550,187 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
               ],
             ),
           const SizedBox(height: 18),
-          FilledButton(
-            onPressed: _saving ? null : _enviar,
-            style: FilledButton.styleFrom(
-              backgroundColor: _olive,
-              foregroundColor: _text,
-              padding: const EdgeInsets.symmetric(vertical: 16),
+          Text('Pagamento', style: _section),
+          const SizedBox(height: 8),
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: [
+              ChoiceChip(
+                label: const Text('PIX agora'),
+                selected: _payChoice == _PayChoice.pix,
+                selectedColor: _olive,
+                labelStyle: TextStyle(
+                  color: _text,
+                  fontFamily: _font,
+                  fontWeight: FontWeight.w600,
+                ),
+                backgroundColor: _surface,
+                onSelected: (_) => setState(() {
+                  _payChoice = _PayChoice.pix;
+                  _pixPanelOpen = false;
+                  _pixReceipt = null;
+                  _pendingPixPayload = '';
+                  _pendingPixTxid = '';
+                }),
+              ),
+              ChoiceChip(
+                label: const Text('Dinheiro na hora'),
+                selected: _payChoice == _PayChoice.cash,
+                selectedColor: _olive,
+                labelStyle: TextStyle(
+                  color: _text,
+                  fontFamily: _font,
+                  fontWeight: FontWeight.w600,
+                ),
+                backgroundColor: _surface,
+                onSelected: (_) => setState(() {
+                  _payChoice = _PayChoice.cash;
+                  _pixPanelOpen = false;
+                  _pixReceipt = null;
+                  _pendingPixPayload = '';
+                  _pendingPixTxid = '';
+                }),
+              ),
+            ],
+          ),
+          if (_pixPanelOpen && _pendingPixPayload.isNotEmpty) ...[
+            const SizedBox(height: 16),
+            Text(
+              _service?.priceLabel ?? '',
+              textAlign: TextAlign.center,
+              style: _body.copyWith(
+                color: _olive,
+                fontSize: 26,
+                fontWeight: FontWeight.w800,
+              ),
             ),
-            child: _saving
-                ? const SizedBox(
-                    height: 22,
-                    width: 22,
-                    child: CircularProgressIndicator(
-                      strokeWidth: 2,
-                      color: Colors.white,
-                    ),
-                  )
-                : Text(
-                    'Confirmar horário',
-                    style: _body.copyWith(fontWeight: FontWeight.w700),
+            const SizedBox(height: 8),
+            Text(
+              'Pague via PIX e anexe o comprovante para liberar Agendar.',
+              textAlign: TextAlign.center,
+              style: _mutedStyle.copyWith(fontSize: 13),
+            ),
+            const SizedBox(height: 16),
+            Center(
+              child: Container(
+                padding: const EdgeInsets.all(12),
+                color: Colors.white,
+                child: QrImageView(
+                  data: _pendingPixPayload,
+                  size: 200,
+                  backgroundColor: Colors.white,
+                ),
+              ),
+            ),
+            const SizedBox(height: 12),
+            Text(
+              'PIX copia e cola',
+              style: _mutedStyle.copyWith(fontWeight: FontWeight.w700),
+            ),
+            const SizedBox(height: 6),
+            SelectableText(
+              _pendingPixPayload,
+              style: const TextStyle(
+                fontFamily: _mono,
+                color: _text,
+                fontSize: 11,
+                height: 1.3,
+              ),
+            ),
+            const SizedBox(height: 8),
+            OutlinedButton.icon(
+              onPressed: () async {
+                await Clipboard.setData(
+                  ClipboardData(text: _pendingPixPayload),
+                );
+                if (!mounted) return;
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Código PIX copiado')),
+                );
+              },
+              style: OutlinedButton.styleFrom(
+                foregroundColor: _olive,
+                side: const BorderSide(color: _olive),
+              ),
+              icon: const Icon(Icons.copy, color: _olive),
+              label: Text(
+                'Copiar código',
+                style: _body.copyWith(
+                  color: _olive,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+            const SizedBox(height: 8),
+            OutlinedButton.icon(
+              onPressed: _pickPixReceipt,
+              style: OutlinedButton.styleFrom(
+                foregroundColor: _olive,
+                side: const BorderSide(color: _olive),
+              ),
+              icon: const Icon(Icons.attach_file, color: _olive),
+              label: Text(
+                _pixReceipt == null
+                    ? 'Anexar comprovante PIX'
+                    : 'Comprovante: ${_pixReceipt!.nome}',
+                style: _body.copyWith(
+                  color: _olive,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+          ],
+          const SizedBox(height: 18),
+          Row(
+            children: [
+              Expanded(
+                child: FilledButton(
+                  onPressed: agendarEnabled ? _agendar : null,
+                  style: FilledButton.styleFrom(
+                    backgroundColor: agendarEnabled ? _olive : const Color(0xFF555555),
+                    disabledBackgroundColor: const Color(0xFF444444),
+                    foregroundColor: _text,
+                    disabledForegroundColor: const Color(0xFFAAAAAA),
+                    padding: const EdgeInsets.symmetric(vertical: 16),
                   ),
+                  child: _saving
+                      ? const SizedBox(
+                          height: 22,
+                          width: 22,
+                          child: CircularProgressIndicator(
+                            strokeWidth: 2,
+                            color: Colors.white,
+                          ),
+                        )
+                      : Text(
+                          'Agendar',
+                          style: _body.copyWith(fontWeight: FontWeight.w700),
+                        ),
+                ),
+              ),
+              if (showPayBtn) ...[
+                const SizedBox(width: 10),
+                Expanded(
+                  child: FilledButton(
+                    onPressed: _saving ? null : _fazerPagamento,
+                    style: FilledButton.styleFrom(
+                      backgroundColor: _olive,
+                      foregroundColor: _text,
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                    ),
+                    child: Text(
+                      'Fazer o pagamento',
+                      textAlign: TextAlign.center,
+                      style: _body.copyWith(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ],
           ),
         ],
       ),

@@ -576,6 +576,7 @@ class BarberCloud {
   }
 
   /// Grava agendamento; devolve o doc id. Pagamento: PIX ou na barbearia.
+  /// [paymentMethod]: `pix` | `cash` (escolha do cliente no site).
   Future<String> book({
     required String professionalId,
     required String serviceId,
@@ -585,6 +586,7 @@ class BarberCloud {
     required DateTime endsAt,
     double amountDue = 0,
     String paymentStatus = 'pending_payment',
+    String paymentMethod = '',
     String pixTxid = '',
     String receiptDataUri = '',
   }) async {
@@ -611,6 +613,7 @@ class BarberCloud {
       '$_shopPath/appointments',
       query: {'documentId': id},
     );
+    final method = paymentMethod.trim().toLowerCase();
     final payload = <String, dynamic>{
       'professionalId': professionalId,
       'serviceId': serviceId,
@@ -624,6 +627,9 @@ class BarberCloud {
       'paymentStatus': paymentStatus,
       'pixTxid': pixTxid,
     };
+    if (method == 'pix' || method == 'cash') {
+      payload['paymentMethod'] = method;
+    }
     if (receiptDataUri.trim().isNotEmpty) {
       payload['receiptDataUri'] = receiptDataUri.trim();
     }
