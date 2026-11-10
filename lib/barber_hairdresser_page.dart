@@ -102,8 +102,8 @@ class BarberHairdresserPage extends StatefulWidget {
 
 class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   static const Color _olive = Color(0xFF556B2F);
-  /// Nome da loja no topo — brass/olive vintage no tema escuro.
-  static const Color _brandName = Color(0xFFC9B87A);
+  /// Nome da loja no topo — cream alto contraste (não some no fundo escuro).
+  static const Color _brandName = Color(0xFFE8D9A8);
   static const Color _bg = Color(0xFF121212);
   static const Color _surface = Color(0xFF2A2A2A);
   static const Color _text = Color(0xFFFFFFFF);
@@ -164,14 +164,23 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
         height: 1.4,
       );
 
+  /// Nome da loja: Georgia + fallbacks; se serif falhar no web, Inter/Arial.
   TextStyle get _title => const TextStyle(
         fontFamily: _brandFont,
-        fontFamilyFallback: <String>['Times New Roman', 'Times', 'serif'],
+        fontFamilyFallback: <String>[
+          'Times New Roman',
+          'Times',
+          'serif',
+          'Inter',
+          'Arial',
+          'sans-serif',
+        ],
         color: _brandName,
-        fontSize: 28,
+        fontSize: 30,
         fontWeight: FontWeight.w700,
-        height: 1.2,
-        letterSpacing: 0.6,
+        height: 1.25,
+        letterSpacing: 0.5,
+        decoration: TextDecoration.none,
       );
 
   TextStyle get _section => const TextStyle(
@@ -1104,7 +1113,9 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
         Text(
           shopName,
           textAlign: TextAlign.center,
-          style: _title,
+          style: _title.copyWith(
+            color: _brandName.withValues(alpha: 1),
+          ),
         ),
         if (_shop.promoText.trim().isNotEmpty) ...[
           const SizedBox(height: 14),

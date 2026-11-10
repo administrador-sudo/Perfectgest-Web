@@ -1,5 +1,11 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-09] Barber — nome loja alto contraste
+
+- Hero shop name: `#E8D9A8` 30px; Georgia + Times/serif + Inter/Arial (web não some).
+- Avaliar: copy + nome opcional/`Anónimo` já em main (`cb2a189`).
+- Manual Deploy Render após push (sem RENDER_DEPLOY_HOOK).
+
 ## [2026-11-09] Barber — Avaliar texto + nome opcional
 
 - Copy: «Deixe sua opinião, ajude a melhorar nosso atendimento»; nome opcional → `Anónimo`.
