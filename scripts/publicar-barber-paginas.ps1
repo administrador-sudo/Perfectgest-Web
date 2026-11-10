@@ -3,17 +3,19 @@
 # Nao usa travessao Unicode (quebra o parser do PowerShell).
 #
 # Uso (caminho absoluto - colar de qualquer pasta):
-#   & "C:\Users\Usuario\ProjetosPerfect\fabrica\Projetos\webs\Web_perfectgest\scripts\publicar-barber-paginas.ps1" -NoPause -Msg "texto-produtos-vitrine"
+#   & "C:\Users\Usuario\ProjetosPerfect\fabrica\Projetos\webs\Web_perfectgest\scripts\publicar-barber-paginas.ps1" -NoPause -Msg "share-whatsapp-pwa"
 #   & "...\scripts\publicar-barber-paginas.ps1" -SkipPublish -NoPause
-#   & "...\scripts\publicar-barber-paginas.ps1" -SkipCheckout -NoPause -Msg "texto-produtos-vitrine"
+#   & "...\scripts\publicar-barber-paginas.ps1" -SkipCheckout -NoPause -Msg "share-whatsapp-pwa"
 #
 # Pipeline: fetch Branch -> merge ff-only em main -> build:web:sync -> publish-web -> poll live.
 # Producao Render segue origin/main; publish-web.cjs faz push origin main (+ RENDER_DEPLOY_HOOK se set).
 # Sucesso so com etag novo, stockQty+Produtos e BarberPixEmv|pending_payment no live; timeout = Manual Deploy no Render.
+# Apos deploy: confirmar /manifest-barber.json + /barber-shop-logo.png + og:image no stub Barber.
+# Se o poll falhar ou o CDN ficar antigo: Manual Deploy no Render (Clear build cache).
 
 param(
-    [string]$Branch = 'cursor/texto-produtos-vitrine-7887',
-    [string]$Msg = 'texto-produtos-vitrine',
+    [string]$Branch = 'cursor/share-whatsapp-pwa-51e0',
+    [string]$Msg = 'share-whatsapp-pwa',
     [int]$PollSeconds = 300,
     [int]$PollIntervalSec = 20,
     [switch]$SkipPublish,
@@ -210,8 +212,29 @@ if (-not (Test-Path -LiteralPath $stub)) {
 
 if (Test-Path -LiteralPath $stub) {
     Write-Host "Stub OK: $stub" -ForegroundColor Green
+    $stubText = Get-Content -LiteralPath $stub -Raw -Encoding UTF8
+    $hasManifest = $stubText -match 'manifest-barber\.json'
+    $hasOgLogo = $stubText -match 'barber-shop-logo\.png'
+    if (-not $hasManifest) {
+        throw "Stub Barber sem link manifest-barber.json (spa-legal-paths)."
+    }
+    if (-not $hasOgLogo) {
+        throw "Stub Barber sem og/twitter barber-shop-logo.png (spa-legal-paths)."
+    }
+    Write-Host "Stub Barber: manifest-barber + og logo OK." -ForegroundColor Green
 } else {
     throw "Stub Barber_Hairdresser.html nao encontrado apos o build."
+}
+
+$manifestBarber = Join-Path $RepoRoot 'build\web\manifest-barber.json'
+$ogLogo = Join-Path $RepoRoot 'build\web\barber-shop-logo.png'
+if (-not (Test-Path -LiteralPath $manifestBarber)) {
+    throw "build/web/manifest-barber.json ausente apos o build."
+}
+if (-not (Test-Path -LiteralPath $ogLogo)) {
+    Write-Host "AVISO: build/web/barber-shop-logo.png ausente (OG WhatsApp sem imagem ate sync)." -ForegroundColor Yellow
+} else {
+    Write-Host "OG logo OK: $ogLogo" -ForegroundColor Green
 }
 
 $localJs = Join-Path $RepoRoot 'build\web\main.dart.js'
@@ -299,12 +322,18 @@ if (-not $SkipPublish) {
 
 Write-Host ""
 Write-Host "Apos o deploy: hard refresh em https://perfectgestdev.com/Barber_Hairdresser" -ForegroundColor Cyan
-Write-Host "Esperado: logo + Produtos + QR PIX apos Confirmar (se pixKey e sem allowCash)." -ForegroundColor Cyan
+Write-Host "Esperado: logo + Produtos + QR PIX; PWA usa manifest-barber (start_url Barber)." -ForegroundColor Cyan
+Write-Host "WhatsApp preview: og:image = https://perfectgestdev.com/barber-shop-logo.png" -ForegroundColor Cyan
+Write-Host "Cliente PWA: remover atalho antigo e Adicionar ao ecran inicial de novo em /Barber_Hairdresser." -ForegroundColor Cyan
+Write-Host "Se CDN antigo: Manual Deploy no Render (Clear build cache)." -ForegroundColor Yellow
 Write-Host "Validar:" -ForegroundColor Cyan
 Write-Host "  curl.exe -sI https://perfectgestdev.com/main.dart.js"
 Write-Host "  curl.exe -sL https://perfectgestdev.com/main.dart.js -o `$env:TEMP\main.dart.js"
 Write-Host "  Select-String -Path `$env:TEMP\main.dart.js -Pattern 'BarberPixEmv|pending_payment|stockQty' -SimpleMatch"
 Write-Host "  curl.exe -i https://perfectgestdev.com/Barber_Hairdresser"
+Write-Host "  curl.exe -sI https://perfectgestdev.com/manifest-barber.json"
+Write-Host "  curl.exe -sI https://perfectgestdev.com/barber-shop-logo.png"
+Write-Host "  curl.exe -sL https://perfectgestdev.com/Barber_Hairdresser.html | Select-String -Pattern 'manifest-barber|og:image|twitter:image'"
 
 if (-not $NoPause) {
     Read-Host "Enter para sair"

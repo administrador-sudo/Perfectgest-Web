@@ -1,5 +1,13 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-09] Barber — WhatsApp OG + PWA manifest-barber
+
+- `web/manifest-barber.json`: `start_url`/`scope` `/Barber_Hairdresser`; root `manifest.json` PerfectGest intacto.
+- `spa-legal-paths.cjs`: so stubs Barber apontam `manifest-barber` + `og:image`/`twitter:image` = `https://perfectgestdev.com/barber-shop-logo.png`.
+- `sync-barber-og-logo.cjs` + `web/barber-shop-logo.png` (logo shop Firestore → path estavel).
+- `publicar-barber-paginas.ps1`: valida stub/manifest/logo; nota Manual Deploy se CDN antigo.
+- Publish: `& "...\scripts\publicar-barber-paginas.ps1" -Branch cursor/share-whatsapp-pwa-51e0 -NoPause -Msg "share-whatsapp-pwa"`.
+
 ## [2026-11-09] Barber — foto produto data-URI na vitrine
 
 - `_productThumb`: `data:image/` → `Image.memory` (antes só `Image.network` → sacola).

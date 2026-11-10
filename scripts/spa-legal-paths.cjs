@@ -66,10 +66,113 @@ function writeRedirectHtml(targetUrl) {
 </html>`;
 }
 
-for (const segment of siteSpaPages) {
-  removeBare(segment);
-  fs.writeFileSync(path.join(buildWeb, `${segment}.html`), indexHtml);
+const BARBER_SPA_SEGMENTS = new Set(['Barber_Hairdresser']);
+const BARBER_OG_IMAGE = 'https://perfectgestdev.com/barber-shop-logo.png';
+const BARBER_BOOKING_URL = 'https://perfectgestdev.com/Barber_Hairdresser';
+
+function escapeHtmlAttr(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;');
 }
+
+/** Stub Barber: manifest-barber + OG/Twitter com logo estavel (WhatsApp preview). */
+function patchBarberStubHtml(html, shopName) {
+  let out = html.toString('utf8');
+  const title = shopName && shopName.trim()
+    ? `${shopName.trim()} — Agendar`
+    : 'Barbear e Cortar — Agendar';
+  const desc =
+    'Agende seu horario. Toque no link para abrir a pagina da barbearia.'; // ASCII meta (sem acentos)
+  const safeTitle = escapeHtmlAttr(title);
+  const safeDesc = escapeHtmlAttr(desc);
+
+  out = out.replace(
+    /<link\s+rel="manifest"\s+href="[^"]*"\s*>/i,
+    '<link rel="manifest" href="/manifest-barber.json">',
+  );
+  out = out.replace(
+    /<meta\s+name="apple-mobile-web-app-title"\s+content="[^"]*"\s*>/i,
+    '<meta name="apple-mobile-web-app-title" content="Agendar">',
+  );
+  out = out.replace(
+    /<title>[^<]*<\/title>/i,
+    `<title>${safeTitle}</title>`,
+  );
+  out = out.replace(
+    /<meta\s+property="og:title"\s+content="[^"]*"\s*>/i,
+    `<meta property="og:title" content="${safeTitle}">`,
+  );
+  out = out.replace(
+    /<meta\s+property="og:description"\s+content="[^"]*"\s*>/i,
+    `<meta property="og:description" content="${safeDesc}">`,
+  );
+  out = out.replace(
+    /<meta\s+property="og:image"\s+content="[^"]*"\s*>/i,
+    `<meta property="og:image" content="${BARBER_OG_IMAGE}">`,
+  );
+  out = out.replace(
+    /<meta\s+name="description"\s+content="[^"]*"\s*>/i,
+    `<meta name="description" content="${safeDesc}">`,
+  );
+
+  // Twitter card + og:url (inserir apos og:image se ainda nao existirem).
+  if (!/property="og:url"/i.test(out)) {
+    out = out.replace(
+      /(<meta\s+property="og:image"\s+content="[^"]*"\s*>)/i,
+      `$1\n  <meta property="og:url" content="${BARBER_BOOKING_URL}">`,
+    );
+  }
+  if (!/name="twitter:card"/i.test(out)) {
+    out = out.replace(
+      /(<meta\s+property="og:image"\s+content="[^"]*"\s*>)/i,
+      `$1
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${safeTitle}">
+  <meta name="twitter:description" content="${safeDesc}">
+  <meta name="twitter:image" content="${BARBER_OG_IMAGE}">`,
+    );
+  } else {
+    out = out.replace(
+      /<meta\s+name="twitter:image"\s+content="[^"]*"\s*>/i,
+      `<meta name="twitter:image" content="${BARBER_OG_IMAGE}">`,
+    );
+  }
+
+  // apple-touch-icon: preferir logo da barbearia no atalho iOS.
+  out = out.replace(
+    /<link\s+rel="apple-touch-icon"\s+href="[^"]*"\s*>/i,
+    '<link rel="apple-touch-icon" href="/barber-shop-logo.png">',
+  );
+
+  return Buffer.from(out, 'utf8');
+}
+
+function writeSpaStubs(shopName) {
+  for (const segment of siteSpaPages) {
+    removeBare(segment);
+    const dest = path.join(buildWeb, `${segment}.html`);
+    if (BARBER_SPA_SEGMENTS.has(segment)) {
+      fs.writeFileSync(dest, patchBarberStubHtml(indexHtml, shopName));
+    } else {
+      fs.writeFileSync(dest, indexHtml);
+    }
+  }
+}
+
+/** Sync logo OG antes dos stubs (best-effort; nao falha o build). */
+const { spawnSync } = require('node:child_process');
+const syncLogoResult = spawnSync(process.execPath, [path.join(__dirname, 'sync-barber-og-logo.cjs')], {
+  encoding: 'utf8',
+  cwd: path.join(__dirname, '..'),
+});
+if (syncLogoResult.stdout) process.stdout.write(syncLogoResult.stdout);
+if (syncLogoResult.stderr) process.stderr.write(syncLogoResult.stderr);
+const shopNameMatch = /SHOP_NAME=(.+)/.exec(syncLogoResult.stdout || '');
+const barberShopName = shopNameMatch ? shopNameMatch[1].trim() : '';
+
+writeSpaStubs(barberShopName);
 
 for (const segment of clinicaIiiStaticSlugs) {
   removeBare(segment);
