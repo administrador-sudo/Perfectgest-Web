@@ -1,0 +1,43 @@
+{
+    "name": "Barbear e Cortar — Agendar",
+    "short_name": "Agendar",
+    "id": "https://perfectgestdev.com/Barber_Hairdresser",
+    "start_url": "/Barber_Hairdresser",
+    "scope": "/Barber_Hairdresser",
+    "display": "standalone",
+    "background_color": "#E8E8E8",
+    "theme_color": "#556B2F",
+    "description": "Agende horario na barbearia. Pagina isolada Barber Hairdresser.",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "/icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "/barber-shop-logo.png",
+            "sizes": "any",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/icons/Icon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/icons/Icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}
