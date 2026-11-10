@@ -1,8 +1,8 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
 $__dart_deferred_initializers__.current=function(a,b,c,$){var C,D,B={
-bjh(d){switch(d.ae(x.h).r.f.gd0()){case"en":return A.RP
-case"es":return A.RQ
-case"pt":default:return A.RR}},
+bjh(d){switch(d.ae(x.h).r.f.gd0()){case"en":return A.RQ
+case"es":return A.RR
+case"pt":default:return A.RS}},
 ce:function ce(d,e,f){this.a=d
 this.b=e
 this.c=f},
@@ -80,7 +80,7 @@ C.rn()
 this.az()},
 aAY(){var w=this,v=C.Z(["clean-arch",w.e,"seguranca",w.f,"escala",w.r,"full-stack",w.w],x.w,x.d).h(0,w.a.d),u=v==null?null:$.a2.av$.x.h(0,v)
 if(u==null)return
-C.HC(u,0.24,D.js,D.e_,D.uL)},
+C.HC(u,0.24,D.js,D.e_,D.uM)},
 A(d){var w,v,u,t,s,r,q,p,o,n,m,l=this,k=null,j=C.u(d).ax,i=C.aR(d,D.ai,x.x).w.a.a<400,h=i?16:24,g=C.bK(d,D.b0,x.F)
 g.toString
 w=B.bjh(d)
@@ -103,7 +103,7 @@ if(m===4)i.push(D.v)
 q=m<4?v[m]:k
 p=w.gRQ()
 i.push(new B.abe(w.gu5()[m].a,w.gu5()[m].b,w.gu5()[m].c,p,q))
-D.c.R(r,i)}return C.ay(k,k,k,C.fO(s,t,new C.k6(C.es(C.cB(new C.ci(A.Pr,C.af(r,D.D,D.i,D.k),k),k,k),l.d,new C.V(h,16,h,28),D.a5),k),k,k,k,k),!1,k,k,!1,k,!1,k,k,k,k,k,k,k,k,u,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,D.p,k)}}
+D.c.R(r,i)}return C.ay(k,k,k,C.fO(s,t,new C.k6(C.es(C.cB(new C.ci(A.Ps,C.af(r,D.D,D.i,D.k),k),k,k),l.d,new C.V(h,16,h,28),D.a5),k),k,k,k,k),!1,k,k,!1,k,!1,k,k,k,k,k,k,k,k,u,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,k,D.p,k)}}
 B.abe.prototype={
 A(d){var w,v,u,t,s,r=this,q=null,p=C.u(d).ax,o=p.RG
 o=(o==null?p.k2:o).ag(0.55)
@@ -136,10 +136,10 @@ v(B.abe,C.W)})()
 C.w9(b.typeUniverse,JSON.parse('{"qH":{"Q":[],"c":[]},"abf":{"U":["qH"]},"abe":{"W":[],"c":[]}}'))
 var y={c:"Parceiros tecnol\xf3gicos | Perfect Gest Dev"}
 var x={F:C.a5("hp"),d:C.a5("j5<U<Q>>"),c:C.a5("w<ce>"),u:C.a5("w<c>"),z:C.a5("aW<U<Q>>"),x:C.a5("hz"),w:C.a5("m"),h:C.a5("mK")};(function constants(){var w=a.makeConstList
-A.Pr=new C.a_(0,760,0,1/0)
-A.RP=new B.aRG()
-A.RQ=new B.aRH()
-A.RR=new B.aRI()
+A.Ps=new C.a_(0,760,0,1/0)
+A.RQ=new B.aRG()
+A.RR=new B.aRH()
+A.RS=new B.aRI()
 A.VD=new C.V(14,14,14,15)
 A.as4=new B.ce("Clean Arch","Aplicamos arquitetura limpa com separa\xe7\xe3o clara de responsabilidades, camadas desacopladas e componentes reutiliz\xe1veis. Isso acelera evolu\xe7\xe3o de produto, melhora testes e reduz custo de manuten\xe7\xe3o.","Exemplo pr\xe1tico: ao alterar uma regra de or\xe7amento, ajustamos somente a camada de dom\xednio sem quebrar interface ou integra\xe7\xf5es externas.")
 A.asi=new B.ce("Seguran\xe7a","Adotamos boas pr\xe1ticas de seguran\xe7a em autentica\xe7\xe3o, gest\xe3o de sess\xe3o, pol\xedticas de conte\xfado web e prote\xe7\xe3o de dados. O objetivo \xe9 reduzir risco operacional e elevar confian\xe7a em produ\xe7\xe3o.","Exemplo pr\xe1tico: protegemos rotas sens\xedveis com valida\xe7\xe3o de sess\xe3o e aplicamos CSP no web para bloquear scripts n\xe3o autorizados.")
@@ -189,4 +189,4 @@ A.asd=new B.ce("Analytics and consent (GA4)","Measurement with Google Analytics 
 A.as3=new B.ce("Clean architecture and maintenance","We prioritize organized code, reusable components and separation of concerns to support continuous product evolution, fewer bugs and lower maintenance cost.","Practical example: a new subscription feature is added by reusing components and reducing QA effort.")
 A.arP=new B.ce("HTTP integrations and external services","We integrate external APIs and data services for real business flows, including back-end endpoints and observability services, ensuring operational reliability and metric-driven evolution.","Practical example: we monitor API latency and errors in production to act before customers are impacted.")
 A.aeY=w([A.arT,A.arE,A.as_,A.arY,A.arG,A.arR,A.as2,A.arV,A.arN,A.as9,A.asa,A.as0,A.asd,A.as3,A.arP],x.c)})()};
-(a=>{a["nXj9lXIiZpo4k0G8J26LjIqonuo="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["CUTuIhnxV2CG9R29M7GfXAtg4NM="]=a.current})($__dart_deferred_initializers__);

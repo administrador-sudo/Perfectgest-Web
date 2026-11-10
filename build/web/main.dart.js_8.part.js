@@ -12,9 +12,9 @@ _.d=g},
 a5y:function a5y(d,e){this.c=d
 this.a=e},
 aIJ:function aIJ(d){this.a=d},
-bje(d){switch(d.ae(y.h).r.f.gd0()){case"en":return A.RA
-case"es":return A.RB
-case"pt":default:return A.RC}},
+bje(d){switch(d.ae(y.h).r.f.gd0()){case"en":return A.RB
+case"es":return A.RC
+case"pt":default:return A.RD}},
 mt:function mt(d,e){this.a=d
 this.b=e},
 c7:function c7(d,e,f){this.a=d
@@ -67,7 +67,7 @@ u=j.length
 if(u!==0){r=C.b([D.an],r)
 for(q=0;q<u;++q){p=j[q]
 o=C.iE(D.by,n,n,n,n,n,n,n,n,n,n,D.X,D.af,n,n,n,n,D.eI,n,n)
-r.push(new C.a0(D.c6,new C.cm(D.by,n,n,C.cj(C.k(p.a,n,n,n,n,C.bj().$5$color$decoration$fontSize$fontWeight$height(t,D.d2,v?13:14,D.L,1.45),n,n,n),new B.aIJ(p),o),n),n))}D.c.R(s,r)}return new C.a0(G.uS,C.ay(n,n,n,C.cx(new C.a0(new C.V(k,16,k,18),C.af(s,D.D,D.i,D.k),n),new C.bb(h,n,w,x,n,n,D.G),D.ad),!0,n,n,!1,n,!1,n,n,n,n,n,n,n,n,i,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,D.p,n),n)}}
+r.push(new C.a0(D.c6,new C.cm(D.by,n,n,C.cj(C.k(p.a,n,n,n,n,C.bj().$5$color$decoration$fontSize$fontWeight$height(t,D.d2,v?13:14,D.L,1.45),n,n,n),new B.aIJ(p),o),n),n))}D.c.R(s,r)}return new C.a0(G.uT,C.ay(n,n,n,C.cx(new C.a0(new C.V(k,16,k,18),C.af(s,D.D,D.i,D.k),n),new C.bb(h,n,w,x,n,n,D.G),D.ad),!0,n,n,!1,n,!1,n,n,n,n,n,n,n,n,i,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,D.p,n),n)}}
 B.mt.prototype={}
 B.c7.prototype={}
 B.axP.prototype={}
@@ -88,7 +88,7 @@ gfh(){return"Preguntas y respuestas PerfectGest ContabilGest"},
 giW(){return"Preguntas y respuestas"},
 giY(){return"PerfectGest ContabilGest"},
 glO(){return"Preguntas y respuestas sobre la Aplicaci\xf3n"},
-gV_(){return A.a7V}}
+gV_(){return A.a7W}}
 var z=a.updateTypes([])
 B.aFI.prototype={
 $2(d,e){var x,w,v,u,t,s,r,q,p,o=this,n=null,m=e.b
@@ -104,12 +104,12 @@ u=u.k3
 r=C.b([t,D.a7,C.k(s,n,n,n,n,C.bj().$4$color$fontSize$fontWeight$height(u,r,D.Y,1.2),n,n,n),D.eO],y.u)
 for(v=v.gV_(),q=0;q<16;++q)r.push(new B.a5y(v[q],n))
 r.push(D.bm)
-r.push(E.uo)
+r.push(E.up)
 r.push(D.dn)
 p=C.bK(d,D.b0,y.F)
 p.toString
 r.push(C.k(p.vj(C.aM(new C.br(Date.now(),0,!1))),n,n,n,n,C.bj().$3$color$fontSize$fontWeight(u.ag(0.7),12,D.L),n,n,n))
-r.push(E.ME)
+r.push(E.MF)
 return C.es(C.cB(new C.ci(new C.a_(0,x,0,1/0),C.af(r,D.D,D.i,D.k),n),n,n),n,new C.V(w,16,w,28),D.a5)},
 $S:132}
 B.aIJ.prototype={
@@ -124,9 +124,9 @@ w(C.P,[B.mt,B.c7,B.axP])
 w(B.axP,[B.aRh,B.aRf,B.aRg])})()
 C.w9(b.typeUniverse,JSON.parse('{"ph":{"Q":[],"c":[]},"a4_":{"U":["ph"]},"a5y":{"W":[],"c":[]}}'))
 var y={F:C.a5("hp"),a:C.a5("w<c7>"),g:C.a5("w<mt>"),u:C.a5("w<c>"),x:C.a5("hz"),h:C.a5("mK")};(function constants(){var x=a.makeConstList
-A.RA=new B.aRf()
-A.RB=new B.aRg()
-A.RC=new B.aRh()
+A.RB=new B.aRf()
+A.RC=new B.aRg()
+A.RD=new B.aRh()
 A.ae=x([],y.g)
 A.aq2=new B.c7("\xbfQu\xe9 es la app?","PerfectGest ContabilGest es la herramienta de conexi\xf3n con el usuario: usted sigue en tiempo real la contabilidad de la empresa (Libro de caja, NFS-e, NF-e y obligaciones) y, cuando el despacho habilita las funciones, los datos llegan al CRC. El uso diario en el aparato es offline por defecto. En Google Play: R$ 19,99/mes o pago \xfanico de R$ 239,88. El env\xedo al despacho y las funciones online existen despu\xe9s de la habilitaci\xf3n.",A.ae)
 A.aqe=new B.c7("\xbfContabilGest es una app oficial del gobierno?","No. Es un producto privado de Perfect Gest Dev (CNPJ 66.889.409/0001-19). No estamos afiliados ni respaldados por la Receita Federal, eSocial, FGTS Digital o prefecturas. La fuente oficial de obligaciones y gu\xedas es siempre el portal del gobierno.",A.ae)
@@ -152,7 +152,7 @@ A.aq7=new B.c7("\xbfC\xf3mo restauro una compra?","M\xe1s \u2192 Suscripci\xf3n 
 A.aqc=new B.c7("\xbfC\xf3mo cambio mi plan (franja, downgrade o extras como n\xf3mina e IR)?","Todo cambio de plan se pide por correo a suporte@perfectgestdev.com. El despacho gestiona las franjas y los extras (el upgrade aplica; el downgrade al final del ciclo). Google Play no cambia Esencial, Standard o Avanzado.",A.ae)
 A.aqi=new B.c7("\xbfLa app avisa antes de la renovaci\xf3n?","Cuando Play informe la fecha del ciclo de la suscripci\xf3n de la aplicaci\xf3n, la app puede avisar hasta 30 d\xedas antes. Sin fecha de Play, no hay plazo inventado \u2014 consulte Play \u2192 Suscripciones. Honorarios y plan contable: con el despacho.",A.ae)
 A.apS=new B.c7("\xbfLa suscripci\xf3n de Play ya libera todo?","No. Play libera el acceso a la aplicaci\xf3n. Para sincronizaci\xf3n, env\xedo de datos al despacho y funciones online, contacte al despacho despu\xe9s de suscribirse. Sin habilitaci\xf3n, usted entra en la app, pero sin env\xedo al CRC y sin contacto con el despacho.",A.ae)
-A.a7V=x([A.aq2,A.aqe,A.aqh,A.aqp,A.aqr,A.apI,A.apO,A.apY,A.apX,A.aqm,A.apR,A.apU,A.aq7,A.aqc,A.aqi,A.apS],y.a)
+A.a7W=x([A.aq2,A.aqe,A.aqh,A.aqp,A.aqr,A.apI,A.apO,A.apY,A.apX,A.aqm,A.apR,A.apU,A.aq7,A.aqc,A.aqi,A.apS],y.a)
 A.aqb=new B.c7("What is the app?","PerfectGest ContabilGest is the connection tool: you follow your company accounting in real time (Cash Book, NFS-e, NF-e, and tax duties) and, when the office enables the functions, that data reaches the CRC. Daily use on the device is offline by default. On Google Play: R$ 19.99/month or a one-time payment of R$ 239.88. Sending data to the office and online functions exist after enablement.",A.ae)
 A.aqd=new B.c7("Is ContabilGest an official government app?","No. It is a private product of Perfect Gest Dev (CNPJ 66.889.409/0001-19). We are not affiliated with or endorsed by the Federal Revenue Service, eSocial, FGTS Digital, or city halls. The official source of obligations and guides is always the government portal.",A.ae)
 A.aqq=new B.c7("What are the official sources?","Always use government portals.",A.pK)
@@ -187,4 +187,4 @@ A.aqn=new B.c7("Como altero meu plano (faixa, downgrade ou extras como folha e I
 A.apV=new B.c7("O app avisa antes da renova\xe7\xe3o?","Quando a Play informar a data do ciclo da assinatura do aplicativo, o app pode avisar at\xe9 30 dias antes. Sem data da Play, n\xe3o h\xe1 prazo inventado \u2014 consulte Play \u2192 Assinaturas. Honor\xe1rios e plano cont\xe1bil: com o escrit\xf3rio.",A.ae)
 A.apL=new B.c7("A assinatura da Play j\xe1 libera tudo?","N\xe3o. A Play libera o acesso ao aplicativo. Para sincroniza\xe7\xe3o, envio de dados ao escrit\xf3rio e fun\xe7\xf5es online, contacte o escrit\xf3rio depois de assinar. Sem habilita\xe7\xe3o, voc\xea entra no app, mas sem envio ao CRC e sem contato com o escrit\xf3rio.",A.ae)
 A.afE=x([A.aq0,A.aq8,A.apN,A.aqf,A.apK,A.apP,A.aq1,A.aq5,A.aqg,A.aql,A.aq_,A.apW,A.apZ,A.aqn,A.apV,A.apL],y.a)})()};
-(a=>{a["ZEPE8oeK0gExo+I3S8CIQ2fxUJw="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["bQQREFDvta9ccckr36BmPjjIbMw="]=a.current})($__dart_deferred_initializers__);
