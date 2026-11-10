@@ -28,13 +28,7 @@ routes:
     source: /Barber_Hairdresser
     destination: /Barber_Hairdresser.html
   - type: rewrite
-    source: /Barber_Hairdresser/*
-    destination: /Barber_Hairdresser.html
-  - type: rewrite
     source: /Barber_Admin
-    destination: /Barber_Admin.html
-  - type: rewrite
-    source: /Barber_Admin/*
     destination: /Barber_Admin.html
   - type: rewrite
     source: /Barber_Shops_Admin
