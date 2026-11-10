@@ -112,7 +112,8 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   static const String _mono = 'JetBrains Mono';
   /// Serif de sistema (CSP font-src self) — ar vintage de barbearia.
   static const String _brandFont = 'Georgia';
-  static const double _logoSize = 144;
+  /// Um pouco maior que 144 — identidade topo (logo + nome).
+  static const double _logoSize = 176;
 
   final _formKey = GlobalKey<FormState>();
   final _reviewFormKey = GlobalKey<FormState>();
@@ -165,11 +166,12 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
 
   TextStyle get _title => const TextStyle(
         fontFamily: _brandFont,
+        fontFamilyFallback: <String>['Times New Roman', 'Times', 'serif'],
         color: _brandName,
-        fontSize: 22,
-        fontWeight: FontWeight.w600,
-        height: 1.25,
-        letterSpacing: 0.8,
+        fontSize: 28,
+        fontWeight: FontWeight.w700,
+        height: 1.2,
+        letterSpacing: 0.6,
       );
 
   TextStyle get _section => const TextStyle(
@@ -1085,6 +1087,9 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   }
 
   Widget _buildHero() {
+    final shopName = _shop.name.trim().isNotEmpty
+        ? _shop.name.trim()
+        : 'Barbear e Cortar';
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -1095,9 +1100,9 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
             child: _buildShopLogo(),
           ),
         ),
-        const SizedBox(height: 20),
+        const SizedBox(height: 16),
         Text(
-          _shop.name,
+          shopName,
           textAlign: TextAlign.center,
           style: _title,
         ),

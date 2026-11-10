@@ -1,5 +1,11 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-09] Barber — topo identidade logo+nome
+
+- Hero: logo 176px (>144); nome da loja sempre visível Georgia/brass `#C9B87A` 28px (fallback serif).
+- Preferência identidade: topo = logo + nome da barbearia.
+- Publish: `publicar-barber-paginas.ps1 -SkipCheckout -NoPause -Msg "barber-topo-identidade"`.
+
 ## [2026-11-09] Barber — gate publish PIX markers no JS
 
 - `BarberPixEmv.jsPublishMarker` + `pending_payment` no `book()` para o Select-String do PS1 (dart2js tinha removido os literais).
