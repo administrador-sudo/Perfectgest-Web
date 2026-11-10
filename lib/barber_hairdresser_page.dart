@@ -838,26 +838,40 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   }
 
   Widget _productThumb(BarberProductCard p, {double size = 64}) {
-    if (p.imageUrl.trim().isEmpty) {
-      return SizedBox(
+    final url = p.imageUrl.trim();
+    Widget bag() => SizedBox(
+          width: size,
+          height: size,
+          child: const Icon(Icons.shopping_bag_outlined, color: _olive),
+        );
+    if (url.isEmpty) return bag();
+    Widget image;
+    if (url.startsWith('data:image/')) {
+      try {
+        final comma = url.indexOf(',');
+        final b64 = comma >= 0 ? url.substring(comma + 1) : url;
+        image = Image.memory(
+          base64Decode(b64),
+          width: size,
+          height: size,
+          fit: BoxFit.cover,
+          errorBuilder: (context, error, stackTrace) => bag(),
+        );
+      } catch (_) {
+        return bag();
+      }
+    } else {
+      image = Image.network(
+        url,
         width: size,
         height: size,
-        child: const Icon(Icons.shopping_bag_outlined, color: _olive),
+        fit: BoxFit.cover,
+        errorBuilder: (context, error, stackTrace) => bag(),
       );
     }
     return ClipRRect(
       borderRadius: BorderRadius.circular(8),
-      child: Image.network(
-        p.imageUrl,
-        width: size,
-        height: size,
-        fit: BoxFit.cover,
-        errorBuilder: (context, error, stackTrace) => SizedBox(
-          width: size,
-          height: size,
-          child: const Icon(Icons.shopping_bag_outlined, color: _olive),
-        ),
-      ),
+      child: image,
     );
   }
 

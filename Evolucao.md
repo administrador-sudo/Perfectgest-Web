@@ -1,5 +1,10 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-09] Barber — foto produto data-URI na vitrine
+
+- `_productThumb`: `data:image/` → `Image.memory` (antes só `Image.network` → sacola).
+- Smoke: Firestore `imageUrl` data-URI + refresh → thumb; se `imageUrl` vazio → republicar no app com Foto.
+
 ## [2026-11-09] Barber — nome loja alto contraste
 
 - Hero shop name: `#E8D9A8` 30px; Georgia + Times/serif + Inter/Arial (web não some).
