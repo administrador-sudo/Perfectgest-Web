@@ -1,7 +1,11 @@
 ﻿# Publicar / atualizar politicas Agenda Barber no site (Play Console).
+# Integra HTML no spa-legal-paths + publish-web (push origin main = site static).
+# NAO usa Blueprint nem leads-api.
+#
 # Uso (caminho absoluto — 1a vez e updates):
 #   & "C:\Users\Usuario\ProjetosPerfect\fabrica\Projetos\webs\Web_perfectgest\scripts\publicar_politicas_agenda_barber.ps1" -NoPause
 #   & "...\scripts\publicar_politicas_agenda_barber.ps1" -SkipPublish -NoPause
+#   & "...\scripts\publicar_politicas_agenda_barber.ps1" -SkipCheckout -NoPause
 #
 # URLs:
 #   https://perfectgestdev.com/barber-politica-privacidade
@@ -10,7 +14,9 @@
 #   https://perfectgestdev.com/barber-faq
 
 param(
+    [string]$Branch = 'cursor/agenda-barber-politicas-19ec',
     [switch]$SkipPublish,
+    [switch]$SkipCheckout,
     [string]$Msg = 'politicas Agenda Barber (Play)',
     [switch]$NoPause
 )
@@ -47,7 +53,24 @@ if (-not (Test-Path -LiteralPath $StaticJs)) {
 
 Set-Location -LiteralPath $SiteRoot
 
-Write-Step '1) Gerar HTML estatico barber-*'
+if (-not $SkipCheckout) {
+    Write-Step "1) Integrar $Branch em main (ff-only)"
+    & git fetch origin main $Branch
+    if ($LASTEXITCODE -ne 0) { throw "git fetch falhou ($LASTEXITCODE)" }
+    & git checkout main
+    if ($LASTEXITCODE -ne 0) { throw "git checkout main falhou ($LASTEXITCODE)" }
+    & git merge --ff-only $Branch
+    if ($LASTEXITCODE -ne 0) {
+        & git merge --ff-only "origin/$Branch"
+        if ($LASTEXITCODE -ne 0) {
+            throw "merge ff-only falhou; integre $Branch em main manualmente"
+        }
+    }
+} else {
+    Write-Step '1) SkipCheckout — working tree actual'
+}
+
+Write-Step '2) Gerar HTML estatico barber-* (pre-check)'
 if (-not (Test-Path -LiteralPath $BuildWeb)) {
     New-Item -ItemType Directory -Path $BuildWeb -Force | Out-Null
 }
@@ -69,21 +92,26 @@ foreach ($f in $Expected) {
 Write-Host "OK: $($Expected.Count) paginas em $BuildWeb" -ForegroundColor Green
 
 if (-not $SkipPublish) {
-    Write-Step '2) publish-web (commit build/web + push main / hook Render)'
+    Write-Step '3) publish-web (flutter build + spa-legal-paths com Barber + push main)'
     if (-not (Test-Path -LiteralPath $PublishJs)) {
         throw "Falta $PublishJs"
+    }
+    # Garantir que estamos em main (publish-web faz push origin main).
+    $cur = (& git rev-parse --abbrev-ref HEAD).Trim()
+    if ($cur -ne 'main') {
+        throw "Branch actual e '$cur'; publish-web exige main (use sem -SkipCheckout)."
     }
     node $PublishJs "--msg=$Msg"
     if ($LASTEXITCODE -ne 0) { throw "publish-web falhou ($LASTEXITCODE)" }
 } else {
-    Write-Step '2) SkipPublish — HTML local gerado; sem deploy'
+    Write-Step '3) SkipPublish — HTML local gerado; sem deploy'
 }
 
-Write-Step '3) URLs a validar (HTTP 200 apos CDN)'
+Write-Step '4) URLs a validar (HTTP 200 apos CDN / Auto-Deploy static)'
 $Urls | ForEach-Object { Write-Host "  $_" }
 
 Write-Host ""
-Write-Host 'Play Console: colar privacidade + exclusao; Data safety alinhado a estes textos.' -ForegroundColor Yellow
+Write-Host 'Render: so o servico static perfectgest-web-desenvolvedor-apps (nao Blueprint / leads-api).' -ForegroundColor Yellow
 Write-Host 'Concluido.' -ForegroundColor Green
 
 if (-not $NoPause) {

@@ -14,6 +14,7 @@ const {
   clinicaIiiStaticSlugs,
   perfectGestIStaticSlugs,
   contabilIStaticSlugs,
+  agendaBarberStaticSlugs,
   legacyAppRedirects,
 } = require('./legal-routes.cjs');
 
@@ -186,11 +187,16 @@ for (const segment of contabilIStaticSlugs) {
   removeBare(segment);
 }
 
+for (const segment of agendaBarberStaticSlugs) {
+  removeBare(segment);
+}
+
 writeClinicaIiiStaticHtml(buildWeb);
 syncPerfectGestILegalFromMd();
 syncContabilILegalFromMd();
 writeStaticHtmlAfterSync('perfectgest-i-static-html.cjs', buildWeb);
 writeStaticHtmlAfterSync('contabil-i-static-html.cjs', buildWeb);
+writeStaticHtmlAfterSync('barber-static-html.cjs', buildWeb);
 
 for (const [segment, targetUrl] of Object.entries(legacyAppRedirects)) {
   removeBare(segment);
@@ -201,5 +207,5 @@ require('./sync-legal-html-to-build.cjs');
 require('./generate-render-legal-routes.cjs');
 
 console.log(
-  `spa-legal-paths: ${siteSpaPages.length} SPA .html; ${clinicaIiiStaticSlugs.length} Clinica III estatico; ${perfectGestIStaticSlugs.length} PerfectGest I estatico; ${contabilIStaticSlugs.length} Contabil I estatico; ${Object.keys(legacyAppRedirects).length} redirects Google Sites.`,
+  `spa-legal-paths: ${siteSpaPages.length} SPA .html; ${clinicaIiiStaticSlugs.length} Clinica III estatico; ${perfectGestIStaticSlugs.length} PerfectGest I estatico; ${contabilIStaticSlugs.length} Contabil I estatico; ${agendaBarberStaticSlugs.length} Agenda Barber estatico; ${Object.keys(legacyAppRedirects).length} redirects Google Sites.`,
 );

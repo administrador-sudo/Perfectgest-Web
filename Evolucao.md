@@ -1,5 +1,10 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-10] Agenda Barber — publicar políticas no pipeline static
+
+- `spa-legal-paths.cjs` gera `barber-static-html` (como Contabil I / PerfectGest I)
+- Publish: `scripts/publicar_politicas_agenda_barber.ps1` → `publish-web` → Auto-Deploy static (não Blueprint/leads-api)
+
 ## [2026-11-10] Agenda Barber — políticas Play + script publicar
 
 - Slugs: `/barber-politica-privacidade`, `/barber-termos`, `/barber-exclusao-dados`, `/barber-faq`
