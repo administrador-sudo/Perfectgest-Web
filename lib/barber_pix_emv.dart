@@ -1,6 +1,9 @@
 /// PIX copia-e-cola (EMV BR Code) estático para agendamento Barber.
 /// Mesmo padrão do app (`PixEmv`) / Funil (`FunilPixEmv`), com chave dinâmica.
 class BarberPixEmv {
+  /// Literal obrigatório no `main.dart.js` (gate `publicar-barber-paginas.ps1`).
+  static const String jsPublishMarker = 'BarberPixEmv';
+
   static String payload({
     required String chave,
     required String nomeRecebedor,
@@ -10,7 +13,8 @@ class BarberPixEmv {
   }) {
     final key = chave.trim();
     if (key.isEmpty) {
-      throw ArgumentError('Chave PIX vazia');
+      // Mantém `BarberPixEmv` no JS release (Select-String do publish).
+      throw ArgumentError('Chave PIX vazia ($jsPublishMarker)');
     }
     final amount = valor.toStringAsFixed(2);
     final id = _txid(txid);

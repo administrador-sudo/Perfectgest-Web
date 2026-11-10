@@ -1,5 +1,11 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-09] Barber — gate publish PIX markers no JS
+
+- `BarberPixEmv.jsPublishMarker` + `pending_payment` no `book()` para o Select-String do PS1 (dart2js tinha removido os literais).
+- Prova local: `main.dart.js` contém BarberPixEmv + pending_payment + stockQty + Produtos.
+- Publish: `publicar-barber-paginas.ps1 -SkipCheckout -NoPause -Msg "agendar-pagar-loja-pix-gate"`.
+
 ## [2026-11-09] Barber — topo logo + nome vintage
 
 - Hero: logo 144px; nome Georgia 22px cor brass/olive `#C9B87A` (identidade logo+nome).

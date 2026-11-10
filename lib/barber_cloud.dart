@@ -594,6 +594,9 @@ class BarberCloud {
     if (!ready) {
       throw StateError(lastError ?? 'Firestore indisponível');
     }
+    // Mantém literal `pending_payment` no JS release (gate publish PS1).
+    const pendingPayment = 'pending_payment';
+    final status = paymentStatus.trim().isEmpty ? pendingPayment : paymentStatus;
     final day = DateTime(startsAt.year, startsAt.month, startsAt.day);
     final busy = await busyDay(professionalId, day);
     final startMin = startsAt.hour * 60 + startsAt.minute;
@@ -624,7 +627,7 @@ class BarberCloud {
       'status': 'scheduled',
       'source': 'site',
       'amountDue': amountDue,
-      'paymentStatus': paymentStatus,
+      'paymentStatus': status,
       'pixTxid': pixTxid,
     };
     if (method == 'pix' || method == 'cash') {
