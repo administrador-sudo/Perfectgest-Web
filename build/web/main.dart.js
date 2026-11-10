@@ -112843,7 +112843,7 @@ return A.C($async$O8,r)},
 A(a){var s=this,r=null,q=A.k("Projecto: perfectgest-barber",r,r,r,r,B.avA,r,r,r),p=s.ZY(s.d,"Email do dono (admin)",B.fI),o=s.alT(s.e,"Senha do dono",!0),n=s.as?r:s.gawo(),m=A.dO(B.J,r,r,r,r,r,r),l=t.p
 m=A.b([A.c5(A.di(A.k(s.gqY()?"Revalidar sess\xe3o":"Entrar como admin",r,r,r,r,r,r,r,r),n,m),1)],l)
 if(s.gqY()){n=s.as?r:s.gawp()
-B.c.R(m,A.b([B.d0,A.arX(B.azc,n,A.XO(r,r,r,r,r,r,r,r,r,B.bt,r,r,r,r,r,r,r,r,r,r))],l))}q=A.b([B.azd,B.v,B.ayk,B.v,q,B.mZ,p,B.an,o,B.M,A.bB(m,B.A,r,B.i,B.k,0)],l)
+B.c.R(m,A.b([B.d0,A.arX(B.azb,n,A.XO(r,r,r,r,r,r,r,r,r,B.bt,r,r,r,r,r,r,r,r,r,r))],l))}q=A.b([B.azc,B.v,B.ayk,B.v,q,B.mZ,p,B.an,o,B.M,A.bB(m,B.A,r,B.i,B.k,0)],l)
 if(s.gqY()){p=s.x
 q.push(new A.a0(B.Vn,A.k("Sess\xe3o activa \xb7 uid "+B.b.a6(p,0,B.e.du(p.length,0,8))+"\u2026",r,r,r,r,B.asM,r,r,r),r))}q.push(B.UF)
 q.push(s.alS(s.r,"Nome do profissional"))
@@ -113088,7 +113088,7 @@ if(o==null)o=""
 s=q.w==="pix"?"Comprovante gravado no pedido.":"Pagamento em dinheiro na loja."
 r=t.p
 s=A.b([B.Y5,B.M,B.ayV,B.v,A.k("N\xba "+o+" \u2014 aparece em Pedidos no app. "+s,p,p,p,p,B.auq,B.ag,p,p)],r)
-if(B.b.T(q.a.c.f).length!==0)B.c.R(s,A.b([B.v,B.azh],r))
+if(B.b.T(q.a.c.f).length!==0)B.c.R(s,A.b([B.v,B.azg],r))
 s.push(B.aG)
 s.push(A.di(B.ayd,new A.aCw(q),A.dO(B.J,p,p,p,p,p,p)))
 if(B.b.T(q.a.c.f).length!==0)B.c.R(s,A.b([B.v,A.q2(B.Yc,B.ayo,new A.aCx(q),p)],r))
@@ -113121,7 +113121,7 @@ h=A.aZx(h,B.N6)
 r=A.q2(B.Ys,B.az_,new A.aCJ(m),l)
 q=m.z?l:m.gazk()
 n=m.y
-B.c.R(j,A.b([B.bm,i,B.v,B.ayn,B.M,s,B.an,B.azg,B.a7,h,B.v,r,B.v,A.q2(B.w1,A.k(n==null?"Anexar comprovante PIX":"Comprovante: "+n.a,l,l,l,l,B.eS,l,l,l),q,l)],o))}B.c.R(p,j)}j=m.ch
+B.c.R(j,A.b([B.bm,i,B.v,B.ayn,B.M,s,B.an,B.azf,B.a7,h,B.v,r,B.v,A.q2(B.w1,A.k(n==null?"Anexar comprovante PIX":"Comprovante: "+n.a,l,l,l,l,B.eS,l,l,l),q,l)],o))}B.c.R(p,j)}j=m.ch
 if(j!=null)B.c.R(p,A.b([B.an,A.k(j,l,l,l,l,B.axA,l,l,l)],o))
 p.push(B.bm)
 j=k?m.galW():l
@@ -114049,7 +114049,7 @@ s=5
 break}i.eS(B.dp)
 k.eS(B.dp)
 m.F(new A.aE0(m))
-m.c.ae(t.d).f.iN(B.ar7)
+m.c.ae(t.d).f.iN(B.ar3)
 n.push(6)
 s=5
 break
@@ -114108,10 +114108,10 @@ var $async$N3=A.y(function(a,b){if(a===1)return A.A(b,r)
 for(;;)switch(s){case 0:o=p.d.gU()
 o=o==null?null:o.lp()
 if(o!==!0){s=1
-break}if(!p.ga1g()){p.c.ae(t.d).f.iN(B.ar5)
+break}if(!p.ga1g()){p.c.ae(t.d).f.iN(B.ar6)
 s=1
 break}if(p.k4!==B.fT){s=1
-break}if(p.ga4P().length===0){p.c.ae(t.d).f.iN(B.ar4)
+break}if(p.ga4P().length===0){p.c.ae(t.d).f.iN(B.ar5)
 s=1
 break}p.F(new A.aDE(p))
 case 1:return A.B(q,r)}})
@@ -116162,7 +116162,7 @@ for(;;)switch(s){case 0:s=3
 return A.o(A.pe(new A.lG(p.a.f)),$async$$0)
 case 3:o=p.b
 if(o.e==null){s=1
-break}o.ae(t.d).f.iN(B.ar3)
+break}o.ae(t.d).f.iN(B.ar4)
 case 1:return A.B(q,r)}})
 return A.C($async$$0,r)},
 $S:6}
@@ -119260,7 +119260,7 @@ case 4:case 1:return A.B(q,r)}})
 return A.C($async$yZ,r)},
 aA1(a){this.F(new A.aN2(this,a))},
 a1o(){var s=this,r=s.uw(),q=s.ay
-if(!A.b9j(A.br1(r,new A.br(Date.now(),0,!1),q))&&s.c!=null)s.c.ae(t.d).f.iN(B.ar6)},
+if(!A.b9j(A.br1(r,new A.br(Date.now(),0,!1),q))&&s.c!=null)s.c.ae(t.d).f.iN(B.ar7)},
 Fw(){var s=0,r=A.D(t.H),q,p=this
 var $async$Fw=A.y(function(a,b){if(a===1)return A.A(b,r)
 for(;;)switch(s){case 0:s=3
@@ -119416,7 +119416,7 @@ k=A.dO(B.a_,l,l,B.aR,B.eN,l,l)
 r.push(new A.a0(B.hb,A.bo(A.di(B.az7,m.ay.length===0?l:m.ga4a(),k),l,1/0),l))
 k=A.k("Total  "+("R$ "+A.bd(m.a5O().gadN(),2)),l,l,l,l,B.atx,l,l,l)
 q=A.cj(B.az9,m.gaxd(),l)
-p=A.cj(B.azi,m.ay.length===0?l:m.gaEc(),l)
+p=A.cj(B.azh,m.ay.length===0?l:m.gaEc(),l)
 o=A.dO(B.a_,l,l,B.aR,B.eN,l,l)
 o=A.di(B.Nq,m.ay.length===0?l:m.ga1n(),o)
 n=A.dO(B.a9,l,l,B.a_,B.eN,l,l)
@@ -119623,7 +119623,7 @@ m=n.a
 l=B.b.cf(B.e.j(A.dG(m)),2,"0")
 k=B.b.cf(B.e.j(A.hC(m)),2,"0")
 f.push(new A.a0(B.Vg,A.bB(A.b([new A.hV(1,B.cK,A.k(B.b.cf(B.e.j(A.bY(m)),2,"0")+"/"+B.b.cf(B.e.j(A.aX(m)),2,"0")+"/"+A.aM(m)+" "+l+":"+k,i,i,i,i,B.n1,i,i,i),i),A.cj(B.ayB,new A.aMq(p,n,g,e,b,s),i),A.cj(B.ayw,new A.aMr(n,b,s),i)],d),B.A,i,B.i,B.k,0),i))}}g=A.bo(A.es(A.af(f,B.A,B.i,B.aF),i,i,B.a5),i,360)
-return A.C8(A.b([A.cj(B.Nr,new A.aMs(a),i),A.di(B.aze,new A.aMt(a),A.dO(B.a_,i,i,B.aR,i,i,i))],d),i,B.bA,g,i,new A.d5(h,B.nQ),B.ayZ)},
+return A.C8(A.b([A.cj(B.Nr,new A.aMs(a),i),A.di(B.azd,new A.aMt(a),A.dO(B.a_,i,i,B.aR,i,i,i))],d),i,B.bA,g,i,new A.d5(h,B.nQ),B.ayZ)},
 $S:704}
 A.aMp.prototype={
 $1(a){this.a.sc7(A.bd(A.BQ(A.fY(a)).a,0))
@@ -119933,7 +119933,7 @@ p.F(new A.aNe(p))
 case 1:return A.B(q,r)}})
 return A.C($async$yj,r)},
 A(a){var s=null
-return new A.la(A.b_Q().a94(B.aR),A.fO(A.PO(s,B.aR,B.bA,s,s,B.azf),B.aR,A.i0(!0,this.awf(),!1,B.af,!0),s,s,s,s),s)},
+return new A.la(A.b_Q().a94(B.aR),A.fO(A.PO(s,B.aR,B.bA,s,s,B.aze),B.aR,A.i0(!0,this.awf(),!1,B.af,!0),s,s,s,s),s)},
 awf(){var s,r,q,p,o=this,n=null
 if(o.e)return B.S1
 s=t.p
@@ -129313,18 +129313,18 @@ B.ar0=new A.mv(3,"hide")
 B.aEy=new A.mv(4,"remove")
 B.ar1=new A.mv(5,"timeout")
 B.ar2=new A.zs(null,null,null,null,null,null,null,null,null,null,null,null,null,null)
+B.azi=new A.aU("Avalia\xe7\xe3o enviada, Obrigado pela sua participa\xe7\xe3o, Agradecemos a sua Preferencia!",null,null,null,null,null,null,null,null,null,null)
+B.ar3=new A.k8(B.azi,null,null,null,null,null,null,null,null,null,null,null,null,B.cl,!1,null,null,null,B.r,null)
 B.ayz=new A.aU("C\xf3digo PIX copiado",null,null,null,null,null,null,null,null,null,null)
 B.MJ=new A.k8(B.ayz,null,null,null,null,null,null,null,null,null,null,null,null,B.cl,!1,null,null,null,B.r,null)
 B.ayW=new A.aU("Codigo PIX copiado.",null,null,null,null,null,null,null,null,null,null)
-B.ar3=new A.k8(B.ayW,null,null,null,null,null,null,null,null,null,null,null,null,B.cl,!1,null,null,null,B.r,null)
+B.ar4=new A.k8(B.ayW,null,null,null,null,null,null,null,null,null,null,null,null,B.cl,!1,null,null,null,B.r,null)
 B.ayY=new A.aU("Sem chave PIX cadastrada para este profissional/loja.",null,null,null,null,null,null,null,null,null,null)
-B.ar4=new A.k8(B.ayY,null,null,null,null,null,null,null,null,null,null,null,null,B.cl,!1,null,null,null,B.r,null)
+B.ar5=new A.k8(B.ayY,null,null,null,null,null,null,null,null,null,null,null,null,B.cl,!1,null,null,null,B.r,null)
 B.ayG=new A.aU("Escolha servi\xe7o, dia e hor\xe1rio livre",null,null,null,null,null,null,null,null,null,null)
-B.ar5=new A.k8(B.ayG,null,null,null,null,null,null,null,null,null,null,null,null,B.cl,!1,null,null,null,B.r,null)
+B.ar6=new A.k8(B.ayG,null,null,null,null,null,null,null,null,null,null,null,null,B.cl,!1,null,null,null,B.r,null)
 B.ayJ=new A.aU("Permita a impress\xe3o nesta p\xe1gina para gerar o PDF.",null,B.eR,null,null,null,null,null,null,null,null)
-B.ar6=new A.k8(B.ayJ,B.a9,null,null,null,null,null,null,null,null,null,null,null,B.cl,!1,null,null,null,B.r,null)
-B.azb=new A.aU("Avalia\xe7\xe3o enviada. Aparece no site ap\xf3s aprova\xe7\xe3o da barbearia.",null,null,null,null,null,null,null,null,null,null)
-B.ar7=new A.k8(B.azb,null,null,null,null,null,null,null,null,null,null,null,null,B.cl,!1,null,null,null,B.r,null)
+B.ar7=new A.k8(B.ayJ,B.a9,null,null,null,null,null,null,null,null,null,null,null,B.cl,!1,null,null,null,B.r,null)
 B.MK=new A.Id(0,"permissive")
 B.ar8=new A.Id(1,"normal")
 B.ar9=new A.Id(2,"forced")
@@ -129881,15 +129881,15 @@ B.rk=new A.aU("Mensagem WhatsApp",null,null,null,null,null,null,null,null,null,n
 B.Nr=new A.aU("Cancelar",null,B.fK,null,null,null,null,null,null,null,null)
 B.az9=new A.aU("Novo",null,B.eR,null,null,null,null,null,null,null,null)
 B.aza=new A.aU("Medidas, cor, modelo e custos desta abertura. O R$/m\xb2 vem da tabela abaixo do painel.",null,B.re,null,null,null,null,null,null,null,null)
-B.azc=new A.aU("Sair",null,null,null,null,null,null,null,null,null,null)
+B.azb=new A.aU("Sair",null,null,null,null,null,null,null,null,null,null)
 B.auR=new A.l(!0,B.f,null,null,null,null,28,B.E,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.azd=new A.aU("Admin Barbearia",null,B.auR,null,null,null,null,null,null,null,null)
-B.aze=new A.aU("Aplicar e gravar",null,null,null,null,null,null,null,null,null,null)
-B.azf=new A.aU("Registros de or\xe7amento",null,null,null,null,null,null,null,null,null,null)
+B.azc=new A.aU("Admin Barbearia",null,B.auR,null,null,null,null,null,null,null,null)
+B.azd=new A.aU("Aplicar e gravar",null,null,null,null,null,null,null,null,null,null)
+B.aze=new A.aU("Registros de or\xe7amento",null,null,null,null,null,null,null,null,null,null)
 B.asL=new A.l(!0,B.bt,null,null,null,null,null,B.E,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.azg=new A.aU("PIX copia e cola",null,B.asL,null,null,null,null,null,null,null,null)
-B.azh=new A.aU("Abrimos o WhatsApp do profissional com o resumo do pedido.",null,B.rf,B.ag,null,null,null,null,null,null,null)
-B.azi=new A.aU("Ver folha",null,B.eR,null,null,null,null,null,null,null,null)
+B.azf=new A.aU("PIX copia e cola",null,B.asL,null,null,null,null,null,null,null,null)
+B.azg=new A.aU("Abrimos o WhatsApp do profissional com o resumo do pedido.",null,B.rf,B.ag,null,null,null,null,null,null,null)
+B.azh=new A.aU("Ver folha",null,B.eR,null,null,null,null,null,null,null,null)
 B.azk=new A.aU("Apagar",null,null,null,null,null,null,null,null,null,null)
 B.N4=new A.l(!0,null,null,null,null,null,11,null,null,null,null,null,null,null,null,null,null,B.d2,null,null,null,null,null,null,null,null)
 B.azl=new A.aU("Lista de or\xe7amentos",null,B.N4,null,null,null,null,null,null,null,null)
