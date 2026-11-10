@@ -1224,17 +1224,16 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
           ),
           const SizedBox(height: 8),
           Text(
-            'Deixe a sua opinião. A barbearia aprova antes de publicar.',
+            'Deixe sua opinião, ajude a melhorar nosso atendimento',
             style: _mutedStyle.copyWith(fontSize: 13),
           ),
           const SizedBox(height: 12),
           TextFormField(
             controller: _reviewNomeCtrl,
             style: _body,
-            decoration: deco('Seu nome'),
+            decoration: deco('Seu nome (opcional)'),
             validator: (v) {
               final t = v?.trim() ?? '';
-              if (t.isEmpty) return 'Informe o nome';
               if (t.length > 80) return 'Nome demasiado longo';
               return null;
             },

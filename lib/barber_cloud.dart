@@ -708,14 +708,15 @@ class BarberCloud {
       final rows = await _listCollection('reviews');
       final list = rows
           .where((m) => m['status'] == 'published')
-          .map(
-            (m) => BarberReviewCard(
+          .map((m) {
+            final n = (m['authorName'] as String?)?.trim() ?? '';
+            return BarberReviewCard(
               id: _asId(m['_docId']),
-              authorName: (m['authorName'] as String?)?.trim() ?? 'Cliente',
+              authorName: n.isEmpty ? 'Anónimo' : n,
               rating: _asInt(m['rating']),
               text: (m['text'] as String?)?.trim() ?? '',
-            ),
-          )
+            );
+          })
           .where((r) => r.id.isNotEmpty && r.text.isNotEmpty)
           .toList();
       return list;
@@ -726,6 +727,7 @@ class BarberCloud {
   }
 
   /// Cliente envia avaliação → `status: pending` (moderação no app).
+  /// Nome vazio → «Anónimo».
   Future<String> submitReview({
     required String authorName,
     required int rating,
@@ -735,11 +737,9 @@ class BarberCloud {
     if (!ready) {
       throw StateError(lastError ?? 'Firestore indisponível');
     }
-    final name = authorName.trim();
+    final rawName = authorName.trim();
+    final name = rawName.isEmpty ? 'Anónimo' : rawName;
     final bodyText = text.trim();
-    if (name.isEmpty) {
-      throw StateError('Informe o nome');
-    }
     if (name.length > 80) {
       throw StateError('Nome demasiado longo');
     }

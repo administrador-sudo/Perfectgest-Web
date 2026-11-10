@@ -1,5 +1,11 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-09] Barber — Avaliar texto + nome opcional
+
+- Copy: «Deixe sua opinião, ajude a melhorar nosso atendimento»; nome opcional → `Anónimo`.
+- Rules app: `validReviewCreate` permite `authorName` vazio (size <= 80).
+- Publish: `publicar-barber-paginas.ps1 -SkipCheckout` + Manual Deploy Render se etag antigo.
+
 ## [2026-11-09] Barber — mensagem pós-Avaliar
 
 - SnackBar Avaliar: «Avaliação enviada, Obrigado pela sua participação, Agradecemos a sua Preferencia!»
