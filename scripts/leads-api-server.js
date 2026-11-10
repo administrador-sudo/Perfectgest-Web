@@ -964,39 +964,101 @@ app.get('/api/mail-check', leadsLimiter, async (_req, res) => {
   res.status(200).json(report);
 });
 
-app.get('/health', async (_req, res) => {
-  const host = databaseHostHint(databaseUrlEffective || process.env.DATABASE_URL);
-  try {
-    if (pgPool) {
+async function probePostgres(ms = 3000) {
+  if (!pgPool) return { ok: false, reason: 'no_pool' };
+  const timeout = new Promise((_, reject) => {
+    setTimeout(() => reject(Object.assign(new Error('health_db_timeout'), { code: 'ETIMEDOUT' })), ms);
+  });
+  await Promise.race([
+    (async () => {
       await ensurePgSchema();
       await pgPool.query('SELECT 1');
-      res.json({ ok: true, storage: 'postgres', host });
+    })(),
+    timeout,
+  ]);
+  return { ok: true };
+}
+
+/**
+ * Liveness (deploy Render): HTTP 200 sempre que o processo responde.
+ * BD morta NÃO bloqueia Auto-Deploy do Web Service (nem do Static Site, serviço separado).
+ * Pronto para tráfego de leads: GET /ready (503 se Postgres falhar).
+ */
+app.get('/health', async (_req, res) => {
+  const host = databaseHostHint(databaseUrlEffective || process.env.DATABASE_URL);
+  const base = {
+    ok: true,
+    service: 'perfectgest-leads-api',
+    host,
+  };
+  try {
+    if (pgPool) {
+      await probePostgres(3000);
+      res.status(200).json({ ...base, storage: 'postgres', db: 'up' });
       return;
     }
     if (isProduction) {
-      res.status(503).json({
-        ok: false,
+      res.status(200).json({
+        ...base,
+        storage: 'none',
+        db: 'missing',
+        degraded: true,
         error: 'database_required',
-        host,
         hint: 'Ligue DATABASE_URL (Postgres Render). Ver docs/RENDER_LEADS_POSTGRES.md',
       });
       return;
     }
     fs.mkdirSync(dataDir, { recursive: true });
-    res.json({ ok: true, storage: 'file', file: leadsFile, mode: 'development' });
+    res.status(200).json({
+      ...base,
+      storage: 'file',
+      file: leadsFile,
+      mode: 'development',
+      db: 'file',
+    });
   } catch (err) {
     const message = String(err && err.message ? err.message : err);
     const code = err && err.code ? String(err.code) : '';
     console.error('[leads-api] health', err);
     const enotfound = /ENOTFOUND/i.test(message) || code === 'ENOTFOUND';
-    res.status(503).json({
-      ok: false,
+    res.status(200).json({
+      ...base,
+      storage: 'postgres',
+      db: 'down',
+      degraded: true,
       error: enotfound ? 'database_host_enotfound' : 'storage_unavailable',
-      host,
       detail: message.slice(0, 180),
       hint: enotfound
-        ? 'Postgres host nao resolve (BD apagada/expirada ou Internal URL stale). No Render: recrear perfectgest-leads-db e colar External Database URL em DATABASE_URL. Ver docs/RENDER_LEADS_POSTGRES.md'
+        ? 'Postgres host nao resolve (BD apagada/expirada ou Internal URL stale). No Render: recrear perfectgest-leads-db e colar Internal/External Database URL em DATABASE_URL. Ver docs/RENDER_LEADS_POSTGRES.md'
         : 'Verifique DATABASE_URL / estado do Postgres no Render Dashboard.',
+    });
+  }
+});
+
+app.get('/ready', async (_req, res) => {
+  const host = databaseHostHint(databaseUrlEffective || process.env.DATABASE_URL);
+  try {
+    if (!pgPool) {
+      res.status(503).json({
+        ok: false,
+        ready: false,
+        error: isProduction ? 'database_required' : 'database_optional_dev',
+        host,
+      });
+      return;
+    }
+    await ensurePgSchema();
+    await pgPool.query('SELECT 1');
+    res.status(200).json({ ok: true, ready: true, storage: 'postgres', host });
+  } catch (err) {
+    const message = String(err && err.message ? err.message : err);
+    console.error('[leads-api] ready', err);
+    res.status(503).json({
+      ok: false,
+      ready: false,
+      host,
+      error: /ENOTFOUND/i.test(message) ? 'database_host_enotfound' : 'storage_unavailable',
+      detail: message.slice(0, 180),
     });
   }
 });

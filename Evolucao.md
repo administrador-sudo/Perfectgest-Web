@@ -3,9 +3,10 @@
 ## [2026-11-09] leads-api — Postgres ENOTFOUND deploy
 
 - Causa: `DATABASE_URL` com host Internal `dpg-db40n4ub7d7c739u02a0-a` (DNS morto) → `/health` ENOTFOUND → deploy Timed Out.
-- Mitigacao codigo: expandir host Internal → External FQDN + timeout 8s + hint no `/health`.
+- Mitigacao codigo: expandir host Internal → External FQDN + timeout 8s; `/health` HTTP 200 degradado (nao bloqueia Auto-Deploy); `/ready` 503 se BD down.
 - `render.yaml`: aviso free expiry + `RENDER_POSTGRES_HOST_SUFFIX`.
-- Docs: `RENDER_LEADS_POSTGRES.md` seccao 8 — Marcos deve recrear BD / colar External URL + Manual Deploy 6v1e.
+- Docs: `RENDER_LEADS_POSTGRES.md` seccao 8 — Marcos deve recrear BD / colar Internal ou External URL + Manual Deploy 6v1e.
+- Unblock imediato (antes do merge): Health Check Path → `/` no dashboard.
 
 ## [2026-11-09] Barber — nome loja alto contraste
 

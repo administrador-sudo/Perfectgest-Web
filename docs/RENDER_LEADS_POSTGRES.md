@@ -153,7 +153,14 @@ Em `scripts/leads-api-server.js`, host Internal curto é expandido para External
 
 `dpg-…-a` → `dpg-…-a.${RENDER_POSTGRES_HOST_SUFFIX||oregon-postgres.render.com}`
 
-Isto **não recria** a BD. Se a instância morreu, o health continua 503 até o operador actualizar o env.
+`/health` = **liveness** (HTTP **200** mesmo com BD down / `degraded:true`) para o Auto-Deploy do Web Service **não** ficar Timed Out.  
+`/ready` = readiness real (HTTP **503** se Postgres falhar).
+
+Isto **não recria** a BD. Leads/orçamento continuam a falhar no POST até o operador actualizar o env.
+
+### Unblock imediato (sem esperar merge)
+
+No serviço **`perfectgest-leads-api-6v1e`** → **Settings** → **Health Check Path**: mudar de `/health` para **`/`** (o root já responde 200 sem falar com Postgres). Redeploy passa; depois volte a `/health` quando o código degradado estiver em produção **e** a BD estiver ligada.
 
 ### Checklist Marcos (Dashboard Render) — obrigatório
 
