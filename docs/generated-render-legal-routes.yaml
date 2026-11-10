@@ -67,6 +67,18 @@ routes:
     source: /contabil-i-faq
     destination: /contabil-i-faq.html
   - type: rewrite
+    source: /barber-politica-privacidade
+    destination: /barber-politica-privacidade.html
+  - type: rewrite
+    source: /barber-termos
+    destination: /barber-termos.html
+  - type: rewrite
+    source: /barber-exclusao-dados
+    destination: /barber-exclusao-dados.html
+  - type: rewrite
+    source: /barber-faq
+    destination: /barber-faq.html
+  - type: rewrite
     source: /politica-privacidade-perfectgest-i
     destination: /politica-privacidade-perfectgest-i.html
   - type: rewrite

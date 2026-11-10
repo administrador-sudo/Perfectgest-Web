@@ -1,5 +1,11 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-10] Agenda Barber — políticas Play + script publicar
+
+- Slugs: `/barber-politica-privacidade`, `/barber-termos`, `/barber-exclusao-dados`, `/barber-faq`
+- `scripts/barber-legal-data.cjs` + `barber-static-html.cjs` + `publicar_politicas_agenda_barber.ps1`
+- `legal-routes.cjs` + `render.yaml` rewrites
+
 ## [2026-11-10] Barber — multi-loja path + Admin PerfectGest
 
 - Rotas `/Barber_Hairdresser/{shopId}` e `/Barber_Admin/{shopId}`; legado exacto → `perfectgest_dev`.

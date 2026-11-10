@@ -33,6 +33,13 @@ const contabilIStaticSlugs = [
   'contabil-i-faq',
 ];
 
+const agendaBarberStaticSlugs = [
+  'barber-politica-privacidade',
+  'barber-termos',
+  'barber-exclusao-dados',
+  'barber-faq',
+];
+
 const legacyAppRedirects = {
   'politica-privacidade-perfectgest-i':
     'https://sites.google.com/view/perfectgest-i-faq-suporte/politica-em-pt',
@@ -46,6 +53,7 @@ function allLegalSlugs() {
     ...clinicaIiiStaticSlugs,
     ...perfectGestIStaticSlugs,
     ...contabilIStaticSlugs,
+    ...agendaBarberStaticSlugs,
     ...Object.keys(legacyAppRedirects),
   ];
 }
@@ -55,6 +63,7 @@ module.exports = {
   clinicaIiiStaticSlugs,
   perfectGestIStaticSlugs,
   contabilIStaticSlugs,
+  agendaBarberStaticSlugs,
   legacyAppRedirects,
   allLegalSlugs,
 };
