@@ -1,5 +1,10 @@
 # Blueprint Render — pré-cadastro Opção B (PostgreSQL persistente).
 # Dashboard → New → Blueprint → repositório Perfectgest-Web.
+#
+# ATENÇÃO (plano free): Postgres free no Render expira/é apagado após inatividade.
+# Sintoma: getaddrinfo ENOTFOUND dpg-…-a no /health da leads-api → deploy Timed Out.
+# Se a BD sumir: recrear Postgres + Link Database (ou colar External Database URL)
+# no Web Service perfectgest-leads-api-6v1e. Ver docs/RENDER_LEADS_POSTGRES.md.
 databases:
   - name: perfectgest-leads-db
     plan: free
@@ -93,6 +98,10 @@ services:
         fromDatabase:
           name: perfectgest-leads-db
           property: connectionString
+      # Se Internal host falhar com ENOTFOUND, o server expande para External
+      # usando este sufixo (ajuste se a BD estiver noutra região Render).
+      - key: RENDER_POSTGRES_HOST_SUFFIX
+        value: oregon-postgres.render.com
       - key: ALLOWED_ORIGINS
         value: https://perfectgestdev.com,https://www.perfectgestdev.com,https://perfectgest-web-desenvolvedor-apps.onrender.com,http://localhost:8080,http://127.0.0.1:8080,http://localhost:8088,http://127.0.0.1:8088,http://localhost:8090,http://127.0.0.1:8090
       - key: NODE_VERSION

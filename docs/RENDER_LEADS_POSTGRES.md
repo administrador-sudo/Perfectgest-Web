@@ -14,12 +14,16 @@ Armazenamento **persistente** na tabela `site_leads`. **Sem e-mail automático**
 4. Aguarde o deploy. Teste:
 
 ```text
-https://perfectgest-leads-api.onrender.com/health
+https://perfectgest-leads-api-6v1e.onrender.com/health
 ```
 
-Resposta esperada: `{"ok":true,"storage":"postgres"}`
+(URL histórica sem sufixo: `perfectgest-leads-api.onrender.com` — o serviço activo no dashboard é **`perfectgest-leads-api-6v1e`**.)
+
+Resposta esperada: `{"ok":true,"storage":"postgres",...}`
 
 Se `storage` for `file`, falta `DATABASE_URL` — volte ao passo manual abaixo.
+
+Se o deploy falhar com `getaddrinfo ENOTFOUND dpg-…-a` → a BD foi **apagada/expirou** ou o `DATABASE_URL` ficou com host Internal stale. Ver secção **8) ENOTFOUND**.
 
 ---
 
@@ -131,10 +135,55 @@ DELETE FROM site_leads WHERE email = 'usuario@exemplo.com';
 
 | Sintoma | Causa | Solução |
 |---------|--------|---------|
-| «Sem ligação à API» | Web Service não criado ou URL errada | Criar `perfectgest-leads-api` no Render |
+| «Sem ligação à API» | Web Service não criado ou URL errada | Confirmar `perfectgest-leads-api-6v1e` no Render |
 | `/health` → `storage: file` | Sem `DATABASE_URL` | Ligar Postgres ao Web Service |
 | Timeout ao enviar | Plano free dormiu | Aguardar 1 min e reenviar |
 | Tabela vazia | Formulário nunca chegou | Ver logs do Web Service → **Logs** |
+| Deploy Timed Out + `ENOTFOUND dpg-…-a` | Postgres free apagado/expirado ou Internal host stale | Secção **8** |
+
+---
+
+## 8) ENOTFOUND `dpg-…-a` (deploy health Timed Out)
+
+O `/health` chama `ensurePgSchema` → `pg` resolve o host de `DATABASE_URL`. Host Internal curto (`dpg-xxxxx-a`, sem `.oregon-postgres.render.com`) **só** existe na rede privada Render. Se a BD free foi apagada/expirou, o DNS Internal some → `getaddrinfo ENOTFOUND` → health 503 → deploy **Timed Out**.
+
+### O que o código faz (mitigação)
+
+Em `scripts/leads-api-server.js`, host Internal curto é expandido para External:
+
+`dpg-…-a` → `dpg-…-a.${RENDER_POSTGRES_HOST_SUFFIX||oregon-postgres.render.com}`
+
+Isto **não recria** a BD. Se a instância morreu, o health continua 503 até o operador actualizar o env.
+
+### Checklist Marcos (Dashboard Render) — obrigatório
+
+1. Abrir [Render Dashboard](https://dashboard.render.com) → conta PerfectGest.
+2. Em **Databases**, procurar `perfectgest-leads-db` (ou nome actual).
+   - **Não existe / Suspended / Expired** → **New → PostgreSQL**
+     - Name: `perfectgest-leads-db`
+     - Database: `perfectgest_leads` (ou o que o painel gerar)
+     - Região: a mesma do Web Service (Oregon se for o caso)
+     - Plano: Free ou Starter (Free volta a expirar)
+3. Abrir o Web Service **`perfectgest-leads-api-6v1e`** → **Environment**.
+4. Actualizar `DATABASE_URL`:
+   - Preferir **Connect → Internal Database URL** se Link Database estiver disponível **na mesma conta/região**, **ou**
+   - Colar **External Database URL** (host completo `dpg-….REGION-postgres.render.com`) — funciona mesmo quando o DNS Internal falha.
+5. Confirmar (opcional) `RENDER_POSTGRES_HOST_SUFFIX=oregon-postgres.render.com` (ou a região real).
+6. **Manual Deploy** → Clear build cache / Deploy latest.
+7. Testar:
+
+```text
+https://perfectgest-leads-api-6v1e.onrender.com/health
+```
+
+Esperado: HTTP 200 com `"ok":true,"storage":"postgres"`.
+
+8. Dados antigos de `site_leads` / orçamento: **perdidos** se a BD free foi apagada (sem backup). O schema recria-se no primeiro `/health` ou POST.
+
+### Evitar reincidência
+
+- Não depender só do plano Free para leads de produção (expira).
+- Qualquer push no repo Perfectgest-Web pode redeployar a leads-api; BD morta bloqueia o deploy mesmo em commits só de Barber/SPA.
 
 ---
 

@@ -1,21 +1,25 @@
-# diagnostico_leads_api.ps1
+﻿# diagnostico_leads_api.ps1
 # Executa: .\scripts\diagnostico_leads_api.ps1
 # Verifica o estado do Web Service perfectgest-leads-api no Render.
 
-$api = "https://perfectgest-leads-api.onrender.com"
+# Servico activo no Render (sufixo 6v1e). Override: $env:LEADS_API_BASE="https://..."
+$api = if ($env:LEADS_API_BASE) { $env:LEADS_API_BASE.TrimEnd('/') } else { "https://perfectgest-leads-api-6v1e.onrender.com" }
 
 Write-Host ""
 Write-Host "=== Diagnostico perfectgest-leads-api ===" -ForegroundColor Cyan
+Write-Host "Base: $api"
+
+$apiHost = ([Uri]$api).Host
 
 # 1. DNS
 Write-Host ""
 Write-Host "[1] DNS..." -ForegroundColor Yellow
 try {
-    $null = [System.Net.Dns]::GetHostAddresses("perfectgest-leads-api.onrender.com")
-    Write-Host "    DNS OK" -ForegroundColor Green
+    $null = [System.Net.Dns]::GetHostAddresses($apiHost)
+    Write-Host "    DNS OK ($apiHost)" -ForegroundColor Green
 } catch {
     Write-Host "    FALHA DNS - servico pode nao existir no Render." -ForegroundColor Red
-    Write-Host "    -> Aceda ao Render Dashboard e verifique se 'perfectgest-leads-api' existe."
+    Write-Host "    -> Render Dashboard: confirme 'perfectgest-leads-api-6v1e'."
     exit 1
 }
 
@@ -33,13 +37,18 @@ try {
         Write-Host "    Storage: PostgreSQL OK" -ForegroundColor Green
     } else {
         Write-Host "    AVISO: storage=$($json.storage) - DATABASE_URL pode nao estar ligado." -ForegroundColor Yellow
-        Write-Host "    -> Render Dashboard: perfectgest-leads-api -> Environment -> link DATABASE_URL"
+        Write-Host "    -> Render Dashboard: perfectgest-leads-api-6v1e -> Environment -> DATABASE_URL"
+    }
+    if ($json.error -eq "database_host_enotfound") {
+        Write-Host "    ENOTFOUND host=$($json.host) — BD apagada/expirada ou Internal URL stale." -ForegroundColor Red
+        Write-Host "    -> Recriar Postgres + External Database URL. Ver docs/RENDER_LEADS_POSTGRES.md seccao 8."
     }
 } catch {
     Write-Host "    FALHA: $($_.Exception.Message)" -ForegroundColor Red
-    Write-Host "    -> Servico nao esta a correr. Opcoes:" -ForegroundColor Yellow
-    Write-Host "       a) Render Dashboard -> New -> Blueprint (usar render.yaml deste repo)"
-    Write-Host "       b) Ver docs/RENDER_LEADS_POSTGRES.md para criacao manual"
+    Write-Host "    -> Servico nao esta a correr ou health Timed Out (Postgres ENOTFOUND)." -ForegroundColor Yellow
+    Write-Host "       a) Recriar perfectgest-leads-db e actualizar DATABASE_URL (External URL)"
+    Write-Host "       b) Manual Deploy em perfectgest-leads-api-6v1e"
+    Write-Host "       c) Ver docs/RENDER_LEADS_POSTGRES.md seccao 8"
     exit 1
 }
 

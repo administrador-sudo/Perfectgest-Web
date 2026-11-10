@@ -1,5 +1,12 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-09] leads-api — Postgres ENOTFOUND deploy
+
+- Causa: `DATABASE_URL` com host Internal `dpg-db40n4ub7d7c739u02a0-a` (DNS morto) → `/health` ENOTFOUND → deploy Timed Out.
+- Mitigacao codigo: expandir host Internal → External FQDN + timeout 8s + hint no `/health`.
+- `render.yaml`: aviso free expiry + `RENDER_POSTGRES_HOST_SUFFIX`.
+- Docs: `RENDER_LEADS_POSTGRES.md` seccao 8 — Marcos deve recrear BD / colar External URL + Manual Deploy 6v1e.
+
 ## [2026-11-09] Barber — nome loja alto contraste
 
 - Hero shop name: `#E8D9A8` 30px; Georgia + Times/serif + Inter/Arial (web não some).

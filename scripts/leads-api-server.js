@@ -16,15 +16,57 @@ const rateLimit = require('express-rate-limit');
 const isProduction = process.env.RENDER === 'true' || process.env.NODE_ENV === 'production';
 const allowFileFallback = !isProduction && process.env.ALLOW_FILE_LEADS !== '0';
 
+/**
+ * Render Internal host (`dpg-…-a`) só resolve na rede privada.
+ * Se o DNS interno sumir (BD apagada/expirada) ou o env ficou truncado,
+ * expandimos para External FQDN (`*.{region}-postgres.render.com`).
+ * Regiao: RENDER_POSTGRES_HOST_SUFFIX ou oregon-postgres.render.com.
+ */
+function normalizeDatabaseUrl(raw) {
+  if (!raw || typeof raw !== 'string') return raw;
+  try {
+    const u = new URL(raw);
+    const host = u.hostname || '';
+    if (/^dpg-[a-z0-9]+-a$/i.test(host)) {
+      const suffix = String(
+        process.env.RENDER_POSTGRES_HOST_SUFFIX || 'oregon-postgres.render.com',
+      )
+        .trim()
+        .replace(/^\.+/, '');
+      const expanded = `${host}.${suffix}`;
+      console.warn(
+        `[leads-api] DATABASE_URL host interno "${host}" → External "${expanded}"`,
+      );
+      u.hostname = expanded;
+      return u.toString();
+    }
+    return raw;
+  } catch {
+    return raw;
+  }
+}
+
+function databaseHostHint(raw) {
+  try {
+    return new URL(String(raw || '')).hostname || null;
+  } catch {
+    return null;
+  }
+}
+
 let pgPool = null;
+let databaseUrlEffective = null;
 try {
   // pg opcional — servidor arranca mesmo sem módulo em ambientes mínimos.
   const { Pool } = require('pg');
-  const databaseUrl = process.env.DATABASE_URL;
+  const databaseUrl = normalizeDatabaseUrl(process.env.DATABASE_URL);
   if (databaseUrl) {
+    databaseUrlEffective = databaseUrl;
     pgPool = new Pool({
       connectionString: databaseUrl,
       ssl: databaseUrl.includes('localhost') ? false : { rejectUnauthorized: false },
+      connectionTimeoutMillis: 8000,
+      idleTimeoutMillis: 30000,
     });
   }
 } catch (err) {
@@ -923,17 +965,19 @@ app.get('/api/mail-check', leadsLimiter, async (_req, res) => {
 });
 
 app.get('/health', async (_req, res) => {
+  const host = databaseHostHint(databaseUrlEffective || process.env.DATABASE_URL);
   try {
     if (pgPool) {
       await ensurePgSchema();
       await pgPool.query('SELECT 1');
-      res.json({ ok: true, storage: 'postgres' });
+      res.json({ ok: true, storage: 'postgres', host });
       return;
     }
     if (isProduction) {
       res.status(503).json({
         ok: false,
         error: 'database_required',
+        host,
         hint: 'Ligue DATABASE_URL (Postgres Render). Ver docs/RENDER_LEADS_POSTGRES.md',
       });
       return;
@@ -941,8 +985,19 @@ app.get('/health', async (_req, res) => {
     fs.mkdirSync(dataDir, { recursive: true });
     res.json({ ok: true, storage: 'file', file: leadsFile, mode: 'development' });
   } catch (err) {
+    const message = String(err && err.message ? err.message : err);
+    const code = err && err.code ? String(err.code) : '';
     console.error('[leads-api] health', err);
-    res.status(503).json({ ok: false, error: 'storage_unavailable' });
+    const enotfound = /ENOTFOUND/i.test(message) || code === 'ENOTFOUND';
+    res.status(503).json({
+      ok: false,
+      error: enotfound ? 'database_host_enotfound' : 'storage_unavailable',
+      host,
+      detail: message.slice(0, 180),
+      hint: enotfound
+        ? 'Postgres host nao resolve (BD apagada/expirada ou Internal URL stale). No Render: recrear perfectgest-leads-db e colar External Database URL em DATABASE_URL. Ver docs/RENDER_LEADS_POSTGRES.md'
+        : 'Verifique DATABASE_URL / estado do Postgres no Render Dashboard.',
+    });
   }
 });
 
