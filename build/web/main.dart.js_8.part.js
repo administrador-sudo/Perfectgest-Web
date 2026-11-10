@@ -1,29 +1,29 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
 $__dart_deferred_initializers__.current=function(a,b,c,$){var C,D,E,F,G,B={
-be5(d){return new B.ph(d,null)},
+be8(d){return new B.ph(d,null)},
 ph:function ph(d,e){this.c=d
 this.a=e},
 a4_:function a4_(){this.c=this.a=null},
-aFK:function aFK(d,e,f,g){var _=this
+aFN:function aFN(d,e,f,g){var _=this
 _.a=d
 _.b=e
 _.c=f
 _.d=g},
 a5y:function a5y(d,e){this.c=d
 this.a=e},
-aIL:function aIL(d){this.a=d},
-bjf(d){switch(d.ae(y.h).r.f.gd0()){case"en":return A.RC
-case"es":return A.RD
-case"pt":default:return A.RE}},
+aIO:function aIO(d){this.a=d},
+bji(d){switch(d.ae(y.h).r.f.gd0()){case"en":return A.RB
+case"es":return A.RC
+case"pt":default:return A.RD}},
 mt:function mt(d,e){this.a=d
 this.b=e},
 c7:function c7(d,e,f){this.a=d
 this.b=e
 this.c=f},
-axR:function axR(){},
-aRj:function aRj(){},
-aRh:function aRh(){},
-aRi:function aRi(){}},A
+axS:function axS(){},
+aRm:function aRm(){},
+aRk:function aRk(){},
+aRl:function aRl(){}},A
 C=c[0]
 D=c[2]
 E=c[14]
@@ -46,8 +46,8 @@ C.cA("og:locale","pt_BR")
 b.G.document.title="Perguntas e respostas | ContabilGest"},
 l(){C.rn()
 this.az()},
-A(d){var x=null,w=C.v(d),v=C.aR(d,D.ai,y.x).w.a.a,u=v<400?16:24,t=B.bjf(d),s=t.gfh(),r=C.v(d).ax.a===D.O?D.bZ:D.bJ,q=t.giW()
-return C.ay(x,x,x,C.fO(F.aX9(d,x,this.a.c,q),r,new C.k7(C.jd(new B.aFK(u,t,w.ax,v)),x),x,x,x,x),!1,x,x,!1,x,!1,x,x,x,x,x,x,x,x,s,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,D.p,x)}}
+A(d){var x=null,w=C.v(d),v=C.aR(d,D.ai,y.x).w.a.a,u=v<400?16:24,t=B.bji(d),s=t.gfh(),r=C.v(d).ax.a===D.O?D.bZ:D.bJ,q=t.giW()
+return C.ay(x,x,x,C.fO(F.aXc(d,x,this.a.c,q),r,new C.k7(C.jd(new B.aFN(u,t,w.ax,v)),x),x,x,x,x),!1,x,x,!1,x,!1,x,x,x,x,x,x,x,x,s,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,D.p,x)}}
 B.a5y.prototype={
 A(d){var x,w,v,u,t,s,r,q,p,o,n=null,m=C.v(d).ax,l=C.aR(d,D.ai,y.x).w.a.a,k=l<400?12:16,j=this.c,i=j.a,h=m.RG
 h=(h==null?m.k2:h).ag(0.5)
@@ -67,30 +67,30 @@ u=j.length
 if(u!==0){r=C.b([D.an],r)
 for(q=0;q<u;++q){p=j[q]
 o=C.iG(D.by,n,n,n,n,n,n,n,n,n,n,D.X,D.af,n,n,n,n,D.eI,n,n)
-r.push(new C.a0(D.c6,new C.cm(D.by,n,n,C.ck(C.k(p.a,n,n,n,n,C.bj().$5$color$decoration$fontSize$fontWeight$height(t,D.d2,v?13:14,D.L,1.45),n,n,n),new B.aIL(p),o),n),n))}D.c.R(s,r)}return new C.a0(G.uT,C.ay(n,n,n,C.cx(new C.a0(new C.V(k,16,k,18),C.af(s,D.D,D.i,D.k),n),new C.bb(h,n,w,x,n,n,D.G),D.ad),!0,n,n,!1,n,!1,n,n,n,n,n,n,n,n,i,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,D.p,n),n)}}
+r.push(new C.a0(D.c6,new C.cm(D.by,n,n,C.ck(C.k(p.a,n,n,n,n,C.bj().$5$color$decoration$fontSize$fontWeight$height(t,D.d2,v?13:14,D.L,1.45),n,n,n),new B.aIO(p),o),n),n))}D.c.R(s,r)}return new C.a0(G.uT,C.ay(n,n,n,C.cx(new C.a0(new C.V(k,16,k,18),C.af(s,D.D,D.i,D.k),n),new C.bb(h,n,w,x,n,n,D.G),D.ad),!0,n,n,!1,n,!1,n,n,n,n,n,n,n,n,i,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,D.p,n),n)}}
 B.mt.prototype={}
 B.c7.prototype={}
-B.axR.prototype={}
-B.aRj.prototype={
+B.axS.prototype={}
+B.aRm.prototype={
 gfh(){return"Perguntas e respostas PerfectGest ContabilGest"},
 giW(){return"Perguntas e respostas"},
 giY(){return"PerfectGest ContabilGest"},
 glO(){return"Perguntas e respostas sobre o Aplicativo"},
 gV0(){return A.afE}}
-B.aRh.prototype={
+B.aRk.prototype={
 gfh(){return"Questions and answers PerfectGest ContabilGest"},
 giW(){return"Questions and answers"},
 giY(){return"PerfectGest ContabilGest"},
 glO(){return"Questions and answers about the App"},
 gV0(){return A.aec}}
-B.aRi.prototype={
+B.aRl.prototype={
 gfh(){return"Preguntas y respuestas PerfectGest ContabilGest"},
 giW(){return"Preguntas y respuestas"},
 giY(){return"PerfectGest ContabilGest"},
 glO(){return"Preguntas y respuestas sobre la Aplicaci\xf3n"},
 gV0(){return A.a7X}}
 var z=a.updateTypes([])
-B.aFK.prototype={
+B.aFN.prototype={
 $2(d,e){var x,w,v,u,t,s,r,q,p,o=this,n=null,m=e.b
 m=m<1/0&&isFinite(m)?m:C.aR(d,D.ai,y.x).w.a.a
 x=D.d.du(m<720?m:720,200,720)
@@ -109,24 +109,24 @@ r.push(D.dn)
 p=C.bL(d,D.b0,y.F)
 p.toString
 r.push(C.k(p.vk(C.aM(new C.br(Date.now(),0,!1))),n,n,n,n,C.bj().$3$color$fontSize$fontWeight(u.ag(0.7),12,D.L),n,n,n))
-r.push(E.MG)
+r.push(E.MF)
 return C.er(C.cB(new C.cj(new C.a_(0,x,0,1/0),C.af(r,D.D,D.i,D.k),n),n,n),n,new C.V(w,16,w,28),D.a5)},
-$S:132}
-B.aIL.prototype={
+$S:133}
+B.aIO.prototype={
 $0(){return C.hQ(C.c0(this.a.b,0,null),D.cn,"_blank")},
 $S:0};(function inheritance(){var x=a.inherit,w=a.inheritMany
 x(B.ph,C.Q)
 x(B.a4_,C.U)
-x(B.aFK,C.t2)
+x(B.aFN,C.t2)
 x(B.a5y,C.W)
-x(B.aIL,C.kE)
-w(C.P,[B.mt,B.c7,B.axR])
-w(B.axR,[B.aRj,B.aRh,B.aRi])})()
+x(B.aIO,C.kE)
+w(C.P,[B.mt,B.c7,B.axS])
+w(B.axS,[B.aRm,B.aRk,B.aRl])})()
 C.wa(b.typeUniverse,JSON.parse('{"ph":{"Q":[],"c":[]},"a4_":{"U":["ph"]},"a5y":{"W":[],"c":[]}}'))
 var y={F:C.a5("hp"),a:C.a5("w<c7>"),g:C.a5("w<mt>"),u:C.a5("w<c>"),x:C.a5("hA"),h:C.a5("mK")};(function constants(){var x=a.makeConstList
-A.RC=new B.aRh()
-A.RD=new B.aRi()
-A.RE=new B.aRj()
+A.RB=new B.aRk()
+A.RC=new B.aRl()
+A.RD=new B.aRm()
 A.ae=x([],y.g)
 A.aq2=new B.c7("\xbfQu\xe9 es la app?","PerfectGest ContabilGest es la herramienta de conexi\xf3n con el usuario: usted sigue en tiempo real la contabilidad de la empresa (Libro de caja, NFS-e, NF-e y obligaciones) y, cuando el despacho habilita las funciones, los datos llegan al CRC. El uso diario en el aparato es offline por defecto. En Google Play: R$ 19,99/mes o pago \xfanico de R$ 239,88. El env\xedo al despacho y las funciones online existen despu\xe9s de la habilitaci\xf3n.",A.ae)
 A.aqe=new B.c7("\xbfContabilGest es una app oficial del gobierno?","No. Es un producto privado de Perfect Gest Dev (CNPJ 66.889.409/0001-19). No estamos afiliados ni respaldados por la Receita Federal, eSocial, FGTS Digital o prefecturas. La fuente oficial de obligaciones y gu\xedas es siempre el portal del gobierno.",A.ae)
@@ -137,8 +137,8 @@ A.aqt=new B.mt("e-CAC / DCTFWeb","https://cav.receita.fazenda.gov.br/")
 A.aqu=new B.mt("FGTS Digital","https://www.gov.br/trabalho-e-emprego/pt-br/servicos/empregador/fgtsdigital")
 A.aqy=new B.mt("NFS-e Nacional","https://www.gov.br/nfse/pt-br")
 A.aqx=new B.mt("IRPF","https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda")
-A.pK=x([A.aqv,A.aqz,A.aqw,A.aqt,A.aqu,A.aqy,A.aqx],y.g)
-A.aqh=new B.c7("\xbfCu\xe1les son las fuentes oficiales?","Use siempre los portales del gobierno.",A.pK)
+A.pL=x([A.aqv,A.aqz,A.aqw,A.aqt,A.aqu,A.aqy,A.aqx],y.g)
+A.aqh=new B.c7("\xbfCu\xe1les son las fuentes oficiales?","Use siempre los portales del gobierno.",A.pL)
 A.aqp=new B.c7("\xbfNecesito internet?","- Registrar, cerrar el mes y generar PDF: no\n- Suscribir o restaurar la compra de la aplicaci\xf3n en Google Play: s\xed\n- Enviar datos al despacho, certificado A1 y Asistente IA: s\xed, y solo despu\xe9s de la habilitaci\xf3n por el despacho\n- Abrir portales del gobierno (DAS, eSocial, DCTFWeb, FGTS Digital, prefectura): s\xed",A.ae)
 A.aqr=new B.c7("\xbfLa app sustituye a mi contador?","No. La aplicaci\xf3n organiza los datos y, con la habilitaci\xf3n, los env\xeda al despacho. En los planes con seguimiento, un contador habilitado revisa y firma los libros. En el B\xe1sico MEI usted opera en la app, a su ritmo, y sigue siendo responsable de revisar lo que usa. En cualquier plan, revise PDF, recibos de sueldo y comunicaciones antes de usarlos.",A.ae)
 A.apI=new B.c7("\xbfLa app env\xeda declaraciones sola a los portales del gobierno?","No. La app no transmite sola en eSocial, DCTFWeb, FGTS Digital, DAS o prefectura. Quien env\xeda en esos portales es usted o el contador, en el servicio contratado. Con la habilitaci\xf3n, la app transmite los datos del usuario al despacho (CRC), no al gobierno.",A.ae)
@@ -155,7 +155,7 @@ A.apS=new B.c7("\xbfLa suscripci\xf3n de Play ya libera todo?","No. Play libera 
 A.a7X=x([A.aq2,A.aqe,A.aqh,A.aqp,A.aqr,A.apI,A.apO,A.apY,A.apX,A.aqm,A.apR,A.apU,A.aq7,A.aqc,A.aqi,A.apS],y.a)
 A.aqb=new B.c7("What is the app?","PerfectGest ContabilGest is the connection tool: you follow your company accounting in real time (Cash Book, NFS-e, NF-e, and tax duties) and, when the office enables the functions, that data reaches the CRC. Daily use on the device is offline by default. On Google Play: R$ 19.99/month or a one-time payment of R$ 239.88. Sending data to the office and online functions exist after enablement.",A.ae)
 A.aqd=new B.c7("Is ContabilGest an official government app?","No. It is a private product of Perfect Gest Dev (CNPJ 66.889.409/0001-19). We are not affiliated with or endorsed by the Federal Revenue Service, eSocial, FGTS Digital, or city halls. The official source of obligations and guides is always the government portal.",A.ae)
-A.aqq=new B.c7("What are the official sources?","Always use government portals.",A.pK)
+A.aqq=new B.c7("What are the official sources?","Always use government portals.",A.pL)
 A.apJ=new B.c7("Do I need the internet?","- Record entries, close the month, and generate PDF: no\n- Subscribe or restore the app purchase on Google Play: yes\n- Send data to the office, A1 certificate, and AI Assistant: yes, and only after the office enables those functions\n- Open government portals (DAS, eSocial, DCTFWeb, FGTS Digital, city hall): yes",A.ae)
 A.aqa=new B.c7("Does the app replace my accountant?","No. The app organizes the data and, once enabled, sends it to the office. On plans with follow-up, a licensed accountant reviews and signs the books. On Basic MEI you operate in the app at your own pace and remain responsible for checking what you use. On any plan, check PDFs, payslips, and notices before using them.",A.ae)
 A.aq6=new B.c7("Does the app file returns on government portals by itself?","No. The app does not transmit by itself to eSocial, DCTFWeb, FGTS Digital, DAS, or city hall. You or the accountant, under the contracted service, send filings on those portals. Once enabled, the app transmits the user's data to the accounting office (CRC), not to the government.",A.ae)
@@ -172,7 +172,7 @@ A.aqo=new B.c7("Does a Play subscription already unlock everything?","No. Play u
 A.aec=x([A.aqb,A.aqd,A.aqq,A.apJ,A.aqa,A.aq6,A.aq4,A.apM,A.apQ,A.aqk,A.apT,A.aq9,A.aq3,A.aqj,A.aqs,A.aqo],y.a)
 A.aq0=new B.c7("O que \xe9 o app?","O PerfectGest ContabilGest \xe9 a ferramenta de conex\xe3o com o usu\xe1rio: voc\xea acompanha em tempo real a contabilidade da empresa (Livro Caixa, NFS-e, NF-e e obriga\xe7\xf5es) e, quando o escrit\xf3rio habilita as fun\xe7\xf5es, os dados chegam ao CRC. O uso di\xe1rio no aparelho \xe9 offline por padr\xe3o. Na Google Play: R$ 19,99/m\xeas. O envio ao escrit\xf3rio e as fun\xe7\xf5es online existem depois da habilita\xe7\xe3o.",A.ae)
 A.aq8=new B.c7("O ContabilGest \xe9 um app oficial do governo?","N\xe3o. \xc9 um produto privado da Perfect Gest Dev (CNPJ 66.889.409/0001-19). N\xe3o somos afiliados nem endossados pela Receita Federal, eSocial, FGTS Digital ou prefeituras. A fonte oficial de obriga\xe7\xf5es e guias \xe9 sempre o portal do governo.",A.ae)
-A.apN=new B.c7("Quais s\xe3o as fontes oficiais?","Use sempre os portais do governo.",A.pK)
+A.apN=new B.c7("Quais s\xe3o as fontes oficiais?","Use sempre os portais do governo.",A.pL)
 A.aqf=new B.c7("Preciso de internet?","- Lan\xe7ar, fechar o m\xeas e gerar PDF: n\xe3o\n- Assinar ou restaurar a compra do aplicativo na Google Play: sim\n- Enviar dados ao escrit\xf3rio, certificado A1 e Assistente IA: sim, e s\xf3 depois da habilita\xe7\xe3o pelo escrit\xf3rio\n- Abrir portais do governo (DAS, eSocial, DCTFWeb, FGTS Digital, prefeitura): sim",A.ae)
 A.apK=new B.c7("O app substitui meu contador?","N\xe3o. O aplicativo organiza os dados e, com a habilita\xe7\xe3o, envia-os ao escrit\xf3rio. Nos planos com acompanhamento, um contador habilitado revisa e assina os livros. No B\xe1sico MEI voc\xea opera no app, no seu ritmo, e continua respons\xe1vel por conferir o que usa. Em qualquer plano, confira PDFs, holerites e comunica\xe7\xf5es antes de usar.",A.ae)
 A.apP=new B.c7("O app envia declara\xe7\xf5es sozinho aos portais do governo?","N\xe3o. O app n\xe3o transmite sozinho no eSocial, DCTFWeb, FGTS Digital, DAS ou prefeitura. Quem envia nesses portais \xe9 voc\xea ou o contador, no servi\xe7o contratado. Com a habilita\xe7\xe3o, o app transmite os dados do usu\xe1rio para o escrit\xf3rio (CRC), n\xe3o para o governo.",A.ae)
@@ -187,4 +187,4 @@ A.aqn=new B.c7("Como altero meu plano (faixa, downgrade ou extras como folha e I
 A.apV=new B.c7("O app avisa antes da renova\xe7\xe3o?","Quando a Play informar a data do ciclo da assinatura do aplicativo, o app pode avisar at\xe9 30 dias antes. Sem data da Play, n\xe3o h\xe1 prazo inventado \u2014 consulte Play \u2192 Assinaturas. Honor\xe1rios e plano cont\xe1bil: com o escrit\xf3rio.",A.ae)
 A.apL=new B.c7("A assinatura da Play j\xe1 libera tudo?","N\xe3o. A Play libera o acesso ao aplicativo. Para sincroniza\xe7\xe3o, envio de dados ao escrit\xf3rio e fun\xe7\xf5es online, contacte o escrit\xf3rio depois de assinar. Sem habilita\xe7\xe3o, voc\xea entra no app, mas sem envio ao CRC e sem contato com o escrit\xf3rio.",A.ae)
 A.afE=x([A.aq0,A.aq8,A.apN,A.aqf,A.apK,A.apP,A.aq1,A.aq5,A.aqg,A.aql,A.aq_,A.apW,A.apZ,A.aqn,A.apV,A.apL],y.a)})()};
-(a=>{a["md/iBrHOnYGX65XcKRbvBTr0dKw="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["dsPotZ0It9kQ9XiTLMlyLsd/g0c="]=a.current})($__dart_deferred_initializers__);
