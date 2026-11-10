@@ -1,5 +1,10 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-09] Barber — topo logo + nome vintage
+
+- Hero: logo 144px; nome Georgia 22px cor brass/olive `#C9B87A` (identidade logo+nome).
+- Publish: `publicar-barber-paginas.ps1 -SkipCheckout -NoPause -Msg "barber-topo-logo-nome"`.
+
 ## [2026-11-09] Barber — Agendar/pagar + loja detalhe
 
 - Agendar: labels «Escolha o Barbeiro/Cabelereira» / «Seu nome»; chips PIX agora / Dinheiro na hora (sem gate `clientAllowsCash`).

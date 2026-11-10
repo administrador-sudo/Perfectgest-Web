@@ -102,12 +102,17 @@ class BarberHairdresserPage extends StatefulWidget {
 
 class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   static const Color _olive = Color(0xFF556B2F);
+  /// Nome da loja no topo — brass/olive vintage no tema escuro.
+  static const Color _brandName = Color(0xFFC9B87A);
   static const Color _bg = Color(0xFF121212);
   static const Color _surface = Color(0xFF2A2A2A);
   static const Color _text = Color(0xFFFFFFFF);
   static const Color _muted = Color(0xFFD0D0D0);
   static const String _font = 'Inter';
   static const String _mono = 'JetBrains Mono';
+  /// Serif de sistema (CSP font-src self) — ar vintage de barbearia.
+  static const String _brandFont = 'Georgia';
+  static const double _logoSize = 144;
 
   final _formKey = GlobalKey<FormState>();
   final _reviewFormKey = GlobalKey<FormState>();
@@ -159,11 +164,12 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
       );
 
   TextStyle get _title => const TextStyle(
-        fontFamily: _font,
-        color: _text,
-        fontSize: 34,
-        fontWeight: FontWeight.w700,
-        height: 1.15,
+        fontFamily: _brandFont,
+        color: _brandName,
+        fontSize: 22,
+        fontWeight: FontWeight.w600,
+        height: 1.25,
+        letterSpacing: 0.8,
       );
 
   TextStyle get _section => const TextStyle(
@@ -1148,8 +1154,8 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
         final b64 = comma >= 0 ? logoUrl.substring(comma + 1) : logoUrl;
         return Image.memory(
           base64Decode(b64),
-          width: 112,
-          height: 112,
+          width: _logoSize,
+          height: _logoSize,
           fit: BoxFit.cover,
           errorBuilder: (context, error, stackTrace) => _logoFallback(),
         );
@@ -1159,8 +1165,8 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
     }
     return Image.network(
       logoUrl,
-      width: 112,
-      height: 112,
+      width: _logoSize,
+      height: _logoSize,
       fit: BoxFit.cover,
       errorBuilder: (context, error, stackTrace) => _logoFallback(),
     );
@@ -1168,11 +1174,11 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
 
   Widget _logoFallback() {
     return Container(
-      width: 112,
-      height: 112,
+      width: _logoSize,
+      height: _logoSize,
       color: _surface,
       alignment: Alignment.center,
-      child: const Icon(Icons.content_cut, color: _olive, size: 48),
+      child: const Icon(Icons.content_cut, color: _olive, size: 56),
     );
   }
 
