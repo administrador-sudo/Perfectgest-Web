@@ -19,6 +19,7 @@ class BarberShopPresentation {
     this.pixKey = '',
     this.whatsappPhone = '',
     this.pickupAddress = '',
+    this.maxProductsOnSite = 12,
   });
 
   final String name;
@@ -28,6 +29,8 @@ class BarberShopPresentation {
   final String pixKey;
   final String whatsappPhone;
   final String pickupAddress;
+  /// 0 = sem limite; senão corta a vitrine após sort.
+  final int maxProductsOnSite;
 }
 
 class BarberPro {
@@ -274,6 +277,7 @@ class BarberCloud {
           : 'https://perfectgestdev.com/Barber_Hairdresser';
       final address = (m['address'] as String?)?.trim() ?? '';
       final pickup = (m['pickupAddress'] as String?)?.trim() ?? '';
+      final maxN = _asInt(m['maxProductsOnSite'], 12);
       return BarberShopPresentation(
         name: (m['name'] as String?)?.trim().isNotEmpty == true
             ? m['name'] as String
@@ -286,6 +290,7 @@ class BarberCloud {
                 ?.replaceAll(RegExp(r'\D'), '') ??
             '',
         pickupAddress: pickup.isNotEmpty ? pickup : address,
+        maxProductsOnSite: maxN < 0 ? 12 : maxN,
       );
     } catch (e) {
       lastError = 'fetchPresentation: $e';
@@ -366,16 +371,23 @@ class BarberCloud {
     }
   }
 
-  /// Vitrine pública: só `active != false` e `stockQty > 0` (sem cadastro no site).
+  /// Vitrine: `showOnSite` (legado = active) + stock > 0; ordena e corta a N do shop.
   /// Dedupe por `localId` preferindo docs `prod_*` (ignora órfãos numéricos legados).
   Future<List<BarberProductCard>> listProducts({String? professionalId}) async {
     await ensureInitialized();
     if (!ready) return const [];
     try {
+      final shop = await fetchPresentation();
+      final maxN = shop.maxProductsOnSite;
       final rows = await _listCollection('products');
       final filtered = rows
           .where((m) => m['active'] != false)
           .where((m) => _asInt(m['stockQty']) > 0)
+          .where((m) {
+            // Legado sem showOnSite → aparece se active (já filtrado).
+            if (!m.containsKey('showOnSite')) return true;
+            return m['showOnSite'] == true;
+          })
           .where(
             (m) =>
                 professionalId == null ||
@@ -399,7 +411,7 @@ class BarberCloud {
             docId.startsWith('prod_') && !existingDoc.startsWith('prod_');
         if (preferNew) byLocal[localKey] = m;
       }
-      return byLocal.values
+      final cards = byLocal.values
           .map(
             (m) => BarberProductCard(
               id: _asId(
@@ -417,7 +429,14 @@ class BarberCloud {
             ),
           )
           .where((p) => p.id.isNotEmpty && p.name.isNotEmpty)
-          .toList();
+          .toList()
+        ..sort(
+          (a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()),
+        );
+      if (maxN > 0 && cards.length > maxN) {
+        return cards.take(maxN).toList();
+      }
+      return cards;
     } catch (e) {
       debugPrint('listProducts: $e');
       return const [];
@@ -700,30 +719,79 @@ class BarberCloud {
     }
   }
 
-  /// Avaliações publicadas (rules filtram pending no list anónimo).
+  /// Avaliações publicadas via runQuery (GET collection falha 403 com pending).
   Future<List<BarberReviewCard>> listPublishedReviews() async {
     await ensureInitialized();
     if (!ready) return const [];
     try {
-      final rows = await _listCollection('reviews');
-      final list = rows
-          .where((m) => m['status'] == 'published')
-          .map((m) {
-            final n = (m['authorName'] as String?)?.trim() ?? '';
-            return BarberReviewCard(
-              id: _asId(m['_docId']),
-              authorName: n.isEmpty ? 'Anónimo' : n,
-              rating: _asInt(m['rating']),
-              text: (m['text'] as String?)?.trim() ?? '',
-            );
-          })
-          .where((r) => r.id.isNotEmpty && r.text.isNotEmpty)
-          .toList();
+      final rows = await _runQuery(
+        collectionId: 'reviews',
+        fieldPath: 'status',
+        equalTo: 'published',
+      );
+      final list = rows.map((m) {
+        final n = (m['authorName'] as String?)?.trim() ?? '';
+        return BarberReviewCard(
+          id: _asId(m['_docId']),
+          authorName: n.isEmpty ? 'Anónimo' : n,
+          rating: _asInt(m['rating']),
+          text: (m['text'] as String?)?.trim() ?? '',
+        );
+      }).where((r) => r.id.isNotEmpty && r.text.isNotEmpty).toList();
       return list;
     } catch (e) {
       debugPrint('listPublishedReviews: $e');
       return const [];
     }
+  }
+
+  /// Structured query no shop (anónimo OK quando rules exigem filtro).
+  Future<List<Map<String, dynamic>>> _runQuery({
+    required String collectionId,
+    required String fieldPath,
+    required String equalTo,
+  }) async {
+    final uri = Uri.parse('$_shopPath:runQuery').replace(
+      queryParameters: {'key': _apiKey},
+    );
+    final res = await http.post(
+      uri,
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({
+        'structuredQuery': {
+          'from': [
+            {'collectionId': collectionId},
+          ],
+          'where': {
+            'fieldFilter': {
+              'field': {'fieldPath': fieldPath},
+              'op': 'EQUAL',
+              'value': {'stringValue': equalTo},
+            },
+          },
+        },
+      }),
+    );
+    if (res.statusCode != 200) {
+      throw StateError(
+        'runQuery $collectionId HTTP ${res.statusCode}: ${res.body}',
+      );
+    }
+    final decoded = jsonDecode(res.body);
+    if (decoded is! List) return const [];
+    final out = <Map<String, dynamic>>[];
+    for (final row in decoded) {
+      if (row is! Map) continue;
+      final doc = row['document'];
+      if (doc is! Map) continue;
+      final name = doc['name'] as String? ?? '';
+      final id = name.split('/').last;
+      final fields = _decodeFields(
+        (doc['fields'] as Map?)?.cast<String, dynamic>(),
+      );
+      out.add({...fields, '_docId': id});
+    }
+    return out;
   }
 
   /// Cliente envia avaliação → `status: pending` (moderação no app).
