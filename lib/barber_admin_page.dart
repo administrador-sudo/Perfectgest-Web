@@ -5,10 +5,16 @@ import 'package:http/http.dart' as http;
 
 import 'barber_cloud.dart';
 import 'barber_firebase_options.dart';
+import 'site_public_urls.dart';
 
 /// Painel do dono: login + cadastrar email de profissional (senha padrão).
 class BarberAdminPage extends StatefulWidget {
-  const BarberAdminPage({super.key});
+  const BarberAdminPage({
+    super.key,
+    this.shopId = kBarberDefaultShopId,
+  });
+
+  final String shopId;
 
   @override
   State<BarberAdminPage> createState() => _BarberAdminPageState();
@@ -46,7 +52,11 @@ class _BarberAdminPageState extends State<BarberAdminPage> {
 
   static final _apiKey = DefaultFirebaseOptions.web.apiKey;
   static const _projectId = 'perfectgest-barber';
-  static const _shop = kBarberShopId;
+
+  String get _shop {
+    final id = widget.shopId.trim();
+    return isValidBarberShopId(id) ? id : kBarberDefaultShopId;
+  }
 
   bool get _loggedIn =>
       _idToken != null &&

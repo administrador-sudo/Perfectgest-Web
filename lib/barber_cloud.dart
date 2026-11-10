@@ -5,8 +5,10 @@ import 'package:http/http.dart' as http;
 
 import 'barber_firebase_options.dart';
 import 'barber_slot_engine.dart';
+import 'site_public_urls.dart';
 
-const String kBarberShopId = 'perfectgest_dev';
+/// Compat: shop piloto. Preferir [kBarberDefaultShopId] / [BarberCloud.bindShop].
+const String kBarberShopId = kBarberDefaultShopId;
 
 /// Site usa REST do Firestore (sem plugin firebase_core) — evita
 /// PlatformException pigeon channel-error no Flutter Web em producao.
@@ -15,11 +17,14 @@ class BarberShopPresentation {
     this.name = 'Barbear e Cortar',
     this.promoText = '',
     this.logoUrl = '',
-    this.bookingUrl = 'https://perfectgestdev.com/Barber_Hairdresser',
+    this.bookingUrl = 'https://perfectgestdev.com/Barber_Hairdresser/perfectgest_dev',
     this.pixKey = '',
     this.whatsappPhone = '',
     this.pickupAddress = '',
     this.maxProductsOnSite = 12,
+    this.active = true,
+    this.billingStatus = 'unknown',
+    this.shopId = kBarberDefaultShopId,
   });
 
   final String name;
@@ -31,6 +36,13 @@ class BarberShopPresentation {
   final String pickupAddress;
   /// 0 = sem limite; senão corta a vitrine após sort.
   final int maxProductsOnSite;
+  /// Loja desactivada no Admin PerfectGest.
+  final bool active;
+  /// `active` | `grace` | `expired` | `none` | `unknown` (Play Billing).
+  final String billingStatus;
+  final String shopId;
+
+  bool get showInactiveBanner => !active;
 }
 
 class BarberPro {
@@ -120,12 +132,29 @@ class BarberCloud {
   bool ready = false;
   String? lastError;
 
+  /// Shop activo na SPA (uma página de cada vez).
+  static String _boundShopId = kBarberDefaultShopId;
+
+  static String get boundShopId => _boundShopId;
+
+  /// Liga REST a `shops/{shopId}`; invalida cache ready.
+  static void bindShop(String shopId) {
+    final id = shopId.trim();
+    final next = isValidBarberShopId(id) ? id : kBarberDefaultShopId;
+    if (next == _boundShopId && instance.ready) return;
+    _boundShopId = next;
+    instance.ready = false;
+    instance.lastError = null;
+  }
+
   static const _projectId = 'perfectgest-barber';
   static final _apiKey = DefaultFirebaseOptions.web.apiKey;
   static const _base =
       'https://firestore.googleapis.com/v1/projects/$_projectId/databases/(default)/documents';
 
-  String get _shopPath => '$_base/shops/$kBarberShopId';
+  String get shopId => _boundShopId;
+
+  String get _shopPath => '$_base/shops/$_boundShopId';
 
   Uri _uri(String path, {Map<String, String>? query}) {
     final q = <String, String>{'key': _apiKey, ...?query};
@@ -274,10 +303,26 @@ class BarberCloud {
       final m = _decodeFields(body['fields'] as Map<String, dynamic>?);
       final bookingUrl = (m['bookingUrl'] as String?)?.trim().isNotEmpty == true
           ? m['bookingUrl'] as String
-          : 'https://perfectgestdev.com/Barber_Hairdresser';
+          : barberHairdresserPublicUrlFor(_boundShopId);
       final address = (m['address'] as String?)?.trim() ?? '';
       final pickup = (m['pickupAddress'] as String?)?.trim() ?? '';
       final maxN = _asInt(m['maxProductsOnSite'], 12);
+      final status = (m['status'] as String?)?.trim().toLowerCase() ?? '';
+      final activeFlag = m['active'];
+      final active = activeFlag == false ||
+              status == 'inactive' ||
+              status == 'deactivated'
+          ? false
+          : true;
+      final billing = m['billing'];
+      String billingStatus = 'unknown';
+      if (billing is Map) {
+        billingStatus =
+            '${billing['status'] ?? 'unknown'}'.trim().toLowerCase();
+      } else if (m['subscriptionStatus'] is String) {
+        billingStatus =
+            (m['subscriptionStatus'] as String).trim().toLowerCase();
+      }
       return BarberShopPresentation(
         name: (m['name'] as String?)?.trim().isNotEmpty == true
             ? m['name'] as String
@@ -291,6 +336,9 @@ class BarberCloud {
             '',
         pickupAddress: pickup.isNotEmpty ? pickup : address,
         maxProductsOnSite: maxN < 0 ? 12 : maxN,
+        active: active,
+        billingStatus: billingStatus.isEmpty ? 'unknown' : billingStatus,
+        shopId: _boundShopId,
       );
     } catch (e) {
       lastError = 'fetchPresentation: $e';

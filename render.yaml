@@ -42,6 +42,18 @@ services:
         source: /Barber_Hairdresser
         destination: /Barber_Hairdresser.html
       - type: rewrite
+        source: /Barber_Hairdresser/*
+        destination: /Barber_Hairdresser.html
+      - type: rewrite
+        source: /Barber_Admin
+        destination: /Barber_Admin.html
+      - type: rewrite
+        source: /Barber_Admin/*
+        destination: /Barber_Admin.html
+      - type: rewrite
+        source: /Barber_Shops_Admin
+        destination: /Barber_Shops_Admin.html
+      - type: rewrite
         source: /politica-privacidade-clinica-iii
         destination: /politica-privacidade-clinica-iii.html
       - type: rewrite

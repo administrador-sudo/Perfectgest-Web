@@ -10,6 +10,7 @@ const siteSpaPages = [
   'orcamento',
   'Barber_Hairdresser',
   'Barber_Admin',
+  'Barber_Shops_Admin',
 ];
 
 const clinicaIiiStaticSlugs = [

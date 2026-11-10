@@ -66,9 +66,9 @@ function writeRedirectHtml(targetUrl) {
 </html>`;
 }
 
-const BARBER_SPA_SEGMENTS = new Set(['Barber_Hairdresser']);
+const BARBER_SPA_SEGMENTS = new Set(['Barber_Hairdresser', 'Barber_Admin', 'Barber_Shops_Admin']);
 const BARBER_OG_IMAGE = 'https://perfectgestdev.com/barber-shop-logo.png';
-const BARBER_BOOKING_URL = 'https://perfectgestdev.com/Barber_Hairdresser';
+const BARBER_BOOKING_URL = 'https://perfectgestdev.com/Barber_Hairdresser/perfectgest_dev';
 
 function escapeHtmlAttr(s) {
   return String(s)

@@ -32,6 +32,37 @@ const String kBarberHairdresserPath = '/Barber_Hairdresser';
 /// Painel admin da barbearia (convidar profissionais por email).
 const String kBarberAdminPath = '/Barber_Admin';
 
+/// Admin PerfectGest: criar / listar / desactivar lojas (multi-loja).
+const String kBarberShopsAdminPath = '/Barber_Shops_Admin';
+
+/// Shop piloto / legado (URL sem segmento redireciona para este).
+const String kBarberDefaultShopId = 'perfectgest_dev';
+
+/// Slug comercial: letras minúsculas, dígitos, `_` ou `-` (3–48).
+final RegExp kBarberShopIdPattern = RegExp(r'^[a-z0-9_-]{3,48}$');
+
+bool isValidBarberShopId(String raw) =>
+    kBarberShopIdPattern.hasMatch(raw.trim());
+
+/// Extrai shopId de `/Barber_Hairdresser/{id}` ou `/Barber_Admin/{id}`.
+/// Path exacto (legado) → [kBarberDefaultShopId]. Inválido → null.
+String? parseBarberShopIdFromRoute(String routeName, String basePath) {
+  final path = routeName.trim();
+  if (path == basePath) return kBarberDefaultShopId;
+  final prefix = '$basePath/';
+  if (!path.startsWith(prefix)) return null;
+  final rest = path.substring(prefix.length);
+  final id = rest.split('/').first.trim();
+  if (!isValidBarberShopId(id)) return null;
+  return id;
+}
+
+String barberHairdresserPublicUrlFor(String shopId) =>
+    '$kSitePublicOrigin$kBarberHairdresserPath/$shopId';
+
+String barberAdminPublicUrlFor(String shopId) =>
+    '$kSitePublicOrigin$kBarberAdminPath/$shopId';
+
 /// Ferramenta isolada de orçamento de esquadrias (sem menu da vitrine).
 const String kOrcamentoPath = '/orcamento';
 

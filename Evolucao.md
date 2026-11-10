@@ -1,5 +1,12 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-10] Barber — multi-loja path + Admin PerfectGest
+
+- Rotas `/Barber_Hairdresser/{shopId}` e `/Barber_Admin/{shopId}`; legado exacto → `perfectgest_dev`.
+- `BarberCloud.bindShop`; banner loja inactiva; `Barber_Shops_Admin` criar/listar/desactivar.
+- Render wildcards `/*` + stub `Barber_Shops_Admin`; manifest scope `/Barber_Hairdresser/`.
+- Publish: `scripts/publicar-multi-loja-barber-site.ps1` (branch `cursor/multi-loja-play-admin-5533`).
+
 ## [2026-11-09] Barber — WhatsApp OG + PWA manifest-barber
 
 - `web/manifest-barber.json`: `start_url`/`scope` `/Barber_Hairdresser`; root `manifest.json` PerfectGest intacto.

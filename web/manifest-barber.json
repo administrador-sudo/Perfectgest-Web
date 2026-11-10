@@ -1,9 +1,9 @@
 {
     "name": "Barbear e Cortar — Agendar",
     "short_name": "Agendar",
-    "id": "https://perfectgestdev.com/Barber_Hairdresser",
-    "start_url": "/Barber_Hairdresser",
-    "scope": "/Barber_Hairdresser",
+    "id": "https://perfectgestdev.com/Barber_Hairdresser/",
+    "start_url": "/Barber_Hairdresser/perfectgest_dev",
+    "scope": "/Barber_Hairdresser/",
     "display": "standalone",
     "background_color": "#E8E8E8",
     "theme_color": "#556B2F",

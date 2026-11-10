@@ -28,6 +28,7 @@ import 'funil_apresentacao_app.dart';
 import 'funil_escritorio001.dart';
 import 'barber_admin_page.dart';
 import 'barber_hairdresser_page.dart';
+import 'barber_shops_admin_page.dart';
 import 'certificado_a1_page.dart';
 import 'orcamento_page.dart';
 import 'orcamento_registros_page.dart';
@@ -135,6 +136,28 @@ class _PerfectProSiteAppState extends State<PerfectProSiteApp> {
 
   MaterialPageRoute<void> _buildMaterialRoute(RouteSettings settings) {
     final routeName = normalizeWebRoute(settings.name ?? '/');
+
+    final barberShopId =
+        parseBarberShopIdFromRoute(routeName, kBarberHairdresserPath);
+    if (barberShopId != null &&
+        routeName != kBarberHairdresserPath &&
+        routeName.startsWith('$kBarberHairdresserPath/')) {
+      return MaterialPageRoute<void>(
+        settings: settings,
+        builder: (_) => BarberHairdresserPage(shopId: barberShopId),
+      );
+    }
+    final barberAdminShopId =
+        parseBarberShopIdFromRoute(routeName, kBarberAdminPath);
+    if (barberAdminShopId != null &&
+        routeName != kBarberAdminPath &&
+        routeName.startsWith('$kBarberAdminPath/')) {
+      return MaterialPageRoute<void>(
+        settings: settings,
+        builder: (_) => BarberAdminPage(shopId: barberAdminShopId),
+      );
+    }
+
     switch (routeName) {
       case '/politica-devolucao':
         return MaterialPageRoute<void>(
@@ -207,14 +230,27 @@ class _PerfectProSiteAppState extends State<PerfectProSiteApp> {
           builder: (_) => const CertificadoA1Page(),
         );
       case kBarberHairdresserPath:
+        // Legado: /Barber_Hairdresser → shop piloto (compat QR/PWA).
         return MaterialPageRoute<void>(
-          settings: settings,
-          builder: (_) => const BarberHairdresserPage(),
+          settings: RouteSettings(
+            name: '$kBarberHairdresserPath/$kBarberDefaultShopId',
+            arguments: settings.arguments,
+          ),
+          builder: (_) =>
+              const BarberHairdresserPage(shopId: kBarberDefaultShopId),
         );
       case kBarberAdminPath:
         return MaterialPageRoute<void>(
+          settings: RouteSettings(
+            name: '$kBarberAdminPath/$kBarberDefaultShopId',
+            arguments: settings.arguments,
+          ),
+          builder: (_) => const BarberAdminPage(shopId: kBarberDefaultShopId),
+        );
+      case kBarberShopsAdminPath:
+        return MaterialPageRoute<void>(
           settings: settings,
-          builder: (_) => const BarberAdminPage(),
+          builder: (_) => const BarberShopsAdminPage(),
         );
       case kOrcamentoPath:
         return MaterialPageRoute<void>(

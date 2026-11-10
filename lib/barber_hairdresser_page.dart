@@ -92,9 +92,14 @@ class _BookedSnapshot {
       'Cliente: $clientName\nTelefone: $clientPhone\nProfissional: $proName';
 }
 
-/// Landing isolada `/Barber_Hairdresser` — grade de horários via Firebase.
+/// Landing isolada `/Barber_Hairdresser/{shopId}` — grade via Firebase.
 class BarberHairdresserPage extends StatefulWidget {
-  const BarberHairdresserPage({super.key});
+  const BarberHairdresserPage({
+    super.key,
+    this.shopId = kBarberDefaultShopId,
+  });
+
+  final String shopId;
 
   @override
   State<BarberHairdresserPage> createState() => _BarberHairdresserPageState();
@@ -197,7 +202,17 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
     _bootstrap();
   }
 
+  @override
+  void didUpdateWidget(covariant BarberHairdresserPage oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.shopId != widget.shopId) {
+      BarberCloud.bindShop(widget.shopId);
+      _bootstrap();
+    }
+  }
+
   Future<void> _bootstrap() async {
+    BarberCloud.bindShop(widget.shopId);
     setState(() {
       _loading = true;
       _error = null;
@@ -744,7 +759,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
                     child: Align(
                       alignment: Alignment.centerRight,
                       child: Text(
-                        kBarberHairdresserPath,
+                        '$kBarberHairdresserPath/${widget.shopId}',
                         style: const TextStyle(
                           fontFamily: _mono,
                           color: _muted,
@@ -1131,6 +1146,23 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
             color: _brandName.withValues(alpha: 1),
           ),
         ),
+        if (_shop.showInactiveBanner) ...[
+          const SizedBox(height: 12),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+            decoration: BoxDecoration(
+              color: const Color(0xFF3A2A12),
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(color: const Color(0xFFC9A227)),
+            ),
+            child: Text(
+              'Esta barbearia está temporariamente inactiva. '
+              'Agendamentos podem estar indisponíveis.',
+              textAlign: TextAlign.center,
+              style: _body.copyWith(color: const Color(0xFFE8D9A8), fontSize: 13),
+            ),
+          ),
+        ],
         if (_shop.promoText.trim().isNotEmpty) ...[
           const SizedBox(height: 14),
           Container(
