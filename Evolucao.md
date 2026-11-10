@@ -1,5 +1,10 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-09] Barber — mensagem pós-Avaliar
+
+- SnackBar Avaliar: «Avaliação enviada, Obrigado pela sua participação, Agradecemos a sua Preferencia!»
+- Publish: `publicar-barber-paginas.ps1 -SkipCheckout -NoPause -Msg "avaliar-obrigado"`.
+
 ## [2026-11-09] Barber — topo identidade logo+nome
 
 - Hero: logo 176px (>144); nome da loja sempre visível Georgia/brass `#C9B87A` 28px (fallback serif).

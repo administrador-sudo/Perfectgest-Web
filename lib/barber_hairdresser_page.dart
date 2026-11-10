@@ -327,7 +327,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text(
-            'Avaliação enviada. Aparece no site após aprovação da barbearia.',
+            'Avaliação enviada, Obrigado pela sua participação, Agradecemos a sua Preferencia!',
           ),
         ),
       );
