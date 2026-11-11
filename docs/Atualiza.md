@@ -2,6 +2,23 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-11-11 00:08] Render leads-api: ENOTFOUND Postgres
+
+### Contexto
+
+- Deploy sobe (`listening on 10000`) mas schema warmup falha: `getaddrinfo ENOTFOUND dpg-db40n4ub7d7c739u02a0-a`. Host interno inexistente (BD Free expirada/apagada ou região diferente).
+
+### Arquivos alterados
+
+- scripts/leads-api-server.js
+- docs/RENDER_LEADS_POSTGRES.md
+- docs/Atualiza.md
+- Evolucao.md
+
+### Pendente / Proximo passo
+
+- Operador no dashboard: confirmar `perfectgest-leads-db`; Connect → Internal URL → `DATABASE_URL`; Manual Deploy da API (nao Blueprint).
+
 ## [2026-11-10 23:58] Render leads-api: health sem Postgres
 
 ### Contexto

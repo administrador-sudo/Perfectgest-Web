@@ -16,17 +16,29 @@ const rateLimit = require('express-rate-limit');
 const isProduction = process.env.RENDER === 'true' || process.env.NODE_ENV === 'production';
 const allowFileFallback = !isProduction && process.env.ALLOW_FILE_LEADS !== '0';
 
+const PG_HOST_UNREACHABLE =
+  '[leads-api] Postgres inacessivel (ENOTFOUND). Dashboard: Postgres perfectgest-leads-db existe? Free expira. Connect → Internal Database URL → env DATABASE_URL do perfectgest-leads-api. Mesma região. Manual Deploy, nao Blueprint.';
+
+function replacePgHost(databaseUrl, newHost) {
+  return String(databaseUrl).replace(/@([^:/]+)(:\d+)?\//, `@${newHost}$2/`);
+}
+
+function makePgPool(Pool, connectionString) {
+  return new Pool({
+    connectionString,
+    ssl: connectionString.includes('localhost') ? false : { rejectUnauthorized: false },
+    connectionTimeoutMillis: 8000,
+  });
+}
+
+let PgPoolCtor = null;
+let databaseUrl = process.env.DATABASE_URL || '';
 let pgPool = null;
 try {
   // pg opcional — servidor arranca mesmo sem módulo em ambientes mínimos.
-  const { Pool } = require('pg');
-  const databaseUrl = process.env.DATABASE_URL;
+  PgPoolCtor = require('pg').Pool;
   if (databaseUrl) {
-    pgPool = new Pool({
-      connectionString: databaseUrl,
-      ssl: databaseUrl.includes('localhost') ? false : { rejectUnauthorized: false },
-      connectionTimeoutMillis: 8000,
-    });
+    pgPool = makePgPool(PgPoolCtor, databaseUrl);
   }
 } catch (err) {
   console.warn('[leads-api] pg indisponível:', err.message);
@@ -76,8 +88,44 @@ app.use(
 
 let schemaReady = false;
 
+async function switchToRenderFqdn(shortHost) {
+  const suffix = process.env.RENDER_PG_HOST_SUFFIX || '.oregon-postgres.render.com';
+  const fqdn = shortHost.includes('.') ? shortHost : `${shortHost}${suffix}`;
+  if (!PgPoolCtor || !databaseUrl) return false;
+  console.warn(`[leads-api] host interno ${shortHost} nao resolve; a tentar ${fqdn}`);
+  try {
+    await pgPool.end();
+  } catch (_) {
+    /* pool morto */
+  }
+  databaseUrl = replacePgHost(databaseUrl, fqdn);
+  pgPool = makePgPool(PgPoolCtor, databaseUrl);
+  return true;
+}
+
 async function ensurePgSchema() {
   if (!pgPool || schemaReady) return;
+  try {
+    await runPgSchema();
+    schemaReady = true;
+  } catch (err) {
+    const host = String((err && err.hostname) || '');
+    if (err && err.code === 'ENOTFOUND' && /^dpg-[a-z0-9]+-a$/i.test(host)) {
+      const switched = await switchToRenderFqdn(host);
+      if (switched) {
+        await runPgSchema();
+        schemaReady = true;
+        return;
+      }
+    }
+    if (err && err.code === 'ENOTFOUND') {
+      console.error(PG_HOST_UNREACHABLE);
+    }
+    throw err;
+  }
+}
+
+async function runPgSchema() {
   await pgPool.query(`
     CREATE TABLE IF NOT EXISTS site_leads (
       id BIGSERIAL PRIMARY KEY,
@@ -117,7 +165,6 @@ async function ensurePgSchema() {
     );
     CREATE INDEX IF NOT EXISTS orcamento_registros_created_at_idx ON orcamento_registros (created_at DESC);
   `);
-  schemaReady = true;
 }
 
 function appendLeadFile(record) {

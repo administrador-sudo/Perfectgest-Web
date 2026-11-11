@@ -23,6 +23,17 @@ Se `storage` for `file`, falta `DATABASE_URL` — volte ao passo manual abaixo.
 
 ---
 
+## 1b) ENOTFOUND `dpg-…` no log do deploy
+
+O processo já está no ar (`listening on 10000`). O hostname interno do Postgres **não resolve**: instância apagada, Free expirada, ou API e BD em regiões diferentes.
+
+1. Dashboard → **PostgreSQL**. Se `perfectgest-leads-db` não existir: **New** → PostgreSQL (mesmo nome, **mesma região** da API).
+2. BD → **Connect** → copiar **Internal Database URL**.
+3. Serviço `perfectgest-leads-api-6v1e` → Environment → `DATABASE_URL` = essa URL (ou **Link Database**).
+4. **Manual Deploy** só da API. **Não** usar Blueprint.
+
+---
+
 ## 2) Criar manualmente (alternativa)
 
 ### A. Base PostgreSQL
