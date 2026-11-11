@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'barber_booking_rules.dart';
 import 'barber_checkout_sheet.dart';
 import 'barber_cloud.dart';
 import 'barber_ics.dart';
@@ -500,6 +501,67 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
     });
   }
 
+  Future<bool> _aceitarRegrasAgendamento() async {
+    final h = MediaQuery.sizeOf(context).height;
+    final ok = await showDialog<bool>(
+      context: context,
+      barrierDismissible: false,
+      builder: (ctx) {
+        return Dialog(
+          backgroundColor: _surface,
+          insetPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+          child: ConstrainedBox(
+            constraints: BoxConstraints(maxHeight: h / 3, maxWidth: 480),
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(16, 16, 16, 12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(
+                    BarberBookingRules.title,
+                    style: _title.copyWith(fontSize: 18, color: _text),
+                  ),
+                  const SizedBox(height: 10),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: Text(
+                        BarberBookingRules.body,
+                        style: _body.copyWith(
+                          color: _text.withValues(alpha: 0.85),
+                          fontSize: 13,
+                          height: 1.4,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Row(
+                    children: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(ctx, false),
+                        child: Text('Cancelar', style: _body.copyWith(color: _olive)),
+                      ),
+                      const Spacer(),
+                      FilledButton(
+                        onPressed: () => Navigator.pop(ctx, true),
+                        style: FilledButton.styleFrom(backgroundColor: _olive),
+                        child: Text(
+                          'Li e aceito',
+                          style: _body.copyWith(fontWeight: FontWeight.w700),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
+    return ok == true;
+  }
+
   Future<void> _agendar() async {
     if (!(_formKey.currentState?.validate() ?? false)) return;
     if (!_canAgendar) {
@@ -514,6 +576,8 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
       );
       return;
     }
+    final accepted = await _aceitarRegrasAgendamento();
+    if (!accepted || !mounted) return;
     setState(() => _saving = true);
     final starts = DateTime(
       _date!.year,

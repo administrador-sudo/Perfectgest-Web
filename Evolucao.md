@@ -1,5 +1,16 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-11] Regras do agendamento — pop no site
+
+- Antes de Agendar: diálogo ~1/3 da altura, texto rolável («Li e aceito»).
+- App deixa de mostrar o modal de regras no novo agendamento.
+
+## [2026-11-11] Nomes visíveis dos apps
+
+- App de orçamentos: nome visível `Orçamentos e Gestão` (`kProductPerfectGestIName`, Soluções, legendas, hashtag, títulos legais).
+- App contábil: nome visível `ContabilGest` (vitrine, FAQ, funil, SEO e textos legais). Onde o texto citava a empresa, ficou Perfect Gest Dev.
+- Marca do site, URLs, pacotes e Clínica III sem troca.
+
 ## [2026-11-11] Barber — versão no rodapé + sync na grade
 
 - Rodapé Barber mostra `Versão` de `barber_site_version.dart` (espelho pubspec `1.0.0+1`).
