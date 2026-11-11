@@ -43,7 +43,7 @@ gUN(){return"Nossa estrat\xe9gia t\xe9cnica conecta arquitetura, dados, experi\x
 gUO(){return"Fluxo integrado: base t\xe9cnica s\xf3lida -> dados confi\xe1veis -> experi\xeancia consistente -> opera\xe7\xe3o mensur\xe1vel. Assim, cada decis\xe3o refor\xe7a a pr\xf3xima etapa e mant\xe9m coer\xeancia entre discurso comercial e execu\xe7\xe3o de produto."},
 gWc(){return"Diferenciais do Portf\xf3lio"},
 gS2(){return"Conceito aplicado:"},
-gu8(){return A.aep}}
+gu8(){return A.aer}}
 B.aSj.prototype={
 gfi(){return"Flutter technologies and Perfect Gest Dev core stack"},
 gUT(){return"Flutter stack and Perfect Gest Dev technologies"},
@@ -51,7 +51,7 @@ gUN(){return"Our technical strategy connects architecture, data, user experience
 gUO(){return"Integrated flow: solid technical foundation -> reliable data -> consistent experience -> measurable operations. Each decision reinforces the next and keeps commercial narrative aligned with product execution."},
 gWc(){return"Portfolio differentiators"},
 gS2(){return"Applied concept:"},
-gu8(){return A.af7}}
+gu8(){return A.af9}}
 B.aSk.prototype={
 gfi(){return"Tecnologias Flutter y stack principal de Perfect Gest Dev"},
 gUT(){return"Stack Flutter y tecnologias de Perfect Gest Dev"},
@@ -59,7 +59,7 @@ gUN(){return"Nuestra estrategia tecnica conecta arquitectura, datos, experiencia
 gUO(){return"Flujo integrado: base tecnica solida -> datos fiables -> experiencia consistente -> operacion medible. Asi, cada decision refuerza la siguiente y mantiene coherencia entre discurso comercial y ejecucion de producto."},
 gWc(){return"Diferenciales del portafolio"},
 gS2(){return"Concepto aplicado:"},
-gu8(){return A.af3}}
+gu8(){return A.af5}}
 B.qL.prototype={
 a4(){var w=null,v=x.z
 return new B.abn(C.v0(0,w,w),new C.aW(w,v),new C.aW(w,v),new C.aW(w,v),new C.aW(w,v))}}
@@ -156,7 +156,7 @@ A.asu=new B.cg("Integra\xe7\xf5es web e SEO t\xe9cnico","Implementamos metatags 
 A.arQ=new B.cg("Analytics e consentimento (GA4)","Medi\xe7\xe3o com Google Analytics 4 integrada ao fluxo de consentimento de cookies. Isso permite an\xe1lise de comportamento com respeito \xe0 privacidade e conformidade com pol\xedticas modernas de medi\xe7\xe3o.","Exemplo pr\xe1tico: funil de convers\xe3o registra apenas eventos consentidos e orienta ajustes de UX com base em dados reais.")
 A.arW=new B.cg("Arquitetura limpa e manuten\xe7\xe3o","Priorizamos c\xf3digo organizado, componentes reutiliz\xe1veis e separa\xe7\xe3o de responsabilidades para facilitar evolu\xe7\xe3o cont\xednua do produto, redu\xe7\xe3o de bugs e menor custo de manuten\xe7\xe3o.","Exemplo pr\xe1tico: nova funcionalidade de assinatura \xe9 inclu\xedda reaproveitando componentes e reduzindo esfor\xe7o de QA.")
 A.asq=new B.cg("Integra\xe7\xf5es HTTP e servi\xe7os externos","Integramos APIs externas e servi\xe7os de dados para fluxos reais de neg\xf3cio, incluindo endpoints de back-end e servi\xe7os de observabilidade, garantindo confiabilidade operacional e evolu\xe7\xe3o orientada a m\xe9tricas.","Exemplo pr\xe1tico: monitoramos lat\xeancia e erro das APIs em produ\xe7\xe3o para agir r\xe1pido antes de impactar clientes.")
-A.aep=w([A.asf,A.ast,A.arO,A.as2,A.as7,A.as9,A.as6,A.asv,A.arX,A.asi,A.asp,A.asu,A.arQ,A.arW,A.asq],x.c)
+A.aer=w([A.asf,A.ast,A.arO,A.as2,A.as7,A.as9,A.as6,A.asv,A.arX,A.asi,A.asp,A.asu,A.arQ,A.arW,A.asq],x.c)
 A.as0=new B.cg("Clean Arch","Aplicamos arquitectura limpia con separacion clara de responsabilidades, capas desacopladas y componentes reutilizables. Esto acelera la evolucion del producto, mejora pruebas y reduce coste de mantenimiento.","Ejemplo practico: al cambiar una regla de presupuesto, ajustamos solo la capa de dominio sin romper la interfaz ni integraciones externas.")
 A.arU=new B.cg("Seguridad","Adoptamos buenas practicas de seguridad en autenticacion, gestion de sesion, politicas de contenido web y proteccion de datos. El objetivo es reducir riesgo operativo y aumentar la confianza en produccion.","Ejemplo practico: protegemos rutas sensibles con validacion de sesion y aplicamos CSP en web para bloquear scripts no autorizados.")
 A.arS=new B.cg("Escala","Disenamos soluciones para crecer con el negocio, con foco en rendimiento, observabilidad e integracion de servicios. La arquitectura esta preparada para mas usuarios y nuevos modulos.","Ejemplo practico: en campanas estacionales ampliamos API y cache sin rehacer la app, manteniendo estabilidad en picos de trafico.")
@@ -172,7 +172,7 @@ A.arV=new B.cg("Integraciones web y SEO tecnico","Implementamos metatags dinamic
 A.arT=new B.cg("Analytics y consentimiento (GA4)","Medicion con Google Analytics 4 integrada al flujo de consentimiento de cookies. Permite analisis de comportamiento respetando la privacidad y politicas modernas de medicion.","Ejemplo practico: el embudo de conversion registra solo eventos consentidos y orienta mejoras de UX con datos reales.")
 A.as4=new B.cg("Arquitectura limpia y mantenimiento","Priorizamos codigo organizado, componentes reutilizables y separacion de responsabilidades para evolucion continua del producto, menos errores y menor coste de mantenimiento.","Ejemplo practico: una nueva funcionalidad de suscripcion se anade reutilizando componentes y reduciendo esfuerzo de QA.")
 A.asj=new B.cg("Integraciones HTTP y servicios externos","Integramos APIs externas y servicios de datos para flujos reales de negocio, incluyendo endpoints de back-end y observabilidad, garantizando fiabilidad operativa y evolucion guiada por metricas.","Ejemplo practico: monitorizamos latencia y error de APIs en produccion para actuar antes de impactar a clientes.")
-A.af3=w([A.as0,A.arU,A.arS,A.ash,A.arZ,A.asm,A.asr,A.asn,A.ass,A.asg,A.asc,A.arV,A.arT,A.as4,A.asj],x.c)
+A.af5=w([A.as0,A.arU,A.arS,A.ash,A.arZ,A.asm,A.asr,A.asn,A.ass,A.asg,A.asc,A.arV,A.arT,A.as4,A.asj],x.c)
 A.as3=new B.cg("Clean Arch","We apply clean architecture with clear separation of concerns, decoupled layers and reusable components. This speeds product evolution, improves testing and lowers maintenance cost.","Practical example: when a quoting rule changes, we adjust only the domain layer without breaking the UI or external integrations.")
 A.arP=new B.cg("Security","We adopt security best practices for authentication, session management, web content policies and data protection. The goal is to reduce operational risk and increase production trust.","Practical example: we protect sensitive routes with session validation and apply CSP on the web to block unauthorized scripts.")
 A.asa=new B.cg("Scale","We design solutions to grow with the business, focusing on performance, observability and service integration. Architecture is ready for more users and new modules.","Practical example: in seasonal campaigns we scale API and cache services without rebuilding the app, keeping stability at peak traffic.")
@@ -188,5 +188,5 @@ A.asb=new B.cg("Web integrations and technical SEO","We implement dynamic meta t
 A.aso=new B.cg("Analytics and consent (GA4)","Measurement with Google Analytics 4 integrated into the cookie consent flow. This enables behavioral analysis with respect for privacy and alignment with modern measurement policies.","Practical example: the conversion funnel records only consented events and guides UX improvements with real data.")
 A.ase=new B.cg("Clean architecture and maintenance","We prioritize organized code, reusable components and separation of concerns to support continuous product evolution, fewer bugs and lower maintenance cost.","Practical example: a new subscription feature is added by reusing components and reducing QA effort.")
 A.as_=new B.cg("HTTP integrations and external services","We integrate external APIs and data services for real business flows, including back-end endpoints and observability services, ensuring operational reliability and metric-driven evolution.","Practical example: we monitor API latency and errors in production to act before customers are impacted.")
-A.af7=w([A.as3,A.arP,A.asa,A.as8,A.arR,A.as1,A.asd,A.as5,A.arY,A.ask,A.asl,A.asb,A.aso,A.ase,A.as_],x.c)})()};
-(a=>{a["97/HvX7S9h4F0WZxdE8bm6UyzI0="]=a.current})($__dart_deferred_initializers__);
+A.af9=w([A.as3,A.arP,A.asa,A.as8,A.arR,A.as1,A.asd,A.as5,A.arY,A.ask,A.asl,A.asb,A.aso,A.ase,A.as_],x.c)})()};
+(a=>{a["FOYllA//u30+0zrPljgxCb/F9hw="]=a.current})($__dart_deferred_initializers__);

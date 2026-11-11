@@ -82,13 +82,13 @@ gfi(){return"Questions and answers PerfectGest ContabilGest"},
 giX(){return"Questions and answers"},
 giZ(){return"PerfectGest ContabilGest"},
 glQ(){return"Questions and answers about the App"},
-gVc(){return A.aem}}
+gVc(){return A.aen}}
 B.aRU.prototype={
 gfi(){return"Preguntas y respuestas PerfectGest ContabilGest"},
 giX(){return"Preguntas y respuestas"},
 giZ(){return"PerfectGest ContabilGest"},
 glQ(){return"Preguntas y respuestas sobre la Aplicaci\xf3n"},
-gVc(){return A.a86}}
+gVc(){return A.a8b}}
 var z=a.updateTypes([])
 B.aGi.prototype={
 $2(d,e){var x,w,v,u,t,s,r,q,p,o=this,n=null,m=e.b
@@ -152,7 +152,7 @@ A.aqg=new B.c9("\xbfC\xf3mo restauro una compra?","M\xe1s \u2192 Suscripci\xf3n 
 A.aql=new B.c9("\xbfC\xf3mo cambio mi plan (franja, downgrade o extras como n\xf3mina e IR)?","Todo cambio de plan se pide por correo a suporte@perfectgestdev.com. El despacho gestiona las franjas y los extras (el upgrade aplica; el downgrade al final del ciclo). Google Play no cambia Esencial, Standard o Avanzado.",A.ag)
 A.aqr=new B.c9("\xbfLa app avisa antes de la renovaci\xf3n?","Cuando Play informe la fecha del ciclo de la suscripci\xf3n de la aplicaci\xf3n, la app puede avisar hasta 30 d\xedas antes. Sin fecha de Play, no hay plazo inventado \u2014 consulte Play \u2192 Suscripciones. Honorarios y plan contable: con el despacho.",A.ag)
 A.aq0=new B.c9("\xbfLa suscripci\xf3n de Play ya libera todo?","No. Play libera el acceso a la aplicaci\xf3n. Para sincronizaci\xf3n, env\xedo de datos al despacho y funciones online, contacte al despacho despu\xe9s de suscribirse. Sin habilitaci\xf3n, usted entra en la app, pero sin env\xedo al CRC y sin contacto con el despacho.",A.ag)
-A.a86=x([A.aqb,A.aqn,A.aqq,A.aqy,A.aqA,A.apR,A.apX,A.aq6,A.aq5,A.aqv,A.aq_,A.aq2,A.aqg,A.aql,A.aqr,A.aq0],y.a)
+A.a8b=x([A.aqb,A.aqn,A.aqq,A.aqy,A.aqA,A.apR,A.apX,A.aq6,A.aq5,A.aqv,A.aq_,A.aq2,A.aqg,A.aql,A.aqr,A.aq0],y.a)
 A.aqk=new B.c9("What is the app?","PerfectGest ContabilGest is the connection tool: you follow your company accounting in real time (Cash Book, NFS-e, NF-e, and tax duties) and, when the office enables the functions, that data reaches the CRC. Daily use on the device is offline by default. On Google Play: R$ 19.99/month or a one-time payment of R$ 239.88. Sending data to the office and online functions exist after enablement.",A.ag)
 A.aqm=new B.c9("Is ContabilGest an official government app?","No. It is a private product of Perfect Gest Dev (CNPJ 66.889.409/0001-19). We are not affiliated with or endorsed by the Federal Revenue Service, eSocial, FGTS Digital, or city halls. The official source of obligations and guides is always the government portal.",A.ag)
 A.aqz=new B.c9("What are the official sources?","Always use government portals.",A.pQ)
@@ -169,7 +169,7 @@ A.aqc=new B.c9("How do I restore a purchase?",'More \u2192 Google Play Subscript
 A.aqs=new B.c9("How do I change my plan (band, downgrade, or add-ons such as payroll and income tax)?","Every plan change is requested by email to suporte@perfectgestdev.com. The office manages bands and add-ons (upgrade applies; downgrade at the end of the cycle). Google Play does not switch Essential, Standard, or Advanced.",A.ag)
 A.aqB=new B.c9("Does the app warn before renewal?","When Play provides the app subscription cycle date, the app may warn up to 30 days ahead. Without a Play date, there is no invented deadline \u2014 check Play \u2192 Subscriptions. Accounting fees and plan: with the office.",A.ag)
 A.aqx=new B.c9("Does a Play subscription already unlock everything?","No. Play unlocks access to the app. For sync, sending data to the office, and online functions, contact the office after you subscribe. Without enablement you can open the app, but with no data sent to the CRC and no office contact.",A.ag)
-A.aem=x([A.aqk,A.aqm,A.aqz,A.apS,A.aqj,A.aqf,A.aqd,A.apV,A.apZ,A.aqt,A.aq1,A.aqi,A.aqc,A.aqs,A.aqB,A.aqx],y.a)
+A.aen=x([A.aqk,A.aqm,A.aqz,A.apS,A.aqj,A.aqf,A.aqd,A.apV,A.apZ,A.aqt,A.aq1,A.aqi,A.aqc,A.aqs,A.aqB,A.aqx],y.a)
 A.aq9=new B.c9("O que \xe9 o app?","O PerfectGest ContabilGest \xe9 a ferramenta de conex\xe3o com o usu\xe1rio: voc\xea acompanha em tempo real a contabilidade da empresa (Livro Caixa, NFS-e, NF-e e obriga\xe7\xf5es) e, quando o escrit\xf3rio habilita as fun\xe7\xf5es, os dados chegam ao CRC. O uso di\xe1rio no aparelho \xe9 offline por padr\xe3o. Na Google Play: R$ 19,99/m\xeas. O envio ao escrit\xf3rio e as fun\xe7\xf5es online existem depois da habilita\xe7\xe3o.",A.ag)
 A.aqh=new B.c9("O ContabilGest \xe9 um app oficial do governo?","N\xe3o. \xc9 um produto privado da Perfect Gest Dev (CNPJ 66.889.409/0001-19). N\xe3o somos afiliados nem endossados pela Receita Federal, eSocial, FGTS Digital ou prefeituras. A fonte oficial de obriga\xe7\xf5es e guias \xe9 sempre o portal do governo.",A.ag)
 A.apW=new B.c9("Quais s\xe3o as fontes oficiais?","Use sempre os portais do governo.",A.pQ)
@@ -187,4 +187,4 @@ A.aqw=new B.c9("Como altero meu plano (faixa, downgrade ou extras como folha e I
 A.aq3=new B.c9("O app avisa antes da renova\xe7\xe3o?","Quando a Play informar a data do ciclo da assinatura do aplicativo, o app pode avisar at\xe9 30 dias antes. Sem data da Play, n\xe3o h\xe1 prazo inventado \u2014 consulte Play \u2192 Assinaturas. Honor\xe1rios e plano cont\xe1bil: com o escrit\xf3rio.",A.ag)
 A.apU=new B.c9("A assinatura da Play j\xe1 libera tudo?","N\xe3o. A Play libera o acesso ao aplicativo. Para sincroniza\xe7\xe3o, envio de dados ao escrit\xf3rio e fun\xe7\xf5es online, contacte o escrit\xf3rio depois de assinar. Sem habilita\xe7\xe3o, voc\xea entra no app, mas sem envio ao CRC e sem contato com o escrit\xf3rio.",A.ag)
 A.afO=x([A.aq9,A.aqh,A.apW,A.aqo,A.apT,A.apY,A.aqa,A.aqe,A.aqp,A.aqu,A.aq8,A.aq4,A.aq7,A.aqw,A.aq3,A.apU],y.a)})()};
-(a=>{a["QbFra09iVrUGaAqkdnBrfRIqC5c="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["d76oTPZDnxA7QOfj24Na2f8iLbY="]=a.current})($__dart_deferred_initializers__);

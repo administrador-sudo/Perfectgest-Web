@@ -60,11 +60,11 @@ const String _kHeaderEs =
     'Soporte: $kCompanyContactEmail';
 
 const List<LegalSectionText> _kPrivacyPt = <LegalSectionText>[
-  LegalSectionText(heading: 'Introdução', body: '''Ultima atualizacao: 2 de outubro de 2026
-O aplicativo PerfectGest trata os dados descritos nesta politica. Esta politica cobre apenas este aplicativo, em conformidade com a LGPD (Lei 13.709/18) e as normas da Google Play. Nome fantasia: PerfectGest. Site: https://perfectgestdev.com.'''),
+  LegalSectionText(heading: 'Introdução', body: '''Ultima atualizacao: 11 de novembro de 2026
+O aplicativo Orçamentos e Gestão trata os dados descritos nesta politica. Esta politica cobre apenas este aplicativo, em conformidade com a LGPD (Lei 13.709/18) e as normas da Google Play. Nome fantasia: Orçamentos e Gestão. Site: https://perfectgestdev.com.'''),
   LegalSectionText(heading: 'Controlador e contato', body: 'Para acesso, retificacao ou exclusao, escreva para suporte@perfectgestdev.com.'),
-  LegalSectionText(heading: 'O que o aplicativo faz', body: 'O PerfectGest serve para gestao operacional no telemovel: agenda comercial (clientes e fornecedores), orcamentos, ordens de servico, caixa, PDFs e backup local. Pode usar as operacoes sem assinatura obrigatoria. Existe Plano Pro opcional (Google Play Billing; preco na Play). Sem anuncios dentro do app.'),
-  LegalSectionText(heading: 'Armazenamento', body: '''Os dados de gestao ficam no dispositivo (SQLite). Nao enviamos automaticamente clientes, orcamentos, caixa ou PDFs para servidores da PerfectGest.
+  LegalSectionText(heading: 'O que o aplicativo faz', body: 'O Orçamentos e Gestão serve para gestao operacional no telemovel: agenda comercial (clientes e fornecedores), orcamentos, ordens de servico, caixa, PDFs e backup local. Pode usar as operacoes sem assinatura obrigatoria. Existe Plano Pro opcional (Google Play Billing; preco na Play). Sem anuncios dentro do app.'),
+  LegalSectionText(heading: 'Armazenamento', body: '''Os dados de gestao ficam no dispositivo (SQLite). Nao enviamos automaticamente clientes, orcamentos, caixa ou PDFs para servidores da desenvolvedora.
 
 Quando os dados podem sair (so por acao sua)
 
@@ -83,10 +83,10 @@ Quando os dados podem sair (so por acao sua)
 ];
 
 const List<LegalSectionText> _kTermsPt = <LegalSectionText>[
-  LegalSectionText(heading: 'Introdução', body: 'Ultima atualizacao: 2 de outubro de 2026'),
-  LegalSectionText(heading: '1. Objeto', body: 'Estes Termos regem apenas o aplicativo PerfectGest: gestao operacional no telemovel (agenda comercial, orcamentos, ordens de servico, caixa, PDF, backup local). Dados principalmente no dispositivo. Nome fantasia: PerfectGest. Site: https://perfectgestdev.com.'),
+  LegalSectionText(heading: 'Introdução', body: 'Ultima atualizacao: 11 de novembro de 2026'),
+  LegalSectionText(heading: '1. Objeto', body: 'Estes Termos regem apenas o aplicativo Orçamentos e Gestão: gestao operacional no telemovel (agenda comercial, orcamentos, ordens de servico, caixa, PDF, backup local). Dados principalmente no dispositivo. Nome fantasia: Orçamentos e Gestão. Site: https://perfectgestdev.com.'),
   LegalSectionText(heading: '2. Elegibilidade', body: 'Utilizadores maiores de 18 anos.'),
-  LegalSectionText(heading: '3. Preco', body: 'Pode usar as operacoes do PerfectGest sem assinatura obrigatoria. Existe Plano Pro opcional via Google Play Billing; o preco e o que a Play mostra. Pagamentos tratados pela Google. Sem anuncios in-app.'),
+  LegalSectionText(heading: '3. Preco', body: 'Pode usar as operacoes do Orçamentos e Gestão sem assinatura obrigatoria. Existe Plano Pro opcional via Google Play Billing; o preco e o que a Play mostra. Pagamentos tratados pela Google. Sem anuncios in-app.'),
   LegalSectionText(heading: '4. Limitacao de responsabilidade', body: 'Ferramenta de apoio a gestao. Nao substitui assessoria profissional. Decisoes de negocio sao do utilizador.'),
   LegalSectionText(heading: '5. Propriedade intelectual', body: 'Licenca revogavel, nao exclusiva.'),
   LegalSectionText(heading: '6. Lei e foro', body: 'Leis do Brasil; foro Caxias do Sul/RS, sem prejuizo do consumidor.'),
@@ -94,10 +94,10 @@ const List<LegalSectionText> _kTermsPt = <LegalSectionText>[
 ];
 
 const List<LegalSectionText> _kDeletionPt = <LegalSectionText>[
-  LegalSectionText(heading: 'Introdução', body: '''Ultima atualizacao: 2 de outubro de 2026
-O PerfectGest e local-first. Dados de agenda, orcamentos e caixa nao sao enviados automaticamente para servidores da PerfectGest. Site: https://perfectgestdev.com.'''),
+  LegalSectionText(heading: 'Introdução', body: '''Ultima atualizacao: 11 de novembro de 2026
+O Orçamentos e Gestão e local-first. Dados de agenda, orcamentos e caixa nao sao enviados automaticamente para servidores da desenvolvedora. Site: https://perfectgestdev.com.'''),
   LegalSectionText(heading: 'Como eliminar', body: '''- Na app: Configuracoes → eliminar dados neste aparelho
-- Android: Definicoes → Apps → PerfectGest → Armazenamento → Limpar dados
+- Android: Definicoes → Apps → Orçamentos e Gestão → Armazenamento → Limpar dados
 - Desinstalar o aplicativo
 
 Sem copia externa nao ha recuperacao. Backups e PDFs que voce partilhou devem ser apagados no destino (WhatsApp, e-mail, Drive).'''),
@@ -105,8 +105,8 @@ Sem copia externa nao ha recuperacao. Backups e PDFs que voce partilhou devem se
 ];
 
 const List<LegalSectionText> _kFaqPt = <LegalSectionText>[
-  LegalSectionText(heading: 'Introdução', body: 'Ultima atualizacao: 2 de outubro de 2026'),
-  LegalSectionText(heading: 'O que e o PerfectGest?', body: 'Aplicacao de gestao no telemovel, com dados locais (SQLite). Agenda (clientes e fornecedores), orcamentos, ordens de servico, caixa e PDF. Site: https://perfectgestdev.com. Sem anuncios in-app.'),
+  LegalSectionText(heading: 'Introdução', body: 'Ultima atualizacao: 11 de novembro de 2026'),
+  LegalSectionText(heading: 'O que e o Orçamentos e Gestão?', body: 'Aplicacao de gestao no telemovel, com dados locais (SQLite). Agenda (clientes e fornecedores), orcamentos, ordens de servico, caixa e PDF. Site: https://perfectgestdev.com. Sem anuncios in-app.'),
   LegalSectionText(heading: 'Funciona sem internet?', body: 'Sim, o uso diario e offline-first. Analytics, Remote Config e Firestore tecnico podem usar rede.'),
   LegalSectionText(heading: 'Ha assinatura?', body: 'As operacoes podem ser usadas sem assinatura obrigatoria. Existe Plano Pro opcional na Google Play (preco na loja).'),
   LegalSectionText(heading: 'Como exporto os meus dados?', body: 'Configuracoes → exportar ZIP JSON, ou backup local. Voce escolhe com quem partilhar.'),
@@ -115,11 +115,11 @@ const List<LegalSectionText> _kFaqPt = <LegalSectionText>[
 ];
 
 const List<LegalSectionText> _kPrivacyEn = <LegalSectionText>[
-  LegalSectionText(heading: 'Introduction', body: '''Last updated: 2 October 2026
-The PerfectGest app processes the data described in this policy. This policy covers this app only, under Brazil's LGPD and Google Play rules. Trade name: PerfectGest. Website: https://perfectgestdev.com.'''),
+  LegalSectionText(heading: 'Introduction', body: '''Last updated: 11 November 2026
+The Orçamentos e Gestão app processes the data described in this policy. This policy covers this app only, under Brazil's LGPD and Google Play rules. Trade name: Orçamentos e Gestão. Website: https://perfectgestdev.com.'''),
   LegalSectionText(heading: 'Controller and contact', body: 'For access, correction or deletion: suporte@perfectgestdev.com.'),
-  LegalSectionText(heading: 'What the app does', body: 'PerfectGest is operational management on the phone: commercial agenda (clients and suppliers), quotes, work orders, cash, PDFs and local backup. You can use operations without a required subscription. An optional Pro plan exists (Google Play Billing; price on Play). No in-app ads.'),
-  LegalSectionText(heading: 'Storage', body: '''Business data stays on the device (SQLite). We do not automatically send clients, quotes, cash or PDFs to PerfectGest servers.
+  LegalSectionText(heading: 'What the app does', body: 'Orçamentos e Gestão is operational management on the phone: commercial agenda (clients and suppliers), quotes, work orders, cash, PDFs and local backup. You can use operations without a required subscription. An optional Pro plan exists (Google Play Billing; price on Play). No in-app ads.'),
+  LegalSectionText(heading: 'Storage', body: '''Business data stays on the device (SQLite). We do not automatically send clients, quotes, cash or PDFs to the developer's servers.
 
 When data may leave the device (only if you act)
 
@@ -138,10 +138,10 @@ When data may leave the device (only if you act)
 ];
 
 const List<LegalSectionText> _kTermsEn = <LegalSectionText>[
-  LegalSectionText(heading: 'Introduction', body: 'Last updated: 2 October 2026'),
-  LegalSectionText(heading: '1. Scope', body: 'These Terms cover only the PerfectGest app: operational management on the phone (commercial agenda, quotes, work orders, cash, PDF, local backup). Data is mainly on-device. Trade name: PerfectGest. Website: https://perfectgestdev.com.'),
+  LegalSectionText(heading: 'Introduction', body: 'Last updated: 11 November 2026'),
+  LegalSectionText(heading: '1. Scope', body: 'These Terms cover only the Orçamentos e Gestão app: operational management on the phone (commercial agenda, quotes, work orders, cash, PDF, local backup). Data is mainly on-device. Trade name: Orçamentos e Gestão. Website: https://perfectgestdev.com.'),
   LegalSectionText(heading: '2. Eligibility', body: 'Users 18 years or older.'),
-  LegalSectionText(heading: '3. Price', body: 'You can use PerfectGest operations without a required subscription. An optional Pro plan is available via Google Play Billing; the price is the one shown on Play. Payments are handled by Google. No in-app ads.'),
+  LegalSectionText(heading: '3. Price', body: 'You can use Orçamentos e Gestão operations without a required subscription. An optional Pro plan is available via Google Play Billing; the price is the one shown on Play. Payments are handled by Google. No in-app ads.'),
   LegalSectionText(heading: '4. Liability', body: 'Support tool only. It does not replace professional advice.'),
   LegalSectionText(heading: '5. Intellectual property', body: 'Revocable, non-exclusive licence.'),
   LegalSectionText(heading: '6. Law', body: 'Laws of Brazil; venue Caxias do Sul/RS, without prejudice to consumer rights.'),
@@ -149,10 +149,10 @@ const List<LegalSectionText> _kTermsEn = <LegalSectionText>[
 ];
 
 const List<LegalSectionText> _kDeletionEn = <LegalSectionText>[
-  LegalSectionText(heading: 'Introduction', body: '''Last updated: 2 October 2026
-PerfectGest is local-first. Agenda, quotes and cash are not sent automatically to PerfectGest servers. Website: https://perfectgestdev.com.'''),
+  LegalSectionText(heading: 'Introduction', body: '''Last updated: 11 November 2026
+Orçamentos e Gestão is local-first. Agenda, quotes and cash are not sent automatically to the developer's servers. Website: https://perfectgestdev.com.'''),
   LegalSectionText(heading: 'How to delete', body: '''- In the app: Settings → delete data on this device
-- Android: Settings → Apps → PerfectGest → Storage → Clear data
+- Android: Settings → Apps → Orçamentos e Gestão → Storage → Clear data
 - Uninstall the app
 
 Without an external copy there is no recovery. Delete shared backups/PDFs where you saved them.'''),
@@ -160,8 +160,8 @@ Without an external copy there is no recovery. Delete shared backups/PDFs where 
 ];
 
 const List<LegalSectionText> _kFaqEn = <LegalSectionText>[
-  LegalSectionText(heading: 'Introdução', body: 'Last updated: 2 October 2026'),
-  LegalSectionText(heading: 'What is PerfectGest?', body: 'A phone app for day-to-day management with local SQLite data: agenda (clients and suppliers), quotes, work orders, cash and PDF. Website: https://perfectgestdev.com. No in-app ads.'),
+  LegalSectionText(heading: 'Introdução', body: 'Last updated: 11 November 2026'),
+  LegalSectionText(heading: 'What is Orçamentos e Gestão?', body: 'A phone app for day-to-day management with local SQLite data: agenda (clients and suppliers), quotes, work orders, cash and PDF. Website: https://perfectgestdev.com. No in-app ads.'),
   LegalSectionText(heading: 'Does it work offline?', body: 'Yes for daily use. Analytics, Remote Config and technical Firestore may use the network.'),
   LegalSectionText(heading: 'Is there a subscription?', body: 'Operations can be used without a required subscription. An optional Pro plan is available on Google Play (price in the store).'),
   LegalSectionText(heading: 'How do I export data?', body: 'Settings → JSON ZIP export, or local backup. You choose who to share with.'),
@@ -170,11 +170,11 @@ const List<LegalSectionText> _kFaqEn = <LegalSectionText>[
 ];
 
 const List<LegalSectionText> _kPrivacyEs = <LegalSectionText>[
-  LegalSectionText(heading: 'Introducción', body: '''Ultima actualizacion: 2 de octubre de 2026
-La aplicacion PerfectGest trata los datos descritos en esta politica. Esta politica cubre solo esta aplicacion, conforme a la LGPD y las normas de Google Play. Nombre comercial: PerfectGest. Sitio: https://perfectgestdev.com.'''),
+  LegalSectionText(heading: 'Introducción', body: '''Ultima actualizacion: 11 de noviembre de 2026
+La aplicacion Orçamentos e Gestão trata los datos descritos en esta politica. Esta politica cubre solo esta aplicacion, conforme a la LGPD y las normas de Google Play. Nombre comercial: Orçamentos e Gestão. Sitio: https://perfectgestdev.com.'''),
   LegalSectionText(heading: 'Responsable y contacto', body: 'Acceso, rectificacion o supresion: suporte@perfectgestdev.com.'),
-  LegalSectionText(heading: 'Que hace la aplicacion', body: 'PerfectGest es gestion operativa en el telefono: agenda comercial (clientes y proveedores), presupuestos, ordenes de servicio, caja, PDF y copia de seguridad local. Puede usar las operaciones sin suscripcion obligatoria. Existe Plan Pro opcional (Google Play Billing; precio en Play). Sin anuncios dentro de la app.'),
-  LegalSectionText(heading: 'Almacenamiento', body: '''Los datos de gestion permanecen en el dispositivo (SQLite). No enviamos automaticamente clientes, presupuestos, caja o PDF a servidores de PerfectGest.
+  LegalSectionText(heading: 'Que hace la aplicacion', body: 'Orçamentos e Gestão es gestion operativa en el telefono: agenda comercial (clientes y proveedores), presupuestos, ordenes de servicio, caja, PDF y copia de seguridad local. Puede usar las operaciones sin suscripcion obligatoria. Existe Plan Pro opcional (Google Play Billing; precio en Play). Sin anuncios dentro de la app.'),
+  LegalSectionText(heading: 'Almacenamiento', body: '''Los datos de gestion permanecen en el dispositivo (SQLite). No enviamos automaticamente clientes, presupuestos, caja o PDF a servidores de la desarrolladora.
 
 Cuando pueden salir (solo si usted actua)
 
@@ -193,10 +193,10 @@ Cuando pueden salir (solo si usted actua)
 ];
 
 const List<LegalSectionText> _kTermsEs = <LegalSectionText>[
-  LegalSectionText(heading: 'Introducción', body: 'Ultima actualizacion: 2 de octubre de 2026'),
-  LegalSectionText(heading: '1. Objeto', body: 'Estos Terminos cubren solo la app PerfectGest: gestion operativa en el telefono (agenda comercial, presupuestos, ordenes de servicio, caja, PDF, copia local). Datos principalmente en el dispositivo. Nombre comercial: PerfectGest. Sitio: https://perfectgestdev.com.'),
+  LegalSectionText(heading: 'Introducción', body: 'Ultima actualizacion: 11 de noviembre de 2026'),
+  LegalSectionText(heading: '1. Objeto', body: 'Estos Terminos cubren solo la app Orçamentos e Gestão: gestion operativa en el telefono (agenda comercial, presupuestos, ordenes de servicio, caja, PDF, copia local). Datos principalmente en el dispositivo. Nombre comercial: Orçamentos e Gestão. Sitio: https://perfectgestdev.com.'),
   LegalSectionText(heading: '2. Elegibilidad', body: 'Usuarios mayores de 18 anos.'),
-  LegalSectionText(heading: '3. Precio', body: 'Puede usar las operaciones de PerfectGest sin suscripcion obligatoria. Existe Plan Pro opcional via Google Play Billing; el precio es el que muestra Play. Los pagos los trata Google. Sin anuncios in-app.'),
+  LegalSectionText(heading: '3. Precio', body: 'Puede usar las operaciones de Orçamentos e Gestão sin suscripcion obligatoria. Existe Plan Pro opcional via Google Play Billing; el precio es el que muestra Play. Los pagos los trata Google. Sin anuncios in-app.'),
   LegalSectionText(heading: '4. Responsabilidad', body: 'Herramienta de apoyo. No sustituye asesoramiento profesional.'),
   LegalSectionText(heading: '5. Propiedad intelectual', body: 'Licencia revocable, no exclusiva.'),
   LegalSectionText(heading: '6. Ley', body: 'Leyes de Brasil; fuero Caxias do Sul/RS, sin perjuicio del consumidor.'),
@@ -204,10 +204,10 @@ const List<LegalSectionText> _kTermsEs = <LegalSectionText>[
 ];
 
 const List<LegalSectionText> _kDeletionEs = <LegalSectionText>[
-  LegalSectionText(heading: 'Introducción', body: '''Ultima actualizacion: 2 de octubre de 2026
-PerfectGest es local-first. Agenda, presupuestos y caja no se envian automaticamente a servidores de PerfectGest. Sitio: https://perfectgestdev.com.'''),
+  LegalSectionText(heading: 'Introducción', body: '''Ultima actualizacion: 11 de noviembre de 2026
+Orçamentos e Gestão es local-first. Agenda, presupuestos y caja no se envian automaticamente a servidores de la desarrolladora. Sitio: https://perfectgestdev.com.'''),
   LegalSectionText(heading: 'Como eliminar', body: '''- En la app: Ajustes → eliminar datos en este aparato
-- Android: Ajustes → Apps → PerfectGest → Almacenamiento → Borrar datos
+- Android: Ajustes → Apps → Orçamentos e Gestão → Almacenamiento → Borrar datos
 - Desinstalar la aplicacion
 
 Sin copia externa no hay recuperacion. Borre copias compartidas donde las guardo.'''),
@@ -215,8 +215,8 @@ Sin copia externa no hay recuperacion. Borre copias compartidas donde las guardo
 ];
 
 const List<LegalSectionText> _kFaqEs = <LegalSectionText>[
-  LegalSectionText(heading: 'Introdução', body: 'Ultima actualizacion: 2 de octubre de 2026'),
-  LegalSectionText(heading: 'Que es PerfectGest?', body: 'Aplicacion de gestion en el telefono, con datos locales (SQLite): agenda (clientes y proveedores), presupuestos, ordenes de servicio, caja y PDF. Sitio: https://perfectgestdev.com. Sin anuncios in-app.'),
+  LegalSectionText(heading: 'Introdução', body: 'Ultima actualizacion: 11 de noviembre de 2026'),
+  LegalSectionText(heading: 'Que es Orçamentos e Gestão?', body: 'Aplicacion de gestion en el telefono, con datos locales (SQLite): agenda (clientes y proveedores), presupuestos, ordenes de servicio, caja y PDF. Sitio: https://perfectgestdev.com. Sin anuncios in-app.'),
   LegalSectionText(heading: 'Funciona sin internet?', body: 'Si, el uso diario es offline-first. Analytics, Remote Config y Firestore tecnico pueden usar red.'),
   LegalSectionText(heading: 'Hay suscripcion?', body: 'Las operaciones se pueden usar sin suscripcion obligatoria. Existe Plan Pro opcional en Google Play (precio en la tienda).'),
   LegalSectionText(heading: 'Como exporto datos?', body: 'Ajustes → ZIP JSON, o copia local. Usted elige con quien compartir.'),
