@@ -318,6 +318,13 @@ class _BarberShopsAdminPageState extends State<BarberShopsAdminPage> {
                   kBarberShopsAdminPath,
                   style: const TextStyle(color: _muted, fontSize: 12),
                 ),
+                const SizedBox(height: 8),
+                const Text(
+                  'Operação / override / piloto. Clientes novos criam loja no app '
+                  'após pagar barber_pro_mensal (self-service). Não use «Criar loja» '
+                  'no fluxo comercial diário.',
+                  style: TextStyle(color: _muted, fontSize: 13),
+                ),
                 const SizedBox(height: 20),
                 if (!_loggedIn) ...[
                   _field(_email, 'Email operador (dono piloto)', false),
@@ -336,7 +343,7 @@ class _BarberShopsAdminPageState extends State<BarberShopsAdminPage> {
                   ),
                   const SizedBox(height: 18),
                   Text(
-                    'Criar loja',
+                    'Criar loja (excepção)',
                     style: const TextStyle(
                       color: _olive,
                       fontWeight: FontWeight.w700,
@@ -352,7 +359,9 @@ class _BarberShopsAdminPageState extends State<BarberShopsAdminPage> {
                   FilledButton(
                     onPressed: _busy ? null : _createShop,
                     style: FilledButton.styleFrom(backgroundColor: _olive),
-                    child: Text(_busy ? 'Aguarde…' : 'Criar loja'),
+                    child: Text(
+                      _busy ? 'Aguarde…' : 'Criar loja (override)',
+                    ),
                   ),
                   const SizedBox(height: 24),
                   Row(
