@@ -1,5 +1,12 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-11] ABH-90 — hard-gate billing no site Barber
+
+- `BarberShopPresentation.bookingAllowed`: só `active` + billing `active|grace`.
+- Banner/CTA/agendar bloqueados se `none`/`expired` (não só `active==false`).
+- `Barber_Shops_Admin`: novas lojas nascem `active:false` + `billing.none`.
+- Branch: `cursor/seguranca-usuario-malicioso-5533`.
+
 ## [2026-11-11] Barber — versão no rodapé + sync na grade
 
 - Rodapé Barber mostra `Versão` de `barber_site_version.dart` (espelho pubspec `1.0.0+1`).

@@ -208,7 +208,8 @@ class _BarberShopsAdminPageState extends State<BarberShopsAdminPage> {
             'adminUid': {'stringValue': ''},
             'bookingUrl': {'stringValue': booking},
             'status': {'stringValue': 'provisioned'},
-            'active': {'booleanValue': true},
+            // Inactiva até pay / claim com billing active|grace.
+            'active': {'booleanValue': false},
             'provisionedAt': {
               'timestampValue': DateTime.now().toUtc().toIso8601String(),
             },
@@ -221,6 +222,7 @@ class _BarberShopsAdminPageState extends State<BarberShopsAdminPage> {
                 },
               },
             },
+            'subscriptionStatus': {'stringValue': 'none'},
             'updatedAt': {
               'timestampValue': DateTime.now().toUtc().toIso8601String(),
             },

@@ -42,7 +42,14 @@ class BarberShopPresentation {
   final String billingStatus;
   final String shopId;
 
-  bool get showInactiveBanner => !active;
+  bool get billingAllowsBooking =>
+      billingStatus == 'active' || billingStatus == 'grace';
+
+  /// Banner / hard-gate: loja off ou assinatura none/expired.
+  bool get showInactiveBanner => !active || !billingAllowsBooking;
+
+  /// Site só agenda com loja activa + billing active/grace.
+  bool get bookingAllowed => active && billingAllowsBooking;
 }
 
 class BarberPro {

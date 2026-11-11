@@ -435,6 +435,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
       _slot!.available;
 
   bool get _canAgendar {
+    if (!_shop.bookingAllowed) return false;
     if (_saving || !_formReady) return false;
     if (_payChoice == _PayChoice.cash) return true;
     return _pixPanelOpen &&
@@ -502,6 +503,16 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
 
   Future<void> _agendar() async {
     if (!(_formKey.currentState?.validate() ?? false)) return;
+    if (!_shop.bookingAllowed) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            'Agendamentos indisponíveis: assinatura da loja inactiva.',
+          ),
+        ),
+      );
+      return;
+    }
     if (!_canAgendar) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -1141,8 +1152,11 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
               border: Border.all(color: const Color(0xFFC9A227)),
             ),
             child: Text(
-              'Esta barbearia está temporariamente inactiva. '
-              'Agendamentos podem estar indisponíveis.',
+              !_shop.active
+                  ? 'Esta barbearia está temporariamente inactiva. '
+                      'Agendamentos indisponíveis.'
+                  : 'Assinatura Play inactiva ou expirada. '
+                      'Agendamentos bloqueados até regularizar o plano.',
               textAlign: TextAlign.center,
               style: _body.copyWith(color: const Color(0xFFE8D9A8), fontSize: 13),
             ),
@@ -1166,14 +1180,16 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
         ],
         const SizedBox(height: 18),
         FilledButton(
-          onPressed: _scrollToBooking,
+          onPressed: _shop.bookingAllowed ? _scrollToBooking : null,
           style: FilledButton.styleFrom(
             backgroundColor: _olive,
             foregroundColor: _text,
             padding: const EdgeInsets.symmetric(vertical: 14),
           ),
           child: Text(
-            'Agendar horário',
+            _shop.bookingAllowed
+                ? 'Agendar horário'
+                : 'Agendamento indisponível',
             style: _body.copyWith(fontWeight: FontWeight.w700),
           ),
         ),
