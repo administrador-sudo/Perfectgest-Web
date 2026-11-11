@@ -1,5 +1,11 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-11] Agenda custo — busyDay query do dia
+
+- `barber_cloud.dart` `busyDay`: deixa de `_listCollection('appointments')`; `runQuery` `professionalId` + `startsAt` do dia (reads ≈ D).
+- Listen JS adiado (não simples sem firebase_core); poll 2s + visibility mantidos.
+- Branch: `cursor/agenda-realtime-sync-5533`.
+
 ## [2026-11-11] Agenda realtime — poll slots 2s + visibility
 
 - `barber_hairdresser_page.dart`: `_slotsPoll` 20s → **2s**; `WidgetsBindingObserver` em `resumed` → `_reloadSlots`.

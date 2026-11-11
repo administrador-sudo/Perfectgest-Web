@@ -571,11 +571,15 @@ class BarberCloud {
     await ensureInitialized();
     if (!ready) return const [];
     try {
-      final rows = await _listCollection('appointments');
+      // Custo: query do dia (pro+startsAt), NÃO listar appointments inteiro.
       final start = DateTime(day.year, day.month, day.day);
       final end = start.add(const Duration(days: 1));
+      final rows = await _queryAppointmentsDay(
+        professionalId: professionalId,
+        rangeStart: start,
+        rangeEnd: end,
+      );
       return rows
-          .where((m) => _sameId(m['professionalId'], professionalId))
           .where((m) {
             final st = (m['status'] as String?) ?? 'scheduled';
             return st == 'scheduled';
@@ -590,7 +594,6 @@ class BarberCloud {
                     : s.add(Duration(
                         minutes: SlotEngine.allocateMinutes(30),
                       )));
-            if (s.isBefore(start) || !s.isBefore(end)) return null;
             return BusyInterval(
               s.hour * 60 + s.minute,
               e.hour * 60 + e.minute,
@@ -603,6 +606,64 @@ class BarberCloud {
       debugPrint('busyDay: $e');
       return const [];
     }
+  }
+
+  /// REST runQuery: `professionalId` + `startsAt` ∈ [start, end). Reads ≈ D do dia.
+  Future<List<Map<String, dynamic>>> _queryAppointmentsDay({
+    required String professionalId,
+    required DateTime rangeStart,
+    required DateTime rangeEnd,
+  }) async {
+    final uri = Uri.parse('$_shopPath:runQuery').replace(
+      queryParameters: {'key': _apiKey},
+    );
+    final startIso = rangeStart.toUtc().toIso8601String();
+    final endIso = rangeEnd.toUtc().toIso8601String();
+    final res = await http.post(
+      uri,
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({
+        'structuredQuery': {
+          'from': [
+            {'collectionId': 'appointments'},
+          ],
+          'where': {
+            'compositeFilter': {
+              'op': 'AND',
+              'filters': [
+                {
+                  'fieldFilter': {
+                    'field': {'fieldPath': 'professionalId'},
+                    'op': 'EQUAL',
+                    'value': {'stringValue': professionalId},
+                  },
+                },
+                {
+                  'fieldFilter': {
+                    'field': {'fieldPath': 'startsAt'},
+                    'op': 'GREATER_THAN_OR_EQUAL',
+                    'value': {'timestampValue': startIso},
+                  },
+                },
+                {
+                  'fieldFilter': {
+                    'field': {'fieldPath': 'startsAt'},
+                    'op': 'LESS_THAN',
+                    'value': {'timestampValue': endIso},
+                  },
+                },
+              ],
+            },
+          },
+        },
+      }),
+    );
+    if (res.statusCode != 200) {
+      throw StateError(
+        'queryAppointmentsDay HTTP ${res.statusCode}: ${res.body}',
+      );
+    }
+    return _decodeRunQueryBody(res.body);
   }
 
   Future<List<TimeOfDaySlot>> slots({
@@ -825,7 +886,11 @@ class BarberCloud {
         'runQuery $collectionId HTTP ${res.statusCode}: ${res.body}',
       );
     }
-    final decoded = jsonDecode(res.body);
+    return _decodeRunQueryBody(res.body);
+  }
+
+  List<Map<String, dynamic>> _decodeRunQueryBody(String body) {
+    final decoded = jsonDecode(body);
     if (decoded is! List) return const [];
     final out = <Map<String, dynamic>>[];
     for (final row in decoded) {
