@@ -346,7 +346,7 @@ class _AppLocalizationsPt extends AppLocalizations {
       '--> Seus dados estão protegidos de acordo com a LGPD.';
   @override
   String get heroContabilPlansIntro =>
-      'O aplicativo ContabilGest é a ferramenta de conexão: você acompanha a contabilidade em tempo real. Na Google Play: R\$ 19,99/mês.';
+      'O aplicativo ContabilGest é a ferramenta de conexão: você acompanha a contabilidade em tempo real. Na Google Play: R\$ 19,99/mês, mais mensalidade do contador..';
   @override
   String get heroContabilPlanBasicTitle => 'Plano Básico (Indicado para MEI):';
   @override
@@ -392,7 +392,7 @@ class _AppLocalizationsPt extends AppLocalizations {
       'Ferramenta de conexão: acompanhe a contabilidade em tempo real';
   @override
   String get solContabilAppsBody =>
-      'O PerfectGest ContabilGest liga você ao escritório: lance movimentos, obrigações e notas no celular e acompanhe a contabilidade em tempo real. Na Google Play: R\$ 19,99/mês.';
+      'O PerfectGest ContabilGest liga você ao escritório: lance movimentos, obrigações e notas no celular e acompanhe a contabilidade em tempo real. Na Google Play: R\$ 19,99/mês, mais mensalidade do contador.';
   @override
   String get solContabilAppsSupportPortalLabel => 'FAQ e políticas do app';
   @override
