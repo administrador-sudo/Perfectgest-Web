@@ -87,8 +87,8 @@ w=B.bjW(d)
 C.v(d)
 v=[l.e,l.f,l.r,l.w]
 u=w.gfi()
-t=C.v(d).ax.a===D.P?D.bZ:D.bK
-s=(C.v(d).ax.a===D.P?D.bZ:D.bK).ag(0.96)
+t=C.v(d).ax.a===D.P?D.bZ:D.bL
+s=(C.v(d).ax.a===D.P?D.bZ:D.bL).ag(0.96)
 r=C.dV(!1,k,k,k,C.cf(D.iX,j.b,k,k),k,k,new B.aSL(d),k,k,k,g.gIy())
 q=j.k3
 p=C.k(g.gJ8(),k,k,k,k,C.bj().$2$color$fontWeight(q,D.D),k,k,k)
@@ -115,7 +115,7 @@ u=p.b
 t=x.u
 s=C.b([C.k(r.c,q,q,q,q,C.bj().$3$color$fontSize$fontWeight(u,15.5,D.D),q,q,q),D.a5,D.n1,C.k(r.f,q,q,q,q,C.bj().$4$color$fontSize$fontWeight$height(u.ag(0.9),12.8,D.D,1.4),q,q,q),C.k(r.d,q,q,q,q,C.bj().$3$color$fontSize$height(p.k3.ag(0.84),12.8,1.45),q,q,q)],t)
 D.c.R(s,C.b([D.r,C.k(r.e,q,q,q,q,C.bj().$4$color$fontSize$fontWeight$height(u.ag(0.92),12.8,D.M,1.45),q,q,q)],t))
-return new C.a_(D.oD,C.cz(new C.a_(A.VM,C.ae(s,D.E,D.i,D.k),q),new C.bb(o,q,v,w,q,q,D.F),D.ad),q)}}
+return new C.a_(D.oD,C.cz(new C.a_(A.VM,C.ae(s,D.E,D.i,D.k),q),new C.bb(o,q,v,w,q,q,D.F),D.ae),q)}}
 var z=a.updateTypes([])
 B.aSM.prototype={
 $1(d){return this.a.aBh()},
@@ -189,4 +189,4 @@ A.aso=new B.cg("Analytics and consent (GA4)","Measurement with Google Analytics 
 A.ase=new B.cg("Clean architecture and maintenance","We prioritize organized code, reusable components and separation of concerns to support continuous product evolution, fewer bugs and lower maintenance cost.","Practical example: a new subscription feature is added by reusing components and reducing QA effort.")
 A.as_=new B.cg("HTTP integrations and external services","We integrate external APIs and data services for real business flows, including back-end endpoints and observability services, ensuring operational reliability and metric-driven evolution.","Practical example: we monitor API latency and errors in production to act before customers are impacted.")
 A.af7=w([A.as3,A.arP,A.asa,A.as8,A.arR,A.as1,A.asd,A.as5,A.arY,A.ask,A.asl,A.asb,A.aso,A.ase,A.as_],x.c)})()};
-(a=>{a["CJKYURKsDU1hI22Co3gKZ7XVloQ="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["97/HvX7S9h4F0WZxdE8bm6UyzI0="]=a.current})($__dart_deferred_initializers__);

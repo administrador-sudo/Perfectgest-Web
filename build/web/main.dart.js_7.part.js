@@ -50,9 +50,9 @@ gTu(){return"E-mail"},
 gTt(){return"seu@email.com"},
 gTs(){return"Coment\xe1rio"},
 gTr(){return"Opcional \u2014 como podemos ajudar?"},
-gps(){return"Li e aceito a "},
-gpr(){return"pol\xedtica de privacidade"},
-gpt(){return" e autorizo o contacto sobre novidades, convites de pr\xe9-lan\xe7amento e servi\xe7os indicados."},
+gpt(){return"Li e aceito a "},
+gps(){return"pol\xedtica de privacidade"},
+gpu(){return" e autorizo o contacto sobre novidades, convites de pr\xe9-lan\xe7amento e servi\xe7os indicados."},
 gqG(){return"Enviar pre-cadastro"},
 gqH(){return"Enviando\u2026"},
 gqJ(){return"Pre-cadastro recebido"},
@@ -81,9 +81,9 @@ gTu(){return"Email"},
 gTt(){return"you@email.com"},
 gTs(){return"Comment"},
 gTr(){return"Optional \u2014 how can we help?"},
-gps(){return"I have read and accept the "},
-gpr(){return"privacy policy"},
-gpt(){return" and authorize contact about updates, pre-launch invitations, and the services mentioned."},
+gpt(){return"I have read and accept the "},
+gps(){return"privacy policy"},
+gpu(){return" and authorize contact about updates, pre-launch invitations, and the services mentioned."},
 gqG(){return"Submit pre-registration"},
 gqH(){return"Sending\u2026"},
 gqJ(){return"Pre-registration received"},
@@ -112,9 +112,9 @@ gTu(){return"Correo electr\xf3nico"},
 gTt(){return"su@email.com"},
 gTs(){return"Comentario"},
 gTr(){return"Opcional \u2014 \xbfc\xf3mo podemos ayudar?"},
-gps(){return"He le\xeddo y acepto la "},
-gpr(){return"pol\xedtica de privacidad"},
-gpt(){return" y autorizo el contacto sobre novedades, invitaciones de prelanzamiento y los servicios indicados."},
+gpt(){return"He le\xeddo y acepto la "},
+gps(){return"pol\xedtica de privacidad"},
+gpu(){return" y autorizo el contacto sobre novedades, invitaciones de prelanzamiento y los servicios indicados."},
 gqG(){return"Enviar pre-registro"},
 gqH(){return"Enviando\u2026"},
 gqJ(){return"Pre-registro recibido"},
@@ -179,7 +179,7 @@ if(u.c==null){x=1
 break}u.F(new B.aPB(u,q))
 case 1:return A.y(v,w)}})
 return A.z($async$Fs,w)},
-A(d){var x=this,w=null,v=A.v(d).ax,u=A.aS(d,C.ai,y.x).w.a.a<400?16:24,t=B.bjV(d),s=t.gfi(),r=A.v(d).ax.a===C.P?C.bZ:C.bK,q=t.giX()
+A(d){var x=this,w=null,v=A.v(d).ax,u=A.aS(d,C.ai,y.x).w.a.a<400?16:24,t=B.bjV(d),s=t.gfi(),r=A.v(d).ax.a===C.P?C.bZ:C.bL,q=t.giX()
 q=E.aXL(d,w,x.a.c,q)
 return A.aw(w,w,w,A.fy(q,r,new A.ka(A.er(A.cx(new A.ci(D.Pp,x.z?x.amQ(d,t,v):x.amx(d,t,v),w),w,w),w,new A.W(u,16,u,28),C.a8),w),w,w,w,w),!1,w,w,!1,w,!1,w,w,w,w,w,w,w,w,s,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,C.p,w)},
 amQ(d,e,f){var x=null
@@ -197,7 +197,7 @@ t=p.aq7(p.r,e.gTr(),C.jU,t,4,!1)
 s=A.q5(A.bp(A.dw(o,C.ap,!1,o,!0,C.t,o,A.dH(),p.w,o,o,o,o,o,2,D.Zb,C.N,!0,o,!0,o,!1,o,C.as,o,o,o,o,o,o,o,o,1,o,o,!1,"\u2022",o,o,o,o,o,!1,o,o,!1,o,!0,o,C.aA,o,o,o,o,o,o,o,o,o,o,o,o,!0,C.a6,o,C.aE,o,o,o,o),0,o),0)
 r=p.x
 q=y.u
-r=A.b([v,C.bo,u,C.bo,t,s,C.aB,A.bv(A.b([A.agE(o,!1,o,o,o,!1,o,o,p.y?o:new B.aPu(p),o,o,o,o,o,!1,r),A.c5(new A.a_(C.oF,A.dY(C.aU,A.b([A.k(e.gps(),o,o,o,o,A.jG(d,13,1.5),o,o,o),A.en(!1,o,!0,A.k(e.gpr(),o,o,o,o,A.jG(d,13,1.5).aHE(f.b,C.d2,C.M),o,o,o),o,!0,o,o,o,o,o,o,o,o,o,o,new B.aPv(d),o,o,o,o,o,o,o),A.k(e.gpt(),o,o,o,o,A.jG(d,13,1.5),o,o,o)],q),C.bi,0,0),o),1)],q),C.E,o,C.i,C.k,0)],q)
+r=A.b([v,C.bo,u,C.bo,t,s,C.aB,A.bv(A.b([A.agE(o,!1,o,o,o,!1,o,o,p.y?o:new B.aPu(p),o,o,o,o,o,!1,r),A.c5(new A.a_(C.oF,A.dY(C.aU,A.b([A.k(e.gpt(),o,o,o,o,A.jG(d,13,1.5),o,o,o),A.en(!1,o,!0,A.k(e.gps(),o,o,o,o,A.jG(d,13,1.5).aHE(f.b,C.d2,C.M),o,o,o),o,!0,o,o,o,o,o,o,o,o,o,o,new B.aPv(d),o,o,o,o,o,o,o),A.k(e.gpu(),o,o,o,o,A.jG(d,13,1.5),o,o,o)],q),C.bi,0,0),o),1)],q),C.E,o,C.i,C.k,0)],q)
 v=p.Q
 if(v!=null)C.c.R(r,A.b([C.L,A.k(e.hI(v),o,o,o,o,A.bj().$3$color$fontSize$fontWeight(f.fy,13,C.M),o,o,o)],q))
 r.push(C.c4)
@@ -274,4 +274,4 @@ D.RT=new B.aSe()
 D.RU=new B.aSf()
 D.Yo=new A.c8(C.w3,18,null,null,null)
 D.Zb=new A.kU(null,null,null,"Website",null,null,null,null,null,null,null,null,null,null,null,null,!0,!0,!1,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,!0,null,null,null,null)})()};
-(a=>{a["EM8sHRhrSJYpQePwlIrU0IFR3WU="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["+QWZBBbhnlhSKmFlKIcN82jsp9E="]=a.current})($__dart_deferred_initializers__);
