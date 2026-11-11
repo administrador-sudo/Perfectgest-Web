@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -105,8 +104,7 @@ class BarberHairdresserPage extends StatefulWidget {
   State<BarberHairdresserPage> createState() => _BarberHairdresserPageState();
 }
 
-class _BarberHairdresserPageState extends State<BarberHairdresserPage>
-    with WidgetsBindingObserver {
+class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   static const Color _olive = Color(0xFF556B2F);
   /// Nome da loja no topo — cream alto contraste (não some no fundo escuro).
   static const Color _brandName = Color(0xFFE8D9A8);
@@ -145,7 +143,6 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage>
   bool _saving = false;
   bool _success = false;
   String? _error;
-  Timer? _slotsPoll;
   _BookedSnapshot? _booked;
   FunilComprovanteArquivo? _pixReceipt;
   int _reviewRating = 5;
@@ -200,7 +197,6 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage>
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addObserver(this);
     _bootstrap();
   }
 
@@ -210,17 +206,6 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage>
     if (oldWidget.shopId != widget.shopId) {
       BarberCloud.bindShop(widget.shopId);
       _bootstrap();
-    }
-  }
-
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    // Web: tab visível de novo → slots já; poll sozinho pode atrasar.
-    if (state == AppLifecycleState.resumed) {
-      if (!mounted || _saving || _success) return;
-      if (_pro == null || _service == null || _date == null) return;
-      // ignore: unawaited_futures
-      _reloadSlots();
     }
   }
 
@@ -324,25 +309,10 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage>
         if (still.isEmpty) _slot = null;
       }
     });
-    _ensureSlotsPoll();
-  }
-
-  void _ensureSlotsPoll() {
-    _slotsPoll?.cancel();
-    if (_success || _pro == null || _service == null || _date == null) {
-      return;
-    }
-    // ≤2s: grade «na hora» sem Firebase JS (site continua REST).
-    _slotsPoll = Timer.periodic(const Duration(seconds: 2), (_) {
-      if (!mounted || _saving || _success) return;
-      _reloadSlots();
-    });
   }
 
   @override
   void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
-    _slotsPoll?.cancel();
     _nomeCtrl.dispose();
     _telefoneCtrl.dispose();
     _reviewNomeCtrl.dispose();
@@ -614,7 +584,6 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage>
         pixTxid: pixTxid,
         pixPayload: pixPayload,
       );
-      _slotsPoll?.cancel();
       await _reloadSlots();
       if (!mounted) return;
       setState(() {
@@ -1604,7 +1573,44 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage>
             ),
           ),
           const SizedBox(height: 16),
-          Text('Horários disponíveis', style: _section),
+          Row(
+            children: [
+              Expanded(child: Text('Horários disponíveis', style: _section)),
+              FilledButton.icon(
+                onPressed: (_date == null ||
+                        _service == null ||
+                        _pro == null ||
+                        _loadingSlots ||
+                        _success)
+                    ? null
+                    : _reloadSlots,
+                style: FilledButton.styleFrom(
+                  backgroundColor: _olive,
+                  foregroundColor: _text,
+                  disabledBackgroundColor: _olive.withValues(alpha: 0.35),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                ),
+                icon: _loadingSlots
+                    ? const SizedBox(
+                        width: 16,
+                        height: 16,
+                        child: CircularProgressIndicator(
+                          strokeWidth: 2,
+                          color: _text,
+                        ),
+                      )
+                    : const Icon(Icons.sync, size: 18),
+                label: Text(
+                  'Sincronizar a Agenda',
+                  style: _body.copyWith(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
+            ],
+          ),
           const SizedBox(height: 8),
           if (_date == null || _service == null)
             Text(

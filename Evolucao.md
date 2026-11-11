@@ -1,5 +1,11 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-11] Agenda — sem poll; botão Sincronizar
+
+- Removido `Timer.periodic` slots; grade só no load (pro/serviço/dia) + botão verde «Sincronizar a Agenda» (`Icons.sync`).
+- `busyDay` continua `runQuery` do dia (custo ≈ D).
+- Branch: `cursor/agenda-realtime-sync-5533`.
+
 ## [2026-11-11] Agenda custo — busyDay query do dia
 
 - `barber_cloud.dart` `busyDay`: deixa de `_listCollection('appointments')`; `runQuery` `professionalId` + `startsAt` do dia (reads ≈ D).
