@@ -9,6 +9,7 @@ import 'barber_checkout_sheet.dart';
 import 'barber_cloud.dart';
 import 'barber_ics.dart';
 import 'barber_pix_emv.dart';
+import 'barber_site_version.dart';
 import 'barber_slot_engine.dart';
 import 'funil_comprovante_pick.dart';
 import 'site_public_urls.dart';
@@ -1351,6 +1352,12 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
           'PerfectGest Dev',
           textAlign: TextAlign.center,
           style: _mutedStyle.copyWith(fontSize: 12, fontWeight: FontWeight.w600),
+        ),
+        const SizedBox(height: 4),
+        Text(
+          'Versão $kBarberSiteVersionLabel',
+          textAlign: TextAlign.center,
+          style: _mutedStyle.copyWith(fontSize: 11),
         ),
       ],
     );

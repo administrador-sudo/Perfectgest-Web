@@ -1,5 +1,11 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-11] Barber — versão no rodapé + sync na grade
+
+- Rodapé Barber mostra `Versão` de `barber_site_version.dart` (espelho pubspec `1.0.0+1`).
+- Botão «Sincronizar a Agenda» permanece junto a «Horários disponíveis».
+- Branch: `cursor/agenda-realtime-sync-5533`.
+
 ## [2026-11-11] Agenda — sem poll; botão Sincronizar
 
 - Removido `Timer.periodic` slots; grade só no load (pro/serviço/dia) + botão verde «Sincronizar a Agenda» (`Icons.sync`).
