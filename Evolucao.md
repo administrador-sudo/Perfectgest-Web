@@ -1,5 +1,19 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-11] Agenda realtime — poll slots 2s + visibility
+
+- `barber_hairdresser_page.dart`: `_slotsPoll` 20s → **2s**; `WidgetsBindingObserver` em `resumed` → `_reloadSlots`.
+- Sem Firebase JS (site continua REST); app dayWatch fica no monorepo Barber.
+- Branch: `cursor/agenda-realtime-sync-5533`.
+
+## [2026-11-11] Render leads-api: ENOTFOUND do Postgres
+
+- Warmup trata `getaddrinfo ENOTFOUND` no host `dpg-…-a`: tenta FQDN `*.oregon-postgres.render.com` e loga se a instância não existe (recriar BD + DATABASE_URL).
+
+## [2026-11-10] Render leads-api: health sem esperar Postgres
+
+- `/health` deixa de criar schema/pingar a BD (Failed ~15 min quando o Postgres free dorme). Warmup do schema após `listen`. `autoDeploy: false` no serviço API (push do site não redeploya a API).
+
 ## [2026-11-10] Agenda Barber — publicar políticas no pipeline static
 
 - `spa-legal-paths.cjs` gera `barber-static-html` (como Contabil I / PerfectGest I)

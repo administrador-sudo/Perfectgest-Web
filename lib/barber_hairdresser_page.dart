@@ -105,7 +105,8 @@ class BarberHairdresserPage extends StatefulWidget {
   State<BarberHairdresserPage> createState() => _BarberHairdresserPageState();
 }
 
-class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
+class _BarberHairdresserPageState extends State<BarberHairdresserPage>
+    with WidgetsBindingObserver {
   static const Color _olive = Color(0xFF556B2F);
   /// Nome da loja no topo — cream alto contraste (não some no fundo escuro).
   static const Color _brandName = Color(0xFFE8D9A8);
@@ -199,6 +200,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _bootstrap();
   }
 
@@ -208,6 +210,17 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
     if (oldWidget.shopId != widget.shopId) {
       BarberCloud.bindShop(widget.shopId);
       _bootstrap();
+    }
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    // Web: tab visível de novo → slots já; poll sozinho pode atrasar.
+    if (state == AppLifecycleState.resumed) {
+      if (!mounted || _saving || _success) return;
+      if (_pro == null || _service == null || _date == null) return;
+      // ignore: unawaited_futures
+      _reloadSlots();
     }
   }
 
@@ -319,7 +332,8 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
     if (_success || _pro == null || _service == null || _date == null) {
       return;
     }
-    _slotsPoll = Timer.periodic(const Duration(seconds: 20), (_) {
+    // ≤2s: grade «na hora» sem Firebase JS (site continua REST).
+    _slotsPoll = Timer.periodic(const Duration(seconds: 2), (_) {
       if (!mounted || _saving || _success) return;
       _reloadSlots();
     });
@@ -327,6 +341,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _slotsPoll?.cancel();
     _nomeCtrl.dispose();
     _telefoneCtrl.dispose();
