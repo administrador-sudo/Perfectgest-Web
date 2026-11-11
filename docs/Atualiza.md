@@ -2,6 +2,24 @@
 
 Este arquivo registra a evolucao tecnica do site para manter contexto entre IAs, evitar regressoes e garantir melhoria continua.
 
+## [2026-11-10 23:58] Render leads-api: health sem Postgres
+
+### Contexto
+
+- Deploys Failed ~15 min no `perfectgest-leads-api-6v1e` (Auto-Deploy do commit Barber / Blueprint). `/health` esperava o Postgres free acordar e o Render marcava Failed. Site static nao e este servico.
+
+### Arquivos alterados
+
+- scripts/leads-api-server.js
+- render.yaml
+- docs/RENDER_LEADS_POSTGRES.md
+- docs/Atualiza.md
+- Evolucao.md
+
+### Pendente / Proximo passo
+
+- No dashboard: Manual Deploy so do `perfectgest-leads-api-6v1e` (nao Blueprint). Settings do API: Auto-Deploy Off. Push do site continua no static.
+
 ## [2026-11-06 07:31] Funil: frase app + honorarios
 
 ### Contexto

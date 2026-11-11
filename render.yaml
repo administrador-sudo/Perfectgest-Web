@@ -109,6 +109,7 @@ services:
     name: perfectgest-leads-api
     runtime: node
     plan: free
+    autoDeploy: false
     buildCommand: npm install
     startCommand: npm start
     healthCheckPath: /health

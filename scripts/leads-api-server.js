@@ -25,6 +25,7 @@ try {
     pgPool = new Pool({
       connectionString: databaseUrl,
       ssl: databaseUrl.includes('localhost') ? false : { rejectUnauthorized: false },
+      connectionTimeoutMillis: 8000,
     });
   }
 } catch (err) {
@@ -922,28 +923,21 @@ app.get('/api/mail-check', leadsLimiter, async (_req, res) => {
   res.status(200).json(report);
 });
 
-app.get('/health', async (_req, res) => {
-  try {
-    if (pgPool) {
-      await ensurePgSchema();
-      await pgPool.query('SELECT 1');
-      res.json({ ok: true, storage: 'postgres' });
-      return;
-    }
-    if (isProduction) {
-      res.status(503).json({
-        ok: false,
-        error: 'database_required',
-        hint: 'Ligue DATABASE_URL (Postgres Render). Ver docs/RENDER_LEADS_POSTGRES.md',
-      });
-      return;
-    }
-    fs.mkdirSync(dataDir, { recursive: true });
-    res.json({ ok: true, storage: 'file', file: leadsFile, mode: 'development' });
-  } catch (err) {
-    console.error('[leads-api] health', err);
-    res.status(503).json({ ok: false, error: 'storage_unavailable' });
+app.get('/health', (_req, res) => {
+  if (pgPool) {
+    res.json({ ok: true, storage: 'postgres' });
+    return;
   }
+  if (isProduction) {
+    res.status(503).json({
+      ok: false,
+      error: 'database_required',
+      hint: 'Ligue DATABASE_URL (Postgres Render). Ver docs/RENDER_LEADS_POSTGRES.md',
+    });
+    return;
+  }
+  fs.mkdirSync(dataDir, { recursive: true });
+  res.json({ ok: true, storage: 'file', file: leadsFile, mode: 'development' });
 });
 
 app.post('/api/leads', leadsLimiter, async (req, res) => {
@@ -1217,6 +1211,9 @@ app.listen(port, '0.0.0.0', () => {
   console.log(`[leads-api] CORS: ${allowedOrigins.join(', ')}`);
   if (pgPool) {
     console.log('[leads-api] storage: postgres (site_leads)');
+    ensurePgSchema().catch((err) => {
+      console.error('[leads-api] schema warmup', err);
+    });
   } else if (allowFileFallback) {
     console.log(`[leads-api] storage: file dev only (${leadsFile})`);
   } else {

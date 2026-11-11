@@ -47,7 +47,7 @@ Se `storage` for `file`, falta `DATABASE_URL` — volte ao passo manual abaixo.
 
 ## 3) Estrutura da tabela
 
-Criada automaticamente no primeiro envio ou no `/health`:
+Criada automaticamente no arranque (warmup) ou no primeiro envio. `/health` só confirma que o processo está no ar (não espera o Postgres acordar):
 
 | Coluna | Tipo | Descrição |
 |--------|------|-----------|
