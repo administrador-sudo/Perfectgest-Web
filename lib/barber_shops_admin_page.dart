@@ -84,19 +84,19 @@ class _BarberShopsAdminPageState extends State<BarberShopsAdminPage> {
         }),
       );
       if (res.statusCode != 200) {
-        throw StateError('Login falhou. Use a conta dona do shop piloto.');
+        throw StateError('Entrada falhou. Use a conta dona da loja piloto.');
       }
       final body = jsonDecode(res.body) as Map<String, dynamic>;
       _idToken = body['idToken'] as String?;
       _uid = body['localId'] as String?;
-      if (!_loggedIn) throw StateError('Login incompleto.');
+      if (!_loggedIn) throw StateError('Entrada incompleta.');
 
       final pilot = await http.get(
         _uri('$_base/shops/$kBarberDefaultShopId'),
         headers: _authHeaders,
       );
       if (pilot.statusCode != 200) {
-        throw StateError('Shop piloto inacessível.');
+        throw StateError('Loja piloto inacessível.');
       }
       final fields =
           (jsonDecode(pilot.body) as Map)['fields'] as Map<String, dynamic>?;
@@ -106,7 +106,7 @@ class _BarberShopsAdminPageState extends State<BarberShopsAdminPage> {
         _idToken = null;
         _uid = null;
         throw StateError(
-          'Só o dono do shop piloto ($kBarberDefaultShopId) gere lojas.',
+          'Só o dono da loja piloto ($kBarberDefaultShopId) gere lojas.',
         );
       }
       await _loadShops();
@@ -179,22 +179,22 @@ class _BarberShopsAdminPageState extends State<BarberShopsAdminPage> {
       final id = _shopId.text.trim().toLowerCase();
       if (!isValidBarberShopId(id)) {
         throw StateError(
-          'shopId inválido. Use [a-z0-9_-] entre 3 e 48 caracteres.',
+          'ID da loja inválido. Use [a-z0-9_-] entre 3 e 48 caracteres.',
         );
       }
       if (id == 'admin' || id == 'new' || id == 'barber_shops_admin') {
-        throw StateError('shopId reservado.');
+        throw StateError('ID da loja reservado.');
       }
       final name = _shopName.text.trim();
       if (name.isEmpty) throw StateError('Informe o nome da loja.');
       final adminEmail = _adminEmail.text.trim().toLowerCase();
       if (adminEmail.isEmpty || !adminEmail.contains('@')) {
-        throw StateError('Informe o email do dono (pending).');
+        throw StateError('Informe o e-mail do dono (pendente).');
       }
 
       final exists = await http.get(_uri('$_base/shops/$id'));
       if (exists.statusCode == 200) {
-        throw StateError('shopId já existe: $id');
+        throw StateError('ID da loja já existe: $id');
       }
 
       final booking = barberHairdresserPublicUrlFor(id);
@@ -286,11 +286,26 @@ class _BarberShopsAdminPageState extends State<BarberShopsAdminPage> {
     }
   }
 
+  String _billingLabel(String status) {
+    switch (status) {
+      case 'unknown':
+        return 'desconhecida';
+      case 'none':
+        return 'nenhuma';
+      case 'active':
+        return 'activa';
+      case 'inactive':
+        return 'inactiva';
+      default:
+        return status;
+    }
+  }
+
   Future<void> _copy(String text) async {
     await Clipboard.setData(ClipboardData(text: text));
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Link copiado')),
+      const SnackBar(content: Text('Endereço copiado')),
     );
   }
 
@@ -306,28 +321,23 @@ class _BarberShopsAdminPageState extends State<BarberShopsAdminPage> {
               padding: const EdgeInsets.all(24),
               children: [
                 Text(
-                  'Admin PerfectGest — Lojas Barber',
+                  'Administração PerfectGest — Lojas Barber',
                   style: const TextStyle(
                     color: _text,
                     fontSize: 22,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-                const SizedBox(height: 6),
-                Text(
-                  kBarberShopsAdminPath,
-                  style: const TextStyle(color: _muted, fontSize: 12),
-                ),
                 const SizedBox(height: 8),
                 const Text(
-                  'Operação / override / piloto. Clientes novos criam loja no app '
-                  'após pagar barber_pro_mensal (self-service). Não use «Criar loja» '
-                  'no fluxo comercial diário.',
+                  'Operação / excepção / piloto. Clientes novos criam a loja no '
+                  'aplicativo depois de pagar a assinatura mensal (automático). '
+                  'Não use «Criar loja» no dia a dia.',
                   style: TextStyle(color: _muted, fontSize: 13),
                 ),
                 const SizedBox(height: 20),
                 if (!_loggedIn) ...[
-                  _field(_email, 'Email operador (dono piloto)', false),
+                  _field(_email, 'E-mail do operador (dono piloto)', false),
                   const SizedBox(height: 10),
                   _field(_pass, 'Senha', true),
                   const SizedBox(height: 16),
@@ -350,17 +360,17 @@ class _BarberShopsAdminPageState extends State<BarberShopsAdminPage> {
                     ),
                   ),
                   const SizedBox(height: 8),
-                  _field(_shopId, 'shopId (ex.: barbearia_silva)', false),
+                  _field(_shopId, 'ID da loja (ex.: barbearia_silva)', false),
                   const SizedBox(height: 8),
                   _field(_shopName, 'Nome da loja', false),
                   const SizedBox(height: 8),
-                  _field(_adminEmail, 'Email dono (pending)', false),
+                  _field(_adminEmail, 'E-mail do dono (pendente)', false),
                   const SizedBox(height: 12),
                   FilledButton(
                     onPressed: _busy ? null : _createShop,
                     style: FilledButton.styleFrom(backgroundColor: _olive),
                     child: Text(
-                      _busy ? 'Aguarde…' : 'Criar loja (override)',
+                      _busy ? 'Aguarde…' : 'Criar loja (excepção)',
                     ),
                   ),
                   const SizedBox(height: 24),
@@ -439,15 +449,15 @@ class _BarberShopsAdminPageState extends State<BarberShopsAdminPage> {
               ),
             ),
             const SizedBox(height: 4),
-            Text('shopId: ${row.shopId}',
+            Text('ID da loja: ${row.shopId}',
                 style: const TextStyle(color: _muted, fontSize: 12)),
             Text(
-              'owner: ${row.adminEmail.isEmpty ? '(pending)' : row.adminEmail}'
+              'Dono: ${row.adminEmail.isEmpty ? '(pendente)' : row.adminEmail}'
               '${row.adminUid.isEmpty ? '' : ' · ${row.adminUid.substring(0, row.adminUid.length.clamp(0, 8))}…'}',
               style: const TextStyle(color: _muted, fontSize: 12),
             ),
             Text(
-              'active: ${row.active} · billing: ${row.billingStatus}',
+              'Activa: ${row.active ? 'sim' : 'não'} · Assinatura: ${_billingLabel(row.billingStatus)}',
               style: const TextStyle(color: _muted, fontSize: 12),
             ),
             const SizedBox(height: 8),
@@ -457,11 +467,11 @@ class _BarberShopsAdminPageState extends State<BarberShopsAdminPage> {
               children: [
                 OutlinedButton(
                   onPressed: () => _copy(link),
-                  child: const Text('Copiar link site'),
+                  child: const Text('Copiar endereço da página'),
                 ),
                 OutlinedButton(
                   onPressed: () => _copy(barberAdminPublicUrlFor(row.shopId)),
-                  child: const Text('Copiar admin'),
+                  child: const Text('Copiar endereço da administração'),
                 ),
                 if (row.active)
                   TextButton(

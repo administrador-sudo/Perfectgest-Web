@@ -739,25 +739,11 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
             SafeArea(
               child: Column(
                 children: [
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(padH, 12, padH, 0),
-                    child: Align(
-                      alignment: Alignment.centerRight,
-                      child: Text(
-                        '$kBarberHairdresserPath/${widget.shopId}',
-                        style: const TextStyle(
-                          fontFamily: _mono,
-                          color: _muted,
-                          fontSize: 11,
-                        ),
-                      ),
-                    ),
-                  ),
                   Expanded(
                     child: _loading
                         ? const Center(child: CircularProgressIndicator())
                         : SingleChildScrollView(
-                            padding: EdgeInsets.fromLTRB(padH, 12, padH, 32),
+                            padding: EdgeInsets.fromLTRB(padH, 24, padH, 32),
                             child: Center(
                               child: ConstrainedBox(
                                 constraints:

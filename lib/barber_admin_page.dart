@@ -98,7 +98,7 @@ class _BarberAdminPageState extends State<BarberAdminPage> {
     if (at < 0 || at == email.length - 1) return null;
     final domain = email.substring(at + 1);
     if (_typoDomains.contains(domain)) {
-      return 'Verifique o email: «$domain» parece typo (ex.: gmail.com).';
+      return 'Verifique o e-mail: «$domain» parece typo (ex.: gmail.com).';
     }
     return null;
   }
@@ -111,28 +111,28 @@ class _BarberAdminPageState extends State<BarberAdminPage> {
     if (s.contains('invalid_login_credentials') ||
         s.contains('email_not_found') ||
         s.contains('invalid_password')) {
-      return 'Email ou senha incorrectos. Use o email exacto do Firebase '
+      return 'E-mail ou senha incorrectos. Use o e-mail exacto da conta na nuvem '
           '(gmail.com, não gamil) e a senha do dono — não a senha padrão '
           'Barber@Mudar1.';
     }
     if (s.contains('user_disabled')) {
-      return 'Conta desactivada no Firebase.';
+      return 'Conta desactivada na nuvem.';
     }
     if (s.contains('too_many_attempts') || s.contains('too_many_requests')) {
       return 'Muitas tentativas. Aguarde e tente de novo.';
     }
     if (s.contains('email_exists')) {
-      return 'Este email já tem conta Auth. O perfil foi ligado ao shop.';
+      return 'Este e-mail já tem conta. O perfil foi ligado à loja.';
     }
     if (s.contains('operation_not_allowed')) {
-      return 'Email/senha não está activo no projecto Firebase.';
+      return 'E-mail/senha não está activo neste projecto na nuvem.';
     }
     if (s.contains('api_key_http_referrer_blocked') ||
         s.contains('api_key_invalid')) {
-      return 'API key bloqueada para este domínio. Verifique restrições no Console.';
+      return 'Chave de acesso bloqueada para este domínio. Verifique restrições na consola.';
     }
     if (s.contains('permission') || s.contains('403')) {
-      return 'Sem permissão na nuvem. Confirme que este email é o dono (adminUid).';
+      return 'Sem permissão na nuvem. Confirme que este e-mail é o dono da loja.';
     }
     // Extrai message do JSON Identity Toolkit se existir.
     try {
@@ -145,7 +145,7 @@ class _BarberAdminPageState extends State<BarberAdminPage> {
         }
       }
     } catch (_) {}
-    return 'Falha de autenticação. Confira email, senha e projecto perfectgest-barber.';
+    return 'Falha na entrada. Confira e-mail, senha e o projecto perfectgest-barber.';
   }
 
   Uri _authUri(String method) => Uri.parse(
@@ -170,7 +170,7 @@ class _BarberAdminPageState extends State<BarberAdminPage> {
     try {
       final email = _normEmail(_adminEmail.text);
       if (email.isEmpty || !_adminPass.text.isNotEmpty) {
-        throw StateError('Informe email e senha do dono.');
+        throw StateError('Informe e-mail e senha do dono.');
       }
       final typo = _typoHint(email);
       if (typo != null) {
@@ -194,13 +194,13 @@ class _BarberAdminPageState extends State<BarberAdminPage> {
       _idToken = body['idToken'] as String?;
       _adminUid = body['localId'] as String?;
       if (!_loggedIn) {
-        throw StateError('Login incompleto. Tente de novo.');
+        throw StateError('Entrada incompleta. Tente de novo.');
       }
       await _ensureShopAdminUid();
       await _loadPros();
       setState(() {
         _msg =
-            'Admin autenticado ($email). Já pode convidar profissionais.';
+            'Administração autenticada ($email). Já pode convidar profissionais.';
       });
     } catch (e) {
       _idToken = null;
@@ -227,7 +227,7 @@ class _BarberAdminPageState extends State<BarberAdminPage> {
         existing.isNotEmpty &&
         existing != _adminUid) {
       throw StateError(
-        'Este shop já tem outro dono (adminUid). Use a conta correcta.',
+        'Esta loja já tem outro dono. Use a conta correcta.',
       );
     }
     if (existing == _adminUid) return;
@@ -319,7 +319,7 @@ class _BarberAdminPageState extends State<BarberAdminPage> {
 
   Future<void> _invite() async {
     if (!_loggedIn) {
-      setState(() => _error = 'Faça login de admin primeiro.');
+      setState(() => _error = 'Faça a entrada de administração primeiro.');
       return;
     }
     setState(() {
@@ -331,7 +331,7 @@ class _BarberAdminPageState extends State<BarberAdminPage> {
       final email = _normEmail(_proEmail.text);
       final name = _proName.text.trim();
       if (email.isEmpty || name.isEmpty) {
-        throw StateError('Informe nome e email do profissional.');
+        throw StateError('Informe nome e e-mail do profissional.');
       }
       final typo = _typoHint(email);
       if (typo != null) {
@@ -393,7 +393,7 @@ class _BarberAdminPageState extends State<BarberAdminPage> {
           create.body.contains('PERMISSION') || create.statusCode == 403
               ? (active >= _maxStaff && !operator
                   ? 'Limite de $_maxStaff profissionais atingido.'
-                  : 'Sem permissão para convidar. Confirme adminUid no shop.')
+                  : 'Sem permissão para convidar. Confirme o dono da loja.')
               : 'Não foi possível gravar o profissional.',
         );
       }
@@ -431,8 +431,8 @@ class _BarberAdminPageState extends State<BarberAdminPage> {
       await _loadPros();
       setState(() {
         _msg = ownerUid.isEmpty
-            ? 'Email já existia no Auth. Perfil criado — app: $email · senha que o barbeiro já usa (ou reset no Console).'
-            : 'Convite OK. App: $email · senha padrão $_defaultPw (trocar no 1.º login). '
+            ? 'E-mail já existia na conta. Perfil criado — aplicativo: $email · senha que o barbeiro já usa (ou redefinir na consola).'
+            : 'Convite OK. Aplicativo: $email · senha padrão $_defaultPw (trocar na 1.ª entrada). '
                 'Vagas: ${active + 1}/$_maxStaff.';
       });
     } catch (e) {
@@ -464,7 +464,7 @@ class _BarberAdminPageState extends State<BarberAdminPage> {
             padding: const EdgeInsets.all(28),
             children: [
               const Text(
-                'Admin Barbearia',
+                'Administração da barbearia',
                 style: TextStyle(
                   color: _text,
                   fontSize: 28,
@@ -473,8 +473,8 @@ class _BarberAdminPageState extends State<BarberAdminPage> {
               ),
               const SizedBox(height: 8),
               const Text(
-                '1) Entre com o email/senha do DONO (projecto perfectgest-barber).\n'
-                '2) Convide profissionais — eles usam a senha padrão no app.',
+                '1) Entre com o e-mail/senha do DONO (projecto perfectgest-barber).\n'
+                '2) Convide profissionais — eles usam a senha padrão no aplicativo.',
                 style: TextStyle(color: _muted, height: 1.4),
               ),
               const SizedBox(height: 8),
@@ -485,7 +485,7 @@ class _BarberAdminPageState extends State<BarberAdminPage> {
               const SizedBox(height: 24),
               _field(
                 _adminEmail,
-                'Email do dono (admin)',
+                'E-mail do dono (administração)',
                 keyboard: TextInputType.emailAddress,
               ),
               const SizedBox(height: 10),
@@ -497,7 +497,11 @@ class _BarberAdminPageState extends State<BarberAdminPage> {
                     child: FilledButton(
                       onPressed: _busy ? null : _login,
                       style: FilledButton.styleFrom(backgroundColor: _olive),
-                      child: Text(_loggedIn ? 'Revalidar sessão' : 'Entrar como admin'),
+                      child: Text(
+                        _loggedIn
+                            ? 'Revalidar sessão'
+                            : 'Entrar como administração',
+                      ),
                     ),
                   ),
                   if (_loggedIn) ...[
@@ -514,7 +518,7 @@ class _BarberAdminPageState extends State<BarberAdminPage> {
                 Padding(
                   padding: const EdgeInsets.only(top: 8),
                   child: Text(
-                    'Sessão activa · uid ${_adminUid!.substring(0, _adminUid!.length.clamp(0, 8))}…',
+                    'Sessão activa · conta ${_adminUid!.substring(0, _adminUid!.length.clamp(0, 8))}…',
                     style: const TextStyle(color: _olive, fontSize: 12),
                   ),
                 ),
@@ -523,7 +527,7 @@ class _BarberAdminPageState extends State<BarberAdminPage> {
               const SizedBox(height: 10),
               _field(
                 _proEmail,
-                'Email do profissional',
+                'E-mail do profissional',
                 keyboard: TextInputType.emailAddress,
               ),
               const SizedBox(height: 12),
@@ -533,13 +537,13 @@ class _BarberAdminPageState extends State<BarberAdminPage> {
                 child: Text(
                   _loggedIn
                       ? 'Cadastrar / convidar (máx. $_maxStaff)'
-                      : 'Cadastrar / convidar (entre como admin)',
+                      : 'Cadastrar / convidar (entre como administração)',
                 ),
               ),
               const SizedBox(height: 8),
               Text(
                 'Limite: 1 dono + 2 funcionários. Senha padrão: $_defaultPw\n'
-                '(não use esta senha no «Entrar como admin»)',
+                '(não use esta senha em «Entrar como administração»)',
                 style: const TextStyle(color: _muted, fontSize: 13, height: 1.35),
               ),
               if (_emailHint != null) ...[

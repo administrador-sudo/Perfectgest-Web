@@ -1,5 +1,12 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-11] Site Barber — UI só em português
+
+- `barber_shops_admin_page.dart`: labels/cartões/erros/banner PT; sem path `/Barber_Shops_Admin`; mapa assinatura desconhecida/nenhuma/activa/inactiva.
+- `barber_admin_page.dart`: copy sem Firebase/Auth/adminUid/Login/Console/API key na UI.
+- `barber_hairdresser_page.dart`: removido chip técnico do path SPA.
+- Branch: `cursor/site-textos-pt-5533` (ABH-87).
+
 ## [2026-11-11] Barber — versão no rodapé + sync na grade
 
 - Rodapé Barber mostra `Versão` de `barber_site_version.dart` (espelho pubspec `1.0.0+1`).
