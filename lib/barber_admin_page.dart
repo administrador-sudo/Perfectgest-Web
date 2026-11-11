@@ -302,6 +302,21 @@ class _BarberAdminPageState extends State<BarberAdminPage> {
     setState(() {});
   }
 
+  static const _maxStaff = 3;
+
+  Future<bool> _isPlatformOperator() async {
+    final res = await http.get(
+      _fsDoc('shops/$kBarberDefaultShopId'),
+      headers: _authHeaders,
+    );
+    if (res.statusCode != 200) return false;
+    final fields =
+        (jsonDecode(res.body) as Map)['fields'] as Map<String, dynamic>? ?? {};
+    final uid =
+        (fields['adminUid'] as Map?)?['stringValue'] as String? ?? '';
+    return uid.isNotEmpty && uid == _adminUid;
+  }
+
   Future<void> _invite() async {
     if (!_loggedIn) {
       setState(() => _error = 'Faça login de admin primeiro.');
@@ -321,6 +336,17 @@ class _BarberAdminPageState extends State<BarberAdminPage> {
       final typo = _typoHint(email);
       if (typo != null) {
         throw StateError(typo);
+      }
+
+      await _loadPros();
+      final active =
+          _pros.where((p) => (p['active'] as String?) == 'sim').length;
+      final operator = await _isPlatformOperator();
+      if (!operator && active >= _maxStaff) {
+        throw StateError(
+          'Limite do plano: 1 dono + 2 funcionários (máx. $_maxStaff). '
+          'Remova um profissional ou contacte a PerfectGest.',
+        );
       }
 
       // Criar conta Auth do profissional (signUp) — NÃO signIn.
@@ -365,7 +391,9 @@ class _BarberAdminPageState extends State<BarberAdminPage> {
       if (create.statusCode != 200) {
         throw StateError(
           create.body.contains('PERMISSION') || create.statusCode == 403
-              ? 'Sem permissão para convidar. Confirme adminUid no shop.'
+              ? (active >= _maxStaff && !operator
+                  ? 'Limite de $_maxStaff profissionais atingido.'
+                  : 'Sem permissão para convidar. Confirme adminUid no shop.')
               : 'Não foi possível gravar o profissional.',
         );
       }
@@ -381,13 +409,31 @@ class _BarberAdminPageState extends State<BarberAdminPage> {
           },
         }),
       );
+      // Actualiza contador de assentos (rules usam staffSeatCount).
+      await http.patch(
+        Uri.parse(
+          'https://firestore.googleapis.com/v1/projects/$_projectId/databases/(default)/documents/shops/$_shop?key=$_apiKey'
+          '&updateMask.fieldPaths=staffSeatCount'
+          '&updateMask.fieldPaths=updatedAt',
+        ),
+        headers: _authHeaders,
+        body: jsonEncode({
+          'fields': {
+            'staffSeatCount': {'integerValue': '${active + 1}'},
+            'updatedAt': {
+              'timestampValue': DateTime.now().toUtc().toIso8601String(),
+            },
+          },
+        }),
+      );
       _proEmail.clear();
       _proName.clear();
       await _loadPros();
       setState(() {
         _msg = ownerUid.isEmpty
             ? 'Email já existia no Auth. Perfil criado — app: $email · senha que o barbeiro já usa (ou reset no Console).'
-            : 'Convite OK. App: $email · senha padrão $_defaultPw (trocar no 1.º login).';
+            : 'Convite OK. App: $email · senha padrão $_defaultPw (trocar no 1.º login). '
+                'Vagas: ${active + 1}/$_maxStaff.';
       });
     } catch (e) {
       setState(() => _error = '$e'
@@ -486,13 +532,13 @@ class _BarberAdminPageState extends State<BarberAdminPage> {
                 style: FilledButton.styleFrom(backgroundColor: _olive),
                 child: Text(
                   _loggedIn
-                      ? 'Cadastrar / convidar'
+                      ? 'Cadastrar / convidar (máx. $_maxStaff)'
                       : 'Cadastrar / convidar (entre como admin)',
                 ),
               ),
               const SizedBox(height: 8),
               Text(
-                'Senha padrão do convidado: $_defaultPw\n'
+                'Limite: 1 dono + 2 funcionários. Senha padrão: $_defaultPw\n'
                 '(não use esta senha no «Entrar como admin»)',
                 style: const TextStyle(color: _muted, fontSize: 13, height: 1.35),
               ),
