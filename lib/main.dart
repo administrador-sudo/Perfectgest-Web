@@ -1602,10 +1602,10 @@ class _HeroContabilGestShowcase extends StatelessWidget {
               radius: 26,
               imageAsset: 'IMAGENS_APP/Screenshot/contabil_tablet_lancar.jpg',
               fallbackImageAsset: 'IMAGENS_APP/Screenshot/contabil_tablet_lancar.jpg',
-              imageLeft: 30,
-              imageTop: 16,
-              imageWidth: 168,
-              imageHeight: 276,
+              imageLeft: 27,
+              imageTop: 14,
+              imageWidth: 174,
+              imageHeight: 278,
               previewCaption: l10n.solPreviewContabilTabletLancar,
               loadImage: true,
             ),
@@ -1780,7 +1780,7 @@ class AnimatedSolutionsSectionContent extends StatefulWidget {
 }
 
 class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSectionContent> with TickerProviderStateMixin {
-  static const int _mockupCount = 2;
+  static const int _mockupCount = 4;
   late final AnimationController _floatCtrl = AnimationController(vsync: this, duration: const Duration(seconds: 5));
   late final AnimationController _enterCtrl = AnimationController(vsync: this, duration: const Duration(milliseconds: 1200));
   int _loadedMockupCount = kIsWeb ? 0 : _mockupCount;
@@ -1839,10 +1839,56 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
         _buildProductBlock(
           context,
           l10n,
+          appName: l10n.solBarberAppsTitle,
+          tagline: l10n.solBarberAppsTagline,
+          body: l10n.solBarberAppsBody,
+          mockupStartIndex: 0,
+          phoneFrame: DeviceFrame(
+            title: 'Android 14',
+            width: 190,
+            height: 338,
+            radius: 34,
+            imageAsset: 'IMAGENS_APP/Screenshot/barber_phone_agenda.png',
+            fallbackImageAsset: 'IMAGENS_APP/Screenshot/barber_phone_agenda.png',
+            imageLeft: 27,
+            imageTop: 20,
+            imageWidth: 136,
+            imageHeight: 297,
+            previewCaption: l10n.solPreviewBarberPhoneAgenda,
+            loadImage: _loadedMockupCount > 0,
+          ),
+          tabletFrame: DeviceFrame(
+            title: 'Android tablet',
+            width: 228,
+            height: 308,
+            radius: 26,
+            imageAsset: 'IMAGENS_APP/Screenshot/barber_tablet_agenda.jpg',
+            fallbackImageAsset: 'IMAGENS_APP/Screenshot/barber_tablet_agenda.jpg',
+            imageLeft: 30,
+            imageTop: 16,
+            imageWidth: 168,
+            imageHeight: 276,
+            previewCaption: l10n.solPreviewBarberTabletAgenda,
+            loadImage: _loadedMockupCount > 1,
+          ),
+          actions: SolutionsAppActionsBlock(
+            getAppLabel: l10n.solAppsGetAppLabel,
+            supportPortalLabel: l10n.solAppsSupportPortalLabel,
+            productUrl: kPerfectGestBarberProductUrl,
+            supportUrl: kPerfectGestBarberFaqUrl,
+            hashtags: l10n.solBarberAppsHashtags,
+          ),
+          fadeBegin: 0.04,
+          fadeEnd: 0.40,
+        ),
+        const SizedBox(height: 20),
+        _buildProductBlock(
+          context,
+          l10n,
           appName: l10n.solAppsTitle,
           tagline: l10n.solAppsTagline,
           body: l10n.solAppsBody,
-          mockupStartIndex: 0,
+          mockupStartIndex: 2,
           phoneFrame: DeviceFrame(
             title: 'Android 14',
             width: 190,
@@ -1855,7 +1901,7 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
             imageWidth: 136,
             imageHeight: 297,
             previewCaption: l10n.solPreviewPhoneInicio,
-            loadImage: _loadedMockupCount > 0,
+            loadImage: _loadedMockupCount > 2,
           ),
           tabletFrame: DeviceFrame(
             title: 'Android tablet',
@@ -1869,7 +1915,7 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
             imageWidth: 168,
             imageHeight: 276,
             previewCaption: l10n.solPreviewTabletInicio,
-            loadImage: _loadedMockupCount > 1,
+            loadImage: _loadedMockupCount > 3,
           ),
           actions: SolutionsAppActionsBlock(
             getAppLabel: l10n.solAppsGetAppLabel,
@@ -1878,14 +1924,14 @@ class _AnimatedSolutionsSectionContentState extends State<AnimatedSolutionsSecti
             supportUrl: kAppSupportFaqUrl,
             hashtags: l10n.solAppsHashtags,
           ),
-          fadeBegin: 0.08,
-          fadeEnd: 0.48,
+          fadeBegin: 0.18,
+          fadeEnd: 0.58,
         ),
         const SizedBox(height: 12),
         FadeTransition(
-          opacity: _fadeIn(0.28, 0.85),
+          opacity: _fadeIn(0.36, 0.90),
           child: SlideTransition(
-            position: _slideIn(0.28, 0.85),
+            position: _slideIn(0.36, 0.90),
             child: SectionText(
               title: l10n.solWebTitle,
               body: l10n.solWebBody,

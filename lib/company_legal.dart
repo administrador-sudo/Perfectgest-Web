@@ -60,6 +60,19 @@ const String kPerfectGestContabilIFaqUrl =
 const String kPerfectGestContabilIProductUrl =
     'https://play.google.com/store/apps/details?id=br.perfectgestcontabil.dev';
 
+/// Produto mobile Agenda Barber (Google Play).
+const String kProductPerfectGestBarberName = 'Agenda Barber';
+
+const String kPerfectGestBarberPackageId =
+    'com.perfectgestdev.barber_hairdresser';
+
+const String kPerfectGestBarberFaqUrl =
+    'https://perfectgestdev.com/barber-faq';
+
+/// Google Play — Agenda Barber.
+const String kPerfectGestBarberProductUrl =
+    'https://play.google.com/store/apps/details?id=com.perfectgestdev.barber_hairdresser';
+
 /// URL pública de distribuição do aplicativo (canal externo — não citado no site).
 const String kPerfectGestIProductUrl =
     'https://play.google.com/store/apps/details?id=br.com.perfectpro.one';

@@ -105,6 +105,10 @@ abstract class AppLocalizations {
   String get solContabilAppsTagline;
   String get solContabilAppsBody;
   String get solContabilAppsSupportPortalLabel;
+  String get solBarberAppsTitle;
+  String get solBarberAppsTagline;
+  String get solBarberAppsBody;
+  String get solBarberAppsHashtags;
   String get solWebTitle;
   String get solWebBody;
   String get portDifferentialsTitle;
@@ -145,6 +149,8 @@ abstract class AppLocalizations {
   String get solPreviewTabletOrcamentos;
   String get solPreviewContabilPhoneEmpresa;
   String get solPreviewContabilTabletLancar;
+  String get solPreviewBarberPhoneAgenda;
+  String get solPreviewBarberTabletAgenda;
   String get solPreviewClose;
   String get solPreviewZoomHint;
   String get tooltipWhatsApp;
@@ -396,6 +402,17 @@ class _AppLocalizationsPt extends AppLocalizations {
   @override
   String get solContabilAppsSupportPortalLabel => 'FAQ e políticas do app';
   @override
+  String get solBarberAppsTitle => 'Agenda Barber';
+  @override
+  String get solBarberAppsTagline =>
+      'Agenda e vitrine para barbearias e salões';
+  @override
+  String get solBarberAppsBody =>
+      'Marcações no telemóvel, link/QR para o cliente agendar no site, até 3 profissionais e sincronização com a vitrine PerfectGest.';
+  @override
+  String get solBarberAppsHashtags =>
+      '#AgendaBarber #Barbearia #PerfectGestDev';
+  @override
   String get solWebTitle => 'Web Apps Rapidos, Responsivos e Indexaveis';
   @override
   String get solWebBody =>
@@ -478,6 +495,10 @@ class _AppLocalizationsPt extends AppLocalizations {
       'PerfectGest ContabilGest — Empresa e contador CRC (celular)';
   @override
   String get solPreviewContabilTabletLancar => 'PerfectGest ContabilGest — Lancar (tablet)';
+  @override
+  String get solPreviewBarberPhoneAgenda => 'Agenda Barber — Agenda (celular)';
+  @override
+  String get solPreviewBarberTabletAgenda => 'Agenda Barber — Agenda (tablet)';
   @override
   String get solPreviewClose => 'Fechar';
   @override
@@ -754,6 +775,17 @@ class _AppLocalizationsEn extends AppLocalizations {
   @override
   String get solContabilAppsSupportPortalLabel => 'App FAQ and policies';
   @override
+  String get solBarberAppsTitle => 'Agenda Barber';
+  @override
+  String get solBarberAppsTagline =>
+      'Scheduling and storefront for barbershops and salons';
+  @override
+  String get solBarberAppsBody =>
+      'Bookings on your phone, a link/QR for clients to schedule on the website, up to 3 professionals, and sync with the PerfectGest storefront.';
+  @override
+  String get solBarberAppsHashtags =>
+      '#AgendaBarber #Barbershop #PerfectGestDev';
+  @override
   String get solWebTitle => 'Fast, Responsive and Indexable Web Apps';
   @override
   String get solWebBody =>
@@ -836,6 +868,10 @@ class _AppLocalizationsEn extends AppLocalizations {
       'PerfectGest ContabilGest — Company and CRC accountant (phone)';
   @override
   String get solPreviewContabilTabletLancar => 'PerfectGest ContabilGest — Record entry (tablet)';
+  @override
+  String get solPreviewBarberPhoneAgenda => 'Agenda Barber — Schedule (phone)';
+  @override
+  String get solPreviewBarberTabletAgenda => 'Agenda Barber — Schedule (tablet)';
   @override
   String get solPreviewClose => 'Close';
   @override
@@ -1113,6 +1149,17 @@ class _AppLocalizationsEs extends AppLocalizations {
   @override
   String get solContabilAppsSupportPortalLabel => 'FAQ y políticas de la app';
   @override
+  String get solBarberAppsTitle => 'Agenda Barber';
+  @override
+  String get solBarberAppsTagline =>
+      'Agenda y vitrina para barberías y salones';
+  @override
+  String get solBarberAppsBody =>
+      'Citas en el móvil, enlace/QR para que el cliente reserve en el sitio, hasta 3 profesionales y sincronización con la vitrina PerfectGest.';
+  @override
+  String get solBarberAppsHashtags =>
+      '#AgendaBarber #Barbería #PerfectGestDev';
+  @override
   String get solWebTitle => 'Web Apps Rápidas, Responsivas e Indexables';
   @override
   String get solWebBody =>
@@ -1195,6 +1242,10 @@ class _AppLocalizationsEs extends AppLocalizations {
       'PerfectGest ContabilGest — Empresa y contador CRC (movil)';
   @override
   String get solPreviewContabilTabletLancar => 'PerfectGest ContabilGest — Registrar (tablet)';
+  @override
+  String get solPreviewBarberPhoneAgenda => 'Agenda Barber — Agenda (movil)';
+  @override
+  String get solPreviewBarberTabletAgenda => 'Agenda Barber — Agenda (tablet)';
   @override
   String get solPreviewClose => 'Cerrar';
   @override

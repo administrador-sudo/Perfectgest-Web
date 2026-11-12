@@ -1,5 +1,16 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-12] Soluções — card Agenda Barber no topo
+
+- Bloco `Agenda Barber` acima do PerfectGest I em Soluções (App/Web).
+- Play: `com.perfectgestdev.barber_hairdresser`; FAQ: `/barber-faq`.
+- Assets: `barber_phone_agenda.png`, `barber_tablet_agenda.jpg`.
+
+## [2026-11-12] Fotos do bloco ContabilGest
+
+- Telemóvel: `contabil_phone_empresa.png` (1220×2712) e WebP.
+- Tablet: `contabil_tablet_lancar.jpg` (1200×1920, retrato) e WebP. Moldura interna ajustada a essa proporção (174×278), sem virar paisagem.
+
 ## [2026-11-11] Regras do agendamento — pop no site
 
 - Antes de Agendar: diálogo ~1/3 da altura, texto rolável («Li e aceito»).
