@@ -1,16 +1,16 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
 $__dart_deferred_initializers__.current=function(a,b,c,$){var A,C,E,B={
-bjY(d){switch(d.ac(y.h).r.f.gd0()){case"en":return D.RU
-case"es":return D.RV
-case"pt":default:return D.RW}},
+bjY(d){switch(d.ac(y.h).r.f.gd0()){case"en":return D.RV
+case"es":return D.RW
+case"pt":default:return D.RX}},
 ay8:function ay8(){},
 aSi:function aSi(){},
 aSg:function aSg(){},
 aSh:function aSh(){},
-b58(d){return new B.mj(d,null)},
+b59(d){return new B.mj(d,null)},
 mj:function mj(d,e){this.c=d
 this.a=e},
-a8I:function a8I(d,e,f,g,h){var _=this
+a8J:function a8J(d,e,f,g,h){var _=this
 _.d=d
 _.e=e
 _.f=f
@@ -41,15 +41,15 @@ B.ay8.prototype={}
 B.aSi.prototype={
 gfi(){return"Pre-cadastro Perfect Gest Dev"},
 giY(){return"Pre-cadastro"},
-gUc(){return"Deixe seu contato"},
-gV0(){return"Informe nome e e-mail para receber novidades sobre PerfectGest e solu\xe7\xf5es Perfect Gest Dev."},
-gWn(){return"Parte deste pr\xe9-cadastro destina-se a convites para o nosso programa de pr\xe9-lan\xe7amento: acesso integral \xe0s vers\xf5es em desenvolvimento dos aplicativos, com oportunidade de testar funcionalidades em antecipa\xe7\xe3o e contribuir com feedback que orienta a evolu\xe7\xe3o do produto antes do lan\xe7amento p\xfablico."},
-gTx(){return"Nome"},
-gTw(){return"Seu nome completo"},
-gTv(){return"E-mail"},
-gTu(){return"seu@email.com"},
-gTt(){return"Coment\xe1rio"},
-gTs(){return"Opcional \u2014 como podemos ajudar?"},
+gUi(){return"Deixe seu contato"},
+gV6(){return"Informe nome e e-mail para receber novidades sobre PerfectGest e solu\xe7\xf5es Perfect Gest Dev."},
+gWt(){return"Parte deste pr\xe9-cadastro destina-se a convites para o nosso programa de pr\xe9-lan\xe7amento: acesso integral \xe0s vers\xf5es em desenvolvimento dos aplicativos, com oportunidade de testar funcionalidades em antecipa\xe7\xe3o e contribuir com feedback que orienta a evolu\xe7\xe3o do produto antes do lan\xe7amento p\xfablico."},
+gTD(){return"Nome"},
+gTC(){return"Seu nome completo"},
+gTB(){return"E-mail"},
+gTA(){return"seu@email.com"},
+gTz(){return"Coment\xe1rio"},
+gTy(){return"Opcional \u2014 como podemos ajudar?"},
 gpt(){return"Li e aceito a "},
 gps(){return"pol\xedtica de privacidade"},
 gpu(){return" e autorizo o contacto sobre novidades, convites de pr\xe9-lan\xe7amento e servi\xe7os indicados."},
@@ -68,19 +68,19 @@ break A}if("api_unavailable"===d){x="Servi\xe7o temporariamente indispon\xedvel.
 break A}if("api_unconfigured"===d){x="API de registos n\xe3o configurada. Contacte suporte@perfectgestdev.com."
 break A}x="N\xe3o foi poss\xedvel enviar agora. Tente novamente ou escreva para suporte@perfectgestdev.com."
 break A}return x},
-gRj(){return"Voltar ao in\xedcio"}}
+gRp(){return"Voltar ao in\xedcio"}}
 B.aSg.prototype={
 gfi(){return"Pre-registration Perfect Gest Dev"},
 giY(){return"Pre-registration"},
-gUc(){return"Leave your contact details"},
-gV0(){return"Enter your name and email to receive updates about PerfectGest and Perfect Gest Dev solutions."},
-gWn(){return"Pre-registration also enables us to invite selected participants to our pre-launch program: full access to in-development app builds, early feature testing, and feedback that helps shape the product before public release."},
-gTx(){return"Name"},
-gTw(){return"Your full name"},
-gTv(){return"Email"},
-gTu(){return"you@email.com"},
-gTt(){return"Comment"},
-gTs(){return"Optional \u2014 how can we help?"},
+gUi(){return"Leave your contact details"},
+gV6(){return"Enter your name and email to receive updates about PerfectGest and Perfect Gest Dev solutions."},
+gWt(){return"Pre-registration also enables us to invite selected participants to our pre-launch program: full access to in-development app builds, early feature testing, and feedback that helps shape the product before public release."},
+gTD(){return"Name"},
+gTC(){return"Your full name"},
+gTB(){return"Email"},
+gTA(){return"you@email.com"},
+gTz(){return"Comment"},
+gTy(){return"Optional \u2014 how can we help?"},
 gpt(){return"I have read and accept the "},
 gps(){return"privacy policy"},
 gpu(){return" and authorize contact about updates, pre-launch invitations, and the services mentioned."},
@@ -99,19 +99,19 @@ break A}if("api_unavailable"===d){x="Service temporarily unavailable. Try again 
 break A}if("api_unconfigured"===d){x="Lead API is not configured in this environment."
 break A}x="Could not submit right now. Try again or email suporte@perfectgestdev.com."
 break A}return x},
-gRj(){return"Back to home"}}
+gRp(){return"Back to home"}}
 B.aSh.prototype={
 gfi(){return"Pre-registro Perfect Gest Dev"},
 giY(){return"Pre-registro"},
-gUc(){return"Deje su contacto"},
-gV0(){return"Indique nombre y correo para recibir novedades sobre PerfectGest y soluciones Perfect Gest Dev."},
-gWn(){return"Parte de este pre-registro sirve para invitar a participantes seleccionados al programa de prelanzamiento: acceso completo a las versiones en desarrollo de las aplicaciones, prueba anticipada de funcionalidades y retroalimentaci\xf3n que orienta la evoluci\xf3n del producto antes del lanzamiento p\xfablico."},
-gTx(){return"Nombre"},
-gTw(){return"Su nombre completo"},
-gTv(){return"Correo electr\xf3nico"},
-gTu(){return"su@email.com"},
-gTt(){return"Comentario"},
-gTs(){return"Opcional \u2014 \xbfc\xf3mo podemos ayudar?"},
+gUi(){return"Deje su contacto"},
+gV6(){return"Indique nombre y correo para recibir novedades sobre PerfectGest y soluciones Perfect Gest Dev."},
+gWt(){return"Parte de este pre-registro sirve para invitar a participantes seleccionados al programa de prelanzamiento: acceso completo a las versiones en desarrollo de las aplicaciones, prueba anticipada de funcionalidades y retroalimentaci\xf3n que orienta la evoluci\xf3n del producto antes del lanzamiento p\xfablico."},
+gTD(){return"Nombre"},
+gTC(){return"Su nombre completo"},
+gTB(){return"Correo electr\xf3nico"},
+gTA(){return"su@email.com"},
+gTz(){return"Comentario"},
+gTy(){return"Opcional \u2014 \xbfc\xf3mo podemos ayudar?"},
 gpt(){return"He le\xeddo y acepto la "},
 gps(){return"pol\xedtica de privacidad"},
 gpu(){return" y autorizo el contacto sobre novedades, invitaciones de prelanzamiento y los servicios indicados."},
@@ -130,11 +130,11 @@ break A}if("api_unavailable"===d){x="Servicio temporalmente no disponible. Inten
 break A}if("api_unconfigured"===d){x="La API de leads a\xfan no est\xe1 configurada."
 break A}x="No se pudo enviar ahora. Intente de nuevo o escriba a suporte@perfectgestdev.com."
 break A}return x},
-gRj(){return"Volver al inicio"}}
+gRp(){return"Volver al inicio"}}
 B.mj.prototype={
 a4(){var x=$.ab()
-return new B.a8I(new A.aW(null,y.o),new A.aY(C.W,x),new A.aY(C.W,x),new A.aY(C.W,x),new A.aY(C.W,x))}}
-B.a8I.prototype={
+return new B.a8J(new A.aW(null,y.o),new A.aY(C.W,x),new A.aY(C.W,x),new A.aY(C.W,x),new A.aY(C.W,x))}}
+B.a8J.prototype={
 ak(){this.aC()
 A.iV()
 A.dy("description","Pre-cadastro Perfect Gest Dev: deixe nome, e-mail e comentario para receber novidades sobre apps Flutter, web e integracoes Java.")
@@ -158,9 +158,9 @@ w.L$=v
 w.I$=0
 A.rr()
 x.az()},
-Ft(d){return this.aCV(d)},
-aCV(d){var x=0,w=A.A(y.v),v,u=this,t,s,r,q
-var $async$Ft=A.w(function(e,f){if(e===1)return A.x(f,w)
+Fv(d){return this.aD0(d)},
+aD0(d){var x=0,w=A.A(y.v),v,u=this,t,s,r,q
+var $async$Fv=A.w(function(e,f){if(e===1)return A.x(f,w)
 for(;;)switch(x){case 0:if(u.y){x=1
 break}u.F(new B.aPB(u))
 if(!u.x){u.F(new B.aPC(u))
@@ -173,43 +173,43 @@ s=u.c.ac(y.h).r.f.kI("-")
 t=u.e.a.a
 r=u.f.a.a
 x=3
-return A.o(A.Vc(u.r.a.a,u.x,!1,r,s,t,u.w.a.a),$async$Ft)
+return A.o(A.Vd(u.r.a.a,u.x,!1,r,s,t,u.w.a.a),$async$Fv)
 case 3:q=f
 if(u.c==null){x=1
 break}u.F(new B.aPE(u,q))
 case 1:return A.y(v,w)}})
-return A.z($async$Ft,w)},
-A(d){var x=this,w=null,v=A.v(d).ax,u=A.aR(d,C.ah,y.x).w.a.a<400?16:24,t=B.bjY(d),s=t.gfi(),r=A.v(d).ax.a===C.P?C.bZ:C.bL,q=t.giY()
+return A.z($async$Fv,w)},
+A(d){var x=this,w=null,v=A.v(d).ax,u=A.aR(d,C.ah,y.x).w.a.a<400?16:24,t=B.bjY(d),s=t.gfi(),r=A.v(d).ax.a===C.P?C.c_:C.bL,q=t.giY()
 q=E.aXO(d,w,x.a.c,q)
-return A.aw(w,w,w,A.fy(q,r,new A.ka(A.eh(A.cx(new A.cf(D.Pr,x.z?x.amR(d,t,v):x.amy(d,t,v),w),w,w),w,new A.W(u,16,u,28),C.a5),w),w,w,w,w),!1,w,w,!1,w,!1,w,w,w,w,w,w,w,w,s,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,C.p,w)},
-amR(d,e,f){var x=null
-return new A.ob(A.ae(A.b([A.cg(C.w3,f.b,x,48),C.aB,A.rF(d,e.gqJ(),x,20),C.L,A.k(e.gqI(),x,x,x,x,A.jG(d,15,1.5),x,x,x),C.jO,A.d8(A.k(e.gRj(),x,x,x,x,x,x,x,x),new B.aPA(d),x)],y.u),C.R,C.i,C.k),18,C.iT,x)},
-amy(d,e,f){var x,w,v,u,t,s,r,q,p=this,o=null,n=e.gUc()
+return A.aw(w,w,w,A.fy(q,r,new A.ka(A.eh(A.cx(new A.cf(D.Ps,x.z?x.amX(d,t,v):x.amF(d,t,v),w),w,w),w,new A.W(u,16,u,28),C.a5),w),w,w,w,w),!1,w,w,!1,w,!1,w,w,w,w,w,w,w,w,s,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,w,C.p,w)},
+amX(d,e,f){var x=null
+return new A.ob(A.ae(A.b([A.cg(C.w3,f.b,x,48),C.aB,A.rF(d,e.gqJ(),x,20),C.L,A.k(e.gqI(),x,x,x,x,A.jG(d,15,1.5),x,x,x),C.jO,A.d8(A.k(e.gRp(),x,x,x,x,x,x,x,x),new B.aPA(d),x)],y.u),C.R,C.i,C.k),18,C.iT,x)},
+amF(d,e,f){var x,w,v,u,t,s,r,q,p=this,o=null,n=e.gUi()
 n=A.rF(d,n,o,A.aR(d,C.ah,y.x).w.a.a<400?18:22)
-x=A.k(e.gV0(),o,o,o,o,A.jG(d,15,1.5),o,o,o)
-w=A.k(e.gWn(),o,o,o,o,A.jG(d,13.5,1.5).aHq(f.k3.ag(0.82),1.5),o,o,o)
-v=e.gTx()
-v=p.a1e(p.e,e.gTw(),C.rh,v,new B.aPv(e))
-u=e.gTv()
-u=p.a1e(p.f,e.gTu(),C.fI,u,new B.aPw(e))
-t=e.gTt()
-t=p.aq8(p.r,e.gTs(),C.jU,t,4,!1)
+x=A.k(e.gV6(),o,o,o,o,A.jG(d,15,1.5),o,o,o)
+w=A.k(e.gWt(),o,o,o,o,A.jG(d,13.5,1.5).aHw(f.k3.ag(0.82),1.5),o,o,o)
+v=e.gTD()
+v=p.a1l(p.e,e.gTC(),C.rh,v,new B.aPv(e))
+u=e.gTB()
+u=p.a1l(p.f,e.gTA(),C.fI,u,new B.aPw(e))
+t=e.gTz()
+t=p.aqe(p.r,e.gTy(),C.jU,t,4,!1)
 s=A.q5(A.bp(A.dw(o,C.ap,!1,o,!0,C.t,o,A.dH(),p.w,o,o,o,o,o,2,D.Zd,C.N,!0,o,!0,o,!1,o,C.at,o,o,o,o,o,o,o,o,1,o,o,!1,"\u2022",o,o,o,o,o,!1,o,o,!1,o,!0,o,C.aA,o,o,o,o,o,o,o,o,o,o,o,o,!0,C.a7,o,C.aE,o,o,o,o),0,o),0)
 r=p.x
 q=y.u
-r=A.b([v,C.bo,u,C.bo,t,s,C.aB,A.bt(A.b([A.agE(o,!1,o,o,o,!1,o,o,p.y?o:new B.aPx(p),o,o,o,o,o,!1,r),A.c1(new A.a_(C.oF,A.dY(C.aU,A.b([A.k(e.gpt(),o,o,o,o,A.jG(d,13,1.5),o,o,o),A.eo(!1,o,!0,A.k(e.gps(),o,o,o,o,A.jG(d,13,1.5).aHF(f.b,C.d2,C.M),o,o,o),o,!0,o,o,o,o,o,o,o,o,o,o,new B.aPy(d),o,o,o,o,o,o,o),A.k(e.gpu(),o,o,o,o,A.jG(d,13,1.5),o,o,o)],q),C.bj,0,0),o),1)],q),C.E,o,C.i,C.k,0)],q)
+r=A.b([v,C.bo,u,C.bo,t,s,C.aB,A.bt(A.b([A.agF(o,!1,o,o,o,!1,o,o,p.y?o:new B.aPx(p),o,o,o,o,o,!1,r),A.c1(new A.a_(C.oF,A.dY(C.aU,A.b([A.k(e.gpt(),o,o,o,o,A.jG(d,13,1.5),o,o,o),A.eo(!1,o,!0,A.k(e.gps(),o,o,o,o,A.jG(d,13,1.5).aHL(f.b,C.d2,C.M),o,o,o),o,!0,o,o,o,o,o,o,o,o,o,o,new B.aPy(d),o,o,o,o,o,o,o),A.k(e.gpu(),o,o,o,o,A.jG(d,13,1.5),o,o,o)],q),C.bj,0,0),o),1)],q),C.E,o,C.i,C.k,0)],q)
 v=p.Q
 if(v!=null)C.c.R(r,A.b([C.L,A.k(e.hI(v),o,o,o,o,A.bk().$3$color$fontSize$fontWeight(f.fy,13,C.M),o,o,o)],q))
-r.push(C.c4)
+r.push(C.bU)
 v=p.y
 u=v?o:new B.aPz(p,e)
-t=v?A.bp(A.b2w(f.c,2),18,18):D.Yq
+t=v?A.bp(A.b2x(f.c,2),18,18):D.Yq
 r.push(A.akq(t,A.k(v?e.gqH():e.gqG(),o,o,o,o,o,o,o,o),u,o))
-return A.Es(o,A.ae(A.b([n,C.r,x,C.L,w,C.c4,new A.ob(A.ae(r,C.R,C.i,C.k),18,C.iT,o)],q),C.R,C.i,C.k),p.d)},
-a1f(d,e,f,g,h,i,j){var x=null,w=this.y,v=i?j:x
+return A.Et(o,A.ae(A.b([n,C.r,x,C.L,w,C.bU,new A.ob(A.ae(r,C.R,C.i,C.k),18,C.iT,o)],q),C.R,C.i,C.k),p.d)},
+a1m(d,e,f,g,h,i,j){var x=null,w=this.y,v=i?j:x
 return A.on(!1,d,A.fd(x,C.ea,x,x,x,x,x,x,!0,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,e,x,x,x,x,x,!0,x,x,g,!0,!0,!1,x,x,x,x,x,x,x,x,x,x,x,x,x,x),!w,x,f,x,h,x,x,x,v)},
-a1e(d,e,f,g,h){return this.a1f(d,e,f,g,1,!0,h)},
-aq8(d,e,f,g,h,i){return this.a1f(d,e,f,g,h,i,null)}}
+a1l(d,e,f,g,h){return this.a1m(d,e,f,g,1,!0,h)},
+aqe(d,e,f,g,h,i){return this.a1m(d,e,f,g,h,i,null)}}
 var z=a.updateTypes([])
 B.aPB.prototype={
 $0(){var x=this.a
@@ -237,7 +237,7 @@ B.aPA.prototype={
 $0(){var x,w=this.a
 if(A.bd(w,!1).vG())A.bd(w,!1).dL()
 else{x=y.q
-A.bd(w,!1).Wp("/",x,x)}},
+A.bd(w,!1).Wv("/",x,x)}},
 $S:0}
 B.aPv.prototype={
 $1(d){if(C.b.T(d==null?"":d).length<2)return this.a.hI("name_invalid")
@@ -259,19 +259,19 @@ B.aPy.prototype={
 $0(){return A.bd(this.a,!1).kv("/politica-privacidade-site",y.q)},
 $S:0}
 B.aPz.prototype={
-$0(){return this.a.Ft(this.b)},
+$0(){return this.a.Fv(this.b)},
 $S:0};(function inheritance(){var x=a.inherit,w=a.inheritMany
 x(B.ay8,A.Q)
 w(B.ay8,[B.aSi,B.aSg,B.aSh])
 x(B.mj,A.R)
-x(B.a8I,A.V)
+x(B.a8J,A.V)
 w(A.kI,[B.aPB,B.aPC,B.aPD,B.aPE,B.aPA,B.aPu,B.aPy,B.aPz])
 w(A.kH,[B.aPv,B.aPw,B.aPx])})()
-A.wd(b.typeUniverse,JSON.parse('{"mj":{"R":[],"c":[]},"a8I":{"V":["mj"]}}'))
-var y={u:A.a5("B<c>"),o:A.a5("aW<xK>"),x:A.a5("hB"),h:A.a5("mO"),q:A.a5("Q?"),v:A.a5("~")};(function constants(){D.Pr=new A.a0(0,520,0,1/0)
-D.RU=new B.aSg()
-D.RV=new B.aSh()
-D.RW=new B.aSi()
-D.Yq=new A.c8(C.w4,18,null,null,null)
+A.wd(b.typeUniverse,JSON.parse('{"mj":{"R":[],"c":[]},"a8J":{"V":["mj"]}}'))
+var y={u:A.a5("B<c>"),o:A.a5("aW<xK>"),x:A.a5("hB"),h:A.a5("mO"),q:A.a5("Q?"),v:A.a5("~")};(function constants(){D.Ps=new A.a0(0,520,0,1/0)
+D.RV=new B.aSg()
+D.RW=new B.aSh()
+D.RX=new B.aSi()
+D.Yq=new A.c8(C.w5,18,null,null,null)
 D.Zd=new A.kU(null,null,null,"Website",null,null,null,null,null,null,null,null,null,null,null,null,!0,!0,!1,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,!0,null,null,null,null)})()};
-(a=>{a["+6IXhKoUSQpqu2fRglLCmgk5YQE="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["uEPpa4lXFLmbp5KuCLS5NC9Npbo="]=a.current})($__dart_deferred_initializers__);

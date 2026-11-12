@@ -1,8 +1,8 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
 $__dart_deferred_initializers__.current=function(a,b,c,$){var A,C,E,F,B={
-bjX(d){switch(d.ac(y.k).r.f.gd0()){case"en":return D.RR
-case"es":return D.RS
-case"pt":default:return D.RT}},
+bjX(d){switch(d.ac(y.k).r.f.gd0()){case"en":return D.RS
+case"es":return D.RT
+case"pt":default:return D.RU}},
 ay7:function ay7(){},
 aSf:function aSf(){},
 aSd:function aSd(){},
@@ -10,7 +10,7 @@ aSe:function aSe(){},
 biN(d){return new B.qi(d,null)},
 qi:function qi(d,e){this.c=d
 this.a=e},
-a8E:function a8E(){this.c=this.a=null},
+a8F:function a8F(){this.c=this.a=null},
 aPf:function aPf(d){this.a=d},
 aPg:function aPg(d,e,f,g,h){var _=this
 _.a=d
@@ -47,17 +47,17 @@ gqs(){return"3. Cookies e tecnologias similares"},
 gqr(){return"Utilizamos cookies e armazenamento local estritamente necess\xe1rios ao funcionamento do site e, quando ativado com o seu consentimento, cookies de medi\xe7\xe3o de audi\xeancia para compreender de forma agregada como o site \xe9 utilizado. Pode gerir ou apagar cookies nas defini\xe7\xf5es do seu navegador. Se recusar cookies de medi\xe7\xe3o, limitamos o envio de sinais de analytics conforme a configura\xe7\xe3o do seu browser e as nossas defini\xe7\xf5es de consentimento."},
 gqu(){return"4. Medi\xe7\xe3o de audi\xeancia"},
 gqt(){return"Quando activa a medi\xe7\xe3o de audi\xeancia, utilizamos um prestador externo de estat\xedsticas agregadas. O tratamento limita-se a dados t\xe9cnicos e agregados, sem venda de dados pessoais. Pode alterar a sua escolha a qualquer momento na sec\xe7\xe3o \xabGerenciar cookies\xbb do rodap\xe9 ou nesta p\xe1gina."},
-gKz(){return"5. Base legal e reten\xe7\xe3o"},
-gKy(){return"O tratamento de dados t\xe9cnicos e de medi\xe7\xe3o pode basear-se no interesse leg\xedtimo em melhorar o site e na execu\xe7\xe3o de medidas pr\xe9-contratuais ou contratuais quando nos contacta. O pr\xe9-cadastro baseia-se no seu consentimento, que pode revogar a qualquer momento (ver sec\xe7\xe3o 6). Conservamos mensagens de contacto e registos de pr\xe9-cadastro apenas pelo tempo necess\xe1rio \xe0 finalidade indicada ou at\xe9 pedido de elimina\xe7\xe3o, respeitando obriga\xe7\xf5es legais aplic\xe1veis."},
-gKB(){return"6. Os seus direitos"},
-KA(d){return"No Brasil, aplica-se a Lei Geral de Prote\xe7\xe3o de Dados (LGPD, Lei 13.709/2018). Na Uni\xe3o Europeia, aplica-se o RGPD. Dependendo da lei aplic\xe1vel, poder\xe1 solicitar acesso, retifica\xe7\xe3o, apagamento, limita\xe7\xe3o, portabilidade ou oposi\xe7\xe3o ao tratamento dos seus dados pessoais, incluindo dados de pr\xe9-cadastro. Para exercer direitos ou quest\xf5es de privacidade, escreva para "+d+"."},
-gKD(){return"7. Termos de uso do site"},
-gKC(){return"O conte\xfado deste site (textos, identidade visual e materiais) destina-se a informa\xe7\xe3o sobre Perfect Gest Dev e os seus produtos. A reprodu\xe7\xe3o n\xe3o autorizada para fins comerciais pode ser proibida. Os links externos s\xe3o fornecidos por conveni\xeancia; n\xe3o controlamos sites de terceiros. O uso do site \xe9 por sua conta e risco, na medida permitida pela lei."},
-gSn(){return"Gerenciar cookies de medi\xe7\xe3o"},
-gSm(){return"Se aceitar, gravamos a sua escolha no navegador e, na pr\xf3xima carga da p\xe1gina, a medi\xe7\xe3o poder\xe1 operar apenas conforme o consentimento dado. Pode recusar ou revogar apagando os dados do site nas defini\xe7\xf5es do browser ou usando o bot\xe3o \xabRecusar\xbb abaixo."},
-gKW(){return"Prefer\xeancia gravada. Recarregue a p\xe1gina uma vez para aplicar a medi\xe7\xe3o."},
-gR0(){return"Aceitar medi\xe7\xe3o"},
-gR_(){return"Aceitar cookies de medi\xe7\xe3o"}}
+gKB(){return"5. Base legal e reten\xe7\xe3o"},
+gKA(){return"O tratamento de dados t\xe9cnicos e de medi\xe7\xe3o pode basear-se no interesse leg\xedtimo em melhorar o site e na execu\xe7\xe3o de medidas pr\xe9-contratuais ou contratuais quando nos contacta. O pr\xe9-cadastro baseia-se no seu consentimento, que pode revogar a qualquer momento (ver sec\xe7\xe3o 6). Conservamos mensagens de contacto e registos de pr\xe9-cadastro apenas pelo tempo necess\xe1rio \xe0 finalidade indicada ou at\xe9 pedido de elimina\xe7\xe3o, respeitando obriga\xe7\xf5es legais aplic\xe1veis."},
+gKD(){return"6. Os seus direitos"},
+KC(d){return"No Brasil, aplica-se a Lei Geral de Prote\xe7\xe3o de Dados (LGPD, Lei 13.709/2018). Na Uni\xe3o Europeia, aplica-se o RGPD. Dependendo da lei aplic\xe1vel, poder\xe1 solicitar acesso, retifica\xe7\xe3o, apagamento, limita\xe7\xe3o, portabilidade ou oposi\xe7\xe3o ao tratamento dos seus dados pessoais, incluindo dados de pr\xe9-cadastro. Para exercer direitos ou quest\xf5es de privacidade, escreva para "+d+"."},
+gKF(){return"7. Termos de uso do site"},
+gKE(){return"O conte\xfado deste site (textos, identidade visual e materiais) destina-se a informa\xe7\xe3o sobre Perfect Gest Dev e os seus produtos. A reprodu\xe7\xe3o n\xe3o autorizada para fins comerciais pode ser proibida. Os links externos s\xe3o fornecidos por conveni\xeancia; n\xe3o controlamos sites de terceiros. O uso do site \xe9 por sua conta e risco, na medida permitida pela lei."},
+gSt(){return"Gerenciar cookies de medi\xe7\xe3o"},
+gSs(){return"Se aceitar, gravamos a sua escolha no navegador e, na pr\xf3xima carga da p\xe1gina, a medi\xe7\xe3o poder\xe1 operar apenas conforme o consentimento dado. Pode recusar ou revogar apagando os dados do site nas defini\xe7\xf5es do browser ou usando o bot\xe3o \xabRecusar\xbb abaixo."},
+gKY(){return"Prefer\xeancia gravada. Recarregue a p\xe1gina uma vez para aplicar a medi\xe7\xe3o."},
+gR6(){return"Aceitar medi\xe7\xe3o"},
+gR5(){return"Aceitar cookies de medi\xe7\xe3o"}}
 B.aSd.prototype={
 gfi(){return"Perfect Gest Dev privacy policy, data, cookies and terms"},
 giY(){return"Privacy and terms"},
@@ -72,17 +72,17 @@ gqs(){return"3. Cookies and similar technologies"},
 gqr(){return"We use cookies and local storage strictly necessary for the site to work and, when enabled with your consent, audience measurement cookies to understand in aggregate how the site is used. You can manage or delete cookies in your browser settings. If you decline measurement cookies, we limit analytics signals according to your browser configuration and our consent settings."},
 gqu(){return"4. Audience measurement"},
 gqt(){return"When you enable audience measurement, we use an external aggregated statistics provider. Processing is limited to technical and aggregated data; we do not sell personal data. You can change your choice at any time via \xabManage cookies\xbb in the footer or on this page."},
-gKz(){return"5. Legal basis and retention"},
-gKy(){return"Processing of technical and measurement data may rely on legitimate interest in improving the site and on pre-contractual or contractual measures when you contact us. Pre-registration relies on your consent, which you may withdraw at any time (see section 6). We keep contact messages and pre-registration records only as long as needed for the stated purpose or until a deletion request, subject to applicable legal obligations."},
-gKB(){return"6. Your rights"},
-KA(d){return"In Brazil, the General Data Protection Law (LGPD, Law 13,709/2018) applies. In the European Union, the GDPR applies. Depending on applicable law, you may request access, rectification, erasure, restriction, portability or objection to processing of your personal data, including pre-registration data. To exercise rights or ask privacy questions, write to "+d+"."},
-gKD(){return"7. Website terms of use"},
-gKC(){return"The content of this site (text, visual identity and materials) is for information about Perfect Gest Dev and its products. Unauthorized reproduction for commercial purposes may be prohibited. External links are provided for convenience; we do not control third-party sites. You use the site at your own risk, to the extent permitted by law."},
-gSn(){return"Manage measurement cookies"},
-gSm(){return"If you accept, we store your choice in the browser and, on the next page load, measurement may run only according to your consent. You can decline or revoke by clearing site data in your browser settings or using \xabDecline\xbb below."},
-gKW(){return"Preference saved. Reload the page once to apply measurement."},
-gR0(){return"Accept measurement"},
-gR_(){return"Accept measurement cookies"}}
+gKB(){return"5. Legal basis and retention"},
+gKA(){return"Processing of technical and measurement data may rely on legitimate interest in improving the site and on pre-contractual or contractual measures when you contact us. Pre-registration relies on your consent, which you may withdraw at any time (see section 6). We keep contact messages and pre-registration records only as long as needed for the stated purpose or until a deletion request, subject to applicable legal obligations."},
+gKD(){return"6. Your rights"},
+KC(d){return"In Brazil, the General Data Protection Law (LGPD, Law 13,709/2018) applies. In the European Union, the GDPR applies. Depending on applicable law, you may request access, rectification, erasure, restriction, portability or objection to processing of your personal data, including pre-registration data. To exercise rights or ask privacy questions, write to "+d+"."},
+gKF(){return"7. Website terms of use"},
+gKE(){return"The content of this site (text, visual identity and materials) is for information about Perfect Gest Dev and its products. Unauthorized reproduction for commercial purposes may be prohibited. External links are provided for convenience; we do not control third-party sites. You use the site at your own risk, to the extent permitted by law."},
+gSt(){return"Manage measurement cookies"},
+gSs(){return"If you accept, we store your choice in the browser and, on the next page load, measurement may run only according to your consent. You can decline or revoke by clearing site data in your browser settings or using \xabDecline\xbb below."},
+gKY(){return"Preference saved. Reload the page once to apply measurement."},
+gR6(){return"Accept measurement"},
+gR5(){return"Accept measurement cookies"}}
 B.aSe.prototype={
 gfi(){return"Politica de privacidad, datos, cookies y terminos Perfect Gest Dev"},
 giY(){return"Privacidad y terminos"},
@@ -97,20 +97,20 @@ gqs(){return"3. Cookies y tecnologias similares"},
 gqr(){return"Utilizamos cookies y almacenamiento local estrictamente necesarios para el funcionamiento del sitio y, cuando esta activado con su consentimiento, cookies de medicion de audiencia para entender de forma agregada como se usa el sitio. Puede gestionar o borrar cookies en la configuracion del navegador. Si rechaza cookies de medicion, limitamos el envio de senales de analytics segun la configuracion del navegador y nuestras opciones de consentimiento."},
 gqu(){return"4. Medicion de audiencia"},
 gqt(){return"Cuando activa la medicion de audiencia, utilizamos un proveedor externo de estadisticas agregadas. El tratamiento se limita a datos tecnicos y agregados; no vendemos datos personales. Puede cambiar su eleccion en cualquier momento en \xabGestionar cookies\xbb del pie de pagina o en esta pagina."},
-gKz(){return"5. Base legal y conservacion"},
-gKy(){return"El tratamiento de datos tecnicos y de medicion puede basarse en el interes legitimo de mejorar el sitio y en medidas precontractuales o contractuales cuando nos contacta. El pre-registro se basa en su consentimiento, que puede revocar en cualquier momento (ver seccion 6). Conservamos los mensajes de contacto y registros de pre-registro solo el tiempo necesario para la finalidad indicada o hasta una solicitud de eliminacion, respetando obligaciones legales aplicables."},
-gKB(){return"6. Sus derechos"},
-KA(d){return"En Brasil, se aplica la Ley General de Proteccion de Datos (LGPD, Ley 13.709/2018). En la Union Europea, se aplica el RGPD. Segun la ley aplicable, puede solicitar acceso, rectificacion, supresion, limitacion, portabilidad u oposicion al tratamiento de sus datos personales, incluidos datos de pre-registro. Para ejercer derechos o consultas de privacidad, escriba a "+d+"."},
-gKD(){return"7. Terminos de uso del sitio"},
-gKC(){return"El contenido de este sitio (textos, identidad visual y materiales) tiene fines informativos sobre Perfect Gest Dev y sus productos. La reproduccion no autorizada con fines comerciales puede estar prohibida. Los enlaces externos se ofrecen por conveniencia; no controlamos sitios de terceros. El uso del sitio es bajo su propio riesgo, en la medida permitida por la ley."},
-gSn(){return"Gestionar cookies de medicion"},
-gSm(){return"Si acepta, guardamos su eleccion en el navegador y, en la proxima carga de la pagina, la medicion puede operar solo segun el consentimiento dado. Puede rechazar o revocar borrando los datos del sitio en la configuracion del navegador o usando \xabRechazar\xbb abajo."},
-gKW(){return"Preferencia guardada. Recargue la pagina una vez para aplicar la medicion."},
-gR0(){return"Aceptar medicion"},
-gR_(){return"Aceptar cookies de medicion"}}
+gKB(){return"5. Base legal y conservacion"},
+gKA(){return"El tratamiento de datos tecnicos y de medicion puede basarse en el interes legitimo de mejorar el sitio y en medidas precontractuales o contractuales cuando nos contacta. El pre-registro se basa en su consentimiento, que puede revocar en cualquier momento (ver seccion 6). Conservamos los mensajes de contacto y registros de pre-registro solo el tiempo necesario para la finalidad indicada o hasta una solicitud de eliminacion, respetando obligaciones legales aplicables."},
+gKD(){return"6. Sus derechos"},
+KC(d){return"En Brasil, se aplica la Ley General de Proteccion de Datos (LGPD, Ley 13.709/2018). En la Union Europea, se aplica el RGPD. Segun la ley aplicable, puede solicitar acceso, rectificacion, supresion, limitacion, portabilidad u oposicion al tratamiento de sus datos personales, incluidos datos de pre-registro. Para ejercer derechos o consultas de privacidad, escriba a "+d+"."},
+gKF(){return"7. Terminos de uso del sitio"},
+gKE(){return"El contenido de este sitio (textos, identidad visual y materiales) tiene fines informativos sobre Perfect Gest Dev y sus productos. La reproduccion no autorizada con fines comerciales puede estar prohibida. Los enlaces externos se ofrecen por conveniencia; no controlamos sitios de terceros. El uso del sitio es bajo su propio riesgo, en la medida permitida por la ley."},
+gSt(){return"Gestionar cookies de medicion"},
+gSs(){return"Si acepta, guardamos su eleccion en el navegador y, en la proxima carga de la pagina, la medicion puede operar solo segun el consentimiento dado. Puede rechazar o revocar borrando los datos del sitio en la configuracion del navegador o usando \xabRechazar\xbb abajo."},
+gKY(){return"Preferencia guardada. Recargue la pagina una vez para aplicar la medicion."},
+gR6(){return"Aceptar medicion"},
+gR5(){return"Aceptar cookies de medicion"}}
 B.qi.prototype={
-a4(){return new B.a8E()}}
-B.a8E.prototype={
+a4(){return new B.a8F()}}
+B.a8F.prototype={
 ak(){this.aC()
 E.b91()},
 l(){A.rr()
@@ -119,7 +119,7 @@ A(d){var x,w,v,u,t=null,s=A.v(d),r=A.aR(d,C.ah,y.h).w.a.a,q=r<400?16:24,p=A.bM(d
 p.toString
 x=B.bjX(d)
 w=x.gfi()
-v=A.v(d).ax.a===C.P?C.bZ:C.bL
+v=A.v(d).ax.a===C.P?C.c_:C.bL
 u=x.giY()
 return A.aw(t,t,t,A.fy(F.aXO(d,new B.aPf(d),this.a.c,u),v,new A.ka(A.jg(new B.aPg(q,x,s.ax,r,p)),t),t,t,t,t),!1,t,t,!1,t,!1,t,t,t,t,t,t,t,t,w,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,C.p,t)}}
 B.mQ.prototype={
@@ -162,12 +162,12 @@ i=v.gqs()
 h=v.gqr()
 g=v.gqu()
 f=v.gqt()
-e=v.gKz()
-d=v.gKy()
-a0=v.gKB()
-a1=v.KA(b1)
-a2=v.gKD()
-a3=v.gKC()
+e=v.gKB()
+d=v.gKA()
+a0=v.gKD()
+a1=v.KC(b1)
+a2=v.gKF()
+a3=v.gKE()
 a4=u.d
 t=(a4==null?t:a4).ag(0.35)
 a4=A.b7(14)
@@ -176,18 +176,18 @@ if(a5==null){u=u.p
 if(u==null)u=n}else u=a5
 u=A.dA(u.ag(0.45),1)
 p=p?14:16
-a5=A.k(v.gSn(),b0,b0,b0,b0,A.bk().$3$color$fontSize$fontWeight(n,14,C.D),b0,b0,b0)
-a6=A.k(v.gSm(),b0,b0,b0,b0,A.bk().$3$color$fontSize$height(n.ag(0.8),12.5,1.45),b0,b0,b0)
+a5=A.k(v.gSt(),b0,b0,b0,b0,A.bk().$3$color$fontSize$fontWeight(n,14,C.D),b0,b0,b0)
+a6=A.k(v.gSs(),b0,b0,b0,b0,A.bk().$3$color$fontSize$height(n.ag(0.8),12.5,1.45),b0,b0,b0)
 a7=a9.e
 a8=y.e
-return A.eh(A.cx(new A.cf(new A.a0(0,x,0,1/0),A.ae(A.b([s,C.a6,o,C.aj,r,C.eQ,new B.mQ(m,l,b0),new B.mQ(k,j,b0),new B.mQ(i,h,b0),new B.mQ(g,f,b0),new B.mQ(e,d,b0),new B.mQ(a0,a1,b0),new B.mQ(a2,a3,b0),C.c4,A.cz(new A.a_(new A.W(p,p,p,p),A.ae(A.b([a5,C.r,a6,C.L,A.dY(C.aU,A.b([A.akq(D.Yn,A.k(q<360?v.gR0():v.gR_(),b0,b0,b0,b0,b0,C.ad,b0,b0),new B.aPd(b3,v),b0),A.Ga(A.k(a7.gA2(),b0,b0,b0,b0,b0,b0,b0,b0),new B.aPe(b3,a7),b0)],a8),C.bj,8,8)],a8),C.R,C.i,C.k),b0),new A.bb(t,b0,u,a4,b0,b0,C.F),C.ae),C.jO,A.k(a7.vr(A.aO(new A.bl(Date.now(),0,!1))),b0,b0,b0,b0,A.bk().$2$color$fontSize(n.ag(0.65),12),C.ad,b0,b0)],a8),C.E,C.i,C.k),b0),b0,b0),b0,new A.W(w,16,w,28),C.a5)},
+return A.eh(A.cx(new A.cf(new A.a0(0,x,0,1/0),A.ae(A.b([s,C.a6,o,C.aj,r,C.eQ,new B.mQ(m,l,b0),new B.mQ(k,j,b0),new B.mQ(i,h,b0),new B.mQ(g,f,b0),new B.mQ(e,d,b0),new B.mQ(a0,a1,b0),new B.mQ(a2,a3,b0),C.bU,A.cz(new A.a_(new A.W(p,p,p,p),A.ae(A.b([a5,C.r,a6,C.L,A.dY(C.aU,A.b([A.akq(D.Yn,A.k(q<360?v.gR6():v.gR5(),b0,b0,b0,b0,b0,C.ad,b0,b0),new B.aPd(b3,v),b0),A.Gb(A.k(a7.gA2(),b0,b0,b0,b0,b0,b0,b0,b0),new B.aPe(b3,a7),b0)],a8),C.bj,8,8)],a8),C.R,C.i,C.k),b0),new A.bb(t,b0,u,a4,b0,b0,C.F),C.ae),C.jO,A.k(a7.vr(A.aO(new A.bl(Date.now(),0,!1))),b0,b0,b0,b0,A.bk().$2$color$fontSize(n.ag(0.65),12),C.ad,b0,b0)],a8),C.E,C.i,C.k),b0),b0,b0),b0,new A.W(w,16,w,28),C.a5)},
 $S:154}
 B.aPd.prototype={
 $0(){var x,w=null
 A.b9B()
 x=this.a
 if(x.e==null)return
-x.ac(y.f).f.ii(A.qH(w,w,w,w,C.jP,C.t,w,A.k(this.b.gKW(),w,w,w,w,w,w,w,w),w,C.c7,w,w,w,w,w,w,w,w,w,w))},
+x.ac(y.f).f.ii(A.qH(w,w,w,w,C.jP,C.t,w,A.k(this.b.gKY(),w,w,w,w,w,w,w,w),w,C.c7,w,w,w,w,w,w,w,w,w,w))},
 $S:0}
 B.aPe.prototype={
 $0(){var x,w=null
@@ -199,13 +199,13 @@ $S:0};(function inheritance(){var x=a.inherit,w=a.inheritMany
 x(B.ay7,A.Q)
 w(B.ay7,[B.aSf,B.aSd,B.aSe])
 x(B.qi,A.R)
-x(B.a8E,A.V)
+x(B.a8F,A.V)
 w(A.kI,[B.aPf,B.aPd,B.aPe])
 x(B.aPg,A.t5)
 x(B.mQ,A.X)})()
-A.wd(b.typeUniverse,JSON.parse('{"qi":{"R":[],"c":[]},"a8E":{"V":["qi"]},"mQ":{"X":[],"c":[]}}'))
-var y={p:A.a5("hq"),e:A.a5("B<c>"),h:A.a5("hB"),k:A.a5("mO"),f:A.a5("Bj")};(function constants(){D.RR=new B.aSd()
-D.RS=new B.aSe()
-D.RT=new B.aSf()
+A.wd(b.typeUniverse,JSON.parse('{"qi":{"R":[],"c":[]},"a8F":{"V":["qi"]},"mQ":{"X":[],"c":[]}}'))
+var y={p:A.a5("hq"),e:A.a5("B<c>"),h:A.a5("hB"),k:A.a5("mO"),f:A.a5("Bj")};(function constants(){D.RS=new B.aSd()
+D.RT=new B.aSe()
+D.RU=new B.aSf()
 D.Yn=new A.c8(C.pr,20,null,null,null)})()};
-(a=>{a["44jVvYQioQ7W3sKB+WMahvCSTho="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["sPOD/WJLPAFdVWfLBSkgMCsR1N8="]=a.current})($__dart_deferred_initializers__);
