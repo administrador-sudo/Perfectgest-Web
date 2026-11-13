@@ -40,6 +40,13 @@ const agendaBarberStaticSlugs = [
   'barber-faq',
 ];
 
+const nexusB2bStaticSlugs = [
+  'nexus-b2b-politica-privacidade',
+  'nexus-b2b-termos',
+  'nexus-b2b-exclusao-dados',
+  'nexus-b2b-faq',
+];
+
 const legacyAppRedirects = {
   'politica-privacidade-perfectgest-i':
     'https://sites.google.com/view/perfectgest-i-faq-suporte/politica-em-pt',
@@ -54,6 +61,7 @@ function allLegalSlugs() {
     ...perfectGestIStaticSlugs,
     ...contabilIStaticSlugs,
     ...agendaBarberStaticSlugs,
+    ...nexusB2bStaticSlugs,
     ...Object.keys(legacyAppRedirects),
   ];
 }
@@ -64,6 +72,7 @@ module.exports = {
   perfectGestIStaticSlugs,
   contabilIStaticSlugs,
   agendaBarberStaticSlugs,
+  nexusB2bStaticSlugs,
   legacyAppRedirects,
   allLegalSlugs,
 };
