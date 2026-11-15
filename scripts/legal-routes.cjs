@@ -41,6 +41,10 @@ const agendaBarberStaticSlugs = [
 ];
 
 const nexusB2bStaticSlugs = [
+  'perfectgest-b2b-politica-privacidade',
+  'perfectgest-b2b-termos',
+  'perfectgest-b2b-exclusao-dados',
+  'perfectgest-b2b-faq',
   'nexus-b2b-politica-privacidade',
   'nexus-b2b-termos',
   'nexus-b2b-exclusao-dados',

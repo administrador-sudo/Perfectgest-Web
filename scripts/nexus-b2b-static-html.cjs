@@ -241,9 +241,14 @@ function writeAll(buildWeb) {
   const slugs = [];
   for (const pageId of Object.keys(DATA.pages)) {
     const slug = DATA.pages[pageId].slug;
+    const legacy = DATA.legacySlugs[pageId];
     slugs.push(slug);
     const html = buildPage(pageId);
     fs.writeFileSync(path.join(buildWeb, `${slug}.html`), html, 'utf8');
+    if (legacy && legacy !== slug) {
+      slugs.push(legacy);
+      fs.writeFileSync(path.join(buildWeb, `${legacy}.html`), html, 'utf8');
+    }
   }
   return slugs;
 }

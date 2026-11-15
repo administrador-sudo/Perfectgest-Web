@@ -99,6 +99,30 @@ services:
         source: /barber-faq
         destination: /barber-faq.html
       - type: rewrite
+        source: /perfectgest-b2b-politica-privacidade
+        destination: /perfectgest-b2b-politica-privacidade.html
+      - type: rewrite
+        source: /perfectgest-b2b-termos
+        destination: /perfectgest-b2b-termos.html
+      - type: rewrite
+        source: /perfectgest-b2b-exclusao-dados
+        destination: /perfectgest-b2b-exclusao-dados.html
+      - type: rewrite
+        source: /perfectgest-b2b-faq
+        destination: /perfectgest-b2b-faq.html
+      - type: rewrite
+        source: /nexus-b2b-politica-privacidade
+        destination: /nexus-b2b-politica-privacidade.html
+      - type: rewrite
+        source: /nexus-b2b-termos
+        destination: /nexus-b2b-termos.html
+      - type: rewrite
+        source: /nexus-b2b-exclusao-dados
+        destination: /nexus-b2b-exclusao-dados.html
+      - type: rewrite
+        source: /nexus-b2b-faq
+        destination: /nexus-b2b-faq.html
+      - type: rewrite
         source: /politica-privacidade-perfectgest-i
         destination: /politica-privacidade-perfectgest-i.html
       - type: rewrite

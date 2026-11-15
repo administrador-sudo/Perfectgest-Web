@@ -30,6 +30,10 @@ $BuildWeb = Join-Path $SiteRoot 'build\web'
 $PublishJs = Join-Path $SiteRoot 'scripts\publish-web.cjs'
 
 $Urls = @(
+    'https://perfectgestdev.com/perfectgest-b2b-politica-privacidade',
+    'https://perfectgestdev.com/perfectgest-b2b-termos',
+    'https://perfectgestdev.com/perfectgest-b2b-exclusao-dados',
+    'https://perfectgestdev.com/perfectgest-b2b-faq',
     'https://perfectgestdev.com/nexus-b2b-politica-privacidade',
     'https://perfectgestdev.com/nexus-b2b-termos',
     'https://perfectgestdev.com/nexus-b2b-exclusao-dados',
@@ -78,6 +82,10 @@ node $StaticJs $BuildWeb
 if ($LASTEXITCODE -ne 0) { throw "nexus-b2b-static-html falhou ($LASTEXITCODE)" }
 
 $Expected = @(
+    'perfectgest-b2b-politica-privacidade.html',
+    'perfectgest-b2b-termos.html',
+    'perfectgest-b2b-exclusao-dados.html',
+    'perfectgest-b2b-faq.html',
     'nexus-b2b-politica-privacidade.html',
     'nexus-b2b-termos.html',
     'nexus-b2b-exclusao-dados.html',

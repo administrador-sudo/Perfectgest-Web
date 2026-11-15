@@ -16,6 +16,13 @@ const COMPANY =
   'PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA (CNPJ 66.889.409/0001-19)';
 
 const pageSlugs = {
+  privacy: 'perfectgest-b2b-politica-privacidade',
+  terms: 'perfectgest-b2b-termos',
+  deletion: 'perfectgest-b2b-exclusao-dados',
+  faq: 'perfectgest-b2b-faq',
+};
+
+const legacySlugs = {
   privacy: 'nexus-b2b-politica-privacidade',
   terms: 'nexus-b2b-termos',
   deletion: 'nexus-b2b-exclusao-dados',
@@ -472,6 +479,7 @@ const faq = {
 module.exports = {
   PRODUCT,
   PACKAGE,
+  legacySlugs,
   ORIGIN,
   CONTACT,
   header,
