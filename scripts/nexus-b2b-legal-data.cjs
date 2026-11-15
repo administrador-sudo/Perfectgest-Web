@@ -1,16 +1,17 @@
 /**
- * Textos legais NEXUS-B2B (Play) — PT/EN/ES.
+ * Textos legais PERFECTGEST B2B (Play) — PT/EN/ES.
  * Package: com.perfectgestdev.rodada_negocio
  * Regenerar HTML: node scripts/nexus-b2b-static-html.cjs
  */
 'use strict';
 
-const PRODUCT = 'NEXUS-B2B';
+const PRODUCT = 'PERFECTGEST B2B';
+const SUBTITLE = 'Rodada de Negócio';
 const PACKAGE = 'com.perfectgestdev.rodada_negocio';
 const ORIGIN = 'https://perfectgestdev.com';
 const CONTACT =
   'suporte@perfectgestdev.com · WhatsApp +55 (51) 98904-5442';
-const UPDATED = '13 de novembro de 2026';
+const UPDATED = '15 de novembro de 2026';
 const COMPANY =
   'PERFECT GEST DESENVOLVIMENTO DE SOFTWARE LTDA (CNPJ 66.889.409/0001-19)';
 
@@ -25,20 +26,23 @@ const header = {
   pt:
     `Última atualização: ${UPDATED}\n\n` +
     `Produto: ${PRODUCT}\n` +
+    `Subtítulo: ${SUBTITLE}\n` +
     `Package Android: ${PACKAGE}\n` +
     `Desenvolvedor: ${COMPANY}\n` +
     `Contato: ${CONTACT}\n` +
     `Site: ${ORIGIN}`,
   en:
-    `Last updated: November 13, 2026\n\n` +
+    `Last updated: November 15, 2026\n\n` +
     `Product: ${PRODUCT}\n` +
+    `Subtitle: ${SUBTITLE}\n` +
     `Android package: ${PACKAGE}\n` +
     `Developer: ${COMPANY}\n` +
     `Contact: ${CONTACT}\n` +
     `Website: ${ORIGIN}`,
   es:
-    `Última actualización: 13 de noviembre de 2026\n\n` +
+    `Última actualización: 15 de noviembre de 2026\n\n` +
     `Producto: ${PRODUCT}\n` +
+    `Subtítulo: ${SUBTITLE}\n` +
     `Paquete Android: ${PACKAGE}\n` +
     `Desarrollador: ${COMPANY}\n` +
     `Contacto: ${CONTACT}\n` +
@@ -332,7 +336,7 @@ const deletion = {
 const faq = {
   pt: [
     {
-      heading: 'O que é o NEXUS-B2B?',
+      heading: `O que é o ${PRODUCT}?`,
       body:
         'É o app da rodada de negócio no próprio aparelho. O operador fotografa o cartão e o folder, lê o QR, grava o áudio da apresentação e gera um PDF com o cartão, o nome ou a empresa e a marca Me interessa. A página Material carrega PDF, imagem, DOCX e PowerPoint, fotografa e escaneia documento.',
     },
@@ -368,7 +372,7 @@ const faq = {
     {
       heading: 'Estas páginas valem para outros apps?',
       body:
-        'Não. Valem só para o NEXUS-B2B.',
+        `Não. Valem só para o ${PRODUCT}, ${SUBTITLE}.`,
     },
     {
       heading: 'Onde estão as políticas?',
@@ -385,7 +389,7 @@ const faq = {
   ],
   en: [
     {
-      heading: 'What is NEXUS-B2B?',
+      heading: `What is ${PRODUCT}?`,
       body:
         'It is the on-device business-round app. The operator photographs a card and a folder, reads a QR code, records the presentation audio, and builds a PDF with the card, the name or the company, and the Me interessa mark. The Material page loads PDF, image, DOCX, and PowerPoint files, and takes a photo or a document scan.',
     },
@@ -425,7 +429,7 @@ const faq = {
   ],
   es: [
     {
-      heading: '¿Qué es NEXUS-B2B?',
+      heading: `¿Qué es ${PRODUCT}?`,
       body:
         'Es la app de la ronda de negocios en el propio aparato. El operador fotografía la tarjeta y el folleto, lee el QR, graba el audio y genera un PDF con la tarjeta, el nombre o la empresa y la marca Me interessa. La página Material carga PDF, imagen, DOCX y PowerPoint, fotografía y escanea documento.',
     },
@@ -477,36 +481,36 @@ module.exports = {
     privacy: {
       slug: pageSlugs.privacy,
       titles: {
-        pt: `Política de Privacidade — ${PRODUCT}`,
-        en: `Privacy Policy — ${PRODUCT}`,
-        es: `Política de Privacidad — ${PRODUCT}`,
+        pt: `Política de Privacidade — ${PRODUCT} · ${SUBTITLE}`,
+        en: `Privacy Policy — ${PRODUCT} · ${SUBTITLE}`,
+        es: `Política de Privacidad — ${PRODUCT} · ${SUBTITLE}`,
       },
       sections: privacy,
     },
     terms: {
       slug: pageSlugs.terms,
       titles: {
-        pt: `Termos de Uso — ${PRODUCT}`,
-        en: `Terms of Use — ${PRODUCT}`,
-        es: `Términos de Uso — ${PRODUCT}`,
+        pt: `Termos de Uso — ${PRODUCT} · ${SUBTITLE}`,
+        en: `Terms of Use — ${PRODUCT} · ${SUBTITLE}`,
+        es: `Términos de Uso — ${PRODUCT} · ${SUBTITLE}`,
       },
       sections: terms,
     },
     deletion: {
       slug: pageSlugs.deletion,
       titles: {
-        pt: `Exclusão de Dados — ${PRODUCT}`,
-        en: `Data Deletion — ${PRODUCT}`,
-        es: `Eliminación de Datos — ${PRODUCT}`,
+        pt: `Exclusão de Dados — ${PRODUCT} · ${SUBTITLE}`,
+        en: `Data Deletion — ${PRODUCT} · ${SUBTITLE}`,
+        es: `Eliminación de Datos — ${PRODUCT} · ${SUBTITLE}`,
       },
       sections: deletion,
     },
     faq: {
       slug: pageSlugs.faq,
       titles: {
-        pt: `FAQ / Suporte — ${PRODUCT}`,
-        en: `FAQ / Support — ${PRODUCT}`,
-        es: `FAQ / Soporte — ${PRODUCT}`,
+        pt: `FAQ / Suporte — ${PRODUCT} · ${SUBTITLE}`,
+        en: `FAQ / Support — ${PRODUCT} · ${SUBTITLE}`,
+        es: `FAQ / Soporte — ${PRODUCT} · ${SUBTITLE}`,
       },
       sections: faq,
     },
