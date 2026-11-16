@@ -128,6 +128,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   final _reviewKey = GlobalKey();
   final _nomeCtrl = TextEditingController();
   final _telefoneCtrl = TextEditingController();
+  final _reagendarPhoneCtrl = TextEditingController();
   final _reviewNomeCtrl = TextEditingController();
   final _reviewTextoCtrl = TextEditingController();
 
@@ -154,6 +155,8 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   String _pendingPixTxid = '';
   String _pendingPixPayload = '';
   bool _alertsOptedIn = false;
+  bool _rescheduling = false;
+  String? _rescheduleHint;
 
   TextStyle get _body => const TextStyle(
         fontFamily: _font,
@@ -317,9 +320,89 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   void dispose() {
     _nomeCtrl.dispose();
     _telefoneCtrl.dispose();
+    _reagendarPhoneCtrl.dispose();
     _reviewNomeCtrl.dispose();
     _reviewTextoCtrl.dispose();
     super.dispose();
+  }
+
+  Future<void> _submitReschedule() async {
+    final digits =
+        _reagendarPhoneCtrl.text.replaceAll(RegExp(r'\D'), '');
+    if (digits.length < 10) {
+      setState(() {
+        _error = 'Telefone inválido. Use DDD + número (ex.: 11 987654321).';
+      });
+      return;
+    }
+    setState(() {
+      _rescheduling = true;
+      _error = null;
+      _rescheduleHint = null;
+      _success = false;
+      _booked = null;
+    });
+    try {
+      final result =
+          await BarberCloud.instance.rescheduleByPhone(digits);
+      if (!mounted) return;
+
+      BarberPro? pro;
+      if (result.professionalId.isNotEmpty && _pros.isNotEmpty) {
+        final matches =
+            _pros.where((p) => p.id == result.professionalId);
+        if (matches.isNotEmpty) pro = matches.first;
+      }
+
+      setState(() {
+        _nomeCtrl.text = result.clientName;
+        _telefoneCtrl.text = _formatBrPhone(result.phone);
+        _reagendarPhoneCtrl.text = _formatBrPhone(result.phone);
+        _date = null;
+        _slot = null;
+        _slots = [];
+        _pixPanelOpen = false;
+        _pixReceipt = null;
+        _pendingPixPayload = '';
+        _pendingPixTxid = '';
+        _payChoice = _PayChoice.pix;
+        _rescheduleHint = result.message;
+        if (pro != null) _pro = pro;
+      });
+
+      if (pro != null) {
+        await _loadServices();
+        if (!mounted) return;
+        if (result.serviceId.isNotEmpty && _services.isNotEmpty) {
+          final svcMatches =
+              _services.where((s) => s.id == result.serviceId);
+          if (svcMatches.isNotEmpty) {
+            setState(() {
+              _service = svcMatches.first;
+              _slot = null;
+            });
+          }
+        }
+      }
+
+      if (!mounted) return;
+      _scrollToBooking();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(result.message)),
+      );
+    } catch (e) {
+      if (!mounted) return;
+      final msg = '$e'.replaceFirst('Bad state: ', '');
+      setState(() => _error = msg);
+    } finally {
+      if (mounted) setState(() => _rescheduling = false);
+    }
+  }
+
+  static String _formatBrPhone(String raw) {
+    final d = raw.replaceAll(RegExp(r'\D'), '');
+    if (d.length <= 2) return d;
+    return '${d.substring(0, 2)} ${d.substring(2)}';
   }
 
   Future<void> _submitReview() async {
@@ -1527,6 +1610,56 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          Text('Reagendar', style: _section),
+          const SizedBox(height: 8),
+          Text(
+            'Informe o telefone do agendamento (DDD + número). '
+            'O horário atual é liberado e você escolhe outro.',
+            style: _mutedStyle.copyWith(fontSize: 13),
+          ),
+          const SizedBox(height: 10),
+          TextField(
+            controller: _reagendarPhoneCtrl,
+            style: _body,
+            keyboardType: TextInputType.phone,
+            inputFormatters: const [_BrPhoneInputFormatter()],
+            decoration: _fieldDeco('Telefone (xx xxxxxxxxx)'),
+          ),
+          const SizedBox(height: 10),
+          OutlinedButton(
+            onPressed: _rescheduling ? null : _submitReschedule,
+            style: OutlinedButton.styleFrom(
+              foregroundColor: _olive,
+              side: const BorderSide(color: _olive),
+              padding: const EdgeInsets.symmetric(vertical: 14),
+            ),
+            child: _rescheduling
+                ? const SizedBox(
+                    height: 20,
+                    width: 20,
+                    child: CircularProgressIndicator(strokeWidth: 2),
+                  )
+                : Text(
+                    'Buscar e liberar horário',
+                    style: _body.copyWith(
+                      color: _olive,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+          ),
+          if (_rescheduleHint != null) ...[
+            const SizedBox(height: 10),
+            Text(
+              _rescheduleHint!,
+              style: _mutedStyle.copyWith(
+                color: const Color(0xFFFFB74D),
+                fontSize: 13,
+              ),
+            ),
+          ],
+          const SizedBox(height: 20),
+          Text('Novo horário', style: _section),
+          const SizedBox(height: 12),
           if (_pros.isNotEmpty) ...[
             DropdownButtonFormField<String>(
               initialValue: _pro?.id,
@@ -1567,7 +1700,8 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
             controller: _telefoneCtrl,
             style: _body,
             keyboardType: TextInputType.phone,
-            decoration: _fieldDeco('Telefone / WhatsApp'),
+            inputFormatters: const [_BrPhoneInputFormatter()],
+            decoration: _fieldDeco('Telefone / WhatsApp (xx xxxxxxxxx)'),
             validator: (v) {
               final digits = (v ?? '').replaceAll(RegExp(r'\D'), '');
               if (digits.length < 10) return 'Telefone inválido';
@@ -1909,6 +2043,27 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
       ),
       backgroundColor: _surface,
       onSelected: (_) => setState(() => _slot = s),
+    );
+  }
+}
+
+/// Máscara `xx xxxxxxxxx` (DDD + restante, até 11 dígitos).
+class _BrPhoneInputFormatter extends TextInputFormatter {
+  const _BrPhoneInputFormatter();
+
+  @override
+  TextEditingValue formatEditUpdate(
+    TextEditingValue oldValue,
+    TextEditingValue newValue,
+  ) {
+    final digits = newValue.text.replaceAll(RegExp(r'\D'), '');
+    final clipped = digits.length > 11 ? digits.substring(0, 11) : digits;
+    final out = clipped.length <= 2
+        ? clipped
+        : '${clipped.substring(0, 2)} ${clipped.substring(2)}';
+    return TextEditingValue(
+      text: out,
+      selection: TextSelection.collapsed(offset: out.length),
     );
   }
 }

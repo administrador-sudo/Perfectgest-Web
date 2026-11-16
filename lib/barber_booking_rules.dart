@@ -9,9 +9,11 @@ Como funciona
 • Após pagar, anexe o comprovante e envie pelo WhatsApp do profissional.
 
 Cancelamento e reagendamento
-• Cancele ou remarque com pelo menos 3 horas de antecedência.
-• Se não puder comparecer na semana do plano de fidelidade, entre no site/app e adie o horário da semana com 3 horas de antecedência.
-• Pedidos feitos com menos de 3 horas podem ser recusados e o horário permanece reservado.
+• No site: use Reagendar, informe o telefone (DDD + número) e escolha um novo horário, com pelo menos 3 horas de antecedência.
+• O horário anterior é liberado; se já pagou PIX, fale com o salão para abater ou confirmar no novo agendamento.
+• No app, o barbeiro pode Desmarcar (cliente) ou marcar Não compareceu (motivos diferentes no histórico).
+• Pedidos com menos de 3 horas no site são bloqueados; o salão pode desmarcar no app se necessário.
+• Plano de fidelidade: adie a semana com 3 horas de antecedência pelo site ou pelo salão.
 
 Plano de fidelidade
 • Plano mensal pago antecipado, com direito a até 1 atendimento por semana (até 4 no mês), nos dias liberados pelo profissional.

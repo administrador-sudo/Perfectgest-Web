@@ -1,5 +1,10 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-16] Nome do app de orçamentos
+
+- Home: título do bloco `Orçamentos e Gestão`, hashtag `#OrcamentosEGestao`, legendas dos mockups.
+- Títulos legais perfectgest-i (PT/EN/ES) usam o mesmo nome. URLs `/perfectgest-i-*` iguais.
+
 ## [2026-11-12] Soluções — card Agenda Barber no topo
 
 - Bloco `Agenda Barber` acima do PerfectGest I em Soluções (App/Web).

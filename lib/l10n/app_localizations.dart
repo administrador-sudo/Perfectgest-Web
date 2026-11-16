@@ -374,7 +374,7 @@ class _AppLocalizationsPt extends AppLocalizations {
   String get footerComplianceTitle => 'Ética e Compliance';
 
   @override
-  String get solAppsTitle => 'PerfectGest';
+  String get solAppsTitle => 'Orçamentos e Gestão';
   @override
   String get solAppsPlatformLabel => 'Aplicativos para Android';
   @override
@@ -390,7 +390,7 @@ class _AppLocalizationsPt extends AppLocalizations {
   String get solAppsSupportPortalLabel => 'FAQ e políticas do app';
   @override
   String get solAppsHashtags =>
-      '#MEI #gestão #empreendedor #autônomo #microempresa #controleFinanceiro #orçamento #caixa #PerfectGest';
+      '#MEI #gestão #empreendedor #autônomo #microempresa #controleFinanceiro #orçamento #caixa #OrcamentosEGestao';
   @override
   String get solContabilAppsTitle => 'PerfectGest ContabilGest';
   @override
@@ -483,13 +483,13 @@ class _AppLocalizationsPt extends AppLocalizations {
   @override
   String get solShowcaseTapToExpand => 'Clique para ampliar a captura de tela';
   @override
-  String get solPreviewPhoneInicio => 'PerfectGest — Inicio (celular)';
+  String get solPreviewPhoneInicio => 'Orçamentos e Gestão — Inicio (celular)';
   @override
-  String get solPreviewPhoneOrcamentos => 'PerfectGest — Orcamentos (celular)';
+  String get solPreviewPhoneOrcamentos => 'Orçamentos e Gestão — Orcamentos (celular)';
   @override
-  String get solPreviewTabletInicio => 'PerfectGest — Inicio (tablet)';
+  String get solPreviewTabletInicio => 'Orçamentos e Gestão — Inicio (tablet)';
   @override
-  String get solPreviewTabletOrcamentos => 'PerfectGest — Orcamentos (tablet)';
+  String get solPreviewTabletOrcamentos => 'Orçamentos e Gestão — Orcamentos (tablet)';
   @override
   String get solPreviewContabilPhoneEmpresa =>
       'PerfectGest ContabilGest — Empresa e contador CRC (celular)';
@@ -747,7 +747,7 @@ class _AppLocalizationsEn extends AppLocalizations {
   String get footerComplianceTitle => 'Ethics & Compliance';
 
   @override
-  String get solAppsTitle => 'PerfectGest';
+  String get solAppsTitle => 'Orçamentos e Gestão';
   @override
   String get solAppsPlatformLabel => 'Android apps';
   @override
@@ -763,7 +763,7 @@ class _AppLocalizationsEn extends AppLocalizations {
   String get solAppsSupportPortalLabel => 'App FAQ and policies';
   @override
   String get solAppsHashtags =>
-      '#MEI #management #entrepreneur #freelancer #smallBusiness #cashFlow #quotes #PerfectGest';
+      '#MEI #management #entrepreneur #freelancer #smallBusiness #cashFlow #quotes #OrcamentosEGestao';
   @override
   String get solContabilAppsTitle => 'PerfectGest ContabilGest';
   @override
@@ -856,13 +856,13 @@ class _AppLocalizationsEn extends AppLocalizations {
   @override
   String get solShowcaseTapToExpand => 'Click to enlarge the screenshot';
   @override
-  String get solPreviewPhoneInicio => 'PerfectGest — Home (phone)';
+  String get solPreviewPhoneInicio => 'Orçamentos e Gestão — Home (phone)';
   @override
-  String get solPreviewPhoneOrcamentos => 'PerfectGest — Quotes (phone)';
+  String get solPreviewPhoneOrcamentos => 'Orçamentos e Gestão — Quotes (phone)';
   @override
-  String get solPreviewTabletInicio => 'PerfectGest — Home (tablet)';
+  String get solPreviewTabletInicio => 'Orçamentos e Gestão — Home (tablet)';
   @override
-  String get solPreviewTabletOrcamentos => 'PerfectGest — Quotes (tablet)';
+  String get solPreviewTabletOrcamentos => 'Orçamentos e Gestão — Quotes (tablet)';
   @override
   String get solPreviewContabilPhoneEmpresa =>
       'PerfectGest ContabilGest — Company and CRC accountant (phone)';
@@ -1121,7 +1121,7 @@ class _AppLocalizationsEs extends AppLocalizations {
   String get footerComplianceTitle => 'Ética y cumplimiento';
 
   @override
-  String get solAppsTitle => 'PerfectGest';
+  String get solAppsTitle => 'Orçamentos e Gestão';
   @override
   String get solAppsPlatformLabel => 'Aplicativos para Android';
   @override
@@ -1137,7 +1137,7 @@ class _AppLocalizationsEs extends AppLocalizations {
   String get solAppsSupportPortalLabel => 'FAQ y políticas de la app';
   @override
   String get solAppsHashtags =>
-      '#MEI #gestión #emprendedor #autónomo #microempresa #controlFinanciero #presupuesto #caja #PerfectGest';
+      '#MEI #gestión #emprendedor #autónomo #microempresa #controlFinanciero #presupuesto #caja #OrcamentosEGestao';
   @override
   String get solContabilAppsTitle => 'PerfectGest ContabilGest';
   @override
@@ -1230,13 +1230,13 @@ class _AppLocalizationsEs extends AppLocalizations {
   @override
   String get solShowcaseTapToExpand => 'Pulse para ampliar la captura de pantalla';
   @override
-  String get solPreviewPhoneInicio => 'PerfectGest — Inicio (movil)';
+  String get solPreviewPhoneInicio => 'Orçamentos e Gestão — Inicio (movil)';
   @override
-  String get solPreviewPhoneOrcamentos => 'PerfectGest — Presupuestos (movil)';
+  String get solPreviewPhoneOrcamentos => 'Orçamentos e Gestão — Presupuestos (movil)';
   @override
-  String get solPreviewTabletInicio => 'PerfectGest — Inicio (tablet)';
+  String get solPreviewTabletInicio => 'Orçamentos e Gestão — Inicio (tablet)';
   @override
-  String get solPreviewTabletOrcamentos => 'PerfectGest — Presupuestos (tablet)';
+  String get solPreviewTabletOrcamentos => 'Orçamentos e Gestão — Presupuestos (tablet)';
   @override
   String get solPreviewContabilPhoneEmpresa =>
       'PerfectGest ContabilGest — Empresa y contador CRC (movil)';

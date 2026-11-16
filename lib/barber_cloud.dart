@@ -111,6 +111,24 @@ class BarberProductCard {
       'R\$ ${price.toStringAsFixed(2).replaceAll('.', ',')}';
 }
 
+class BarberRescheduleResult {
+  const BarberRescheduleResult({
+    required this.clientName,
+    required this.phone,
+    required this.professionalId,
+    required this.serviceId,
+    required this.paymentStatus,
+    required this.message,
+  });
+
+  final String clientName;
+  final String phone;
+  final String professionalId;
+  final String serviceId;
+  final String paymentStatus;
+  final String message;
+}
+
 class BarberReviewCard {
   const BarberReviewCard({
     required this.id,
@@ -826,6 +844,50 @@ class BarberCloud {
         'Comprovante falhou HTTP ${res.statusCode}: ${res.body}',
       );
     }
+  }
+
+  static const _rescheduleFnUrl =
+      'https://us-central1-perfectgest-barber.cloudfunctions.net/rescheduleByPhone';
+
+  /// Soft-cancela o próximo scheduled do telefone (≥3 h) via CF Admin SDK.
+  Future<BarberRescheduleResult> rescheduleByPhone(String phone) async {
+    await ensureInitialized();
+    final digits = phoneDigits(phone);
+    if (digits.length < 10) {
+      throw StateError(
+        'Telefone inválido. Use DDD + número (ex.: 11 987654321).',
+      );
+    }
+    final res = await http.post(
+      Uri.parse(_rescheduleFnUrl),
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({
+        'shopId': shopId,
+        'phone': digits,
+      }),
+    );
+    Map<String, dynamic> body = {};
+    try {
+      final decoded = jsonDecode(res.body);
+      if (decoded is Map<String, dynamic>) body = decoded;
+    } catch (_) {}
+    if (res.statusCode != 200 || body['ok'] != true) {
+      final err = (body['error'] as String?)?.trim();
+      throw StateError(
+        (err != null && err.isNotEmpty)
+            ? err
+            : 'Não foi possível remarcar (HTTP ${res.statusCode}).',
+      );
+    }
+    return BarberRescheduleResult(
+      clientName: (body['clientName'] as String?)?.trim() ?? '',
+      phone: (body['phone'] as String?)?.trim() ?? digits,
+      professionalId: (body['professionalId'] as String?)?.trim() ?? '',
+      serviceId: (body['serviceId'] as String?)?.trim() ?? '',
+      paymentStatus: (body['paymentStatus'] as String?)?.trim() ?? '',
+      message: (body['message'] as String?)?.trim() ??
+          'Horário liberado. Escolha um novo dia e horário.',
+    );
   }
 
   /// Avaliações publicadas via runQuery (GET collection falha 403 com pending).
