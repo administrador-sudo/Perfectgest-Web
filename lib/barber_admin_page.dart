@@ -444,6 +444,84 @@ class _BarberAdminPageState extends State<BarberAdminPage> {
     }
   }
 
+  Future<void> _removePro(Map<String, dynamic> pro) async {
+    final id = (pro['id'] as String?)?.trim() ?? '';
+    if (id.isEmpty || !_loggedIn) return;
+    final ok = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        backgroundColor: _surface,
+        title: const Text('Remover profissional', style: TextStyle(color: _text)),
+        content: Text(
+          'Tira ${(pro['name'] as String?) ?? 'este profissional'} da agenda e libera a vaga.',
+          style: const TextStyle(color: _muted),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, false),
+            child: const Text('Cancelar'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, true),
+            child: const Text('Remover'),
+          ),
+        ],
+      ),
+    );
+    if (ok != true || !mounted) return;
+    setState(() {
+      _busy = true;
+      _error = null;
+      _msg = null;
+    });
+    try {
+      final patch = await http.patch(
+        Uri.parse(
+          'https://firestore.googleapis.com/v1/projects/$_projectId/databases/(default)/documents/shops/$_shop/professionals/$id?key=$_apiKey'
+          '&updateMask.fieldPaths=active'
+          '&updateMask.fieldPaths=updatedAt',
+        ),
+        headers: _authHeaders,
+        body: jsonEncode({
+          'fields': {
+            'active': {'booleanValue': false},
+            'updatedAt': {
+              'timestampValue': DateTime.now().toUtc().toIso8601String(),
+            },
+          },
+        }),
+      );
+      if (patch.statusCode != 200) {
+        throw StateError('Não foi possível remover.');
+      }
+      await _loadPros();
+      final seats = _pros.where((p) => (p['active'] as String?) == 'sim').length;
+      await http.patch(
+        Uri.parse(
+          'https://firestore.googleapis.com/v1/projects/$_projectId/databases/(default)/documents/shops/$_shop?key=$_apiKey'
+          '&updateMask.fieldPaths=staffSeatCount'
+          '&updateMask.fieldPaths=updatedAt',
+        ),
+        headers: _authHeaders,
+        body: jsonEncode({
+          'fields': {
+            'staffSeatCount': {'integerValue': '$seats'},
+            'updatedAt': {
+              'timestampValue': DateTime.now().toUtc().toIso8601String(),
+            },
+          },
+        }),
+      );
+      if (!mounted) return;
+      setState(() => _msg = 'Removido. Vagas em uso: $seats/$_maxStaff.');
+    } catch (e) {
+      if (!mounted) return;
+      setState(() => _error = '$e'.replaceFirst('Bad state: ', ''));
+    } finally {
+      if (mounted) setState(() => _busy = false);
+    }
+  }
+
   Future<void> _logout() async {
     setState(() {
       _idToken = null;
@@ -576,6 +654,15 @@ class _BarberAdminPageState extends State<BarberAdminPage> {
                     '${p['email']} · activo: ${p['active']}',
                     style: const TextStyle(color: _muted),
                   ),
+                  trailing: (p['active'] == 'sim')
+                      ? IconButton(
+                          tooltip: 'Remover',
+                          onPressed: _busy
+                              ? null
+                              : () => _removePro(Map<String, dynamic>.from(p)),
+                          icon: const Icon(Icons.person_remove, color: Colors.redAccent),
+                        )
+                      : null,
                 ),
               ),
             ],

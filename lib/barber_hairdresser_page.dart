@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -156,6 +157,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   String _pendingPixPayload = '';
   bool _alertsOptedIn = false;
   bool _rescheduling = false;
+  Timer? _slotPoll;
   String? _rescheduleHint;
 
   TextStyle get _body => const TextStyle(
@@ -203,6 +205,11 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   void initState() {
     super.initState();
     _bootstrap();
+    _slotPoll = Timer.periodic(const Duration(seconds: 20), (_) {
+      if (!mounted || _pro == null) return;
+      if (_loadingSlots || _rescheduling) return;
+      _refreshOpenCatalog();
+    });
   }
 
   @override
@@ -265,6 +272,38 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
     }
   }
 
+  Future<void> _refreshOpenCatalog() async {
+    if (_pro == null) return;
+    final list = await BarberCloud.instance.listServices(_pro!.id);
+    if (!mounted) return;
+    final currentId = _service?.id;
+    BarberServiceCard? next;
+    if (currentId != null) {
+      final found = list.where((s) => s.id == currentId);
+      if (found.isNotEmpty) next = found.first;
+    }
+    final previous = _service;
+    final priceChanged = next != null &&
+        previous != null &&
+        (next.price != previous.price ||
+            next.durationMinutes != previous.durationMinutes);
+    final listChanged = list.length != _services.length;
+    setState(() {
+      _services = list;
+      _service = next ?? (list.isEmpty ? null : _service);
+      if (_service != null &&
+          list.every((s) => s.id != _service!.id)) {
+        _service = list.isEmpty ? null : list.first;
+      }
+      if (priceChanged || listChanged) {
+        _slot = null;
+      }
+    });
+    if (_date != null && _service != null) {
+      await _reloadSlots();
+    }
+  }
+
   Future<void> _loadServices() async {
     if (_pro == null) return;
     final list = await BarberCloud.instance.listServices(_pro!.id);
@@ -318,6 +357,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
 
   @override
   void dispose() {
+    _slotPoll?.cancel();
     _nomeCtrl.dispose();
     _telefoneCtrl.dispose();
     _reagendarPhoneCtrl.dispose();
