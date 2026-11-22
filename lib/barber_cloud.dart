@@ -793,9 +793,41 @@ class BarberCloud {
     if (res.statusCode == 409 ||
         res.body.contains('ALREADY_EXISTS') ||
         res.body.contains('already exists')) {
-      throw StateError(
-        'Horário acabou de ser ocupado. Escolha outro.',
+      final existing = await _getDoc('appointments/$id');
+      final status = (existing?['status'] as String?)?.trim() ?? 'scheduled';
+      if (existing == null || status.isEmpty || status == 'scheduled') {
+        throw StateError(
+          'Horário acabou de ser ocupado. Escolha outro.',
+        );
+      }
+      payload['cancelReason'] = '';
+      payload['paymentMethod'] = method;
+      final mask = [
+        'professionalId',
+        'serviceId',
+        'clientName',
+        'phone',
+        'startsAt',
+        'endsAt',
+        'status',
+        'source',
+        'amountDue',
+        'paymentStatus',
+        'pixTxid',
+        'paymentMethod',
+        'cancelReason',
+      ].map((field) => 'updateMask.fieldPaths=$field').join('&');
+      final patch = await http.patch(
+        Uri.parse('$_shopPath/appointments/$id?key=$_apiKey&$mask'),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({'fields': _encodeFields(payload)}),
       );
+      if (patch.statusCode != 200) {
+        throw StateError(
+          'Agendar falhou HTTP ${patch.statusCode}: ${patch.body}',
+        );
+      }
+      return id;
     }
     if (res.statusCode != 200) {
       throw StateError('Agendar falhou HTTP ${res.statusCode}: ${res.body}');
