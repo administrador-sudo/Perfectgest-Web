@@ -157,6 +157,7 @@ const List<({String id, double monthly, bool highlight})> kFunilTiers =
 ];
 
 const double kFunilMeiAnual = 456.99;
+const double kFunilMeiFidelizadoPct = 35.8;
 const double kFunilFolhaMensal = 99.99;
 const double kFunilIrAno = 49.99;
 const double kFunilA1De = 215.00;
@@ -183,6 +184,15 @@ double _precoTabelaDe(double cobrado) {
   return double.parse(
     (cobrado / (1 - kFunilPromoDescontoPct / 100)).toStringAsFixed(2),
   );
+}
+
+double _precoRiscadoFaixa(({String id, double monthly, bool highlight}) t) {
+  if (_tierIsFidelizado(t.id)) {
+    return double.parse(
+      (kFunilMeiAnual / (1 - kFunilMeiFidelizadoPct / 100)).toStringAsFixed(2),
+    );
+  }
+  return _precoTabelaDe(_cobradoFaixa(t));
 }
 
 String _precoFaixa(
@@ -1613,7 +1623,7 @@ class _PlansTable extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Text(
-                        brl(_precoTabelaDe(_cobradoFaixa(t))),
+                        brl(_precoRiscadoFaixa(t)),
                         style: const TextStyle(
                           fontSize: 13,
                           color: BrandPalette.silverDark,
@@ -1624,9 +1634,18 @@ class _PlansTable extends StatelessWidget {
                         _precoFaixa(t, st, brl),
                         style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 16),
                       ),
+                      if (_tierIsFidelizado(t.id))
+                        SizedBox(
+                          width: 180,
+                          child: Text(
+                            st.planMeiParcela,
+                            textAlign: TextAlign.end,
+                            style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 12, height: 1.25),
+                          ),
+                        ),
                       Text(
                         st.precoDePor(
-                          brl(_precoTabelaDe(_cobradoFaixa(t))),
+                          brl(_precoRiscadoFaixa(t)),
                           brl(_cobradoFaixa(t)),
                         ),
                         textAlign: TextAlign.end,
@@ -1647,7 +1666,9 @@ class _PlansTable extends StatelessWidget {
                         ),
                       const SizedBox(height: 6),
                       FunilSeloDescontoVerde(
-                        texto: st.seloJaComDesconto(kFunilPromoDescontoPct),
+                        texto: _tierIsFidelizado(t.id)
+                            ? st.seloFidelizadoAvista
+                            : st.seloJaComDesconto(kFunilPromoDescontoPct),
                       ),
                     ],
                   ),

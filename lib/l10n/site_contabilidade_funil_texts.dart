@@ -61,6 +61,8 @@ abstract class SiteContabilidadeFunilTexts {
   String get perYear;
   String get colBoletoAvista;
   String get planMeiDesconto;
+  String get planMeiParcela;
+  String get seloFidelizadoAvista;
   String proposalMeiAvista(String annual);
   String proposalNfObsMei(String annual);
   String get a1Price;
@@ -334,7 +336,14 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
 
   @override
   String get planMeiDesconto =>
-      '(desconto de R\$ 23,01).';
+      '(desconto de R\$ 254,83).';
+
+  @override
+  String get planMeiParcela =>
+      'Parcela de R\$ 38,33/mês, renovada a cada 12 meses';
+
+  @override
+  String get seloFidelizadoAvista => '35,8% OFF à vista anual';
 
   @override
   String proposalMeiAvista(String annual) =>
@@ -779,7 +788,7 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
         FunilFaqItem(
           question: 'Básico ou planos contábeis com contador ativo?',
           body:
-              'Básico Microempreendedor Individual (MEI): 12 parcelas de R\$ 40,00. Básico Fidelizado (MEI): à vista anual R\$ 456,99, desconto de R\$ 23,01). Autocontabilidade no app. Planos com contador ativo: sistema com IA e contador habilitado assinando os livros. Essencial é o mais escolhido por ME. Mudança de plano: suporte@perfectgestdev.com.',
+              'Básico Microempreendedor Individual (MEI): 12 parcelas de R\$ 40,00. Básico Fidelizado (MEI): parcela de R\$ 38,33/mês, renovada a cada 12 meses; à vista anual R\$ 456,99 (de R\$ 711,82, desconto de R\$ 254,83). Autocontabilidade no app. Planos com contador ativo: sistema com IA e contador habilitado assinando os livros. Essencial é o mais escolhido por ME. Mudança de plano: suporte@perfectgestdev.com.',
         ),
         FunilFaqItem(
           question: 'Quem cuida da contabilidade?',
@@ -1122,7 +1131,14 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
 
   @override
   String get planMeiDesconto =>
-      '12 × R\$ 40.00 = R\$ 480.00. Cash R\$ 456.99 (R\$ 23.01 off).';
+      '(R\$ 254.83 off).';
+
+  @override
+  String get planMeiParcela =>
+      'Installment of R\$ 38.33/month, renewed every 12 months';
+
+  @override
+  String get seloFidelizadoAvista => '35.8% OFF annual cash';
 
   @override
   String proposalMeiAvista(String annual) =>
@@ -1568,7 +1584,7 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
         FunilFaqItem(
           question: 'Basic or accounting plans with an active accountant?',
           body:
-              'Basic Individual Microentrepreneur (MEI): 12 installments of R\$ 40.00. Basic Loyalty (MEI): annual cash R\$ 456.99 (12 × R\$ 40.00 = R\$ 480.00, R\$ 23.01 off). Self-accounting in the app. Plans with an active accountant: AI system and a licensed accountant signing the books. Essential is the most chosen plan for ME. Plan changes: suporte@perfectgestdev.com.',
+              'Basic Individual Microentrepreneur (MEI): 12 installments of R\$ 40.00. Basic Loyalty (MEI): installment of R\$ 38.33/month, renewed every 12 months; annual cash R\$ 456.99 (from R\$ 711.82, R\$ 254.83 off). Self-accounting in the app. Plans with an active accountant: AI system and a licensed accountant signing the books. Essential is the most chosen plan for ME. Plan changes: suporte@perfectgestdev.com.',
         ),
         FunilFaqItem(
           question: 'Is there a team of accountants?',
@@ -1909,7 +1925,14 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
 
   @override
   String get planMeiDesconto =>
-      '12 × R\$ 40,00 = R\$ 480,00. Al contado R\$ 456,99 (descuento de R\$ 23,01).';
+      '(descuento de R\$ 254,83).';
+
+  @override
+  String get planMeiParcela =>
+      'Cuota de R\$ 38,33/mes, renovada cada 12 meses';
+
+  @override
+  String get seloFidelizadoAvista => '35,8% OFF al contado anual';
 
   @override
   String proposalMeiAvista(String annual) =>
@@ -2355,7 +2378,7 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
         FunilFaqItem(
           question: 'Básico o planes contables con contador activo?',
           body:
-              'Básico Microemprendedor Individual (MEI): 12 cuotas de R\$ 40,00. Básico Fidelizado (MEI): al contado anual R\$ 456,99 (12 × R\$ 40,00 = R\$ 480,00, descuento de R\$ 23,01). Autocontabilidad en la app. Planes con contador activo: sistema con IA y contador habilitado que firma los libros. Esencial es el más elegido por ME. Cambio de plan: suporte@perfectgestdev.com.',
+              'Básico Microemprendedor Individual (MEI): 12 cuotas de R\$ 40,00. Básico Fidelizado (MEI): cuota de R\$ 38,33/mes, renovada cada 12 meses; al contado anual R\$ 456,99 (de R\$ 711,82, descuento de R\$ 254,83). Autocontabilidad en la app. Planes con contador activo: sistema con IA y contador habilitado que firma los libros. Esencial es el más elegido por ME. Cambio de plan: suporte@perfectgestdev.com.',
         ),
         FunilFaqItem(
           question: 'Hay un equipo de contadores?',
