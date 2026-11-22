@@ -159,6 +159,8 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   bool _rescheduling = false;
   Timer? _slotPoll;
   String? _rescheduleHint;
+  String? _pendingReleaseId;
+  String? _syncNote;
 
   TextStyle get _body => const TextStyle(
         fontFamily: _font,
@@ -327,6 +329,42 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
     });
   }
 
+  Future<void> _syncAgenda() async {
+    if (_pro == null) {
+      setState(() => _error = 'Escolha o profissional antes de sincronizar.');
+      return;
+    }
+    if (_date == null) {
+      setState(() {
+        final now = DateTime.now();
+        _date = DateTime(now.year, now.month, now.day);
+      });
+    }
+    if (_service == null) {
+      if (_services.isEmpty) await _loadServices();
+      if (!mounted) return;
+      if (_services.isEmpty) {
+        setState(() {
+          _error = 'Este profissional não tem serviço publicado.';
+        });
+        return;
+      }
+      setState(() => _service = _services.first);
+    }
+    setState(() {
+      _error = null;
+      _syncNote = null;
+    });
+    try {
+      await _reloadSlots();
+      if (!mounted) return;
+      setState(() => _syncNote = 'Agenda sincronizada');
+    } catch (e) {
+      if (!mounted) return;
+      setState(() => _error = 'Falha ao sincronizar: $e');
+    }
+  }
+
   Future<void> _reloadSlots() async {
     if (_pro == null || _service == null || _date == null) {
       setState(() {
@@ -407,6 +445,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
         _pendingPixTxid = '';
         _payChoice = _PayChoice.pix;
         _rescheduleHint = result.message;
+        _pendingReleaseId = result.appointmentId;
         if (pro != null) _pro = pro;
       });
 
@@ -774,12 +813,30 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
       );
       await _reloadSlots();
       if (!mounted) return;
+      final releaseId = _pendingReleaseId;
+      String? releaseError;
+      if (releaseId != null && releaseId.isNotEmpty) {
+        try {
+          await BarberCloud.instance.releaseRescheduled(
+            phone: clientPhone,
+            appointmentId: releaseId,
+          );
+          _pendingReleaseId = null;
+        } catch (e) {
+          releaseError = '$e';
+        }
+      }
+      if (!mounted) return;
       setState(() {
         _booked = booked;
         _success = true;
         _saving = false;
         _alertsOptedIn = false;
         _pixPanelOpen = false;
+        if (releaseError != null) {
+          _error =
+              'Novo horário gravado. O anterior continua reservado: $releaseError';
+        }
       });
     } catch (e) {
       if (!mounted) return;
@@ -1822,13 +1879,9 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
             children: [
               Expanded(child: Text('Horários disponíveis', style: _section)),
               FilledButton.icon(
-                onPressed: (_date == null ||
-                        _service == null ||
-                        _pro == null ||
-                        _loadingSlots ||
-                        _success)
+                onPressed: (_pro == null || _loadingSlots || _success)
                     ? null
-                    : _reloadSlots,
+                    : _syncAgenda,
                 style: FilledButton.styleFrom(
                   backgroundColor: _olive,
                   foregroundColor: _text,
@@ -1856,6 +1909,13 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
               ),
             ],
           ),
+          if (_syncNote != null) ...[
+            const SizedBox(height: 8),
+            Text(
+              _syncNote!,
+              style: _body.copyWith(color: _olive, fontWeight: FontWeight.w700),
+            ),
+          ],
           const SizedBox(height: 8),
           if (_date == null || _service == null)
             Text(

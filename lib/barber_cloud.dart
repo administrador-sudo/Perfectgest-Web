@@ -119,6 +119,7 @@ class BarberRescheduleResult {
     required this.serviceId,
     required this.paymentStatus,
     required this.message,
+    required this.appointmentId,
   });
 
   final String clientName;
@@ -127,6 +128,7 @@ class BarberRescheduleResult {
   final String serviceId;
   final String paymentStatus;
   final String message;
+  final String appointmentId;
 }
 
 class BarberReviewCard {
@@ -881,7 +883,7 @@ class BarberCloud {
   static const _rescheduleFnUrl =
       'https://us-central1-perfectgest-barber.cloudfunctions.net/rescheduleByPhone';
 
-  /// Soft-cancela o próximo scheduled do telefone (≥3 h) via CF Admin SDK.
+  /// Localiza o horário futuro e só devolve o id. Não cancela.
   Future<BarberRescheduleResult> rescheduleByPhone(String phone) async {
     await ensureInitialized();
     final digits = phoneDigits(phone);
@@ -918,8 +920,42 @@ class BarberCloud {
       serviceId: (body['serviceId'] as String?)?.trim() ?? '',
       paymentStatus: (body['paymentStatus'] as String?)?.trim() ?? '',
       message: (body['message'] as String?)?.trim() ??
-          'Horário liberado. Escolha um novo dia e horário.',
+          'O horário atual continua reservado até você confirmar o novo.',
+      appointmentId: (body['appointmentId'] as String?)?.trim() ?? '',
     );
+  }
+
+  /// Cancela o horário antigo depois que o novo documento scheduled existe.
+  Future<void> releaseRescheduled({
+    required String phone,
+    required String appointmentId,
+  }) async {
+    await ensureInitialized();
+    final id = appointmentId.trim();
+    if (id.isEmpty) return;
+    final digits = phoneDigits(phone);
+    final res = await http.post(
+      Uri.parse(_rescheduleFnUrl),
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({
+        'shopId': shopId,
+        'phone': digits,
+        'releaseAppointmentId': id,
+      }),
+    );
+    Map<String, dynamic> body = {};
+    try {
+      final decoded = jsonDecode(res.body);
+      if (decoded is Map<String, dynamic>) body = decoded;
+    } catch (_) {}
+    if (res.statusCode != 200 || body['ok'] != true) {
+      final err = (body['error'] as String?)?.trim();
+      throw StateError(
+        (err != null && err.isNotEmpty)
+            ? err
+            : 'Não foi possível liberar o horário anterior.',
+      );
+    }
   }
 
   /// Avaliações publicadas via runQuery (GET collection falha 403 com pending).
