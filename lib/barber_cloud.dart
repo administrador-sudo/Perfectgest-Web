@@ -792,12 +792,22 @@ class BarberCloud {
       headers: {'Content-Type': 'application/json'},
       body: jsonEncode(body),
     );
-    if (res.statusCode == 409 ||
+    final alreadyThere = res.statusCode == 409 ||
         res.body.contains('ALREADY_EXISTS') ||
-        res.body.contains('already exists')) {
+        res.body.contains('already exists');
+    final denied = res.statusCode == 403 ||
+        res.body.contains('PERMISSION_DENIED');
+    if (alreadyThere || denied) {
       final existing = await _getDoc('appointments/$id');
-      final status = (existing?['status'] as String?)?.trim() ?? 'scheduled';
-      if (existing == null || status.isEmpty || status == 'scheduled') {
+      final status = (existing?['status'] as String?)?.trim() ?? '';
+      if (existing == null) {
+        throw StateError(
+          denied
+              ? 'A loja não pode receber este agendamento agora.'
+              : 'Horário acabou de ser ocupado. Escolha outro.',
+        );
+      }
+      if (status.isEmpty || status == 'scheduled') {
         throw StateError(
           'Horário acabou de ser ocupado. Escolha outro.',
         );
@@ -824,6 +834,9 @@ class BarberCloud {
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({'fields': _encodeFields(payload)}),
       );
+      if (patch.statusCode == 403) {
+        throw StateError('A loja não pode receber este agendamento agora.');
+      }
       if (patch.statusCode != 200) {
         throw StateError(
           'Agendar falhou HTTP ${patch.statusCode}: ${patch.body}',

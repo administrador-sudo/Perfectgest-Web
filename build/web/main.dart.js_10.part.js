@@ -135,7 +135,7 @@ v(B.aVN,C.l5)
 v(B.acj,C.X)})()
 C.wG(b.typeUniverse,JSON.parse('{"re":{"R":[],"c":[]},"ack":{"V":["re"]},"acj":{"X":[],"c":[]}}'))
 var y={c:"Parceiros tecnol\xf3gicos | Perfect Gest Dev"}
-var x={F:C.aa("hC"),d:C.aa("jp<V<R>>"),c:C.aa("A<ck>"),u:C.aa("A<c>"),z:C.aa("aR<V<R>>"),x:C.aa("hp"),w:C.aa("m")};(function constants(){var w=a.makeConstList
+var x={F:C.ab("hC"),d:C.ab("jp<V<R>>"),c:C.ab("A<ck>"),u:C.ab("A<c>"),z:C.ab("aR<V<R>>"),x:C.ab("hp"),w:C.ab("m")};(function constants(){var w=a.makeConstList
 A.Qu=new C.a0(0,760,0,1/0)
 A.SS=new B.aVj()
 A.ST=new B.aVk()
@@ -189,4 +189,4 @@ A.atd=new B.ck("Analytics and consent (GA4)","Measurement with Google Analytics 
 A.at3=new B.ck("Clean architecture and maintenance","We prioritize organized code, reusable components and separation of concerns to support continuous product evolution, fewer bugs and lower maintenance cost.","Practical example: a new subscription feature is added by reusing components and reducing QA effort.")
 A.asP=new B.ck("HTTP integrations and external services","We integrate external APIs and data services for real business flows, including back-end endpoints and observability services, ensuring operational reliability and metric-driven evolution.","Practical example: we monitor API latency and errors in production to act before customers are impacted.")
 A.afz=w([A.asT,A.asE,A.at_,A.asY,A.asG,A.asR,A.at2,A.asV,A.asN,A.at9,A.ata,A.at0,A.atd,A.at3,A.asP],x.c)})()};
-(a=>{a["T2cxbpyU6dPVtS5opFuyHMip8HI="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["unoPI7NppV3xIPrBPAHNFc0G2go="]=a.current})($__dart_deferred_initializers__);
