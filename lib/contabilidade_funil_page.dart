@@ -157,6 +157,7 @@ const List<({String id, double monthly, bool highlight})> kFunilTiers =
 ];
 
 const double kFunilMeiAnual = 456.99;
+const double kFunilMeiFidelizadoMes = 38.33;
 const double kFunilMeiFidelizadoPct = 35.8;
 const double kFunilFolhaMensal = 99.99;
 const double kFunilIrAno = 49.99;
@@ -200,7 +201,9 @@ String _precoFaixa(
   SiteContabilidadeFunilTexts st,
   String Function(double) brl,
 ) {
-  if (_tierIsFidelizado(t.id)) return '${brl(kFunilMeiAnual)}/${st.perYear}';
+  if (_tierIsFidelizado(t.id)) {
+    return '${brl(kFunilMeiFidelizadoMes)}/${st.perMonth}';
+  }
   return '${brl(t.monthly)}/${st.perMonth}';
 }
 
@@ -421,7 +424,7 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
         ? 'MEI sem contador'
         : (_crc == 'com' ? 'ME com contador' : 'ME sem contador');
     final line =
-        '[CONTABILIDADE] ${_tipo ?? '-'}; $acomp; $faixa; honorários ${_meiFidelizado ? '${_brl(kFunilMeiAnual)} à vista/ano' : '${_brl(_faixaMensal)}/mês'}; '
+        '[CONTABILIDADE] ${_tipo ?? '-'}; $acomp; $faixa; honorários ${_meiFidelizado ? '${_brl(kFunilMeiFidelizadoMes)}/mês' : '${_brl(_faixaMensal)}/mês'}; '
         'Folha ${_folha ? 'S ${_brl(kFunilFolhaMensal)}' : 'N'}; '
         '${_meiFidelizado && !_folha ? '12x N; ' : '12x S ${_brl(_boletoMensal)}/mês (${_itens12(st)}); '}'
         '1ª NF e boleto ${_brl(_primeiroBoleto)} (${_itensPrimeiro(st)}); '
@@ -455,8 +458,7 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
       if (!_servicoAvulso)
         '${st.faixaLabel}: ${_faixaId == null ? '-' : st.planName(_faixaId!)}',
       if (!_servicoAvulso)
-        '${st.proposalHonorariosLabel}: ${_meiFidelizado ? '${_brl(kFunilMeiAnual)}/${st.perYear}' : '${_brl(_faixaMensal)}/${st.perMonth}'}',
-      if (!_servicoAvulso && _meiFidelizado) st.planMeiDesconto,
+        '${st.proposalHonorariosLabel}: ${_meiFidelizado ? '${_brl(kFunilMeiFidelizadoMes)}/${st.perMonth}' : '${_brl(_faixaMensal)}/${st.perMonth}'}',
       if (!_servicoAvulso && _folha)
         '${st.extraFolha}: ${_brl(kFunilFolhaMensal)}/${st.perMonth}',
       if (!_servicoAvulso && _ir) '${st.extraIr}: ${_brl(kFunilIrAno)}',
@@ -698,14 +700,9 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                           _servicoAvulso
                               ? _brl(_precoAvulso)
                               : (_meiFidelizado
-                                  ? '${_brl(kFunilMeiAnual)}/${st.perYear}'
+                                  ? '${_brl(kFunilMeiFidelizadoMes)}/${st.perMonth}'
                                   : '${_brl(_faixaMensal)}/${st.perMonth}'),
                         ),
-                        if (!_servicoAvulso && _meiFidelizado)
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 6),
-                            child: Text(st.planMeiDesconto, style: const TextStyle(fontSize: 13, height: 1.35)),
-                          ),
                         if (!_servicoAvulso && _folha)
                           _resumoLinha(st.extraFolha, '${_brl(kFunilFolhaMensal)}/${st.perMonth}'),
                         if (!_servicoAvulso && _ir)
@@ -1202,6 +1199,13 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                   child: _campoFaixa(st),
                 ),
               ),
+              if (_faixaId != null) ...[
+                const SizedBox(height: 8),
+                Text(
+                  st.fraseManterValor,
+                  style: const TextStyle(fontSize: 13, height: 1.35),
+                ),
+              ],
               if (_tipo != 'ME') _addonA1(st),
             ],
             Opacity(
@@ -1622,47 +1626,46 @@ class _PlansTable extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Text(
-                        brl(_precoRiscadoFaixa(t)),
-                        style: const TextStyle(
-                          fontSize: 13,
-                          color: BrandPalette.silverDark,
-                          decoration: TextDecoration.lineThrough,
+                      if (!_tierIsFidelizado(t.id))
+                        Text(
+                          brl(_precoRiscadoFaixa(t)),
+                          style: const TextStyle(
+                            fontSize: 13,
+                            color: BrandPalette.silverDark,
+                            decoration: TextDecoration.lineThrough,
+                          ),
                         ),
-                      ),
                       Text(
                         _precoFaixa(t, st, brl),
-                        style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 16),
-                      ),
-                      if (_tierIsFidelizado(t.id))
-                        SizedBox(
-                          width: 180,
-                          child: Text(
-                            st.planMeiParcela,
-                            textAlign: TextAlign.end,
-                            style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 12, height: 1.25),
-                          ),
-                        ),
-                      Text(
-                        st.precoDePor(
-                          brl(_precoRiscadoFaixa(t)),
-                          brl(_cobradoFaixa(t)),
-                        ),
                         textAlign: TextAlign.end,
-                        style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600, height: 1.25),
+                        style: TextStyle(
+                          fontWeight: FontWeight.w800,
+                          fontSize: _tierIsFidelizado(t.id) ? 22 : 16,
+                        ),
                       ),
-                      Text(
-                        _tierIsFidelizado(t.id) ? st.colBoletoAvista : st.colBoleto,
-                        style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w600),
-                      ),
-                      if (_tierIsFidelizado(t.id))
+                      if (_tierIsFidelizado(t.id)) ...[
+                        const SizedBox(height: 2),
+                        Text(
+                          st.planMeiRenovacao,
+                          textAlign: TextAlign.end,
+                          style: const TextStyle(fontSize: 12, height: 1.25),
+                        ),
                         SizedBox(
-                          width: 160,
+                          width: 200,
                           child: Text(
-                            st.planMeiDesconto,
+                            st.planMeiDePorFidelidade,
                             textAlign: TextAlign.end,
-                            style: const TextStyle(fontSize: 10, height: 1.25),
+                            style: const TextStyle(fontSize: 12, height: 1.3),
                           ),
+                        ),
+                      ] else
+                        Text(
+                          st.precoDePor(
+                            brl(_precoRiscadoFaixa(t)),
+                            brl(_cobradoFaixa(t)),
+                          ),
+                          textAlign: TextAlign.end,
+                          style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600, height: 1.25),
                         ),
                       const SizedBox(height: 6),
                       FunilSeloDescontoVerde(

@@ -63,6 +63,9 @@ abstract class SiteContabilidadeFunilTexts {
   String get planMeiDesconto;
   String get planMeiParcela;
   String get seloFidelizadoAvista;
+  String get planMeiRenovacao;
+  String get planMeiDePorFidelidade;
+  String get fraseManterValor;
   String proposalMeiAvista(String annual);
   String proposalNfObsMei(String annual);
   String get a1Price;
@@ -344,6 +347,17 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
 
   @override
   String get seloFidelizadoAvista => '35,8% OFF à vista anual';
+
+  @override
+  String get planMeiRenovacao => 'Renovação a cada 12 meses';
+
+  @override
+  String get planMeiDePorFidelidade =>
+      '(de R\$ 59,70 por R\$ 38,33 pela contratação do plano anual "Fidelidade")';
+
+  @override
+  String get fraseManterValor =>
+      'Você pode manter esse valor nos anos seguintes se cumprir as regras do programa de indicações';
 
   @override
   String proposalMeiAvista(String annual) =>
@@ -1141,6 +1155,17 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
   String get seloFidelizadoAvista => '35.8% OFF annual cash';
 
   @override
+  String get planMeiRenovacao => 'Renewal every 12 months';
+
+  @override
+  String get planMeiDePorFidelidade =>
+      '(from R\$ 59.70 to R\$ 38.33 by taking the annual "Loyalty" plan)';
+
+  @override
+  String get fraseManterValor =>
+      'You can keep this price in the following years if you meet the referral program rules';
+
+  @override
   String proposalMeiAvista(String annual) =>
       'Annual cash fees: $annual.';
 
@@ -1933,6 +1958,17 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
 
   @override
   String get seloFidelizadoAvista => '35,8% OFF al contado anual';
+
+  @override
+  String get planMeiRenovacao => 'Renovación cada 12 meses';
+
+  @override
+  String get planMeiDePorFidelidade =>
+      '(de R\$ 59,70 por R\$ 38,33 por la contratación del plan anual "Fidelidad")';
+
+  @override
+  String get fraseManterValor =>
+      'Puede mantener este valor en los años siguientes si cumple las reglas del programa de indicaciones';
 
   @override
   String proposalMeiAvista(String annual) =>
