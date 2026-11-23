@@ -374,11 +374,25 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
       return;
     }
     setState(() => _loadingSlots = true);
-    final slots = await BarberCloud.instance.slots(
-      professionalId: _pro!.id,
-      day: _date!,
-      durationMinutes: _service!.durationMinutes,
-    );
+    final List<TimeOfDaySlot> slots;
+    try {
+      slots = await BarberCloud.instance.slots(
+        professionalId: _pro!.id,
+        day: _date!,
+        durationMinutes: _service!.durationMinutes,
+      );
+    } catch (e) {
+      if (!mounted) return;
+      setState(() {
+        _slots = [];
+        _slot = null;
+        _loadingSlots = false;
+        _error = '$e'
+            .replaceFirst('Bad state: ', '')
+            .replaceFirst('StateError: ', '');
+      });
+      return;
+    }
     if (!mounted) return;
     setState(() {
       _slots = slots;
@@ -478,11 +492,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
     }
   }
 
-  static String _formatBrPhone(String raw) {
-    final d = raw.replaceAll(RegExp(r'\D'), '');
-    if (d.length <= 2) return d;
-    return '${d.substring(0, 2)} ${d.substring(2)}';
-  }
+  static String _formatBrPhone(String raw) => BarberCloud.formatAreaPhone(raw);
 
   Future<void> _submitReview() async {
     if (!(_reviewFormKey.currentState?.validate() ?? false)) return;
@@ -827,6 +837,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
         }
       }
       if (!mounted) return;
+      final notice = BarberCloud.instance.bookingNotice;
       setState(() {
         _booked = booked;
         _success = true;
@@ -836,6 +847,8 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
         if (releaseError != null) {
           _error =
               'Novo horário gravado. O anterior continua reservado: $releaseError';
+        } else if (notice != null && notice.isNotEmpty) {
+          _error = notice;
         }
       });
     } catch (e) {
@@ -843,8 +856,11 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
       setState(() => _saving = false);
       await _reloadSlots();
       if (!mounted) return;
+      final raw = '$e'
+          .replaceFirst('Bad state: ', '')
+          .replaceFirst('StateError: ', '');
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Erro ao agendar: $e')),
+        SnackBar(content: Text('Erro ao agendar: $raw')),
       );
     }
   }
@@ -1034,6 +1050,10 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
                                         children: [
                                           Expanded(
                                             child: Text('Agendar', style: _section),
+                                          ),
+                                          Text(
+                                            kBarberSiteVersionLabel,
+                                            style: _mutedStyle.copyWith(fontSize: 12),
                                           ),
                                           TextButton.icon(
                                             onPressed: _scrollToInicio,
@@ -1599,7 +1619,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
         ),
         const SizedBox(height: 4),
         Text(
-          'Versão $kBarberSiteVersionLabel',
+          kBarberSiteVersionLabel,
           textAlign: TextAlign.center,
           style: _mutedStyle.copyWith(fontSize: 11),
         ),
@@ -1711,7 +1731,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
           const SizedBox(height: 8),
           Text(
             'Informe o telefone do agendamento (DDD + número). '
-            'O horário atual é liberado e você escolhe outro.',
+            'O horário atual continua reservado até você confirmar o novo.',
             style: _mutedStyle.copyWith(fontSize: 13),
           ),
           const SizedBox(height: 10),
@@ -1800,8 +1820,11 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
             inputFormatters: const [_BrPhoneInputFormatter()],
             decoration: _fieldDeco('Telefone / WhatsApp (xx xxxxxxxxx)'),
             validator: (v) {
-              final digits = (v ?? '').replaceAll(RegExp(r'\D'), '');
-              if (digits.length < 10) return 'Telefone inválido';
+              final digits =
+                  BarberCloud.phoneDigits(BarberCloud.formatAreaPhone(v ?? ''));
+              if (digits.length < 10 || digits.length > 11) {
+                return 'Telefone inválido';
+              }
               return null;
             },
           ),
@@ -2156,11 +2179,7 @@ class _BrPhoneInputFormatter extends TextInputFormatter {
     TextEditingValue oldValue,
     TextEditingValue newValue,
   ) {
-    final digits = newValue.text.replaceAll(RegExp(r'\D'), '');
-    final clipped = digits.length > 11 ? digits.substring(0, 11) : digits;
-    final out = clipped.length <= 2
-        ? clipped
-        : '${clipped.substring(0, 2)} ${clipped.substring(2)}';
+    final out = BarberCloud.formatAreaPhone(newValue.text);
     return TextEditingValue(
       text: out,
       selection: TextSelection.collapsed(offset: out.length),

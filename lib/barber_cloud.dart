@@ -151,6 +151,8 @@ class BarberCloud {
 
   bool ready = false;
   String? lastError;
+  /// Aviso depois de gravar (ex.: comprovante grande demais).
+  String? bookingNotice;
 
   /// Shop activo na SPA (uma página de cada vez).
   static String _boundShopId = kBarberDefaultShopId;
@@ -589,7 +591,11 @@ class BarberCloud {
 
   Future<List<BusyInterval>> busyDay(String professionalId, DateTime day) async {
     await ensureInitialized();
-    if (!ready) return const [];
+    if (!ready) {
+      throw StateError(
+        'Não foi possível ler os horários ocupados. A grade não foi aberta.',
+      );
+    }
     try {
       // Custo: query do dia (pro+startsAt), NÃO listar appointments inteiro.
       final start = DateTime(day.year, day.month, day.day);
@@ -624,7 +630,9 @@ class BarberCloud {
           .toList();
     } catch (e) {
       debugPrint('busyDay: $e');
-      return const [];
+      lastError =
+          'Não foi possível ler os horários ocupados. A grade não foi aberta.';
+      throw StateError(lastError!);
     }
   }
 
@@ -707,6 +715,32 @@ class BarberCloud {
   static String phoneDigits(String phone) =>
       phone.replaceAll(RegExp(r'\D'), '');
 
+  /// DDD + número, sem +55 e sem hífen. Ex.: `49 99730205`.
+  static String formatAreaPhone(String phone) {
+    var d = phoneDigits(phone);
+    if (d.startsWith('55') && d.length > 11) {
+      d = d.substring(2);
+    }
+    if (d.length > 11) d = d.substring(0, 11);
+    if (d.length <= 2) return d;
+    return '${d.substring(0, 2)} ${d.substring(2)}';
+  }
+
+  Future<http.Response> _createAppointmentDoc(
+    String id,
+    Map<String, dynamic> payload,
+  ) {
+    final docUri = _uri(
+      '$_shopPath/appointments',
+      query: {'documentId': id},
+    );
+    return http.post(
+      docUri,
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({'fields': _encodeFields(payload)}),
+    );
+  }
+
   /// Site: cliente liberado a pagar em dinheiro (`shops/.../clients/{digits}`).
   Future<bool> clientAllowsCash(String phone) async {
     await ensureInitialized();
@@ -760,16 +794,13 @@ class BarberCloud {
     final safePro = professionalId.replaceAll(RegExp(r'[^a-zA-Z0-9_-]'), '');
     final id =
         'slot_${safePro}_${startsAt.toUtc().millisecondsSinceEpoch}';
-    final docUri = _uri(
-      '$_shopPath/appointments',
-      query: {'documentId': id},
-    );
     final method = paymentMethod.trim().toLowerCase();
+    final shownPhone = formatAreaPhone(phone);
     final payload = <String, dynamic>{
       'professionalId': professionalId,
       'serviceId': serviceId,
       'clientName': clientName,
-      'phone': phone,
+      'phone': shownPhone.isEmpty ? phone.trim() : shownPhone,
       'startsAt': startsAt.toUtc(),
       'endsAt': endsAt.toUtc(),
       'status': 'scheduled',
@@ -781,17 +812,15 @@ class BarberCloud {
     if (method == 'pix' || method == 'cash') {
       payload['paymentMethod'] = method;
     }
-    if (receiptDataUri.trim().isNotEmpty) {
-      payload['receiptDataUri'] = receiptDataUri.trim();
+    final receipt = receiptDataUri.trim();
+    bookingNotice = null;
+    if (receipt.isNotEmpty && receipt.length <= 700000) {
+      payload['receiptDataUri'] = receipt;
+    } else if (receipt.isNotEmpty) {
+      bookingNotice =
+          'Agendamento gravado. O comprovante é grande demais para a ficha.';
     }
-    final body = {
-      'fields': _encodeFields(payload),
-    };
-    final res = await http.post(
-      docUri,
-      headers: {'Content-Type': 'application/json'},
-      body: jsonEncode(body),
-    );
+    final res = await _createAppointmentDoc(id, payload);
     final alreadyThere = res.statusCode == 409 ||
         res.body.contains('ALREADY_EXISTS') ||
         res.body.contains('already exists');
@@ -799,7 +828,7 @@ class BarberCloud {
         res.body.contains('PERMISSION_DENIED');
     if (alreadyThere || denied) {
       final existing = await _getDoc('appointments/$id');
-      final status = (existing?['status'] as String?)?.trim() ?? '';
+      final docStatus = (existing?['status'] as String?)?.trim() ?? '';
       if (existing == null) {
         throw StateError(
           denied
@@ -807,14 +836,16 @@ class BarberCloud {
               : 'Horário acabou de ser ocupado. Escolha outro.',
         );
       }
-      if (status.isEmpty || status == 'scheduled') {
+      if (docStatus.isEmpty || docStatus == 'scheduled') {
         throw StateError(
           'Horário acabou de ser ocupado. Escolha outro.',
         );
       }
       payload['cancelReason'] = '';
-      payload['paymentMethod'] = method;
-      final mask = [
+      if (method == 'pix' || method == 'cash') {
+        payload['paymentMethod'] = method;
+      }
+      final maskFields = [
         'professionalId',
         'serviceId',
         'clientName',
@@ -828,21 +859,62 @@ class BarberCloud {
         'pixTxid',
         'paymentMethod',
         'cancelReason',
-      ].map((field) => 'updateMask.fieldPaths=$field').join('&');
+        if (payload.containsKey('receiptDataUri')) 'receiptDataUri',
+      ];
+      final mask = maskFields
+          .map((field) => 'updateMask.fieldPaths=$field')
+          .join('&');
       final patch = await http.patch(
         Uri.parse('$_shopPath/appointments/$id?key=$_apiKey&$mask'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({'fields': _encodeFields(payload)}),
       );
-      if (patch.statusCode == 403) {
-        throw StateError('A loja não pode receber este agendamento agora.');
-      }
-      if (patch.statusCode != 200) {
+      if (patch.statusCode == 200) return id;
+      if (patch.statusCode != 403) {
         throw StateError(
           'Agendar falhou HTTP ${patch.statusCode}: ${patch.body}',
         );
       }
-      return id;
+      // Regras publicadas em 11/11 negam update anónimo. O horário cancelado
+      // continua livre: grava outro documento no mesmo minuto.
+      final again = await busyDay(professionalId, day);
+      for (final b in again) {
+        if (startMin < b.endMinutes && endMin > b.startMinutes) {
+          throw StateError(
+            'Horário acabou de ser ocupado. Escolha outro.',
+          );
+        }
+      }
+      final altPayload = Map<String, dynamic>.from(payload)
+        ..remove('cancelReason');
+      for (var n = 1; n <= 8; n++) {
+        final altId = n == 1 ? '${id}_r' : '${id}_r$n';
+        final alt = await _createAppointmentDoc(altId, altPayload);
+        if (alt.statusCode == 200) return altId;
+        final altTaken = alt.statusCode == 409 ||
+            alt.body.contains('ALREADY_EXISTS') ||
+            alt.body.contains('already exists');
+        if (altTaken) {
+          final taken = await _getDoc('appointments/$altId');
+          final takenStatus = (taken?['status'] as String?)?.trim() ?? '';
+          if (taken != null &&
+              (takenStatus.isEmpty || takenStatus == 'scheduled')) {
+            throw StateError(
+              'Horário acabou de ser ocupado. Escolha outro.',
+            );
+          }
+          continue;
+        }
+        if (alt.statusCode == 403 || alt.body.contains('PERMISSION_DENIED')) {
+          throw StateError('A loja não pode receber este agendamento agora.');
+        }
+        throw StateError(
+          'Agendar falhou HTTP ${alt.statusCode}: ${alt.body}',
+        );
+      }
+      throw StateError(
+        'Não foi possível gravar outro horário neste minuto.',
+      );
     }
     if (res.statusCode != 200) {
       throw StateError('Agendar falhou HTTP ${res.statusCode}: ${res.body}');
@@ -899,8 +971,8 @@ class BarberCloud {
   /// Localiza o horário futuro e só devolve o id. Não cancela.
   Future<BarberRescheduleResult> rescheduleByPhone(String phone) async {
     await ensureInitialized();
-    final digits = phoneDigits(phone);
-    if (digits.length < 10) {
+    final digits = phoneDigits(formatAreaPhone(phone));
+    if (digits.length < 10 || digits.length > 11) {
       throw StateError(
         'Telefone inválido. Use DDD + número (ex.: 11 987654321).',
       );
@@ -946,7 +1018,7 @@ class BarberCloud {
     await ensureInitialized();
     final id = appointmentId.trim();
     if (id.isEmpty) return;
-    final digits = phoneDigits(phone);
+    final digits = phoneDigits(formatAreaPhone(phone));
     final res = await http.post(
       Uri.parse(_rescheduleFnUrl),
       headers: {'Content-Type': 'application/json'},
