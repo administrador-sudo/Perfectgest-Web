@@ -214,12 +214,12 @@ if (Test-Path -LiteralPath $stub) {
     Write-Host "Stub OK: $stub" -ForegroundColor Green
     $stubText = Get-Content -LiteralPath $stub -Raw -Encoding UTF8
     $hasManifest = $stubText -match 'manifest-barber\.json'
-    $hasOgLogo = $stubText -match 'barber-shop-logo\.png'
+    $hasOgLogo = $stubText -match 'barber-app-logo\.png'
     if (-not $hasManifest) {
         throw "Stub Barber sem link manifest-barber.json (spa-legal-paths)."
     }
     if (-not $hasOgLogo) {
-        throw "Stub Barber sem og/twitter barber-shop-logo.png (spa-legal-paths)."
+        throw "Stub Barber sem og/twitter barber-app-logo.png (spa-legal-paths)."
     }
     Write-Host "Stub Barber: manifest-barber + og logo OK." -ForegroundColor Green
 } else {
@@ -323,7 +323,7 @@ if (-not $SkipPublish) {
 Write-Host ""
 Write-Host "Apos o deploy: hard refresh em https://perfectgestdev.com/Barber_Hairdresser" -ForegroundColor Cyan
 Write-Host "Esperado: logo + Produtos + QR PIX; PWA usa manifest-barber (start_url Barber)." -ForegroundColor Cyan
-Write-Host "WhatsApp preview: og:image = https://perfectgestdev.com/barber-shop-logo.png" -ForegroundColor Cyan
+Write-Host "WhatsApp: cada loja em /barber-logo/{shopId}.png; sem logo usa /barber-app-logo.png" -ForegroundColor Cyan
 Write-Host "Cliente PWA: remover atalho antigo e Adicionar ao ecran inicial de novo em /Barber_Hairdresser." -ForegroundColor Cyan
 Write-Host "Se CDN antigo: Manual Deploy no Render (Clear build cache)." -ForegroundColor Yellow
 Write-Host "Validar:" -ForegroundColor Cyan
@@ -332,7 +332,7 @@ Write-Host "  curl.exe -sL https://perfectgestdev.com/main.dart.js -o `$env:TEMP
 Write-Host "  Select-String -Path `$env:TEMP\main.dart.js -Pattern 'BarberPixEmv|pending_payment|stockQty' -SimpleMatch"
 Write-Host "  curl.exe -i https://perfectgestdev.com/Barber_Hairdresser"
 Write-Host "  curl.exe -sI https://perfectgestdev.com/manifest-barber.json"
-Write-Host "  curl.exe -sI https://perfectgestdev.com/barber-shop-logo.png"
+Write-Host "  curl.exe -sI https://perfectgestdev.com/barber-app-logo.png"
 Write-Host "  curl.exe -sL https://perfectgestdev.com/Barber_Hairdresser.html | Select-String -Pattern 'manifest-barber|og:image|twitter:image'"
 
 if (-not $NoPause) {

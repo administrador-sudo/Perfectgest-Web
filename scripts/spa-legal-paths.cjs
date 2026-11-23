@@ -69,8 +69,8 @@ function writeRedirectHtml(targetUrl) {
 }
 
 const BARBER_SPA_SEGMENTS = new Set(['Barber_Hairdresser', 'Barber_Admin', 'Barber_Shops_Admin']);
-const BARBER_OG_IMAGE = 'https://perfectgestdev.com/barber-shop-logo.png';
-const BARBER_BOOKING_URL = 'https://perfectgestdev.com/Barber_Hairdresser/perfectgest_dev';
+const BARBER_APP_OG_IMAGE = 'https://perfectgestdev.com/barber-app-logo.png';
+const BARBER_BOOKING_URL = 'https://perfectgestdev.com/Barber_Hairdresser';
 
 function escapeHtmlAttr(s) {
   return String(s)
@@ -79,16 +79,23 @@ function escapeHtmlAttr(s) {
     .replace(/</g, '&lt;');
 }
 
-/** Stub Barber: manifest-barber + OG/Twitter com logo estavel (WhatsApp preview). */
-function patchBarberStubHtml(html, shopName) {
+/** Stub Barber: manifest-barber + OG/Twitter do cartao desta loja. */
+function patchBarberStubHtml(html, options) {
+  const shopName = options && options.shopName ? options.shopName : '';
+  const ogImage = (options && options.ogImage) || BARBER_APP_OG_IMAGE;
+  const ogUrl = (options && options.ogUrl) || BARBER_BOOKING_URL;
+  const touchIcon = (options && options.touchIcon) || '/barber-app-logo.png';
   let out = html.toString('utf8');
   const title = shopName && shopName.trim()
     ? `${shopName.trim()} — Agendar`
-    : 'Barbear e Cortar — Agendar';
+    : 'Agenda Barbeiro — Agendar';
   const desc =
     'Agende seu horario. Toque no link para abrir a pagina da barbearia.'; // ASCII meta (sem acentos)
   const safeTitle = escapeHtmlAttr(title);
   const safeDesc = escapeHtmlAttr(desc);
+  const safeImage = escapeHtmlAttr(ogImage);
+  const safeUrl = escapeHtmlAttr(ogUrl);
+  const safeTouch = escapeHtmlAttr(touchIcon);
 
   out = out.replace(
     /<link\s+rel="manifest"\s+href="[^"]*"\s*>/i,
@@ -112,7 +119,7 @@ function patchBarberStubHtml(html, shopName) {
   );
   out = out.replace(
     /<meta\s+property="og:image"\s+content="[^"]*"\s*>/i,
-    `<meta property="og:image" content="${BARBER_OG_IMAGE}">`,
+    `<meta property="og:image" content="${safeImage}">`,
   );
   out = out.replace(
     /<meta\s+name="description"\s+content="[^"]*"\s*>/i,
@@ -123,7 +130,12 @@ function patchBarberStubHtml(html, shopName) {
   if (!/property="og:url"/i.test(out)) {
     out = out.replace(
       /(<meta\s+property="og:image"\s+content="[^"]*"\s*>)/i,
-      `$1\n  <meta property="og:url" content="${BARBER_BOOKING_URL}">`,
+      `$1\n  <meta property="og:url" content="${safeUrl}">`,
+    );
+  } else {
+    out = out.replace(
+      /<meta\s+property="og:url"\s+content="[^"]*"\s*>/i,
+      `<meta property="og:url" content="${safeUrl}">`,
     );
   }
   if (!/name="twitter:card"/i.test(out)) {
@@ -133,34 +145,89 @@ function patchBarberStubHtml(html, shopName) {
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${safeTitle}">
   <meta name="twitter:description" content="${safeDesc}">
-  <meta name="twitter:image" content="${BARBER_OG_IMAGE}">`,
+  <meta name="twitter:image" content="${safeImage}">`,
     );
   } else {
     out = out.replace(
       /<meta\s+name="twitter:image"\s+content="[^"]*"\s*>/i,
-      `<meta name="twitter:image" content="${BARBER_OG_IMAGE}">`,
+      `<meta name="twitter:image" content="${safeImage}">`,
     );
   }
 
   // apple-touch-icon: preferir logo da barbearia no atalho iOS.
   out = out.replace(
     /<link\s+rel="apple-touch-icon"\s+href="[^"]*"\s*>/i,
-    '<link rel="apple-touch-icon" href="/barber-shop-logo.png">',
+    `<link rel="apple-touch-icon" href="${safeTouch}">`,
   );
 
   return Buffer.from(out, 'utf8');
 }
 
-function writeSpaStubs(shopName) {
+function writeSpaStubs() {
   for (const segment of siteSpaPages) {
     removeBare(segment);
     const dest = path.join(buildWeb, `${segment}.html`);
     if (BARBER_SPA_SEGMENTS.has(segment)) {
-      fs.writeFileSync(dest, patchBarberStubHtml(indexHtml, shopName));
+      fs.writeFileSync(dest, patchBarberStubHtml(indexHtml));
     } else {
       fs.writeFileSync(dest, indexHtml);
     }
   }
+}
+
+function readBarberShops() {
+  const jsonPath = path.join(buildWeb, 'barber-og-shops.json');
+  if (!fs.existsSync(jsonPath)) return [];
+  try {
+    const list = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+    return Array.isArray(list) ? list : [];
+  } catch (_) {
+    return [];
+  }
+}
+
+/** HTML por loja + rewrite antes do curinga, para o WhatsApp ler o cartao certo. */
+function writePerShopCards(shops) {
+  const dir = path.join(buildWeb, 'Barber_Hairdresser');
+  fs.mkdirSync(dir, { recursive: true });
+  const routeLines = [];
+  for (const shop of shops) {
+    const id = String(shop.id || '');
+    if (!/^[A-Za-z0-9_-]{3,48}$/.test(id)) continue;
+    const image = `https://perfectgestdev.com/barber-logo/${id}.png`;
+    fs.writeFileSync(
+      path.join(dir, `${id}.html`),
+      patchBarberStubHtml(indexHtml, {
+        shopName: shop.name || id,
+        ogImage: image,
+        ogUrl: `https://perfectgestdev.com/Barber_Hairdresser/${id}`,
+        touchIcon: `/barber-logo/${id}.png`,
+      }),
+    );
+    routeLines.push(
+      `      - type: rewrite\n        source: /Barber_Hairdresser/${id}\n        destination: /Barber_Hairdresser/${id}.html`,
+    );
+  }
+  const yamlPath = path.join(__dirname, '..', 'render.yaml');
+  let yaml = fs.readFileSync(yamlPath, 'utf8');
+  const block =
+    '      # barber-shop-og:start\n' +
+    (routeLines.length ? `${routeLines.join('\n')}\n` : '') +
+    '      # barber-shop-og:end\n';
+  const nl = yaml.includes('\r\n') ? '\r\n' : '\n';
+  const blockNl = block.replace(/\n/g, nl);
+  if (yaml.includes('# barber-shop-og:start')) {
+    yaml = yaml.replace(/      # barber-shop-og:start[\s\S]*?      # barber-shop-og:end\r?\n/, blockNl);
+  } else {
+    const wildcardRe =
+      /      - type: rewrite\r?\n        source: \/Barber_Hairdresser\/\*\r?\n        destination: \/Barber_Hairdresser\.html\r?\n/;
+    if (!wildcardRe.test(yaml)) {
+      throw new Error('render.yaml sem rewrite /Barber_Hairdresser/*');
+    }
+    yaml = yaml.replace(wildcardRe, `${blockNl}$&`);
+  }
+  fs.writeFileSync(yamlPath, yaml, 'utf8');
+  console.log(`spa-legal-paths: ${routeLines.length} cartoes de loja.`);
 }
 
 /** Sync logo OG antes dos stubs (best-effort; nao falha o build). */
@@ -171,10 +238,8 @@ const syncLogoResult = spawnSync(process.execPath, [path.join(__dirname, 'sync-b
 });
 if (syncLogoResult.stdout) process.stdout.write(syncLogoResult.stdout);
 if (syncLogoResult.stderr) process.stderr.write(syncLogoResult.stderr);
-const shopNameMatch = /SHOP_NAME=(.+)/.exec(syncLogoResult.stdout || '');
-const barberShopName = shopNameMatch ? shopNameMatch[1].trim() : '';
-
-writeSpaStubs(barberShopName);
+writeSpaStubs();
+writePerShopCards(readBarberShops());
 
 for (const segment of clinicaIiiStaticSlugs) {
   removeBare(segment);

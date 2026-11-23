@@ -118069,7 +118069,7 @@ if(p!=null)B.c.P(q,A.b([B.aE,A.j(p,m,m,m,m,B.b1.cb(B.hf),B.ag,m,m)],s))
 q.push(B.dw)
 q.push(n.ape())
 if(J.kU(n.ch))q.push(B.dw)
-q.push(new A.ho(A.bx(A.b([A.c3(A.j("Agendar",m,m,m,m,B.fQ,m,m,m),1),A.j("V 1.0.32",m,m,m,m,B.b1.m1(12),m,m,m),A.b9O(B.Za,A.j("Voltar ao in\xedcio",m,m,m,m,B.b1.wd(B.F,13,B.P),m,m,m),n.gaE2())],s),B.z,m,B.j,B.l,0),n.f))
+q.push(new A.ho(A.bx(A.b([A.c3(A.j("Agendar",m,m,m,m,B.fQ,m,m,m),1),A.j("V 1.0.34",m,m,m,m,B.b1.m1(12),m,m,m),A.b9O(B.Za,A.j("Voltar ao in\xedcio",m,m,m,m,B.b1.wd(B.F,13,B.P),m,m,m),n.gaE2())],s),B.z,m,B.j,B.l,0),n.f))
 q.push(B.M)
 if(n.fy)q.push(n.aoG())
 else q.push(n.aoF())
@@ -118138,7 +118138,7 @@ s=q.k3?p:q.gaFP()
 r=A.dt(B.F,p,p,p,p,B.dI,p)
 return A.F5(p,A.ag(A.b([m,B.r,l,B.M,k,B.af,j,B.bL,i,B.bL,o,B.r,A.db(q.k3?B.arV:A.j("Enviar avalia\xe7\xe3o",p,p,p,p,B.an.jJ(B.C),p,p,p),s,r)],n),B.S,B.j,B.l),q.e)},
 aoZ(){var s=null
-return A.ag(A.b([A.nZ("imagens/brasao_perfectgestdev.png",B.J,s,s,new A.aFo(),B.c4,s,40,s),B.r,A.j("PerfectGest Dev",s,s,s,s,B.b1.AK(12,B.P),B.ag,s,s),B.bL,A.j("V 1.0.32",s,s,s,s,B.b1.m1(11),B.ag,s,s)],t.p),B.z,B.j,B.l)},
+return A.ag(A.b([A.nZ("imagens/brasao_perfectgestdev.png",B.J,s,s,new A.aFo(),B.c4,s,40,s),B.r,A.j("PerfectGest Dev",s,s,s,s,B.b1.AK(12,B.P),B.ag,s,s),B.bL,A.j("V 1.0.34",s,s,s,s,B.b1.m1(11),B.ag,s,s)],t.p),B.z,B.j,B.l)},
 aoG(){var s,r,q=this,p=null,o=q.id,n=A.bh(14),m=A.dI(B.F.af(0.55),1),l=A.j("Agendamento confirmado",p,p,p,p,B.an.AK(18,B.C),B.ag,p,p),k=o==null,j=t.p
 l=A.b([B.Z6,B.M,l,B.r,A.j(k?"O agendamento foi gravado na nuvem e aparece na agenda do profissional.":o.f+" com "+o.d+" \u2014 "+o.gago()+".",p,p,p,p,B.b1,B.ag,p,p)],j)
 if(!k){k=o.Q===B.Pa?"Pagamento: dinheiro na hora":"Pagamento: PIX (comprovante enviado)"

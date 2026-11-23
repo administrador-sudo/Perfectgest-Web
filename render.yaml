@@ -41,6 +41,23 @@ services:
       - type: rewrite
         source: /Barber_Hairdresser
         destination: /Barber_Hairdresser.html
+      # barber-shop-og:start
+      - type: rewrite
+        source: /Barber_Hairdresser/barbearia_cortecerto
+        destination: /Barber_Hairdresser/barbearia_cortecerto.html
+      - type: rewrite
+        source: /Barber_Hairdresser/barbearia_do_marcos
+        destination: /Barber_Hairdresser/barbearia_do_marcos.html
+      - type: rewrite
+        source: /Barber_Hairdresser/perfectgest_dev
+        destination: /Barber_Hairdresser/perfectgest_dev.html
+      - type: rewrite
+        source: /Barber_Hairdresser/smoke_loja_a
+        destination: /Barber_Hairdresser/smoke_loja_a.html
+      - type: rewrite
+        source: /Barber_Hairdresser/smoke_loja_b
+        destination: /Barber_Hairdresser/smoke_loja_b.html
+      # barber-shop-og:end
       - type: rewrite
         source: /Barber_Hairdresser/*
         destination: /Barber_Hairdresser.html

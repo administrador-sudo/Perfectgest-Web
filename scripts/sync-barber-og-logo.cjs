@@ -1,18 +1,22 @@
 #!/usr/bin/env node
 /**
- * Grava web/barber-shop-logo.png (+ build/web se existir) a partir do logoUrl
- * do shop Firestore (https ou data URI). Path estavel para og:image / twitter:image.
+ * Cartao do WhatsApp por loja.
+ * Cada shop ganha build/web/barber-logo/{shopId}.png (logoUrl ou icone do app).
+ * Sem logo: copia web/barber-app-logo.png.
+ * O PNG unico da loja piloto deixa de ser o cartao de todas.
  */
 const fs = require('node:fs');
 const path = require('node:path');
 const https = require('node:https');
 
 const ROOT = path.join(__dirname, '..');
-const WEB_OUT = path.join(ROOT, 'web', 'barber-shop-logo.png');
-const BUILD_OUT = path.join(ROOT, 'build', 'web', 'barber-shop-logo.png');
+const APP_LOGO = path.join(ROOT, 'web', 'barber-app-logo.png');
+const BUILD_WEB = path.join(ROOT, 'build', 'web');
+const BUILD_LOGO_DIR = path.join(BUILD_WEB, 'barber-logo');
+const SHOPS_JSON = path.join(BUILD_WEB, 'barber-og-shops.json');
 const API_KEY = 'AIzaSyAJWveXJvWuOfk2Y-4AcyQ9Tb9FDql3IGA';
-const SHOP_URL =
-  'https://firestore.googleapis.com/v1/projects/perfectgest-barber/databases/(default)/documents/shops/perfectgest_dev?key=' +
+const SHOPS_URL =
+  'https://firestore.googleapis.com/v1/projects/perfectgest-barber/databases/(default)/documents/shops?pageSize=200&key=' +
   API_KEY;
 
 function getJson(url) {
@@ -25,7 +29,7 @@ function getJson(url) {
         });
         res.on('end', () => {
           if (res.statusCode && res.statusCode >= 400) {
-            reject(new Error(`HTTP ${res.statusCode}: ${raw.slice(0, 200)}`));
+            reject(new Error(`HTTP ${res.statusCode}: ${raw.slice(0, 180)}`));
             return;
           }
           try {
@@ -63,51 +67,95 @@ function getBuffer(url) {
 
 function decodeLogo(logoUrl) {
   const url = String(logoUrl || '').trim();
-  if (!url) return null;
   const m = /^data:image\/[a-zA-Z0-9.+-]+;base64,(.+)$/s.exec(url);
   if (m) return Buffer.from(m[1], 'base64');
-  if (/^https?:\/\//i.test(url)) return null; // fetch async
+  return null;
+}
+
+function shopIdFromName(docName) {
+  const id = String(docName || '').split('/').pop() || '';
+  return /^[A-Za-z0-9_-]{3,48}$/.test(id) ? id : '';
+}
+
+async function listShops() {
+  const shops = [];
+  let pageToken = '';
+  do {
+    const url = pageToken
+      ? `${SHOPS_URL}&pageToken=${encodeURIComponent(pageToken)}`
+      : SHOPS_URL;
+    const page = await getJson(url);
+    for (const doc of page.documents || []) {
+      const id = shopIdFromName(doc.name);
+      if (!id) continue;
+      shops.push({
+        id,
+        name: doc.fields?.name?.stringValue || '',
+        logoUrl: doc.fields?.logoUrl?.stringValue || '',
+      });
+    }
+    pageToken = page.nextPageToken || '';
+  } while (pageToken);
+  return shops;
+}
+
+function copyAppLogo(dest) {
+  fs.mkdirSync(path.dirname(dest), { recursive: true });
+  fs.copyFileSync(APP_LOGO, dest);
+}
+
+async function logoBuffer(logoUrl) {
+  const decoded = decodeLogo(logoUrl);
+  if (decoded && decoded.length >= 32) return decoded;
+  const url = String(logoUrl || '').trim();
+  if (/^https?:\/\//i.test(url)) {
+    const buf = await getBuffer(url);
+    if (buf && buf.length >= 32) return buf;
+  }
   return null;
 }
 
 async function main() {
-  let buf = null;
-  let shopName = '';
+  if (!fs.existsSync(APP_LOGO)) {
+    throw new Error('web/barber-app-logo.png ausente');
+  }
+  if (fs.existsSync(BUILD_WEB)) {
+    copyAppLogo(path.join(BUILD_WEB, 'barber-app-logo.png'));
+    fs.mkdirSync(BUILD_LOGO_DIR, { recursive: true });
+  }
+
+  let shops = [];
   try {
-    const doc = await getJson(SHOP_URL);
-    shopName = doc?.fields?.name?.stringValue || '';
-    const logoUrl = doc?.fields?.logoUrl?.stringValue || '';
-    buf = decodeLogo(logoUrl);
-    if (!buf && /^https?:\/\//i.test(logoUrl.trim())) {
-      buf = await getBuffer(logoUrl.trim());
-    }
+    shops = await listShops();
   } catch (e) {
-    console.warn('sync-barber-og-logo: fetch shop falhou:', e.message || e);
+    console.warn('sync-barber-og-logo: lista de lojas falhou:', e.message || e);
   }
 
-  if (shopName) {
-    console.log(`SHOP_NAME=${shopName}`);
-  }
-
-  if (!buf || buf.length < 32) {
-    if (fs.existsSync(WEB_OUT)) {
-      console.log('sync-barber-og-logo: mantem ficheiro existente (sem logo novo).');
-      return { ok: true, kept: true, shopName };
+  const written = [];
+  for (const shop of shops) {
+    let buf = null;
+    try {
+      buf = await logoBuffer(shop.logoUrl);
+    } catch (e) {
+      console.warn(`sync-barber-og-logo: logo ${shop.id} falhou:`, e.message || e);
     }
-    console.warn('sync-barber-og-logo: sem logo; stubs usarao path mesmo assim.');
-    return { ok: false, shopName };
+    const hasLogo = !!(buf && buf.length >= 32);
+    if (fs.existsSync(BUILD_LOGO_DIR)) {
+      const dest = path.join(BUILD_LOGO_DIR, `${shop.id}.png`);
+      if (hasLogo) fs.writeFileSync(dest, buf);
+      else copyAppLogo(dest);
+    }
+    written.push({ id: shop.id, name: shop.name || shop.id, hasLogo });
+    console.log(
+      `sync-barber-og-logo: ${shop.id} ${hasLogo ? 'logo da loja' : 'icone do app'}`,
+    );
   }
 
-  fs.writeFileSync(WEB_OUT, buf);
-  const buildDir = path.dirname(BUILD_OUT);
-  if (fs.existsSync(buildDir)) {
-    fs.writeFileSync(BUILD_OUT, buf);
+  if (fs.existsSync(BUILD_WEB)) {
+    fs.writeFileSync(SHOPS_JSON, JSON.stringify(written), 'utf8');
   }
-  console.log(
-    `sync-barber-og-logo: ${buf.length} bytes -> web/barber-shop-logo.png` +
-      (shopName ? ` (${shopName})` : ''),
-  );
-  return { ok: true, shopName, bytes: buf.length };
+  console.log(`SHOPS_JSON=${written.length}`);
+  return written;
 }
 
 if (require.main === module) {
@@ -117,4 +165,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { main, WEB_OUT, BUILD_OUT };
+module.exports = { main, APP_LOGO, SHOPS_JSON };
