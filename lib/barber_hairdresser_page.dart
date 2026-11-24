@@ -1533,12 +1533,19 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   }
 
   Widget _logoFallback() {
-    return Container(
+    final src = Uri.base.resolve('/barber-app-logo.png').toString();
+    return Image.network(
+      src,
       width: _logoSize,
       height: _logoSize,
-      color: _surface,
-      alignment: Alignment.center,
-      child: const Icon(Icons.content_cut, color: _olive, size: 56),
+      fit: BoxFit.contain,
+      errorBuilder: (context, error, stackTrace) => Container(
+        width: _logoSize,
+        height: _logoSize,
+        color: _surface,
+        alignment: Alignment.center,
+        child: const Icon(Icons.content_cut, color: _olive, size: 56),
+      ),
     );
   }
 

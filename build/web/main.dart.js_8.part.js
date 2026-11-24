@@ -1,29 +1,29 @@
 ((a,b)=>{a[b]=a[b]||{}})(self,"$__dart_deferred_initializers__")
 $__dart_deferred_initializers__.current=function(a,b,c,$){var C,D,E,F,G,B={
-biT(d){return new B.pP(d,null)},
-pP:function pP(d,e){this.c=d
+biU(d){return new B.pQ(d,null)},
+pQ:function pQ(d,e){this.c=d
 this.a=e},
 a5_:function a5_(){this.c=this.a=null},
-aIV:function aIV(d,e,f,g){var _=this
+aIX:function aIX(d,e,f,g){var _=this
 _.a=d
 _.b=e
 _.c=f
 _.d=g},
 a6A:function a6A(d,e){this.c=d
 this.a=e},
-aM3:function aM3(d){this.a=d},
-bop(d){switch(C.jw(d).gd1()){case"en":return A.SL
-case"es":return A.SM
-case"pt":default:return A.SN}},
-mU:function mU(d,e){this.a=d
+aM5:function aM5(d){this.a=d},
+boq(d){switch(C.jw(d).gd1()){case"en":return A.SK
+case"es":return A.SL
+case"pt":default:return A.SM}},
+mV:function mV(d,e){this.a=d
 this.b=e},
 cd:function cd(d,e,f){this.a=d
 this.b=e
 this.c=f},
-azP:function azP(){},
+azQ:function azQ(){},
+aVa:function aVa(){},
 aV8:function aV8(){},
-aV6:function aV6(){},
-aV7:function aV7(){}},A
+aV9:function aV9(){}},A
 C=c[0]
 D=c[2]
 E=c[14]
@@ -31,7 +31,7 @@ F=c[11]
 G=c[12]
 B=a.updateHolder(c[8],B)
 A=c[13]
-B.pP.prototype={
+B.pQ.prototype={
 a2(){return new B.a5_()}}
 B.a5_.prototype={
 aj(){this.aD()
@@ -39,15 +39,15 @@ C.j7()
 C.dG("description","Perguntas e respostas PerfectGest ContabilGest: MEI, Livro Caixa, NFS-e, planos, assinatura Google Play e fontes oficiais.")
 C.dG("keywords","PerfectGest ContabilGest, FAQ, MEI, Livro Caixa, NFS-e, Google Play, assinatura, Perfect Gest Dev")
 C.dG("robots","index, follow")
-C.cF("og:title","Perguntas e respostas | ContabilGest")
-C.cF("og:description","FAQ do PerfectGest ContabilGest: o que e o app, internet, contador, NFS-e, planos e assinatura Google Play.")
-C.cF("og:type","article")
-C.cF("og:locale","pt_BR")
+C.cG("og:title","Perguntas e respostas | ContabilGest")
+C.cG("og:description","FAQ do PerfectGest ContabilGest: o que e o app, internet, contador, NFS-e, planos e assinatura Google Play.")
+C.cG("og:type","article")
+C.cG("og:locale","pt_BR")
 b.G.document.title="Perguntas e respostas | ContabilGest"},
 l(){C.rX()
 this.aw()},
-A(d){var x=null,w=C.D(d),v=C.aM(d,D.ak,y.h).w.a.a,u=v<400?16:24,t=B.bop(d),s=t.gft(),r=C.jd(d),q=t.gj6()
-return C.av(x,x,x,C.fN(F.b0h(d,x,this.a.c,q),r,new C.kw(C.iM(new B.aIV(u,t,w.ax,v)),x),x,x,x,x),!1,x,x,!1,x,!1,x,x,x,x,x,x,x,x,s,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,D.q,x)}}
+A(d){var x=null,w=C.D(d),v=C.aM(d,D.ak,y.h).w.a.a,u=v<400?16:24,t=B.boq(d),s=t.gft(),r=C.jd(d),q=t.gj6()
+return C.av(x,x,x,C.fN(F.b0j(d,x,this.a.c,q),r,new C.kw(C.iM(new B.aIX(u,t,w.ax,v)),x),x,x,x,x),!1,x,x,!1,x,!1,x,x,x,x,x,x,x,x,s,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,D.q,x)}}
 B.a6A.prototype={
 A(d){var x,w,v,u,t,s,r,q,p,o,n=null,m=C.D(d).ax,l=C.aM(d,D.ak,y.h).w.a.a,k=l<400?12:16,j=this.c,i=j.a,h=m.RG
 h=(h==null?m.k2:h).af(0.5)
@@ -66,31 +66,31 @@ j=j.c
 u=j.length
 if(u!==0){r=C.b([D.ah],r)
 for(q=0;q<u;++q){p=j[q]
-o=C.ii(D.bi,n,n,n,n,n,n,n,n,n,n,D.a_,D.af,n,n,n,n,D.eO,n,n)
-r.push(new C.Z(D.cp,new C.cm(D.bi,n,n,C.c9(C.j(p.a,n,n,n,n,C.bo().$5$color$decoration$fontSize$fontWeight$height(t,D.dd,v?13:14,D.Q,1.45),n,n,n),new B.aM3(p),o),n),n))}D.c.N(s,r)}return new C.Z(G.vo,C.av(n,n,n,C.cu(new C.Z(new C.W(k,16,k,18),C.af(s,D.F,D.j,D.l),n),new C.b6(h,n,w,x,n,n,D.H),D.ac),!0,n,n,!1,n,!1,n,n,n,n,n,n,n,n,i,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,D.q,n),n)}}
-B.mU.prototype={}
+o=C.ii(D.bh,n,n,n,n,n,n,n,n,n,n,D.a_,D.af,n,n,n,n,D.eO,n,n)
+r.push(new C.Z(D.cp,new C.cm(D.bh,n,n,C.c9(C.j(p.a,n,n,n,n,C.bo().$5$color$decoration$fontSize$fontWeight$height(t,D.dd,v?13:14,D.Q,1.45),n,n,n),new B.aM5(p),o),n),n))}D.c.N(s,r)}return new C.Z(G.vn,C.av(n,n,n,C.cu(new C.Z(new C.W(k,16,k,18),C.af(s,D.F,D.j,D.l),n),new C.b6(h,n,w,x,n,n,D.H),D.ac),!0,n,n,!1,n,!1,n,n,n,n,n,n,n,n,i,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,D.q,n),n)}}
+B.mV.prototype={}
 B.cd.prototype={}
-B.azP.prototype={}
-B.aV8.prototype={
+B.azQ.prototype={}
+B.aVa.prototype={
 gft(){return"Perguntas e respostas PerfectGest ContabilGest"},
 gj6(){return"Perguntas e respostas"},
 gj7(){return"PerfectGest ContabilGest"},
 gm3(){return"Perguntas e respostas sobre o Aplicativo"},
-gWh(){return A.agt}}
-B.aV6.prototype={
+gWi(){return A.agt}}
+B.aV8.prototype={
 gft(){return"Questions and answers PerfectGest ContabilGest"},
 gj6(){return"Questions and answers"},
 gj7(){return"PerfectGest ContabilGest"},
 gm3(){return"Questions and answers about the App"},
-gWh(){return A.af4}}
-B.aV7.prototype={
+gWi(){return A.af4}}
+B.aV9.prototype={
 gft(){return"Preguntas y respuestas PerfectGest ContabilGest"},
 gj6(){return"Preguntas y respuestas"},
 gj7(){return"PerfectGest ContabilGest"},
 gm3(){return"Preguntas y respuestas sobre la Aplicaci\xf3n"},
-gWh(){return A.a98}}
+gWi(){return A.a98}}
 var z=a.updateTypes([])
-B.aIV.prototype={
+B.aIX.prototype={
 $2(d,e){var x,w,v,u,t,s,r,q,p,o=this,n=null,m=e.b
 m=m<1/0&&isFinite(m)?m:C.aM(d,D.ak,y.h).w.a.a
 x=D.e.dq(m<720?m:720,200,720)
@@ -102,41 +102,41 @@ s=v.gm3()
 r=o.d<400?18:22
 u=u.k3
 r=C.b([t,D.aa,C.j(s,n,n,n,n,C.bo().$4$color$fontSize$fontWeight$height(u,r,D.T,1.2),n,n,n),D.eU],y.e)
-for(v=v.gWh(),q=0;q<16;++q)r.push(new B.a6A(v[q],n))
-r.push(D.bn)
-r.push(E.uX)
+for(v=v.gWi(),q=0;q<16;++q)r.push(new B.a6A(v[q],n))
+r.push(D.bm)
+r.push(E.uW)
 r.push(D.db)
-p=C.bQ(d,D.b8,y.p)
+p=C.bQ(d,D.b7,y.p)
 p.toString
 r.push(C.j(p.vT(C.aT(new C.bg(Date.now(),0,!1))),n,n,n,n,C.bo().$3$color$fontSize$fontWeight(u.af(0.7),12,D.Q),n,n,n))
-r.push(E.ND)
+r.push(E.NC)
 return C.ev(C.cy(new C.cj(new C.a1(0,x,0,1/0),C.af(r,D.F,D.j,D.l),n),n,n),n,new C.W(w,16,w,28),D.a8)},
-$S:132}
-B.aM3.prototype={
+$S:162}
+B.aM5.prototype={
 $0(){return C.i_(C.bH(this.a.b,0,null),D.cq,"_blank")},
 $S:0};(function inheritance(){var x=a.inherit,w=a.inheritMany
-x(B.pP,C.R)
+x(B.pQ,C.R)
 x(B.a5_,C.V)
-x(B.aIV,C.tC)
+x(B.aIX,C.tC)
 x(B.a6A,C.X)
-x(B.aM3,C.l5)
-w(C.P,[B.mU,B.cd,B.azP])
-w(B.azP,[B.aV8,B.aV6,B.aV7])})()
-C.wH(b.typeUniverse,JSON.parse('{"pP":{"R":[],"c":[]},"a5_":{"V":["pP"]},"a6A":{"X":[],"c":[]}}'))
-var y={p:C.ab("hE"),a:C.ab("A<cd>"),g:C.ab("A<mU>"),e:C.ab("A<c>"),h:C.ab("hr")};(function constants(){var x=a.makeConstList
-A.SL=new B.aV6()
-A.SM=new B.aV7()
-A.SN=new B.aV8()
+x(B.aM5,C.l5)
+w(C.P,[B.mV,B.cd,B.azQ])
+w(B.azQ,[B.aVa,B.aV8,B.aV9])})()
+C.wH(b.typeUniverse,JSON.parse('{"pQ":{"R":[],"c":[]},"a5_":{"V":["pQ"]},"a6A":{"X":[],"c":[]}}'))
+var y={p:C.ab("hE"),a:C.ab("A<cd>"),g:C.ab("A<mV>"),e:C.ab("A<c>"),h:C.ab("hr")};(function constants(){var x=a.makeConstList
+A.SK=new B.aV8()
+A.SL=new B.aV9()
+A.SM=new B.aVa()
 A.ai=x([],y.g)
 A.ark=new B.cd("\xbfQu\xe9 es la app?","PerfectGest ContabilGest es la herramienta de conexi\xf3n con el usuario: usted sigue en tiempo real la contabilidad de la empresa (Libro de caja, NFS-e, NF-e y obligaciones) y, cuando el despacho habilita las funciones, los datos llegan al CRC. El uso diario en el aparato es offline por defecto. En Google Play: R$ 19,99/mes o pago \xfanico de R$ 239,88. El env\xedo al despacho y las funciones online existen despu\xe9s de la habilitaci\xf3n.",A.ai)
 A.arw=new B.cd("\xbfContabilGest es una app oficial del gobierno?","No. Es un producto privado de Perfect Gest Dev (CNPJ 66.889.409/0001-19). No estamos afiliados ni respaldados por la Receita Federal, eSocial, FGTS Digital o prefecturas. La fuente oficial de obligaciones y gu\xedas es siempre el portal del gobierno.",A.ai)
-A.arN=new B.mU("Simples / PGDAS / DAS","https://www8.receita.fazenda.gov.br/SimplesNacional/")
-A.arR=new B.mU("MEI (Portal do Empreendedor)","https://www.gov.br/empresas-e-negocios/pt-br/empreendedor")
-A.arO=new B.mU("eSocial","https://www.esocial.gov.br/")
-A.arL=new B.mU("e-CAC / DCTFWeb","https://cav.receita.fazenda.gov.br/")
-A.arM=new B.mU("FGTS Digital","https://www.gov.br/trabalho-e-emprego/pt-br/servicos/empregador/fgtsdigital")
-A.arQ=new B.mU("NFS-e Nacional","https://www.gov.br/nfse/pt-br")
-A.arP=new B.mU("IRPF","https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda")
+A.arN=new B.mV("Simples / PGDAS / DAS","https://www8.receita.fazenda.gov.br/SimplesNacional/")
+A.arR=new B.mV("MEI (Portal do Empreendedor)","https://www.gov.br/empresas-e-negocios/pt-br/empreendedor")
+A.arO=new B.mV("eSocial","https://www.esocial.gov.br/")
+A.arL=new B.mV("e-CAC / DCTFWeb","https://cav.receita.fazenda.gov.br/")
+A.arM=new B.mV("FGTS Digital","https://www.gov.br/trabalho-e-emprego/pt-br/servicos/empregador/fgtsdigital")
+A.arQ=new B.mV("NFS-e Nacional","https://www.gov.br/nfse/pt-br")
+A.arP=new B.mV("IRPF","https://www.gov.br/receitafederal/pt-br/assuntos/meu-imposto-de-renda")
 A.qh=x([A.arN,A.arR,A.arO,A.arL,A.arM,A.arQ,A.arP],y.g)
 A.arz=new B.cd("\xbfCu\xe1les son las fuentes oficiales?","Use siempre los portales del gobierno.",A.qh)
 A.arH=new B.cd("\xbfNecesito internet?","- Registrar, cerrar el mes y generar PDF: no\n- Suscribir o restaurar la compra de la aplicaci\xf3n en Google Play: s\xed\n- Enviar datos al despacho, certificado A1 y Asistente IA: s\xed, y solo despu\xe9s de la habilitaci\xf3n por el despacho\n- Abrir portales del gobierno (DAS, eSocial, DCTFWeb, FGTS Digital, prefectura): s\xed",A.ai)
@@ -187,4 +187,4 @@ A.arF=new B.cd("Como altero meu plano (faixa, downgrade ou extras como folha e I
 A.arc=new B.cd("O app avisa antes da renova\xe7\xe3o?","Quando a Play informar a data do ciclo da assinatura do aplicativo, o app pode avisar at\xe9 30 dias antes. Sem data da Play, n\xe3o h\xe1 prazo inventado \u2014 consulte Play \u2192 Assinaturas. Honor\xe1rios e plano cont\xe1bil: com o escrit\xf3rio.",A.ai)
 A.ar2=new B.cd("A assinatura da Play j\xe1 libera tudo?","N\xe3o. A Play libera o acesso ao aplicativo. Para sincroniza\xe7\xe3o, envio de dados ao escrit\xf3rio e fun\xe7\xf5es online, contacte o escrit\xf3rio depois de assinar. Sem habilita\xe7\xe3o, voc\xea entra no app, mas sem envio ao CRC e sem contato com o escrit\xf3rio.",A.ai)
 A.agt=x([A.ari,A.arq,A.ar4,A.arx,A.ar1,A.ar6,A.arj,A.arn,A.ary,A.arD,A.arh,A.ard,A.arg,A.arF,A.arc,A.ar2],y.a)})()};
-(a=>{a["UxE+xjAPbgTagkiP3WQvRHNKntc="]=a.current})($__dart_deferred_initializers__);
+(a=>{a["/YCwsDch0oPc8AE8XjczDaRMQEA="]=a.current})($__dart_deferred_initializers__);
