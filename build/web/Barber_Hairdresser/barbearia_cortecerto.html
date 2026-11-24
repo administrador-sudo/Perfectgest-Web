@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
     href value below to reflect the base path you are serving from.
 
     The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
+    it to work correctly!
 
     For more details:
     * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
@@ -19,16 +19,13 @@
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Boas práticas de segurança e privacidade (complementar cabeçalhos HTTP no servidor em produção) -->
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
-  <!-- CSP: Flutter Web + gtag adiado (pp_analytics.js) + fontes locais -->
-  <!-- connect-src: Barber Firestore (perfectgest-barber) + leads/funil + analytics -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.gstatic.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob: https:; connect-src 'self' https://perfectgest-leads-api-6v1e.onrender.com https://southamerica-east1-perfectgest-contabilgest.cloudfunctions.net https://us-central1-perfectgest-barber.cloudfunctions.net https://*.run.app https://firestore.googleapis.com https://*.googleapis.com https://*.firebaseio.com wss://*.firebaseio.com https://*.firebasestorage.app https://firebasestorage.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://firebaseinstallations.googleapis.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://www.googletagmanager.com https://www.gstatic.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;">
   <meta name="theme-color" content="#E8E8E8">
   <meta name="description" content="Agende seu horario. Toque no link para abrir a pagina da barbearia.">
-  <meta name="keywords" content="Flutter, Java, SDK, PWA, SEO, Google Search Console, mobile, web, desktop">
+  <meta name="keywords" content="contabilidade Caxias do Sul, prestadores de serviço, Orçamentos e Gestão, ContábilGest, MEI, PerfectGest">
   <meta name="robots" content="index, follow">
   <meta name="google-site-verification" content="zftG-b4ZxVLrLOTYSyybFDG_yNnoc7_uUTPfNaSOxqU">
   <meta property="og:title" content="Barbearia CorteCerto — Agendar">
@@ -41,7 +38,6 @@
   <meta name="twitter:description" content="Agende seu horario. Toque no link para abrir a pagina da barbearia.">
   <meta name="twitter:image" content="https://perfectgestdev.com/barber-logo/barbearia_cortecerto.png">
   <meta property="og:url" content="https://perfectgestdev.com/Barber_Hairdresser/barbearia_cortecerto">
-  <!-- Canonical alinhada ao host e path atuais (evita GSC "alternativa com canonical" em previews/staging). -->
   <script>
     (function () {
       if (!document.head || !window.location || !window.location.origin) return;
@@ -55,125 +51,199 @@
     })();
   </script>
 
-  <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="Agendar">
   <link rel="apple-touch-icon" href="/barber-logo/barbearia_cortecerto.png">
 
-  <!-- Favicon (brasão PerfectGestDev — ICO + PNG) -->
   <link rel="icon" href="favicon.ico" sizes="any"/>
   <link rel="icon" type="image/png" href="favicon.png"/>
   <link rel="icon" type="image/png" sizes="192x192" href="icons/Icon-192.png"/>
 
   <title>Barbearia CorteCerto — Agendar</title>
   <link rel="manifest" href="/manifest-barber.json">
-  <!-- Descobre o bootstrap mais cedo (não bloqueia parsing; ajuda o browser a planear a rede) -->
-  <link rel="preload" href="flutter_bootstrap.js" as="script">
-  <link rel="preload" href="brasao-emblema.png" as="image" type="image/png">
-  <link rel="preload" href="perfectgestdev-wordmark.png" as="image" type="image/png">
+  <link rel="preload" href="brasao-escritorio.png" as="image" type="image/png">
   <style>
+    :root {
+      --ink: #1A1A1A;
+      --muted: #5C5C5C;
+      --line: #E6E0D4;
+      --bg: #E8E8E8;
+      --card: #FFFFFF;
+      --green: #C6A15B;
+      --green-ink: #1A1408;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; }
+    html.pp-app-route #pp-static-landing { display: none !important; }
     #pp-static-landing {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      overflow-y: auto;
-      background: radial-gradient(ellipse 120% 80% at 50% 0%, #F5F5F5 0%, #E8E8E8 42%, #E0E0E0 100%);
-      color: #1A1A1A;
+      background: var(--bg);
+      color: var(--ink);
       font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      transition: opacity 220ms ease;
+      line-height: 1.5;
     }
-    #pp-static-landing.hidden {
-      opacity: 0;
-      pointer-events: none;
+    #pp-static-landing a { color: inherit; }
+    #pp-static-landing img { max-width: 100%; height: auto; }
+    .wrap { width: min(760px, calc(100% - 32px)); margin: 0 auto; }
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(232, 232, 232, 0.94);
+      border-bottom: 1px solid transparent;
+      backdrop-filter: blur(8px);
     }
-    #pp-static-landing .wrap {
-      max-width: 920px;
-      margin: 0 auto;
-      padding: 28px 24px 40px;
-    }
-    #pp-static-landing .brand-row {
+    .nav .wrap { width: min(1080px, calc(100% - 32px)); }
+    .nav-inner { display: flex; align-items: center; gap: 28px; min-height: 84px; }
+    .brand {
       display: flex;
       align-items: center;
-      gap: 14px;
-      margin-bottom: 22px;
-    }
-    #pp-static-landing .brand-row img {
-      height: auto;
-      max-height: 120px;
-      width: auto;
-      max-width: min(280px, 88vw);
-      object-fit: contain;
-      flex-shrink: 0;
-    }
-    #pp-static-landing .brand {
-      display: none;
-    }
-    #pp-static-landing h1 {
-      margin: 0 0 12px;
-      font-size: clamp(1.35rem, 2.8vw, 1.75rem);
+      gap: 10px;
+      text-decoration: none;
       font-weight: 800;
-      line-height: 1.2;
-      color: #1A1A1A;
+      background: #fff;
+      border: 1px solid #EFEAE2;
+      border-radius: 22px;
+      padding: 6px 16px 6px 8px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05);
     }
-    #pp-static-landing .lead {
-      margin: 0 0 14px;
-      font-size: clamp(0.95rem, 2vw, 1.05rem);
-      line-height: 1.55;
-      color: rgba(26, 26, 26, 0.88);
-      max-width: 720px;
-    }
-    #pp-static-landing .sub {
-      margin: 0 0 20px;
-      font-size: 0.92rem;
-      line-height: 1.5;
-      color: rgba(26, 26, 26, 0.72);
-      max-width: 680px;
-    }
-    #pp-static-landing .status {
+    .brand img { width: 72px; height: 52px; object-fit: contain; }
+    .hero-crest { display: block; width: min(280px, 70%); height: auto; margin: 0 auto 18px; }
+    .brand-text { display: flex; flex-direction: column; line-height: 1.05; }
+    .brand-lockup { font-size: 1.35rem; font-weight: 700; letter-spacing: -0.03em; }
+    .brand-lockup .p { color: #0F172A; }
+    .brand-lockup .g { color: #4AA969; }
+    .brand-sub { font-size: 0.72rem; font-weight: 600; color: #0F172A; }
+    footer.site .brand-lockup { font-size: 1rem; }
+    .nav-links { display: flex; gap: 22px; margin-left: auto; align-items: center; padding-left: 12px; }
+    .nav-links a { text-decoration: none; font-size: 0.92rem; font-weight: 600; }
+    .app-head { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
+    .app-head h2, .app-head h3 { margin: 0; }
+    .app-head img { width: 72px; height: 72px; border-radius: 16px; flex: none; }
+    .btn {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 10px 14px;
-      border: 1px solid rgba(212, 175, 55, 0.35);
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.92);
-      font-size: 0.88rem;
-      color: rgba(26, 26, 26, 0.84);
-    }
-    #pp-static-landing .open-ext {
-      display: none;
-      margin-top: 16px;
+      justify-content: center;
+      gap: 8px;
       padding: 12px 18px;
-      border: 0;
-      border-radius: 10px;
-      background: #d4af37;
-      color: #121212;
-      font-weight: 800;
-      font-size: 0.95rem;
+      border-radius: 999px;
       text-decoration: none;
-      cursor: pointer;
+      font-weight: 700;
+      border: 1px solid transparent;
     }
-    #pp-static-landing.show-ext .open-ext { display: inline-block; }
-    #pp-static-landing.show-ext .spinner { display: none; }
-    #pp-static-landing .spinner {
-      width: 16px;
-      height: 16px;
-      border: 2px solid rgba(212, 175, 55, 0.25);
-      border-top-color: #d4af37;
+    .btn-green { background: var(--green); color: var(--green-ink); }
+    .btn-line { background: #fff; border-color: var(--green); color: #7A5F1A; }
+    .hero { padding: 48px 0 24px; }
+    .badge {
+      display: inline-block;
+      margin: 0 0 14px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #F8F1DE;
+      color: #7A5F1A;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+    h1 { margin: 0 0 12px; font-size: clamp(1.7rem, 4vw, 2.5rem); line-height: 1.15; letter-spacing: -0.02em; }
+    .lead { margin: 0 0 20px; max-width: 720px; color: var(--muted); font-size: 1.05rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+    .seals { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; list-style: none; }
+    .seals li { padding: 6px 10px; border-radius: 999px; background: #fff; border: 1px solid var(--line); font-size: 0.8rem; font-weight: 700; }
+    section { padding: 28px 0; }
+    h2 { margin: 0 0 8px; font-size: clamp(1.35rem, 3vw, 1.9rem); letter-spacing: -0.02em; }
+    .sub { margin: 0 0 18px; color: var(--muted); max-width: 760px; }
+    .feature {
+      background: var(--card);
+      border: 1px solid #EFEAE2;
+      border-radius: 28px;
+      padding: 22px;
+      margin-bottom: 14px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+    }
+    .ribbon {
+      display: block;
+      margin-bottom: 8px;
+      color: #7A5F1A;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    .tag { display: block; margin-bottom: 8px; color: var(--muted); font-size: 0.82rem; font-weight: 700; }
+    .offer { margin: 12px 0; padding: 10px 12px; border-radius: 12px; background: #F8F1DE; font-weight: 700; }
+    .grid-2, .steps, .services, .faq-list { display: grid; gap: 14px; }
+    .card, .step, .faq { background: var(--card); border: 1px solid #EFEAE2; border-radius: 22px; padding: 18px; box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05); }
+    .num {
+      display: inline-flex;
+      width: 32px;
+      height: 32px;
+      align-items: center;
+      justify-content: center;
       border-radius: 50%;
-      animation: pp-spin 0.85s linear infinite;
+      background: #F8F1DE;
+      color: #7A5F1A;
+      font-weight: 800;
+      margin-bottom: 8px;
     }
-    @keyframes pp-spin {
-      to { transform: rotate(360deg); }
+    .benefits { padding-left: 18px; }
+    .benefits li { margin: 8px 0; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+    details.faq summary { cursor: pointer; font-weight: 800; }
+    details.faq p { margin: 10px 0 0; color: var(--muted); }
+    .place {
+      background: var(--card);
+      color: var(--ink);
+      border: 1px solid #EFEAE2;
+      border-radius: 28px;
+      padding: 22px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
     }
-    @media (prefers-reduced-motion: reduce) {
-      #pp-static-landing .spinner { animation: none; border-top-color: #d4af37; }
+    .ph { font-family: ui-monospace, Consolas, monospace; font-size: 0.85rem; }
+    .place a { color: #7A5F1A; }
+    footer.site {
+      padding: 28px 0 88px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .hero { padding: 8px 0 8px; }
+    .sheet {
+      background: #fff;
+      border-radius: 28px;
+      padding: 28px 22px 8px;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
+    }
+    .wa-float {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 30;
+      background: #C6A15B;
+      color: #1A1408;
+      text-decoration: none;
+      font-weight: 800;
+      padding: 14px 16px;
+      border-radius: 999px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.18);
+    }
+    @media (min-width: 800px) {
+      .grid-2 { grid-template-columns: 1fr 1fr; }
+      .steps { grid-template-columns: 1fr 1fr 1fr; }
+      .services { grid-template-columns: 1fr 1fr 1fr; }
+    }
+    @media (max-width: 799px) {
+      .nav-inner { flex-wrap: wrap; padding: 8px 0; }
+      .nav-links { flex-wrap: wrap; margin-left: 0; width: 100%; padding-bottom: 8px; }
     }
   </style>
   <script>
     (function () {
-      var path = (window.location && window.location.pathname ? window.location.pathname : '').toLowerCase();
+      var path = (window.location.pathname || '/').toLowerCase();
+      if (path.length > 1 && path.endsWith('/')) path = path.slice(0, -1);
+      var flutterSite = /(?:^|[?&])flutter=1(?:&|$)/.test(window.location.search || '');
+      var isHome = (path === '' || path === '/' || path === '/index.html') && !flutterSite;
+      window.__ppHomeLanding = isHome;
+      if (!isHome) document.documentElement.classList.add('pp-app-route');
       var standaloneLegalPaths = [
         '/politica-privacidade-clinica-iii',
         '/termos-clinica-iii',
@@ -196,85 +266,237 @@
         '/contabil-i-politica-privacidade.html',
         '/contabil-i-termos.html',
         '/contabil-i-exclusao-dados.html',
-        '/contabil-i-faq.html',
+        '/contabil-i-faq.html'
       ];
       window.__ppSkipLoadingShell = standaloneLegalPaths.indexOf(path) >= 0;
     })();
   </script>
-  <!-- GA4: só após consentimento + idle (ver web/pp_analytics.js) -->
   <script src="pp_analytics.js" defer></script>
 </head>
 <body>
-  <!--
-    You can customize the "flutter_bootstrap.js" script.
-    This is useful to provide a custom configuration to the Flutter loader
-    or to give the user feedback during the initialization process.
+  <div id="pp-static-landing">
+    <header class="nav">
+      <div class="wrap nav-inner">
+        <a class="brand" href="#topo">
+          <img src="brasao-escritorio.png" width="72" height="52" alt="Brasão do escritório PerfectGest">
+          <span class="brand-text">
+            <span class="brand-lockup"><span class="p">Perfect</span><span class="g">Gest</span></span>
+            <span class="brand-sub">Contabilidade &amp; Soluções</span>
+          </span>
+        </a>
+        <nav class="nav-links" aria-label="Seções">
+          <a href="#solucoes">Soluções para Profissionais</a>
+          <a href="#contabilgest">ContábilGest</a>
+          <a href="#contabilidade">Contabilidade</a>
+          <a href="#duvidas">Dúvidas</a>
+          <a class="btn btn-green" data-wa href="https://wa.me/5551989045442">Falar com Especialista</a>
+        </nav>
+      </div>
+    </header>
 
-    For more details:
-    * https://docs.flutter.dev/platform-integration/web/initialization
-  -->
-  <div id="pp-static-landing" aria-busy="true">
-    <main class="wrap" role="main">
-      <header class="brand-row" role="banner">
-        <img src="brasao-emblema.png" width="96" height="106" alt="Perfect Gest Dev" decoding="async" fetchpriority="high">
-        <p class="brand" aria-hidden="true">Perfect Gest Dev</p>
-      </header>
-      <h1>Inovacao em Flutter, Java e SDKs</h1>
-      <p class="lead">Criamos apps Flutter, sistemas web e integracoes Java/SDK com foco em performance, seguranca e escalabilidade para o seu negocio.</p>
-      <p class="sub">Software house especializada em aplicativo mobile, plataforma web rapida (Core Web Vitals) e SEO tecnico para crescer no Google.</p>
-      <p class="status" role="status" aria-live="polite">
-        <span class="spinner" aria-hidden="true"></span>
-        <span id="pp-load-status">Carregando experiencia Web de alta performance...</span>
-      </p>
-      <a class="open-ext" id="pp-open-ext" href="https://perfectgestdev.com/">Abrir no Chrome</a>
+    <main id="topo">
+      <section class="hero">
+        <div class="wrap sheet">
+          <img class="hero-crest" src="brasao-escritorio.png" alt="Brasão do escritório PerfectGest">
+          <p class="badge">Atendimento Presencial em Caxias do Sul/RS e Região</p>
+          <h1>Contabilidade Presencial na Serra Gaúcha - RS, para prestadores de serviço.</h1>
+          <p class="lead">Organize suas propostas comerciais com o app Orçamentos e Gestão, controle seu faturamento para não estourar o limite do MEI e conte com um contador de verdade ao seu lado.</p>
+          <div class="hero-actions">
+            <a class="btn btn-green" data-wa href="https://wa.me/5551989045442">Agendar Conversa Presencial ou WhatsApp</a>
+            <a class="btn btn-line" href="https://play.google.com/store/apps/details?id=br.perfectgestcontabil.dev">Conhecer o App ContabilGest - Contabilidade</a>
+          </div>
+          <ul class="seals">
+            <li>Sistema Inteligente Ativo</li>
+            <li>Atendimento Nacional</li>
+            <li>Prestadores de Serviço</li>
+            <li>Barbearias</li>
+            <li>PMEs</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="solucoes">
+        <div class="wrap">
+          <h2>Tecnologia prática para organizar sua operação e vender mais</h2>
+          <p class="sub">Desenvolvemos aplicativos focados nas dores reais de cada profissão. Assine a ferramenta ideal para o seu negócio ou tenha acesso facilitado ao trazer sua contabilidade para a PerfectGest.</p>
+
+          <article class="feature" id="orcamentos">
+            <p class="ribbon">Mais Procurado por Prestadores de Serviço</p>
+            <p class="tag">Para Prestadores de Serviço e Autônomos</p>
+            <div class="app-head">
+              <img src="orcamentos-icone.jpg?v=2" width="72" height="72" alt="Ícone do app Orçamentos e Gestão">
+              <h3>Orçamentos e Gestão</h3>
+            </div>
+            <p>Crie orçamentos em PDF com a sua logo em 2 minutos, envie no WhatsApp do cliente e acompanhe o termômetro do seu faturamento anual (MEI/ME).</p>
+            <p class="offer">Assine direto na Google Play ou ganhe acesso incluso ao trazer sua contabilidade para nosso escritório em Caxias do Sul.</p>
+            <a class="btn btn-green" href="https://play.google.com/store/apps/details?id=br.com.perfectpro.one">Ver App na Google Play</a>
+          </article>
+
+          <div class="grid-2">
+            <article class="card">
+              <p class="tag">Para Barbearias e Salões</p>
+              <div class="app-head">
+                <img src="barbeiro-icone.jpg" width="72" height="72" alt="Ícone do app Agenda Barbeiro">
+                <h3>Agenda Barbeiro</h3>
+              </div>
+              <p>Controle horários, reduza faltas de clientes e acompanhe o faturamento de cada profissional direto pelo celular.</p>
+              <p>Preparado para ajudar seu salão a crescer dentro da Lei do Salão Parceiro sem riscos trabalhistas.</p>
+              <a class="btn btn-line" href="https://play.google.com/store/apps/details?id=com.perfectgestdev.barber_hairdresser">Ver App na Google Play</a>
+            </article>
+            <article class="card" id="rodada">
+              <p class="tag">Para Eventos e Networking Empresarial</p>
+              <div class="app-head">
+                <img src="rodada-icone.jpg" width="72" height="72" alt="Ícone do app B2B Rodada Negócio">
+                <h3>B2B Rodada Negócio</h3>
+              </div>
+              <p>Plataforma completa para organizar rodadas de negócios, conectar empresas e gerar oportunidades comerciais estruturadas.</p>
+              <a class="btn btn-line" href="https://play.google.com/store/apps/details?id=com.perfectgestdev.rodada_negocio">Ver App na Google Play</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="parceria">
+        <div class="wrap">
+          <h2>Como funciona a nossa parceria</h2>
+          <div class="steps">
+            <article class="step">
+              <div class="num">1</div>
+              <h3>Profissionalize suas vendas</h3>
+              <p>Baixe o app Orçamentos e Gestão e comece a enviar propostas profissionais que fecham mais serviços.</p>
+            </article>
+            <article class="step">
+              <div class="num">2</div>
+              <h3>Controle seu crescimento</h3>
+              <p>Acompanhe quanto você já faturou no ano pelo próprio app e saiba a hora certa de emitir notas fiscais ou migrar de MEI para ME.</p>
+            </article>
+            <article class="step">
+              <div class="num">3</div>
+              <h3>Contabilidade presencial + ContábilGest</h3>
+              <p>Venha tomar um café em nosso escritório em Caxias do Sul. Cuidamos de toda a sua burocracia fiscal, liberamos o portal ContábilGest e você não paga a assinatura do app de orçamentos.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contabilgest">
+        <div class="wrap">
+          <div class="app-head">
+            <img src="contabilgest-icone.png" width="72" height="72" alt="Ícone do app ContábilGest">
+            <h2>ContábilGest: sua empresa conectada diretamente à nossa contabilidade</h2>
+          </div>
+          <p class="sub">O aplicativo central que elimina a papelada e coloca você em contato direto com nossa equipe contábil. Ao contratar nossos planos de contabilidade mensal, você ganha acesso ao ContábilGest para gerenciar toda a saúde fiscal do seu negócio na palma da mão.</p>
+          <ul class="benefits">
+            <li>Envio rápido de notas fiscais, recibos e movimentações.</li>
+            <li>Guias de impostos (DAS, DARF) organizadas com alertas de vencimento.</li>
+            <li>Canal direto de atendimento com contador especialista, sem robôs.</li>
+            <li>Visão clara de pró-labore, faturamento e regularidade fiscal.</li>
+          </ul>
+          <div class="actions">
+            <a class="btn btn-green" data-wa href="https://wa.me/5551989045442">Quero Contratar a Contabilidade + ContábilGest</a>
+            <a class="btn btn-line" href="/contabilidade">Ver honorários</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="contabilidade">
+        <div class="wrap">
+          <h2>Da organização do dia a dia à segurança fiscal completa</h2>
+          <div class="services">
+            <article class="card">
+              <h3>Abertura e regularização de CNPJ</h3>
+              <p>Estruturamos sua empresa no regime tributário mais econômico (MEI, Simples Nacional ou Lucro Presumido).</p>
+            </article>
+            <article class="card">
+              <h3>Transição segura de MEI para ME</h3>
+              <p>Cresceu e ultrapassou o limite do MEI? Cuidamos de toda a migração sem multas e sem parar sua operação.</p>
+            </article>
+            <article class="card">
+              <h3>Contabilidade mensal consultiva</h3>
+              <p>Folha de pagamento, apuração de impostos, emissão de notas e suporte estratégico para você focar apenas no seu trabalho.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="duvidas">
+        <div class="wrap">
+          <h2>Dúvidas</h2>
+          <div class="faq-list">
+            <details class="faq">
+              <summary>Como funcionam os planos e assinaturas dos aplicativos?</summary>
+              <p>Os aplicativos têm assinatura acessível na Google Play, para qualquer profissional. Quem fecha a contabilidade mensal com a PerfectGest ganha isenção da assinatura do app Orçamentos e Gestão e acesso completo ao ContábilGest.</p>
+            </details>
+            <details class="faq">
+              <summary>Posso contratar apenas um aplicativo sem fechar a contabilidade?</summary>
+              <p>Sim. Cada ferramenta funciona sozinha para a gestão do dia a dia. A contabilidade é o passo seguinte, quando você quiser regularizar o CNPJ ou ter o contador por perto.</p>
+            </details>
+            <details class="faq">
+              <summary>Como funciona o atendimento da contabilidade se eu não morar em Caxias do Sul/RS?</summary>
+              <p>O atendimento digital vale para todo o Brasil, pelo ContábilGest e pelo WhatsApp. Em Caxias do Sul e região, você também pode ser atendido presencialmente no escritório.</p>
+            </details>
+            <details class="faq">
+              <summary>Como tenho acesso ao aplicativo ContábilGest?</summary>
+              <p>Ele é liberado para clientes da assessoria contábil mensal, ou mediante um plano específico. Para esses clientes, a assinatura do app Orçamentos e Gestão também fica isenta.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section id="visita">
+        <div class="wrap">
+          <div class="place">
+            <h2>Atendimento Presencial em Caxias do Sul/RS</h2>
+            <p>Rua Pietro Fiorelli, 61<br>Bairro Rio Branco<br>Caxias do Sul - RS - Brasil</p>
+            <p>O horário de atendimento deve ser agendado com o contador Marcos pelo telefone <a href="tel:+5554999730205">54 99973-0205</a>.</p>
+            <a class="btn btn-green" data-wa href="https://wa.me/5551989045442">Agendar visita</a>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <footer class="site">
+      <div class="wrap">
+        <p><span class="brand-lockup"><span class="p">Perfect</span><span class="g">Gest</span></span> Contabilidade e Soluções Digitais — Caxias do Sul/RS.</p>
+        <p>Portfólio na Google Play: <a href="https://play.google.com/store/apps/dev?id=6182001988666426178">ver aplicativos</a></p>
+        <p><a href="/?flutter=1">Abrir site em flutter</a></p>
+        <p>© Todos os direitos reservados a PerfectGest Dev - 2026</p>
+      </div>
+    </footer>
+    <a class="wa-float" data-wa href="https://wa.me/5551989045442">WhatsApp</a>
   </div>
   <script>
     (function () {
-      const landing = document.getElementById('pp-static-landing');
-      if (!landing) return;
-      if (window.__ppSkipLoadingShell) {
-        landing.remove();
-        return;
-      }
-      var hidden = false;
-      const hide = () => {
-        if (hidden) return;
-        hidden = true;
-        landing.setAttribute('aria-hidden', 'true');
-        landing.setAttribute('aria-busy', 'false');
-        landing.classList.add('hidden');
-        setTimeout(() => landing.remove(), 260);
-      };
-      window.addEventListener('flutter-first-frame', hide, { once: true });
+      var msg = 'Olá! Sou prestador de serviços em Caxias do Sul, vim pelo site da PerfectGest e quero saber mais sobre o app Orçamentos e a contabilidade.';
+      var href = 'https://wa.me/5551989045442?text=' + encodeURIComponent(msg);
+      var links = document.querySelectorAll('[data-wa]');
+      for (var i = 0; i < links.length; i++) links[i].href = href;
+
+      if (window.__ppHomeLanding) return;
+
+      var landing = document.getElementById('pp-static-landing');
+      if (landing) landing.remove();
+
+      var script = document.createElement('script');
+      script.src = 'flutter_bootstrap.js';
+      script.async = true;
+      document.body.appendChild(script);
+
       var ua = navigator.userAgent || '';
       var inApp = /FBAN|FBAV|FB_IAB|FBIOS|Instagram|Line\/|Twitter|WhatsApp|MicroMessenger|BytedanceWebview/i.test(ua);
-      var openExt = document.getElementById('pp-open-ext');
-      if (openExt) {
-        openExt.href = (window.location.origin || 'https://perfectgestdev.com') + (window.location.pathname || '/') + (window.location.search || '');
-        openExt.addEventListener('click', function (ev) {
-          var path = (window.location.pathname || '/') + (window.location.search || '') + (window.location.hash || '');
-          var httpsUrl = (window.location.origin || 'https://perfectgestdev.com') + path;
-          if (/Android/i.test(ua)) {
-            ev.preventDefault();
-            window.location.href = 'intent://' + window.location.host + path + '#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url=' + encodeURIComponent(httpsUrl) + ';end';
-          }
-        });
-      }
-      if (!inApp) {
-        setTimeout(hide, 8000);
-      } else {
+      if (inApp) {
         setTimeout(function () {
-          if (hidden) return;
-          landing.classList.add('show-ext');
-          var status = document.getElementById('pp-load-status');
-          if (status) {
-            status.textContent = 'Este navegador do Facebook nao abre o site completo. Toque em Abrir no Chrome.';
+          var httpsUrl = (window.location.origin || 'https://perfectgestdev.com') + (window.location.pathname || '/') + (window.location.search || '');
+          if (/Android/i.test(ua) && !document.getElementById('pp-open-ext')) {
+            var a = document.createElement('a');
+            a.id = 'pp-open-ext';
+            a.href = httpsUrl;
+            a.textContent = 'Abrir no Chrome';
+            a.style.cssText = 'position:fixed;left:16px;right:16px;bottom:16px;z-index:40;padding:14px;border-radius:10px;background:#d4af37;color:#121212;font-weight:800;text-align:center;text-decoration:none;';
+            document.body.appendChild(a);
           }
         }, 4000);
       }
-      // Nao esconder o splash so porque existe flt-glass-pane: no web-server
-      // o painel aparece vazio (tela branca) antes do primeiro frame.
       var armed = false;
       var bootWatch = setInterval(function () {
         if (typeof window.$dartRunMain === 'function' && !armed) {
@@ -285,6 +507,5 @@
       setTimeout(function () { clearInterval(bootWatch); }, 20000);
     })();
   </script>
-  <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>

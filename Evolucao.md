@@ -1,5 +1,127 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-24] Rodapé da home
+
+- O rodapé tem o link `/?flutter=1` para abrir o site em Flutter e a linha de direitos reservados de 2026.
+
+## [2026-11-24] Selo do hero
+
+- O selo CRC Ativo passa a ser Sistema Inteligente Ativo.
+
+## [2026-11-24] Botão do ContabilGest no hero
+
+- O segundo botão do hero abre o ContabilGest na Google Play.
+
+## [2026-11-24] Portfólio na Play
+
+- O rodapé aponta para a página de desenvolvedor na Google Play.
+
+## [2026-11-24] Endereço e horário na home
+
+- A visita presencial mostra Rua Pietro Fiorelli, 61, Rio Branco, Caxias do Sul - RS.
+- O horário é agendado com o contador Marcos pelo telefone 54 99973-0205.
+
+## [2026-11-24] Ícones do Agenda Barbeiro e da Rodada
+
+- O card Agenda Barbeiro mostra o escudo com o poste de barbeiro.
+- O card B2B Rodada Negócio mostra o escudo verde com o P.
+
+## [2026-11-24] Novo ícone do Orçamentos e Gestão
+
+- O card em destaque usa o escudo verde e azul no lugar do ícone anterior.
+
+## [2026-11-24] Ícone do Orçamentos e Gestão
+
+- O ícone do app fica à esquerda do nome Orçamentos e Gestão no card em destaque.
+
+## [2026-11-24] Ícone do ContábilGest na home
+
+- O ícone do app fica à esquerda do título da seção ContábilGest.
+
+## [2026-11-24] Play da Rodada Negócio
+
+- O card B2B Rodada Negócio abre `com.perfectgestdev.rodada_negocio` na Google Play. O marcador do link saiu.
+
+## [2026-11-24] Título da home e bloco do brasão
+
+- O título da home passa a ser “Contabilidade Presencial na Serra Gaúcha - RS, para prestadores de serviço.”
+- O brasão e o nome ficam num bloco branco, e “Soluções para Profissionais” fica mais afastado.
+
+## [2026-11-24] Home no aspecto de /contabilidade
+
+- A landing usa o fundo cinza, o cartão branco e os botões dourados da página `/contabilidade`.
+- O brasão do escritório passa a ser a versão com fundo branco. Políticas não foram alteradas.
+
+## [2026-11-24] Marca do escritório na home e em /contabilidade
+
+- O brasão do escritório e o nome PerfectGest, com Gest em verde `#4AA969`, entram na landing e no topo de `/contabilidade`.
+- Políticas, Barber e o wordmark do restante do site ficam como estavam.
+
+## [2026-11-24] Página /contabilidade alinhada à home
+
+- Textos, selo, duas colunas e a confirmação da rota `/contabilidade` passam a falar de parceria em Caxias do Sul, ContábilGest e isenção do Orçamentos e Gestão.
+- O envio para o gerenciador do escritório ficou igual: mesmos campos, mesmo `_openProposal` e mesmos serviços AWS/Firestore. A página do Escritorio001 não usa esse visual.
+
+## [2026-11-24] Landing da home para prestadores de serviço
+
+- A `/` deixa de mostrar a splash do Flutter e passa a ser a landing de Orçamentos e Gestão, com atendimento presencial em Caxias do Sul.
+- Nas outras rotas o Flutter continua a abrir. Endereço, horário, Play da Rodada e portfólio ficam com marcador.
+
+## [2026-11-23] Cartão do WhatsApp por loja
+
+- Cada link `/Barber_Hairdresser/{loja}` leva o nome e o logo dessa loja (`/barber-logo/{loja}.png`). Sem logo, o cartão usa o ícone do Agenda Barbeiro (`/barber-app-logo.png`). O PNG único da loja piloto deixa de ser o cartão de todas.
+
+## [2026-11-23] Versão da Play na página
+
+- A faixa do agendar e o rodapé mostram V 1.0.32, o mesmo nome que sobe para a Play.
+
+## [2026-11-23] Grade, terceiro horário e comprovante PIX
+
+- Consulta do dia que falha mostra o erro e não abre a grade livre.
+- O mesmo minuto aceita outro documento `slot_…_r`, `slot_…_r2` até `_r8` quando o anterior já está cancelado ou concluído.
+- Comprovante PIX acima de cerca de 700 mil caracteres não entra na ficha; o horário grava e a tela avisa.
+
+## [2026-11-23] Agendar com horário cancelado e telefone sem +55
+
+- Causa do «A loja não pode receber este agendamento agora»: o minuto já tem documento cancelado ou concluído e o PATCH anónimo volta 403 (regras na nuvem de 11/11). A loja `barbearia_do_marcos` está active e com billing active.
+- Se a regravação do mesmo documento for negada, o site cria `slot_…_r` no mesmo minuto. Horário marcado continua recusado.
+- Telefone visível: DDD + número (`49 99730205`, `54 999730207`). Colar +55 tira o DDI.
+- O erro na tela deixa de mostrar o prefixo `Bad state:`.
+
+## [2026-11-22] Agendar em horário liberado
+
+- Se o documento do minuto já existe e não está marcado, o 403 também segue para a regravação. A mensagem deixa de mostrar o JSON da nuvem.
+
+## [2026-11-22] Cartão Fidelidade em R$ 38,33
+
+- O cartão mostra R$ 38,33/mês, a renovação em 12 meses, o de/por R$ 59,70 e o selo 35,8% OFF. Saiu o texto Boleto CNPJ. O formulário avisa o programa de indicações.
+
+## [2026-11-21] Cartão Básico Fidelizado
+
+- Parcela de R$ 38,33/mês em negrito. À vista continua R$ 456,99. Selo 35,8% OFF e desconto de R$ 254,83 (de R$ 711,82).
+
+## [2026-11-21] Sincronizar e reagendar
+
+- O botão Sincronizar a Agenda lê o dia na hora e mostra «Agenda sincronizada».
+- O horário antigo só é cancelado depois que o novo agendamento existe.
+
+## [2026-11-21] Horário cancelado
+
+- Se o documento do minuto existe e não está `scheduled`, o site regrava o novo cliente. Marcado continua recusado.
+
+## [2026-11-21] Serviços ao vivo
+
+- A cada 20 s a página relê preço, tempo e horários do profissional aberto.
+
+## [2026-11-20] Grade e auxiliar
+
+- Admin: botão Remover põe o profissional `active: false` e ajusta `staffSeatCount`.
+- Página de agendamento recarrega os horários do dia a cada 20 s.
+
+## [2026-11-20] Reagendar Barber — CSP
+
+- `web/index.html` `connect-src` inclui `https://us-central1-perfectgest-barber.cloudfunctions.net`. Sem isso o browser bloqueia `rescheduleByPhone` (`Failed to fetch`).
+
 ## [2026-11-16] Nome do app de orçamentos
 
 - Home: título do bloco `Orçamentos e Gestão`, hashtag `#OrcamentosEGestao`, legendas dos mockups.

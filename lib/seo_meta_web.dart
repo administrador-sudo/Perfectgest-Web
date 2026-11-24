@@ -275,6 +275,10 @@ void _upsertMetaProperty(String property, String content) {
   tag.content = content;
 }
 
+void leaveToSiteHome() {
+  web.window.location.assign('/');
+}
+
 void _syncCanonicalFromLocation() {
   final loc = web.window.location;
   final origin = loc.origin;

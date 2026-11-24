@@ -199,6 +199,16 @@ abstract class SiteContabilidadeFunilTexts {
   String get colBoleto;
   String get highlightBadge;
   String get a1Seal;
+  String get parceriaBadge;
+  String get parceriaHeadline;
+  String get parceriaLead;
+  String get parceriaCardTitle;
+  List<String> get parceriaPoints;
+  String get parceriaSubmit;
+  String get parceriaSuccessTitle;
+  String get parceriaSuccessBody;
+  String get parceriaCafeCta;
+  String get parceriaBack;
 }
 
 class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
@@ -1005,6 +1015,43 @@ class _SiteContabilidadeFunilTextsPt extends SiteContabilidadeFunilTexts {
 
   @override
   String get a1Seal => 'A1 QualityCert';
+
+  @override
+  String get parceriaBadge => 'Atendimento Presencial em Caxias do Sul/RS';
+
+  @override
+  String get parceriaHeadline => 'Receba sua Proposta de Contabilidade + Apps Inclusos';
+
+  @override
+  String get parceriaLead =>
+      'Preencha os dados abaixo para analisarmos o momento da sua empresa. Ao fechar sua contabilidade conosco, você ganha acesso ao portal ContábilGest e isenção na assinatura do app Orçamentos e Gestão.';
+
+  @override
+  String get parceriaCardTitle => 'O que está incluso na nossa parceria';
+
+  @override
+  List<String> get parceriaPoints => const [
+        'Contador de Verdade em Caxias do Sul: atendimento presencial no escritório ou rápido pelo WhatsApp, sem robôs.',
+        'Economia Legal de Impostos: análise de enquadramento (MEI, Simples Nacional ou transição de MEI para ME).',
+        'App Orçamentos e Gestão Liberado: isenção da mensalidade do aplicativo para você emitir propostas profissionais em PDF.',
+        'Portal ContábilGest Exclusivo: envio de notas, guias de impostos (DAS/DARF) e relatórios na palma da mão.',
+      ];
+
+  @override
+  String get parceriaSubmit => 'Solicitar Proposta Agora';
+
+  @override
+  String get parceriaSuccessTitle => 'Solicitação recebida com sucesso!';
+
+  @override
+  String get parceriaSuccessBody =>
+      'Seus dados já chegaram na mesa da nossa equipe contábil em Caxias do Sul. Entraremos em contato pelo seu WhatsApp em breve com a sua proposta.';
+
+  @override
+  String get parceriaCafeCta => 'Falar Agora no WhatsApp / Agendar Café no Escritório';
+
+  @override
+  String get parceriaBack => 'Voltar para a Página Inicial';
 }
 
 class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
@@ -1810,6 +1857,43 @@ class _SiteContabilidadeFunilTextsEn extends SiteContabilidadeFunilTexts {
 
   @override
   String get a1Seal => 'A1 QualityCert';
+
+  @override
+  String get parceriaBadge => 'In-person service in Caxias do Sul/RS';
+
+  @override
+  String get parceriaHeadline => 'Get your accounting proposal with the apps included';
+
+  @override
+  String get parceriaLead =>
+      'Fill in the details below so we can look at where your company stands. When you hire monthly accounting with us, you get the ContábilGest portal and the Orçamentos e Gestão subscription is waived.';
+
+  @override
+  String get parceriaCardTitle => 'What is included in this partnership';
+
+  @override
+  List<String> get parceriaPoints => const [
+        'A real accountant in Caxias do Sul: in-person at the office or quickly on WhatsApp, no bots.',
+        'Legal tax savings: review of your status (MEI, Simples Nacional, or moving from MEI to ME).',
+        'Orçamentos e Gestão included: the app subscription is waived so you can send professional PDF quotes.',
+        'Exclusive ContábilGest portal: invoices, tax slips (DAS/DARF), and reports on your phone.',
+      ];
+
+  @override
+  String get parceriaSubmit => 'Request the proposal now';
+
+  @override
+  String get parceriaSuccessTitle => 'Request received successfully!';
+
+  @override
+  String get parceriaSuccessBody =>
+      'Your details are already with our accounting team in Caxias do Sul. We will contact you on WhatsApp soon with your proposal.';
+
+  @override
+  String get parceriaCafeCta => 'Talk on WhatsApp now / Book a coffee at the office';
+
+  @override
+  String get parceriaBack => 'Back to the home page';
 }
 
 class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
@@ -2615,4 +2699,41 @@ class _SiteContabilidadeFunilTextsEs extends SiteContabilidadeFunilTexts {
 
   @override
   String get a1Seal => 'A1 QualityCert';
+
+  @override
+  String get parceriaBadge => 'Atención presencial en Caxias do Sul/RS';
+
+  @override
+  String get parceriaHeadline => 'Reciba su propuesta de contabilidad con las apps incluidas';
+
+  @override
+  String get parceriaLead =>
+      'Complete los datos para que analicemos el momento de su empresa. Al contratar la contabilidad mensual, usted recibe el portal ContábilGest y la suscripción de Orçamentos e Gestão queda exenta.';
+
+  @override
+  String get parceriaCardTitle => 'Qué incluye esta alianza';
+
+  @override
+  List<String> get parceriaPoints => const [
+        'Un contador de verdad en Caxias do Sul: atención presencial en la oficina o rápida por WhatsApp, sin robots.',
+        'Ahorro legal de impuestos: análisis de encuadramiento (MEI, Simples Nacional o paso de MEI a ME).',
+        'App Orçamentos e Gestão incluida: la mensualidad queda exenta para emitir propuestas profesionales en PDF.',
+        'Portal ContábilGest exclusivo: envío de facturas, guías de impuestos (DAS/DARF) e informes en el celular.',
+      ];
+
+  @override
+  String get parceriaSubmit => 'Solicitar la propuesta ahora';
+
+  @override
+  String get parceriaSuccessTitle => '¡Solicitud recibida con éxito!';
+
+  @override
+  String get parceriaSuccessBody =>
+      'Sus datos ya llegaron a la mesa de nuestro equipo contable en Caxias do Sul. Nos pondremos en contacto por su WhatsApp en breve con la propuesta.';
+
+  @override
+  String get parceriaCafeCta => 'Hablar ahora por WhatsApp / Agendar un café en la oficina';
+
+  @override
+  String get parceriaBack => 'Volver a la página inicial';
 }

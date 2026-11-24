@@ -20,6 +20,7 @@ import 'locale_controller.dart';
 import 'metallic_site_shell.dart';
 import 'seo_meta_stub.dart' if (dart.library.html) 'seo_meta_web.dart' as seo_meta;
 import 'site_hero_wordmark.dart';
+import 'site_web_image.dart';
 import 'site_public_urls.dart';
 import 'site_surface.dart';
 
@@ -27,6 +28,12 @@ const Color kFunilGreen = BrandPalette.goldWarm;
 const Color kFunilA1Purple = Color(0xFF7A2E9A);
 const Color kFunilBg = Color(0xFFF4F7F5);
 const Color kFunilInk = Color(0xFF14211C);
+const Color kParceriaNavy = Color(0xFF1A1A1A);
+const Color kParceriaGreen = Color(0xFFC6A15B);
+const Color kParceriaInk = Color(0xFF1A1408);
+const Color kParceriaBg = Color(0xFFE8E8E8);
+const String _kParceriaWhatsApp =
+    'Olá! Sou prestador de serviços em Caxias do Sul, vim pelo site da PerfectGest e quero saber mais sobre o app Orçamentos e a contabilidade.';
 
 const String kFunilImgDir = 'IMAGENS_APP/IMAGENS NOVA PAGE';
 
@@ -528,6 +535,8 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
     );
   }
 
+  bool get _parceriaLocal => widget.perfil.id == 'perfectgest';
+
   void _goHome() {
     if (Navigator.of(context).canPop()) {
       Navigator.of(context).pop();
@@ -905,7 +914,7 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
       label: st.semanticsLabel,
       child: SiteBackgroundShell(
         child: Scaffold(
-          backgroundColor: Colors.transparent,
+          backgroundColor: _parceriaLocal ? kParceriaBg : Colors.transparent,
           floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
           floatingActionButton: narrow
               ? Padding(
@@ -913,8 +922,8 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                   child: SizedBox(
                   height: 48,
                   child: FloatingActionButton.extended(
-                    backgroundColor: cs.primary,
-                    foregroundColor: cs.onPrimary,
+                    backgroundColor: _parceriaLocal ? kParceriaGreen : cs.primary,
+                    foregroundColor: _parceriaLocal ? kParceriaInk : cs.onPrimary,
                     onPressed: () => _openWhatsApp(),
                     icon: const Icon(Icons.chat_rounded),
                     label: Text(st.whatsAppFab),
@@ -924,7 +933,11 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
               : null,
           body: Column(
             children: [
-              _FunilHeader(st: st),
+              _FunilHeader(
+                st: st,
+                parceria: _parceriaLocal,
+                onBack: seo_meta.leaveToSiteHome,
+              ),
               Expanded(
                 child: SingleChildScrollView(
                   padding: EdgeInsets.fromLTRB(
@@ -935,12 +948,13 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                   ),
                   child: Center(
                     child: ConstrainedBox(
-                      constraints: const BoxConstraints(maxWidth: 720),
+                      constraints: BoxConstraints(maxWidth: _parceriaLocal ? 1080 : 720),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           _HeroBlock(
                             st: st,
+                            parceria: _parceriaLocal,
                             img: widget.perfil.imagens,
                             cap: cap,
                             lead: lead,
@@ -1030,18 +1044,7 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                             ),
                           ),
                           const SizedBox(height: 20),
-                          KeyedSubtree(
-                            key: _formAnchorKey,
-                            child: _success
-                                ? _SuccessCard(
-                                    st: st,
-                                    email: _emailCtrl.text.trim(),
-                                    playUrl: kPerfectGestContabilIProductUrl,
-                                    onPlay: _openPlay,
-                                    onHome: _goHome,
-                                  )
-                                : _buildForm(st),
-                          ),
+                          _formAndCard(st),
                           const SizedBox(height: 20),
                           _DemoBlock(st: st, img: widget.perfil.imagens, cap: cap, lead: lead, onKnowApp: _abrirConhecerApp),
                           const SizedBox(height: 20),
@@ -1064,6 +1067,43 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _formAndCard(SiteContabilidadeFunilTexts st) {
+    final form = KeyedSubtree(
+      key: _formAnchorKey,
+      child: _success
+          ? _SuccessCard(
+              st: st,
+              parceria: _parceriaLocal,
+              email: _emailCtrl.text.trim(),
+              playUrl: kPerfectGestContabilIProductUrl,
+              onPlay: _openPlay,
+              onHome: _goHome,
+              onCafe: () => _openWhatsApp(_kParceriaWhatsApp),
+            )
+          : _buildForm(st),
+    );
+    if (!_parceriaLocal) return form;
+    final card = _ParceriaCard(st: st);
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        if (constraints.maxWidth < 840) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [form, const SizedBox(height: 16), card],
+          );
+        }
+        return Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(flex: 3, child: form),
+            const SizedBox(width: 16),
+            Expanded(flex: 2, child: card),
+          ],
+        );
+      },
     );
   }
 
@@ -1296,11 +1336,25 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
                 ),
             ],
             const SizedBox(height: 16),
-            sitePrimaryActionButton(
-              context: context,
-              label: _submitting ? st.submittingLabel : st.submitLabel,
-              onPressed: _submitting ? () {} : () => _openProposal(st),
-            ),
+            _parceriaLocal
+                ? FilledButton(
+                    style: FilledButton.styleFrom(
+                      backgroundColor: kParceriaGreen,
+                      foregroundColor: kParceriaInk,
+                      disabledBackgroundColor: kParceriaGreen.withValues(alpha: 0.5),
+                      padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 16),
+                    ),
+                    onPressed: _submitting ? null : () => _openProposal(st),
+                    child: Text(
+                      _submitting ? st.submittingLabel : st.parceriaSubmit,
+                      style: const TextStyle(fontWeight: FontWeight.w800),
+                    ),
+                  )
+                : sitePrimaryActionButton(
+                    context: context,
+                    label: _submitting ? st.submittingLabel : st.submitLabel,
+                    onPressed: _submitting ? () {} : () => _openProposal(st),
+                  ),
           ],
         ),
       ),
@@ -1362,27 +1416,62 @@ class _ContabilidadeFunilPageState extends State<ContabilidadeFunilPage> {
 }
 
 class _FunilHeader extends StatelessWidget {
-  const _FunilHeader({required this.st});
+  const _FunilHeader({required this.st, required this.parceria, required this.onBack});
 
   final SiteContabilidadeFunilTexts st;
+  final bool parceria;
+  final VoidCallback onBack;
 
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: siteHeaderBackground(context),
+      color: parceria ? kParceriaBg : siteHeaderBackground(context),
       elevation: 0,
       child: SafeArea(
         bottom: false,
         child: Padding(
           padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
-          child: Row(
-            children: [
-              const Spacer(),
-              _LangChip(code: 'pt', label: st.langPt),
-              _LangChip(code: 'en', label: st.langEn),
-              _LangChip(code: 'es', label: st.langEs),
-            ],
-          ),
+          child: parceria
+              ? Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Row(
+                      children: [
+                        const Flexible(
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: FittedBox(
+                              fit: BoxFit.scaleDown,
+                              alignment: Alignment.centerLeft,
+                              child: _EscritorioMarca(compact: true),
+                            ),
+                          ),
+                        ),
+                        const Spacer(),
+                        _LangChip(code: 'pt', label: st.langPt),
+                        _LangChip(code: 'en', label: st.langEn),
+                        _LangChip(code: 'es', label: st.langEs),
+                      ],
+                    ),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: TextButton.icon(
+                        onPressed: onBack,
+                        icon: const Icon(Icons.arrow_back, size: 18),
+                        label: Text(st.parceriaBack, maxLines: 1, overflow: TextOverflow.ellipsis),
+                        style: TextButton.styleFrom(foregroundColor: kParceriaNavy),
+                      ),
+                    ),
+                  ],
+                )
+              : Row(
+                  children: [
+                    const Spacer(),
+                    _LangChip(code: 'pt', label: st.langPt),
+                    _LangChip(code: 'en', label: st.langEn),
+                    _LangChip(code: 'es', label: st.langEs),
+                  ],
+                ),
         ),
       ),
     );
@@ -1422,6 +1511,7 @@ class _LangChip extends StatelessWidget {
 class _HeroBlock extends StatelessWidget {
   const _HeroBlock({
     required this.st,
+    required this.parceria,
     required this.img,
     required this.cap,
     required this.lead,
@@ -1432,6 +1522,7 @@ class _HeroBlock extends StatelessWidget {
   });
 
   final SiteContabilidadeFunilTexts st;
+  final bool parceria;
   final FunilImgMap img;
   final String Function(String id) cap;
   final String? Function(String id) lead;
@@ -1448,8 +1539,46 @@ class _HeroBlock extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          SiteHeroWordmark(onTap: onLogo),
+          if (parceria)
+            Center(
+              child: siteWebOrAssetImage(
+                assetPath: 'imagens/brasao_escritorio.png',
+                webPath: 'brasao-escritorio.png',
+                height: 168,
+                fit: BoxFit.contain,
+              ),
+            )
+          else
+            SiteHeroWordmark(onTap: onLogo),
           const SizedBox(height: 18),
+          if (parceria) ...[
+            Align(
+              alignment: Alignment.centerLeft,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: const Color(0xFFF8F1DE),
+                  borderRadius: BorderRadius.circular(999),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  child: Text(
+                    '📍 ${st.parceriaBadge}',
+                    style: const TextStyle(color: kParceriaInk, fontWeight: FontWeight.w700, fontSize: 13),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 14),
+            Text(
+              st.parceriaHeadline,
+              style: const TextStyle(color: kParceriaNavy, fontSize: 28, fontWeight: FontWeight.w800, height: 1.2),
+            ),
+            const SizedBox(height: 12),
+            Text(
+              st.parceriaLead,
+              style: const TextStyle(color: kParceriaNavy, fontSize: 15, height: 1.45),
+            ),
+          ] else ...[
           siteMetallicGoldText(
             context,
             st.brandLabel,
@@ -1484,6 +1613,7 @@ class _HeroBlock extends StatelessWidget {
             st.heroLeadOffice,
             style: siteBodyTextStyle(context, fontSize: 13, height: 1.4).copyWith(fontWeight: FontWeight.w800),
           ),
+          ],
           const SizedBox(height: 16),
           Wrap(
             spacing: 10,
@@ -1727,55 +1857,164 @@ class _PlansTable extends StatelessWidget {
 class _SuccessCard extends StatelessWidget {
   const _SuccessCard({
     required this.st,
+    required this.parceria,
     required this.email,
     required this.playUrl,
     required this.onPlay,
     required this.onHome,
+    required this.onCafe,
   });
 
   final SiteContabilidadeFunilTexts st;
+  final bool parceria;
   final String email;
   final String playUrl;
   final VoidCallback onPlay;
   final VoidCallback onHome;
+  final VoidCallback onCafe;
 
   @override
   Widget build(BuildContext context) {
     return _SectionCard(
-      title: st.successTitle,
+      title: parceria ? st.parceriaSuccessTitle : st.successTitle,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Icon(Icons.check_circle_outline_rounded, color: kFunilGreen, size: 44),
+          Icon(Icons.check_circle_outline_rounded, color: parceria ? kParceriaGreen : kFunilGreen, size: 44),
           const SizedBox(height: 12),
-          Text(st.successBody, style: const TextStyle(height: 1.4)),
-          const SizedBox(height: 10),
-          Text(st.successPlayNote, style: const TextStyle(height: 1.4, fontWeight: FontWeight.w600)),
-          const SizedBox(height: 10),
-          Text(
-            st.successCopyNote(email),
-            style: const TextStyle(height: 1.4, fontWeight: FontWeight.w600),
-          ),
-          const SizedBox(height: 16),
-          Text(st.playStoreLinkHint, style: const TextStyle(fontSize: 13, height: 1.35)),
-          const SizedBox(height: 6),
-          InkWell(
-            onTap: onPlay,
-            child: Text(
-              playUrl,
-              style: const TextStyle(
-                fontSize: 13,
-                height: 1.35,
-                color: Color(0xFF1A56DB),
-                decoration: TextDecoration.underline,
+          Text(parceria ? st.parceriaSuccessBody : st.successBody, style: const TextStyle(height: 1.4)),
+          if (parceria) ...[
+            const SizedBox(height: 16),
+            FilledButton(
+              style: FilledButton.styleFrom(
+                backgroundColor: kParceriaGreen,
+                foregroundColor: kParceriaInk,
+                padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
+              ),
+              onPressed: onCafe,
+              child: Text(st.parceriaCafeCta, textAlign: TextAlign.center, style: const TextStyle(fontWeight: FontWeight.w800)),
+            ),
+          ],
+          if (!parceria) ...[
+            const SizedBox(height: 10),
+            Text(st.successPlayNote, style: const TextStyle(height: 1.4, fontWeight: FontWeight.w600)),
+            const SizedBox(height: 10),
+            Text(
+              st.successCopyNote(email),
+              style: const TextStyle(height: 1.4, fontWeight: FontWeight.w600),
+            ),
+            const SizedBox(height: 16),
+            Text(st.playStoreLinkHint, style: const TextStyle(fontSize: 13, height: 1.35)),
+            const SizedBox(height: 6),
+            InkWell(
+              onTap: onPlay,
+              child: Text(
+                playUrl,
+                style: const TextStyle(
+                  fontSize: 13,
+                  height: 1.35,
+                  color: Color(0xFF1A56DB),
+                  decoration: TextDecoration.underline,
+                ),
               ),
             ),
-          ),
-          const SizedBox(height: 16),
-          sitePrimaryActionButton(context: context, label: st.subscribeApp, onPressed: onPlay),
-          const SizedBox(height: 8),
+            const SizedBox(height: 16),
+            sitePrimaryActionButton(context: context, label: st.subscribeApp, onPressed: onPlay),
+            const SizedBox(height: 8),
+          ],
           siteMetallicOutlinedButton(context: context, label: st.backHome, onPressed: onHome, icon: Icons.home_outlined),
         ],
+      ),
+    );
+  }
+}
+
+class _EscritorioMarca extends StatelessWidget {
+  const _EscritorioMarca({this.compact = false});
+
+  final bool compact;
+
+  @override
+  Widget build(BuildContext context) {
+    final height = compact ? 42.0 : 64.0;
+    final size = compact ? 20.0 : 28.0;
+    final name = Text.rich(
+      TextSpan(
+        children: [
+          TextSpan(text: 'Perfect', style: TextStyle(color: kParceriaNavy, fontSize: size, fontWeight: FontWeight.w700, letterSpacing: -0.4)),
+          TextSpan(text: 'Gest', style: TextStyle(color: const Color(0xFF4AA969), fontSize: size, fontWeight: FontWeight.w700, letterSpacing: -0.4)),
+        ],
+      ),
+    );
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        siteWebOrAssetImage(
+          assetPath: 'imagens/brasao_escritorio.png',
+          webPath: 'brasao-escritorio.png',
+          height: height,
+          fit: BoxFit.contain,
+        ),
+        const SizedBox(width: 8),
+        if (compact)
+          name
+        else
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              name,
+              const Text('Contabilidade & Soluções', style: TextStyle(color: kParceriaNavy, fontSize: 12, fontWeight: FontWeight.w600)),
+            ],
+          ),
+      ],
+    );
+  }
+}
+
+class _ParceriaCard extends StatelessWidget {
+  const _ParceriaCard({required this.st});
+
+  final SiteContabilidadeFunilTexts st;
+
+  @override
+  Widget build(BuildContext context) {
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: const [
+          BoxShadow(color: Color(0x140F172A), blurRadius: 24, offset: Offset(0, 8)),
+        ],
+      ),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(20, 20, 20, 8),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              st.parceriaCardTitle,
+              style: const TextStyle(color: kParceriaNavy, fontSize: 18, fontWeight: FontWeight.w800, height: 1.3),
+            ),
+            const SizedBox(height: 8),
+            for (final point in st.parceriaPoints)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 12),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(top: 2),
+                      child: Icon(Icons.check_circle, color: kParceriaGreen, size: 18),
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Text(point, style: const TextStyle(color: kParceriaNavy, height: 1.4, fontSize: 14)),
+                    ),
+                  ],
+                ),
+              ),
+          ],
+        ),
       ),
     );
   }

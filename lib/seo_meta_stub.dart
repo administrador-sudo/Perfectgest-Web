@@ -32,3 +32,5 @@ void syncCanonicalToCurrentUrl() {}
 
 /// Sincroniza o atributo `lang` do `<html>` (no-op fora da web).
 void applyDocumentLanguage(String bcp47Tag) {}
+
+void leaveToSiteHome() {}
