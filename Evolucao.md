@@ -1,5 +1,9 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-24] Brasão corrigido na home
+
+- O logo pequeno e o grande da página HTML passam a usar a faixa “ÉTICA - PRECISÃO - EXCELÊNCIA”.
+
 ## [2026-11-24] Rodapé da home
 
 - O rodapé tem o link `/?flutter=1` para abrir o site em Flutter e a linha de direitos reservados de 2026.
