@@ -1542,8 +1542,8 @@ class _HeroBlock extends StatelessWidget {
           if (parceria)
             Center(
               child: siteWebOrAssetImage(
-                assetPath: 'imagens/brasao_escritorio.png',
-                webPath: 'brasao-escritorio.png',
+                assetPath: 'imagens/brasao_escritorio.jpg',
+                webPath: 'brasao-escritorio.jpg',
                 height: 168,
                 fit: BoxFit.contain,
               ),
@@ -1950,8 +1950,8 @@ class _EscritorioMarca extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         siteWebOrAssetImage(
-          assetPath: 'imagens/brasao_escritorio.png',
-          webPath: 'brasao-escritorio.png',
+          assetPath: 'imagens/brasao_escritorio.jpg',
+          webPath: 'brasao-escritorio.jpg',
           height: height,
           fit: BoxFit.contain,
         ),

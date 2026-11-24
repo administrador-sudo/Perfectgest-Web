@@ -1,5 +1,9 @@
 # Evolucao — Web_perfectgest
 
+## [2026-11-24] Brasão corrigido em /contabilidade
+
+- O logo do topo e o brasão do hero da página `/contabilidade` usam a faixa “ÉTICA - PRECISÃO - EXCELÊNCIA”.
+
 ## [2026-11-24] Brasão corrigido na home
 
 - O logo pequeno e o grande da página HTML passam a usar a faixa “ÉTICA - PRECISÃO - EXCELÊNCIA”.
