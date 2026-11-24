@@ -111,6 +111,51 @@ class BarberProductCard {
       'R\$ ${price.toStringAsFixed(2).replaceAll('.', ',')}';
 }
 
+class BarberRescheduleOption {
+  const BarberRescheduleOption({
+    required this.appointmentId,
+    required this.startsAt,
+    required this.professionalId,
+    required this.professionalName,
+    required this.serviceId,
+    required this.serviceName,
+    required this.paymentStatus,
+    required this.clientName,
+    required this.phone,
+    required this.canReschedule,
+  });
+
+  final String appointmentId;
+  final DateTime startsAt;
+  final String professionalId;
+  final String professionalName;
+  final String serviceId;
+  final String serviceName;
+  final String paymentStatus;
+  final String clientName;
+  final String phone;
+  final bool canReschedule;
+
+  static BarberRescheduleOption? fromJson(Map<String, dynamic> json) {
+    final id = (json['appointmentId'] as String?)?.trim() ?? '';
+    final raw = (json['startsAt'] as String?)?.trim() ?? '';
+    final starts = DateTime.tryParse(raw);
+    if (id.isEmpty || starts == null) return null;
+    return BarberRescheduleOption(
+      appointmentId: id,
+      startsAt: starts.toLocal(),
+      professionalId: (json['professionalId'] as String?)?.trim() ?? '',
+      professionalName: (json['professionalName'] as String?)?.trim() ?? '',
+      serviceId: (json['serviceId'] as String?)?.trim() ?? '',
+      serviceName: (json['serviceName'] as String?)?.trim() ?? '',
+      paymentStatus: (json['paymentStatus'] as String?)?.trim() ?? '',
+      clientName: (json['clientName'] as String?)?.trim() ?? '',
+      phone: (json['phone'] as String?)?.trim() ?? '',
+      canReschedule: json['canReschedule'] == true,
+    );
+  }
+}
+
 class BarberRescheduleResult {
   const BarberRescheduleResult({
     required this.clientName,
@@ -120,6 +165,7 @@ class BarberRescheduleResult {
     required this.paymentStatus,
     required this.message,
     required this.appointmentId,
+    this.options = const [],
   });
 
   final String clientName;
@@ -129,6 +175,9 @@ class BarberRescheduleResult {
   final String paymentStatus;
   final String message;
   final String appointmentId;
+  final List<BarberRescheduleOption> options;
+
+  bool get mustChoose => options.length > 1;
 }
 
 class BarberReviewCard {
@@ -998,6 +1047,17 @@ class BarberCloud {
             : 'Não foi possível remarcar (HTTP ${res.statusCode}).',
       );
     }
+    final options = <BarberRescheduleOption>[];
+    final rawOptions = body['appointments'];
+    if (rawOptions is List) {
+      for (final item in rawOptions) {
+        if (item is! Map) continue;
+        final parsed = BarberRescheduleOption.fromJson(
+          Map<String, dynamic>.from(item),
+        );
+        if (parsed != null) options.add(parsed);
+      }
+    }
     return BarberRescheduleResult(
       clientName: (body['clientName'] as String?)?.trim() ?? '',
       phone: (body['phone'] as String?)?.trim() ?? digits,
@@ -1007,6 +1067,7 @@ class BarberCloud {
       message: (body['message'] as String?)?.trim() ??
           'O horário atual continua reservado até você confirmar o novo.',
       appointmentId: (body['appointmentId'] as String?)?.trim() ?? '',
+      options: options,
     );
   }
 

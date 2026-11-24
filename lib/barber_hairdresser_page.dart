@@ -160,6 +160,7 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   Timer? _slotPoll;
   String? _rescheduleHint;
   String? _pendingReleaseId;
+  List<BarberRescheduleOption> _rescheduleOptions = [];
   String? _syncNote;
 
   TextStyle get _body => const TextStyle(
@@ -193,6 +194,14 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
         height: 1.25,
         letterSpacing: 0.5,
         decoration: TextDecoration.none,
+      );
+
+  TextStyle get _destaque => const TextStyle(
+        fontFamily: _font,
+        color: _olive,
+        fontSize: 20,
+        fontWeight: FontWeight.w800,
+        letterSpacing: 0.4,
       );
 
   TextStyle get _section => const TextStyle(
@@ -438,50 +447,22 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
       final result =
           await BarberCloud.instance.rescheduleByPhone(digits);
       if (!mounted) return;
-
-      BarberPro? pro;
-      if (result.professionalId.isNotEmpty && _pros.isNotEmpty) {
-        final matches =
-            _pros.where((p) => p.id == result.professionalId);
-        if (matches.isNotEmpty) pro = matches.first;
+      if (result.mustChoose) {
+        setState(() {
+          _rescheduleOptions = result.options;
+          _rescheduleHint = result.message;
+          _pendingReleaseId = null;
+        });
+        return;
       }
-
-      setState(() {
-        _nomeCtrl.text = result.clientName;
-        _telefoneCtrl.text = _formatBrPhone(result.phone);
-        _reagendarPhoneCtrl.text = _formatBrPhone(result.phone);
-        _date = null;
-        _slot = null;
-        _slots = [];
-        _pixPanelOpen = false;
-        _pixReceipt = null;
-        _pendingPixPayload = '';
-        _pendingPixTxid = '';
-        _payChoice = _PayChoice.pix;
-        _rescheduleHint = result.message;
-        _pendingReleaseId = result.appointmentId;
-        if (pro != null) _pro = pro;
-      });
-
-      if (pro != null) {
-        await _loadServices();
-        if (!mounted) return;
-        if (result.serviceId.isNotEmpty && _services.isNotEmpty) {
-          final svcMatches =
-              _services.where((s) => s.id == result.serviceId);
-          if (svcMatches.isNotEmpty) {
-            setState(() {
-              _service = svcMatches.first;
-              _slot = null;
-            });
-          }
-        }
-      }
-
-      if (!mounted) return;
-      _scrollToBooking();
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(result.message)),
+      setState(() => _rescheduleOptions = []);
+      await _holdReschedule(
+        clientName: result.clientName,
+        phone: result.phone,
+        professionalId: result.professionalId,
+        serviceId: result.serviceId,
+        appointmentId: result.appointmentId,
+        message: result.message,
       );
     } catch (e) {
       if (!mounted) return;
@@ -493,6 +474,74 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   }
 
   static String _formatBrPhone(String raw) => BarberCloud.formatAreaPhone(raw);
+
+  String _quando(DateTime d) {
+    final l = d.toLocal();
+    String p(int n) => n.toString().padLeft(2, '0');
+    return '${p(l.day)}/${p(l.month)} ${p(l.hour)}:${p(l.minute)}';
+  }
+
+  Future<void> _chooseReschedule(BarberRescheduleOption option) async {
+    if (!option.canReschedule) return;
+    await _holdReschedule(
+      clientName: option.clientName,
+      phone: option.phone,
+      professionalId: option.professionalId,
+      serviceId: option.serviceId,
+      appointmentId: option.appointmentId,
+      message:
+          'Este horário continua reservado até você confirmar o novo.',
+    );
+  }
+
+  Future<void> _holdReschedule({
+    required String clientName,
+    required String phone,
+    required String professionalId,
+    required String serviceId,
+    required String appointmentId,
+    required String message,
+  }) async {
+    BarberPro? pro;
+    if (professionalId.isNotEmpty && _pros.isNotEmpty) {
+      final matches = _pros.where((p) => p.id == professionalId);
+      if (matches.isNotEmpty) pro = matches.first;
+    }
+    setState(() {
+      _nomeCtrl.text = clientName;
+      _telefoneCtrl.text = _formatBrPhone(phone);
+      _reagendarPhoneCtrl.text = _formatBrPhone(phone);
+      _date = null;
+      _slot = null;
+      _slots = [];
+      _pixPanelOpen = false;
+      _pixReceipt = null;
+      _pendingPixPayload = '';
+      _pendingPixTxid = '';
+      _payChoice = _PayChoice.pix;
+      _rescheduleHint = message;
+      _pendingReleaseId = appointmentId;
+      if (pro != null) _pro = pro;
+    });
+    if (pro != null) {
+      await _loadServices();
+      if (!mounted) return;
+      if (serviceId.isNotEmpty && _services.isNotEmpty) {
+        final svcMatches = _services.where((s) => s.id == serviceId);
+        if (svcMatches.isNotEmpty) {
+          setState(() {
+            _service = svcMatches.first;
+            _slot = null;
+          });
+        }
+      }
+    }
+    if (!mounted) return;
+    _scrollToBooking();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(message)),
+    );
+  }
 
   Future<void> _submitReview() async {
     if (!(_reviewFormKey.currentState?.validate() ?? false)) return;
@@ -1722,60 +1771,13 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
   Widget _buildForm() {
     final agendarEnabled = _canAgendar;
     final showPayBtn = _payChoice == _PayChoice.pix;
+    final pagamentoAtivo = !_saving && _pixReceipt == null;
     return Form(
       key: _formKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text('Reagendar', style: _section),
-          const SizedBox(height: 8),
-          Text(
-            'Informe o telefone do agendamento (DDD + número). '
-            'O horário atual continua reservado até você confirmar o novo.',
-            style: _mutedStyle.copyWith(fontSize: 13),
-          ),
-          const SizedBox(height: 10),
-          TextField(
-            controller: _reagendarPhoneCtrl,
-            style: _body,
-            keyboardType: TextInputType.phone,
-            inputFormatters: const [_BrPhoneInputFormatter()],
-            decoration: _fieldDeco('Telefone (xx xxxxxxxxx)'),
-          ),
-          const SizedBox(height: 10),
-          OutlinedButton(
-            onPressed: _rescheduling ? null : _submitReschedule,
-            style: OutlinedButton.styleFrom(
-              foregroundColor: _olive,
-              side: const BorderSide(color: _olive),
-              padding: const EdgeInsets.symmetric(vertical: 14),
-            ),
-            child: _rescheduling
-                ? const SizedBox(
-                    height: 20,
-                    width: 20,
-                    child: CircularProgressIndicator(strokeWidth: 2),
-                  )
-                : Text(
-                    'Buscar e liberar horário',
-                    style: _body.copyWith(
-                      color: _olive,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-          ),
-          if (_rescheduleHint != null) ...[
-            const SizedBox(height: 10),
-            Text(
-              _rescheduleHint!,
-              style: _mutedStyle.copyWith(
-                color: const Color(0xFFFFB74D),
-                fontSize: 13,
-              ),
-            ),
-          ],
-          const SizedBox(height: 20),
-          Text('Novo horário', style: _section),
+          Text('Agendamento', style: _destaque),
           const SizedBox(height: 12),
           if (_pros.isNotEmpty) ...[
             DropdownButtonFormField<String>(
@@ -2129,10 +2131,13 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
                 const SizedBox(width: 10),
                 Expanded(
                   child: FilledButton(
-                    onPressed: _saving ? null : _fazerPagamento,
+                    onPressed: pagamentoAtivo ? _fazerPagamento : null,
                     style: FilledButton.styleFrom(
-                      backgroundColor: _olive,
+                      backgroundColor:
+                          pagamentoAtivo ? _olive : const Color(0xFF555555),
+                      disabledBackgroundColor: const Color(0xFF444444),
                       foregroundColor: _text,
+                      disabledForegroundColor: const Color(0xFFAAAAAA),
                       padding: const EdgeInsets.symmetric(vertical: 16),
                     ),
                     child: Text(
@@ -2148,7 +2153,110 @@ class _BarberHairdresserPageState extends State<BarberHairdresserPage> {
               ],
             ],
           ),
+          const SizedBox(height: 28),
+          Text('Reagendamento', style: _destaque),
+          const SizedBox(height: 8),
+          Text(
+            'Informe o telefone do agendamento (DDD + número). '
+            'O horário atual continua reservado até você confirmar o novo.',
+            style: _mutedStyle.copyWith(fontSize: 13),
+          ),
+          const SizedBox(height: 10),
+          TextField(
+            controller: _reagendarPhoneCtrl,
+            style: _body,
+            keyboardType: TextInputType.phone,
+            inputFormatters: const [_BrPhoneInputFormatter()],
+            decoration: _fieldDeco('Telefone (xx xxxxxxxxx)'),
+          ),
+          const SizedBox(height: 10),
+          OutlinedButton(
+            onPressed: _rescheduling ? null : _submitReschedule,
+            style: OutlinedButton.styleFrom(
+              foregroundColor: _olive,
+              side: const BorderSide(color: _olive),
+              padding: const EdgeInsets.symmetric(vertical: 14),
+            ),
+            child: _rescheduling
+                ? const SizedBox(
+                    height: 20,
+                    width: 20,
+                    child: CircularProgressIndicator(strokeWidth: 2),
+                  )
+                : Text(
+                    'Buscar e liberar horário',
+                    style: _body.copyWith(
+                      color: _olive,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+          ),
+          if (_rescheduleOptions.length > 1) ...[
+            const SizedBox(height: 12),
+            for (final option in _rescheduleOptions) ...[
+              _rescheduleOptionTile(option),
+              const SizedBox(height: 8),
+            ],
+          ],
+          if (_rescheduleHint != null) ...[
+            const SizedBox(height: 10),
+            Text(
+              _rescheduleHint!,
+              style: _mutedStyle.copyWith(
+                color: const Color(0xFFFFB74D),
+                fontSize: 13,
+              ),
+            ),
+          ],
         ],
+      ),
+    );
+  }
+
+  Widget _rescheduleOptionTile(BarberRescheduleOption option) {
+    final active = option.canReschedule;
+    final selected = _pendingReleaseId == option.appointmentId;
+    final pro = option.professionalName.trim().isEmpty
+        ? 'Profissional'
+        : option.professionalName.trim();
+    final service = option.serviceName.trim().isEmpty
+        ? 'Serviço'
+        : option.serviceName.trim();
+    final fg = active ? _text : const Color(0xFF8A8A8A);
+    return Material(
+      color: active ? _surface : const Color(0xFF3A3A3A),
+      child: InkWell(
+        onTap: active ? () => _chooseReschedule(option) : null,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: selected
+                  ? _olive
+                  : (active ? const Color(0xFF555555) : const Color(0xFF4A4A4A)),
+            ),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                '${_quando(option.startsAt)} · $pro',
+                style: _body.copyWith(
+                  color: fg,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              const SizedBox(height: 4),
+              Text(
+                active ? service : '$service · menos de 3 horas',
+                style: _mutedStyle.copyWith(
+                  color: active ? _muted : const Color(0xFF8A8A8A),
+                  fontSize: 13,
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
